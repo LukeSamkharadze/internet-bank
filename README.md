@@ -9,6 +9,7 @@
   - Take one of them and assign it to yourself
   - Write this tasks number in stylesheet across to your name
 - When you finished working on task
+  - Update and push your branch
   - Open pull request and link it to your task
 - Every member should test issues at least twice.
   - Do not forget moving issue 
