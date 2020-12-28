@@ -1,0 +1,23 @@
+{
+  "name": "angular-bootcamp-2020-internet-bank",
+  "version": "1.0.0",
+  "description": "Internet bank application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/needermen/angular-bootcamp-2020-internet-bank.git"
+  },
+  "author": "Academy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/needermen/angular-bootcamp-2020-internet-bank/issues"
+  },
+  "homepage": "https://github.com/needermen/angular-bootcamp-2020-internet-bank#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "sass": "^1.30.0"
+  }
+}
