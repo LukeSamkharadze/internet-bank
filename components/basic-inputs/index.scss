@@ -82,14 +82,7 @@ h3 {
   right: 16px;
 }
 .basic-input.invalid {
-  border-color: $secondary-3; 
-  &::after {
-    content: 'X';
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
-  }
+  border-color: $secondary-3;
 }
 .basic-input.valid {
   border-color: $secondary-2;
