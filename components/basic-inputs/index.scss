@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-demo {
+  width: 1140px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.demo-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.demo-container .input-group {
+  width: 31.5%;
+}
+
+.input-label {
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 19px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.basic-input {
+  box-sizing: border-box;
+  padding: 18px 0 14px 14px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  letter-spacing: 0.15px;
+}
