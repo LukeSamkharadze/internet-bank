@@ -1,0 +1,82 @@
+$background: white;
+$text-color: black;
+$height: 52px;
+$width: 360px;
+
+/*the container must be positioned relative:*/
+.select-inactive {
+  position: relative;
+  width: $width;
+  height: $height;
+  border: 1px #e8ecef solid;
+  color: $text-color;
+
+  select {
+    display: none;
+  }
+}
+
+.select-selected {
+  background-color: $background;
+
+  /*style the arrow inside the select element:*/
+  &:after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: $text-color transparent transparent transparent;
+  }
+}
+
+.selected-placeholder{
+  background-color: red;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent $text-color transparent;
+  top: 7px;
+}
+
+@mixin select-selected-mixin {
+  cursor: pointer;
+  height: $height;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  user-select: none;
+}
+
+/*style the items (options), including the selected item:*/
+.select-selected {
+  @include select-selected-mixin();
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: $background;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  div {
+    @include select-selected-mixin();
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
