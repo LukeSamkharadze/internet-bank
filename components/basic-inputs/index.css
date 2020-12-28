@@ -49,6 +49,10 @@ h3 {
   border: 1px solid #E8ECEF;
 }
 
+.basic-input:focus, .basic-input:active {
+  outline: none;
+}
+
 .basic-input::-webkit-input-placeholder {
   color: #98A9BC;
 }

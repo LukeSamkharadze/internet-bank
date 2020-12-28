@@ -53,6 +53,9 @@ h3 {
   border-radius: 4px;
   border: 1px solid $outline;
 }
+.basic-input:focus, .basic-input:active {
+  outline: none;
+}
 
 .basic-input::-webkit-input-placeholder {
   color: $secondary-dark-2;
