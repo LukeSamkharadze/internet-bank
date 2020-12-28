@@ -7,11 +7,11 @@
 - How to take task
   - See available tasks in TODO
   - Take one of them and assign it to yourself
-  - Write this tasks number in stylesheet across to your name
+  - Write this tasks number in stylesheet along your name
 - When you finished working on task
   - Update and push your branch
-  - Open pull request and link it to your task
-- Every member should test issues at least twice.
+  - Create pull request and link it to your task
+- Every team member should test issues at least twice.
   - Do not forget moving issue 
     - to next column on the board after you finish testing 
     - or back to in progress if you find any bugs
