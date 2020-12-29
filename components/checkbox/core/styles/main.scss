@@ -2,10 +2,10 @@
 @import '../../../../colors&typo/typography.scss';
 @import '../../../../colors&typo/palette.scss';
 .checkbox {
-    &__text {
+    label {
         @include checkbox_default($secondary-dark-1);
     }
-    &__text::before {
+    label::before {
         @include flex;
         @include checkbox_default_before($secondary-dark-1);
     }
@@ -13,28 +13,28 @@
         opacity: 0;
         cursor: pointer;
     }
-    input:disabled+.checkbox__text {
+    input:disabled+label {
         opacity: 80%;
     }
-    input:checked+.checkbox__text {
+    input:checked+label {
         color: $primary-dark;
     }
-    input:checked+.checkbox__text::before {
+    input:checked+label::before {
         content: '\2714';
         color: $background-2;
         background-color: $secondary-dark-2;
     }
-    .checkError__text {
+    .checkbox-error {
         @include checkbox_default($secondary-3);
     }
-    .checkError__text::before {
+    .checkbox-error__text::before {
         @include flex;
         @include checkbox_default_before($secondary-3);
     }
-    input:checked+.checkError__text {
+    input:checked+.checkbox-error {
         color: $secondary-2;
     }
-    input:checked+.checkError__text::before {
+    input:checked+.checkbox-error::before {
         content: '\2714';
         color: $secondary-2;
         background-color: rgba($color: $secondary-2, $alpha: 0.15);

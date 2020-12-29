@@ -4,7 +4,7 @@
     border-top: 1px solid $outline;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
 }
 
@@ -14,6 +14,7 @@
     grid-template-rows: 1fr 1fr;
     align-items: center;
     justify-items: center;
+    justify-content: center;
     grid-column-gap: 250px;
     grid-row-gap: 20px;
 }
