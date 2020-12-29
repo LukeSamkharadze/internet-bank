@@ -1,10 +1,10 @@
 @import '../../colors&typo/palette.scss';
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import '../../colors&typo/base.scss';
+@import '../../colors&typo/typography.scss';
 
 // Demo Styles
 h3 {
-  font-family: 'Roboto', sans-serif;
+  font-family: $roboto;
 }
 
 .input-demo {
@@ -13,7 +13,7 @@ h3 {
   margin: 0 auto;
   border: 1px solid transparent;
   border-bottom: 2px solid gray;
-  padding-bottom: 120px;
+  padding-bottom: 137px;
 }
 
 .input-state-demo {
@@ -35,9 +35,9 @@ h3 {
 // Basic Text Input Styles
 .input-label {
   box-sizing: border-box;
-  font-size: 14px;
   line-height: 19px;
-  font-family: 'Roboto', sans-serif;
+  @include text-style(14px);
+  letter-spacing: 0.15px;
   font-weight: 300;
   display: inline-block;
   margin-bottom: 12px;
@@ -48,7 +48,7 @@ h3 {
   padding: 19px 0 15px 14px;
   display: block;
   width: 100%;
-  font-size: 14px;
+  @include text-style(14px);
   letter-spacing: 0.15px;
   border-radius: 4px;
   border: 1px solid $outline;
