@@ -90,11 +90,6 @@ line-awesome2@^0.9.0:
   resolved "https://registry.yarnpkg.com/line-awesome2/-/line-awesome2-0.9.0.tgz#f78c0ee70b8c51c530b654d01b104df7b6a03dab"
   integrity sha512-iN4YCEHOwWCzY1cNsB+n5SkxCM2QFwd6HbQqx+KWoQQUYOJxbz5XW4xO8HItM2pg98vhunWdIlYp5xx/LPxXFQ==
 
-line-awesome@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/line-awesome/-/line-awesome-1.3.0.tgz#51d59fe311ed040d22d8e80d3aa0b9a4b57e6cd3"
-  integrity sha512-Y0YHksL37ixDsHz+ihCwOtF5jwJgCDxQ3q+zOVgaSW8VugHGTsZZXMacPYZB1/JULBi6BAuTCTek+4ZY/UIwcw==
-
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
