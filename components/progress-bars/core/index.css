@@ -3,29 +3,11 @@
   width: 292px;
   height: 4px;
 }
-.progress .orange {
+.progress .color {
+  width: 173px;
+  height: 4px;
+  border-radius: 1px;
   background-color: #FFAB2B;
-  width: 173px;
-  height: 4px;
-  border-radius: 1px;
-}
-.progress .pink {
-  background-color: #FE4D97;
-  width: 173px;
-  height: 4px;
-  border-radius: 1px;
-}
-.progress .green {
-  background-color: #6DD230;
-  width: 173px;
-  height: 4px;
-  border-radius: 1px;
-}
-.progress .blue {
-  background-color: #4D7CFE;
-  width: 173px;
-  height: 4px;
-  border-radius: 1px;
 }
 
 /*# sourceMappingURL=index.css.map */

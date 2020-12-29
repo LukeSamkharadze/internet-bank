@@ -5,15 +5,15 @@
     @include default-bar($background-1, 455px, 6px);
 
     .orange{
-        @include color($primary, 269.47px, 6px);
+        @include color(269.47px, 455px, 6px);
     }
     .pink{
-        @include color($secondary-3, 101.6px, 6px);
+        @include color(101.6px, 455px, 6px);
     }
     .green{
-        @include color($secondary-2, 379.9px, 6px);
+        @include color(379.9px, 455px, 6px);
     }
     .blue{
-        @include color($secondary-1, 362.23px, 6px);
+        @include color(362.23px, 455px, 6px);
     }
 }

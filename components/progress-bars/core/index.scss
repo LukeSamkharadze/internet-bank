@@ -7,29 +7,28 @@
     height: $height;
 }
 
-// Filled bar
-@mixin color($bg-color, $width, $height){
-    background-color: $bg-color;
-    width: $width;
+// Filled bar. Changes a cell color based on percentage.	// Filled bar
+@mixin color($bar-width, $width, $height){
+    width: $bar-width;
     height: $height;
-    border-radius: 1px;
+    border-radius: 1px;	
+
+    @if $bar-width/$width < 0.25{	
+        background-color: $secondary-3;	
+    } @else if $bar-width/$width < 0.6{	
+        background-color: $primary;	
+    } @else if $bar-width/$width < 0.8 {	
+        background-color: $secondary-1;	
+    } @else {	
+        background-color: $secondary-2;	
+    }
 }
 
-////// Ready for task #24 (settings payment limits)
-
+////// Ready for task #24 (settings payment limits)	////// Ready for task #24 (settings payment limits)
 .progress{
     @include default-bar($background-1, 292px, 4px);
-    
-    .orange{
-        @include color($primary, 173px, 4px);
-    }
-    .pink{
-        @include color($secondary-3, 173px, 4px);
-    }
-    .green{
-        @include color($secondary-2, 173px, 4px);
-    }
-    .blue{
-        @include color($secondary-1, 173px, 4px);
+        
+    .color{
+        @include color(173px, 292px, 4px);
     }
 }
