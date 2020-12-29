@@ -14,7 +14,7 @@
 
 .basic-input {
   box-sizing: border-box;
-  padding: 19px 0 15px 14px;
+  padding: 19px 14px 15px 14px;
   display: block;
   width: 100%;
   @include text-style(14px);
@@ -47,6 +47,7 @@
   }
 
   &.valid, &.invalid {
+    padding-right: 35px;
     &::-webkit-input-placeholder,
     &::-ms-input-placeholder,
     &::placeholder {
