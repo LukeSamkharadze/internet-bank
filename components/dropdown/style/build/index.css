@@ -1,4 +1,6 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://use.fontawesome.com/releases/v5.11.2/css/all.css");
 h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -39,7 +41,7 @@ h5 {
   letter-spacing: 0.2px;
 }
 
-p {
+p, .dropdown-select .placeholder, .dropdown-select {
   color: #98A9BC;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -93,36 +95,36 @@ a {
   position: relative;
   width: 360px;
   height: 52px;
-  border: 1px #e8ecef solid;
-  color: black;
 }
 .dropdown-select select {
   display: none;
 }
 .dropdown-select .selected {
-  background-color: white;
   cursor: pointer;
   height: 52px;
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   user-select: none;
+  display: flex;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px #e8ecef solid;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 .dropdown-select .selected:after {
-  content: "";
+  content: "";
   position: absolute;
-  top: 14px;
+  top: 50%;
   right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: black transparent transparent transparent;
+  transform: translate(-50%, -50%);
 }
 .dropdown-select .selected.arrow-active:after {
-  border-color: transparent transparent black transparent;
-  top: 7px;
+  content: "";
 }
 .dropdown-select .placeholder {
-  background-color: red;
+  background-color: white;
+  color: red;
 }
 .dropdown-select .option {
   position: absolute;

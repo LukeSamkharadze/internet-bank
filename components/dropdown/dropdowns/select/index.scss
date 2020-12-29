@@ -2,6 +2,8 @@
 @import "../../../../colors&typo/palette";
 @import "../utils/utils.scss";
 
+@import url("https://use.fontawesome.com/releases/v5.11.2/css/all.css");
+
 .dropdown-select {
   $background: white;
   $text-color: black;
@@ -16,40 +18,41 @@
     user-select: none;
   }
 
+  @extend p;
   position: relative;
   width: $width;
   height: $height;
-  border: 1px #e8ecef solid;
-  color: $text-color;
 
   select {
     display: none;
   }
 
   .selected {
-    background-color: $background;
     @include option-mixin();
+    display: flex;
+    background-color: $background;
+    border-radius: 4px;
+    border: 1px #e8ecef solid;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
 
-    // arrow
     &:after {
-      content: "";
+      content: "\f107";
       position: absolute;
-      top: 14px;
+      top: 50%;
       right: 10px;
-      width: 0;
-      height: 0;
-      border: 6px solid transparent;
-      border-color: $text-color transparent transparent transparent;
+      transform: translate(-50%,-50%);
     }
 
-    &.arrow-active:after{
-      border-color: transparent transparent $text-color transparent;
-      top: 7px;
+    &.arrow-active:after {
+      content: "\f106";
     }
   }
 
   .placeholder {
-    background-color: red;
+    @extend p;
+    background-color: $background;
+    color: red;
   }
 
   .option {
