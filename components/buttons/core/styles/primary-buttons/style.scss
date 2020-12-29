@@ -22,6 +22,10 @@ $primary-hover: #F4A42B;
         @extend .btn-schema;
         background-color: $background-1;
         color: $secondary-dark-1;
+        &:hover {
+            background-color: $background-1;
+            color: $primary;
+        }
     }
     
     .hover2 {

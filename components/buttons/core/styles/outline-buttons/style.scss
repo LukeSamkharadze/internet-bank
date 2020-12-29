@@ -24,6 +24,11 @@
     .resting {
         @extend .btn-schema;
         @include outline-btn($outline, $secondary-dark-1);
+
+        &:hover {
+            border: 2px solid $outline;
+            color: $primary;
+        }
     }
     
     .hover2 {

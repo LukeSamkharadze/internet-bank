@@ -123,6 +123,10 @@ a {
   background-color: #F2F4F6;
   color: #778CA2;
 }
+.primary .resting:hover {
+  background-color: #F2F4F6;
+  color: #FFAB2B;
+}
 .primary .hover2 {
   background-color: #F2F4F6;
   color: #FFAB2B;
@@ -150,6 +154,10 @@ a {
   color: #778CA2;
   line-height: 35px;
 }
+.outline .resting:hover {
+  border: 2px solid #E8ECEF;
+  color: #FFAB2B;
+}
 .outline .hover2 {
   background-color: white;
   border: 2px solid #E8ECEF;
@@ -157,12 +165,11 @@ a {
   line-height: 35px;
 }
 
-.fa-heart-o {
+.la-heart {
   position: absolute;
-  top: 14px;
-  left: 21px;
-  width: 17px;
-  height: 25px;
+  top: 13px;
+  left: 23px;
+  font-size: 18px;
 }
 
 .green {
