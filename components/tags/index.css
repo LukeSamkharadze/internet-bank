@@ -146,7 +146,7 @@ a {
   text-align: right;
 }
 
-.tag {
+.tag, .hover-tag {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,12 +154,24 @@ a {
   height: 36px;
   border-radius: 4px;
   line-height: 17px;
-  font-size: 14px;
-  font-weight: 500;
   font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  font-family: "Rubik", sans-serif;
+  /* will be included in mixin */
 }
-.tag i {
+.tag i, .hover-tag i {
+  font-size: 16px;
   display: none;
+}
+
+.tag:hover, .hover-tag:hover {
+  justify-content: space-evenly;
+}
+.tag:hover i, .hover-tag:hover i {
+  display: block;
 }
 
 .white-text-tag {
@@ -192,20 +204,20 @@ a {
   color: #FE4D97;
 }
 
-.gray-text-tag {
+.gray-text-tag, .hover-tag {
   background-color: rgba(119, 140, 162, 0.08);
   color: #778CA2;
 }
 
 .hover-tag {
-  background-color: rgba(119, 140, 162, 0.08);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
   color: #778CA2;
-}
-
-.hover-tag:hover {
+  letter-spacing: 0.2px;
   justify-content: space-evenly;
 }
-.hover-tag:hover i {
+.hover-tag i {
   display: block;
 }
 
@@ -217,13 +229,16 @@ h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
 }
 
 p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
-  color: black;
+  color: #252631;
+  letter-spacing: 0.2px;
 }
 
 .container {

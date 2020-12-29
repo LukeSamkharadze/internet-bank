@@ -5,16 +5,11 @@ h1 {
   padding-left: 150px;
   border-bottom: 1px solid $outline;
   margin: 50px auto;
-  font-family: $roboto;
-  font-weight: 400;
-  font-size: 30px;
+  @include text-style(30px, $dark-secondary-3);
 }
 
 p {
-  font-family: $roboto;
-  font-weight: 400;
-  font-size: 16px;
-  color: black;
+  @include text-style(16px, $primary-dark);
 }
 
 .container {
