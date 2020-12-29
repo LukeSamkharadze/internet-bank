@@ -1,0 +1,114 @@
+@import "../../colors&typo/base.scss";
+@import "../../colors&typo/styles.scss";
+$trans-bg-color: #FFFFFF;
+.details-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3);
+    .details-popup {
+        width: 360px;
+        height: 436px;
+        margin-bottom: 57px;
+        border-radius: 4px;
+        display: grid;
+        grid-template-rows: 148px auto;
+        .details-popup-upper {
+            background-color: rgba(221,32,49,0.7);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            position: relative;
+            i {
+                color: white;
+                position: absolute;
+                right: 12px;
+                top: 13px;
+                font-size: 18px;
+            }
+        }
+        .details-popup-lower {
+            background-color: $trans-bg-color;
+            position:relative;
+            display: grid;
+            padding: 20px;
+            grid-template-rows: 23px 26px 92px 64px 42px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            .details-popup-lower-logo {
+                height: 62px;
+                width: 62px;
+                border: 4px solid $trans-bg-color;
+                background-image: url("media/images/Ico.png");
+                background-position: center;
+                border-radius: 50%;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                top: -1px;
+            }
+            .details-popup-lower-heading {
+                h3 {
+                    line-height: 26px;
+                    text-align: center;
+                }
+            }
+            .details-popup-lower-tag {
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+                button {
+                    width:74px;
+                    height:34px;
+                    border:0px;
+                    background-color: rgba(109,210,48,0.08);
+                    color:#6DD230;
+                }
+            }
+            .details-popup-lower-transaction {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                border-top: 2px solid #E8ECEF;
+                border-bottom: 2px solid #E8ECEF;
+                align-items: center;
+            }
+            .details-popup-lower-transaction-account {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                h5 {
+                    line-height: 21px;
+                }
+                p {
+                    padding-bottom: 6px;
+                }
+            }
+            .details-popup-lower-transaction-amount {
+                text-align: right;
+                #details-popup-lower-transaction-amount {
+                    @include text-style(14px);
+                    margin-bottom: -3px;
+                }
+            }
+            .details-popup-lower-receipt {
+                display: flex;
+                align-items: flex-end;
+                i {
+                    font-size: 18px;
+                    padding-right: 5px;
+                    padding-bottom: 3px;
+                    color: $secondary-dark-1;
+                }
+                p {
+                    @include text-style(12px,$secondary-dark-1);
+                    display:inline-block;
+                    line-height: 16px;
+                    padding-bottom: 3px;
+                    letter-spacing: 0.1px;
+                }
+            }
+        }
+    }
+}
