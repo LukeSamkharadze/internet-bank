@@ -1,0 +1,51 @@
+@import '../../../colors&typo/styles.scss';
+.paginations {
+    width: 385px;
+    display: flex;
+    align-items: center;
+      div {
+          display: flex;
+          margin-left: 3px;
+          align-items: center;
+          justify-content: center;
+      }
+        
+  }
+   
+  .pagination-two {
+    margin-left: 200px;
+      div {
+          border: 1px solid $outline;
+      }
+      .active {
+          background-color: white;
+          color: $primary;
+      }
+      .next {
+          background-color: $background-1;
+        }
+        .angle-right, .angle-left {
+          width: 40px;
+          height: 40px;
+          border-radius: 4px;
+          background-color: $background-1;
+        }
+        .angle-left {
+          margin-right: 27px;
+        }
+        .angle-right {
+          margin-left: 30px;
+        }
+  }
+  
+  
+  .pagination {
+    display: flex;
+  }
+  
+  .pages {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+  }
+  
