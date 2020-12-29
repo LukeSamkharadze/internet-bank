@@ -91,6 +91,14 @@
   transform: translateX(0px);
 }
 
+.con1 input:checked + .slider {
+  background-color: #F2F4F6;
+}
+
+.con1 input:checked + .slider::before {
+  background-color: #98A9BC;
+}
+
 .con3 .text {
   color: #FE4D97;
 }
@@ -113,11 +121,16 @@
 
 .con4 .slider:before {
   left: 20px;
+  background-color: #FFFFFF;
 }
 
 .con4 input:checked + .slider:before {
   -webkit-transform: translateX(0px);
   transform: translateX(0px);
+}
+
+.con4 .slider {
+  background-color: #FFAB2B;
 }
 
 .con6 .text {
