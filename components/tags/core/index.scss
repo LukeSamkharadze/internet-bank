@@ -16,38 +16,41 @@
   }
 }
 
-#tag-1 {
+.white-text-tag {
   background-color: $secondary-1;
   color: #ffffff;
 }
-#tag-2 {
+.blue-text-tag {
   background-color: rgba(77, 124, 254, 0.08);
   color: $secondary-1;
 }
-#tag-3 {
+.cyan-text-tag {
   background-color: rgba(77, 124, 254, 0.08);
   color: $secondary-4;
 }
-#tag-4 {
+.green-text-tag {
   background-color: rgba(109, 210, 48, 0.08);
   color: $secondary-2;
 }
-#tag-5 {
+.orange-text-tag {
   background-color: rgba(255, 171, 43, 0.08);
   color: $primary;
 }
-#tag-6 {
+.pink-text-tag {
   background-color: rgba(254, 77, 151, 0.08);
   color: $secondary-3;
 }
-#tag-7 {
+.gray-text-tag {
   background-color: rgba(119, 140, 162, 0.08);
   color: $secondary-dark-1;
 }
 
-#tag-hover {
+.hover-tag {
   background-color: rgba(119, 140, 162, 0.08);
   color: $secondary-dark-1;
+}
+
+.hover-tag:hover {
   justify-content: space-evenly;
   i {
     display: block;

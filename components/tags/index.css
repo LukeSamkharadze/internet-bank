@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
-@import '../node_modules/line-awesome2/dist/css/line-awesome.min.css';
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -164,47 +162,50 @@ a {
   display: none;
 }
 
-#tag-1 {
+.white-text-tag {
   background-color: #4D7CFE;
   color: #ffffff;
 }
 
-#tag-2 {
+.blue-text-tag {
   background-color: rgba(77, 124, 254, 0.08);
   color: #4D7CFE;
 }
 
-#tag-3 {
+.cyan-text-tag {
   background-color: rgba(77, 124, 254, 0.08);
   color: #2CE5F6;
 }
 
-#tag-4 {
+.green-text-tag {
   background-color: rgba(109, 210, 48, 0.08);
   color: #6DD230;
 }
 
-#tag-5 {
+.orange-text-tag {
   background-color: rgba(255, 171, 43, 0.08);
   color: #FFAB2B;
 }
 
-#tag-6 {
+.pink-text-tag {
   background-color: rgba(254, 77, 151, 0.08);
   color: #FE4D97;
 }
 
-#tag-7 {
+.gray-text-tag {
   background-color: rgba(119, 140, 162, 0.08);
   color: #778CA2;
 }
 
-#tag-hover {
+.hover-tag {
   background-color: rgba(119, 140, 162, 0.08);
   color: #778CA2;
+}
+
+.hover-tag:hover {
   justify-content: space-evenly;
 }
-#tag-hover i {
+.hover-tag:hover i {
   display: block;
 }
 
