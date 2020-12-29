@@ -1,53 +1,60 @@
-function closeAllSelect(elmnt) {
-  let x = document.getElementsByClassName("option");
-  let y = document.getElementsByClassName("selected");
-  let arrNo = [];
-
-  for (let i = 0; i < y.length; i++)
-    if (elmnt == y[i])
-      arrNo.push(i)
-    else
-      y[i].classList.remove("arrow-active");
-
-  for (let i = 0; i < x.length; i++)
-    if (arrNo.indexOf(i))
-      x[i].classList.add("display-none");
+interface ChildNode {
+  classList: any;
+  innerHTML: string;
+  click(...args: any[]): void;
 }
 
-function selectedClicked(mouseEvent) {
+function closeAllSelect(element: any): void {
+  let selecteds = document.getElementsByClassName("selected");
+  let options = document.getElementsByClassName("option");
+
+  for (let i = 0; i < selecteds.length; i++)
+    if (element !== selecteds[i]) {
+      selecteds[i].classList.remove("arrow-active");
+
+      for (let j = 0; j < options.length; j++)
+        options[j].classList.add("display-none");
+    }
+}
+
+function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
+
   mouseEvent.stopPropagation();
   closeAllSelect(this);
-  this.nextSibling.classList.toggle("display-none");
+  this.nextSibling?.classList.toggle("display-none");
   this.classList.toggle("arrow-active");
 }
 
-function optionClicked(selected, html_select, options) {
+function optionClicked(this: HTMLDivElement, selected: HTMLDivElement, html_select: HTMLSelectElement) {
   selected.classList.remove("placeholder")
 
   for (let i = 0; i < html_select.length; i++)
     if (html_select.options[i].innerHTML == this.innerHTML) {
       html_select.selectedIndex = i;
-      this.parentNode.previousSibling.innerHTML = this.innerHTML;
+
+      if (this.parentNode?.previousSibling?.innerHTML)
+        this.parentNode.previousSibling.innerHTML = this.innerHTML;
+
       break;
     }
 
-  this.parentNode.previousSibling.click();
+  this.parentNode?.previousSibling?.click();
 }
 
-function getSelectedDiv(html_select) {
+function getSelectedDiv(html_select: HTMLSelectElement) {
   let selected = document.createElement("div");
   selected.setAttribute("class", "selected placeholder");
   selected.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
   return selected;
 }
 
-function getOptionDiv(html_option) {
+function getOptionDiv(html_option: HTMLOptionElement) {
   let optionDiv = document.createElement("div");
   optionDiv.innerHTML = html_option.innerHTML;
   return optionDiv;
 }
 
-function getOptionsDiv(html_select, selected) {
+function getOptionsDiv(html_select: HTMLSelectElement, selected: HTMLDivElement) {
   let options = document.createElement("div");
   options.setAttribute("class", "option display-none");
 

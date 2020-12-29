@@ -1,63 +1,61 @@
 "use strict";
-function closeAllSelect(elmnt) {
-    var x = document.getElementsByClassName("option");
-    var y = document.getElementsByClassName("selected");
-    var arrNo = [];
-    for (var i = 0; i < y.length; i++)
-        if (elmnt == y[i])
-            arrNo.push(i);
-        else
-            y[i].classList.remove("arrow-active");
-    for (var i = 0; i < x.length; i++)
-        if (arrNo.indexOf(i))
-            x[i].classList.add("display-none");
+function closeAllSelect(element) {
+    let selecteds = document.getElementsByClassName("selected");
+    let options = document.getElementsByClassName("option");
+    for (let i = 0; i < selecteds.length; i++)
+        if (element !== selecteds[i]) {
+            selecteds[i].classList.remove("arrow-active");
+            for (let j = 0; j < options.length; j++)
+                options[j].classList.add("display-none");
+        }
 }
 function selectedClicked(mouseEvent) {
+    var _a;
     mouseEvent.stopPropagation();
     closeAllSelect(this);
-    this.nextSibling.classList.toggle("display-none");
+    (_a = this.nextSibling) === null || _a === void 0 ? void 0 : _a.classList.toggle("display-none");
     this.classList.toggle("arrow-active");
 }
-function optionClicked(selected, html_select, options) {
+function optionClicked(selected, html_select) {
+    var _a, _b, _c, _d;
     selected.classList.remove("placeholder");
-    for (var i = 0; i < html_select.length; i++)
+    for (let i = 0; i < html_select.length; i++)
         if (html_select.options[i].innerHTML == this.innerHTML) {
             html_select.selectedIndex = i;
-            this.parentNode.previousSibling.innerHTML = this.innerHTML;
+            if ((_b = (_a = this.parentNode) === null || _a === void 0 ? void 0 : _a.previousSibling) === null || _b === void 0 ? void 0 : _b.innerHTML)
+                this.parentNode.previousSibling.innerHTML = this.innerHTML;
             break;
         }
-    this.parentNode.previousSibling.click();
+    (_d = (_c = this.parentNode) === null || _c === void 0 ? void 0 : _c.previousSibling) === null || _d === void 0 ? void 0 : _d.click();
 }
 function getSelectedDiv(html_select) {
-    var selected = document.createElement("div");
+    let selected = document.createElement("div");
     selected.setAttribute("class", "selected placeholder");
     selected.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
     return selected;
 }
 function getOptionDiv(html_option) {
-    var optionDiv = document.createElement("div");
+    let optionDiv = document.createElement("div");
     optionDiv.innerHTML = html_option.innerHTML;
     return optionDiv;
 }
 function getOptionsDiv(html_select, selected) {
-    var options = document.createElement("div");
+    let options = document.createElement("div");
     options.setAttribute("class", "option display-none");
-    for (var _i = 0, _a = Array.from(html_select.options).slice(1); _i < _a.length; _i++) {
-        var html_option = _a[_i];
-        var option = getOptionDiv(html_option);
+    for (let html_option of Array.from(html_select.options).slice(1)) {
+        let option = getOptionDiv(html_option);
         option.addEventListener("click", optionClicked.bind(option, selected, html_select));
         options.appendChild(option);
     }
     return options;
 }
 function main() {
-    for (var _i = 0, _a = document.getElementsByClassName("dropdown-select"); _i < _a.length; _i++) {
-        var select = _a[_i];
-        var html_select = select.getElementsByTagName("select")[0];
+    for (let select of document.getElementsByClassName("dropdown-select")) {
+        let html_select = select.getElementsByTagName("select")[0];
         if (html_select === undefined)
             continue;
-        var selected = getSelectedDiv(html_select);
-        var options = getOptionsDiv(html_select, selected);
+        let selected = getSelectedDiv(html_select);
+        let options = getOptionsDiv(html_select, selected);
         select.appendChild(selected);
         select.appendChild(options);
         selected.addEventListener("click", selectedClicked);
