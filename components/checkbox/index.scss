@@ -20,9 +20,11 @@
 
 h1 {
     @include text-style(30px);
+    padding-top: 25px;
+    padding-bottom: 40px;
 }
 
 p {
     @include text-style(16px);
-    padding-left: 25px;
+    padding: 25px;
 }

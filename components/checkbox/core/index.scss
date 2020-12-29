@@ -1,23 +1,12 @@
-@import '../../../colors&typo/styles.scss';
-@import './styles/main.scss';
+@import './base.scss';
+@import './main.scss';
 @import '../../../colors&typo/typography.scss';
-@import './styles/base.scss';
-.checkbox-container {
-    display: flex;
-    align-items: center;
-}
-
-.checkbox-container input[type='checkbox']:disabled+label,
-.checkbox-container input[type='checkbox']:disabled {
-    opacity: 50%;
-    cursor: default;
-}
-
+@import '../../../colors&typo/palette.scss';
 input[type="checkbox" i]:disabled {
     appearance: checkbox;
     box-sizing: border-box;
     margin: 3px;
     border: 0px;
     background: transparent;
-    display: none;
+    opacity: 0;
 }
