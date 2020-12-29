@@ -1,13 +1,11 @@
-@import "../../../colors&typo/palette.scss";
+@import "../../../colors&typo/styles.scss";
 .container{
     display: flex;
     width: 178px;
     .text{
-      color: $secondary-dark-1 ;
       display: inline-block;
-      font-family: "Roboto";
-      font-size: 14px;
       margin-left: 18px;
+      @include text-style(14px,$secondary-dark-1);
     }
 
 .switch {
@@ -41,7 +39,7 @@
     height: 16px;
     width: 16px;
     left: 4px;
-    bottom: 4px;
+    bottom: 3px;
     background-color: $secondary-dark-2;
     -webkit-transition: .4s;
     transition: .4s;

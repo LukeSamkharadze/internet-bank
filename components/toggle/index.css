@@ -45,7 +45,7 @@
   height: 16px;
   width: 16px;
   left: 4px;
-  bottom: 4px;
+  bottom: 3px;
   background-color: #98A9BC;
   -webkit-transition: .4s;
   transition: .4s;
@@ -99,6 +99,10 @@
   background-color: #98A9BC;
 }
 
+.con1 .slider::before {
+  opacity: 70%;
+}
+
 .con3 .text {
   color: #FE4D97;
 }
@@ -131,6 +135,7 @@
 
 .con4 .slider {
   background-color: #FFAB2B;
+  opacity: 70%;
 }
 
 .con6 .text {

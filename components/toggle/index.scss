@@ -22,6 +22,9 @@
       input:checked + .slider::before {
         background-color: $secondary-dark-2
       }
+      .slider::before {
+        opacity: 70%;
+      }
 }
 
 .con3{
@@ -55,6 +58,7 @@
   }
   .slider {
     background-color: $primary;
+    opacity: 70%;
   }
     
    
