@@ -448,10 +448,10 @@ input[type=checkbox i]:disabled {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
   align-items: center;
-  justify-items: center;
   justify-content: center;
   grid-column-gap: 250px;
   grid-row-gap: 20px;
+  margin-left: 25px;
 }
 
 h1 {
