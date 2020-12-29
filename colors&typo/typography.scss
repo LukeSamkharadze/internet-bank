@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-@import './palette.scss';
+@import 'palette.scss';
+
 $roboto: 'Roboto',
 sans-serif;
-@mixin text-style($font-size,
-$color: $primary-dark) {
+
+@mixin text-style($font-size, $color: $primary-dark) {
     font-family: $roboto;
     font-weight: 400;
     font-size: $font-size;
@@ -13,8 +14,7 @@ $color: $primary-dark) {
 
 /////////// Headings
 h1 {
-    @include text-style(30px,
-    $dark-secondary-3);
+    @include text-style(30px, $dark-secondary-3);
 }
 
 h2 {
@@ -34,6 +34,7 @@ h5 {
 }
 
 /////////// Text
+
 p {
     color: $secondary-dark-2;
     font-family: $roboto;
