@@ -1,0 +1,36 @@
+@import '../../../colors&typo/palette.scss';
+ 
+// Progress bar background
+@mixin default-bar($bg-color, $width, $height){
+    background-color: $background-1;
+    width: $width;
+    height: $height;
+}
+
+// Filled bar. Changes a cell color based on percentage.
+@mixin color($bar-width, $width, $height){
+    width: $bar-width;
+    height: $height;
+    border-radius: 1px;
+    
+    @if $bar-width/$width < 0.25{
+        background-color: $secondary-3;
+    } @else if $bar-width/$width < 0.6{
+        background-color: $primary;
+    } @else if $bar-width/$width < 0.8 {
+        background-color: $secondary-1;
+    } @else {
+        background-color: $secondary-2;
+    }
+
+}
+
+////// Ready for task #24 (settings payment limits)
+
+.progress{
+    @include default-bar($background-1, 292px, 4px);
+    
+    .orange{
+        @include color(173px, 292px, 4px);
+    }
+}

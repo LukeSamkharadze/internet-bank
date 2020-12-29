@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+body {
+  width: 100%;
+  margin: auto;
+}
+body header {
+  border-bottom: #E8ECEF 1px solid;
+  padding: 45px 10.4% 47px;
+}
+body main {
+  width: 79.4%;
+  margin: 87px 0 0 10.4%;
+  border-top: #E8ECEF 1px solid;
+}
+body .container-progress-bar {
+  margin: 33px 0 34px;
+}
+body .grid-progress-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 32px;
+  row-gap: 15px;
+}
+
+.progress {
+  background-color: #F2F4F6;
+  width: 292px;
+  height: 4px;
+}
+.progress .orange {
+  width: 173px;
+  height: 4px;
+  border-radius: 1px;
+  background-color: #FFAB2B;
+}
+
+.progress {
+  background-color: #F2F4F6;
+  width: 455px;
+  height: 6px;
+}
+.progress .orange {
+  width: 269.47px;
+  height: 6px;
+  border-radius: 1px;
+  background-color: #FFAB2B;
+}
+.progress .pink {
+  width: 101.6px;
+  height: 6px;
+  border-radius: 1px;
+  background-color: #FE4D97;
+}
+.progress .green {
+  width: 379.9px;
+  height: 6px;
+  border-radius: 1px;
+  background-color: #6DD230;
+}
+.progress .blue {
+  width: 362.23px;
+  height: 6px;
+  border-radius: 1px;
+  background-color: #4D7CFE;
+}
+
+/*# sourceMappingURL=index.css.map */

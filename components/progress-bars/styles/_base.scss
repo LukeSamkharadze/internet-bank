@@ -1,0 +1,26 @@
+@import '../../../colors&typo/typography.scss';
+
+body{
+    width: 100%;
+    margin: auto;
+    
+    header{
+        border-bottom: $outline 1px solid;
+        padding: 45px 10.4% 47px;
+    }
+    main{
+        width: 79.4%;
+        margin: 87px 0 0 10.4%;
+        border-top: $outline 1px solid;
+    }
+    .container-progress-bar{
+        margin: 33px 0 34px;
+    }
+    .grid-progress-bar{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 32px;
+        row-gap: 15px;
+    }
+}

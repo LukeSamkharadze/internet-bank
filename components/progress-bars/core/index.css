@@ -1,0 +1,13 @@
+.progress {
+  background-color: #F2F4F6;
+  width: 292px;
+  height: 4px;
+}
+.progress .orange {
+  width: 173px;
+  height: 4px;
+  border-radius: 1px;
+  background-color: #FFAB2B;
+}
+
+/*# sourceMappingURL=index.css.map */

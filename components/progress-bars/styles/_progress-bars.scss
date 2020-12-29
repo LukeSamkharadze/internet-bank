@@ -1,0 +1,19 @@
+@import '../../../colors&typo/palette.scss';
+@import '../core/index.scss';
+
+.progress{
+    @include default-bar($background-1, 455px, 6px);
+
+    .orange{
+        @include color(269.47px, 455px, 6px);
+    }
+    .pink{
+        @include color(101.6px,455px, 6px);
+    }
+    .green{
+        @include color(379.9px, 455px, 6px);
+    }
+    .blue{
+        @include color(362.23px, 455px, 6px);
+    }
+}
