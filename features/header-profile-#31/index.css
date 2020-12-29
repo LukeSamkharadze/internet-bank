@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -86,26 +99,101 @@ a {
   text-align: right;
 }
 
-.line {
-  height: 1px;
-  width: 100%;
-  background-color: #E8ECEF;
-  margin-bottom: 88px;
-  margin-top: 67px;
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
-.feature31 {
-  padding-top: 56px;
+* {
   box-sizing: border-box;
-  width: 100%;
-  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.head {
-  font-size: 30px;
-  margin-left: 142px;
+h1 {
   font-family: "Roboto", sans-serif;
-  letter-spacing: 0.1px;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .line2 {
@@ -128,7 +216,7 @@ a {
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
-  margin-left: 26px;
+  margin-left: 35px;
   font-size: 20px;
   float: left;
 }
@@ -146,18 +234,18 @@ a {
   height: 40px;
   float: right;
   position: absolute;
-  margin-right: 34px;
+  margin-right: 25px;
   top: 50%;
   right: 0%;
   transform: translate(0%, -50%);
 }
 .profileBef .image {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 25px;
+  border-radius: 40px;
   border: 2px solid #FFAB2B;
   float: left;
   margin-right: 11.3px;
@@ -167,6 +255,7 @@ a {
 }
 .profileBef .name {
   letter-spacing: 0.2px;
+  width: 75%;
 }
 
 .profileHover {
@@ -184,7 +273,7 @@ a {
   top: 70px;
   float: right;
   border-radius: 5px;
-  margin-right: 29px;
+  margin-right: 20px;
 }
 .profileHover .about {
   background-color: #F8FAFB;
@@ -217,8 +306,8 @@ a {
   justify-content: space-around;
   height: 156.25px;
   font-size: 12px;
-  padding-top: 4px;
-  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 11px;
   box-sizing: border-box;
 }
 .profileHover .profSettings div {
@@ -226,7 +315,6 @@ a {
 }
 .profileHover .profSettings i {
   margin-right: 8px;
-  margin-top: 13px;
   color: #778CA2;
   font-size: 18px;
 }
@@ -234,10 +322,33 @@ a {
   color: #252631;
   font-size: 12px;
   letter-spacing: 0.1px;
+  margin-bottom: 3px;
 }
 
-.profileBef:active ~ .profileHover {
+.profileBef:hover ~ .profileHover {
   display: block;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: #E8ECEF;
+  margin-bottom: 88px;
+  margin-top: 67px;
+}
+
+.feature31 {
+  padding-top: 64px;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+.head {
+  font-size: 30px;
+  margin-left: 150px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.1px;
 }
 
 /*# sourceMappingURL=index.css.map */

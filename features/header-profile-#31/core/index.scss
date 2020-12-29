@@ -1,13 +1,5 @@
-@import '../../../colors&typo/palette.scss';
-@import '../../../colors&typo/typography.scss';
+@import '../../../colors&typo/styles.scss';
 
-
-.head{
-    font-size: 30px;
-    margin-left: 142px;
-    font-family: $roboto;
-    letter-spacing: 0.1px;
-}
 
 .line2{
     height: 1px;
@@ -30,7 +22,7 @@
     position: absolute;
     top: 50%;
     transform: translate(0%,-50%);
-    margin-left: 26px;
+    margin-left: 35px;
     font-size: 20px;
     float: left;
     i{
@@ -48,19 +40,19 @@
         height: 40px;
         float: right;
         position: absolute;
-        margin-right: 34px;
+        margin-right: 25px;
         top: 50%;
         right: 0%;
         transform: translate(0%,-50%);
         
         .image{
             
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 25px;
+            border-radius: 40px;
             border: 2px solid #FFAB2B;
             float: left;
             margin-right: 11.3px;
@@ -71,6 +63,7 @@
         }
         .name{
             letter-spacing: 0.2px;
+            width: 75%;
         }
     }
     .profileHover{
@@ -88,7 +81,7 @@
         top: 70px;
         float: right;
         border-radius: 5px;
-        margin-right: 29px;
+        margin-right: 20px;
         .about{
             background-color: $background-2;
             height: 79.75px;
@@ -124,15 +117,15 @@
             justify-content: space-around;
             height: 156.25px;
             font-size: 12px;
-            padding-top: 4px;
-            padding-bottom: 10px;
+            padding-top: 10px;
+            padding-bottom: 11px;
             box-sizing: border-box;
             div{
                 display: flex;
             }
             i{
                 margin-right: 8px;
-                margin-top: 13px;
+                // margin-top: 13px;
                 color: $secondary-dark-1;
                 font-size: 18px;
             }
@@ -140,14 +133,17 @@
                 color: $primary-dark;
                 font-size: 12px;
                 letter-spacing: 0.1px;
-                
+                margin-bottom: 3px;
             }
         }
     
     }
 
 
-.profileBef:active  ~ .profileHover{
+.profileBef:hover  ~ .profileHover{
     display: block;
 }
+// .profileBef:active  ~ .profileHover{
+//     display: block;
+// }
 
