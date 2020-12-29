@@ -57,6 +57,10 @@
     -webkit-transform: translateX(16px);
     -ms-transform: translateX(16px);
     transform: translateX(16px);
+    
+  }
+  input:checked + .slider:before{
+    background-color: #ffffff;
   }
 
 }

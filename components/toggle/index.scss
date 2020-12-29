@@ -31,7 +31,10 @@
 
       .slider:before {
         background-color:#FFFFFF ;
-    }
+      }
+      input:checked + .slider::before {
+        background-color: $secondary-dark-2;
+      }
 }
 .con4{
     .slider:before{
@@ -46,13 +49,6 @@
     
    
 }
-.con5{
- 
-    
-    .slider:before {
-      background-color:#FFFFFF ;
-  }
-}
 .con6{
     .text{
         color: $secondary-2;
@@ -60,8 +56,4 @@
     input:checked + .slider {
         background-color: $secondary-2;
       }
-      .slider:before {
-          background-color:#FFFFFF ;
-      }
-
 }
