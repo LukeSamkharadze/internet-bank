@@ -1,38 +1,55 @@
-@import '../../tags/index.scss';
+@import '../../../colors&typo/styles.scss';
 
-h1 {
-  height: 106px;
-  padding-left: 150px;
-  border-bottom: 1px solid $outline;
-  margin: 50px auto;
-  font-family: $roboto;
-  font-weight: 400;
-  font-size: 30px;
-}
-
-p {
-  font-family: $roboto;
-  font-weight: 400;
-  font-size: 16px;
-  color: black;
-}
-
-.container {
-  width: 78%;
-  height: 123px;
-  border-top: 1px solid $outline;
+.tag {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  margin: 82px auto;
+  justify-content: center;
+  align-items: center;
+  width: 84px;
+  height: 36px;
+  border-radius: 4px;
+  line-height: 17px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: $roboto;
+  i {
+    display: none;
+  }
 }
 
-.tags {
-  width: 88%;
-  height: 70px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
+#tag-1 {
+  background-color: $secondary-1;
+  color: #ffffff;
+}
+#tag-2 {
+  background-color: rgba(77, 124, 254, 0.08);
+  color: $secondary-1;
+}
+#tag-3 {
+  background-color: rgba(77, 124, 254, 0.08);
+  color: $secondary-4;
+}
+#tag-4 {
+  background-color: rgba(109, 210, 48, 0.08);
+  color: $secondary-2;
+}
+#tag-5 {
+  background-color: rgba(255, 171, 43, 0.08);
+  color: $primary;
+}
+#tag-6 {
+  background-color: rgba(254, 77, 151, 0.08);
+  color: $secondary-3;
+}
+#tag-7 {
+  background-color: rgba(119, 140, 162, 0.08);
+  color: $secondary-dark-1;
+}
+
+#tag-hover {
+  background-color: rgba(119, 140, 162, 0.08);
+  color: $secondary-dark-1;
+  justify-content: space-evenly;
+  i {
+    display: block;
+  }
 }
