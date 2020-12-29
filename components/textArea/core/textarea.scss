@@ -1,0 +1,35 @@
+@import "../../../colors&typo/styles.scss";
+
+.textAreaContainer {
+    position: relative;
+    display: inline;
+
+    i {
+        position: absolute;
+        left: 24px;
+        bottom: 17px;
+        color: $secondary-dark-2;
+    }
+
+    textarea {
+        width: 360px;
+        height: 90px;
+        padding: 16px 18px;
+        outline: none;
+        @include text-style(14px, $dark-secondary-3);
+        &::placeholder {
+            @include text-style(14px, $secondary-dark-2);
+        }
+        border: 1px solid $outline;
+        resize: none;
+    }
+
+    textarea:disabled {
+        background: $background-2;
+        border: 1px solid transparent;
+    }
+
+    ::-webkit-resizer {
+        display: none;
+    }
+}

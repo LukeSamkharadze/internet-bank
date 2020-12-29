@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.textAreaContainer {
+  position: relative;
+  display: inline;
+}
+.textAreaContainer i {
+  position: absolute;
+  left: 24px;
+  bottom: 17px;
+  color: #98A9BC;
+}
+.textAreaContainer textarea {
+  width: 360px;
+  height: 90px;
+  padding: 16px 18px;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+  border: 1px solid #E8ECEF;
+  resize: none;
+}
+.textAreaContainer textarea::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+}
+.textAreaContainer textarea:disabled {
+  background: #F8FAFB;
+  border: 1px solid transparent;
+}
+.textAreaContainer ::-webkit-resizer {
+  display: none;
+}
+
+header {
+  width: 100%;
+  height: 170px;
+  padding-left: 150px;
+  padding-top: 65px;
+  border-bottom: 1px solid #E8ECEF;
+  margin-bottom: 86px;
+}
+
+main {
+  width: 79.3%;
+  margin: auto;
+  border-top: 1px solid #E8ECEF;
+  padding-top: 33px;
+}
+main h5 {
+  margin-bottom: 38px;
+}
+
+.textAreasContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=index.css.map */
