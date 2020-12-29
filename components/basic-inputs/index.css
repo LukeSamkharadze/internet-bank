@@ -154,4 +154,33 @@ a {
   right: 16px;
 }
 
+.demo-h3 {
+  font-family: "Roboto", sans-serif;
+}
+
+.input-demo {
+  box-sizing: border-box;
+  width: 1140px;
+  margin: 0 auto;
+  border: 1px solid transparent;
+  border-bottom: 2px solid gray;
+  padding-bottom: 137px;
+}
+
+.input-state-demo {
+  padding-top: 12px;
+}
+.input-state-demo h3 {
+  margin-bottom: 33px;
+}
+
+.input-demo-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-demo-container .input-group {
+  width: 31.5%;
+}
+
 /*# sourceMappingURL=index.css.map */
