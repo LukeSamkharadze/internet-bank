@@ -98,17 +98,31 @@ a {
 
 .textAreaContainer {
   position: relative;
-  display: inline;
+  display: inline-flex;
+  flex-direction: column;
 }
-.textAreaContainer i {
+.textAreaContainer .icon-container {
+  top: -1px;
+  display: inline-block;
+  position: relative;
+  height: 30px;
+  width: 360px;
+  border: 1px solid #E8ECEF;
+  border-top: none;
+}
+.textAreaContainer .icon-container i {
   position: absolute;
-  left: 24px;
-  bottom: 17px;
+  left: 21px;
+  bottom: 13px;
   color: #98A9BC;
+}
+.textAreaContainer .icon-container.disabled {
+  background: #F8FAFB;
+  border: none;
 }
 .textAreaContainer textarea {
   width: 360px;
-  height: 90px;
+  height: 60px;
   padding: 16px 18px;
   outline: none;
   font-family: "Roboto", sans-serif;
@@ -117,6 +131,7 @@ a {
   color: #1b1e24;
   letter-spacing: 0.2px;
   border: 1px solid #E8ECEF;
+  border-bottom: none;
   resize: none;
 }
 .textAreaContainer textarea::placeholder {
