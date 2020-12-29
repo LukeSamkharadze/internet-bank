@@ -97,7 +97,7 @@ a {
   text-align: right;
 }
 
-#tabelement {
+.tabelement {
   box-sizing: border-box;
   color: #778CA2;
   text-decoration: none;
@@ -107,7 +107,7 @@ a {
   margin-top: 17px;
 }
 
-#tabelement:hover {
+.tabelement:hover {
   border-color: #252631;
   color: #252631;
 }
@@ -126,11 +126,11 @@ a p {
   font-weight: 400;
 }
 
-header {
+.tabs {
   display: flex;
-  height: 56px;
+  height: 59px;
 }
-header :hover {
+.tabs :hover {
   color: #252631;
 }
 
@@ -231,7 +231,7 @@ a {
   text-align: right;
 }
 
-#tabelement {
+.tabelement {
   box-sizing: border-box;
   color: #778CA2;
   text-decoration: none;
@@ -241,7 +241,7 @@ a {
   margin-top: 17px;
 }
 
-#tabelement:hover {
+.tabelement:hover {
   border-color: #252631;
   color: #252631;
 }
@@ -260,11 +260,11 @@ a p {
   font-weight: 400;
 }
 
-header {
+.tabs {
   display: flex;
-  height: 56px;
+  height: 59px;
 }
-header :hover {
+.tabs :hover {
   color: #252631;
 }
 

@@ -1,5 +1,5 @@
 @import '../../../colors&typo/styles.scss';
-#tabelement{
+.tabelement{
     box-sizing: border-box;
     color:$secondary-dark-1;
     text-decoration: none;
@@ -9,7 +9,7 @@
     margin-top: 17px;
  
 }
-#tabelement:hover{ 
+.tabelement:hover{ 
     border-color:$primary-dark;
     color: $primary-dark;
 }
@@ -27,9 +27,9 @@ a{
     font-weight: 400;
 }
 
-header{
+.tabs{
     display: flex;
-    height: 56px;
+    height: 59px;
     :hover{
         color:$primary-dark;
     }
