@@ -1,0 +1,130 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 178px;
+}
+
+.container .text {
+  color: #778CA2;
+  display: inline-block;
+  font-family: "Roboto";
+  font-size: 14px;
+  margin-left: 18px;
+}
+
+.container .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.container .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.container .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F2F4F6;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 12px;
+}
+
+.container .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #98A9BC;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.container input:checked + .slider {
+  background-color: #FFAB2B;
+}
+
+.container input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+.column1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1000px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.column2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1000px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+
+.con1 input:checked + .slider:before {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+.con3 .text {
+  color: #FE4D97;
+}
+
+.con3 input:checked + .slider {
+  background-color: #F2F4F6;
+}
+
+.con3 .slider {
+  background-color: #FE4D97;
+}
+
+.con3 .slider:before {
+  background-color: #FFFFFF;
+}
+
+.con4 .slider:before {
+  left: 20px;
+}
+
+.con4 input:checked + .slider:before {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+.con5 .slider:before {
+  background-color: #FFFFFF;
+}
+
+.con6 .text {
+  color: #6DD230;
+}
+
+.con6 input:checked + .slider {
+  background-color: #6DD230;
+}
+
+.con6 .slider:before {
+  background-color: #FFFFFF;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,62 @@
+@import "../../../colors&typo/palette.scss";
+.container{
+    display: flex;
+    width: 178px;
+    .text{
+      color: $secondary-dark-1 ;
+      display: inline-block;
+      font-family: "Roboto";
+      font-size: 14px;
+      margin-left: 18px;
+    }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $background-1;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 12px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: $secondary-dark-2;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: $primary;
+  }
+  
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+
+}

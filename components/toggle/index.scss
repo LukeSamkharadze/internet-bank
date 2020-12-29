@@ -1,0 +1,67 @@
+@import "../toggle/core/index.scss";
+.column1{
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+}
+.column2{
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.con1{
+    input:checked + .slider:before {
+        -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        transform: translateX(0px);
+      }
+}
+
+.con3{
+    .text{
+        color: $secondary-3;
+    }
+    input:checked + .slider {
+        background-color: $background-1;
+      }
+      .slider {
+        background-color: $secondary-3;
+      }
+
+      .slider:before {
+        background-color:#FFFFFF ;
+    }
+}
+.con4{
+    .slider:before{
+        left:20px;
+    }
+      
+  input:checked + .slider:before {
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+    
+   
+}
+.con5{
+ 
+    
+    .slider:before {
+      background-color:#FFFFFF ;
+  }
+}
+.con6{
+    .text{
+        color: $secondary-2;
+    }
+    input:checked + .slider {
+        background-color: $secondary-2;
+      }
+      .slider:before {
+          background-color:#FFFFFF ;
+      }
+
+}
