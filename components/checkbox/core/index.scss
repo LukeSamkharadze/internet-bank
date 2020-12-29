@@ -1,7 +1,7 @@
 @import '../../../colors&typo/styles.scss';
-@import '../main.scss';
+@import './styles/main.scss';
 @import '../../../colors&typo/typography.scss';
-@import '../base.scss';
+@import './styles/base.scss';
 .checkbox-container {
     display: flex;
     align-items: center;
