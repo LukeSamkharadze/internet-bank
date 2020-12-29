@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 @import 'palette.scss';
 
-$roboto: 'Roboto', sans-serif;
+$roboto: 'Roboto',
+sans-serif;
+
 @mixin text-style($font-size, $color: $primary-dark) {
     font-family: $roboto;
     font-weight: 400;
@@ -32,20 +34,27 @@ h5 {
 }
 
 /////////// Text
-.regular-text {
-    color: $primary-dark;
-    font-family: $roboto;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 21px;
-}
 
-.secondary-text {
+p {
     color: $secondary-dark-2;
     font-family: $roboto;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
+}
+
+button {
+    color: $primary-dark;
+    font-family: $roboto;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+a {
+    color: $primary-dark;
+    font-family: $roboto;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .caption {
@@ -55,18 +64,8 @@ h5 {
     font-weight: 400;
 }
 
-.button-label {
-    color: $primary-dark;
-    font-family: $roboto;
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.text-link {
-    color: $primary-dark;
-    font-family: $roboto;
-    font-size: 12px;
-    font-weight: 500;
+.light {
+    font-weight: 300;
 }
 
 .text-left {
