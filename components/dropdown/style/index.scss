@@ -1,3 +1,10 @@
-@import "../dropdowns/disabled/index.scss";
-@import "../dropdowns/field/index.scss";
-@import "../dropdowns/select/index.scss";
+@import "../core/dropdowns/disabled/index.scss";
+@import "../core/dropdowns/field/index.scss";
+@import "../core/dropdowns/select/index.scss";
+
+body {
+  display: flex;
+  flex-direction: row;
+  margin: 100px 0px 0px 100px;
+  gap: 30px;
+}

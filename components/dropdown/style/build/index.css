@@ -251,4 +251,11 @@ a {
   color: orange;
 }
 
+body {
+  display: flex;
+  flex-direction: row;
+  margin: 100px 0px 0px 100px;
+  gap: 30px;
+}
+
 /*# sourceMappingURL=index.css.map */
