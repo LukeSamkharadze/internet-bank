@@ -318,7 +318,6 @@ a {
 }
 .paginations .next {
   margin-left: 25px;
-  margin-right: 20px;
   color: #778CA2;
 }
 .paginations .active {
@@ -567,6 +566,9 @@ p {
 .paginations {
   margin-left: 145px;
   width: 385px;
+}
+.paginations div {
+  user-select: none;
 }
 .paginations i {
   color: #778CA2;

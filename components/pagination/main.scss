@@ -26,6 +26,9 @@ p {
     margin: 34px 0 31px 150px;
     color: $primary-dark;
 }.paginations {
+  div {
+    user-select: none;
+  }
   margin-left: 145px;
   width: 385px;
   i {
