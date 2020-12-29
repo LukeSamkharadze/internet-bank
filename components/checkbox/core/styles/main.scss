@@ -27,7 +27,7 @@
     .checkbox-error {
         @include checkbox_default($secondary-3);
     }
-    .checkbox-error__text::before {
+    .checkbox-error::before {
         @include flex;
         @include checkbox_default_before($secondary-3);
     }
