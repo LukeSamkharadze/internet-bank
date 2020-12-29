@@ -213,6 +213,7 @@ a {
 }
 
 .dashboard {
+  font-family: "Rubik", sans-serif;
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
@@ -255,7 +256,8 @@ a {
 }
 .profileBef .name {
   letter-spacing: 0.2px;
-  width: 75%;
+  font-family: "Roboto", sans-serif;
+  width: 69%;
 }
 
 .profileHover {

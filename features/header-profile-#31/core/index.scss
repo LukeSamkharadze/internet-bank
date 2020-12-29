@@ -19,6 +19,7 @@
 }
 
 .dashboard{
+    font-family: $rubik;
     position: absolute;
     top: 50%;
     transform: translate(0%,-50%);
@@ -63,7 +64,8 @@
         }
         .name{
             letter-spacing: 0.2px;
-            width: 75%;
+            font-family: $roboto;
+            width: 69%;
         }
     }
     .profileHover{
