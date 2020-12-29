@@ -1,0 +1,32 @@
+@import '../../../colors&typo/styles.scss';
+
+* {
+    position: relative;
+}
+
+.card-view-component {
+    background-color: white;
+    padding: 14px 21px 18px 18px;
+    width: 500px; //#
+    left: 270px; //#
+    top: 90px; //#
+}
+
+.title {
+    width: 100%;
+    padding-left: 6px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .icon {
+        height: 28px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .name {
+
+    }
+}
