@@ -1,9 +1,12 @@
 @import '../../../colors&typo/styles.scss';
 .paginations {
-  margin-left: 140px;
   width: 385px;
   display: flex;
   align-items: center;
+  div {
+    user-select: none;
+    cursor:pointer ;
+  }
     div {
         display: flex;
         margin-left: 3px;

@@ -149,10 +149,13 @@ a {
 }
 
 .paginations {
-  margin-left: 140px;
   width: 385px;
   display: flex;
   align-items: center;
+}
+.paginations div {
+  user-select: none;
+  cursor: pointer;
 }
 .paginations div {
   display: flex;
@@ -164,7 +167,7 @@ a {
 }
 .paginations .next {
   margin-left: 25px;
-  margin-right: 20px;
+  color: #778CA2;
 }
 .paginations .active {
   background-color: #FFAB2B;
@@ -172,6 +175,7 @@ a {
 }
 .paginations .prev {
   margin-right: 23px;
+  color: #778CA2;
 }
 
 .pagination {
