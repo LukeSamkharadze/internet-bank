@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet " href="component.css">
+</head>
+
+<body>
+    <div class="checkbox-container">
+        <input type="checkbox" class="checkbox-unchecked" id="cb1-1" unchecked>
+        <label for="cb1-1" class="checkbox-unchecked"><span id="text1" >Unchecked</span></label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="checkbox-unchecked" id="cb1-1" disabled>
+        <label for="cb1-1" class="checkbox-unchecked"><span id="text1" >Disabled unchecked</span></label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="checkbox-error" id="cb2-1">
+        <label for='cb2-1' class="checkbox-error"><span id="text2" >Unchecked error</span></label>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" class="checkbox-check" id="cb3-1" checked>
+        <label for="cb3-1" class="checkbox-check"><span id="text3" >Checked</span></label>
+    </div>
+    <div class="checkbox-container" disabled checked>
+        <input type="checkbox" class="checkbox-check" id='cb4-1' disabled checked>
+        <label for='cb4-1' class="checkbox-check"><span id="text3" >Disabled Checked</span></label>
+    </div>
+    <div class="checkbox-container" disabled checked>
+        <input type="checkbox" class="checkbox-disCheck" id='unique' checked>
+        <label for='unique' class="checkbox-disCheck"><span id="text4" >Checked success</span></label>
+    </div>
+</body>
+
+</html>

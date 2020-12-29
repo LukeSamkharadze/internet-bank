@@ -1,24 +1,28 @@
-@import '../../colors&typo/palette.scss';
-@import './main.scss';
-@import '../../colors&typo/typography.scss';
-@import './demo.scss';
-@import './base.scss';
-.checkbox-container {
+@import './core/index.scss';
+.container {
+    width: 1185.5px;
+    border-top: 1px solid $outline;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
     align-items: center;
+    justify-items: center;
+    grid-column-gap: 250px;
+    grid-row-gap: 20px;
 }
 
-.checkbox-container input[type='checkbox']:disabled+label,
-.checkbox-container input[type='checkbox']:disabled {
-    opacity: 50%;
-    cursor: default;
+h1 {
+    @include text-style(30px);
 }
 
-input[type="checkbox" i]:disabled {
-    appearance: checkbox;
-    box-sizing: border-box;
-    margin: 3px;
-    border: 0px;
-    background: transparent;
-    display: none;
+p {
+    @include text-style(16px);
+    padding-left: 25px;
 }
