@@ -4,14 +4,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 84px;
-  height: 36px;
+  min-width: 84px;
+  min-height: 36px;
   border-radius: 4px;
   line-height: 17px;
   @include text-style(14px);
   font-family: $rubik; /* will be included in mixin */
   i {
-    font-size: 16px;
+    font-size: 16px; 
     display: none;
   }
 }
@@ -55,6 +55,7 @@
 .hover-tag {
   @extend .tag;
   @include text-style(14px, $secondary-dark-1);
+  font-family: $rubik; /* will be included in mixin */
   @extend .gray-text-tag;
   justify-content: space-evenly;
   i {

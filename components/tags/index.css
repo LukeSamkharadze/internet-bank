@@ -150,8 +150,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 84px;
-  height: 36px;
+  min-width: 84px;
+  min-height: 36px;
   border-radius: 4px;
   line-height: 17px;
   font-family: "Roboto", sans-serif;
@@ -215,6 +215,8 @@ a {
   font-size: 14px;
   color: #778CA2;
   letter-spacing: 0.2px;
+  font-family: "Rubik", sans-serif;
+  /* will be included in mixin */
   justify-content: space-evenly;
 }
 .hover-tag i {
