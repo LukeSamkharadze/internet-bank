@@ -1,19 +1,322 @@
-/* Error: Undefined variable.
- *    ,
- * 17 |     $dark-secondary-3);
- *    |     ^^^^^^^^^^^^^^^^^
- *    '
- *   colors&typo\typography.scss 17:5    @import
- *   components\checkbox\main.scss 1:9   @import
- *   components\checkbox\index.scss 2:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 17 \2502      $dark-secondary-3);\d\a    \2502      ^^^^^^^^^^^^^^^^^\a    \2575 \a   colors&typo\\typography.scss 17:5    @import\a   components\\checkbox\\main.scss 1:9   @import\a   components\\checkbox\\index.scss 2:9  root stylesheet";
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
 }
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+h1 {
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+p {
+  padding-left: 25px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.checkbox-container label {
+  cursor: pointer;
+  display: flex;
+}
+
+.checkbox-container input[type=checkbox] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-container input[type=checkbox]:checked + label::before {
+  content: "✔";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F8FAFB;
+}
+
+.checkbox-container #unique:checked + label::before {
+  content: "✔";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6DD230;
+}
+
+.checkbox-container .cb1::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 2px;
+  background-color: #E8ECEF;
+  border: 0px;
+}
+
+#text1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #778CA2;
+  padding-top: 2px;
+  padding-left: 5px;
+}
+
+.checkbox-container .cb2::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 2px;
+  background-color: rgba(254, 77, 151, 0.15);
+  border: 0px;
+}
+
+#text2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #FE4D97;
+  padding-top: 2px;
+  padding-left: 5px;
+}
+
+.checkbox-container .cb3::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 2px;
+  background-color: #98A9BC;
+  border: 0px;
+}
+
+#text3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #252631;
+  padding-top: 2px;
+  padding-left: 5px;
+}
+
+.checkbox-container .cb4::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 2px;
+  background-color: rgba(109, 210, 48, 0.15);
+  border: 0px;
+}
+
+#text4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #6DD230;
+  padding-top: 2px;
+  padding-left: 5px;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.container {
+  width: 1185.5px;
+  border-top: 1px solid #E8ECEF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-column-gap: 250px;
+  grid-row-gap: 20px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container input[type=checkbox]:disabled + label,
+.checkbox-container input[type=checkbox]:disabled {
+  opacity: 85%;
+  cursor: default;
+}
+
+/*# sourceMappingURL=index.css.map */
