@@ -1,8 +1,9 @@
 @import "../../../../colors&typo/typography";
 @import "../../../../colors&typo/palette";
-@import "../utils/utils.scss";
+@import "../utils/_reset.scss";
+@import "../utils/_utils.scss";
 
-@import url("https://use.fontawesome.com/releases/v5.11.2/css/all.css");
+@import url("https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css");
 
 .dropdown-select {
   $background: white;
@@ -13,9 +14,10 @@
   @mixin option-mixin {
     cursor: pointer;
     height: $height;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    user-select: none;
+    width: $width;
+    display: flex;
+    align-items: center;
+    padding: 3px 14px 0px;
   }
 
   @extend p;
@@ -32,16 +34,19 @@
     display: flex;
     background-color: $background;
     border-radius: 4px;
-    border: 1px #e8ecef solid;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+    border: 1px $outline solid;
+    align-items: center;
+    padding: 3px 14px 0px;
 
     &:after {
       content: "\f107";
       position: absolute;
+      font-family: "Line Awesome Free";
+      font-size: 19px;
+      font-weight: 900;
       top: 50%;
-      right: 10px;
-      transform: translate(-50%,-50%);
+      right: 6.5px;
+      transform: translate(-50%, -50%);
     }
 
     &.arrow-active:after {
@@ -51,22 +56,22 @@
 
   .placeholder {
     @extend p;
+    align-items: center;
     background-color: $background;
-    color: red;
   }
 
-  .option {
+  .options {
     position: absolute;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.01);
+    border-radius: 4px;
     background-color: $background;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: calc(#{$height} + 20px);
 
     div {
       @include option-mixin();
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.1);
+        color: orange;
       }
     }
   }

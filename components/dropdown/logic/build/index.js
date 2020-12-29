@@ -1,7 +1,7 @@
 "use strict";
 function closeAllSelect(element) {
     let selecteds = document.getElementsByClassName("selected");
-    let options = document.getElementsByClassName("option");
+    let options = document.getElementsByClassName("options");
     let current = -1;
     for (let i = 0; i < selecteds.length; i++)
         if (element === selecteds[i])
@@ -44,7 +44,7 @@ function getOptionDiv(html_option) {
 }
 function getOptionsDiv(html_select, selected) {
     let options = document.createElement("div");
-    options.setAttribute("class", "option display-none");
+    options.setAttribute("class", "options display-none");
     for (let html_option of Array.from(html_select.options).slice(1)) {
         let option = getOptionDiv(html_option);
         option.addEventListener("click", optionClicked.bind(option, selected, html_select));

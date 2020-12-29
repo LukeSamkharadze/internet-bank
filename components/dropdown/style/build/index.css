@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
-@import url("https://use.fontawesome.com/releases/v5.11.2/css/all.css");
+@import url("https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css");
 h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -87,7 +87,109 @@ a {
   text-align: right;
 }
 
-.display-none {
+.dropdown-select *,
+.dropdown-select *:before,
+.dropdown-select *:after {
+  box-sizing: border-box;
+}
+.dropdown-select html,
+.dropdown-select body,
+.dropdown-select div,
+.dropdown-select span,
+.dropdown-select object,
+.dropdown-select iframe,
+.dropdown-select figure,
+.dropdown-select h1,
+.dropdown-select h2,
+.dropdown-select h3,
+.dropdown-select h4,
+.dropdown-select h5,
+.dropdown-select h6,
+.dropdown-select p,
+.dropdown-select .placeholder,
+.dropdown-select .dropdown-select,
+.dropdown-select blockquote,
+.dropdown-select pre,
+.dropdown-select a,
+.dropdown-select code,
+.dropdown-select em,
+.dropdown-select img,
+.dropdown-select small,
+.dropdown-select strike,
+.dropdown-select strong,
+.dropdown-select sub,
+.dropdown-select sup,
+.dropdown-select tt,
+.dropdown-select b,
+.dropdown-select u,
+.dropdown-select i,
+.dropdown-select ol,
+.dropdown-select ul,
+.dropdown-select li,
+.dropdown-select fieldset,
+.dropdown-select form,
+.dropdown-select label,
+.dropdown-select table,
+.dropdown-select caption,
+.dropdown-select tbody,
+.dropdown-select tfoot,
+.dropdown-select thead,
+.dropdown-select tr,
+.dropdown-select th,
+.dropdown-select td,
+.dropdown-select main,
+.dropdown-select canvas,
+.dropdown-select embed,
+.dropdown-select footer,
+.dropdown-select header,
+.dropdown-select nav,
+.dropdown-select section,
+.dropdown-select video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+.dropdown-select footer,
+.dropdown-select header,
+.dropdown-select nav,
+.dropdown-select section,
+.dropdown-select main {
+  display: block;
+}
+.dropdown-select body {
+  line-height: 1;
+}
+.dropdown-select ol,
+.dropdown-select ul {
+  list-style: none;
+}
+.dropdown-select blockquote,
+.dropdown-select q {
+  quotes: none;
+}
+.dropdown-select blockquote:before,
+.dropdown-select blockquote:after,
+.dropdown-select q:before,
+.dropdown-select q:after {
+  content: "";
+  content: none;
+}
+.dropdown-select table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.dropdown-select input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.dropdown-select .display-none {
   display: none;
 }
 
@@ -102,46 +204,51 @@ a {
 .dropdown-select .selected {
   cursor: pointer;
   height: 52px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  user-select: none;
+  width: 360px;
+  display: flex;
+  align-items: center;
+  padding: 3px 14px 0px;
   display: flex;
   background-color: white;
   border-radius: 4px;
-  border: 1px #e8ecef solid;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
+  border: 1px #E8ECEF solid;
+  align-items: center;
+  padding: 3px 14px 0px;
 }
 .dropdown-select .selected:after {
   content: "";
   position: absolute;
+  font-family: "Line Awesome Free";
+  font-size: 19px;
+  font-weight: 900;
   top: 50%;
-  right: 10px;
+  right: 6.5px;
   transform: translate(-50%, -50%);
 }
 .dropdown-select .selected.arrow-active:after {
   content: "";
 }
 .dropdown-select .placeholder {
+  align-items: center;
   background-color: white;
-  color: red;
 }
-.dropdown-select .option {
+.dropdown-select .options {
   position: absolute;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.01);
+  border-radius: 4px;
   background-color: white;
-  top: 100%;
-  left: 0;
-  right: 0;
+  top: calc(52px + 20px);
 }
-.dropdown-select .option div {
+.dropdown-select .options div {
   cursor: pointer;
   height: 52px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  user-select: none;
+  width: 360px;
+  display: flex;
+  align-items: center;
+  padding: 3px 14px 0px;
 }
-.dropdown-select .option div:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+.dropdown-select .options div:hover {
+  color: orange;
 }
 
 /*# sourceMappingURL=index.css.map */

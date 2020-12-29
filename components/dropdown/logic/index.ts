@@ -6,7 +6,7 @@ interface ChildNode {
 
 function closeAllSelect(element: any): void {
   let selecteds = document.getElementsByClassName("selected");
-  let options = document.getElementsByClassName("option");
+  let options = document.getElementsByClassName("options");
 
   let current = -1;
 
@@ -60,7 +60,7 @@ function getOptionDiv(html_option: HTMLOptionElement) {
 
 function getOptionsDiv(html_select: HTMLSelectElement, selected: HTMLDivElement) {
   let options = document.createElement("div");
-  options.setAttribute("class", "option display-none");
+  options.setAttribute("class", "options display-none");
 
   for (let html_option of Array.from(html_select.options).slice(1)) {
     let option = getOptionDiv(html_option);
