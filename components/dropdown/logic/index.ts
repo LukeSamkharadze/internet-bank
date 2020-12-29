@@ -8,13 +8,17 @@ function closeAllSelect(element: any): void {
   let selecteds = document.getElementsByClassName("selected");
   let options = document.getElementsByClassName("option");
 
+  let current = -1;
+
   for (let i = 0; i < selecteds.length; i++)
-    if (element !== selecteds[i]) {
+    if (element === selecteds[i])
+      current = i;
+    else
       selecteds[i].classList.remove("arrow-active");
 
-      for (let j = 0; j < options.length; j++)
-        options[j].classList.add("display-none");
-    }
+  for (let i = 0; i < options.length; i++)
+    if(i !== current)
+      options[i].classList.add("display-none");
 }
 
 function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
