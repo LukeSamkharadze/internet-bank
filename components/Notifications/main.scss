@@ -1,0 +1,49 @@
+@import "../../colors&typo/styles.scss";
+@import "core/example.scss";
+.notification{
+    color:$primary
+}
+
+.head {
+    margin-top:65px;
+    margin-bottom:65px;
+    margin-left:150px;
+    @include text-style(30px,$primary-dark)
+
+}
+
+.line{
+    height:1px;
+    width:100%;
+    background-color:$outline;
+
+}
+
+.line-1{
+    background-color:$outline;
+    margin-top:90px;
+    margin-left:150px;
+    height:1px;
+    width:556px;
+}
+
+.notification{
+    margin-left:150px;
+    margin-top:32px;
+    margin-bottom:32px;
+    @include text-style(16px,$primary-dark)
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
