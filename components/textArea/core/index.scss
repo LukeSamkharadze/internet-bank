@@ -1,0 +1,51 @@
+@import "../../../colors&typo/styles.scss";
+
+.textAreaContainer {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+
+    .icon-container {
+        top: -1px;
+        display: inline-block;
+        position: relative;
+        height: 30px;
+        width: 360px;
+        border: 1px solid $outline;
+        border-top: none;
+        i {
+            position: absolute;
+            left: 21px;
+            bottom: 13px;
+            color: $secondary-dark-2;
+        }
+
+        &.disabled {
+            background: $background-2;
+            border: none;
+        }
+    }
+
+    textarea {
+        width: 360px;
+        height: 60px;
+        padding: 16px 18px;
+        outline: none;
+        @include text-style(14px, $dark-secondary-3);
+        &::placeholder {
+            @include text-style(14px, $secondary-dark-2);
+        }
+        border: 1px solid $outline;
+        border-bottom: none;
+        resize: none;
+    }
+
+    textarea:disabled {
+        background: $background-2;
+        border: 1px solid transparent;
+    }
+
+    ::-webkit-resizer {
+        display: none;
+    }
+}
