@@ -1,0 +1,20 @@
+.primary {
+    .hover {
+        @extend .btn-schema;
+        background-color: $primary-hover;
+        color: white;
+    }
+    
+    .resting {
+        @extend .btn-schema;
+        background-color: $background-1;
+        color: $secondary-dark-1;
+    }
+    
+    .hover2 {
+        @extend  .btn-schema;
+        background-color: $background-1;
+        color: $primary;
+    }
+    
+}
