@@ -1,0 +1,55 @@
+@import '../../colors&typo/styles.scss';
+
+.tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 84px;
+  height: 36px;
+  border-radius: 4px;
+  line-height: 17px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: $roboto;
+  i {
+    display: none;
+  }
+}
+
+#tag-1 {
+  background-color: $secondary-1;
+  color: #ffffff;
+}
+#tag-2 {
+  background-color: rgba(77, 124, 254, 0.08);
+  color: $secondary-1;
+}
+#tag-3 {
+  background-color: rgba(77, 124, 254, 0.08);
+  color: $secondary-4;
+}
+#tag-4 {
+  background-color: rgba(109, 210, 48, 0.08);
+  color: $secondary-2;
+}
+#tag-5 {
+  background-color: rgba(255, 171, 43, 0.08);
+  color: $primary;
+}
+#tag-6 {
+  background-color: rgba(254, 77, 151, 0.08);
+  color: $secondary-3;
+}
+#tag-7 {
+  background-color: rgba(119, 140, 162, 0.08);
+  color: $secondary-dark-1;
+}
+
+#tag-hover {
+  background-color: rgba(119, 140, 162, 0.08);
+  color: $secondary-dark-1;
+  justify-content: space-evenly;
+  i {
+    display: block;
+  }
+}
