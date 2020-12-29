@@ -2,6 +2,7 @@
     background-color: white;
     border: 2px solid $border-color;
     color: $color;
+    line-height: 35px
     
 }
 .outline {
@@ -14,5 +15,19 @@
             border-color: $primary;
         }
     }
+
+    .hover {
+        @extend .btn-schema;
+        @include outline-btn($primary, $primary);
+    }
     
+    .resting {
+        @extend .btn-schema;
+        @include outline-btn($outline, $secondary-dark-1);
+    }
+    
+    .hover2 {
+        @extend .btn-schema;
+        @include outline-btn($outline, $primary);
+    }
 }

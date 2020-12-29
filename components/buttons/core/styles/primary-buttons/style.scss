@@ -1,4 +1,17 @@
+$primary-hover: #F4A42B;
+
 .primary {
+    .active {
+        @extend .btn-schema;
+        color: white;
+        background-color: $primary;
+        
+        &:hover {
+            color: white;
+            background-color: $primary-hover;
+        }
+    }
+
     .hover {
         @extend .btn-schema;
         background-color: $primary-hover;
@@ -16,5 +29,4 @@
         background-color: $background-1;
         color: $primary;
     }
-    
 }

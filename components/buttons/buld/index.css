@@ -96,43 +96,6 @@ a {
   text-align: right;
 }
 
-body {
-  width: 1440px;
-}
-
-header {
-  border-bottom: 2px solid #F2F4F6;
-}
-header h1 {
-  margin: 64px auto 65px 150px;
-}
-
-.content {
-  width: 100%;
-  font-family: "Roboto", sans-serif;
-}
-.content .main {
-  width: 1141px;
-  margin: 0px auto;
-}
-.content .main .buttons {
-  width: 100%;
-  height: 133px;
-  border-top: 2px solid #F2F4F6;
-  margin-top: 91px;
-}
-.content .main .buttons h5 {
-  margin-top: 31px;
-  margin-bottom: 33px;
-}
-.content .main .buttons .btn {
-  margin-right: 27.5px;
-}
-.content .main .buttons .bottom {
-  margin-top: 24px;
-  height: 200px;
-}
-
 .btn-schema, .light-blue, .blue, .pink, .green, .outline .hover2, .outline .resting, .outline .hover, .outline .active, .primary .hover2, .primary .resting, .primary .hover, .primary .active {
   width: 206px;
   height: 46px;
@@ -152,7 +115,6 @@ header h1 {
   color: white;
   background-color: #F4A42B;
 }
-
 .primary .hover {
   background-color: #F4A42B;
   color: white;
@@ -170,26 +132,29 @@ header h1 {
   background-color: white;
   border: 2px solid #FFAB2B;
   color: #252631;
+  line-height: 35px;
 }
 .outline .active:hover {
   color: #FFAB2B;
   border-color: #FFAB2B;
 }
-
 .outline .hover {
   background-color: white;
   border: 2px solid #FFAB2B;
   color: #FFAB2B;
+  line-height: 35px;
 }
 .outline .resting {
   background-color: white;
   border: 2px solid #E8ECEF;
   color: #778CA2;
+  line-height: 35px;
 }
 .outline .hover2 {
   background-color: white;
   border: 2px solid #E8ECEF;
   color: #FFAB2B;
+  line-height: 35px;
 }
 
 .fa-heart-o {
@@ -243,6 +208,43 @@ header h1 {
 }
 .color-options .hover.light-blue {
   background-color: #2CDBEC;
+}
+
+body {
+  width: 1440px;
+}
+
+header {
+  border-bottom: 2px solid #F2F4F6;
+}
+header h1 {
+  margin: 64px auto 65px 150px;
+}
+
+.content {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+.content .main {
+  width: 1141px;
+  margin: 0px auto;
+}
+.content .main .buttons {
+  width: 100%;
+  height: 133px;
+  border-top: 2px solid #F2F4F6;
+  margin-top: 91px;
+}
+.content .main .buttons h5 {
+  margin-top: 31px;
+  margin-bottom: 33px;
+}
+.content .main .buttons .btn {
+  margin-right: 27.5px;
+}
+.content .main .buttons .bottom {
+  margin-top: 24px;
+  height: 200px;
 }
 
 /*# sourceMappingURL=index.css.map */
