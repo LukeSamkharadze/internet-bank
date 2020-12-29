@@ -1,10 +1,21 @@
-$background: white;
-$text-color: black;
-$height: 52px;
-$width: 360px;
+@import "../../../../colors&typo/typography";
+@import "../../../../colors&typo/palette";
+@import "../utils/utils.scss";
 
-/*the container must be positioned relative:*/
-.select-inactive {
+.dropdown-select {
+  $background: white;
+  $text-color: black;
+  $height: 52px;
+  $width: 360px;
+
+  @mixin option-mixin {
+    cursor: pointer;
+    height: $height;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    user-select: none;
+  }
+
   position: relative;
   width: $width;
   height: $height;
@@ -14,69 +25,46 @@ $width: 360px;
   select {
     display: none;
   }
-}
 
-.select-selected {
-  background-color: $background;
+  .selected {
+    background-color: $background;
+    @include option-mixin();
 
-  /*style the arrow inside the select element:*/
-  &:after {
-    content: "";
-    position: absolute;
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: $text-color transparent transparent transparent;
-  }
-}
+    // arrow
+    &:after {
+      content: "";
+      position: absolute;
+      top: 14px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-color: $text-color transparent transparent transparent;
+    }
 
-.selected-placeholder{
-  background-color: red;
-}
-
-/*point the arrow upwards when the select box is open (active):*/
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent $text-color transparent;
-  top: 7px;
-}
-
-@mixin select-selected-mixin {
-  cursor: pointer;
-  height: $height;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  user-select: none;
-}
-
-/*style the items (options), including the selected item:*/
-.select-selected {
-  @include select-selected-mixin();
-}
-
-/*style items (options):*/
-.select-items {
-  position: absolute;
-  background-color: $background;
-  top: 100%;
-  left: 0;
-  right: 0;
-
-  div {
-    @include select-selected-mixin();
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
+    &.arrow-active:after{
+      border-color: transparent transparent $text-color transparent;
+      top: 7px;
     }
   }
-}
 
-/*hide the items when the select box is closed:*/
-.select-hide {
-  display: none;
-}
+  .placeholder {
+    background-color: red;
+  }
 
-.same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+  .option {
+    position: absolute;
+    background-color: $background;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    div {
+      @include option-mixin();
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
 }
