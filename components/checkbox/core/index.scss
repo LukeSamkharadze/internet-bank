@@ -1,7 +1,7 @@
-@import './base.scss';
-@import './main.scss';
-@import '../../../colors&typo/typography.scss';
-@import '../../../colors&typo/palette.scss';
+@import './styles/base.scss';
+@import './styles/main.scss';
+@import '../../.././colors&typo/typography.scss';
+@import '../../.././colors&typo/palette.scss';
 input[type="checkbox" i]:disabled {
     appearance: checkbox;
     box-sizing: border-box;

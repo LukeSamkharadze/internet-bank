@@ -1,6 +1,6 @@
 @import './base.scss';
-@import '../../../colors&typo/typography.scss';
-@import '../../../colors&typo/palette.scss';
+@import '../../../../colors&typo/typography.scss';
+@import '../../../../colors&typo/palette.scss';
 .checkbox {
     &__text {
         @include checkbox_default($secondary-dark-1);
