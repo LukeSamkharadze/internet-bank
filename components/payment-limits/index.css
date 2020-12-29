@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bottom-line {
+  border-bottom: 1px solid #E8ECEF;
+  padding-bottom: 6.5px;
+  margin-bottom: 21px;
+  margin-top: 25px;
+}
+
+.payment-limits {
+  max-width: 870px;
+  padding: 18px 0px 0px 24px;
+}
+.payment-limits > h5 {
+  margin-bottom: 27px;
+}
+.payment-limits .payment-box {
+  max-width: 699px;
+}
+.payment-limits .payment-box .cash-withdrawals {
+  display: flex;
+  justify-content: space-between;
+}
+.payment-limits .payment-box .cash-withdrawals .current-limit {
+  width: 48%;
+}
+.payment-limits .payment-box .cash-withdrawals .current-limit > p {
+  margin-bottom: 13px;
+}
+.payment-limits .payment-box .cash-withdrawals .current-limit p {
+  color: #252631;
+}
+.payment-limits .payment-box .cash-withdrawals .current-limit .payment-changer {
+  padding-left: 16px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #E8ECEF;
+  border-radius: 4px;
+}
+.payment-limits .payment-box .cash-withdrawals .current-limit .payment-changer .payment-plusMinus {
+  margin-right: 15px;
+  display: flex;
+  font-size: 18px;
+  color: #778CA2;
+}
+.payment-limits .payment-box .cash-withdrawals .current-limit .payment-changer .payment-plusMinus .plusMinus {
+  cursor: pointer;
+}
+.payment-limits .payment-box .cash-withdrawals .current-limit .payment-changer .payment-plusMinus .plusMinus:first-of-type {
+  margin-right: 5px;
+}
+.payment-limits .payment-box .cash-withdrawals .spendings-wrap {
+  width: 48%;
+}
+.payment-limits .payment-box .cash-withdrawals .spendings-wrap p {
+  margin-bottom: 14px;
+  color: #252631;
+}
+.payment-limits .payment-box .cash-withdrawals .spendings-wrap p:last-child {
+  font-weight: 500;
+}
+.payment-limits .payment-box .cash-withdrawals .spendings-wrap .spendings-header {
+  display: flex;
+  justify-content: space-between;
+}
+.payment-limits .payment-box .cash-withdrawals .spendings-wrap .spendings-bottom {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #E8ECEF;
+  border-radius: 4px;
+  background-color: #F8FAFB;
+}
+.payment-limits .payment-box .cash-withdrawals .spendings-wrap .spendings-bottom .spendings-chart {
+  position: relative;
+  width: 292px;
+  height: 4px;
+  background-color: #F2F4F6;
+}
+.payment-limits .payment-box .cash-withdrawals .spendings-wrap .spendings-bottom .spendings-chart::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  background-color: #FFAB2B;
+  border-radius: 2px;
+}
+.payment-limits .payments-footer {
+  margin-top: 125px;
+}
+.payment-limits .payments-footer .payment-button {
+  height: 46px;
+  border: none;
+  border-radius: 4px;
+}
+.payment-limits .payments-footer .cancle {
+  width: 148px;
+  background-color: #F2F4F6;
+  margin-left: 10px;
+  color: #778CA2;
+  letter-spacing: 1.4px;
+}
+.payment-limits .payments-footer .update {
+  width: 206px;
+  background-color: #FFAB2B;
+  color: white;
+  letter-spacing: 1.4px;
+}
+
+/*# sourceMappingURL=index.css.map */
