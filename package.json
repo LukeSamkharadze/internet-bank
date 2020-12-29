@@ -1,3 +1,4 @@
+
 {
   "name": "angular-bootcamp-2020-internet-bank",
   "version": "1.0.0",
@@ -16,7 +17,10 @@
     "url": "https://github.com/needermen/angular-bootcamp-2020-internet-bank/issues"
   },
   "homepage": "https://github.com/needermen/angular-bootcamp-2020-internet-bank#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "line-awesome2": "^0.9.0"
+  },
   "devDependencies": {
     "sass": "^1.30.0"
   }
