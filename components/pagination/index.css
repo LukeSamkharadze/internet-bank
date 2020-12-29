@@ -303,10 +303,13 @@ a {
 }
 
 .paginations {
-  margin-left: 140px;
   width: 385px;
   display: flex;
   align-items: center;
+}
+.paginations div {
+  user-select: none;
+  cursor: pointer;
 }
 .paginations div {
   display: flex;
@@ -491,6 +494,10 @@ a {
   align-items: center;
 }
 .paginations div {
+  user-select: none;
+  cursor: pointer;
+}
+.paginations div {
   display: flex;
   margin-left: 3px;
   align-items: center;
@@ -564,6 +571,7 @@ p {
 }
 
 .paginations {
+  margin-left: 140px;
   margin-left: 145px;
   width: 385px;
 }
@@ -592,4 +600,4 @@ p {
   border-radius: 5px;
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=index.css.map */
