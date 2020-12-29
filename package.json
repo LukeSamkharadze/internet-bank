@@ -16,8 +16,12 @@
     "url": "https://github.com/needermen/angular-bootcamp-2020-internet-bank/issues"
   },
   "homepage": "https://github.com/needermen/angular-bootcamp-2020-internet-bank#readme",
-  "dependencies": {},
+  "dependencies": {
+    "line-awesome": "^1.3.0"
+  },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "line-awesome2": "^0.9.0",
     "sass": "^1.30.0"
   }
 }
