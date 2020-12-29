@@ -15,6 +15,7 @@ $trans-bg-color: #FFFFFF;
         border-radius: 4px;
         display: grid;
         grid-template-rows: 148px auto;
+        min-width: 360px;
         .details-popup-upper {
             background-color: rgba(221,32,49,0.7);
             border-top-left-radius: 4px;
