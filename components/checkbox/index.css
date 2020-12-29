@@ -1,0 +1,328 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.checkbox-container input[type=checkbox] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+.checkbox-container label {
+  cursor: pointer;
+  display: flex;
+}
+.checkbox-container input[type=checkbox]:checked + label::before {
+  content: "✔";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F8FAFB;
+}
+.checkbox-container #unique:checked + label::before {
+  content: "✔";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6DD230;
+}
+.checkbox-container .checkbox-unchecked::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 2px;
+  background-color: #E8ECEF;
+  border: 0px;
+}
+.checkbox-container .checkbox-error::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 2px;
+  background-color: rgba(254, 77, 151, 0.15);
+  border: 0px;
+}
+.checkbox-container .checkbox-check::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 2px;
+  background-color: #98A9BC;
+  border: 0px;
+}
+.checkbox-container .checkbox-disCheck::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 2px;
+  background-color: rgba(109, 210, 48, 0.15);
+  border: 0px;
+}
+
+#text1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding-top: 2px;
+  padding-left: 5px;
+  color: #778CA2;
+}
+
+#text2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding-top: 2px;
+  padding-left: 5px;
+  color: #FE4D97;
+}
+
+#text3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding-top: 2px;
+  padding-left: 5px;
+  color: #252631;
+}
+
+#text4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding-top: 2px;
+  padding-left: 5px;
+  color: #6DD230;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.container {
+  width: 1185.5px;
+  border-top: 1px solid #E8ECEF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  grid-column-gap: 250px;
+  grid-row-gap: 20px;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  padding-left: 25px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container input[type=checkbox]:disabled + label,
+.checkbox-container input[type=checkbox]:disabled {
+  opacity: 50%;
+  cursor: default;
+}
+
+input[type=checkbox i]:disabled {
+  appearance: checkbox;
+  box-sizing: border-box;
+  margin: 3px;
+  border: 0px;
+  background: transparent;
+  display: none;
+}
+
+/*# sourceMappingURL=index.css.map */
