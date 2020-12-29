@@ -319,11 +319,12 @@ a {
   cursor: default;
 }
 
-input[type=checkbox i] {
+input[type=checkbox i]:disabled {
   appearance: checkbox;
   box-sizing: border-box;
-  margin: 0px;
+  margin: 3px;
   border: 0px;
+  background: transparent;
   display: none;
 }
 
