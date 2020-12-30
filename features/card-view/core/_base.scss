@@ -1,18 +1,21 @@
-@import '../../../colors&typo/styles.scss';
-
 * {
     position: relative;
 }
 
-.card-view-component {
+& {
     background-color: white;
     padding: 14px 21px 18px 18px;
+    width: 555px; //#
+    left: 270px; //#
+    top: 90px; //#
+    position: absolute;
     border-radius: 4px;
 }
 
 .icon {
     display: flex;
     align-items: center;
+    border-radius: 4px;
 
     i {
         margin: 0 auto;
