@@ -200,6 +200,7 @@ a {
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
+  z-index: 100;
 }
 .dropdown-general .options div, .dropdown-select .options div, .dropdown-field .options div {
   cursor: pointer;
@@ -422,6 +423,7 @@ a {
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
+  z-index: 100;
 }
 .dropdown-general .options div, .dropdown-select .options div, .dropdown-field .options div {
   cursor: pointer;
@@ -637,6 +639,7 @@ a {
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
+  z-index: 100;
 }
 .dropdown-general .options div, .dropdown-field .options div, .dropdown-select .options div {
   cursor: pointer;

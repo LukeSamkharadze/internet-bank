@@ -78,6 +78,7 @@
     border-radius: $border-radius;
     background-color: $background-color;
     top: calc(#{$selected-height} + #{$options-gap});
+    z-index: 100;
 
     div {
       @include option-mixin($option-height);
