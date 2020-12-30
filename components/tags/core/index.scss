@@ -4,63 +4,75 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow:unset;
   min-width: 84px;
   min-height: 36px;
   max-width: 84px;
   max-height: 36px;
   border-radius: 4px;
   line-height: 17px;
-  @include text-style(14px);
-  box-sizing: border-box;
-  font-family: $rubik; /* will be included in mixin */
+  padding: 0px 5px;
+
+  span {
+    @include text-style(14px);
+    font-family: $rubik; /* will be included in mixin */
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
   i {
-    font-size: 16px; 
+    font-size: 16px;
     display: none;
   }
 }
 
 .tag:hover {
   justify-content: space-evenly;
+  cursor: context-menu;  
   i {
-    display: block;
+    display: inline-block;
+  }
+  i:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin tag-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  span,
+  i {
+    color: $text-color;
   }
 }
 
 .white-text-tag {
-  background-color: $secondary-1;
-  color: #ffffff;
+  @include tag-style($secondary-1, #ffffff);
 }
 .blue-text-tag {
-  background-color: rgba(77, 124, 254, 0.08);
-  color: $secondary-1;
+  @include tag-style(rgba(77, 124, 254, 0.08), $secondary-1);
 }
 .cyan-text-tag {
-  background-color: rgba(77, 124, 254, 0.08);
-  color: $secondary-4;
+  @include tag-style(rgba(77, 124, 254, 0.08), $secondary-4);
 }
 .green-text-tag {
-  background-color: rgba(109, 210, 48, 0.08);
-  color: $secondary-2;
+  @include tag-style(rgba(109, 210, 48, 0.08), $secondary-2);
 }
 .orange-text-tag {
-  background-color: rgba(255, 171, 43, 0.08);
-  color: $primary;
+  @include tag-style(rgba(255, 171, 43, 0.08), $primary);
 }
 .pink-text-tag {
-  background-color: rgba(254, 77, 151, 0.08);
-  color: $secondary-3;
+  @include tag-style(rgba(254, 77, 151, 0.08), $secondary-3);
 }
 .gray-text-tag {
-  background-color: rgba(119, 140, 162, 0.08);
-  color: $secondary-dark-1;
+  @include tag-style(rgba(119, 140, 162, 0.08), $secondary-dark-1);
 }
 
 .hover-tag {
   @extend .tag;
+  @extend .gray-text-tag;
   @include text-style(14px, $secondary-dark-1);
   font-family: $rubik; /* will be included in mixin */
-  @extend .gray-text-tag;
   justify-content: space-evenly;
   i {
     display: block;

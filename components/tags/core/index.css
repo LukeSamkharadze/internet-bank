@@ -150,21 +150,26 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: unset;
   min-width: 84px;
   min-height: 36px;
   max-width: 84px;
   max-height: 36px;
   border-radius: 4px;
   line-height: 17px;
+  padding: 0px 5px;
+}
+.tag span, .hover-tag span {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #252631;
   letter-spacing: 0.2px;
-  box-sizing: border-box;
   font-family: "Rubik", sans-serif;
   /* will be included in mixin */
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .tag i, .hover-tag i {
   font-size: 16px;
@@ -173,43 +178,69 @@ a {
 
 .tag:hover, .hover-tag:hover {
   justify-content: space-evenly;
+  cursor: context-menu;
 }
 .tag:hover i, .hover-tag:hover i {
-  display: block;
+  display: inline-block;
+}
+.tag:hover i:hover, .hover-tag:hover i:hover {
+  cursor: pointer;
 }
 
 .white-text-tag {
   background-color: #4D7CFE;
+}
+.white-text-tag span,
+.white-text-tag i {
   color: #ffffff;
 }
 
 .blue-text-tag {
   background-color: rgba(77, 124, 254, 0.08);
+}
+.blue-text-tag span,
+.blue-text-tag i {
   color: #4D7CFE;
 }
 
 .cyan-text-tag {
   background-color: rgba(77, 124, 254, 0.08);
+}
+.cyan-text-tag span,
+.cyan-text-tag i {
   color: #2CE5F6;
 }
 
 .green-text-tag {
   background-color: rgba(109, 210, 48, 0.08);
+}
+.green-text-tag span,
+.green-text-tag i {
   color: #6DD230;
 }
 
 .orange-text-tag {
   background-color: rgba(255, 171, 43, 0.08);
+}
+.orange-text-tag span,
+.orange-text-tag i {
   color: #FFAB2B;
 }
 
 .pink-text-tag {
   background-color: rgba(254, 77, 151, 0.08);
+}
+.pink-text-tag span,
+.pink-text-tag i {
   color: #FE4D97;
 }
 
 .gray-text-tag, .hover-tag {
   background-color: rgba(119, 140, 162, 0.08);
+}
+.gray-text-tag span, .hover-tag span,
+.gray-text-tag i,
+.hover-tag i {
   color: #778CA2;
 }
 
