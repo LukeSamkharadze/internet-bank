@@ -114,11 +114,605 @@ body .grid-progress-bar {
   width: 292px;
   height: 4px;
 }
-.progress .color {
-  width: 173px;
+.progress .color-1 {
   height: 4px;
   border-radius: 1px;
+  width: 2.92px;
+  background-color: #FE4D97;
+}
+.progress .color-2 {
+  height: 4px;
+  border-radius: 1px;
+  width: 5.84px;
+  background-color: #FE4D97;
+}
+.progress .color-3 {
+  height: 4px;
+  border-radius: 1px;
+  width: 8.76px;
+  background-color: #FE4D97;
+}
+.progress .color-4 {
+  height: 4px;
+  border-radius: 1px;
+  width: 11.68px;
+  background-color: #FE4D97;
+}
+.progress .color-5 {
+  height: 4px;
+  border-radius: 1px;
+  width: 14.6px;
+  background-color: #FE4D97;
+}
+.progress .color-6 {
+  height: 4px;
+  border-radius: 1px;
+  width: 17.52px;
+  background-color: #FE4D97;
+}
+.progress .color-7 {
+  height: 4px;
+  border-radius: 1px;
+  width: 20.44px;
+  background-color: #FE4D97;
+}
+.progress .color-8 {
+  height: 4px;
+  border-radius: 1px;
+  width: 23.36px;
+  background-color: #FE4D97;
+}
+.progress .color-9 {
+  height: 4px;
+  border-radius: 1px;
+  width: 26.28px;
+  background-color: #FE4D97;
+}
+.progress .color-10 {
+  height: 4px;
+  border-radius: 1px;
+  width: 29.2px;
+  background-color: #FE4D97;
+}
+.progress .color-11 {
+  height: 4px;
+  border-radius: 1px;
+  width: 32.12px;
+  background-color: #FE4D97;
+}
+.progress .color-12 {
+  height: 4px;
+  border-radius: 1px;
+  width: 35.04px;
+  background-color: #FE4D97;
+}
+.progress .color-13 {
+  height: 4px;
+  border-radius: 1px;
+  width: 37.96px;
+  background-color: #FE4D97;
+}
+.progress .color-14 {
+  height: 4px;
+  border-radius: 1px;
+  width: 40.88px;
+  background-color: #FE4D97;
+}
+.progress .color-15 {
+  height: 4px;
+  border-radius: 1px;
+  width: 43.8px;
+  background-color: #FE4D97;
+}
+.progress .color-16 {
+  height: 4px;
+  border-radius: 1px;
+  width: 46.72px;
+  background-color: #FE4D97;
+}
+.progress .color-17 {
+  height: 4px;
+  border-radius: 1px;
+  width: 49.64px;
+  background-color: #FE4D97;
+}
+.progress .color-18 {
+  height: 4px;
+  border-radius: 1px;
+  width: 52.56px;
+  background-color: #FE4D97;
+}
+.progress .color-19 {
+  height: 4px;
+  border-radius: 1px;
+  width: 55.48px;
+  background-color: #FE4D97;
+}
+.progress .color-20 {
+  height: 4px;
+  border-radius: 1px;
+  width: 58.4px;
+  background-color: #FE4D97;
+}
+.progress .color-21 {
+  height: 4px;
+  border-radius: 1px;
+  width: 61.32px;
+  background-color: #FE4D97;
+}
+.progress .color-22 {
+  height: 4px;
+  border-radius: 1px;
+  width: 64.24px;
+  background-color: #FE4D97;
+}
+.progress .color-23 {
+  height: 4px;
+  border-radius: 1px;
+  width: 67.16px;
+  background-color: #FE4D97;
+}
+.progress .color-24 {
+  height: 4px;
+  border-radius: 1px;
+  width: 70.08px;
+  background-color: #FE4D97;
+}
+.progress .color-25 {
+  height: 4px;
+  border-radius: 1px;
+  width: 73px;
+  background-color: #FE4D97;
+}
+.progress .color-26 {
+  height: 4px;
+  border-radius: 1px;
+  width: 75.92px;
   background-color: #FFAB2B;
+}
+.progress .color-27 {
+  height: 4px;
+  border-radius: 1px;
+  width: 78.84px;
+  background-color: #FFAB2B;
+}
+.progress .color-28 {
+  height: 4px;
+  border-radius: 1px;
+  width: 81.76px;
+  background-color: #FFAB2B;
+}
+.progress .color-29 {
+  height: 4px;
+  border-radius: 1px;
+  width: 84.68px;
+  background-color: #FFAB2B;
+}
+.progress .color-30 {
+  height: 4px;
+  border-radius: 1px;
+  width: 87.6px;
+  background-color: #FFAB2B;
+}
+.progress .color-31 {
+  height: 4px;
+  border-radius: 1px;
+  width: 90.52px;
+  background-color: #FFAB2B;
+}
+.progress .color-32 {
+  height: 4px;
+  border-radius: 1px;
+  width: 93.44px;
+  background-color: #FFAB2B;
+}
+.progress .color-33 {
+  height: 4px;
+  border-radius: 1px;
+  width: 96.36px;
+  background-color: #FFAB2B;
+}
+.progress .color-34 {
+  height: 4px;
+  border-radius: 1px;
+  width: 99.28px;
+  background-color: #FFAB2B;
+}
+.progress .color-35 {
+  height: 4px;
+  border-radius: 1px;
+  width: 102.2px;
+  background-color: #FFAB2B;
+}
+.progress .color-36 {
+  height: 4px;
+  border-radius: 1px;
+  width: 105.12px;
+  background-color: #FFAB2B;
+}
+.progress .color-37 {
+  height: 4px;
+  border-radius: 1px;
+  width: 108.04px;
+  background-color: #FFAB2B;
+}
+.progress .color-38 {
+  height: 4px;
+  border-radius: 1px;
+  width: 110.96px;
+  background-color: #FFAB2B;
+}
+.progress .color-39 {
+  height: 4px;
+  border-radius: 1px;
+  width: 113.88px;
+  background-color: #FFAB2B;
+}
+.progress .color-40 {
+  height: 4px;
+  border-radius: 1px;
+  width: 116.8px;
+  background-color: #FFAB2B;
+}
+.progress .color-41 {
+  height: 4px;
+  border-radius: 1px;
+  width: 119.72px;
+  background-color: #FFAB2B;
+}
+.progress .color-42 {
+  height: 4px;
+  border-radius: 1px;
+  width: 122.64px;
+  background-color: #FFAB2B;
+}
+.progress .color-43 {
+  height: 4px;
+  border-radius: 1px;
+  width: 125.56px;
+  background-color: #FFAB2B;
+}
+.progress .color-44 {
+  height: 4px;
+  border-radius: 1px;
+  width: 128.48px;
+  background-color: #FFAB2B;
+}
+.progress .color-45 {
+  height: 4px;
+  border-radius: 1px;
+  width: 131.4px;
+  background-color: #FFAB2B;
+}
+.progress .color-46 {
+  height: 4px;
+  border-radius: 1px;
+  width: 134.32px;
+  background-color: #FFAB2B;
+}
+.progress .color-47 {
+  height: 4px;
+  border-radius: 1px;
+  width: 137.24px;
+  background-color: #FFAB2B;
+}
+.progress .color-48 {
+  height: 4px;
+  border-radius: 1px;
+  width: 140.16px;
+  background-color: #FFAB2B;
+}
+.progress .color-49 {
+  height: 4px;
+  border-radius: 1px;
+  width: 143.08px;
+  background-color: #FFAB2B;
+}
+.progress .color-50 {
+  height: 4px;
+  border-radius: 1px;
+  width: 146px;
+  background-color: #FFAB2B;
+}
+.progress .color-51 {
+  height: 4px;
+  border-radius: 1px;
+  width: 148.92px;
+  background-color: #FFAB2B;
+}
+.progress .color-52 {
+  height: 4px;
+  border-radius: 1px;
+  width: 151.84px;
+  background-color: #FFAB2B;
+}
+.progress .color-53 {
+  height: 4px;
+  border-radius: 1px;
+  width: 154.76px;
+  background-color: #FFAB2B;
+}
+.progress .color-54 {
+  height: 4px;
+  border-radius: 1px;
+  width: 157.68px;
+  background-color: #FFAB2B;
+}
+.progress .color-55 {
+  height: 4px;
+  border-radius: 1px;
+  width: 160.6px;
+  background-color: #FFAB2B;
+}
+.progress .color-56 {
+  height: 4px;
+  border-radius: 1px;
+  width: 163.52px;
+  background-color: #FFAB2B;
+}
+.progress .color-57 {
+  height: 4px;
+  border-radius: 1px;
+  width: 166.44px;
+  background-color: #FFAB2B;
+}
+.progress .color-58 {
+  height: 4px;
+  border-radius: 1px;
+  width: 169.36px;
+  background-color: #FFAB2B;
+}
+.progress .color-59 {
+  height: 4px;
+  border-radius: 1px;
+  width: 172.28px;
+  background-color: #FFAB2B;
+}
+.progress .color-60 {
+  height: 4px;
+  border-radius: 1px;
+  width: 175.2px;
+  background-color: #FFAB2B;
+}
+.progress .color-61 {
+  height: 4px;
+  border-radius: 1px;
+  width: 178.12px;
+  background-color: #4D7CFE;
+}
+.progress .color-62 {
+  height: 4px;
+  border-radius: 1px;
+  width: 181.04px;
+  background-color: #4D7CFE;
+}
+.progress .color-63 {
+  height: 4px;
+  border-radius: 1px;
+  width: 183.96px;
+  background-color: #4D7CFE;
+}
+.progress .color-64 {
+  height: 4px;
+  border-radius: 1px;
+  width: 186.88px;
+  background-color: #4D7CFE;
+}
+.progress .color-65 {
+  height: 4px;
+  border-radius: 1px;
+  width: 189.8px;
+  background-color: #4D7CFE;
+}
+.progress .color-66 {
+  height: 4px;
+  border-radius: 1px;
+  width: 192.72px;
+  background-color: #4D7CFE;
+}
+.progress .color-67 {
+  height: 4px;
+  border-radius: 1px;
+  width: 195.64px;
+  background-color: #4D7CFE;
+}
+.progress .color-68 {
+  height: 4px;
+  border-radius: 1px;
+  width: 198.56px;
+  background-color: #4D7CFE;
+}
+.progress .color-69 {
+  height: 4px;
+  border-radius: 1px;
+  width: 201.48px;
+  background-color: #4D7CFE;
+}
+.progress .color-70 {
+  height: 4px;
+  border-radius: 1px;
+  width: 204.4px;
+  background-color: #4D7CFE;
+}
+.progress .color-71 {
+  height: 4px;
+  border-radius: 1px;
+  width: 207.32px;
+  background-color: #4D7CFE;
+}
+.progress .color-72 {
+  height: 4px;
+  border-radius: 1px;
+  width: 210.24px;
+  background-color: #4D7CFE;
+}
+.progress .color-73 {
+  height: 4px;
+  border-radius: 1px;
+  width: 213.16px;
+  background-color: #4D7CFE;
+}
+.progress .color-74 {
+  height: 4px;
+  border-radius: 1px;
+  width: 216.08px;
+  background-color: #4D7CFE;
+}
+.progress .color-75 {
+  height: 4px;
+  border-radius: 1px;
+  width: 219px;
+  background-color: #4D7CFE;
+}
+.progress .color-76 {
+  height: 4px;
+  border-radius: 1px;
+  width: 221.92px;
+  background-color: #4D7CFE;
+}
+.progress .color-77 {
+  height: 4px;
+  border-radius: 1px;
+  width: 224.84px;
+  background-color: #4D7CFE;
+}
+.progress .color-78 {
+  height: 4px;
+  border-radius: 1px;
+  width: 227.76px;
+  background-color: #4D7CFE;
+}
+.progress .color-79 {
+  height: 4px;
+  border-radius: 1px;
+  width: 230.68px;
+  background-color: #4D7CFE;
+}
+.progress .color-80 {
+  height: 4px;
+  border-radius: 1px;
+  width: 233.6px;
+  background-color: #4D7CFE;
+}
+.progress .color-81 {
+  height: 4px;
+  border-radius: 1px;
+  width: 236.52px;
+  background-color: #6DD230;
+}
+.progress .color-82 {
+  height: 4px;
+  border-radius: 1px;
+  width: 239.44px;
+  background-color: #6DD230;
+}
+.progress .color-83 {
+  height: 4px;
+  border-radius: 1px;
+  width: 242.36px;
+  background-color: #6DD230;
+}
+.progress .color-84 {
+  height: 4px;
+  border-radius: 1px;
+  width: 245.28px;
+  background-color: #6DD230;
+}
+.progress .color-85 {
+  height: 4px;
+  border-radius: 1px;
+  width: 248.2px;
+  background-color: #6DD230;
+}
+.progress .color-86 {
+  height: 4px;
+  border-radius: 1px;
+  width: 251.12px;
+  background-color: #6DD230;
+}
+.progress .color-87 {
+  height: 4px;
+  border-radius: 1px;
+  width: 254.04px;
+  background-color: #6DD230;
+}
+.progress .color-88 {
+  height: 4px;
+  border-radius: 1px;
+  width: 256.96px;
+  background-color: #6DD230;
+}
+.progress .color-89 {
+  height: 4px;
+  border-radius: 1px;
+  width: 259.88px;
+  background-color: #6DD230;
+}
+.progress .color-90 {
+  height: 4px;
+  border-radius: 1px;
+  width: 262.8px;
+  background-color: #6DD230;
+}
+.progress .color-91 {
+  height: 4px;
+  border-radius: 1px;
+  width: 265.72px;
+  background-color: #6DD230;
+}
+.progress .color-92 {
+  height: 4px;
+  border-radius: 1px;
+  width: 268.64px;
+  background-color: #6DD230;
+}
+.progress .color-93 {
+  height: 4px;
+  border-radius: 1px;
+  width: 271.56px;
+  background-color: #6DD230;
+}
+.progress .color-94 {
+  height: 4px;
+  border-radius: 1px;
+  width: 274.48px;
+  background-color: #6DD230;
+}
+.progress .color-95 {
+  height: 4px;
+  border-radius: 1px;
+  width: 277.4px;
+  background-color: #6DD230;
+}
+.progress .color-96 {
+  height: 4px;
+  border-radius: 1px;
+  width: 280.32px;
+  background-color: #6DD230;
+}
+.progress .color-97 {
+  height: 4px;
+  border-radius: 1px;
+  width: 283.24px;
+  background-color: #6DD230;
+}
+.progress .color-98 {
+  height: 4px;
+  border-radius: 1px;
+  width: 286.16px;
+  background-color: #6DD230;
+}
+.progress .color-99 {
+  height: 4px;
+  border-radius: 1px;
+  width: 289.08px;
+  background-color: #6DD230;
+}
+.progress .color-100 {
+  height: 4px;
+  border-radius: 1px;
+  width: 292px;
+  background-color: #6DD230;
 }
 
 .progress {
@@ -126,29 +720,605 @@ body .grid-progress-bar {
   width: 455px;
   height: 6px;
 }
-.progress .orange {
-  width: 269.47px;
+.progress .color-1 {
   height: 6px;
   border-radius: 1px;
-  background-color: #FFAB2B;
-}
-.progress .pink {
-  width: 101.6px;
-  height: 6px;
-  border-radius: 1px;
+  width: 4.55px;
   background-color: #FE4D97;
 }
-.progress .green {
-  width: 379.9px;
+.progress .color-2 {
   height: 6px;
   border-radius: 1px;
+  width: 9.1px;
+  background-color: #FE4D97;
+}
+.progress .color-3 {
+  height: 6px;
+  border-radius: 1px;
+  width: 13.65px;
+  background-color: #FE4D97;
+}
+.progress .color-4 {
+  height: 6px;
+  border-radius: 1px;
+  width: 18.2px;
+  background-color: #FE4D97;
+}
+.progress .color-5 {
+  height: 6px;
+  border-radius: 1px;
+  width: 22.75px;
+  background-color: #FE4D97;
+}
+.progress .color-6 {
+  height: 6px;
+  border-radius: 1px;
+  width: 27.3px;
+  background-color: #FE4D97;
+}
+.progress .color-7 {
+  height: 6px;
+  border-radius: 1px;
+  width: 31.85px;
+  background-color: #FE4D97;
+}
+.progress .color-8 {
+  height: 6px;
+  border-radius: 1px;
+  width: 36.4px;
+  background-color: #FE4D97;
+}
+.progress .color-9 {
+  height: 6px;
+  border-radius: 1px;
+  width: 40.95px;
+  background-color: #FE4D97;
+}
+.progress .color-10 {
+  height: 6px;
+  border-radius: 1px;
+  width: 45.5px;
+  background-color: #FE4D97;
+}
+.progress .color-11 {
+  height: 6px;
+  border-radius: 1px;
+  width: 50.05px;
+  background-color: #FE4D97;
+}
+.progress .color-12 {
+  height: 6px;
+  border-radius: 1px;
+  width: 54.6px;
+  background-color: #FE4D97;
+}
+.progress .color-13 {
+  height: 6px;
+  border-radius: 1px;
+  width: 59.15px;
+  background-color: #FE4D97;
+}
+.progress .color-14 {
+  height: 6px;
+  border-radius: 1px;
+  width: 63.7px;
+  background-color: #FE4D97;
+}
+.progress .color-15 {
+  height: 6px;
+  border-radius: 1px;
+  width: 68.25px;
+  background-color: #FE4D97;
+}
+.progress .color-16 {
+  height: 6px;
+  border-radius: 1px;
+  width: 72.8px;
+  background-color: #FE4D97;
+}
+.progress .color-17 {
+  height: 6px;
+  border-radius: 1px;
+  width: 77.35px;
+  background-color: #FE4D97;
+}
+.progress .color-18 {
+  height: 6px;
+  border-radius: 1px;
+  width: 81.9px;
+  background-color: #FE4D97;
+}
+.progress .color-19 {
+  height: 6px;
+  border-radius: 1px;
+  width: 86.45px;
+  background-color: #FE4D97;
+}
+.progress .color-20 {
+  height: 6px;
+  border-radius: 1px;
+  width: 91px;
+  background-color: #FE4D97;
+}
+.progress .color-21 {
+  height: 6px;
+  border-radius: 1px;
+  width: 95.55px;
+  background-color: #FE4D97;
+}
+.progress .color-22 {
+  height: 6px;
+  border-radius: 1px;
+  width: 100.1px;
+  background-color: #FE4D97;
+}
+.progress .color-23 {
+  height: 6px;
+  border-radius: 1px;
+  width: 104.65px;
+  background-color: #FE4D97;
+}
+.progress .color-24 {
+  height: 6px;
+  border-radius: 1px;
+  width: 109.2px;
+  background-color: #FE4D97;
+}
+.progress .color-25 {
+  height: 6px;
+  border-radius: 1px;
+  width: 113.75px;
+  background-color: #FE4D97;
+}
+.progress .color-26 {
+  height: 6px;
+  border-radius: 1px;
+  width: 118.3px;
+  background-color: #FFAB2B;
+}
+.progress .color-27 {
+  height: 6px;
+  border-radius: 1px;
+  width: 122.85px;
+  background-color: #FFAB2B;
+}
+.progress .color-28 {
+  height: 6px;
+  border-radius: 1px;
+  width: 127.4px;
+  background-color: #FFAB2B;
+}
+.progress .color-29 {
+  height: 6px;
+  border-radius: 1px;
+  width: 131.95px;
+  background-color: #FFAB2B;
+}
+.progress .color-30 {
+  height: 6px;
+  border-radius: 1px;
+  width: 136.5px;
+  background-color: #FFAB2B;
+}
+.progress .color-31 {
+  height: 6px;
+  border-radius: 1px;
+  width: 141.05px;
+  background-color: #FFAB2B;
+}
+.progress .color-32 {
+  height: 6px;
+  border-radius: 1px;
+  width: 145.6px;
+  background-color: #FFAB2B;
+}
+.progress .color-33 {
+  height: 6px;
+  border-radius: 1px;
+  width: 150.15px;
+  background-color: #FFAB2B;
+}
+.progress .color-34 {
+  height: 6px;
+  border-radius: 1px;
+  width: 154.7px;
+  background-color: #FFAB2B;
+}
+.progress .color-35 {
+  height: 6px;
+  border-radius: 1px;
+  width: 159.25px;
+  background-color: #FFAB2B;
+}
+.progress .color-36 {
+  height: 6px;
+  border-radius: 1px;
+  width: 163.8px;
+  background-color: #FFAB2B;
+}
+.progress .color-37 {
+  height: 6px;
+  border-radius: 1px;
+  width: 168.35px;
+  background-color: #FFAB2B;
+}
+.progress .color-38 {
+  height: 6px;
+  border-radius: 1px;
+  width: 172.9px;
+  background-color: #FFAB2B;
+}
+.progress .color-39 {
+  height: 6px;
+  border-radius: 1px;
+  width: 177.45px;
+  background-color: #FFAB2B;
+}
+.progress .color-40 {
+  height: 6px;
+  border-radius: 1px;
+  width: 182px;
+  background-color: #FFAB2B;
+}
+.progress .color-41 {
+  height: 6px;
+  border-radius: 1px;
+  width: 186.55px;
+  background-color: #FFAB2B;
+}
+.progress .color-42 {
+  height: 6px;
+  border-radius: 1px;
+  width: 191.1px;
+  background-color: #FFAB2B;
+}
+.progress .color-43 {
+  height: 6px;
+  border-radius: 1px;
+  width: 195.65px;
+  background-color: #FFAB2B;
+}
+.progress .color-44 {
+  height: 6px;
+  border-radius: 1px;
+  width: 200.2px;
+  background-color: #FFAB2B;
+}
+.progress .color-45 {
+  height: 6px;
+  border-radius: 1px;
+  width: 204.75px;
+  background-color: #FFAB2B;
+}
+.progress .color-46 {
+  height: 6px;
+  border-radius: 1px;
+  width: 209.3px;
+  background-color: #FFAB2B;
+}
+.progress .color-47 {
+  height: 6px;
+  border-radius: 1px;
+  width: 213.85px;
+  background-color: #FFAB2B;
+}
+.progress .color-48 {
+  height: 6px;
+  border-radius: 1px;
+  width: 218.4px;
+  background-color: #FFAB2B;
+}
+.progress .color-49 {
+  height: 6px;
+  border-radius: 1px;
+  width: 222.95px;
+  background-color: #FFAB2B;
+}
+.progress .color-50 {
+  height: 6px;
+  border-radius: 1px;
+  width: 227.5px;
+  background-color: #FFAB2B;
+}
+.progress .color-51 {
+  height: 6px;
+  border-radius: 1px;
+  width: 232.05px;
+  background-color: #FFAB2B;
+}
+.progress .color-52 {
+  height: 6px;
+  border-radius: 1px;
+  width: 236.6px;
+  background-color: #FFAB2B;
+}
+.progress .color-53 {
+  height: 6px;
+  border-radius: 1px;
+  width: 241.15px;
+  background-color: #FFAB2B;
+}
+.progress .color-54 {
+  height: 6px;
+  border-radius: 1px;
+  width: 245.7px;
+  background-color: #FFAB2B;
+}
+.progress .color-55 {
+  height: 6px;
+  border-radius: 1px;
+  width: 250.25px;
+  background-color: #FFAB2B;
+}
+.progress .color-56 {
+  height: 6px;
+  border-radius: 1px;
+  width: 254.8px;
+  background-color: #FFAB2B;
+}
+.progress .color-57 {
+  height: 6px;
+  border-radius: 1px;
+  width: 259.35px;
+  background-color: #FFAB2B;
+}
+.progress .color-58 {
+  height: 6px;
+  border-radius: 1px;
+  width: 263.9px;
+  background-color: #FFAB2B;
+}
+.progress .color-59 {
+  height: 6px;
+  border-radius: 1px;
+  width: 268.45px;
+  background-color: #FFAB2B;
+}
+.progress .color-60 {
+  height: 6px;
+  border-radius: 1px;
+  width: 273px;
+  background-color: #FFAB2B;
+}
+.progress .color-61 {
+  height: 6px;
+  border-radius: 1px;
+  width: 277.55px;
+  background-color: #4D7CFE;
+}
+.progress .color-62 {
+  height: 6px;
+  border-radius: 1px;
+  width: 282.1px;
+  background-color: #4D7CFE;
+}
+.progress .color-63 {
+  height: 6px;
+  border-radius: 1px;
+  width: 286.65px;
+  background-color: #4D7CFE;
+}
+.progress .color-64 {
+  height: 6px;
+  border-radius: 1px;
+  width: 291.2px;
+  background-color: #4D7CFE;
+}
+.progress .color-65 {
+  height: 6px;
+  border-radius: 1px;
+  width: 295.75px;
+  background-color: #4D7CFE;
+}
+.progress .color-66 {
+  height: 6px;
+  border-radius: 1px;
+  width: 300.3px;
+  background-color: #4D7CFE;
+}
+.progress .color-67 {
+  height: 6px;
+  border-radius: 1px;
+  width: 304.85px;
+  background-color: #4D7CFE;
+}
+.progress .color-68 {
+  height: 6px;
+  border-radius: 1px;
+  width: 309.4px;
+  background-color: #4D7CFE;
+}
+.progress .color-69 {
+  height: 6px;
+  border-radius: 1px;
+  width: 313.95px;
+  background-color: #4D7CFE;
+}
+.progress .color-70 {
+  height: 6px;
+  border-radius: 1px;
+  width: 318.5px;
+  background-color: #4D7CFE;
+}
+.progress .color-71 {
+  height: 6px;
+  border-radius: 1px;
+  width: 323.05px;
+  background-color: #4D7CFE;
+}
+.progress .color-72 {
+  height: 6px;
+  border-radius: 1px;
+  width: 327.6px;
+  background-color: #4D7CFE;
+}
+.progress .color-73 {
+  height: 6px;
+  border-radius: 1px;
+  width: 332.15px;
+  background-color: #4D7CFE;
+}
+.progress .color-74 {
+  height: 6px;
+  border-radius: 1px;
+  width: 336.7px;
+  background-color: #4D7CFE;
+}
+.progress .color-75 {
+  height: 6px;
+  border-radius: 1px;
+  width: 341.25px;
+  background-color: #4D7CFE;
+}
+.progress .color-76 {
+  height: 6px;
+  border-radius: 1px;
+  width: 345.8px;
+  background-color: #4D7CFE;
+}
+.progress .color-77 {
+  height: 6px;
+  border-radius: 1px;
+  width: 350.35px;
+  background-color: #4D7CFE;
+}
+.progress .color-78 {
+  height: 6px;
+  border-radius: 1px;
+  width: 354.9px;
+  background-color: #4D7CFE;
+}
+.progress .color-79 {
+  height: 6px;
+  border-radius: 1px;
+  width: 359.45px;
+  background-color: #4D7CFE;
+}
+.progress .color-80 {
+  height: 6px;
+  border-radius: 1px;
+  width: 364px;
+  background-color: #4D7CFE;
+}
+.progress .color-81 {
+  height: 6px;
+  border-radius: 1px;
+  width: 368.55px;
   background-color: #6DD230;
 }
-.progress .blue {
-  width: 362.23px;
+.progress .color-82 {
   height: 6px;
   border-radius: 1px;
-  background-color: #4D7CFE;
+  width: 373.1px;
+  background-color: #6DD230;
+}
+.progress .color-83 {
+  height: 6px;
+  border-radius: 1px;
+  width: 377.65px;
+  background-color: #6DD230;
+}
+.progress .color-84 {
+  height: 6px;
+  border-radius: 1px;
+  width: 382.2px;
+  background-color: #6DD230;
+}
+.progress .color-85 {
+  height: 6px;
+  border-radius: 1px;
+  width: 386.75px;
+  background-color: #6DD230;
+}
+.progress .color-86 {
+  height: 6px;
+  border-radius: 1px;
+  width: 391.3px;
+  background-color: #6DD230;
+}
+.progress .color-87 {
+  height: 6px;
+  border-radius: 1px;
+  width: 395.85px;
+  background-color: #6DD230;
+}
+.progress .color-88 {
+  height: 6px;
+  border-radius: 1px;
+  width: 400.4px;
+  background-color: #6DD230;
+}
+.progress .color-89 {
+  height: 6px;
+  border-radius: 1px;
+  width: 404.95px;
+  background-color: #6DD230;
+}
+.progress .color-90 {
+  height: 6px;
+  border-radius: 1px;
+  width: 409.5px;
+  background-color: #6DD230;
+}
+.progress .color-91 {
+  height: 6px;
+  border-radius: 1px;
+  width: 414.05px;
+  background-color: #6DD230;
+}
+.progress .color-92 {
+  height: 6px;
+  border-radius: 1px;
+  width: 418.6px;
+  background-color: #6DD230;
+}
+.progress .color-93 {
+  height: 6px;
+  border-radius: 1px;
+  width: 423.15px;
+  background-color: #6DD230;
+}
+.progress .color-94 {
+  height: 6px;
+  border-radius: 1px;
+  width: 427.7px;
+  background-color: #6DD230;
+}
+.progress .color-95 {
+  height: 6px;
+  border-radius: 1px;
+  width: 432.25px;
+  background-color: #6DD230;
+}
+.progress .color-96 {
+  height: 6px;
+  border-radius: 1px;
+  width: 436.8px;
+  background-color: #6DD230;
+}
+.progress .color-97 {
+  height: 6px;
+  border-radius: 1px;
+  width: 441.35px;
+  background-color: #6DD230;
+}
+.progress .color-98 {
+  height: 6px;
+  border-radius: 1px;
+  width: 445.9px;
+  background-color: #6DD230;
+}
+.progress .color-99 {
+  height: 6px;
+  border-radius: 1px;
+  width: 450.45px;
+  background-color: #6DD230;
+}
+.progress .color-100 {
+  height: 6px;
+  border-radius: 1px;
+  width: 455px;
+  background-color: #6DD230;
 }
 
 /*# sourceMappingURL=index.css.map */
