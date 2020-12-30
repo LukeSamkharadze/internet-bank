@@ -257,11 +257,4 @@ a {
   padding: 0 17px 10px 17px;
 }
 
-body {
-  display: flex;
-  flex-direction: row;
-  margin: 100px 0px 0px 100px;
-  gap: 30px;
-}
-
 /*# sourceMappingURL=index.css.map */
