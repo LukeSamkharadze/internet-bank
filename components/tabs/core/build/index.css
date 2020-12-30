@@ -146,7 +146,7 @@ a p {
   display: none;
 }
 
-#text1, #text2, #text3 {
+.paragraph {
   position: absolute;
   display: none;
   top: 82px;
@@ -154,15 +154,7 @@ a p {
   left: 20px;
 }
 
-#tab1:active #text1 {
-  display: block;
-}
-
-#tab2:active #text2 {
-  display: block;
-}
-
-#tab3:active #text3 {
+.tabelement:active .paragraph {
   display: block;
 }
 

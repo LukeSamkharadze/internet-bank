@@ -46,7 +46,7 @@ a{
     
 }
 
-#text1,#text2,#text3 {
+.paragraph {
     position: absolute;
     display: none;
     top:82px;
@@ -54,16 +54,9 @@ a{
     left:20px;
 }
 
-#tab1:active #text1{
+.tabelement:active .paragraph{
     display: block;
 } 
-#tab2:active #text2{
-    display: block;
-} 
-#tab3:active #text3{
-    display: block;
-} 
-    
-   
+
 
 
