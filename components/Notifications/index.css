@@ -415,7 +415,7 @@ a {
 
 .allNotifications {
   display: grid;
-  grid-template-columns: 300px;
+  grid-template-columns: 555px;
   margin-left: 150px;
   grid-gap: 13px;
 }
