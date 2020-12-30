@@ -1,47 +1,52 @@
 @import"../../colors&typo/styles.scss";
+@import"../../components/buttons/core/index.scss";
 
-*{
-    box-sizing: border-box;
-}
-.bottom-line{
-    border-bottom: 1px solid $outline;
-    padding-bottom: 6.5px;
-    margin-bottom: 21px;
-    margin-top: 25px;
-}
 
-.payment-limits{
-    max-width: 870px;
-    padding: 18px 0px 0px 24px;
 
-    &>h5{
-        margin-bottom: 27px;
-    }
-    .payment-box{
-        max-width: 699px;
-    .cash-withdrawals{
-        
-        display: flex;
-        justify-content: space-between;
+    
+    .payment-wrap{
+        padding: 18px 0px 0px 24px;
+        max-width: 870px;
+        .payment-box{
+            max-width: 699px;
+            margin-top: 27px;
 
-        .current-limit{
-            &>p{
-                margin-bottom: 13px;
-            }
-            p{
-                color: $primary-dark;
-            }
-            width: 48%;
-            .payment-changer{
-                padding-left: 16px;
+            .payment-section{
+                margin-bottom: 31px;
                 
-                height: 52px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                border: 1px solid $outline;
-                border-radius: 4px;
-                .payment-plusMinus{
+                &>p:first-of-type{
+                    padding-bottom: 4px;
+                    border-bottom: 1px solid $outline;
+                    margin-bottom: 21px;
+                    margin-left: -1px;
+                }
+                &:not(:first-of-type){
+                    &>p:first-of-type{
+                        margin-bottom: 23px;
+                    }
+                }
+                .limits-spendings{
+                    display: flex;
+                    justify-content: space-between;
+                    
+                    .limits-wrap{
+                        width: 48.2%;
+                        &>p:first-of-type{
+                            color: $primary-dark;
+                        }
+                        .limits-current{ 
+                            margin-top: 11px;
+                            height: 52px;
+                            border: 1px solid $outline;
+                            border-radius: 4px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding-left: 15px;
+                            p{
+                                color: $primary-dark;
+                            }
+                            .limits-plusMinus{
                     margin-right: 15px;
                     display: flex;
                     font-size: 18px;
@@ -49,73 +54,51 @@
                     .plusMinus{
                         cursor: pointer;
                         &:first-of-type{
-                            margin-right: 5px;
+                            margin-right: 4px;
+                        }
+
+                            }
+                        }
+                    }
+                    }
+                    .spendings-wrap{
+                        @extend .limits-wrap;
+
+                        .spendings-header{
+                            display: flex;
+                            justify-content: space-between;
+                            p{
+                                color: $primary-dark;
+                                &:last-of-type{
+                                    font-weight: 500;
+                                    margin-right: 2px
+                                }
+                            }
+                            
+                        
+                        }
+                        .spendings-current{
+                            @extend .limits-current;
+                            background-color: $background-2;
+                            border: none;
+                            // daamate bar
                         }
                     }
                 }
+                
             }
         }
-        .spendings-wrap{
-            width: 48%;
-            
-            p{
-                margin-bottom: 14px;
-                color: $primary-dark;
-                &:last-child{
-                    font-weight: 500;
-                }
-            }
-            .spendings-header{
-                display: flex;
-                justify-content: space-between;
-            }
-            .spendings-bottom{
-                height: 52px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid $outline;
-                border-radius: 4px;
-                background-color: $background-2;
-            .spendings-chart{
-                position: relative;
-                width: 292px;
-                height: 4px;
-                background-color: $background-1;
-                &::after{
-                    content: "";
-                    position: absolute;
-                    width: 60%;
-                    height: 100%;
-                    background-color: $primary;
-                    border-radius: 2px;
-                }
-            }
-        }
-        }
-    }
-    }
-    .payments-footer{
-        margin-top: 125px;
-        .payment-button{
-            height: 46px;
-            border: none;
-            border-radius: 4px;
-        }
-        .cancle{
-            width: 148px;
-            background-color: $background-1;
-            margin-left: 10px;
-            color: $secondary-dark-1;
-            letter-spacing: 1.4px;
-        }
-        .update{
-            width: 206px;
-            background-color: $primary;
-            color: white;
-            letter-spacing: 1.4px;
-        }
-    }
-    
 
-}
+        .payment-buttons{
+            margin-top: 125px;
+            button{
+                
+            }
+            & :last-child{
+                background-color:$background-1;
+                width: 148px;
+                margin-left: 9px;
+                color: $secondary-dark-1;
+            }
+        }    
+    }
