@@ -1,0 +1,11 @@
+$secondary-4-hover: #2CDBEC;
+
+.light-blue {
+    @extend .btn-schema;
+    color: white;
+    background-color: $secondary-4;
+        
+    &:hover {
+        background-color: $secondary-4-hover;
+    }
+}
