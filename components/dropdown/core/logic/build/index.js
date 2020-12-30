@@ -36,36 +36,45 @@ function optionClicked(selected, html_select) {
         }
     (_d = (_c = this.parentNode) === null || _c === void 0 ? void 0 : _c.previousSibling) === null || _d === void 0 ? void 0 : _d.click();
 }
-function getSelectedDiv(html_select) {
+function createSelectedDiv(html_select) {
     let selected = document.createElement("div");
     selected.setAttribute("class", "selected placeholder");
     selected.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
     return selected;
 }
-function getOptionDiv(html_option) {
+function createOptionDiv(html_option) {
     let optionDiv = document.createElement("div");
     optionDiv.innerHTML = html_option.innerHTML;
     return optionDiv;
 }
-function getOptionsDiv(html_select, selected) {
+function createOptionsDiv(html_select, selected) {
     let options = document.createElement("div");
     options.setAttribute("class", "options display-none");
     for (let html_option of Array.from(html_select.options).slice(1)) {
-        let option = getOptionDiv(html_option);
+        let option = createOptionDiv(html_option);
         option.addEventListener("click", optionClicked.bind(option, selected, html_select));
         options.appendChild(option);
     }
     return options;
 }
+function getDropdowns() {
+    let dropdownClasses = ["dropdown-general", "dropdown-select", "dropdown-field"];
+    let dropdowns = [];
+    for (let dropdown of document.querySelectorAll("*"))
+        if (dropdownClasses.some(o => dropdown.classList.contains(o)))
+            dropdowns.push(dropdown);
+    return dropdowns;
+}
 function main() {
-    for (let select of document.getElementsByClassName("dropdown-general")) {
-        let html_select = select.getElementsByTagName("select")[0];
+    let dropdowns = getDropdowns();
+    for (let dropdown of dropdowns) {
+        let html_select = dropdown.getElementsByTagName("select")[0];
         if (html_select === undefined)
             continue;
-        let selected = getSelectedDiv(html_select);
-        let options = getOptionsDiv(html_select, selected);
-        select.appendChild(selected);
-        select.appendChild(options);
+        let selected = createSelectedDiv(html_select);
+        let options = createOptionsDiv(html_select, selected);
+        dropdown.appendChild(selected);
+        dropdown.appendChild(options);
         selected.addEventListener("click", selectedClicked);
     }
     document.addEventListener("click", closeAllSelect);

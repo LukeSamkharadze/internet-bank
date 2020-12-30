@@ -5,7 +5,7 @@ interface ChildNode {
 }
 
 function closeAllSelect(element: any): void {
-  if((<HTMLInputElement>document.getElementById("dropdown-debug"))?.checked)
+  if ((<HTMLInputElement>document.getElementById("dropdown-debug"))?.checked)
     return;
 
   let selecteds = document.getElementsByClassName("selected");
@@ -26,7 +26,7 @@ function closeAllSelect(element: any): void {
 
 function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
   mouseEvent.stopPropagation();
-  
+
   if (this.parentElement?.classList.contains("dropdown-disabled"))
     return;
 
@@ -35,7 +35,7 @@ function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
   this.classList.toggle("arrow-active");
 }
 
-function optionClicked(this: HTMLDivElement, selected: HTMLDivElement, html_select: HTMLSelectElement) {
+function optionClicked(this: HTMLDivElement, selected: HTMLDivElement, html_select: HTMLSelectElement): void {
   selected.classList.remove("placeholder")
 
   for (let i = 0; i < html_select.length; i++)
@@ -51,25 +51,25 @@ function optionClicked(this: HTMLDivElement, selected: HTMLDivElement, html_sele
   this.parentNode?.previousSibling?.click();
 }
 
-function getSelectedDiv(html_select: HTMLSelectElement) {
+function createSelectedDiv(html_select: HTMLSelectElement): HTMLDivElement {
   let selected = document.createElement("div");
   selected.setAttribute("class", "selected placeholder");
   selected.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
   return selected;
 }
 
-function getOptionDiv(html_option: HTMLOptionElement) {
+function createOptionDiv(html_option: HTMLOptionElement): HTMLDivElement {
   let optionDiv = document.createElement("div");
   optionDiv.innerHTML = html_option.innerHTML;
   return optionDiv;
 }
 
-function getOptionsDiv(html_select: HTMLSelectElement, selected: HTMLDivElement) {
+function createOptionsDiv(html_select: HTMLSelectElement, selected: HTMLDivElement): HTMLDivElement {
   let options = document.createElement("div");
   options.setAttribute("class", "options display-none");
 
   for (let html_option of Array.from(html_select.options).slice(1)) {
-    let option = getOptionDiv(html_option);
+    let option = createOptionDiv(html_option);
     option.addEventListener("click", optionClicked.bind(option, selected, html_select));
     options.appendChild(option);
   }
@@ -77,17 +77,30 @@ function getOptionsDiv(html_select: HTMLSelectElement, selected: HTMLDivElement)
   return options;
 }
 
+function getDropdowns(): Element[] {
+  let dropdownClasses = ["dropdown-general", "dropdown-select", "dropdown-field"]
+  let dropdowns: Element[] = [];
+
+  for (let dropdown of document.querySelectorAll("*"))
+    if (dropdownClasses.some(o => dropdown.classList.contains(o)))
+      dropdowns.push(dropdown);
+
+  return dropdowns;
+}
+
 function main() {
-  for (let select of document.getElementsByClassName("dropdown-general")) {
-    let html_select = select.getElementsByTagName("select")[0];
+  let dropdowns = getDropdowns();
+
+  for (let dropdown of dropdowns) {
+    let html_select = dropdown.getElementsByTagName("select")[0];
 
     if (html_select === undefined)
       continue;
 
-    let selected = getSelectedDiv(html_select);
-    let options = getOptionsDiv(html_select, selected);
-    select.appendChild(selected);
-    select.appendChild(options);
+    let selected = createSelectedDiv(html_select);
+    let options = createOptionsDiv(html_select, selected);
+    dropdown.appendChild(selected);
+    dropdown.appendChild(options);
 
     selected.addEventListener("click", selectedClicked);
   }
