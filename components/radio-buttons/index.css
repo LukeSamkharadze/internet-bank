@@ -153,7 +153,6 @@ a {
   font-size: 14px;
   font-weight: 300;
   color: #778CA2;
-  margin-bottom: 12px;
   line-height: 20px;
 }
 .radio-btn input {
@@ -244,6 +243,9 @@ section .radios {
 }
 section .radios > div {
   width: 31.5%;
+}
+section .radio-btn {
+  margin-bottom: 12px;
 }
 
 /*# sourceMappingURL=index.css.map */
