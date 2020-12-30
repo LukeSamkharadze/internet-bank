@@ -166,7 +166,7 @@ a {
   line-height: 35px;
 }
 
-.la-heart {
+.icon {
   position: absolute;
   top: 13px;
   left: 23px;
@@ -216,43 +216,6 @@ a {
 }
 .color-options .hover.light-blue {
   background-color: #2CDBEC;
-}
-
-body {
-  width: 1440px;
-}
-
-header {
-  border-bottom: 2px solid #F2F4F6;
-}
-header h1 {
-  margin: 64px auto 65px 150px;
-}
-
-.content {
-  width: 100%;
-  font-family: "Roboto", sans-serif;
-}
-.content .main {
-  width: 1141px;
-  margin: 0px auto;
-}
-.content .main .buttons {
-  width: 100%;
-  height: 133px;
-  border-top: 2px solid #F2F4F6;
-  margin-top: 91px;
-}
-.content .main .buttons h5 {
-  margin-top: 31px;
-  margin-bottom: 33px;
-}
-.content .main .buttons .btn {
-  margin-right: 27.5px;
-}
-.content .main .buttons .bottom {
-  margin-top: 24px;
-  height: 200px;
 }
 
 /*# sourceMappingURL=index.css.map */
