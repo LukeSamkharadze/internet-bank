@@ -150,13 +150,13 @@ a {
   background-color: #4D7CFE;
 }
 
-.each-notification {
+.notification {
   width: 555px;
   height: 64px;
   background-color: #4D7CFE;
   position: relative;
 }
-.each-notification p {
+.notification p {
   font-size: 16px;
   position: absolute;
   font-style: "Rubik", sans-serif;
@@ -168,13 +168,13 @@ a {
   top: 24px;
   left: 51px;
 }
-.each-notification :first-child {
+.notification :first-child {
   font-size: 24px;
   position: absolute;
   top: 20px;
   left: 15px;
 }
-.each-notification :last-child {
+.notification :last-child {
   font-size: 20px;
   user-select: none;
   cursor: pointer;
