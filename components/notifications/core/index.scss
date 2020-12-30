@@ -25,14 +25,12 @@
     }
     :first-child{
         font-size:24px;
-        // color:$background-2;
         position: absolute;
         top: 20px;
         left: 15px;
 
     }
     :last-child{
-        // color:$background-2;
         font-size:20px;
         user-select: none;
         cursor:pointer ;
