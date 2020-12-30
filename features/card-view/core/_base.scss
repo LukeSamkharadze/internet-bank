@@ -16,6 +16,8 @@
     display: flex;
     align-items: center;
     border-radius: 4px;
+    top: 0;
+    left: 0;
 
     i {
         margin: 0 auto;
@@ -89,6 +91,7 @@
     .icon {
         position: absolute;
         top: 9px;
+        left: auto;
         right: 6px;
         width: 48px;
         height: 32px;
@@ -149,7 +152,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 12px 0;
-        margin-right: 2px;
+        margin-right: 3px;
         margin-left: 5px;
     }
 
@@ -163,5 +166,14 @@
 
     .name {
         @include text-style(16px);
+    }
+}
+
+.buttons {
+    padding-top: 5px;
+
+    button {
+        width: 106.5px;
+        margin-right: 14px;
     }
 }
