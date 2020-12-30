@@ -1,0 +1,10 @@
+@import '../../../../colors&typo/styles.scss';
+
+.cumulative-deposit {
+    @import '../base';
+
+    .title .icon {
+        color: $primary;
+        background-color: rgba($color: $primary, $alpha: 0.1);
+    }
+}
