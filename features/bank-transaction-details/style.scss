@@ -1,5 +1,6 @@
 @import "../../colors&typo/base.scss";
 @import "../../colors&typo/styles.scss";
+@import '../../components/tags/index.scss';
 $trans-bg-color: #FFFFFF;
 .details-container {
     height: 100vh;
@@ -16,8 +17,10 @@ $trans-bg-color: #FFFFFF;
         display: grid;
         grid-template-rows: 148px auto;
         min-width: 360px;
+        background-color: white;
         .details-popup-upper {
-            background-color: rgba(221,32,49,0.7);
+            background-color: rgb(221,32,49);
+            opacity: 70%;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
             position: relative;
@@ -59,13 +62,6 @@ $trans-bg-color: #FFFFFF;
                 display: flex;
                 justify-content: center;
                 padding: 10px;
-                button {
-                    width:74px;
-                    height:34px;
-                    border:0px;
-                    background-color: rgba(109,210,48,0.08);
-                    color:#6DD230;
-                }
             }
             .details-popup-lower-transaction {
                 display: flex;
@@ -83,14 +79,21 @@ $trans-bg-color: #FFFFFF;
                     line-height: 21px;
                 }
                 p {
+                    @include text-style(14px, $secondary-dark-2);
                     padding-bottom: 6px;
+                    letter-spacing: 0.1px;
                 }
             }
             .details-popup-lower-transaction-amount {
                 text-align: right;
+                p {
+                    @include text-style(14px, $secondary-dark-2);
+                    letter-spacing: 0.1px;
+                }
                 #details-popup-lower-transaction-amount {
                     @include text-style(14px);
                     margin-bottom: -3px;
+                    font-weight: 500;
                 }
             }
             .details-popup-lower-receipt {

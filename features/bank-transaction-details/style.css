@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url(c:\Users\Administrator\Desktop\mobile-bank\angular-bootcamp-2020-internet-bank\node_modules\@fortawesome\fontawesome-free\css\all.css);
-@import url(c:\Users\Administrator\Desktop\mobile-bank\angular-bootcamp-2020-internet-bank\node_modules\line-awesome2\dist\css\line-awesome.min.css);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -161,6 +161,308 @@ a {
   text-align: right;
 }
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.tag, .hover-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: unset;
+      -ms-flex-positive: unset;
+          flex-grow: unset;
+  min-width: 84px;
+  min-height: 36px;
+  max-width: 84px;
+  max-height: 36px;
+  border-radius: 4px;
+  line-height: 17px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  /* will be included in mixin */
+}
+
+.tag i, .hover-tag i {
+  font-size: 16px;
+  display: none;
+}
+
+.tag:hover, .hover-tag:hover {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.tag:hover i, .hover-tag:hover i {
+  display: block;
+}
+
+.white-text-tag {
+  background-color: #4D7CFE;
+  color: #ffffff;
+}
+
+.blue-text-tag {
+  background-color: rgba(77, 124, 254, 0.08);
+  color: #4D7CFE;
+}
+
+.cyan-text-tag {
+  background-color: rgba(77, 124, 254, 0.08);
+  color: #2CE5F6;
+}
+
+.green-text-tag {
+  background-color: rgba(109, 210, 48, 0.08);
+  color: #6DD230;
+}
+
+.orange-text-tag {
+  background-color: rgba(255, 171, 43, 0.08);
+  color: #FFAB2B;
+}
+
+.pink-text-tag {
+  background-color: rgba(254, 77, 151, 0.08);
+  color: #FE4D97;
+}
+
+.gray-text-tag, .hover-tag {
+  background-color: rgba(119, 140, 162, 0.08);
+  color: #778CA2;
+}
+
+.hover-tag {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #778CA2;
+  letter-spacing: 0.2px;
+  font-family: "Rubik", sans-serif;
+  /* will be included in mixin */
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.hover-tag i {
+  display: block;
+}
+
+h1 {
+  height: 106px;
+  padding-left: 150px;
+  border-bottom: 1px solid #E8ECEF;
+  margin: 50px auto;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+.container {
+  width: 78%;
+  height: 123px;
+  border-top: 1px solid #E8ECEF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 82px auto;
+}
+
+.tags {
+  width: 88%;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
 .details-container {
   height: 100vh;
   width: 100%;
@@ -186,10 +488,12 @@ a {
   -ms-grid-rows: 148px auto;
       grid-template-rows: 148px auto;
   min-width: 360px;
+  background-color: white;
 }
 
 .details-container .details-popup .details-popup-upper {
-  background-color: rgba(221, 32, 49, 0.7);
+  background-color: #dd2031;
+  opacity: 70%;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   position: relative;
@@ -244,14 +548,6 @@ a {
   padding: 10px;
 }
 
-.details-container .details-popup .details-popup-lower .details-popup-lower-tag button {
-  width: 74px;
-  height: 34px;
-  border: 0px;
-  background-color: rgba(109, 210, 48, 0.08);
-  color: #6DD230;
-}
-
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -287,11 +583,26 @@ a {
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-account p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
   padding-bottom: 6px;
+  letter-spacing: 0.1px;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-amount {
   text-align: right;
+}
+
+.details-container .details-popup .details-popup-lower .details-popup-lower-transaction-amount p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-amount #details-popup-lower-transaction-amount {
@@ -301,6 +612,7 @@ a {
   color: #252631;
   letter-spacing: 0.2px;
   margin-bottom: -3px;
+  font-weight: 500;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-receipt {
