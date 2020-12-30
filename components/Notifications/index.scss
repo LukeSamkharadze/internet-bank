@@ -37,12 +37,13 @@
 }
 
 
-.distance{
-    margin-bottom:13px;
-    margin-left:150px;
-    
-}
 
+.allNotifications{
+    display:grid;
+    grid-template-columns:300px;
+    margin-left:150px;
+    grid-gap:13px;
+}
 
 
 

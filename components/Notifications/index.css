@@ -413,9 +413,11 @@ a {
   letter-spacing: 0.2px;
 }
 
-.distance {
-  margin-bottom: 13px;
+.allNotifications {
+  display: grid;
+  grid-template-columns: 300px;
   margin-left: 150px;
+  grid-gap: 13px;
 }
 
 /*# sourceMappingURL=index.css.map */
