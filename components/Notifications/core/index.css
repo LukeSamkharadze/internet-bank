@@ -183,6 +183,10 @@ a {
   left: 50px;
   font-style: "Rubik", sans-serif;
   font-weight: 500;
+  max-width: 460px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .primary-dark {

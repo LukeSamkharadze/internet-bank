@@ -40,6 +40,10 @@
     left: 50px;
     font-style: $rubik;
     font-weight:500;
+    max-width:460px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .primary-dark{
