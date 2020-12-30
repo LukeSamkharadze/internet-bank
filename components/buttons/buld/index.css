@@ -105,6 +105,7 @@ a {
   line-height: 49px;
   position: relative;
   outline: none;
+  cursor: pointer;
 }
 
 .primary .active {
