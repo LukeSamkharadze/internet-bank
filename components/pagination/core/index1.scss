@@ -6,18 +6,16 @@
   div {
     user-select: none;
     cursor:pointer ;
-  }
-    div {
-        display: flex;
-        // margin-left: 3px;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        font-family: $rubik ;
-    }
-    div:not(:first-child){
+    display: flex;
+    // margin-left: 3px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: $rubik ;
+    &:not(:first-child){
       margin-left: 3px;
     }
+  }
     .next {
         margin-left: 25px;
         color: $secondary-dark-1;
@@ -30,6 +28,11 @@
         margin-right: 23px;
         color: $secondary-dark-1;
       }
+      .pages {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+      }
 }
 
 
@@ -37,8 +40,4 @@
 
 
 
-.pages {
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-}
+

@@ -314,8 +314,6 @@ a {
 .paginations div {
   user-select: none;
   cursor: pointer;
-}
-.paginations div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -337,8 +335,7 @@ a {
   margin-right: 23px;
   color: #778CA2;
 }
-
-.pages {
+.paginations .pages {
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -644,8 +641,6 @@ a {
 .paginations div {
   user-select: none;
   cursor: pointer;
-}
-.paginations div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -667,8 +662,7 @@ a {
   margin-right: 23px;
   color: #778CA2;
 }
-
-.pages {
+.paginations .pages {
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -683,6 +677,9 @@ div:not(:first-child, :last-child) {
 }
 .pagination-two div:last-child {
   margin-left: 30px;
+}
+.pagination-two div:not(:first-child, :last-child) {
+  margin-left: 3px;
 }
 .pagination-two .active {
   background-color: white;
@@ -727,7 +724,7 @@ p {
 
 .secondary-header {
   font-size: 16px;
-  margin: 34px 0 31px 150px;
+  margin: 38px 0 33px 150px;
   color: #252631;
 }
 
@@ -741,7 +738,7 @@ p {
 }
 
 .pagination-two {
-  margin-left: 205px;
+  margin-left: 208px;
 }
 .pagination-two div {
   color: #778CA2;
