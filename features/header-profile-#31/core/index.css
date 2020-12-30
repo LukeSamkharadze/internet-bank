@@ -228,7 +228,7 @@ a {
   margin-bottom: 3px;
 }
 
-.profileBef:hover ~ .profileHover {
+.show {
   display: block;
 }
 

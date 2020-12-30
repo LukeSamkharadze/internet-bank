@@ -9,33 +9,40 @@
 </head>
 <body>
     <div class="feature31">
-        <div class="head"><span style="font-family: 'Lato';font-weight: bold;">Navigation / Topbar</div>
+        <div class="head">Navigation / Topbar</div>
         <div class="line"></div>
         <div class="profileDiv">
             <div class="dashboard"><i class="las la-bars"></i>Dashboard</div>
-                <div class="profileBef">
-                    <div class="image"><img src="User.png" alt=""></div>
-                    <div class="name">Barry Armstrong</div>
-                </div>
-                <div class="line2"></div>
-                <div class="profileHover">
-                    <div class="about">
-                        <div class="profileMini"><img src="User.png" alt=""></div>
-                        <div>
-                            <div>Barry Armstrong</div>
-                            <div class="gmail">b.armstrong@gmail.com</div>
-                        </div>
-                        
+            <div class="profileBef dropbtn" onclick="myFunction()">
+                <div class="image dropbtn"><img class="dropbtn" src="User.png" alt=""></div>
+                <div class="name dropbtn">Barry Armstrong</div>
+            </div>
+            <div class="line2"></div>
+            <div class="profileHover"id="myDropdown">
+                <div class="about">
+                    <div class="profileMini"><img src="User.png" alt=""></div>
+                    <div>
+                        <div>Barry Armstrong</div>
+                        <div class="gmail">b.armstrong@gmail.com</div>
                     </div>
-                    <div class="profSettings">
-                        <div><i class="las la-user"></i><p>YOUR PROFILE</p></div>
-                        <div><i class="las la-cog"></i><p>SETTINGS</p></div>
-                        <div><i class="las la-sign-out-alt"></i><p>SIGN OUT</p></div>
+    
+                </div>
+                <div class="profSettings">
+                    <div><i class="las la-user"></i>
+                        <p>YOUR PROFILE</p>
+                    </div>
+                    <div><i class="las la-cog"></i>
+                        <p>SETTINGS</p>
+                    </div>
+                    <div><i class="las la-sign-out-alt"></i>
+                        <p>SIGN OUT</p>
                     </div>
                 </div>
+            </div>
         </div>
         
         
     </div>
+    <script src="core/index.js"></script>
 </body>
 </html>
