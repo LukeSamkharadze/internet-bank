@@ -1,0 +1,42 @@
+@import '../../../colors&typo/styles.scss';
+.paginations {
+  width: 385px;
+  display: flex;
+  div {
+    user-select: none;
+    cursor:pointer ;
+    display: flex;
+    // margin-left: 3px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: $rubik ;
+    &:not(:first-child){
+      margin-left: 3px;
+    }
+  }
+    .next {
+        margin-left: 25px;
+        color: $secondary-dark-1;
+      }
+      .active {
+        background-color: $primary;
+        color: white;
+      }
+      .prev {
+        margin-right: 23px;
+        color: $secondary-dark-1;
+      }
+      .pages {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+      }
+}
+
+
+
+
+
+
+
