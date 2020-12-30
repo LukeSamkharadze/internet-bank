@@ -209,7 +209,6 @@ a {
   position: relative;
   width: 1198px;
   height: 66px;
-  margin-left: 100px;
 }
 
 .dashboard {
@@ -359,6 +358,10 @@ a {
   margin-left: 150px;
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.1px;
+}
+
+.profileDiv {
+  margin-left: 100px;
 }
 
 /*# sourceMappingURL=index.css.map */
