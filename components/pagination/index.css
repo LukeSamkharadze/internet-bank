@@ -313,11 +313,13 @@ a {
 }
 .paginations div {
   display: flex;
-  margin-left: 3px;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   font-family: "Rubik", sans-serif;
+}
+.paginations div:not(.first-page) {
+  margin-left: 3px;
 }
 .paginations .next {
   margin-left: 25px;
@@ -327,13 +329,12 @@ a {
   background-color: #FFAB2B;
   color: white;
 }
+.paginations div .firsElement {
+  margin-left: 0px;
+}
 .paginations .prev {
   margin-right: 23px;
   color: #778CA2;
-}
-
-.pagination {
-  display: flex;
 }
 
 .pages {
@@ -499,14 +500,14 @@ a {
 }
 .paginations div {
   display: flex;
-  margin-left: 3px;
   align-items: center;
   justify-content: center;
 }
 
-.pagination-two {
-  margin-left: 200px;
+div:not(.first-page, :first-child) {
+  margin-left: 3px;
 }
+
 .pagination-two div {
   border: 1px solid #E8ECEF;
 }
@@ -528,10 +529,6 @@ a {
 }
 .pagination-two .angle-right {
   margin-left: 30px;
-}
-
-.pagination {
-  display: flex;
 }
 
 .pages {
@@ -571,12 +568,8 @@ p {
 }
 
 .paginations {
-  margin-left: 140px;
   margin-left: 145px;
   width: 385px;
-}
-.paginations div {
-  user-select: none;
 }
 .paginations i {
   color: #778CA2;
@@ -598,6 +591,10 @@ p {
   width: 41px;
   height: 41px;
   border-radius: 5px;
+}
+
+.pagination {
+  display: flex;
 }
 
 /*# sourceMappingURL=index.css.map */

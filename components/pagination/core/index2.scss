@@ -9,15 +9,16 @@
     }
       div {
           display: flex;
-          margin-left: 3px;
+          // margin-left: 3px;
           align-items: center;
           justify-content: center;
       }
         
   }
-   
+  div:not(.first-page, :first-child){
+    margin-left: 3px;
+  }
   .pagination-two {
-    margin-left: 200px;
       div {
           border: 1px solid $outline;
       }
@@ -43,9 +44,7 @@
   }
   
   
-  .pagination {
-    display: flex;
-  }
+
   
   .pages {
     width: 40px;

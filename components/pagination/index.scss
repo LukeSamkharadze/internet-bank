@@ -26,10 +26,6 @@ p {
     margin: 34px 0 31px 150px;
     color: $primary-dark;
 }.paginations {
-  margin-left: 140px;
-  div {
-    user-select: none;
-  }
   margin-left: 145px;
   width: 385px;
   i {
@@ -37,6 +33,7 @@ p {
     font-size: 18px;
   }
 }
+
 .pagination-two{
   margin-left: 200px;
   div{
@@ -46,9 +43,13 @@ p {
     margin-right: 30px;
   }
 }
+
 .pages {
   box-sizing: border-box;
   width: 41px;
   height: 41px;
   border-radius: 5px;
+}
+.pagination {
+  display: flex;
 }
