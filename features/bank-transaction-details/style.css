@@ -466,7 +466,6 @@ p {
 .details-popup {
   width: 360px;
   height: 436px;
-  margin-bottom: 57px;
   border-radius: 4px;
   display: -ms-grid;
   display: grid;
@@ -509,7 +508,7 @@ p {
   height: 62px;
   width: 62px;
   border: 4px solid #FFFFFF;
-  background-image: url("media/images/Ico.png");
+  background-image: url("../../../assets/bank-transaction-details/images/Ico.png");
   background-position: center;
   border-radius: 50%;
   position: absolute;
@@ -682,5 +681,9 @@ p {
       -ms-flex-align: center;
           align-items: center;
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.details-popup-lower-logo {
+  background-image: url("../../assets/bank-transaction-details/images/Ico.png");
 }
 /*# sourceMappingURL=style.css.map */
