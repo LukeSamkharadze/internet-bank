@@ -1,0 +1,8 @@
+.mortgage-loan {
+    @import '../base';
+
+    .title .icon {
+        color: $secondary-2;
+        background-color: rgba($color: $secondary-2, $alpha: 0.1);
+    }
+}
