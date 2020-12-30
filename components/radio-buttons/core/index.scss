@@ -1,0 +1,60 @@
+@import '../../../colors&typo/styles.scss';
+@import 'base.scss';
+
+.radio-btn {
+    position: relative;
+    padding-left: 30px;
+    font-family: $roboto;
+    font-size: 14px;
+    font-weight: 300;
+    color: $secondary-dark-1;
+    margin-bottom: 12px;
+    line-height: 20px;
+    input{
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    input:checked + label{
+            color: $primary-dark;
+            &:before{
+            background-color: $secondary-dark-2;
+            }
+            &:after{
+            content: '';
+            @include circle-center;
+            width: 8px;
+            height: 8px;
+            bottom: 9px;
+            left: 6px;
+            background-color: #fff;
+        }
+    }
+    label::before{
+        content: '';
+        width: 20px;
+        height: 20px;
+        background-color: $outline;
+        @include circle-center;
+    }
+    
+    .radio-error + label{
+            color: $secondary-3;
+            &:before {
+                background-color: $secondary-3;
+                opacity: 15%;
+            }
+    }
+    .radio-error:checked + label{
+        color: $secondary-2;
+        &:before {
+            background-color:  $secondary-2;
+            opacity: 15%;
+        }
+        &:after{
+            background-color: $secondary-2;
+        }
+    }
+}

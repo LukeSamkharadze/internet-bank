@@ -1,0 +1,40 @@
+@import 'core/index.scss';
+
+@mixin padd-sides {
+    padding-left: 149px;
+    padding-right:  150px;
+}
+
+body{
+    padding-top: 69px;
+    color: $dark-secondary-3;
+    h1{
+        padding-left: 1px;
+    }
+}
+.forms{
+    font-family: $roboto;
+    font-size: 30px;
+    padding-bottom: 69px;
+    border-bottom: $outline 1px solid;
+    margin-bottom: 88px;
+    @include padd-sides;
+}
+section{
+    h3{
+        color: $primary-dark;
+        font-size: 16px;
+        padding-top: 35px;
+        border-top: $outline 1px solid;
+        margin-bottom: 42px;
+    }
+    @include padd-sides;
+    .radios{
+        display: flex;
+        justify-content: space-between;
+        // width: 920px;
+        >div{
+            width: 31.5%;
+        }
+    }
+}
