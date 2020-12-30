@@ -146,7 +146,7 @@ a {
   text-align: right;
 }
 
-.not-cyanBg {
+.notif-cyanBg {
   background-color: #4D7CFE;
 }
 
@@ -183,47 +183,47 @@ a {
   left: 520px;
 }
 
-.not-darkBlueBg {
+.notif-darkBlueBg {
   background-color: #252631;
 }
 
-.not-lightBlueBg {
+.notif-lightBlueBg {
   background-color: #778CA2;
 }
 
-.not-veryLightBlueBg {
+.notif-veryLightBlueBg {
   background-color: #98A9BC;
 }
 
-.not-orangeBg {
+.notif-orangeBg {
   background-color: #FFAB2B;
 }
 
-.not-greenBg {
+.notif-greenBg {
   background-color: #6DD230;
 }
 
-.not-pinkBg {
+.notif-pinkBg {
   background-color: #FE4D97;
 }
 
-.not-lightCyanBg {
+.notif-lightCyanBg {
   background-color: #2CE5F6;
 }
 
-.not-theLightest-BlueBg {
+.notif-theLightest-BlueBg {
   background-color: #E8ECEF;
 }
 
-.not-whiteBg {
+.notif-whiteBg {
   background-color: #F2F4F6;
 }
 
-.not-whiterBg {
+.notif-whiterBg {
   background-color: #F8FAFB;
 }
 
-.not-whitestBg {
+.notif-whitestBg {
   background-color: #FFFFFF;
   box-shadow: 0px 0px 6px #E8ECEF;
 }

@@ -1,7 +1,7 @@
 @import "../../../colors&typo/styles.scss";
 
 
-.not-cyanBg{
+.notif-cyanBg{
     background-color:$secondary-1;
 }
 
@@ -45,44 +45,44 @@
 
 
 
-.not-darkBlueBg{
+.notif-darkBlueBg{
     background-color: $primary-dark;
 }
 
-.not-lightBlueBg{
+.notif-lightBlueBg{
     background-color:$secondary-dark-1;
 }
 
-.not-veryLightBlueBg{
+.notif-veryLightBlueBg{
     background-color:$secondary-dark-2;
 }
-.not-orangeBg{
+.notif-orangeBg{
     background-color: $primary;
 }
 
-.not-greenBg{
+.notif-greenBg{
     background-color: $secondary-2;
 }
-.not-pinkBg{
+.notif-pinkBg{
     background-color: $secondary-3;
 }
 
-.not-lightCyanBg{
+.notif-lightCyanBg{
     background-color: $secondary-4;
 }
 
-.not-theLightest-BlueBg{
+.notif-theLightest-BlueBg{
     background-color: $outline;
 }
 
-.not-whiteBg{
+.notif-whiteBg{
     background-color: $background-1;
 }
 
-.not-whiterBg{
+.notif-whiterBg{
     background-color: $background-2;
 }
-.not-whitestBg{
+.notif-whitestBg{
     background-color:#FFFFFF;
     box-shadow: 0px 0px 6px $outline;
 
