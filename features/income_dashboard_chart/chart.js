@@ -65,16 +65,14 @@ const chart = new Chart(ctx, {
             }]
         },
         tooltips: {
-            titleFontSize: 14,
-            bodyFontSize: 14,
+            titleFontSize: 11,
+            bodyFontSize: 11,
             titleFontStyle: 300,
             titleFontColor: '#252631',
             displayColors: false,
             backgroundColor: 'rgb(255,255,255)',
             bodyFontColor: '#252631',
             bodyFontStyle: 'bold',
-            xPadding: 10,
-            yPadding: 10,
             callbacks: {
                 title: function(tooltipItem, chart){
                     switch(tooltipItem[0].label){
