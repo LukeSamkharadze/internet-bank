@@ -1,0 +1,72 @@
+@import '../../../colors&typo/typography.scss';
+@import '../../../colors&typo/palette.scss';
+*{
+    margin: 0;
+    padding: 0;
+}
+.monthly-chart{
+    position: relative;
+    width: 305px;
+    height: 406px;
+    padding: 22px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 4fr;
+    font-family: $roboto;
+    background-color: #fff;
+}
+.title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    h3{
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+.chart-legend{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 26px;
+    .right-legend{
+        width: 23.3%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p{
+            font-size: 14px;
+            font-family: $rubik;
+            color: #252631;
+        }
+    }
+    .left-legend{
+        h2{
+            font-size: 26px;
+        }
+        p{
+            font-size: 14px;
+        }
+    }
+}
+.chart-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.legend-circle{
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: $primary;
+}
+#myChart{
+    width: 100%;
+    height: 100%;
+}
