@@ -5,7 +5,7 @@
     .text{
       display: inline-block;
       margin-left: 18px;
-      @include text-style(14px,$secondary-dark-1);
+      @include text-style(14px,$primary-dark);
     }
 
 .switch {
@@ -78,6 +78,9 @@
     .slider::before {
       opacity: 70%;
     }
+    .text{
+      color:$secondary-dark-1;
+    }
 }
 
 .Error-off{
@@ -112,6 +115,9 @@
    .slider {
      background-color: $primary;
      opacity: 70%;
+    }
+    .text{
+      color:$secondary-dark-1;
     }
 }
 .Success-on{
