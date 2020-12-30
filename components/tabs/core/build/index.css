@@ -100,15 +100,12 @@ a {
   box-sizing: border-box;
   color: #778CA2;
   text-decoration: none;
-  border-bottom: 2px solid #F2F4F6;
   margin-left: 23px;
   margin-right: 0px;
   margin-top: 17px;
 }
-
-.tabelement:hover {
-  border-color: #252631;
-  color: #252631;
+.tabelement:hover .lineanimation {
+  display: block;
 }
 
 a {
@@ -128,9 +125,45 @@ a p {
 .tabs {
   display: flex;
   height: 59px;
+  width: 617px;
 }
 .tabs :hover {
   color: #252631;
+}
+
+.underline {
+  width: 293px;
+  height: 1px;
+  background-color: #F2F4F6;
+}
+
+.lineanimation {
+  height: 2px;
+  width: 75px;
+  background-color: #252631;
+  position: relative;
+  top: 20px;
+  display: none;
+}
+
+#text1, #text2, #text3 {
+  position: absolute;
+  display: none;
+  top: 82px;
+  width: 456px;
+  left: 20px;
+}
+
+#tab1:active #text1 {
+  display: block;
+}
+
+#tab2:active #text2 {
+  display: block;
+}
+
+#tab3:active #text3 {
+  display: block;
 }
 
 /*# sourceMappingURL=index.css.map */
