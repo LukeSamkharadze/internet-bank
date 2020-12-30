@@ -5,6 +5,9 @@ interface ChildNode {
 }
 
 function closeAllSelect(element: any): void {
+  if((<HTMLInputElement>document.getElementById("dropdown-debug"))?.checked)
+    return;
+
   let selecteds = document.getElementsByClassName("selected");
   let options = document.getElementsByClassName("options");
 

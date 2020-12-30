@@ -1,5 +1,8 @@
 "use strict";
 function closeAllSelect(element) {
+    var _a;
+    if ((_a = document.getElementById("dropdown-debug")) === null || _a === void 0 ? void 0 : _a.checked)
+        return;
     let selecteds = document.getElementsByClassName("selected");
     let options = document.getElementsByClassName("options");
     let current = -1;
