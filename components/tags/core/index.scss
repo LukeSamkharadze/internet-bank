@@ -4,11 +4,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow:unset;
   min-width: 84px;
   min-height: 36px;
+  max-width: 84px;
+  max-height: 36px;
   border-radius: 4px;
   line-height: 17px;
   @include text-style(14px);
+  box-sizing: border-box;
   font-family: $rubik; /* will be included in mixin */
   i {
     font-size: 16px; 
