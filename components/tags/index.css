@@ -150,8 +150,13 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: unset;
+  width: 84px;
+  height: 36px;
   min-width: 84px;
   min-height: 36px;
+  max-width: 85px;
+  max-height: 37px;
   border-radius: 4px;
   line-height: 17px;
   font-family: "Roboto", sans-serif;
@@ -159,6 +164,7 @@ a {
   font-size: 14px;
   color: #252631;
   letter-spacing: 0.2px;
+  box-sizing: border-box;
   font-family: "Rubik", sans-serif;
   /* will be included in mixin */
 }
