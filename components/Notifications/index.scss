@@ -1,5 +1,5 @@
 @import "../../colors&typo/styles.scss";
-@import "core/example.scss";
+@import "core/index.scss";
 .notification{
     color:$primary
 }
@@ -37,7 +37,11 @@
 }
 
 
-
+.distance{
+    margin-bottom:13px;
+    margin-left:150px;
+    
+}
 
 
 

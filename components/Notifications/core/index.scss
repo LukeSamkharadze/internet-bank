@@ -1,35 +1,3 @@
-// @import "../../../colors&typo/styles.scss";
-
-// .message{
-//     width:555px;
-//     height:64px;
-//     display:flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     margin-left:150px;
-//     background-color:$secondary-1;
-//     margin-bottom:13px;
-
-// }
-// .bell{
-//     padding-left:15px;
-//     font-size:25px;
-//     color:$background-2;
-// }
-
-// .exit{
-//     color:$background-2;
-//     font-size:20px;
-//     padding-right:15px;
-// }
-
-// .msg{
-//     padding-right:300px;
-//     font-size:16px;
-//     color:$background-2;
-// }
-
-// @import "../../colors&typo/styles.scss";
 @import "../../../colors&typo/styles.scss";
 
 
@@ -43,9 +11,7 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
-    margin-left:150px;
     background-color:$secondary-1;
-    margin-bottom:13px;
 
 }
 .bell{
