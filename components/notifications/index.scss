@@ -8,7 +8,7 @@
     margin-top: 75px;
     margin-bottom: 71px;
     margin-left:150px;
-    @include text-style(30px,$primary-dark)
+    @include text-style(30px,$primary-dark);
    
 
 }
@@ -32,7 +32,8 @@
     margin-left:150px;
     margin-top:32px;
     margin-bottom:32px;
-    @include text-style(16px,$primary-dark)
+    font-size:16px;
+    color:$primary-dark;
 
 
 }

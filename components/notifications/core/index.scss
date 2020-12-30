@@ -1,11 +1,11 @@
 @import "../../../colors&typo/styles.scss";
 
 
-.secondary-1{
+.cyanBg{
     background-color:$secondary-1;
 }
 
-.message{
+.each-notification{
     width:555px;
     height:64px;
     background-color:$secondary-1;
@@ -48,45 +48,47 @@
     left: 51px;
 }
 
-.primary-dark{
+.darkBlueBg{
     background-color: $primary-dark;
 }
 
-.secondary-dark-1{
+.lightBlueBg{
     background-color:$secondary-dark-1;
 }
 
-.secondary-dark-2{
+.veryLightBlueBg{
     background-color:$secondary-dark-2;
 }
-.primary{
+.orangeBg{
     background-color: $primary;
 }
 
-.secondary-2{
+.greenBg{
     background-color: $secondary-2;
 }
-.secondary-3{
+.pinkBg{
     background-color: $secondary-3;
 }
 
-.secondary-4{
+.lightCyanBg{
     background-color: $secondary-4;
 }
 
-.outline-1{
+.theLightest-BlueBg{
     background-color: $outline;
 }
 
-.background-1{
+.whiteBg{
     background-color: $background-1;
 }
 
-.background-2{
+.whiterBg{
     background-color: $background-2;
 }
-.white{
+.whitestBg{
     background-color:#FFFFFF;
+    box-shadow: 0px 0px 6px $outline;
+
 }
 
 .grey{
