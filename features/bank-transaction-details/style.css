@@ -613,7 +613,7 @@ p {
   letter-spacing: 0.1px;
 }
 
-.details-container .details-popup .details-popup-lower .details-popup-lower-transaction-amount #details-popup-lower-transaction-amount {
+.details-container .details-popup .details-popup-lower .details-popup-lower-transaction-amount .details-popup-lower-transaction-number {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;

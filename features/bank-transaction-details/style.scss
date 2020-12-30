@@ -104,7 +104,7 @@ $trans-bg-color: #FFFFFF;
                     @include text-style(14px, $secondary-dark-2);
                     letter-spacing: 0.1px;
                 }
-                #details-popup-lower-transaction-amount {
+                .details-popup-lower-transaction-number {
                     @include text-style(14px);
                     margin-bottom: -3px;
                     font-weight: 500;
