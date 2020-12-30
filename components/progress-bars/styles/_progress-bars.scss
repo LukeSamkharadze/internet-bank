@@ -1,7 +1,6 @@
-@import '../../../colors&typo/palette.scss';
 @import '../core/index.scss';
 
 .progress{
-    @include default-bar($background-1, 455px, 6px);
-    @include color(455px, 6px);
+    @include default-bar($background-1, 455px, 6px); 
 }
+@include color(455px, 6px);
