@@ -1,0 +1,11 @@
+$secondary-2-hover: #69C930;
+
+.green {
+    @extend .btn-schema;
+    color: white;
+    background-color: $secondary-2;
+        
+    &:hover {
+        background-color: $secondary-2-hover;
+    }
+}
