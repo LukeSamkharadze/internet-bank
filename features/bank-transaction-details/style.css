@@ -505,6 +505,7 @@ p {
   right: 12px;
   top: 13px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .details-container .details-popup .details-popup-lower {
@@ -629,6 +630,7 @@ p {
   padding-right: 5px;
   padding-bottom: 3px;
   color: #778CA2;
+  cursor: pointer;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-receipt p {
@@ -641,5 +643,6 @@ p {
   line-height: 16px;
   padding-bottom: 3px;
   letter-spacing: 0.1px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
