@@ -114,7 +114,7 @@ a {
 }
 
 .dashboard {
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
   position: absolute;
   top: 50%;
   transform: translate(0%, -50%);
@@ -127,6 +127,8 @@ a {
 }
 
 .profileBef {
+  user-select: none;
+  cursor: pointer;
   box-sizing: border-box;
   font-size: 14px;
   color: #252631;
@@ -164,6 +166,7 @@ a {
 .profileHover {
   color: #252631;
   background-color: white;
+  font-weight: 500;
   width: 286px;
   height: 237px;
   margin-bottom: 1px;
@@ -201,8 +204,10 @@ a {
 .profileHover .about .gmail {
   color: #98A9BC;
   letter-spacing: 0px;
+  font-weight: 400;
 }
 .profileHover .profSettings {
+  font-weight: 500;
   padding-left: 23px;
   display: flex;
   flex-direction: column;
@@ -214,6 +219,8 @@ a {
   box-sizing: border-box;
 }
 .profileHover .profSettings div {
+  user-select: none;
+  cursor: pointer;
   display: flex;
 }
 .profileHover .profSettings i {
@@ -226,6 +233,7 @@ a {
   font-size: 12px;
   letter-spacing: 0.1px;
   margin-bottom: 3px;
+  font-weight: 500;
 }
 
 .show {

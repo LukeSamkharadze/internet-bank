@@ -19,7 +19,7 @@
 }
 
 .dashboard{
-    font-family: $rubik;
+    font-family: $roboto;
     position: absolute;
     top: 50%;
     transform: translate(0%,-50%);
@@ -32,6 +32,8 @@
 }
 
     .profileBef{
+        user-select: none;
+        cursor:pointer ;
         box-sizing: border-box;
         font-size: 14px;
         color: $primary-dark;
@@ -71,6 +73,7 @@
     .profileHover{
         color: $primary-dark;
         background-color: white;
+        font-weight: 500;
         width: 286px;
         height: 237px;
         margin-bottom: 1px;
@@ -107,12 +110,14 @@
             .gmail{
                 color: $secondary-dark-2;
                 letter-spacing:0px;
+                font-weight: 400;
                 // line-height: 20px;
             }
             
         }
         
         .profSettings{
+            font-weight: 500;
             padding-left: 23px;
             display: flex;
             flex-direction: column;
@@ -123,6 +128,8 @@
             padding-bottom: 11px;
             box-sizing: border-box;
             div{
+                user-select: none;
+                cursor:pointer ;
                 display: flex;
             }
             i{
@@ -132,10 +139,12 @@
                 font-size: 18px;
             }
             p{
+                
                 color: $primary-dark;
                 font-size: 12px;
                 letter-spacing: 0.1px;
                 margin-bottom: 3px;
+                font-weight: 500;
             }
         }
     
