@@ -110,8 +110,12 @@ a {
   height: 100%;
 }
 .title h3 {
+  display: flex;
+  align-items: center;
   font-size: 14px;
   font-weight: 500;
+  height: 70%;
+  border-bottom: 2px solid #252631;
 }
 
 .chart-legend {
