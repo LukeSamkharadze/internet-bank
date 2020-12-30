@@ -1,0 +1,100 @@
+@import '../../../../colors&typo/styles.scss';
+
+.credit-overview {
+    background-color: white;
+    width: 555px; //#
+    height: 328px; //#
+    margin-left: 855px; //#
+    margin-top: 480px; //#
+    border-radius: 4px;
+    padding: 0 18px 0 23px;
+
+    *{
+        position: relative;
+    }
+
+    .blue {
+        background-color: $secondary-1;
+    }
+
+    .green {
+        background-color: $secondary-2;
+    }
+
+    .orange {
+        background-color: $primary;
+    }
+
+    .title {
+        border-bottom: 1px solid $background-1;
+        padding: 20px 0;
+
+        p {
+            top: 2px;
+            @include text-style(16px);
+        }
+    }
+
+    .chart {
+        display: flex;
+        justify-content: space-between;
+        height: calc(100% - 74px);
+    }
+
+    .pie {
+        height: 100%;
+    }
+
+    .legend {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        li {
+            background-color: $background-2;
+            border-radius: 18px;
+            padding: 10px 16px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 5px;
+
+            .name {
+                @include text-style(14px);
+                font-family: $rubik;
+                letter-spacing: -0.01px;
+            }
+        }
+        
+        li:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .color {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        margin-right: 11px;
+    }
+
+    #popup {
+        display: none;
+        position: absolute;
+
+        border-radius: 13px;
+        background-color: white;
+
+        box-shadow: 0 8px 25px rgba($color: $secondary-dark-2, $alpha: 0.3);
+
+        padding: 6px 15px 3px 15px;
+        @include text-style(14px, $secondary-dark-2);
+
+        span {
+            color: $primary-dark;
+        }
+    }
+}
