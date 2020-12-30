@@ -535,12 +535,13 @@ p {
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-heading {
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-heading h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   line-height: 26px;
   text-align: center;
 }
@@ -552,7 +553,23 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-height: 92px;
+  overflow-x: hidden;
   padding: 10px;
+}
+
+.details-container .details-popup .details-popup-lower .details-popup-lower-tag div {
+  margin-left: 2px;
+}
+
+.details-container .details-popup .details-popup-lower .details-popup-lower-tag :nth-child(1) {
+  margin-left: 0;
+}
+
+.details-container .details-popup .details-popup-lower .details-popup-lower-tag :nth-child(4) {
+  margin-left: 0;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction {
@@ -582,6 +599,9 @@ p {
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-account h5 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   line-height: 21px;
 }
 
@@ -591,15 +611,16 @@ p {
   font-size: 14px;
   color: #98A9BC;
   letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding-bottom: 6px;
   letter-spacing: 0.1px;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-amount {
   text-align: right;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   max-height: 64px;
   max-width: 160px;
 }
@@ -610,6 +631,9 @@ p {
   font-size: 14px;
   color: #98A9BC;
   letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   letter-spacing: 0.1px;
 }
 
@@ -619,6 +643,9 @@ p {
   font-size: 14px;
   color: #252631;
   letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-bottom: -3px;
   font-weight: 500;
 }
@@ -630,9 +657,7 @@ p {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-receipt i {
@@ -649,6 +674,9 @@ p {
   font-size: 12px;
   color: #778CA2;
   letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: inline-block;
   line-height: 16px;
   padding-bottom: 3px;

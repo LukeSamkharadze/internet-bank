@@ -1,6 +1,11 @@
 @import "../../colors&typo/base.scss";
 @import "../../colors&typo/styles.scss";
 @import '../../components/tags/index.scss';
+@mixin ellipsis {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
 $trans-bg-color: #FFFFFF;
 .details-container {
     height: 100vh;
@@ -54,18 +59,29 @@ $trans-bg-color: #FFFFFF;
                 top: -1px;
             }
             .details-popup-lower-heading {
+                overflow: hidden;
                 h3 {
+                    @include ellipsis();
                     line-height: 26px;
                     text-align: center;
                 }
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
             }
             .details-popup-lower-tag {
                 display: flex;
                 justify-content: center;
+                flex-wrap: wrap;
+                max-height:92px;
+                overflow-x: hidden;
                 padding: 10px;
+                div {
+                    margin-left: 2px;
+                }
+                :nth-child(1){
+                    margin-left:0;   
+                }
+                :nth-child(4){
+                    margin-left:0;   
+                }
             }
             .details-popup-lower-transaction {
                 display: flex;
@@ -76,36 +92,33 @@ $trans-bg-color: #FFFFFF;
                 align-items: center;
             }
             .details-popup-lower-transaction-account {
-                // display: flex;
-                // flex-direction: column;
-                // justify-content: space-around;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                @include ellipsis();
                 max-height: 64px;
                 max-width: 160px;
                 h5 {
+                    @include ellipsis();
                     line-height: 21px;
                 }
                 p {
                     @include text-style(14px, $secondary-dark-2);
+                    @include ellipsis();
                     padding-bottom: 6px;
                     letter-spacing: 0.1px;
                 }
             }
             .details-popup-lower-transaction-amount {
                 text-align: right;
-                white-space: nowrap;
                 overflow: hidden;
-                text-overflow: ellipsis;
                 max-height: 64px;
                 max-width: 160px;
                 p {
                     @include text-style(14px, $secondary-dark-2);
+                    @include ellipsis();
                     letter-spacing: 0.1px;
                 }
                 .details-popup-lower-transaction-number {
                     @include text-style(14px);
+                    @include ellipsis();
                     margin-bottom: -3px;
                     font-weight: 500;
                 }
@@ -113,9 +126,7 @@ $trans-bg-color: #FFFFFF;
             .details-popup-lower-receipt {
                 display: flex;
                 align-items: flex-end;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                overflow:hidden;
                 i {
                     font-size: 18px;
                     padding-right: 5px;
@@ -125,6 +136,7 @@ $trans-bg-color: #FFFFFF;
                 }
                 p {
                     @include text-style(12px,$secondary-dark-1);
+                    @include ellipsis();
                     display:inline-block;
                     line-height: 16px;
                     padding-bottom: 3px;
