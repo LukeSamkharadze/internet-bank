@@ -1,7 +1,7 @@
 @import "../../../colors&typo/styles.scss";
-.container{
+.toggle-container{
     display: flex;
-    width: 178px;
+    width: 190px;
     .text{
       display: inline-block;
       margin-left: 18px;
@@ -61,4 +61,64 @@
     background-color: #ffffff;
   }
 
+}
+
+.off-disaled{
+  input:checked + .slider:before {
+      -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+    input:checked + .slider {
+      background-color: $background-1;
+    }
+    input:checked + .slider::before {
+      background-color: $secondary-dark-2
+    }
+    .slider::before {
+      opacity: 70%;
+    }
+}
+
+.Error-off{
+  .text{
+      color: $secondary-3;
+    }
+  input:checked + .slider {
+      background-color: $background-1;
+    }
+    .slider {
+      background-color: $secondary-3;
+    }
+
+    .slider:before {
+      background-color:#FFFFFF ;
+    }
+    input:checked + .slider::before {
+      background-color: $secondary-dark-2;
+    }
+}
+.on-disable{
+  .slider:before{
+      left:20px;
+      background-color: #FFFFFF;
+    }
+    
+  input:checked + .slider:before {
+      -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+   .slider {
+     background-color: $primary;
+     opacity: 70%;
+    }
+}
+.Success-on{
+  .text{
+      color: $secondary-2;
+  }
+  input:checked + .slider {
+      background-color: $secondary-2;
+    }
 }
