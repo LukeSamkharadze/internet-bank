@@ -20,6 +20,10 @@
     i {
         margin: 0 auto;
     }
+
+    img {
+        margin: 0 auto;
+    }
 }
 
 .title {
@@ -114,6 +118,15 @@
         position: absolute;
         left: 24px;
         bottom: 16px;
+
+        &>* {
+            float: left;
+            margin-right: 60px;
+        }
+
+        &>*:last-child {
+            margin-right: 0;
+        }
 
         .name {
             font-size: 14px;

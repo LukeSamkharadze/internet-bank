@@ -1,0 +1,13 @@
+@import '../../../../colors&typo/styles.scss';
+
+.card-details {
+    @import '../base';
+
+    .title .icon {
+        background-color: rgba($color: $background-2, $alpha: 1);
+    }
+
+    .card-container .card-header .name {
+        word-spacing: 6.25px;
+    }
+}
