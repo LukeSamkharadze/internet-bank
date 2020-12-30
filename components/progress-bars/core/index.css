@@ -101,1205 +101,605 @@ a {
   width: 292px;
   height: 4px;
 }
-
-.color-1 {
-  width: 0px;
-  height: 4px;
-  border-radius: 1px;
-  transition: width 1s;
-  background-color: #FE4D97;
-}
-
-.progress:hover .color-1 {
+.progress .color-1 {
   width: 2.92px;
-}
-
-.color-2 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-2 {
+.progress .color-2 {
   width: 5.84px;
-}
-
-.color-3 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-3 {
+.progress .color-3 {
   width: 8.76px;
-}
-
-.color-4 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-4 {
+.progress .color-4 {
   width: 11.68px;
-}
-
-.color-5 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-5 {
+.progress .color-5 {
   width: 14.6px;
-}
-
-.color-6 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-6 {
+.progress .color-6 {
   width: 17.52px;
-}
-
-.color-7 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-7 {
+.progress .color-7 {
   width: 20.44px;
-}
-
-.color-8 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-8 {
+.progress .color-8 {
   width: 23.36px;
-}
-
-.color-9 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-9 {
+.progress .color-9 {
   width: 26.28px;
-}
-
-.color-10 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-10 {
+.progress .color-10 {
   width: 29.2px;
-}
-
-.color-11 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-11 {
+.progress .color-11 {
   width: 32.12px;
-}
-
-.color-12 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-12 {
+.progress .color-12 {
   width: 35.04px;
-}
-
-.color-13 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-13 {
+.progress .color-13 {
   width: 37.96px;
-}
-
-.color-14 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-14 {
+.progress .color-14 {
   width: 40.88px;
-}
-
-.color-15 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-15 {
+.progress .color-15 {
   width: 43.8px;
-}
-
-.color-16 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-16 {
+.progress .color-16 {
   width: 46.72px;
-}
-
-.color-17 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-17 {
+.progress .color-17 {
   width: 49.64px;
-}
-
-.color-18 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-18 {
+.progress .color-18 {
   width: 52.56px;
-}
-
-.color-19 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-19 {
+.progress .color-19 {
   width: 55.48px;
-}
-
-.color-20 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-20 {
+.progress .color-20 {
   width: 58.4px;
-}
-
-.color-21 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-21 {
+.progress .color-21 {
   width: 61.32px;
-}
-
-.color-22 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-22 {
+.progress .color-22 {
   width: 64.24px;
-}
-
-.color-23 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-23 {
+.progress .color-23 {
   width: 67.16px;
-}
-
-.color-24 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-24 {
+.progress .color-24 {
   width: 70.08px;
-}
-
-.color-25 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FE4D97;
 }
-
-.progress:hover .color-25 {
+.progress .color-25 {
   width: 73px;
-}
-
-.color-26 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
-  background-color: #FFAB2B;
+  background-color: #FE4D97;
 }
-
-.progress:hover .color-26 {
+.progress .color-26 {
   width: 75.92px;
-}
-
-.color-27 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-27 {
+.progress .color-27 {
   width: 78.84px;
-}
-
-.color-28 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-28 {
+.progress .color-28 {
   width: 81.76px;
-}
-
-.color-29 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-29 {
+.progress .color-29 {
   width: 84.68px;
-}
-
-.color-30 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-30 {
+.progress .color-30 {
   width: 87.6px;
-}
-
-.color-31 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-31 {
+.progress .color-31 {
   width: 90.52px;
-}
-
-.color-32 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-32 {
+.progress .color-32 {
   width: 93.44px;
-}
-
-.color-33 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-33 {
+.progress .color-33 {
   width: 96.36px;
-}
-
-.color-34 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-34 {
+.progress .color-34 {
   width: 99.28px;
-}
-
-.color-35 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-35 {
+.progress .color-35 {
   width: 102.2px;
-}
-
-.color-36 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-36 {
+.progress .color-36 {
   width: 105.12px;
-}
-
-.color-37 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-37 {
+.progress .color-37 {
   width: 108.04px;
-}
-
-.color-38 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-38 {
+.progress .color-38 {
   width: 110.96px;
-}
-
-.color-39 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-39 {
+.progress .color-39 {
   width: 113.88px;
-}
-
-.color-40 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-40 {
+.progress .color-40 {
   width: 116.8px;
-}
-
-.color-41 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-41 {
+.progress .color-41 {
   width: 119.72px;
-}
-
-.color-42 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-42 {
+.progress .color-42 {
   width: 122.64px;
-}
-
-.color-43 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-43 {
+.progress .color-43 {
   width: 125.56px;
-}
-
-.color-44 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-44 {
+.progress .color-44 {
   width: 128.48px;
-}
-
-.color-45 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-45 {
+.progress .color-45 {
   width: 131.4px;
-}
-
-.color-46 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-46 {
+.progress .color-46 {
   width: 134.32px;
-}
-
-.color-47 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-47 {
+.progress .color-47 {
   width: 137.24px;
-}
-
-.color-48 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-48 {
+.progress .color-48 {
   width: 140.16px;
-}
-
-.color-49 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-49 {
+.progress .color-49 {
   width: 143.08px;
-}
-
-.color-50 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-50 {
+.progress .color-50 {
   width: 146px;
-}
-
-.color-51 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-51 {
+.progress .color-51 {
   width: 148.92px;
-}
-
-.color-52 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-52 {
+.progress .color-52 {
   width: 151.84px;
-}
-
-.color-53 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-53 {
+.progress .color-53 {
   width: 154.76px;
-}
-
-.color-54 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-54 {
+.progress .color-54 {
   width: 157.68px;
-}
-
-.color-55 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-55 {
+.progress .color-55 {
   width: 160.6px;
-}
-
-.color-56 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-56 {
+.progress .color-56 {
   width: 163.52px;
-}
-
-.color-57 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-57 {
+.progress .color-57 {
   width: 166.44px;
-}
-
-.color-58 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-58 {
+.progress .color-58 {
   width: 169.36px;
-}
-
-.color-59 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-59 {
+.progress .color-59 {
   width: 172.28px;
-}
-
-.color-60 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #FFAB2B;
 }
-
-.progress:hover .color-60 {
+.progress .color-60 {
   width: 175.2px;
-}
-
-.color-61 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
-  background-color: #4D7CFE;
+  background-color: #FFAB2B;
 }
-
-.progress:hover .color-61 {
+.progress .color-61 {
   width: 178.12px;
-}
-
-.color-62 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-62 {
+.progress .color-62 {
   width: 181.04px;
-}
-
-.color-63 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-63 {
+.progress .color-63 {
   width: 183.96px;
-}
-
-.color-64 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-64 {
+.progress .color-64 {
   width: 186.88px;
-}
-
-.color-65 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-65 {
+.progress .color-65 {
   width: 189.8px;
-}
-
-.color-66 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-66 {
+.progress .color-66 {
   width: 192.72px;
-}
-
-.color-67 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-67 {
+.progress .color-67 {
   width: 195.64px;
-}
-
-.color-68 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-68 {
+.progress .color-68 {
   width: 198.56px;
-}
-
-.color-69 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-69 {
+.progress .color-69 {
   width: 201.48px;
-}
-
-.color-70 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-70 {
+.progress .color-70 {
   width: 204.4px;
-}
-
-.color-71 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-71 {
+.progress .color-71 {
   width: 207.32px;
-}
-
-.color-72 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-72 {
+.progress .color-72 {
   width: 210.24px;
-}
-
-.color-73 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-73 {
+.progress .color-73 {
   width: 213.16px;
-}
-
-.color-74 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-74 {
+.progress .color-74 {
   width: 216.08px;
-}
-
-.color-75 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-75 {
+.progress .color-75 {
   width: 219px;
-}
-
-.color-76 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-76 {
+.progress .color-76 {
   width: 221.92px;
-}
-
-.color-77 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-77 {
+.progress .color-77 {
   width: 224.84px;
-}
-
-.color-78 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-78 {
+.progress .color-78 {
   width: 227.76px;
-}
-
-.color-79 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-79 {
+.progress .color-79 {
   width: 230.68px;
-}
-
-.color-80 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #4D7CFE;
 }
-
-.progress:hover .color-80 {
+.progress .color-80 {
   width: 233.6px;
-}
-
-.color-81 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
-  background-color: #6DD230;
+  background-color: #4D7CFE;
 }
-
-.progress:hover .color-81 {
+.progress .color-81 {
   width: 236.52px;
-}
-
-.color-82 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-82 {
+.progress .color-82 {
   width: 239.44px;
-}
-
-.color-83 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-83 {
+.progress .color-83 {
   width: 242.36px;
-}
-
-.color-84 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-84 {
+.progress .color-84 {
   width: 245.28px;
-}
-
-.color-85 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-85 {
+.progress .color-85 {
   width: 248.2px;
-}
-
-.color-86 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-86 {
+.progress .color-86 {
   width: 251.12px;
-}
-
-.color-87 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-87 {
+.progress .color-87 {
   width: 254.04px;
-}
-
-.color-88 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-88 {
+.progress .color-88 {
   width: 256.96px;
-}
-
-.color-89 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-89 {
+.progress .color-89 {
   width: 259.88px;
-}
-
-.color-90 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-90 {
+.progress .color-90 {
   width: 262.8px;
-}
-
-.color-91 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-91 {
+.progress .color-91 {
   width: 265.72px;
-}
-
-.color-92 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-92 {
+.progress .color-92 {
   width: 268.64px;
-}
-
-.color-93 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-93 {
+.progress .color-93 {
   width: 271.56px;
-}
-
-.color-94 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-94 {
+.progress .color-94 {
   width: 274.48px;
-}
-
-.color-95 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-95 {
+.progress .color-95 {
   width: 277.4px;
-}
-
-.color-96 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-96 {
+.progress .color-96 {
   width: 280.32px;
-}
-
-.color-97 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-97 {
+.progress .color-97 {
   width: 283.24px;
-}
-
-.color-98 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-98 {
+.progress .color-98 {
   width: 286.16px;
-}
-
-.color-99 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-99 {
+.progress .color-99 {
   width: 289.08px;
-}
-
-.color-100 {
-  width: 0px;
   height: 4px;
   border-radius: 1px;
-  transition: width 1s;
   background-color: #6DD230;
 }
-
-.progress:hover .color-100 {
+.progress .color-100 {
   width: 292px;
+  height: 4px;
+  border-radius: 1px;
+  background-color: #6DD230;
 }
 
 /*# sourceMappingURL=index.css.map */

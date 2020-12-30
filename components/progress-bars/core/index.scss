@@ -11,10 +11,9 @@
 @mixin color($width, $height){
     @for $i from 1 through 100{
         .color-#{$i} {
-            width: 0px;
+            width: $i*$width/100;
             height: $height;
             border-radius: 1px;
-            transition: width 1s;
             @if $i<26{
                 background-color: $secondary-3;
             } @else if $i<61{
@@ -25,9 +24,6 @@
                 background-color: $secondary-2;
             }
         }
-        .progress:hover .color-#{$i}{
-            width: $i*$width/100;
-        }
     }
 }
 
@@ -35,5 +31,5 @@
 ////// Ready for task #24 (settings payment limits)
 .progress{
     @include default-bar($background-1, 292px, 4px);
+    @include color(292px, 4px);
 }
-@include color(292px, 4px);
