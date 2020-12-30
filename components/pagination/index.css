@@ -309,7 +309,6 @@ a {
 .paginations {
   width: 385px;
   display: flex;
-  align-items: center;
 }
 .paginations div {
   user-select: none;
@@ -636,7 +635,6 @@ a {
 .paginations {
   width: 385px;
   display: flex;
-  align-items: center;
 }
 .paginations div {
   user-select: none;
