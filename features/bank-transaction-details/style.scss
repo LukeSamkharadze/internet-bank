@@ -58,6 +58,9 @@ $trans-bg-color: #FFFFFF;
                     line-height: 26px;
                     text-align: center;
                 }
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .details-popup-lower-tag {
                 display: flex;
@@ -73,9 +76,14 @@ $trans-bg-color: #FFFFFF;
                 align-items: center;
             }
             .details-popup-lower-transaction-account {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
+                // display: flex;
+                // flex-direction: column;
+                // justify-content: space-around;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-height: 64px;
+                max-width: 160px;
                 h5 {
                     line-height: 21px;
                 }
@@ -87,6 +95,11 @@ $trans-bg-color: #FFFFFF;
             }
             .details-popup-lower-transaction-amount {
                 text-align: right;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-height: 64px;
+                max-width: 160px;
                 p {
                     @include text-style(14px, $secondary-dark-2);
                     letter-spacing: 0.1px;
@@ -100,6 +113,9 @@ $trans-bg-color: #FFFFFF;
             .details-popup-lower-receipt {
                 display: flex;
                 align-items: flex-end;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 i {
                     font-size: 18px;
                     padding-right: 5px;

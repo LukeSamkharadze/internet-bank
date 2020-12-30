@@ -534,6 +534,12 @@ p {
   top: -1px;
 }
 
+.details-container .details-popup .details-popup-lower .details-popup-lower-heading {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .details-container .details-popup .details-popup-lower .details-popup-lower-heading h3 {
   line-height: 26px;
   text-align: center;
@@ -568,15 +574,11 @@ p {
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-account {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 64px;
+  max-width: 160px;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-account h5 {
@@ -595,6 +597,11 @@ p {
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-amount {
   text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 64px;
+  max-width: 160px;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-transaction-amount p {
@@ -623,6 +630,9 @@ p {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .details-container .details-popup .details-popup-lower .details-popup-lower-receipt i {
