@@ -7,26 +7,143 @@
 .card-view-component {
     background-color: white;
     padding: 14px 21px 18px 18px;
-    width: 500px; //#
-    left: 270px; //#
-    top: 90px; //#
+    border-radius: 4px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+
+    i {
+        margin: 0 auto;
+    }
 }
 
 .title {
     width: 100%;
     padding-left: 6px;
+    height: 30px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    .main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .icon {
         height: 28px;
-        display: flex;
-        justify-content: center;
+        width: 42px;
+        margin-right: 15px;
+
+        @include text-style(16px);
     }
     
     .name {
+        @include text-style(15px, $primary-dark);
+        font-weight: 500;
+        letter-spacing: -0.4px;
+        height: 17px;
+    }
 
+    .amount {
+        @include text-style(14px, $secondary-dark-2);
+        top: 2px;
+        letter-spacing: -0.01px;
+    }
+}
+
+.card-container {
+    height: 317px;
+    width: 100%;
+    margin-left: 5px;
+    margin-top: 2px;
+    padding-top: 58px;
+    padding-right: 9px;
+
+    .card {
+        margin-left: auto;
+        margin-right: auto;
+        width: 327px;
+        height: 200px;
+    }
+
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .icon {
+        position: absolute;
+        top: 9px;
+        right: 6px;
+        width: 48px;
+        height: 32px;
+        background-color: rgba(255, 255, 255, 0.15);
+        @include text-style(16px, #FAFBFF);
+    }
+
+    .name {
+        @include text-style(22px, white);
+        font-weight: 500;
+    }
+
+    .type {
+        @include text-style(13px, white);
+    }
+
+    .card-header {
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        transform: translateY(-50%);
+
+        .name {
+            letter-spacing: 0.5px;
+        }
+    }
+
+    .info {
+        position: absolute;
+        left: 24px;
+        bottom: 16px;
+
+        .name {
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        .type {
+            bottom: 3px;
+            letter-spacing: -0.2px;
+        }
+    }
+}
+
+.details {
+    li {
+        border-top: 1px solid $outline;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        margin-right: 2px;
+        margin-left: 5px;
+    }
+
+    li:first-child {
+        border: none;
+    }
+
+    .account {
+        @include text-style(14px, $secondary-dark-2);
+    }
+
+    .name {
+        @include text-style(16px);
     }
 }
