@@ -15,7 +15,7 @@
         font-size: 14px;
         font-family: $rubik ;
     }
-    div:not(.first-page ){
+    div:not(:first-child){
       margin-left: 3px;
     }
     .next {
@@ -25,9 +25,6 @@
       .active {
         background-color: $primary;
         color: white;
-      }
-      div .firsElement{
-        margin-left: 0px;
       }
       .prev {
         margin-right: 23px;

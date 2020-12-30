@@ -1,26 +1,14 @@
 @import '../../../colors&typo/styles.scss';
-.paginations {
-    width: 385px;
-    display: flex;
-    align-items: center;
-    div {
-      user-select: none;
-      cursor:pointer ;
-    }
-      div {
-          display: flex;
-          // margin-left: 3px;
-          align-items: center;
-          justify-content: center;
-      }
-        
-  }
-  div:not(.first-page, :first-child){
+@import 'index1.scss';
+  div:not(:first-child, :last-child){
     margin-left: 3px;
   }
   .pagination-two {
       div {
           border: 1px solid $outline;
+      }
+      div:last-child {
+        margin-left: 30px;
       }
       .active {
           background-color: white;
@@ -38,17 +26,8 @@
         .angle-left {
           margin-right: 27px;
         }
-        .angle-right {
-          margin-left: 30px;
-        }
+
   }
   
   
 
-  
-  .pages {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-  }
-  

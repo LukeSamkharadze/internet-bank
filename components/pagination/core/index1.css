@@ -159,11 +159,13 @@ a {
 }
 .paginations div {
   display: flex;
-  margin-left: 3px;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   font-family: "Rubik", sans-serif;
+}
+.paginations div:not(.first-page) {
+  margin-left: 3px;
 }
 .paginations .next {
   margin-left: 25px;
@@ -173,13 +175,12 @@ a {
   background-color: #FFAB2B;
   color: white;
 }
+.paginations div .firsElement {
+  margin-left: 0px;
+}
 .paginations .prev {
   margin-right: 23px;
   color: #778CA2;
-}
-
-.pagination {
-  display: flex;
 }
 
 .pages {
