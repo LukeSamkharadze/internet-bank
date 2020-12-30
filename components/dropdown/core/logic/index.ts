@@ -17,13 +17,16 @@ function closeAllSelect(element: any): void {
       selecteds[i].classList.remove("arrow-active");
 
   for (let i = 0; i < options.length; i++)
-    if(i !== current)
+    if (i !== current)
       options[i].classList.add("display-none");
 }
 
 function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
-
   mouseEvent.stopPropagation();
+  
+  if (this.parentElement?.classList.contains("dropdown-disabled"))
+    return;
+
   closeAllSelect(this);
   this.nextSibling?.classList.toggle("display-none");
   this.classList.toggle("arrow-active");

@@ -1,10 +1,17 @@
-@import "../core/dropdowns/disabled/style/index.scss";
 @import "../core/dropdowns/field/style/index.scss";
 @import "../core/dropdowns/select/style/index.scss";
+@import "../core/dropdowns/disabled/style/index.scss";
 
 body {
   display: flex;
   flex-direction: row;
-  margin: 100px 0px 0px 100px;
+  padding: 25px;
   gap: 30px;
+}
+
+body>.dropdown-field:nth-child(2)
+{
+  .placeholder {
+    color: $dark-secondary-3;
+  }
 }

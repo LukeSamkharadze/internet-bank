@@ -13,10 +13,12 @@ function closeAllSelect(element) {
             options[i].classList.add("display-none");
 }
 function selectedClicked(mouseEvent) {
-    var _a;
+    var _a, _b;
     mouseEvent.stopPropagation();
+    if ((_a = this.parentElement) === null || _a === void 0 ? void 0 : _a.classList.contains("dropdown-disabled"))
+        return;
     closeAllSelect(this);
-    (_a = this.nextSibling) === null || _a === void 0 ? void 0 : _a.classList.toggle("display-none");
+    (_b = this.nextSibling) === null || _b === void 0 ? void 0 : _b.classList.toggle("display-none");
     this.classList.toggle("arrow-active");
 }
 function optionClicked(selected, html_select) {

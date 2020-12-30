@@ -1,4 +1,8 @@
+@import "../../style/index.scss";
+
 .dropdown-disabled
 {
-  
+  .selected {
+    background-color: $background-2;
+  }
 }
