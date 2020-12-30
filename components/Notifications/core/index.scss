@@ -8,28 +8,38 @@
 .message{
     width:555px;
     height:64px;
-    display:inline-flex;
-    justify-content: space-between;
-    align-items: center;
     background-color:$secondary-1;
+    position: relative;
+
 
 }
 .bell{
-    padding-left:15px;
     font-size:25px;
     color:$background-2;
+    position: absolute;
+    top: 17px;
+    left: 10px;
 }
 
 .exit{
     color:$background-2;
     font-size:20px;
-    padding-right:15px;
+    user-select: none;
+    cursor:pointer ;
+    position: absolute;
+    top: 17px;
+    left: 520px;
+   
 }
 
 .msg{
-    padding-right:300px;
     font-size:16px;
     color:$background-2;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    font-style: $rubik;
+    font-weight:500;
 }
 
 .primary-dark{

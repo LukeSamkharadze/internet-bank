@@ -301,28 +301,36 @@ a {
 .message {
   width: 555px;
   height: 64px;
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #4D7CFE;
+  position: relative;
 }
 
 .bell {
-  padding-left: 15px;
   font-size: 25px;
   color: #F8FAFB;
+  position: absolute;
+  top: 17px;
+  left: 10px;
 }
 
 .exit {
   color: #F8FAFB;
   font-size: 20px;
-  padding-right: 15px;
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 17px;
+  left: 520px;
 }
 
 .msg {
-  padding-right: 300px;
   font-size: 16px;
   color: #F8FAFB;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  font-style: "Rubik", sans-serif;
+  font-weight: 500;
 }
 
 .primary-dark {
