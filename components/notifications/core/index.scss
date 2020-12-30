@@ -10,43 +10,42 @@
     height:64px;
     background-color:$secondary-1;
     position: relative;
-    
+    p {
+        font-size:16px;
+        position: absolute;
+        font-style: $rubik;
+        font-weight:500;
+        max-width:460px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        top: 24px;
+        left: 51px;
 
+    }
+    :first-child{
+        font-size:24px;
+        // color:$background-2;
+        position: absolute;
+        top: 20px;
+        left: 15px;
+
+    }
+    :last-child{
+        // color:$background-2;
+        font-size:20px;
+        user-select: none;
+        cursor:pointer ;
+        position: absolute;
+        top: 24px;
+        left: 520px;
+
+    }
 
 }
-.bell{
-    font-size:25px;
-    color:$background-2;
-    position: absolute;
-    top: 20px;
-    left: 15px;
 
-}
 
-.exit{
-    color:$background-2;
-    font-size:20px;
-    user-select: none;
-    cursor:pointer ;
-    position: absolute;
-    top: 24px;
-    left: 520px;
-   
-}
 
-.msg{
-    font-size:16px;
-    color:$background-2;
-    position: absolute;
-    font-style: $rubik;
-    font-weight:500;
-    max-width:460px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    top: 24px;
-    left: 51px;
-}
 
 .darkBlueBg{
     background-color: $primary-dark;
@@ -95,3 +94,6 @@
     color:$secondary-dark-1;
 }
 
+.whiteFont{
+    color:$background-2;
+}

@@ -304,28 +304,8 @@ a {
   background-color: #4D7CFE;
   position: relative;
 }
-
-.bell {
-  font-size: 25px;
-  color: #F8FAFB;
-  position: absolute;
-  top: 20px;
-  left: 15px;
-}
-
-.exit {
-  color: #F8FAFB;
-  font-size: 20px;
-  user-select: none;
-  cursor: pointer;
-  position: absolute;
-  top: 24px;
-  left: 520px;
-}
-
-.msg {
+.each-notification p {
   font-size: 16px;
-  color: #F8FAFB;
   position: absolute;
   font-style: "Rubik", sans-serif;
   font-weight: 500;
@@ -335,6 +315,20 @@ a {
   text-overflow: ellipsis;
   top: 24px;
   left: 51px;
+}
+.each-notification :first-child {
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+.each-notification :last-child {
+  font-size: 20px;
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 24px;
+  left: 520px;
 }
 
 .darkBlueBg {
@@ -384,6 +378,10 @@ a {
 
 .grey {
   color: #778CA2;
+}
+
+.whiteFont {
+  color: #F8FAFB;
 }
 
 .notification {
