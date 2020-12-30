@@ -53,7 +53,7 @@ function getOptionsDiv(html_select, selected) {
     return options;
 }
 function main() {
-    for (let select of document.getElementsByClassName("dropdown-select")) {
+    for (let select of document.getElementsByClassName("dropdown-general")) {
         let html_select = select.getElementsByTagName("select")[0];
         if (html_select === undefined)
             continue;

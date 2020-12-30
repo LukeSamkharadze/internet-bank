@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import url("https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+@import url("https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css");
 h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -41,7 +43,7 @@ h5 {
   letter-spacing: 0.2px;
 }
 
-p, .dropdown-select {
+p, .dropdown-general, .dropdown-select, .dropdown-field {
   color: #98A9BC;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -87,63 +89,175 @@ a {
   text-align: right;
 }
 
-.dropdown-select *,
+.dropdown-general *, .dropdown-select *, .dropdown-field *,
+.dropdown-general *:before,
 .dropdown-select *:before,
-.dropdown-select *:after {
+.dropdown-field *:before,
+.dropdown-general *:after,
+.dropdown-select *:after,
+.dropdown-field *:after {
   box-sizing: border-box;
 }
-.dropdown-select html,
+.dropdown-general html, .dropdown-select html, .dropdown-field html,
+.dropdown-general body,
 .dropdown-select body,
+.dropdown-field body,
+.dropdown-general div,
 .dropdown-select div,
+.dropdown-field div,
+.dropdown-general span,
 .dropdown-select span,
+.dropdown-field span,
+.dropdown-general object,
 .dropdown-select object,
+.dropdown-field object,
+.dropdown-general iframe,
 .dropdown-select iframe,
+.dropdown-field iframe,
+.dropdown-general figure,
 .dropdown-select figure,
+.dropdown-field figure,
+.dropdown-general h1,
 .dropdown-select h1,
+.dropdown-field h1,
+.dropdown-general h2,
 .dropdown-select h2,
+.dropdown-field h2,
+.dropdown-general h3,
 .dropdown-select h3,
+.dropdown-field h3,
+.dropdown-general h4,
 .dropdown-select h4,
+.dropdown-field h4,
+.dropdown-general h5,
 .dropdown-select h5,
+.dropdown-field h5,
+.dropdown-general h6,
 .dropdown-select h6,
+.dropdown-field h6,
+.dropdown-general p,
 .dropdown-select p,
+.dropdown-field p,
+.dropdown-general .dropdown-general,
+.dropdown-select .dropdown-general,
+.dropdown-general .dropdown-select,
 .dropdown-select .dropdown-select,
+.dropdown-field .dropdown-general,
+.dropdown-field .dropdown-select,
+.dropdown-general .dropdown-field,
+.dropdown-select .dropdown-field,
+.dropdown-field .dropdown-field,
+.dropdown-general blockquote,
 .dropdown-select blockquote,
+.dropdown-field blockquote,
+.dropdown-general pre,
 .dropdown-select pre,
+.dropdown-field pre,
+.dropdown-general a,
 .dropdown-select a,
+.dropdown-field a,
+.dropdown-general code,
 .dropdown-select code,
+.dropdown-field code,
+.dropdown-general em,
 .dropdown-select em,
+.dropdown-field em,
+.dropdown-general img,
 .dropdown-select img,
+.dropdown-field img,
+.dropdown-general small,
 .dropdown-select small,
+.dropdown-field small,
+.dropdown-general strike,
 .dropdown-select strike,
+.dropdown-field strike,
+.dropdown-general strong,
 .dropdown-select strong,
+.dropdown-field strong,
+.dropdown-general sub,
 .dropdown-select sub,
+.dropdown-field sub,
+.dropdown-general sup,
 .dropdown-select sup,
+.dropdown-field sup,
+.dropdown-general tt,
 .dropdown-select tt,
+.dropdown-field tt,
+.dropdown-general b,
 .dropdown-select b,
+.dropdown-field b,
+.dropdown-general u,
 .dropdown-select u,
+.dropdown-field u,
+.dropdown-general i,
 .dropdown-select i,
+.dropdown-field i,
+.dropdown-general ol,
 .dropdown-select ol,
+.dropdown-field ol,
+.dropdown-general ul,
 .dropdown-select ul,
+.dropdown-field ul,
+.dropdown-general li,
 .dropdown-select li,
+.dropdown-field li,
+.dropdown-general fieldset,
 .dropdown-select fieldset,
+.dropdown-field fieldset,
+.dropdown-general form,
 .dropdown-select form,
+.dropdown-field form,
+.dropdown-general label,
 .dropdown-select label,
+.dropdown-field label,
+.dropdown-general table,
 .dropdown-select table,
+.dropdown-field table,
+.dropdown-general caption,
 .dropdown-select caption,
+.dropdown-field caption,
+.dropdown-general tbody,
 .dropdown-select tbody,
+.dropdown-field tbody,
+.dropdown-general tfoot,
 .dropdown-select tfoot,
+.dropdown-field tfoot,
+.dropdown-general thead,
 .dropdown-select thead,
+.dropdown-field thead,
+.dropdown-general tr,
 .dropdown-select tr,
+.dropdown-field tr,
+.dropdown-general th,
 .dropdown-select th,
+.dropdown-field th,
+.dropdown-general td,
 .dropdown-select td,
+.dropdown-field td,
+.dropdown-general main,
 .dropdown-select main,
+.dropdown-field main,
+.dropdown-general canvas,
 .dropdown-select canvas,
+.dropdown-field canvas,
+.dropdown-general embed,
 .dropdown-select embed,
+.dropdown-field embed,
+.dropdown-general footer,
 .dropdown-select footer,
+.dropdown-field footer,
+.dropdown-general header,
 .dropdown-select header,
+.dropdown-field header,
+.dropdown-general nav,
 .dropdown-select nav,
+.dropdown-field nav,
+.dropdown-general section,
 .dropdown-select section,
-.dropdown-select video {
+.dropdown-field section,
+.dropdown-general video,
+.dropdown-select video,
+.dropdown-field video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -154,50 +268,68 @@ a {
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
 }
-.dropdown-select footer,
+.dropdown-general footer, .dropdown-select footer, .dropdown-field footer,
+.dropdown-general header,
 .dropdown-select header,
+.dropdown-field header,
+.dropdown-general nav,
 .dropdown-select nav,
+.dropdown-field nav,
+.dropdown-general section,
 .dropdown-select section,
-.dropdown-select main {
+.dropdown-field section,
+.dropdown-general main,
+.dropdown-select main,
+.dropdown-field main {
   display: block;
 }
-.dropdown-select body {
+.dropdown-general body, .dropdown-select body, .dropdown-field body {
   line-height: 1;
 }
-.dropdown-select ol,
-.dropdown-select ul {
+.dropdown-general ol, .dropdown-select ol, .dropdown-field ol,
+.dropdown-general ul,
+.dropdown-select ul,
+.dropdown-field ul {
   list-style: none;
 }
-.dropdown-select blockquote,
-.dropdown-select q {
+.dropdown-general blockquote, .dropdown-select blockquote, .dropdown-field blockquote,
+.dropdown-general q,
+.dropdown-select q,
+.dropdown-field q {
   quotes: none;
 }
-.dropdown-select blockquote:before,
+.dropdown-general blockquote:before, .dropdown-select blockquote:before, .dropdown-field blockquote:before,
+.dropdown-general blockquote:after,
 .dropdown-select blockquote:after,
+.dropdown-field blockquote:after,
+.dropdown-general q:before,
 .dropdown-select q:before,
-.dropdown-select q:after {
+.dropdown-field q:before,
+.dropdown-general q:after,
+.dropdown-select q:after,
+.dropdown-field q:after {
   content: "";
   content: none;
 }
-.dropdown-select table {
+.dropdown-general table, .dropdown-select table, .dropdown-field table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.dropdown-select input {
+.dropdown-general input, .dropdown-select input, .dropdown-field input {
   -webkit-appearance: none;
   border-radius: 0;
 }
 
-.dropdown-select .display-none, .dropdown-select select {
+.dropdown-general .display-none, .dropdown-select .display-none, .dropdown-field .display-none, .dropdown-general select, .dropdown-select select, .dropdown-field select {
   display: none;
 }
 
-.dropdown-select {
+.dropdown-general, .dropdown-select, .dropdown-field {
   position: relative;
   width: 360px;
   height: 52px;
 }
-.dropdown-select .selected {
+.dropdown-general .selected, .dropdown-select .selected, .dropdown-field .selected {
   cursor: pointer;
   height: 52px;
   width: 360px;
@@ -210,7 +342,7 @@ a {
   border-radius: 4px;
   border: 1px #E8ECEF solid;
 }
-.dropdown-select .selected:after {
+.dropdown-general .selected:after, .dropdown-select .selected:after, .dropdown-field .selected:after {
   content: "";
   position: absolute;
   font-family: "Line Awesome Free";
@@ -220,22 +352,22 @@ a {
   right: 7px;
   transform: translate(-50%, -50%);
 }
-.dropdown-select .selected.arrow-active:after {
+.dropdown-general .selected.arrow-active:after, .dropdown-select .selected.arrow-active:after, .dropdown-field .selected.arrow-active:after {
   color: #FFAB2B;
 }
-.dropdown-select .placeholder {
+.dropdown-general .placeholder, .dropdown-select .placeholder, .dropdown-field .placeholder {
   align-items: center;
   color: #98A9BC;
   background-color: white;
 }
-.dropdown-select .options {
+.dropdown-general .options, .dropdown-select .options, .dropdown-field .options {
   position: absolute;
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
 }
-.dropdown-select .options div {
+.dropdown-general .options div, .dropdown-select .options div, .dropdown-field .options div {
   cursor: pointer;
   height: 46px;
   width: 360px;
@@ -245,14 +377,407 @@ a {
   color: #1b1e24;
   padding: 3px 17px;
 }
-.dropdown-select .options div:hover {
+.dropdown-general .options div:hover, .dropdown-select .options div:hover, .dropdown-field .options div:hover {
   color: #FFAB2B;
 }
-.dropdown-select .options div:nth-child(1) {
+.dropdown-general .options div:nth-child(1), .dropdown-select .options div:nth-child(1), .dropdown-field .options div:nth-child(1) {
   height: 58px;
   padding: 12px 17px 0 17px;
 }
-.dropdown-select .options div:nth-last-child(1) {
+.dropdown-general .options div:nth-last-child(1), .dropdown-select .options div:nth-last-child(1), .dropdown-field .options div:nth-last-child(1) {
+  height: 55px;
+  padding: 0 17px 10px 17px;
+}
+
+.dropdown-field .options div:before {
+  font-family: "Line Awesome Free";
+  font-size: 18px;
+  content: "";
+  margin: 0 10px 3px -1px;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p, .dropdown-general, .dropdown-select, .dropdown-field {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.dropdown-general *, .dropdown-select *, .dropdown-field *,
+.dropdown-general *:before,
+.dropdown-select *:before,
+.dropdown-field *:before,
+.dropdown-general *:after,
+.dropdown-select *:after,
+.dropdown-field *:after {
+  box-sizing: border-box;
+}
+.dropdown-general html, .dropdown-select html, .dropdown-field html,
+.dropdown-general body,
+.dropdown-select body,
+.dropdown-field body,
+.dropdown-general div,
+.dropdown-select div,
+.dropdown-field div,
+.dropdown-general span,
+.dropdown-select span,
+.dropdown-field span,
+.dropdown-general object,
+.dropdown-select object,
+.dropdown-field object,
+.dropdown-general iframe,
+.dropdown-select iframe,
+.dropdown-field iframe,
+.dropdown-general figure,
+.dropdown-select figure,
+.dropdown-field figure,
+.dropdown-general h1,
+.dropdown-select h1,
+.dropdown-field h1,
+.dropdown-general h2,
+.dropdown-select h2,
+.dropdown-field h2,
+.dropdown-general h3,
+.dropdown-select h3,
+.dropdown-field h3,
+.dropdown-general h4,
+.dropdown-select h4,
+.dropdown-field h4,
+.dropdown-general h5,
+.dropdown-select h5,
+.dropdown-field h5,
+.dropdown-general h6,
+.dropdown-select h6,
+.dropdown-field h6,
+.dropdown-general p,
+.dropdown-select p,
+.dropdown-field p,
+.dropdown-general .dropdown-general,
+.dropdown-select .dropdown-general,
+.dropdown-general .dropdown-select,
+.dropdown-select .dropdown-select,
+.dropdown-field .dropdown-general,
+.dropdown-field .dropdown-select,
+.dropdown-general .dropdown-field,
+.dropdown-select .dropdown-field,
+.dropdown-field .dropdown-field,
+.dropdown-general blockquote,
+.dropdown-select blockquote,
+.dropdown-field blockquote,
+.dropdown-general pre,
+.dropdown-select pre,
+.dropdown-field pre,
+.dropdown-general a,
+.dropdown-select a,
+.dropdown-field a,
+.dropdown-general code,
+.dropdown-select code,
+.dropdown-field code,
+.dropdown-general em,
+.dropdown-select em,
+.dropdown-field em,
+.dropdown-general img,
+.dropdown-select img,
+.dropdown-field img,
+.dropdown-general small,
+.dropdown-select small,
+.dropdown-field small,
+.dropdown-general strike,
+.dropdown-select strike,
+.dropdown-field strike,
+.dropdown-general strong,
+.dropdown-select strong,
+.dropdown-field strong,
+.dropdown-general sub,
+.dropdown-select sub,
+.dropdown-field sub,
+.dropdown-general sup,
+.dropdown-select sup,
+.dropdown-field sup,
+.dropdown-general tt,
+.dropdown-select tt,
+.dropdown-field tt,
+.dropdown-general b,
+.dropdown-select b,
+.dropdown-field b,
+.dropdown-general u,
+.dropdown-select u,
+.dropdown-field u,
+.dropdown-general i,
+.dropdown-select i,
+.dropdown-field i,
+.dropdown-general ol,
+.dropdown-select ol,
+.dropdown-field ol,
+.dropdown-general ul,
+.dropdown-select ul,
+.dropdown-field ul,
+.dropdown-general li,
+.dropdown-select li,
+.dropdown-field li,
+.dropdown-general fieldset,
+.dropdown-select fieldset,
+.dropdown-field fieldset,
+.dropdown-general form,
+.dropdown-select form,
+.dropdown-field form,
+.dropdown-general label,
+.dropdown-select label,
+.dropdown-field label,
+.dropdown-general table,
+.dropdown-select table,
+.dropdown-field table,
+.dropdown-general caption,
+.dropdown-select caption,
+.dropdown-field caption,
+.dropdown-general tbody,
+.dropdown-select tbody,
+.dropdown-field tbody,
+.dropdown-general tfoot,
+.dropdown-select tfoot,
+.dropdown-field tfoot,
+.dropdown-general thead,
+.dropdown-select thead,
+.dropdown-field thead,
+.dropdown-general tr,
+.dropdown-select tr,
+.dropdown-field tr,
+.dropdown-general th,
+.dropdown-select th,
+.dropdown-field th,
+.dropdown-general td,
+.dropdown-select td,
+.dropdown-field td,
+.dropdown-general main,
+.dropdown-select main,
+.dropdown-field main,
+.dropdown-general canvas,
+.dropdown-select canvas,
+.dropdown-field canvas,
+.dropdown-general embed,
+.dropdown-select embed,
+.dropdown-field embed,
+.dropdown-general footer,
+.dropdown-select footer,
+.dropdown-field footer,
+.dropdown-general header,
+.dropdown-select header,
+.dropdown-field header,
+.dropdown-general nav,
+.dropdown-select nav,
+.dropdown-field nav,
+.dropdown-general section,
+.dropdown-select section,
+.dropdown-field section,
+.dropdown-general video,
+.dropdown-select video,
+.dropdown-field video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+.dropdown-general footer, .dropdown-select footer, .dropdown-field footer,
+.dropdown-general header,
+.dropdown-select header,
+.dropdown-field header,
+.dropdown-general nav,
+.dropdown-select nav,
+.dropdown-field nav,
+.dropdown-general section,
+.dropdown-select section,
+.dropdown-field section,
+.dropdown-general main,
+.dropdown-select main,
+.dropdown-field main {
+  display: block;
+}
+.dropdown-general body, .dropdown-select body, .dropdown-field body {
+  line-height: 1;
+}
+.dropdown-general ol, .dropdown-select ol, .dropdown-field ol,
+.dropdown-general ul,
+.dropdown-select ul,
+.dropdown-field ul {
+  list-style: none;
+}
+.dropdown-general blockquote, .dropdown-select blockquote, .dropdown-field blockquote,
+.dropdown-general q,
+.dropdown-select q,
+.dropdown-field q {
+  quotes: none;
+}
+.dropdown-general blockquote:before, .dropdown-select blockquote:before, .dropdown-field blockquote:before,
+.dropdown-general blockquote:after,
+.dropdown-select blockquote:after,
+.dropdown-field blockquote:after,
+.dropdown-general q:before,
+.dropdown-select q:before,
+.dropdown-field q:before,
+.dropdown-general q:after,
+.dropdown-select q:after,
+.dropdown-field q:after {
+  content: "";
+  content: none;
+}
+.dropdown-general table, .dropdown-select table, .dropdown-field table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.dropdown-general input, .dropdown-select input, .dropdown-field input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.dropdown-general .display-none, .dropdown-select .display-none, .dropdown-field .display-none, .dropdown-general select, .dropdown-select select, .dropdown-field select {
+  display: none;
+}
+
+.dropdown-general, .dropdown-select, .dropdown-field {
+  position: relative;
+  width: 360px;
+  height: 52px;
+}
+.dropdown-general .selected, .dropdown-select .selected, .dropdown-field .selected {
+  cursor: pointer;
+  height: 52px;
+  width: 360px;
+  display: flex;
+  align-items: center;
+  padding: 4px 15px 0px;
+  display: flex;
+  color: #1b1e24;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px #E8ECEF solid;
+}
+.dropdown-general .selected:after, .dropdown-select .selected:after, .dropdown-field .selected:after {
+  content: "";
+  position: absolute;
+  font-family: "Line Awesome Free";
+  font-size: 18px;
+  font-weight: 900;
+  top: 50%;
+  right: 7px;
+  transform: translate(-50%, -50%);
+}
+.dropdown-general .selected.arrow-active:after, .dropdown-select .selected.arrow-active:after, .dropdown-field .selected.arrow-active:after {
+  color: #FFAB2B;
+}
+.dropdown-general .placeholder, .dropdown-select .placeholder, .dropdown-field .placeholder {
+  align-items: center;
+  color: #98A9BC;
+  background-color: white;
+}
+.dropdown-general .options, .dropdown-select .options, .dropdown-field .options {
+  position: absolute;
+  box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  background-color: white;
+  top: calc(52px + 6px);
+}
+.dropdown-general .options div, .dropdown-select .options div, .dropdown-field .options div {
+  cursor: pointer;
+  height: 46px;
+  width: 360px;
+  display: flex;
+  align-items: center;
+  padding: 4px 15px 0px;
+  color: #1b1e24;
+  padding: 3px 17px;
+}
+.dropdown-general .options div:hover, .dropdown-select .options div:hover, .dropdown-field .options div:hover {
+  color: #FFAB2B;
+}
+.dropdown-general .options div:nth-child(1), .dropdown-select .options div:nth-child(1), .dropdown-field .options div:nth-child(1) {
+  height: 58px;
+  padding: 12px 17px 0 17px;
+}
+.dropdown-general .options div:nth-last-child(1), .dropdown-select .options div:nth-last-child(1), .dropdown-field .options div:nth-last-child(1) {
   height: 55px;
   padding: 0 17px 10px 17px;
 }
