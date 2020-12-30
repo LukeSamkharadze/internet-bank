@@ -10,6 +10,7 @@
     height:64px;
     background-color:$secondary-1;
     position: relative;
+    
 
 
 }
@@ -17,8 +18,9 @@
     font-size:25px;
     color:$background-2;
     position: absolute;
-    top: 17px;
-    left: 10px;
+    top: 20px;
+    left: 15px;
+
 }
 
 .exit{
@@ -27,7 +29,7 @@
     user-select: none;
     cursor:pointer ;
     position: absolute;
-    top: 17px;
+    top: 24px;
     left: 520px;
    
 }
@@ -36,14 +38,14 @@
     font-size:16px;
     color:$background-2;
     position: absolute;
-    top: 20px;
-    left: 50px;
     font-style: $rubik;
     font-weight:500;
     max-width:460px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    top: 24px;
+    left: 51px;
 }
 
 .primary-dark{

@@ -161,8 +161,8 @@ a {
   font-size: 25px;
   color: #F8FAFB;
   position: absolute;
-  top: 17px;
-  left: 10px;
+  top: 20px;
+  left: 15px;
 }
 
 .exit {
@@ -171,7 +171,7 @@ a {
   user-select: none;
   cursor: pointer;
   position: absolute;
-  top: 17px;
+  top: 24px;
   left: 520px;
 }
 
@@ -179,14 +179,14 @@ a {
   font-size: 16px;
   color: #F8FAFB;
   position: absolute;
-  top: 20px;
-  left: 50px;
   font-style: "Rubik", sans-serif;
   font-weight: 500;
   max-width: 460px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  top: 24px;
+  left: 51px;
 }
 
 .primary-dark {
