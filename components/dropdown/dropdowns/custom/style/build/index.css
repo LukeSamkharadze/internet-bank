@@ -163,14 +163,14 @@ a {
 .my-custom-dropdown-1 {
   position: relative;
   width: 500px;
-  height: 52px;
+  height: 100px;
 }
 .my-custom-dropdown-1 .selected {
   cursor: pointer;
   display: flex;
   align-items: center;
   width: 100%;
-  height: 52px;
+  height: 100px;
   padding: 4px 34px 0 14px;
   color: #1b1e24;
   border-radius: 4px;
@@ -187,7 +187,7 @@ a {
 .my-custom-dropdown-1 .selected:after {
   top: 50%;
   transform: translateY(-50%);
-  content: "";
+  content: "";
   font-family: "Line Awesome Free";
   font-size: 18px;
   font-weight: 900;
@@ -195,7 +195,7 @@ a {
   right: 17px;
 }
 .my-custom-dropdown-1 .selected.arrow-active:after {
-  color: #FFAB2B;
+  color: purple;
 }
 .my-custom-dropdown-1 .placeholder {
   align-items: center;
@@ -208,7 +208,7 @@ a {
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   background-color: white;
-  top: calc(52px + 6px);
+  top: calc(100px + 6px);
 }
 .my-custom-dropdown-1 .options .option {
   cursor: pointer;
@@ -224,18 +224,18 @@ a {
   content: "";
   font-family: "Line Awesome Free";
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 900;
   margin: 0 10px 3px -1px;
 }
 .my-custom-dropdown-1 .options .option:hover {
-  color: #FFAB2B;
+  color: purple;
 }
 .my-custom-dropdown-1 .options .option:nth-child(1) {
-  min-height: 58px;
+  min-height: calc(46px + 12px);
   padding: 12px 17px 0 17px;
 }
 .my-custom-dropdown-1 .options .option:nth-last-child(1) {
-  min-height: 55px;
+  min-height: calc(46px + 9px);
   padding: 0 17px 10px 17px;
 }
 

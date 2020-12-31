@@ -1,4 +1,5 @@
 CALL sass "core\style\index.scss" "core\style\build\index.css"
+CALL sass "dropdowns\custom\style\index.scss" "dropdowns\custom\style\build\index.css"
 CALL sass "dropdowns\disabled\style\index.scss" "dropdowns\disabled\style\build\index.css"
 CALL sass "dropdowns\field\style\index.scss" "dropdowns\field\style\build\index.css"
 CALL sass "dropdowns\select\style\index.scss" "dropdowns\select\style\build\index.css"

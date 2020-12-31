@@ -1,5 +1,12 @@
 @use "../../../core/style/index.scss" as *;
 
 .my-custom-dropdown-1 {
-  @include dropdown("\f005", 500px);
+  @include dropdown(
+    $symbol: "\f005",
+    $symbol-font-weight: 900,
+    $width: 500px,
+    $active-color: purple,
+    $arrow-symbol: "\f1b9",
+    $selected-height: 100px,
+  );
 }
