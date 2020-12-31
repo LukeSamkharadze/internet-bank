@@ -1,0 +1,5 @@
+@use "../../../core/style/index.scss" as *;
+
+.my-custom-dropdown-1 {
+  @include dropdown("\f005", 500px);
+}

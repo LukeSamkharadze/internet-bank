@@ -79,7 +79,7 @@
 
       @if $symbol != "" {
         &:before {
-          @include dropdown-symbol("\f004", 18px, 400);
+          @include dropdown-symbol($symbol, 18px, 400);
           margin: 0 10px 3px -1px;
         }
       }
