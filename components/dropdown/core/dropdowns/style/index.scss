@@ -25,6 +25,7 @@
   $placeholder-color: $secondary-dark-2;
 
   @extend p;
+  @extend .dropdown-disable-select;
   position: relative;
   width: $width;
   height: $selected-height;

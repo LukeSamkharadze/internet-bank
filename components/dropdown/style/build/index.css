@@ -158,6 +158,14 @@ a {
   display: none;
 }
 
+.dropdown-disable-select, .dropdown-general, .dropdown-select, .dropdown-field {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 .dropdown-general, .dropdown-select, .dropdown-field {
   position: relative;
   width: 360px;
@@ -382,6 +390,14 @@ a {
   display: none;
 }
 
+.dropdown-disable-select, .dropdown-general, .dropdown-select, .dropdown-field {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 .dropdown-general, .dropdown-select, .dropdown-field {
   position: relative;
   width: 360px;
@@ -597,6 +613,14 @@ a {
 
 .dropdown-display-none, .dropdown-general select, .dropdown-field select, .dropdown-select select {
   display: none;
+}
+
+.dropdown-disable-select, .dropdown-general, .dropdown-field, .dropdown-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .dropdown-general, .dropdown-field, .dropdown-select {
