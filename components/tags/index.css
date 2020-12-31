@@ -147,27 +147,26 @@ a {
 }
 
 .tag, .hover-tag {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 9.5px 5px;
+  display: inline-block;
+  padding: 9.5px 26px 9.5px 30px;
+  min-height: 36px;
   min-width: 84px;
   max-width: 300px;
   border-radius: 4px;
+  position: relative;
 }
 .tag span, .hover-tag span {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #252631;
   letter-spacing: 0.2px;
   font-family: "Rubik", sans-serif;
-  display: block;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
   line-height: 17px;
-  margin-right: 5px;
 }
 .tag i, .hover-tag i {
   font-size: 16px;
@@ -175,11 +174,15 @@ a {
 }
 
 .tag:hover, .hover-tag:hover {
-  justify-content: space-evenly;
+  padding: 9.5px 37px 9.5px 19px;
   cursor: context-menu;
 }
 .tag:hover i, .hover-tag:hover i {
-  display: inline-block;
+  display: block;
+  position: absolute;
+  top: 47%;
+  right: 22px;
+  transform: translate(50%, -50%);
 }
 .tag:hover i:hover, .hover-tag:hover i:hover {
   cursor: pointer;
@@ -249,10 +252,15 @@ a {
   color: #778CA2;
   letter-spacing: 0.2px;
   font-family: "Rubik", sans-serif;
-  justify-content: space-evenly;
+  padding: 9.5px 37px 9.5px 19px;
+  cursor: context-menu;
 }
 .hover-tag i {
   display: block;
+  position: absolute;
+  top: 47%;
+  right: 22px;
+  transform: translate(50%, -50%);
 }
 
 h1 {

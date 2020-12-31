@@ -1,23 +1,22 @@
 @import '../../../colors&typo/styles.scss';
 
 .tag {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 9.5px 5px;
+  display: inline-block;
+  padding: 9.5px 26px 9.5px 30px;
+  min-height: 36px;
   min-width: 84px;
   max-width: 300px;
   border-radius: 4px;
+  position: relative;
 
   span {
-    @include text-style(14px);
-    font-family: $rubik;
     display: block;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    @include text-style(14px);
+    font-family: $rubik;
     line-height: 17px;
-    margin-right: 5px;
   }
 
   i {
@@ -27,10 +26,14 @@
 }
 
 .tag:hover {
-  justify-content: space-evenly;
+  padding: 9.5px 37px 9.5px 19px;
   cursor: context-menu;
   i {
-    display: inline-block;
+    display: block;
+    position: absolute;
+    top: 47%;
+    right: 22px;
+    transform: translate(50%, -50%);
   }
   i:hover {
     cursor: pointer;
@@ -72,8 +75,13 @@
   @extend .gray-text-tag;
   @include text-style(14px, $secondary-dark-1);
   font-family: $rubik;
-  justify-content: space-evenly;
+  padding: 9.5px 37px 9.5px 19px;
+  cursor: context-menu;
   i {
     display: block;
+    position: absolute;
+    top: 47%;
+    right: 22px;
+    transform: translate(50%, -50%);
   }
 }
