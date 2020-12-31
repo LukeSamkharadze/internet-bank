@@ -1,0 +1,1578 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.btn-schema, .light-blue, .blue, .pink, .green, .outline .hover2, .outline .resting, .outline .hover, .outline .active, .primary .hover2, .primary .resting, .primary .hover, .primary .active {
+  width: 206px;
+  height: 46px;
+  border-style: none;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 49px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+}
+
+.primary .active {
+  color: white;
+  background-color: #FFAB2B;
+}
+.primary .active:hover {
+  color: white;
+  background-color: #F4A42B;
+}
+.primary .hover {
+  background-color: #F4A42B;
+  color: white;
+}
+.primary .resting {
+  background-color: #F2F4F6;
+  color: #778CA2;
+}
+.primary .resting:hover {
+  background-color: #F2F4F6;
+  color: #FFAB2B;
+}
+.primary .hover2 {
+  background-color: #F2F4F6;
+  color: #FFAB2B;
+}
+
+.outline .active {
+  background-color: white;
+  border: 2px solid #FFAB2B;
+  color: #252631;
+  line-height: 35px;
+}
+.outline .active:hover {
+  color: #FFAB2B;
+  border-color: #FFAB2B;
+}
+.outline .hover {
+  background-color: white;
+  border: 2px solid #FFAB2B;
+  color: #FFAB2B;
+  line-height: 35px;
+}
+.outline .resting {
+  background-color: white;
+  border: 2px solid #E8ECEF;
+  color: #778CA2;
+  line-height: 35px;
+}
+.outline .resting:hover {
+  border: 2px solid #E8ECEF;
+  color: #FFAB2B;
+}
+.outline .hover2 {
+  background-color: white;
+  border: 2px solid #E8ECEF;
+  color: #FFAB2B;
+  line-height: 35px;
+}
+
+.icon {
+  position: absolute;
+  top: 13px;
+  left: 23px;
+  font-size: 18px;
+}
+
+.green {
+  color: white;
+  background-color: #6DD230;
+}
+.green:hover {
+  background-color: #69C930;
+}
+
+.pink {
+  color: white;
+  background-color: #FE4D97;
+}
+.pink:hover {
+  background-color: #F34B91;
+}
+
+.blue {
+  color: white;
+  background-color: #4D7CFE;
+}
+.blue:hover {
+  background-color: #4B78F3;
+}
+
+.light-blue {
+  color: white;
+  background-color: #2CE5F6;
+}
+.light-blue:hover {
+  background-color: #2CDBEC;
+}
+
+.color-options .hover.green {
+  background-color: #69C930;
+}
+.color-options .hover.blue {
+  background-color: #4B78F3;
+}
+.color-options .hover.pink {
+  background-color: #F34B91;
+}
+.color-options .hover.light-blue {
+  background-color: #2CDBEC;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.card-details * {
+  position: relative;
+}
+.card-details {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 14px 21px 18px 18px;
+  border-radius: 4px;
+}
+.card-details .icon {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+}
+.card-details .icon i {
+  margin: 0 auto;
+}
+.card-details .icon img {
+  margin: 0 auto;
+}
+.card-details .title {
+  width: 100%;
+  padding-left: 6px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #F2F4F6;
+}
+.card-details .title .main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-details .title .icon {
+  height: 28px;
+  width: 42px;
+  margin-right: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+.card-details .title .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  height: 17px;
+}
+.card-details .title .amount {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+  top: 2px;
+  letter-spacing: -0.01px;
+}
+.card-details .card-container {
+  height: 317px;
+  width: 100%;
+  margin-left: 5px;
+  margin-top: 2px;
+  padding-top: 58px;
+  padding-right: 9px;
+  animation-name: card-appear;
+  animation-duration: 1.5s;
+}
+.card-details .card-container .card {
+  margin-left: auto;
+  margin-right: auto;
+  width: 327px;
+  height: 200px;
+}
+.card-details .card-container .bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card-details .card-container .icon {
+  position: absolute;
+  top: 9px;
+  left: auto;
+  right: 6px;
+  width: 48px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.15);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FAFBFF;
+  letter-spacing: 0.2px;
+}
+.card-details .card-container .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+.card-details .card-container .type {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: white;
+  letter-spacing: 0.2px;
+}
+.card-details .card-container .card-header {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+}
+.card-details .card-container .card-header .name {
+  letter-spacing: 0.5px;
+}
+.card-details .card-container .info {
+  position: absolute;
+  left: 24px;
+  bottom: 16px;
+}
+.card-details .card-container .info > * {
+  float: left;
+  margin-right: 60px;
+}
+.card-details .card-container .info > *:last-child {
+  margin-right: 0;
+}
+.card-details .card-container .info .name {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+.card-details .card-container .info .type {
+  bottom: 3px;
+  letter-spacing: -0.2px;
+}
+.card-details .details li {
+  border-top: 1px solid #E8ECEF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  margin-right: 3px;
+  margin-left: 5px;
+}
+.card-details .details li:first-child {
+  border: none;
+}
+.card-details .details .account {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+}
+.card-details .details .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+.card-details .buttons {
+  padding-top: 5px;
+}
+.card-details .buttons button {
+  width: 106.5px;
+  margin-right: 14px;
+}
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    pointer-events: none;
+    top: 40px;
+  }
+  to {
+    opacity: 1;
+    pointer-events: all;
+    top: 0;
+  }
+}
+.card-details .title .icon {
+  background-color: #f8fafb;
+}
+.card-details .card-container .card-header .name {
+  word-spacing: 6.25px;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.credit-overview {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 4px;
+  padding: 0 18px 0 23px;
+}
+.credit-overview * {
+  position: relative;
+}
+.credit-overview .blue {
+  background-color: #4D7CFE;
+}
+.credit-overview .green {
+  background-color: #6DD230;
+}
+.credit-overview .orange {
+  background-color: #FFAB2B;
+}
+.credit-overview .title {
+  border-bottom: 1px solid #F2F4F6;
+  padding: 20px 0;
+}
+.credit-overview .title p {
+  top: 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+.credit-overview .chart {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100% - 74px);
+}
+.credit-overview .pie {
+  height: 100%;
+  animation-name: pie-appear;
+  animation-duration: 1s;
+}
+.credit-overview .legend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.credit-overview .legend li {
+  background-color: #F8FAFB;
+  border-radius: 18px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.credit-overview .legend li .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: -0.01px;
+}
+.credit-overview .legend li:last-child {
+  margin-bottom: 0;
+}
+.credit-overview .color {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  margin-right: 11px;
+}
+.credit-overview #popup {
+  position: absolute;
+  border-radius: 13px;
+  background-color: white;
+  box-shadow: 0 8px 25px rgba(152, 169, 188, 0.3);
+  padding: 6px 15px 3px 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+  opacity: 0;
+  pointer-events: none;
+}
+.credit-overview #popup span {
+  color: #252631;
+}
+.credit-overview #popup.tooltip-shown {
+  opacity: 1;
+  pointer-events: all;
+}
+@keyframes pie-appear {
+  from {
+    top: 50%;
+    right: 25%;
+    height: 0;
+  }
+  to {
+    top: 0;
+    right: 0;
+    height: 100%;
+  }
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.cumulative-deposit * {
+  position: relative;
+}
+.cumulative-deposit {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 14px 21px 18px 18px;
+  border-radius: 4px;
+}
+.cumulative-deposit .icon {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+}
+.cumulative-deposit .icon i {
+  margin: 0 auto;
+}
+.cumulative-deposit .icon img {
+  margin: 0 auto;
+}
+.cumulative-deposit .title {
+  width: 100%;
+  padding-left: 6px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #F2F4F6;
+}
+.cumulative-deposit .title .main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cumulative-deposit .title .icon {
+  height: 28px;
+  width: 42px;
+  margin-right: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+.cumulative-deposit .title .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  height: 17px;
+}
+.cumulative-deposit .title .amount {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+  top: 2px;
+  letter-spacing: -0.01px;
+}
+.cumulative-deposit .card-container {
+  height: 317px;
+  width: 100%;
+  margin-left: 5px;
+  margin-top: 2px;
+  padding-top: 58px;
+  padding-right: 9px;
+  animation-name: card-appear;
+  animation-duration: 1.5s;
+}
+.cumulative-deposit .card-container .card {
+  margin-left: auto;
+  margin-right: auto;
+  width: 327px;
+  height: 200px;
+}
+.cumulative-deposit .card-container .bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cumulative-deposit .card-container .icon {
+  position: absolute;
+  top: 9px;
+  left: auto;
+  right: 6px;
+  width: 48px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.15);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FAFBFF;
+  letter-spacing: 0.2px;
+}
+.cumulative-deposit .card-container .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+.cumulative-deposit .card-container .type {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: white;
+  letter-spacing: 0.2px;
+}
+.cumulative-deposit .card-container .card-header {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+}
+.cumulative-deposit .card-container .card-header .name {
+  letter-spacing: 0.5px;
+}
+.cumulative-deposit .card-container .info {
+  position: absolute;
+  left: 24px;
+  bottom: 16px;
+}
+.cumulative-deposit .card-container .info > * {
+  float: left;
+  margin-right: 60px;
+}
+.cumulative-deposit .card-container .info > *:last-child {
+  margin-right: 0;
+}
+.cumulative-deposit .card-container .info .name {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+.cumulative-deposit .card-container .info .type {
+  bottom: 3px;
+  letter-spacing: -0.2px;
+}
+.cumulative-deposit .details li {
+  border-top: 1px solid #E8ECEF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  margin-right: 3px;
+  margin-left: 5px;
+}
+.cumulative-deposit .details li:first-child {
+  border: none;
+}
+.cumulative-deposit .details .account {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+}
+.cumulative-deposit .details .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+.cumulative-deposit .buttons {
+  padding-top: 5px;
+}
+.cumulative-deposit .buttons button {
+  width: 106.5px;
+  margin-right: 14px;
+}
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    pointer-events: none;
+    top: 40px;
+  }
+  to {
+    opacity: 1;
+    pointer-events: all;
+    top: 0;
+  }
+}
+.cumulative-deposit .title .icon {
+  color: #FFAB2B;
+  background-color: rgba(255, 171, 43, 0.1);
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mortgage-loan * {
+  position: relative;
+}
+.mortgage-loan {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 14px 21px 18px 18px;
+  border-radius: 4px;
+}
+.mortgage-loan .icon {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+}
+.mortgage-loan .icon i {
+  margin: 0 auto;
+}
+.mortgage-loan .icon img {
+  margin: 0 auto;
+}
+.mortgage-loan .title {
+  width: 100%;
+  padding-left: 6px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #F2F4F6;
+}
+.mortgage-loan .title .main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mortgage-loan .title .icon {
+  height: 28px;
+  width: 42px;
+  margin-right: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+.mortgage-loan .title .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  height: 17px;
+}
+.mortgage-loan .title .amount {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+  top: 2px;
+  letter-spacing: -0.01px;
+}
+.mortgage-loan .card-container {
+  height: 317px;
+  width: 100%;
+  margin-left: 5px;
+  margin-top: 2px;
+  padding-top: 58px;
+  padding-right: 9px;
+  animation-name: card-appear;
+  animation-duration: 1.5s;
+}
+.mortgage-loan .card-container .card {
+  margin-left: auto;
+  margin-right: auto;
+  width: 327px;
+  height: 200px;
+}
+.mortgage-loan .card-container .bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mortgage-loan .card-container .icon {
+  position: absolute;
+  top: 9px;
+  left: auto;
+  right: 6px;
+  width: 48px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.15);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FAFBFF;
+  letter-spacing: 0.2px;
+}
+.mortgage-loan .card-container .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: white;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+.mortgage-loan .card-container .type {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: white;
+  letter-spacing: 0.2px;
+}
+.mortgage-loan .card-container .card-header {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+}
+.mortgage-loan .card-container .card-header .name {
+  letter-spacing: 0.5px;
+}
+.mortgage-loan .card-container .info {
+  position: absolute;
+  left: 24px;
+  bottom: 16px;
+}
+.mortgage-loan .card-container .info > * {
+  float: left;
+  margin-right: 60px;
+}
+.mortgage-loan .card-container .info > *:last-child {
+  margin-right: 0;
+}
+.mortgage-loan .card-container .info .name {
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+.mortgage-loan .card-container .info .type {
+  bottom: 3px;
+  letter-spacing: -0.2px;
+}
+.mortgage-loan .details li {
+  border-top: 1px solid #E8ECEF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  margin-right: 3px;
+  margin-left: 5px;
+}
+.mortgage-loan .details li:first-child {
+  border: none;
+}
+.mortgage-loan .details .account {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #98A9BC;
+  letter-spacing: 0.2px;
+}
+.mortgage-loan .details .name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+.mortgage-loan .buttons {
+  padding-top: 5px;
+}
+.mortgage-loan .buttons button {
+  width: 106.5px;
+  margin-right: 14px;
+}
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    pointer-events: none;
+    top: 40px;
+  }
+  to {
+    opacity: 1;
+    pointer-events: all;
+    top: 0;
+  }
+}
+.mortgage-loan .title .icon {
+  color: #6DD230;
+  background-color: rgba(109, 210, 48, 0.1);
+}
+
+body {
+  width: 1800px;
+  height: 900px;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 555px 555px 1fr;
+  grid-template-rows: 328px 328px 1fr;
+}
+
+.card-view-component {
+  grid-row: 1/span 2;
+}
+
+.credit-overview {
+  grid-row: 2/span 1;
+}
+
+/*# sourceMappingURL=style.css.map */

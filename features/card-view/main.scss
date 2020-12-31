@@ -1,0 +1,23 @@
+@import '../../components/buttons/core/index.scss';
+
+@import './core/card-details/index.scss';
+@import './core/credit-overview/index.scss';
+@import './core/cumulative-deposit/index.scss';
+@import './core/mortgage-loan/index.scss';
+
+body {
+    width: 1800px;
+    height: 900px;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 555px 555px 1fr;
+    grid-template-rows: 328px 328px 1fr;
+}
+
+.card-view-component {
+    grid-row: 1 / span 2;
+}
+
+.credit-overview {
+    grid-row: 2 / span 1;
+}

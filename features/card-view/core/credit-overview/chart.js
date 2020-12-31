@@ -23,7 +23,7 @@ function createChart( dataset, colors, bg ) {
         });
         element.addEventListener('mouseout', mouse => {
             mouse.currentTarget.setAttributeNS(null, 'stroke-width', strokeWidth);
-            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popup').classList.toggle('tooltip-shown');
         });
         chart.appendChild(element);
     });
@@ -38,9 +38,9 @@ function createChart( dataset, colors, bg ) {
 function pop( x, y, amount ) {
     const popup = document.getElementById('popup');
     popup.getElementsByTagName('span')[0].innerText = `$${amount.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")}`;
-    popup.style.display = 'block';
-    popup.style.left = x - popup.offsetWidth / 2;
-    popup.style.top = y - popup.offsetHeight - 10;
+    popup.classList.toggle('tooltip-shown');
+    popup.style.left = `${x - popup.offsetWidth / 2}px`;
+    popup.style.top = `${y - popup.offsetHeight - 10}px`;
 }
 
 function createCircle( properties ) {
