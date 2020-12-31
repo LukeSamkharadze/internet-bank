@@ -1,5 +1,12 @@
-.dropdown-general {
-  .display-none {
-    display: none;
-  }
+@mixin dropdown-option-mixin($height) {
+  cursor: pointer;
+  height: $height;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 4px 15px 0px;
+}
+
+.dropdown-display-none {
+  display: none;
 }

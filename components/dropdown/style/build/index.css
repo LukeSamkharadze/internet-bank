@@ -154,7 +154,7 @@ a {
   text-align: right;
 }
 
-.dropdown-general .display-none, .dropdown-select .display-none, .dropdown-field .display-none, .dropdown-general select, .dropdown-select select, .dropdown-field select {
+.dropdown-display-none, .dropdown-general select, .dropdown-select select, .dropdown-field select {
   display: none;
 }
 
@@ -166,7 +166,7 @@ a {
 .dropdown-general .selected, .dropdown-select .selected, .dropdown-field .selected {
   cursor: pointer;
   height: 52px;
-  width: 360px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 4px 15px 0px;
@@ -195,17 +195,18 @@ a {
   background-color: white;
 }
 .dropdown-general .options, .dropdown-select .options, .dropdown-field .options {
+  width: 100%;
   position: absolute;
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
-  z-index: 100;
+  z-index: 1;
 }
 .dropdown-general .options div, .dropdown-select .options div, .dropdown-field .options div {
   cursor: pointer;
   height: 46px;
-  width: 360px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 4px 15px 0px;
@@ -377,7 +378,7 @@ a {
   text-align: right;
 }
 
-.dropdown-general .display-none, .dropdown-select .display-none, .dropdown-field .display-none, .dropdown-general select, .dropdown-select select, .dropdown-field select {
+.dropdown-display-none, .dropdown-general select, .dropdown-select select, .dropdown-field select {
   display: none;
 }
 
@@ -389,7 +390,7 @@ a {
 .dropdown-general .selected, .dropdown-select .selected, .dropdown-field .selected {
   cursor: pointer;
   height: 52px;
-  width: 360px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 4px 15px 0px;
@@ -418,17 +419,18 @@ a {
   background-color: white;
 }
 .dropdown-general .options, .dropdown-select .options, .dropdown-field .options {
+  width: 100%;
   position: absolute;
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
-  z-index: 100;
+  z-index: 1;
 }
 .dropdown-general .options div, .dropdown-select .options div, .dropdown-field .options div {
   cursor: pointer;
   height: 46px;
-  width: 360px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 4px 15px 0px;
@@ -593,7 +595,7 @@ a {
   text-align: right;
 }
 
-.dropdown-general .display-none, .dropdown-field .display-none, .dropdown-select .display-none, .dropdown-general select, .dropdown-field select, .dropdown-select select {
+.dropdown-display-none, .dropdown-general select, .dropdown-field select, .dropdown-select select {
   display: none;
 }
 
@@ -605,7 +607,7 @@ a {
 .dropdown-general .selected, .dropdown-field .selected, .dropdown-select .selected {
   cursor: pointer;
   height: 52px;
-  width: 360px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 4px 15px 0px;
@@ -634,17 +636,18 @@ a {
   background-color: white;
 }
 .dropdown-general .options, .dropdown-field .options, .dropdown-select .options {
+  width: 100%;
   position: absolute;
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
-  z-index: 100;
+  z-index: 1;
 }
 .dropdown-general .options div, .dropdown-field .options div, .dropdown-select .options div {
   cursor: pointer;
   height: 46px;
-  width: 360px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 4px 15px 0px;

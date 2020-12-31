@@ -13,7 +13,7 @@ function closeAllSelect(element) {
             selecteds[i].classList.remove("arrow-active");
     for (let i = 0; i < options.length; i++)
         if (i !== current)
-            options[i].classList.add("display-none");
+            options[i].classList.add("dropdown-display-none");
 }
 function selectedClicked(mouseEvent) {
     var _a, _b;
@@ -21,7 +21,7 @@ function selectedClicked(mouseEvent) {
     if ((_a = this.parentElement) === null || _a === void 0 ? void 0 : _a.classList.contains("dropdown-disabled"))
         return;
     closeAllSelect(this);
-    (_b = this.nextSibling) === null || _b === void 0 ? void 0 : _b.classList.toggle("display-none");
+    (_b = this.nextSibling) === null || _b === void 0 ? void 0 : _b.classList.toggle("dropdown-display-none");
     this.classList.toggle("arrow-active");
 }
 function optionClicked(selected, html_select) {
@@ -49,7 +49,7 @@ function createOptionDiv(html_option) {
 }
 function createOptionsDiv(html_select, selected) {
     let options = document.createElement("div");
-    options.setAttribute("class", "options display-none");
+    options.setAttribute("class", "options dropdown-display-none");
     for (let html_option of Array.from(html_select.options).slice(1)) {
         let option = createOptionDiv(html_option);
         option.addEventListener("click", optionClicked.bind(option, selected, html_select));

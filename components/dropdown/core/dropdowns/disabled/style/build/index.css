@@ -148,7 +148,7 @@ a {
   text-align: right;
 }
 
-.dropdown-general .display-none, .dropdown-general select {
+.dropdown-display-none, .dropdown-general select {
   display: none;
 }
 
@@ -160,7 +160,7 @@ a {
 .dropdown-general .selected {
   cursor: pointer;
   height: 52px;
-  width: 360px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 4px 15px 0px;
@@ -189,17 +189,18 @@ a {
   background-color: white;
 }
 .dropdown-general .options {
+  width: 100%;
   position: absolute;
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
-  z-index: 100;
+  z-index: 1;
 }
 .dropdown-general .options div {
   cursor: pointer;
   height: 46px;
-  width: 360px;
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 4px 15px 0px;

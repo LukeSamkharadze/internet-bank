@@ -21,7 +21,7 @@ function closeAllSelect(element: any): void {
 
   for (let i = 0; i < options.length; i++)
     if (i !== current)
-      options[i].classList.add("display-none");
+      options[i].classList.add("dropdown-display-none");
 }
 
 function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
@@ -31,7 +31,7 @@ function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
     return;
 
   closeAllSelect(this);
-  this.nextSibling?.classList.toggle("display-none");
+  this.nextSibling?.classList.toggle("dropdown-display-none");
   this.classList.toggle("arrow-active");
 }
 
@@ -66,7 +66,7 @@ function createOptionDiv(html_option: HTMLOptionElement): HTMLDivElement {
 
 function createOptionsDiv(html_select: HTMLSelectElement, selected: HTMLDivElement): HTMLDivElement {
   let options = document.createElement("div");
-  options.setAttribute("class", "options display-none");
+  options.setAttribute("class", "options dropdown-display-none");
 
   for (let html_option of Array.from(html_select.options).slice(1)) {
     let option = createOptionDiv(html_option);

@@ -24,26 +24,17 @@
 
   $placeholder-color: $secondary-dark-2;
 
-  @mixin option-mixin($height) {
-    cursor: pointer;
-    height: $height;
-    width: $width;
-    display: flex;
-    align-items: center;
-    padding: 4px 15px 0px;
-  }
-
   @extend p;
   position: relative;
   width: $width;
   height: $selected-height;
 
   select {
-    @extend .display-none;
+    @extend .dropdown-display-none;
   }
 
   .selected {
-    @include option-mixin($selected-height);
+    @include dropdown-option-mixin($selected-height);
     display: flex;
     color: $selected-color;
     background-color: $background-color;
@@ -73,15 +64,16 @@
   }
 
   .options {
+    width: 100%;
     position: absolute;
     box-shadow: 0 0 6px 6px $shadow-color;
     border-radius: $border-radius;
     background-color: $background-color;
     top: calc(#{$selected-height} + #{$options-gap});
-    z-index: 100;
+    z-index: 1;
 
     div {
-      @include option-mixin($option-height);
+      @include dropdown-option-mixin($option-height);
       color: $option-color;
       padding: 3px 17px;
 
