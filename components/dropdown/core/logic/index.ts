@@ -41,11 +41,12 @@ function optionClicked(this: HTMLDivElement, selected: HTMLDivElement, html_sele
   for (let i = 0; i < html_select.length; i++)
     if (html_select.options[i].innerHTML == this.innerHTML) {
       html_select.selectedIndex = i;
-
-      if (this.parentNode?.previousSibling?.innerHTML)
-        this.parentNode.previousSibling.innerHTML = this.innerHTML;
-
-      break;
+      let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text"))
+      
+      if (foundTextElement)
+        foundTextElement.innerHTML = this.innerHTML;
+      
+        break;
     }
 
   this.parentNode?.previousSibling?.click();
@@ -54,7 +55,10 @@ function optionClicked(this: HTMLDivElement, selected: HTMLDivElement, html_sele
 function createSelectedDiv(html_select: HTMLSelectElement): HTMLDivElement {
   let selected = document.createElement("div");
   selected.setAttribute("class", "selected placeholder");
-  selected.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
+  let text = document.createElement("div");
+  text.setAttribute("class", "text");
+  text.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
+  selected.appendChild(text);
   return selected;
 }
 

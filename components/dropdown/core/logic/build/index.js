@@ -25,21 +25,25 @@ function selectedClicked(mouseEvent) {
     this.classList.toggle("arrow-active");
 }
 function optionClicked(selected, html_select) {
-    var _a, _b, _c, _d;
+    var _a, _b;
     selected.classList.remove("placeholder");
     for (let i = 0; i < html_select.length; i++)
         if (html_select.options[i].innerHTML == this.innerHTML) {
             html_select.selectedIndex = i;
-            if ((_b = (_a = this.parentNode) === null || _a === void 0 ? void 0 : _a.previousSibling) === null || _b === void 0 ? void 0 : _b.innerHTML)
-                this.parentNode.previousSibling.innerHTML = this.innerHTML;
+            let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text"));
+            if (foundTextElement)
+                foundTextElement.innerHTML = this.innerHTML;
             break;
         }
-    (_d = (_c = this.parentNode) === null || _c === void 0 ? void 0 : _c.previousSibling) === null || _d === void 0 ? void 0 : _d.click();
+    (_b = (_a = this.parentNode) === null || _a === void 0 ? void 0 : _a.previousSibling) === null || _b === void 0 ? void 0 : _b.click();
 }
 function createSelectedDiv(html_select) {
     let selected = document.createElement("div");
     selected.setAttribute("class", "selected placeholder");
-    selected.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
+    let text = document.createElement("div");
+    text.setAttribute("class", "text");
+    text.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
+    selected.appendChild(text);
     return selected;
 }
 function createOptionDiv(html_option) {
