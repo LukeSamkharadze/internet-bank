@@ -2,3 +2,4 @@
 node_modules/
 *.xd
 *.css.map
+components/dropdown/guide
