@@ -4,4 +4,3 @@ CALL sass "core\dropdowns\field\style\index.scss" "core\dropdowns\field\style\bu
 CALL sass "core\dropdowns\select\style\index.scss" "core\dropdowns\select\style\build\index.css"
 CALL sass "style\index.scss" "style\build\index.css"
 CALL tsc -p "core\logic\tsconfig.json"
-CALL PAUSE
