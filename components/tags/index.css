@@ -150,13 +150,10 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 9.5px 5px;
   min-width: 84px;
-  min-height: 36px;
-  max-width: 84px;
-  max-height: 36px;
+  max-width: 300px;
   border-radius: 4px;
-  line-height: 17px;
-  padding: 0px 5px;
 }
 .tag span, .hover-tag span {
   font-family: "Roboto", sans-serif;
@@ -165,11 +162,12 @@ a {
   color: #252631;
   letter-spacing: 0.2px;
   font-family: "Rubik", sans-serif;
-  /* will be included in mixin */
   display: block;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  line-height: 17px;
+  margin-right: 5px;
 }
 .tag i, .hover-tag i {
   font-size: 16px;
@@ -192,7 +190,7 @@ a {
 }
 .white-text-tag span,
 .white-text-tag i {
-  color: #ffffff;
+  color: white;
 }
 
 .blue-text-tag {
@@ -251,7 +249,6 @@ a {
   color: #778CA2;
   letter-spacing: 0.2px;
   font-family: "Rubik", sans-serif;
-  /* will be included in mixin */
   justify-content: space-evenly;
 }
 .hover-tag i {
