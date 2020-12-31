@@ -1,7 +1,8 @@
-@import "../core/style/index.scss";
-@import "../dropdowns/select/style/index.scss";
-@import "../dropdowns/field/style/index.scss";
-@import "../dropdowns/disabled/style/index.scss";
+@use "../../../colors&typo/palette.scss" as *;
+@use "../core/style/index.scss" as *;
+@use "../dropdowns/select/style/index.scss" as *;
+@use "../dropdowns/field/style/index.scss" as *;
+@use "../dropdowns/disabled/style/index.scss" as *;
 
 body {
   display: flex;
@@ -10,8 +11,7 @@ body {
   gap: 30px;
 }
 
-body>.dropdown-field:nth-child(2)
-{
+body > .dropdown-field:nth-child(2) {
   .placeholder {
     color: $dark-secondary-3;
   }

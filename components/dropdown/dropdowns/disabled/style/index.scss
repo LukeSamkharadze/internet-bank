@@ -1,4 +1,5 @@
-@import "../../../core/style/index.scss";
+@use "../../../../../colors&typo/palette.scss" as *;
+@use "../../../core/style/index.scss" as *;
 
 .dropdown-general {
   @include dropdown("");

@@ -1,6 +1,6 @@
-@import "../../../../colors&typo/styles.scss";
-@import "../utils/mixins.scss";
-@import "../utils/classes.scss";
+@use "../../../../colors&typo/styles.scss" as *;
+@use "../utils/mixins.scss" as *;
+@use "../utils/classes.scss" as *;
 
 @import url("https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css");
 
@@ -25,14 +25,14 @@
 
   $arrow-offset: 17px;
 
-  @extend p;
-  @extend .dropdown-disable-select;
+  @extend p !optional;
+  @extend .dropdown-disable-select !optional;
   position: relative;
   width: $width;
   height: $selected-height;
 
   select {
-    @extend .dropdown-display-none;
+    @extend .dropdown-display-none !optional;
   }
 
   .selected {
