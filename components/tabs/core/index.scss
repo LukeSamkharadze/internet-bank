@@ -6,6 +6,9 @@
     margin-left: 23px;
     margin-right: 0px;
     margin-top: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   &:hover .lineanimation{
       display: block;
   }
