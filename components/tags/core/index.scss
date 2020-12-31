@@ -1,8 +1,9 @@
 @import '../../../colors&typo/styles.scss';
 
 .tag {
-  display: inline-block;
+  display: block;
   padding: 9.5px 26px 9.5px 30px;
+  width: fit-content;
   min-height: 36px;
   min-width: 84px;
   max-width: 300px;
