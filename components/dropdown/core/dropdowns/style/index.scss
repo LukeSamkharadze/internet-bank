@@ -35,22 +35,18 @@
   }
 
   .selected {
-    @include dropdown-option-mixin($selected-height);
-    display: flex;
+    @include dropdown-option($selected-height);
+    @include dropdown-multiple-line-ellipsis(2);
     color: $selected-color;
     background-color: $background-color;
     border-radius: $border-radius;
     border: $border-size $outline $border-style;
 
     &:after {
-      content: "\f107";
+      @include dropdown-center(true, false);
+      @include dropdown-symbol("\f107", 18px, 900);
       position: absolute;
-      font-family: "Line Awesome Free";
-      font-size: 18px;
-      font-weight: 900;
-      top: 50%;
-      right: 7px;
-      transform: translate(-50%, -50%);
+      right: 10px;
     }
 
     &.arrow-active:after {
@@ -74,7 +70,7 @@
     z-index: 1;
 
     div {
-      @include dropdown-option-mixin($option-height);
+      @include dropdown-option($option-height);
       color: $option-color;
       padding: 3px 17px;
 

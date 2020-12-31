@@ -1,10 +1,37 @@
-@mixin dropdown-option-mixin($height) {
+@mixin dropdown-option($height) {
   cursor: pointer;
   height: $height;
   width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 4px 15px 0px;
+  padding: 4px 25px 0 0;
+}
+
+@mixin dropdown-multiple-line-ellipsis($line-count) {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin dropdown-center($is-vertical, $is-horizontal) {
+  @if $is-vertical and $is-horizontal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $is-vertical {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $is-horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@mixin dropdown-symbol($unicode, $size, $weight) {
+  content: $unicode;
+  font-family: "Line Awesome Free";
+  font-size: $size;
+  font-weight: $weight;
 }
 
 .dropdown-display-none {
