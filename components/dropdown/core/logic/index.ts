@@ -60,6 +60,7 @@ function createSelectedDiv(html_select: HTMLSelectElement): HTMLDivElement {
 
 function createOptionDiv(html_option: HTMLOptionElement): HTMLDivElement {
   let optionDiv = document.createElement("div");
+  optionDiv.setAttribute("class", "option");
   optionDiv.innerHTML = html_option.innerHTML;
   return optionDiv;
 }

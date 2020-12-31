@@ -44,6 +44,7 @@ function createSelectedDiv(html_select) {
 }
 function createOptionDiv(html_option) {
     let optionDiv = document.createElement("div");
+    optionDiv.setAttribute("class", "option");
     optionDiv.innerHTML = html_option.innerHTML;
     return optionDiv;
 }

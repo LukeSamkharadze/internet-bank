@@ -69,7 +69,7 @@
     top: calc(#{$selected-height} + #{$options-gap});
     z-index: 1;
 
-    div {
+    .option {
       @include dropdown-option($option-height);
       color: $option-color;
       padding: 3px 17px;
