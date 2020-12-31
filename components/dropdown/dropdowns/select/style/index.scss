@@ -1,6 +1,5 @@
 @import "../../../core/style/index.scss";
 
-.dropdown-select
-{
-  @extend .dropdown-general;
+.dropdown-general {
+  @include dropdown("");
 }

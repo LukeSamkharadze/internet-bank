@@ -1,7 +1,10 @@
 @import "../../../core/style/index.scss";
 
-.dropdown-disabled
-{
+.dropdown-general {
+  @include dropdown("");
+}
+
+.dropdown-disabled {
   .selected {
     background-color: $background-2;
   }

@@ -173,8 +173,8 @@ a {
   height: 52px;
   padding: 4px 34px 0 14px;
   color: #1b1e24;
-  background-color: white;
   border-radius: 4px;
+  background-color: white;
   border: 1px #E8ECEF solid;
 }
 .dropdown-general .selected .text {
@@ -202,13 +202,13 @@ a {
   color: #98A9BC;
 }
 .dropdown-general .options {
+  z-index: 1;
   width: 100%;
   position: absolute;
   box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   background-color: white;
   top: calc(52px + 6px);
-  z-index: 1;
 }
 .dropdown-general .options .option {
   cursor: pointer;

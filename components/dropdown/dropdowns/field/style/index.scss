@@ -1,19 +1,5 @@
 @import "../../../core/style/index.scss";
 
-.dropdown-field
-{
-  @extend .dropdown-general;
-
-  .options {
-
-    div {
-      &:before
-      {
-        font-family: "Line Awesome Free";
-        font-size: 18px;
-        content: "\f004";
-        margin: 0 10px 3px -1px;
-      }
-    }
-  }
+.dropdown-general-symbol {
+  @include dropdown("\f004");
 }

@@ -62,17 +62,8 @@ function createOptionsDiv(html_select, selected) {
     }
     return options;
 }
-function getDropdowns() {
-    let dropdownClasses = ["dropdown-general", "dropdown-select", "dropdown-field"];
-    let dropdowns = [];
-    for (let dropdown of document.querySelectorAll("*"))
-        if (dropdownClasses.some(o => dropdown.classList.contains(o)))
-            dropdowns.push(dropdown);
-    return dropdowns;
-}
 function main() {
-    let dropdowns = getDropdowns();
-    for (let dropdown of dropdowns) {
+    for (let dropdown of document.querySelectorAll(".dropdown-custom, .dropdown-general, .dropdown-general-symbol")) {
         let html_select = dropdown.getElementsByTagName("select")[0];
         if (html_select === undefined)
             continue;

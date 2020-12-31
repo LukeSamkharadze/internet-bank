@@ -42,11 +42,11 @@ function optionClicked(this: HTMLDivElement, selected: HTMLDivElement, html_sele
     if (html_select.options[i].innerHTML == this.innerHTML) {
       html_select.selectedIndex = i;
       let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text"))
-      
+
       if (foundTextElement)
         foundTextElement.innerHTML = this.innerHTML;
-      
-        break;
+
+      break;
     }
 
   this.parentNode?.previousSibling?.click();
@@ -82,21 +82,8 @@ function createOptionsDiv(html_select: HTMLSelectElement, selected: HTMLDivEleme
   return options;
 }
 
-function getDropdowns(): Element[] {
-  let dropdownClasses = ["dropdown-general", "dropdown-select", "dropdown-field"]
-  let dropdowns: Element[] = [];
-
-  for (let dropdown of document.querySelectorAll("*"))
-    if (dropdownClasses.some(o => dropdown.classList.contains(o)))
-      dropdowns.push(dropdown);
-
-  return dropdowns;
-}
-
 function main() {
-  let dropdowns = getDropdowns();
-
-  for (let dropdown of dropdowns) {
+  for (let dropdown of document.querySelectorAll(".dropdown-custom, .dropdown-general, .dropdown-general-symbol")) {
     let html_select = dropdown.getElementsByTagName("select")[0];
 
     if (html_select === undefined)
