@@ -173,7 +173,7 @@ a {
 }
 .dropdown-general .selected, .dropdown-select .selected, .dropdown-field .selected {
   cursor: pointer;
-  height: 52px;
+  min-height: 52px;
   width: 100%;
   padding: 4px 25px 0 0;
   display: -webkit-box;
@@ -215,7 +215,7 @@ a {
 }
 .dropdown-general .options .option, .dropdown-select .options .option, .dropdown-field .options .option {
   cursor: pointer;
-  height: 46px;
+  min-height: 46px;
   width: 100%;
   padding: 4px 25px 0 0;
   color: #1b1e24;
@@ -225,11 +225,11 @@ a {
   color: #FFAB2B;
 }
 .dropdown-general .options .option:nth-child(1), .dropdown-select .options .option:nth-child(1), .dropdown-field .options .option:nth-child(1) {
-  height: 58px;
+  min-height: 58px;
   padding: 12px 17px 0 17px;
 }
 .dropdown-general .options .option:nth-last-child(1), .dropdown-select .options .option:nth-last-child(1), .dropdown-field .options .option:nth-last-child(1) {
-  height: 55px;
+  min-height: 55px;
   padding: 0 17px 10px 17px;
 }
 
@@ -405,7 +405,7 @@ a {
 }
 .dropdown-general .selected, .dropdown-select .selected, .dropdown-field .selected {
   cursor: pointer;
-  height: 52px;
+  min-height: 52px;
   width: 100%;
   padding: 4px 25px 0 0;
   display: -webkit-box;
@@ -447,7 +447,7 @@ a {
 }
 .dropdown-general .options .option, .dropdown-select .options .option, .dropdown-field .options .option {
   cursor: pointer;
-  height: 46px;
+  min-height: 46px;
   width: 100%;
   padding: 4px 25px 0 0;
   color: #1b1e24;
@@ -457,11 +457,11 @@ a {
   color: #FFAB2B;
 }
 .dropdown-general .options .option:nth-child(1), .dropdown-select .options .option:nth-child(1), .dropdown-field .options .option:nth-child(1) {
-  height: 58px;
+  min-height: 58px;
   padding: 12px 17px 0 17px;
 }
 .dropdown-general .options .option:nth-last-child(1), .dropdown-select .options .option:nth-last-child(1), .dropdown-field .options .option:nth-last-child(1) {
-  height: 55px;
+  min-height: 55px;
   padding: 0 17px 10px 17px;
 }
 
@@ -630,7 +630,7 @@ a {
 }
 .dropdown-general .selected, .dropdown-field .selected, .dropdown-select .selected {
   cursor: pointer;
-  height: 52px;
+  min-height: 52px;
   width: 100%;
   padding: 4px 25px 0 0;
   display: -webkit-box;
@@ -672,7 +672,7 @@ a {
 }
 .dropdown-general .options .option, .dropdown-field .options .option, .dropdown-select .options .option {
   cursor: pointer;
-  height: 46px;
+  min-height: 46px;
   width: 100%;
   padding: 4px 25px 0 0;
   color: #1b1e24;
@@ -682,11 +682,11 @@ a {
   color: #FFAB2B;
 }
 .dropdown-general .options .option:nth-child(1), .dropdown-field .options .option:nth-child(1), .dropdown-select .options .option:nth-child(1) {
-  height: 58px;
+  min-height: 58px;
   padding: 12px 17px 0 17px;
 }
 .dropdown-general .options .option:nth-last-child(1), .dropdown-field .options .option:nth-last-child(1), .dropdown-select .options .option:nth-last-child(1) {
-  height: 55px;
+  min-height: 55px;
   padding: 0 17px 10px 17px;
 }
 
@@ -696,8 +696,8 @@ a {
 
 body {
   display: flex;
-  flex-direction: row;
-  padding: 25px;
+  flex-direction: column;
+  padding: 100px;
   gap: 30px;
 }
 

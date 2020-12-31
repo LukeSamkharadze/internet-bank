@@ -79,12 +79,12 @@
       }
 
       &:nth-child(1) {
-        height: 58px;
+        min-height: 58px;
         padding: 12px 17px 0 17px;
       }
 
       &:nth-last-child(1) {
-        height: 55px;
+        min-height: 55px;
         padding: 0 17px 10px 17px;
       }
     }

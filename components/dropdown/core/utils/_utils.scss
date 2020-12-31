@@ -1,6 +1,6 @@
 @mixin dropdown-option($height) {
   cursor: pointer;
-  height: $height;
+  min-height: $height;
   width: 100%;
   padding: 4px 25px 0 0;
 }

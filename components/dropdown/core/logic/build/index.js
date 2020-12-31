@@ -43,10 +43,10 @@ function createSelectedDiv(html_select) {
     return selected;
 }
 function createOptionDiv(html_option) {
-    let optionDiv = document.createElement("div");
-    optionDiv.setAttribute("class", "option");
-    optionDiv.innerHTML = html_option.innerHTML;
-    return optionDiv;
+    let option = document.createElement("div");
+    option.setAttribute("class", "option");
+    option.innerHTML = html_option.innerHTML;
+    return option;
 }
 function createOptionsDiv(html_select, selected) {
     let options = document.createElement("div");
