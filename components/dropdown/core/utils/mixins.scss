@@ -23,7 +23,7 @@
 
 @mixin dropdown-multiple-line-ellipsis($line-count) {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: $line-count;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
