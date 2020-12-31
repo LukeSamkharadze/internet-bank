@@ -172,12 +172,12 @@ a {
   height: 52px;
 }
 .dropdown-general .selected, .dropdown-select .selected, .dropdown-field .selected {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
   height: 52px;
+  padding: 4px 34px 0 14px;
   color: #1b1e24;
   background-color: white;
   border-radius: 4px;
@@ -198,7 +198,7 @@ a {
   font-size: 18px;
   font-weight: 900;
   position: absolute;
-  right: 10px;
+  right: 17px;
 }
 .dropdown-general .selected.arrow-active:after, .dropdown-select .selected.arrow-active:after, .dropdown-field .selected.arrow-active:after {
   color: #FFAB2B;
@@ -206,7 +206,6 @@ a {
 .dropdown-general .placeholder, .dropdown-select .placeholder, .dropdown-field .placeholder {
   align-items: center;
   color: #98A9BC;
-  background-color: white;
 }
 .dropdown-general .options, .dropdown-select .options, .dropdown-field .options {
   width: 100%;
@@ -218,12 +217,12 @@ a {
   z-index: 1;
 }
 .dropdown-general .options .option, .dropdown-select .options .option, .dropdown-field .options .option {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
   min-height: 46px;
+  padding: 4px 30px 0 14px;
   color: #1b1e24;
   padding: 3px 17px;
 }
@@ -410,12 +409,12 @@ a {
   height: 52px;
 }
 .dropdown-general .selected, .dropdown-select .selected, .dropdown-field .selected {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
   height: 52px;
+  padding: 4px 34px 0 14px;
   color: #1b1e24;
   background-color: white;
   border-radius: 4px;
@@ -436,7 +435,7 @@ a {
   font-size: 18px;
   font-weight: 900;
   position: absolute;
-  right: 10px;
+  right: 17px;
 }
 .dropdown-general .selected.arrow-active:after, .dropdown-select .selected.arrow-active:after, .dropdown-field .selected.arrow-active:after {
   color: #FFAB2B;
@@ -444,7 +443,6 @@ a {
 .dropdown-general .placeholder, .dropdown-select .placeholder, .dropdown-field .placeholder {
   align-items: center;
   color: #98A9BC;
-  background-color: white;
 }
 .dropdown-general .options, .dropdown-select .options, .dropdown-field .options {
   width: 100%;
@@ -456,12 +454,12 @@ a {
   z-index: 1;
 }
 .dropdown-general .options .option, .dropdown-select .options .option, .dropdown-field .options .option {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
   min-height: 46px;
+  padding: 4px 30px 0 14px;
   color: #1b1e24;
   padding: 3px 17px;
 }
@@ -641,12 +639,12 @@ a {
   height: 52px;
 }
 .dropdown-general .selected, .dropdown-field .selected, .dropdown-select .selected {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
   height: 52px;
+  padding: 4px 34px 0 14px;
   color: #1b1e24;
   background-color: white;
   border-radius: 4px;
@@ -667,7 +665,7 @@ a {
   font-size: 18px;
   font-weight: 900;
   position: absolute;
-  right: 10px;
+  right: 17px;
 }
 .dropdown-general .selected.arrow-active:after, .dropdown-field .selected.arrow-active:after, .dropdown-select .selected.arrow-active:after {
   color: #FFAB2B;
@@ -675,7 +673,6 @@ a {
 .dropdown-general .placeholder, .dropdown-field .placeholder, .dropdown-select .placeholder {
   align-items: center;
   color: #98A9BC;
-  background-color: white;
 }
 .dropdown-general .options, .dropdown-field .options, .dropdown-select .options {
   width: 100%;
@@ -687,12 +684,12 @@ a {
   z-index: 1;
 }
 .dropdown-general .options .option, .dropdown-field .options .option, .dropdown-select .options .option {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
   min-height: 46px;
+  padding: 4px 30px 0 14px;
   color: #1b1e24;
   padding: 3px 17px;
 }

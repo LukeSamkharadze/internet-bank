@@ -25,6 +25,8 @@
 
   $placeholder-color: $secondary-dark-2;
 
+  $arrow-offset: 17px;
+
   @extend p;
   @extend .dropdown-disable-select;
   position: relative;
@@ -36,7 +38,7 @@
   }
 
   .selected {
-    @include dropdown-option($selected-height, true);
+    @include dropdown-selected($selected-height, true, $arrow-offset);
     color: $selected-color;
     background-color: $background-color;
     border-radius: $border-radius;
@@ -50,7 +52,7 @@
       @include dropdown-center(true, false);
       @include dropdown-symbol("\f107", 18px, 900);
       position: absolute;
-      right: 10px;
+      right: $arrow-offset;
     }
 
     &.arrow-active:after {
@@ -61,7 +63,6 @@
   .placeholder {
     align-items: center;
     color: $placeholder-color;
-    background-color: $background-color;
   }
 
   .options {

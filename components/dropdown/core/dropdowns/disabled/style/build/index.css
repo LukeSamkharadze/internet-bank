@@ -166,12 +166,12 @@ a {
   height: 52px;
 }
 .dropdown-general .selected {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
   height: 52px;
+  padding: 4px 34px 0 14px;
   color: #1b1e24;
   background-color: white;
   border-radius: 4px;
@@ -192,7 +192,7 @@ a {
   font-size: 18px;
   font-weight: 900;
   position: absolute;
-  right: 10px;
+  right: 17px;
 }
 .dropdown-general .selected.arrow-active:after {
   color: #FFAB2B;
@@ -200,7 +200,6 @@ a {
 .dropdown-general .placeholder {
   align-items: center;
   color: #98A9BC;
-  background-color: white;
 }
 .dropdown-general .options {
   width: 100%;
@@ -212,12 +211,12 @@ a {
   z-index: 1;
 }
 .dropdown-general .options .option {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
   min-height: 46px;
+  padding: 4px 30px 0 14px;
   color: #1b1e24;
   padding: 3px 17px;
 }

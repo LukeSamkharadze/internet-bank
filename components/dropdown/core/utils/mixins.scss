@@ -1,14 +1,24 @@
-@mixin dropdown-option($height, $is-fixed) {
+@mixin dropdown-box($height, $is-fixed) {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
   width: 100%;
-  padding: 4px 25px 0 0;
+
   @if $is-fixed {
     height: $height;
   } @else {
     min-height: $height;
   }
+}
+
+@mixin dropdown-selected($height, $is-fixed, $arrow-offset) {
+  @include dropdown-box($height, $is-fixed);
+  padding: 4px $arrow-offset * 2 0 14px;
+}
+
+@mixin dropdown-option($height, $is-fixed) {
+  @include dropdown-box($height, $is-fixed);
+  padding: 4px 30px 0 14px;
 }
 
 @mixin dropdown-multiple-line-ellipsis($line-count) {
