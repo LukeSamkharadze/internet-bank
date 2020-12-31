@@ -8,7 +8,7 @@
   font-size: 14px;
   font-weight: 300;
   color: $secondary-dark-1;
-  line-height: 20px;
+  line-height: 25px;
   input {
     position: absolute;
     opacity: 0;
@@ -26,7 +26,7 @@
       @include circle-center;
       width: 8px;
       height: 8px;
-      bottom: 9px;
+      bottom: 11px;
       left: 6px;
       background-color: #fff;
     }

@@ -26,18 +26,17 @@ section {
     font-size: 16px;
     padding-top: 35px;
     border-top: $outline 1px solid;
-    margin-bottom: 42px;
+    margin-bottom: 39px;
   }
   @include padd-sides;
   .radios {
     display: flex;
     justify-content: space-between;
-    // width: 920px;
     > div {
       width: 31.5%;
     }
   }
   .radio-btn {
-    margin-bottom: 12px;
+    margin-bottom: 7px;
   }
 }
