@@ -6,3 +6,13 @@ body {
     // development one
     background-color: #f8fafb;
 }
+
+.payments {
+    width: 79.16%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    // development ones
+    margin-top: 100px;
+}

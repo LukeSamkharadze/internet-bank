@@ -146,15 +146,6 @@ a {
   text-align: right;
 }
 
-.payments {
-  width: 79.16%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
-  margin-top: 100px;
-}
-
 .payment-providers {
   overflow: auto;
   max-width: 555px;
@@ -239,6 +230,15 @@ a {
 
 body {
   background-color: #f8fafb;
+}
+
+.payments {
+  width: 79.16%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  margin-top: 100px;
 }
 
 /*# sourceMappingURL=index.css.map */
