@@ -146,162 +146,94 @@ a {
   text-align: right;
 }
 
-.tag, .hover-tag {
-  display: block;
-  padding: 9.5px 26px 9.5px 30px;
-  width: fit-content;
-  min-height: 36px;
-  min-width: 84px;
-  max-width: 300px;
-  border-radius: 4px;
-  position: relative;
-}
-.tag span, .hover-tag span {
-  display: block;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: #252631;
-  letter-spacing: 0.2px;
-  font-family: "Rubik", sans-serif;
-  line-height: 17px;
-}
-.tag i, .hover-tag i {
-  font-size: 16px;
-  display: none;
-}
-
-.tag:hover, .hover-tag:hover {
-  padding: 9.5px 37px 9.5px 19px;
-  cursor: context-menu;
-}
-.tag:hover i, .hover-tag:hover i {
-  display: block;
-  position: absolute;
-  top: 47%;
-  right: 22px;
-  transform: translate(50%, -50%);
-}
-.tag:hover i:hover, .hover-tag:hover i:hover {
-  cursor: pointer;
-}
-
-.white-text-tag {
+.notif-cyanBg {
   background-color: #4D7CFE;
 }
-.white-text-tag span,
-.white-text-tag i {
-  color: white;
-}
 
-.blue-text-tag {
-  background-color: rgba(77, 124, 254, 0.08);
+.notification {
+  width: 555px;
+  height: 64px;
+  background-color: #4D7CFE;
+  position: relative;
 }
-.blue-text-tag span,
-.blue-text-tag i {
-  color: #4D7CFE;
-}
-
-.cyan-text-tag {
-  background-color: rgba(77, 124, 254, 0.08);
-}
-.cyan-text-tag span,
-.cyan-text-tag i {
-  color: #2CE5F6;
-}
-
-.green-text-tag {
-  background-color: rgba(109, 210, 48, 0.08);
-}
-.green-text-tag span,
-.green-text-tag i {
-  color: #6DD230;
-}
-
-.orange-text-tag {
-  background-color: rgba(255, 171, 43, 0.08);
-}
-.orange-text-tag span,
-.orange-text-tag i {
-  color: #FFAB2B;
-}
-
-.pink-text-tag {
-  background-color: rgba(254, 77, 151, 0.08);
-}
-.pink-text-tag span,
-.pink-text-tag i {
-  color: #FE4D97;
-}
-
-.gray-text-tag, .hover-tag {
-  background-color: rgba(119, 140, 162, 0.08);
-}
-.gray-text-tag span, .hover-tag span,
-.gray-text-tag i,
-.hover-tag i {
-  color: #778CA2;
-}
-
-.hover-tag {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: #778CA2;
-  letter-spacing: 0.2px;
-  font-family: "Rubik", sans-serif;
-  padding: 9.5px 37px 9.5px 19px;
-  cursor: context-menu;
-}
-.hover-tag i {
-  display: block;
-  position: absolute;
-  top: 47%;
-  right: 22px;
-  transform: translate(50%, -50%);
-}
-
-h1 {
-  height: 106px;
-  padding-left: 150px;
-  border-bottom: 1px solid #E8ECEF;
-  margin: 50px auto;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  color: #1b1e24;
-  letter-spacing: 0.2px;
-}
-
-p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+.notification p {
   font-size: 16px;
-  color: #252631;
-  letter-spacing: 0.2px;
+  position: absolute;
+  font-style: "Rubik", sans-serif;
+  font-weight: 500;
+  max-width: 460px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  top: 24px;
+  left: 51px;
+}
+.notification :first-child {
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  left: 15px;
+}
+.notification :last-child {
+  font-size: 20px;
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 24px;
+  left: 520px;
 }
 
-.container {
-  width: 78%;
-  height: 123px;
-  border-top: 1px solid #E8ECEF;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  margin: 82px auto;
+.notif-darkBlueBg {
+  background-color: #252631;
 }
 
-.tags {
-  width: 88%;
-  height: 70px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
+.notif-lightBlueBg {
+  background-color: #778CA2;
+}
+
+.notif-veryLightBlueBg {
+  background-color: #98A9BC;
+}
+
+.notif-orangeBg {
+  background-color: #FFAB2B;
+}
+
+.notif-greenBg {
+  background-color: #6DD230;
+}
+
+.notif-pinkBg {
+  background-color: #FE4D97;
+}
+
+.notif-lightCyanBg {
+  background-color: #2CE5F6;
+}
+
+.notif-theLightest-BlueBg {
+  background-color: #E8ECEF;
+}
+
+.notif-whiteBg {
+  background-color: #F2F4F6;
+}
+
+.notif-whiterBg {
+  background-color: #F8FAFB;
+}
+
+.notif-whitestBg {
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 6px #E8ECEF;
+}
+
+.grey {
+  color: #778CA2;
+}
+
+.whiteFont {
+  color: #F8FAFB;
 }
 
 /*# sourceMappingURL=index.css.map */
