@@ -1,0 +1,8 @@
+@import "../../../colors&typo/styles.scss";
+@import "helpers/helpers";
+@import "payment-providers/index.scss";
+
+body {
+    // development one
+    background-color: #f8fafb;
+}
