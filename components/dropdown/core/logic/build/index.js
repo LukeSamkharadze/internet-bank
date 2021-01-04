@@ -25,7 +25,7 @@ function selectedClicked(mouseEvent) {
         return;
     closeAllSelect(this);
     (_b = this.nextSibling) === null || _b === void 0 ? void 0 : _b.classList.toggle("dropdown-display-none");
-    this.classList.toggle("arrow-active");
+    this.childNodes[1].classList.toggle("arrow-active");
 }
 function optionClicked(selected, html_select) {
     var _a, _b;
@@ -49,7 +49,14 @@ function createSelectedDiv(dropdown, html_select) {
     selected.appendChild(text);
     let symbol = getCustomSymbols(dropdown)[0];
     if (symbol) {
-        symbol.classList.add("custom-arrow-symbol");
+        let symbolContainer = document.createElement("div");
+        symbolContainer.setAttribute("class", "custom-arrow-container");
+        symbolContainer.appendChild(symbol);
+        selected.appendChild(symbolContainer);
+    }
+    else {
+        symbol = document.createElement("div");
+        symbol.classList.add("default-arrow-symbol");
         selected.appendChild(symbol);
     }
     return selected;

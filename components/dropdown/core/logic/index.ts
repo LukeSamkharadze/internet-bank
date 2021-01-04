@@ -36,7 +36,7 @@ function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
 
   closeAllSelect(this);
   this.nextSibling?.classList.toggle("dropdown-display-none");
-  this.classList.toggle("arrow-active");
+  this.childNodes[1].classList.toggle("arrow-active");
 }
 
 function optionClicked(this: HTMLDivElement, selected: HTMLDivElement, html_select: HTMLSelectElement): void {
@@ -67,7 +67,14 @@ function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElement): H
 
   let symbol = getCustomSymbols(dropdown)[0];
   if (symbol) {
-    symbol.classList.add("custom-arrow-symbol");
+    let symbolContainer = document.createElement("div");
+    symbolContainer.setAttribute("class", "custom-arrow-container");
+    symbolContainer.appendChild(symbol);
+    selected.appendChild(symbolContainer);
+  }
+  else {
+    symbol = document.createElement("div");
+    symbol.classList.add("default-arrow-symbol");
     selected.appendChild(symbol);
   }
 

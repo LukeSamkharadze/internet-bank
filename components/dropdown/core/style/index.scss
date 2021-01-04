@@ -48,11 +48,26 @@
       @include dropdown-multiple-line-ellipsis($selected-line-count);
     }
 
-    .custom-arrow-symbol {
+    .custom-arrow-container {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 48px;
+      flex-shrink: 0;
+
+      // position: relative;
       // @include dropdown-center(true, false);
-      // @include dropdown-symbol($arrow-symbol, $arrow-symbol-size, $arrow-symbol-font-weight);
-      // position: absolute;
+    //   @include dropdown-symbol($arrow-symbol, $arrow-symbol-size, $arrow-symbol-font-weight);
+    //   right: $arrow-offset;
+    }
+
+    .default-arrow-symbol {
+      position: absolute;
       right: $arrow-offset;
+      &:after {
+        // @include dropdown-center(true, false);
+        @include dropdown-symbol($arrow-symbol, $arrow-symbol-size, $arrow-symbol-font-weight);
+      }
     }
 
     .arrow-active {
