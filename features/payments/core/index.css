@@ -157,7 +157,6 @@ a {
   padding: 20px;
   padding-bottom: 17px;
   display: flex;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
@@ -182,6 +181,7 @@ a {
   outline: none;
 }
 .payment-providers header input::placeholder {
+  letter-spacing: -0.6px;
   color: #778CA2;
   font-weight: 600;
   font-size: 12px;
