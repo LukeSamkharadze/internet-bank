@@ -28,9 +28,14 @@ function changeProvider(selectedProviderWrapper) {
     selectedProviderWrapper.classList.add("selected-provider");
 }
 
-addCommas();
-providerWrappers.forEach((providerWrapper) => {
-    providerWrapper.addEventListener("click", () => {
-        changeProvider(providerWrapper);
+function main() {
+    addCommas();
+
+    providerWrappers.forEach((providerWrapper) => {
+        providerWrapper.addEventListener("click", () => {
+            changeProvider(providerWrapper);
+        });
     });
-});
+}
+
+main();
