@@ -11,7 +11,7 @@
   $arrow-symbol: "\f107",
   $arrow-symbol-size: 18px,
   $arrow-symbol-font-weight: 900,
-  $arrow-offset: 17px,
+  $arrow-offset: 16px,
   $background-color: white,
   $active-color: $primary,
   $shadow-color: rgba(0, 0, 0, 0.02),
@@ -52,18 +52,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-width: 49px;
+      min-width: calc(#{$arrow-offset} * 3);
       flex-shrink: 0;
+      color: $placeholder-color;
 
       .default-arrow-symbol {
         &:after {
           @include dropdown-symbol($arrow-symbol, $arrow-symbol-size, $arrow-symbol-font-weight);
         }
       }
+    }
 
-      .arrow-active {
-        color: $active-color;
-      }
+    .arrow-active {
+      color: $active-color;
     }
   }
 
@@ -86,12 +87,6 @@
       color: $option-color;
       padding: 3px 17px;
 
-      // @if $symbol != "" {
-      //   &:before {
-      //     @include dropdown-symbol($symbol, $symbol-font-size, $symbol-font-weight);
-      //     margin: 0 10px 3px -1px;
-      //   }
-      // }
       .symbol {
         margin: 0 10px 3px -1px;
       }

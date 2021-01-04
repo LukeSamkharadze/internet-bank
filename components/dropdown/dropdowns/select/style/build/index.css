@@ -189,8 +189,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 49px;
+  min-width: calc(16px * 3);
   flex-shrink: 0;
+  color: #98A9BC;
 }
 .dropdown-general .selected .arrow-container .default-arrow-symbol:after {
   content: "";
@@ -198,7 +199,7 @@ a {
   font-size: 18px;
   font-weight: 900;
 }
-.dropdown-general .selected .arrow-container .arrow-active {
+.dropdown-general .selected .arrow-active {
   color: #FFAB2B;
 }
 .dropdown-general .placeholder {
