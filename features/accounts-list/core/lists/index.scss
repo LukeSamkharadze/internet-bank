@@ -1,0 +1,115 @@
+.list {
+    position: relative;
+    width: 100%;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .name {
+            @include text-style(16px, $secondary-dark-1);
+        }
+
+        .new {
+            @include text-style(12px);
+            text-transform: uppercase;
+            font-weight: 500;
+            cursor: pointer;
+
+            i {
+                font-size: 18px;
+                color: $primary;
+                margin-right: 3px;
+            }
+        }
+    }
+    
+    ul {
+        display: table;
+        padding: 1px 24px;
+        background-color: white;
+        border-radius: 4px;
+    }
+
+    .item {
+        display: table-row;
+
+        &>* {
+            padding: 16px 0;
+            display: table-cell;
+            padding-left: 23px;
+            border-bottom: 1px solid $outline;
+            vertical-align: middle;
+        }
+
+        $sizes: 58px, calc(100% / 874 * 326), calc(100% / 874 * 178), calc(100% / 874 * 261), calc(100% / 874 * 109), 58px;
+        @for $i from 1 through 6 {
+            div:nth-child(#{$i}) {
+                width: nth($list: $sizes, $n: $i);
+            }
+        }
+
+        div:first-child {
+            padding-left: 0;
+        }
+        div:last-child .container {
+            margin-left: auto;
+            *, &{
+                width: min-content;
+            }
+        }
+    }
+
+    .item:last-child>div{
+        border: none;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        width: 100%;
+        background-color: $background-2;
+    
+        i {
+            margin: 0 auto;
+        }
+    
+        img {
+            margin: 0 auto;
+        }
+
+        &.green {
+            background-color: rgba($color: $secondary-2, $alpha: 0.1) ;
+            color: $secondary-2;
+        }
+    
+        &.orange {
+            background-color: rgba($color: $primary, $alpha: 0.1) ;
+            color: $primary;
+        }
+    
+        &.blue {
+            background-color: rgba($color: $secondary-1, $alpha: 0.1) ;
+            color: $secondary-1;
+        }
+    }
+    
+    .primary {
+        @include text-style(16px);
+        margin-bottom: 1px;
+    }
+
+    .secondary {
+        @include text-style(14px, $secondary-dark-2);
+    }
+
+    .blocked {
+        .balance, .done, .additionalInfo {
+            .primary {
+                color: $secondary-dark-1;
+            }
+        }
+    }
+}
