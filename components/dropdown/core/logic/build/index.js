@@ -47,18 +47,18 @@ function createSelectedDiv(dropdown, html_select) {
     text.setAttribute("class", "text");
     text.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
     selected.appendChild(text);
+    let arrowContainer = document.createElement("div");
+    arrowContainer.setAttribute("class", "arrow-container");
     let symbol = getCustomSymbols(dropdown)[0];
     if (symbol) {
-        let symbolContainer = document.createElement("div");
-        symbolContainer.setAttribute("class", "custom-arrow-container");
-        symbolContainer.appendChild(symbol);
-        selected.appendChild(symbolContainer);
+        arrowContainer.appendChild(symbol);
     }
     else {
         symbol = document.createElement("div");
         symbol.classList.add("default-arrow-symbol");
-        selected.appendChild(symbol);
+        arrowContainer.appendChild(symbol);
     }
+    selected.appendChild(arrowContainer);
     return selected;
 }
 function createOptionDiv(html_option, symbol) {

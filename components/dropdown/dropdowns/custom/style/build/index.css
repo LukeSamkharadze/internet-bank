@@ -185,24 +185,20 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.my-custom-dropdown-1 .selected .custom-arrow-container {
+.my-custom-dropdown-1 .selected .arrow-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 48px;
+  min-width: 49px;
   flex-shrink: 0;
 }
-.my-custom-dropdown-1 .selected .default-arrow-symbol {
-  position: absolute;
-  right: 17px;
-}
-.my-custom-dropdown-1 .selected .default-arrow-symbol:after {
+.my-custom-dropdown-1 .selected .arrow-container .default-arrow-symbol:after {
   content: "";
   font-family: "Line Awesome Free";
   font-size: 18px;
   font-weight: 900;
 }
-.my-custom-dropdown-1 .selected .arrow-active {
+.my-custom-dropdown-1 .selected .arrow-container .arrow-active {
   color: purple;
 }
 .my-custom-dropdown-1 .placeholder {

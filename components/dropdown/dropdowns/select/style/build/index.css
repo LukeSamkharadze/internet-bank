@@ -185,24 +185,20 @@ a {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.dropdown-general .selected .custom-arrow-container {
+.dropdown-general .selected .arrow-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 48px;
+  min-width: 49px;
   flex-shrink: 0;
 }
-.dropdown-general .selected .default-arrow-symbol {
-  position: absolute;
-  right: 17px;
-}
-.dropdown-general .selected .default-arrow-symbol:after {
+.dropdown-general .selected .arrow-container .default-arrow-symbol:after {
   content: "";
   font-family: "Line Awesome Free";
   font-size: 18px;
   font-weight: 900;
 }
-.dropdown-general .selected .arrow-active {
+.dropdown-general .selected .arrow-container .arrow-active {
   color: #FFAB2B;
 }
 .dropdown-general .placeholder {
