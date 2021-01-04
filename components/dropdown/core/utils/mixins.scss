@@ -44,6 +44,12 @@
   }
 }
 
+@mixin dropdown-center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin dropdown-symbol($unicode, $size, $weight) {
   content: $unicode;
   font-family: "Line Awesome Free";

@@ -49,11 +49,9 @@
     }
 
     .arrow-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: calc(#{$arrow-offset} * 3);
+      @include dropdown-center-content;
       flex-shrink: 0;
+      min-width: calc(#{$arrow-offset} * 3);
       color: $placeholder-color;
 
       .default-arrow-symbol {
@@ -87,8 +85,13 @@
       color: $option-color;
       padding: 3px 17px;
 
-      .symbol {
+      .custom-symbol,
+      .default-symbol:after {
         margin: 0 10px 3px -1px;
+      }
+
+      .default-symbol:after {
+        @include dropdown-symbol($symbol, $symbol-font-size, $symbol-font-weight);
       }
 
       &:hover {

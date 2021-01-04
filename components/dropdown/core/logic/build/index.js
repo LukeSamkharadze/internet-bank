@@ -13,7 +13,7 @@ function closeAllSelect(element) {
         if (element === selecteds[i])
             current = i;
         else
-            selecteds[i].classList.remove("arrow-active");
+            selecteds[i].childNodes[1].classList.remove("arrow-active");
     for (let i = 0; i < options.length; i++)
         if (i !== current)
             options[i].classList.add("dropdown-display-none");
@@ -64,10 +64,13 @@ function createSelectedDiv(dropdown, html_select) {
 function createOptionDiv(html_option, symbol) {
     let option = document.createElement("div");
     option.setAttribute("class", "option");
-    if (symbol) {
-        symbol.classList.add("symbol");
-        option.appendChild(symbol);
+    if (symbol)
+        symbol.classList.add("custom-symbol");
+    else {
+        symbol = document.createElement("div");
+        symbol.setAttribute("class", "default-symbol");
     }
+    option.appendChild(symbol);
     option.innerHTML += html_option.innerHTML;
     return option;
 }

@@ -187,10 +187,10 @@ a {
 }
 .dropdown-general-symbol .selected .arrow-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: calc(16px * 3);
+  justify-content: center;
   flex-shrink: 0;
+  min-width: calc(16px * 3);
   color: #98A9BC;
 }
 .dropdown-general-symbol .selected .arrow-container .default-arrow-symbol:after {
@@ -225,8 +225,15 @@ a {
   color: #1b1e24;
   padding: 3px 17px;
 }
-.dropdown-general-symbol .options .option .symbol {
+.dropdown-general-symbol .options .option .custom-symbol,
+.dropdown-general-symbol .options .option .default-symbol:after {
   margin: 0 10px 3px -1px;
+}
+.dropdown-general-symbol .options .option .default-symbol:after {
+  content: "";
+  font-family: "Line Awesome Free";
+  font-size: 18px;
+  font-weight: 400;
 }
 .dropdown-general-symbol .options .option:hover {
   color: #FFAB2B;

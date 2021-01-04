@@ -187,16 +187,16 @@ a {
 }
 .my-custom-dropdown-1 .selected .arrow-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: calc(16px * 3);
+  justify-content: center;
   flex-shrink: 0;
+  min-width: calc(16px * 3);
   color: #98A9BC;
 }
 .my-custom-dropdown-1 .selected .arrow-container .default-arrow-symbol:after {
   content: "";
   font-family: "Line Awesome Free";
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 900;
 }
 .my-custom-dropdown-1 .selected .arrow-active {
@@ -225,8 +225,15 @@ a {
   color: #1b1e24;
   padding: 3px 17px;
 }
-.my-custom-dropdown-1 .options .option .symbol {
+.my-custom-dropdown-1 .options .option .custom-symbol,
+.my-custom-dropdown-1 .options .option .default-symbol:after {
   margin: 0 10px 3px -1px;
+}
+.my-custom-dropdown-1 .options .option .default-symbol:after {
+  content: "";
+  font-family: "Line Awesome Free";
+  font-size: 18px;
+  font-weight: 900;
 }
 .my-custom-dropdown-1 .options .option:hover {
   color: purple;

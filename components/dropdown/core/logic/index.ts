@@ -21,7 +21,7 @@ function closeAllSelect(element: any): void {
     if (element === selecteds[i])
       current = i;
     else
-      selecteds[i].classList.remove("arrow-active");
+      selecteds[i].childNodes[1].classList.remove("arrow-active");
 
   for (let i = 0; i < options.length; i++)
     if (i !== current)
@@ -86,11 +86,13 @@ function createOptionDiv(html_option: HTMLOptionElement, symbol: Element): HTMLD
   let option = document.createElement("div");
   option.setAttribute("class", "option");
 
-  if (symbol) {
-    symbol.classList.add("symbol");
-    option.appendChild(symbol);
+  if (symbol)
+    symbol.classList.add("custom-symbol");
+  else {
+    symbol = document.createElement("div");
+    symbol.setAttribute("class", "default-symbol");
   }
-
+  option.appendChild(symbol);
   option.innerHTML += html_option.innerHTML;
 
   return option;
