@@ -13,6 +13,7 @@
 
 @mixin dropdown-selected($height, $is-fixed, $arrow-offset) {
   @include dropdown-box($height, $is-fixed);
+  justify-content: space-between;
   padding: 4px $arrow-offset * 2 0 14px;
 }
 

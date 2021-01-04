@@ -48,14 +48,14 @@
       @include dropdown-multiple-line-ellipsis($selected-line-count);
     }
 
-    &:after {
-      @include dropdown-center(true, false);
-      @include dropdown-symbol($arrow-symbol, $arrow-symbol-size, $arrow-symbol-font-weight);
-      position: absolute;
+    .custom-arrow-symbol {
+      // @include dropdown-center(true, false);
+      // @include dropdown-symbol($arrow-symbol, $arrow-symbol-size, $arrow-symbol-font-weight);
+      // position: absolute;
       right: $arrow-offset;
     }
 
-    &.arrow-active:after {
+    .arrow-active {
       color: $active-color;
     }
   }
@@ -79,11 +79,14 @@
       color: $option-color;
       padding: 3px 17px;
 
-      @if $symbol != "" {
-        &:before {
-          @include dropdown-symbol($symbol, $symbol-font-size, $symbol-font-weight);
-          margin: 0 10px 3px -1px;
-        }
+      // @if $symbol != "" {
+      //   &:before {
+      //     @include dropdown-symbol($symbol, $symbol-font-size, $symbol-font-weight);
+      //     margin: 0 10px 3px -1px;
+      //   }
+      // }
+      .symbol {
+        margin: 0 10px 3px -1px;
       }
 
       &:hover {
