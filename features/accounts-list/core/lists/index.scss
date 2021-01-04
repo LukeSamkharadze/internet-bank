@@ -43,7 +43,7 @@
             vertical-align: middle;
         }
 
-        $sizes: 58px, calc(100% / 874 * 326), calc(100% / 874 * 178), calc(100% / 874 * 261), calc(100% / 874 * 109), 58px;
+        $sizes: 58px, calc(100% / 874 * 326), calc(100% / 874 * 178), calc(100% / 874 * 261), calc(100% / 874 * 109), min-content;
         @for $i from 1 through 6 {
             div:nth-child(#{$i}) {
                 width: nth($list: $sizes, $n: $i);
@@ -57,6 +57,7 @@
             margin-left: auto;
             *, &{
                 width: min-content;
+                white-space: nowrap;                
             }
         }
     }
@@ -71,6 +72,7 @@
         border-radius: 4px;
         width: 100%;
         background-color: $background-2;
+        height: 40px;
     
         i {
             margin: 0 auto;

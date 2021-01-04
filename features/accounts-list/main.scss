@@ -1,0 +1,18 @@
+@import '../../colors&typo/styles.scss';
+@import './core/chart/index.scss', './core/lists/index.scss';
+
+body {
+    padding: 30px;
+
+    &>*{
+        margin-bottom: 19px;
+    }
+}
+
+.charts-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 50px;
+    margin-bottom: 20px;
+}
