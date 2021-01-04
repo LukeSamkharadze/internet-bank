@@ -1,0 +1,70 @@
+.chart-container {
+    $bg: white;
+
+    padding: 15.5px 21.5px;
+    background-color: $bg;
+    border-radius: 4px;
+
+    width: 100%;
+    height: 100%; 
+
+    *, & {
+        position: relative;
+    }
+
+    .info {
+        top: 50%;
+        transform: translateY(-50%);
+        float: left;
+        width: min-content;
+        * {
+            white-space: nowrap;
+            width: min-content;
+        }
+    }
+
+    .amount {
+        @include text-style(20px);
+        margin-bottom: 8px;
+
+        sup {
+            font-size: 80%;
+            vertical-align: top;
+            margin-left: 1.5px;
+            bottom: 3px;
+        }
+    }
+
+    .title {
+        @include text-style(14px, $secondary-dark-2);
+        letter-spacing: -0.02px;
+    }
+
+    .chart {
+        float: right;
+        width: calc(100% - 158px);
+        height: 100%;
+        transform: rotateX(180deg);
+    }
+
+    @mixin fill-chart($color) {
+        sup {
+            color: $color;
+        }
+        .chart {
+            background-image: linear-gradient(0deg, $color, $bg);
+        }
+    }
+
+    &.green {
+        @include fill-chart($secondary-2);
+    }
+
+    &.orange {
+        @include fill-chart($primary);
+    }
+
+    &.pink {
+        @include fill-chart($secondary-3);
+    }
+}
