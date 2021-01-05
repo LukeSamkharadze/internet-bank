@@ -15,24 +15,28 @@
     padding: 0px 10px;
     @include Flex(space-between, center);
     @include size(100%, 100%);
-    .info-title1{
-        cursor: pointer;
-        border-bottom: 2px solid #000;
-        @include Flex(unset,flex-start);
-        @include size(auto, 50%);
-        h3{
-            font-size: 14px;
-            font-weight: 500;
+    .title-info{
+        @include size(100%, 50%);
+        @include Flex(space-between, flex-start);
+        .info-title1{
+            cursor: pointer;
+            border-bottom: 2px solid #000;
+            @include size(auto, 100%);
+            h3{
+                font-size: 14px;
+                font-weight: 500;
+            }
         }
-    }
-    .dots{
-        width: 16px;
-        cursor: pointer;
-        @include Flex(space-between, center);
-        .dot{
-            border-radius: 50%;
-            background-color: #000;
-            @include size(3px,3px);
+        .dots{
+            width: auto;
+            cursor: pointer;
+            @include Flex(space-between, center);
+            .dot{
+                border-radius: 50%;
+                margin: 2px;
+                background-color: rgba($color: #000000, $alpha: 0.5);
+                @include size(3px,3px);
+            }
         }
     }
 }

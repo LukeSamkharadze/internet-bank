@@ -146,10 +146,6 @@ a {
   text-align: right;
 }
 
-body {
-  background-color: #000;
-}
-
 .monthly-chart {
   position: relative;
   display: grid;
@@ -170,29 +166,34 @@ body {
   width: 100%;
   height: 100%;
 }
-.title .info-title1 {
+.title .title-info {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.title .title-info .info-title1 {
   cursor: pointer;
   border-bottom: 2px solid #000;
-  display: flex;
-  justify-content: unset;
-  align-items: flex-start;
   width: auto;
-  height: 50%;
+  height: 100%;
 }
-.title .info-title1 h3 {
+.title .title-info .info-title1 h3 {
   font-size: 14px;
   font-weight: 500;
 }
-.title .dots {
-  width: 16px;
+.title .title-info .dots {
+  width: auto;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.title .dots .dot {
+.title .title-info .dots .dot {
   border-radius: 50%;
-  background-color: #000;
+  margin: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
   width: 3px;
   height: 3px;
 }
