@@ -153,7 +153,7 @@ a {
   font-size: 14px;
   font-weight: 300;
   color: #778CA2;
-  line-height: 23px;
+  line-height: 25px;
 }
 .radio-btn input {
   position: absolute;
@@ -171,14 +171,17 @@ a {
 .radio-btn input:checked + label:after {
   content: "";
   position: absolute;
-  bottom: 3px;
+  bottom: 5px;
   left: 0;
   border-radius: 50%;
   width: 8px;
   height: 8px;
-  bottom: 9px;
+  bottom: 11px;
   left: 6px;
   background-color: #fff;
+}
+.radio-btn input:checked {
+  opacity: 70%;
 }
 .radio-btn label::before {
   content: "";
@@ -186,7 +189,7 @@ a {
   height: 20px;
   background-color: #E8ECEF;
   position: absolute;
-  bottom: 3px;
+  bottom: 5px;
   left: 0;
   border-radius: 50%;
 }

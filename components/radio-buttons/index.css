@@ -154,6 +154,9 @@ a {
   font-weight: 300;
   color: #778CA2;
   line-height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .radio-btn input {
   position: absolute;
@@ -180,6 +183,9 @@ a {
   left: 6px;
   background-color: #fff;
 }
+.radio-btn input:checked {
+  opacity: 70%;
+}
 .radio-btn label::before {
   content: "";
   width: 20px;
@@ -189,6 +195,9 @@ a {
   bottom: 5px;
   left: 0;
   border-radius: 50%;
+}
+.radio-btn input:disabled + label {
+  opacity: 70%;
 }
 .radio-btn .radio-error + label {
   color: #FE4D97;

@@ -9,6 +9,9 @@
   font-weight: 300;
   color: $secondary-dark-1;
   line-height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   input {
     position: absolute;
     opacity: 0;
@@ -31,6 +34,9 @@
       background-color: #fff;
     }
   }
+  input:checked {
+    opacity: 70%;
+  }
   label::before {
     content: "";
     width: 20px;
@@ -38,7 +44,9 @@
     background-color: $outline;
     @include circle-center;
   }
-
+  input:disabled + label{
+    opacity: 70%;
+  }
   .radio-error + label {
     color: $secondary-3;
     &:before {
