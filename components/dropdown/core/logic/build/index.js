@@ -30,14 +30,11 @@ function selectedClicked(mouseEvent) {
 function optionClicked(selected, html_select) {
     var _a, _b;
     selected.classList.remove("placeholder");
-    for (let i = 0; i < html_select.length; i++)
-        if (html_select.options[i].innerHTML == this.innerHTML) {
-            html_select.selectedIndex = i;
-            let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text"));
-            if (foundTextElement)
-                foundTextElement.innerHTML = this.innerHTML;
-            break;
-        }
+    console.log(html_select.length);
+    let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text"));
+    if (foundTextElement)
+        foundTextElement.innerHTML = this.innerText;
+    html_select.selectedIndex = this.selectIndex;
     (_b = (_a = this.parentNode) === null || _a === void 0 ? void 0 : _a.previousSibling) === null || _b === void 0 ? void 0 : _b.click();
 }
 function createSelectedDiv(dropdown, html_select) {
@@ -80,6 +77,7 @@ function createOptionsDiv(dropdown, html_select, selected) {
     let symbols = getCustomSymbols(dropdown);
     Array.from(html_select.options).slice(1).forEach((html_option, index) => {
         let option = createOptionDiv(html_option, symbols[index]);
+        option.selectIndex = index;
         option.addEventListener("click", optionClicked.bind(option, selected, html_select));
         options.appendChild(option);
     });
