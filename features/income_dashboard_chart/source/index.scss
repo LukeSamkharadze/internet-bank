@@ -1,8 +1,6 @@
 @import '../../../colors&typo/styles.scss';
 @import './mixins.scss';
-body{
-    background-color: #000;
-}
+
 .monthly-chart{
     position: relative;
     display: grid;
