@@ -1,43 +1,39 @@
-interface ChildNode {
-  classList: any;
-  innerHTML: string;
-  click(...args: any[]): void;
-}
+import { DropdownClasses } from "./classes";
 
 type Option = { selectIndex: number } & HTMLDivElement;
 
 function isImplicityCustom(dropdown: Element): boolean {
-  if (!dropdown.classList.contains("dropdown-custom-option-symbols") &&
-    !dropdown.classList.contains("dropdown-custom-arrow-symbol"))
+  if (!dropdown.classList.contains(DropdownClasses.customOptionSymbols) &&
+    !dropdown.classList.contains(DropdownClasses.customArrowSymbol))
     return true;
 
   return false;
 }
 
 function getCustomSymbols(dropdown: Element): Element[] {
-  return Array.from(dropdown.childNodes).filter(o => o.classList?.contains("fas")) as Element[];
+  return Array.from(dropdown.childNodes).filter(o => (<HTMLDivElement>o).classList?.contains("fas")) as Element[];
 }
 
 function getArrowSymbol(dropdown: Element): Element | undefined {
-  if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-arrow-symbol"))
+  if (isImplicityCustom(dropdown) || dropdown.classList.contains(DropdownClasses.customArrowSymbol))
     return getCustomSymbols(dropdown)[0];
 
   return undefined;
 }
 
 function getOptionSymbols(dropdown: Element): (Element | undefined)[] | undefined {
-  if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-option-symbols"))
+  if (isImplicityCustom(dropdown) || dropdown.classList.contains(DropdownClasses.customOptionSymbols))
     return getCustomSymbols(dropdown);
 
   return undefined
 }
 
 function closeAllSelect(element: any): void {
-  if ((<HTMLInputElement>document.getElementById("dropdown-debug"))?.checked)
+  if ((<HTMLInputElement>document.getElementById(DropdownClasses.debug))?.checked)
     return;
 
-  let selecteds = document.getElementsByClassName("selected");
-  let options = document.getElementsByClassName("options");
+  let selecteds = document.getElementsByClassName(DropdownClasses.selected);
+  let options = document.getElementsByClassName(DropdownClasses.options);
 
   let current = -1;
 
@@ -45,54 +41,57 @@ function closeAllSelect(element: any): void {
     if (element === selecteds[i])
       current = i;
     else
-      selecteds[i].childNodes[1].classList.remove("arrow-active");
+      (<HTMLDivElement>selecteds[i].childNodes[1]).classList.remove(DropdownClasses.arrowActive);
 
   for (let i = 0; i < options.length; i++)
     if (i !== current)
-      options[i].classList.add("dropdown-display-none");
+      options[i].classList.add(DropdownClasses.displayNone);
 }
 
 function selectedClicked(this: HTMLDivElement, mouseEvent: MouseEvent): void {
   mouseEvent.stopPropagation();
 
-  if (this.parentElement?.classList.contains("dropdown-disabled"))
+  if (this.parentElement?.classList.contains(DropdownClasses.disabled))
     return;
 
   closeAllSelect(this);
-  this.nextSibling?.classList.toggle("dropdown-display-none");
-  this.childNodes[1].classList.toggle("arrow-active");
+
+  if (this.nextSibling)
+    (<HTMLDivElement>this.nextSibling).classList.toggle(DropdownClasses.displayNone);
+  (<HTMLDivElement>this.childNodes[1]).classList.toggle(DropdownClasses.arrowActive);
 }
 
 function optionClicked(this: Option, selected: HTMLDivElement, html_select: HTMLSelectElement): void {
-  selected.classList.remove("placeholder");
+  selected.classList.remove(DropdownClasses.placeholder);
 
-  let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text"));
+  let foundTextElement = Array.from(selected.childNodes).find(o => (<HTMLDivElement>o).classList.contains(DropdownClasses.text));
   if (foundTextElement)
-    foundTextElement.innerHTML = this.innerText;
+    (<HTMLDivElement>foundTextElement).innerHTML = this.innerText;
 
   html_select.selectedIndex = this.selectIndex;
 
-  this.parentNode?.previousSibling?.click();
+  if (this.parentNode && this.parentNode.previousSibling)
+    (<HTMLDivElement>this.parentNode.previousSibling).click();
 }
 
 function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElement): HTMLDivElement {
   let selected = document.createElement("div");
-  selected.setAttribute("class", "selected placeholder");
+  selected.setAttribute("class", `${DropdownClasses.selected} ${DropdownClasses.placeholder}`);
 
   let text = document.createElement("div");
-  text.setAttribute("class", "text");
+  text.setAttribute("class", DropdownClasses.text);
   text.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
   selected.appendChild(text);
 
   let arrowContainer = document.createElement("div");
-  arrowContainer.setAttribute("class", "arrow-container");
+  arrowContainer.setAttribute("class", DropdownClasses.arrowContainer);
 
   let symbol = getArrowSymbol(dropdown);
   if (symbol)
     arrowContainer.appendChild(symbol);
   else {
     symbol = document.createElement("div");
-    symbol.classList.add("default-arrow-symbol");
+    symbol.classList.add(DropdownClasses.arrowDefaultSymbol);
     arrowContainer.appendChild(symbol);
   }
   selected.appendChild(arrowContainer);
@@ -102,13 +101,13 @@ function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElement): H
 
 function createOptionDiv(html_option: HTMLOptionElement, symbol: Element | undefined): HTMLDivElement {
   let option = document.createElement("div");
-  option.setAttribute("class", "option");
+  option.setAttribute("class", DropdownClasses.option);
 
   if (symbol)
-    symbol.classList.add("custom-symbol");
+    symbol.classList.add(DropdownClasses.optionCustomSymbol);
   else {
     symbol = document.createElement("div");
-    symbol.setAttribute("class", "default-symbol");
+    symbol.setAttribute("class", DropdownClasses.optionDefaultSymbol);
   }
   option.appendChild(symbol);
   option.innerHTML += html_option.innerHTML;
@@ -118,7 +117,7 @@ function createOptionDiv(html_option: HTMLOptionElement, symbol: Element | undef
 
 function createOptionsDiv(dropdown: Element, html_select: HTMLSelectElement, selected: HTMLDivElement): HTMLDivElement {
   let options = document.createElement("div");
-  options.setAttribute("class", "options dropdown-display-none");
+  options.setAttribute("class", `${DropdownClasses.options} ${DropdownClasses.displayNone}`);
 
   let symbols = getOptionSymbols(dropdown);
 
@@ -139,7 +138,7 @@ function createOptionsDiv(dropdown: Element, html_select: HTMLSelectElement, sel
 }
 
 function main() {
-  for (let dropdown of document.querySelectorAll(".dropdown-custom, .dropdown-general, .dropdown-general-symbol")) {
+  for (let dropdown of document.querySelectorAll(`.${DropdownClasses.custom}, .${DropdownClasses.general}, .${DropdownClasses.generalSymbol}`)) {
     let html_select = dropdown.getElementsByTagName("select")[0];
 
     if (html_select === undefined)

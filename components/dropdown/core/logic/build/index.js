@@ -1,7 +1,8 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function isImplicityCustom(dropdown) {
-    if (!dropdown.classList.contains("dropdown-custom-option-symbols") &&
-        !dropdown.classList.contains("dropdown-custom-arrow-symbol"))
+    if (!dropdown.classList.contains("dropdown-custom-option-symbols" /* customOptionSymbols */) &&
+        !dropdown.classList.contains("dropdown-custom-arrow-symbol" /* customArrowSymbol */))
         return true;
     return false;
 }
@@ -9,64 +10,65 @@ function getCustomSymbols(dropdown) {
     return Array.from(dropdown.childNodes).filter(o => { var _a; return (_a = o.classList) === null || _a === void 0 ? void 0 : _a.contains("fas"); });
 }
 function getArrowSymbol(dropdown) {
-    if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-arrow-symbol"))
+    if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-arrow-symbol" /* customArrowSymbol */))
         return getCustomSymbols(dropdown)[0];
     return undefined;
 }
 function getOptionSymbols(dropdown) {
-    if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-option-symbols"))
+    if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-option-symbols" /* customOptionSymbols */))
         return getCustomSymbols(dropdown);
     return undefined;
 }
 function closeAllSelect(element) {
     var _a;
-    if ((_a = document.getElementById("dropdown-debug")) === null || _a === void 0 ? void 0 : _a.checked)
+    if ((_a = document.getElementById("dropdown-debug" /* debug */)) === null || _a === void 0 ? void 0 : _a.checked)
         return;
-    let selecteds = document.getElementsByClassName("selected");
-    let options = document.getElementsByClassName("options");
+    let selecteds = document.getElementsByClassName("selected" /* selected */);
+    let options = document.getElementsByClassName("options" /* options */);
     let current = -1;
     for (let i = 0; i < selecteds.length; i++)
         if (element === selecteds[i])
             current = i;
         else
-            selecteds[i].childNodes[1].classList.remove("arrow-active");
+            selecteds[i].childNodes[1].classList.remove("arrow-active" /* arrowActive */);
     for (let i = 0; i < options.length; i++)
         if (i !== current)
-            options[i].classList.add("dropdown-display-none");
+            options[i].classList.add("dropdown-display-none" /* displayNone */);
 }
 function selectedClicked(mouseEvent) {
-    var _a, _b;
+    var _a;
     mouseEvent.stopPropagation();
-    if ((_a = this.parentElement) === null || _a === void 0 ? void 0 : _a.classList.contains("dropdown-disabled"))
+    if ((_a = this.parentElement) === null || _a === void 0 ? void 0 : _a.classList.contains("dropdown-disabled" /* disabled */))
         return;
     closeAllSelect(this);
-    (_b = this.nextSibling) === null || _b === void 0 ? void 0 : _b.classList.toggle("dropdown-display-none");
-    this.childNodes[1].classList.toggle("arrow-active");
+    if (this.nextSibling)
+        this.nextSibling.classList.toggle("dropdown-display-none" /* displayNone */);
+    this.childNodes[1].classList.toggle("arrow-active" /* arrowActive */);
 }
 function optionClicked(selected, html_select) {
-    var _a, _b;
-    selected.classList.remove("placeholder");
-    let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text"));
+    selected.classList.remove("placeholder" /* placeholder */);
+    let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text" /* text */));
     if (foundTextElement)
         foundTextElement.innerHTML = this.innerText;
     html_select.selectedIndex = this.selectIndex;
-    (_b = (_a = this.parentNode) === null || _a === void 0 ? void 0 : _a.previousSibling) === null || _b === void 0 ? void 0 : _b.click();
+    if (this.parentNode && this.parentNode.previousSibling)
+        this.parentNode.previousSibling.click();
 }
 function createSelectedDiv(dropdown, html_select) {
     let selected = document.createElement("div");
-    selected.setAttribute("class", "selected placeholder");
+    selected.setAttribute("class", `${"selected" /* selected */} ${"placeholder" /* placeholder */}`);
     let text = document.createElement("div");
-    text.setAttribute("class", "text");
+    text.setAttribute("class", "text" /* text */);
     text.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
     selected.appendChild(text);
     let arrowContainer = document.createElement("div");
-    arrowContainer.setAttribute("class", "arrow-container");
+    arrowContainer.setAttribute("class", "arrow-container" /* arrowContainer */);
     let symbol = getArrowSymbol(dropdown);
     if (symbol)
         arrowContainer.appendChild(symbol);
     else {
         symbol = document.createElement("div");
-        symbol.classList.add("default-arrow-symbol");
+        symbol.classList.add("default-arrow-symbol" /* arrowDefaultSymbol */);
         arrowContainer.appendChild(symbol);
     }
     selected.appendChild(arrowContainer);
@@ -74,12 +76,12 @@ function createSelectedDiv(dropdown, html_select) {
 }
 function createOptionDiv(html_option, symbol) {
     let option = document.createElement("div");
-    option.setAttribute("class", "option");
+    option.setAttribute("class", "option" /* option */);
     if (symbol)
-        symbol.classList.add("custom-symbol");
+        symbol.classList.add("custom-symbol" /* optionCustomSymbol */);
     else {
         symbol = document.createElement("div");
-        symbol.setAttribute("class", "default-symbol");
+        symbol.setAttribute("class", "default-symbol" /* optionDefaultSymbol */);
     }
     option.appendChild(symbol);
     option.innerHTML += html_option.innerHTML;
@@ -87,7 +89,7 @@ function createOptionDiv(html_option, symbol) {
 }
 function createOptionsDiv(dropdown, html_select, selected) {
     let options = document.createElement("div");
-    options.setAttribute("class", "options dropdown-display-none");
+    options.setAttribute("class", `${"options" /* options */} ${"dropdown-display-none" /* displayNone */}`);
     let symbols = getOptionSymbols(dropdown);
     Array.from(html_select.options).slice(1).forEach((html_option, index) => {
         let option;
@@ -102,7 +104,7 @@ function createOptionsDiv(dropdown, html_select, selected) {
     return options;
 }
 function main() {
-    for (let dropdown of document.querySelectorAll(".dropdown-custom, .dropdown-general, .dropdown-general-symbol")) {
+    for (let dropdown of document.querySelectorAll(`.${"dropdown-custom" /* custom */}, .${"dropdown-general" /* general */}, .${"dropdown-general-symbol" /* generalSymbol */}`)) {
         let html_select = dropdown.getElementsByTagName("select")[0];
         if (html_select === undefined)
             continue;
