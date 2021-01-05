@@ -6,8 +6,30 @@ interface ChildNode {
 
 type Option = { selectIndex: number } & HTMLDivElement;
 
+function isImplicityCustom(dropdown: Element): boolean {
+  if (!dropdown.classList.contains("dropdown-custom-option-symbols") &&
+    !dropdown.classList.contains("dropdown-custom-arrow-symbol"))
+    return true;
+
+  return false;
+}
+
 function getCustomSymbols(dropdown: Element): Element[] {
   return Array.from(dropdown.childNodes).filter(o => o.classList?.contains("fas")) as Element[];
+}
+
+function getArrowSymbol(dropdown: Element): Element | undefined {
+  if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-arrow-symbol"))
+    return getCustomSymbols(dropdown)[0];
+
+  return undefined;
+}
+
+function getOptionSymbols(dropdown: Element): (Element | undefined)[] | undefined {
+  if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-option-symbols"))
+    return getCustomSymbols(dropdown);
+
+  return undefined
 }
 
 function closeAllSelect(element: any): void {
@@ -65,10 +87,9 @@ function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElement): H
   let arrowContainer = document.createElement("div");
   arrowContainer.setAttribute("class", "arrow-container");
 
-  let symbol = getCustomSymbols(dropdown)[0];
-  if (symbol) {
+  let symbol = getArrowSymbol(dropdown);
+  if (symbol)
     arrowContainer.appendChild(symbol);
-  }
   else {
     symbol = document.createElement("div");
     symbol.classList.add("default-arrow-symbol");
@@ -79,7 +100,7 @@ function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElement): H
   return selected;
 }
 
-function createOptionDiv(html_option: HTMLOptionElement, symbol: Element): HTMLDivElement {
+function createOptionDiv(html_option: HTMLOptionElement, symbol: Element | undefined): HTMLDivElement {
   let option = document.createElement("div");
   option.setAttribute("class", "option");
 
@@ -99,11 +120,17 @@ function createOptionsDiv(dropdown: Element, html_select: HTMLSelectElement, sel
   let options = document.createElement("div");
   options.setAttribute("class", "options dropdown-display-none");
 
-  let symbols = getCustomSymbols(dropdown);
+  let symbols = getOptionSymbols(dropdown);
 
   Array.from(html_select.options).slice(1).forEach((html_option, index) => {
-    let option: Option = createOptionDiv(html_option, symbols[index]) as Option;
-    option.selectIndex = index;
+    let option: Option;
+
+    if (symbols)
+      option = createOptionDiv(html_option, symbols[index]) as Option;
+    else
+      option = createOptionDiv(html_option, undefined) as Option;
+
+    option.selectIndex = index + 1;
     option.addEventListener("click", optionClicked.bind(option, selected, html_select));
     options.appendChild(option);
   })

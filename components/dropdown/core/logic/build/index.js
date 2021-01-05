@@ -1,6 +1,22 @@
 "use strict";
+function isImplicityCustom(dropdown) {
+    if (!dropdown.classList.contains("dropdown-custom-option-symbols") &&
+        !dropdown.classList.contains("dropdown-custom-arrow-symbol"))
+        return true;
+    return false;
+}
 function getCustomSymbols(dropdown) {
     return Array.from(dropdown.childNodes).filter(o => { var _a; return (_a = o.classList) === null || _a === void 0 ? void 0 : _a.contains("fas"); });
+}
+function getArrowSymbol(dropdown) {
+    if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-arrow-symbol"))
+        return getCustomSymbols(dropdown)[0];
+    return undefined;
+}
+function getOptionSymbols(dropdown) {
+    if (isImplicityCustom(dropdown) || dropdown.classList.contains("dropdown-custom-option-symbols"))
+        return getCustomSymbols(dropdown);
+    return undefined;
 }
 function closeAllSelect(element) {
     var _a;
@@ -30,7 +46,6 @@ function selectedClicked(mouseEvent) {
 function optionClicked(selected, html_select) {
     var _a, _b;
     selected.classList.remove("placeholder");
-    console.log(html_select.length);
     let foundTextElement = Array.from(selected.childNodes).find(o => o.classList.contains("text"));
     if (foundTextElement)
         foundTextElement.innerHTML = this.innerText;
@@ -46,10 +61,9 @@ function createSelectedDiv(dropdown, html_select) {
     selected.appendChild(text);
     let arrowContainer = document.createElement("div");
     arrowContainer.setAttribute("class", "arrow-container");
-    let symbol = getCustomSymbols(dropdown)[0];
-    if (symbol) {
+    let symbol = getArrowSymbol(dropdown);
+    if (symbol)
         arrowContainer.appendChild(symbol);
-    }
     else {
         symbol = document.createElement("div");
         symbol.classList.add("default-arrow-symbol");
@@ -74,10 +88,14 @@ function createOptionDiv(html_option, symbol) {
 function createOptionsDiv(dropdown, html_select, selected) {
     let options = document.createElement("div");
     options.setAttribute("class", "options dropdown-display-none");
-    let symbols = getCustomSymbols(dropdown);
+    let symbols = getOptionSymbols(dropdown);
     Array.from(html_select.options).slice(1).forEach((html_option, index) => {
-        let option = createOptionDiv(html_option, symbols[index]);
-        option.selectIndex = index;
+        let option;
+        if (symbols)
+            option = createOptionDiv(html_option, symbols[index]);
+        else
+            option = createOptionDiv(html_option, undefined);
+        option.selectIndex = index + 1;
         option.addEventListener("click", optionClicked.bind(option, selected, html_select));
         options.appendChild(option);
     });
