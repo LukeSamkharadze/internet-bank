@@ -1,124 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
-body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-* {
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  color: #1b1e24;
-  letter-spacing: 0.2px;
-}
-
-h2 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 26px;
-  color: #252631;
-  letter-spacing: 0.2px;
-}
-
-h3 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  color: #252631;
-  letter-spacing: 0.2px;
-}
-
-h4 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: #252631;
-  letter-spacing: 0.2px;
-}
-
-h5 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  color: #252631;
-  letter-spacing: 0.2px;
-}
-
-p {
-  color: #98A9BC;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 21px;
-}
-
-button {
-  color: #252631;
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-a {
-  color: #252631;
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.caption {
-  color: #1b1e24;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.light {
-  font-weight: 300;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
 body {
-  width: 100%;
-  margin: auto;
+  line-height: 1;
 }
-body header {
-  border-bottom: #E8ECEF 1px solid;
-  padding: 65px 10.4% 67px;
+
+ol, ul {
+  list-style: none;
 }
-body main {
-  width: 79.4%;
-  margin: 87px 0 0 10.4%;
-  border-top: #E8ECEF 1px solid;
+
+blockquote, q {
+  quotes: none;
 }
-body .container-progress-bar {
-  margin: 33px 0 34px;
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
 }
-body .grid-progress-bar {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  column-gap: 32px;
-  row-gap: 15px;
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 body {
@@ -220,7 +148,7 @@ a {
 
 .progress {
   background-color: #F2F4F6;
-  width: 22%;
+  width: 100%;
 }
 .progress div {
   height: 4px;
@@ -1034,6 +962,30 @@ a {
 .progress .color-100 {
   width: 100%;
   background-color: #6DD230;
+}
+
+body {
+  width: 100%;
+  margin: auto;
+}
+body header {
+  border-bottom: #E8ECEF 1px solid;
+  padding: 69px 10.4% 69px;
+}
+body main {
+  width: 79.4%;
+  margin: 87px 0 0 10.4%;
+  border-top: #E8ECEF 1px solid;
+}
+body .container-progress-bar {
+  margin: 37px 0 34px;
+}
+body .grid-progress-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 32px;
+  row-gap: 15px;
 }
 
 /*# sourceMappingURL=index.css.map */

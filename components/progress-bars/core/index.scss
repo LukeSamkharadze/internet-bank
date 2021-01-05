@@ -30,6 +30,6 @@
     
 ////// Ready for task #24 (settings payment limits)
 .progress{
-    @include default-bar($background-1, 22%, 4px);
+    @include default-bar($background-1, 100%, 4px);
     @include color();
 }
