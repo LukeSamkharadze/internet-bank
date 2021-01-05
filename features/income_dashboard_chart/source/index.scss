@@ -1,57 +1,63 @@
 @import '../../../colors&typo/styles.scss';
+@import './mixins.scss';
+body{
+    background-color: #000;
+}
 .monthly-chart{
     position: relative;
-    width: 347px;
-    height: 425px;
-    padding: 20px;
     display: grid;
     grid-template-rows: 1fr 1fr 4fr;
     font-family: $roboto;
     background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    @include size(360px,406px);
 }
 .title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    h3{
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        font-weight: 500;
-        height: 70%;
-        border-bottom: 2px solid #252631;
+    padding: 0px 10px;
+    @include Flex(space-between, center);
+    @include size(100%, 100%);
+    .info-title1{
+        cursor: pointer;
+        border-bottom: 2px solid #000;
+        @include Flex(unset,flex-start);
+        @include size(auto, 50%);
+        h3{
+            font-size: 14px;
+            font-weight: 500;
+        }
     }
     .dots{
-        width: 14px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        width: 16px;
+        cursor: pointer;
+        @include Flex(space-between, center);
         .dot{
-            width: 2px;
-            height: 2px;
             border-radius: 50%;
             background-color: #000;
+            @include size(3px,3px);
         }
     }
 }
 .chart-legend{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 26px;
+    padding: 8px 10px;
+    @include Flex(space-between, flex-start);
+    @include size(100%, 100%);
     .right-legend{
-        width: 23.3%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        width: 30%;
+        padding: 10px 0px;
+        background-color: $background-2;
+        border-radius: 18px;
+        @include Flex(center, center);
         p{
             font-size: 14px;
             font-family: $rubik;
             color: #252631;
+        }
+        .legend-circle{
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: $primary;
+            @include size(10px, 10px);
         }
     }
     .left-legend{
@@ -64,20 +70,10 @@
     }
 }
 .chart-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
-    width: 100%;
-    height: 100%;
-}
-.legend-circle{
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: $primary;
+    @include Flex(center, center);
+    @include size(100%, 100%);
 }
 #myChart{
-    width: 100%;
-    height: 100%
+    @include size(100px, 100px);
 }
