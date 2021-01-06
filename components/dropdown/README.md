@@ -20,15 +20,27 @@
 ``` html
 <script type="text/javascript" src="pathto/logic/build/index.js"></script>
 ```
+**See demo & dropdowns folder for examples**
 
-**See dropdowns folder for examples**
+#
 
 ## **Flags for specifying custom symbols**
-*(Dont use them for implicit usage)*
+*(Not using them will only apply custom option symbols first by indexing and then by order)*
 
-1. **dropdown-custom-arrow-symbol** *(First symbol will be used for arrow)*
-2. **dropdown-custom-option-symbols** *(Rest symbols will be used for options)*
+1. **arrow-symbol** *(This element will be used as arrow symbol)*
+2. **option-default-symbols** *(This element will be used as default option symbol)*
+3. *Rest will be used for each option symbol* (*use **INDEX** attribute to be precise*)
 
-*(In case of not using them)*
-1. **First symbol will be used for arrow**
-2. **Rest symbols will be used for options**
+#
+
+## **Symbol priority**
+1. Symbol specified using *HTML*
+2. Custom symbol specified using **dropdown** mixin  
+3. Default *(heart)* symbol for **dropdown-general-symbol**
+
+#
+
+## **Building project after any change**
+`npm run build-dropdown`
+
+#
