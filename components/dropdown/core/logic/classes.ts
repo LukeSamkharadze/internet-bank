@@ -1,4 +1,4 @@
-export const enum DropdownClasses {
+export const enum HTMLClass {
   debug = "dropdown-debug",
 
   general = "dropdown-general",
