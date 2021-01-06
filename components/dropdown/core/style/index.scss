@@ -4,7 +4,6 @@
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css");
 
-// TODO standardize namings
 // TODO add ability to change height with inline style
 @mixin dropdown(
   $symbol: "",
@@ -56,7 +55,7 @@
       min-width: calc(#{$arrow-offset} * 3);
       color: $placeholder-color;
 
-      .default-arrow-symbol {
+      .default-symbol {
         &:after {
           @include dropdown-symbol($arrow-symbol, $arrow-symbol-size, $arrow-symbol-font-weight);
         }
@@ -123,14 +122,14 @@
   @include empty;
 }
 
-.dropdown-custom-arrow-symbol {
+.dropdown-arrow-symbol {
   @include empty;
 }
 
-.dropdown-custom-option-symbols {
+.dropdown-option-symbols {
   @include empty;
 }
 
-.dropdown-custom-option-default-symbol {
+.dropdown-option-default-symbol {
   @include empty;
 }

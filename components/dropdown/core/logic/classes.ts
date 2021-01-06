@@ -5,16 +5,16 @@ export const enum DropdownClasses {
   generalSymbol = "dropdown-general-symbol",
 
   custom = "dropdown-custom",
-  customOptionDefaultSymbol = "dropdown-custom-option-default-symbol",
-  customOptionSymbols = "dropdown-custom-option-symbols",
-  customArrowSymbol = "dropdown-custom-arrow-symbol",
+  customOptionDefaultSymbol = "dropdown-option-default-symbol",
+  customOptionSymbols = "dropdown-option-symbols",
+  customArrowSymbol = "dropdown-arrow-symbol",
 
   disabled = "dropdown-disabled",
 
   displayNone = "dropdown-display-none",
 
   arrowContainer = "arrow-container",
-  arrowDefaultSymbol = "default-arrow-symbol",
+  arrowDefaultSymbol = "default-symbol",
   arrowActive = "arrow-active",
 
   optionDefaultSymbol = "default-symbol",

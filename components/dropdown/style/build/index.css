@@ -169,15 +169,15 @@ a {
   color: inherit;
 }
 
-.dropdown-custom-arrow-symbol {
+.dropdown-arrow-symbol {
   color: inherit;
 }
 
-.dropdown-custom-option-symbols {
+.dropdown-option-symbols {
   color: inherit;
 }
 
-.dropdown-custom-option-default-symbol {
+.dropdown-option-default-symbol {
   color: inherit;
 }
 
@@ -214,7 +214,7 @@ a {
   min-width: calc(16px * 3);
   color: #98A9BC;
 }
-.my-custom-dropdown-1 .selected .arrow-container .default-arrow-symbol:after {
+.my-custom-dropdown-1 .selected .arrow-container .default-symbol:after {
   content: "";
   font-family: "Line Awesome Free";
   font-size: 30px;
@@ -301,7 +301,7 @@ a {
   min-width: calc(16px * 3);
   color: #98A9BC;
 }
-.dropdown-general .selected .arrow-container .default-arrow-symbol:after {
+.dropdown-general .selected .arrow-container .default-symbol:after {
   content: "";
   font-family: "Line Awesome Free";
   font-size: 18px;
@@ -388,7 +388,7 @@ a {
   min-width: calc(16px * 3);
   color: #98A9BC;
 }
-.dropdown-general-symbol .selected .arrow-container .default-arrow-symbol:after {
+.dropdown-general-symbol .selected .arrow-container .default-symbol:after {
   content: "";
   font-family: "Line Awesome Free";
   font-size: 18px;
@@ -475,7 +475,7 @@ a {
   min-width: calc(16px * 3);
   color: #98A9BC;
 }
-.dropdown-general .selected .arrow-container .default-arrow-symbol:after {
+.dropdown-general .selected .arrow-container .default-symbol:after {
   content: "";
   font-family: "Line Awesome Free";
   font-size: 18px;
