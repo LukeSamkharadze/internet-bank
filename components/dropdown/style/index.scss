@@ -5,6 +5,8 @@
 @use "../dropdowns/field/style/index.scss" as *;
 @use "../dropdowns/disabled/style/index.scss" as *;
 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+
 body {
   display: flex;
   flex-direction: column;
