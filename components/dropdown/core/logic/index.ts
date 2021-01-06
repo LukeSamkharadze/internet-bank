@@ -2,6 +2,8 @@ import { DropdownClasses } from "./classes";
 
 type Option = { selectIndex: number } & HTMLDivElement;
 
+let symbolClasses = ["fa", "fas", "las", "lar"]
+
 function isImplicityCustom(dropdown: Element): boolean {
   if (!dropdown.classList.contains(DropdownClasses.customOptionSymbols) &&
     !dropdown.classList.contains(DropdownClasses.customArrowSymbol))
@@ -10,8 +12,12 @@ function isImplicityCustom(dropdown: Element): boolean {
   return false;
 }
 
+function isSymbol(symbol: Element): boolean {
+  return symbolClasses.some(o => symbol.classList?.contains(o));
+}
+
 function getCustomSymbols(dropdown: Element): Element[] {
-  return Array.from(dropdown.childNodes).filter(o => (<HTMLDivElement>o).classList?.contains("fas")) as Element[];
+  return Array.from(dropdown.childNodes).filter(o => isSymbol(o as Element)) as Element[];
 }
 
 function getArrowSymbol(dropdown: Element): Element | undefined {
