@@ -44,7 +44,7 @@
   }
   ////////// Flags
 
-  select {
+  & > *:not(.selected):not(.placeholder):not(.options) {
     @extend .dropdown-display-none !optional;
   }
 
@@ -52,7 +52,7 @@
     $style: (
       height: 100%,
       is-fixed: true,
-      arrow-offset: $arrow-offset
+      arrow-offset: $arrow-offset,
     );
     @include dropdown-selected($style...);
     color: $selected-color;

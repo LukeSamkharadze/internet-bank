@@ -149,7 +149,7 @@ a {
   text-align: right;
 }
 
-.dropdown-display-none, .my-custom-dropdown-1 select {
+.dropdown-display-none {
   display: none;
 }
 
@@ -179,6 +179,9 @@ a {
 }
 .my-custom-dropdown-1 .option-default-symbol {
   color: inherit;
+}
+.my-custom-dropdown-1 select {
+  display: none;
 }
 .my-custom-dropdown-1 .selected {
   cursor: pointer;

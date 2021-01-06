@@ -148,7 +148,7 @@ a {
   text-align: right;
 }
 
-.dropdown-display-none, .dropdown-general select {
+.dropdown-display-none {
   display: none;
 }
 
@@ -178,6 +178,9 @@ a {
 }
 .dropdown-general .option-default-symbol {
   color: inherit;
+}
+.dropdown-general select {
+  display: none;
 }
 .dropdown-general .selected {
   cursor: pointer;
