@@ -4,4 +4,4 @@ CALL sass "dropdowns\disabled\style\index.scss" "dropdowns\disabled\style\build\
 CALL sass "dropdowns\field\style\index.scss" "dropdowns\field\style\build\index.css"
 CALL sass "dropdowns\select\style\index.scss" "dropdowns\select\style\build\index.css"
 CALL sass "style\index.scss" "style\build\index.css"
-CALL tsc -p "core\logic\tsconfig.json"
+@REM CALL tsc -p "core\logic\tsconfig.json"
