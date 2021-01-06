@@ -286,10 +286,8 @@ a {
   position: absolute;
   width: 20px;
   height: 20px;
-  z-index: -10;
   border-radius: 2px;
   background-color: rgba(119, 140, 162, 0.15);
-  left: -22px;
   top: 0;
 }
 .checkbox input {
@@ -324,10 +322,8 @@ a {
   position: absolute;
   width: 20px;
   height: 20px;
-  z-index: -10;
   border-radius: 2px;
   background-color: rgba(254, 77, 151, 0.15);
-  left: -22px;
   top: 0;
 }
 .checkbox input:checked + .checkbox-error {
