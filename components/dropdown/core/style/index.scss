@@ -4,6 +4,8 @@
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css");
 
+// TODO standardize namings
+// TODO add ability to change height with inline style
 @mixin dropdown(
   $symbol: "",
   $symbol-font-weight: 400,
@@ -111,7 +113,7 @@
   }
 }
 
-// flags
+// Flags
 
 .dropdown-disabled {
   @include empty;
@@ -126,5 +128,9 @@
 }
 
 .dropdown-custom-option-symbols {
+  @include empty;
+}
+
+.dropdown-custom-option-default-symbol {
   @include empty;
 }

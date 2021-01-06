@@ -176,6 +176,10 @@ a {
   color: inherit;
 }
 
+.dropdown-custom-option-default-symbol {
+  color: inherit;
+}
+
 .my-custom-dropdown-1 {
   position: relative;
   width: 500px;
