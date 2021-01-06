@@ -114,13 +114,17 @@
 // flags
 
 .dropdown-disabled {
+  @include empty;
 }
 
 .dropdown-custom {
+  @include empty;
 }
 
 .dropdown-custom-arrow-symbol {
+  @include empty;
 }
 
 .dropdown-custom-option-symbols {
+  @include empty;
 }

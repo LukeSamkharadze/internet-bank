@@ -160,6 +160,22 @@ a {
   -ms-user-select: none;
 }
 
+.dropdown-disabled {
+  color: inherit;
+}
+
+.dropdown-custom {
+  color: inherit;
+}
+
+.dropdown-custom-arrow-symbol {
+  color: inherit;
+}
+
+.dropdown-custom-option-symbols {
+  color: inherit;
+}
+
 .dropdown-general {
   position: relative;
   width: 360px;
