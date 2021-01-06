@@ -168,22 +168,16 @@ a {
   color: inherit;
 }
 
-.dropdown-arrow-symbol {
-  color: inherit;
-}
-
-.dropdown-option-symbols {
-  color: inherit;
-}
-
-.dropdown-option-default-symbol {
-  color: inherit;
-}
-
 .dropdown-general {
   position: relative;
   width: 360px;
   height: 52px;
+}
+.dropdown-general .arrow-symbol {
+  color: inherit;
+}
+.dropdown-general .option-default-symbol {
+  color: inherit;
 }
 .dropdown-general .selected {
   cursor: pointer;

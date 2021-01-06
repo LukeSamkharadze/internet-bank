@@ -2,50 +2,27 @@ import { DropdownClasses } from "./classes";
 
 type Option = { selectIndex: number } & HTMLDivElement;
 
-function isImplicityCustom(dropdown: Element): boolean {
-  if (!dropdown.classList.contains(DropdownClasses.customOptionDefaultSymbol) &&
-    !dropdown.classList.contains(DropdownClasses.customOptionSymbols) &&
-    !dropdown.classList.contains(DropdownClasses.customArrowSymbol))
-    return true;
-
-  return false;
+function getCustomSymbol(dropdown: Element, dropdownClass: DropdownClasses): Element | undefined {
+  return Array.from(dropdown.children).find(o => o.classList.contains(dropdownClass));
 }
 
-function getCustomSymbols(dropdown: Element): Element[] {
-  let children: Element[] = Array.from(dropdown.children);
-  return children.slice(0, children.findIndex(o => o.tagName === "SELECT"));
-}
+function getOptionSymbols(dropdown: Element, defaultSymbol: Element | undefined, optionCount: number): (Element | undefined)[] {
+  let symbols = Array(optionCount).fill(undefined) as (Element | undefined)[];
 
-function getArrowSymbol(dropdown: Element): Element | undefined {
-  if (isImplicityCustom(dropdown) || dropdown.classList.contains(DropdownClasses.customArrowSymbol))
-    return getCustomSymbols(dropdown)[0];
+  Array.from(dropdown.children).filter(o => o.tagName !== "SELECT").forEach(o => {
+    if (o.getAttribute("index") != undefined)
+      symbols[<any>o.getAttribute("index")] = o;
+  });
 
-  return undefined;
-}
+  Array.from(dropdown.children).filter(o => o.tagName !== "SELECT").forEach(o => {
+    if (o.getAttribute("index") == undefined)
+      symbols[symbols.findIndex(o => o === undefined)] = o;
+  });
 
-function getOptionSymbols(dropdown: Element, optionCount: number): (Element | undefined)[] | undefined {
-  let customSymbols = getCustomSymbols(dropdown);
+  symbols = symbols.map(o => (o === undefined) ? defaultSymbol?.cloneNode(true) as Element : o);
+  symbols.forEach(o => (o && "style" in o) ? (<any>o).style.flexShrink = "0" : void 0);
 
-  if (!customSymbols)
-    return undefined;
-
-  if (customSymbols.length == 0)
-    return customSymbols;
-
-  if (isImplicityCustom(dropdown) || dropdown.classList.contains(DropdownClasses.customOptionDefaultSymbol)) {
-    let defaultSymbol = customSymbols[0];
-    customSymbols = customSymbols.splice(1);
-
-    for (let i = customSymbols.length; i < optionCount; i++)
-      customSymbols.push(defaultSymbol.cloneNode(true) as Element);
-
-    console.log(customSymbols);
-    return customSymbols;
-  }
-  else if (dropdown.classList.contains(DropdownClasses.customOptionSymbols))
-    return customSymbols;
-
-  return undefined
+  return symbols;
 }
 
 function closeAllSelect(element: any): void {
@@ -106,7 +83,7 @@ function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElement): H
   let arrowContainer = document.createElement("div");
   arrowContainer.setAttribute("class", DropdownClasses.arrowContainer);
 
-  let symbol = getArrowSymbol(dropdown);
+  let symbol = getCustomSymbol(dropdown, DropdownClasses.customArrowSymbol);
   if (symbol)
     arrowContainer.appendChild(symbol);
   else {
@@ -139,23 +116,19 @@ function createOptionsDiv(dropdown: Element, html_select: HTMLSelectElement, sel
   let options = document.createElement("div");
   options.setAttribute("class", `${DropdownClasses.options} ${DropdownClasses.displayNone}`);
 
-  let symbols = getOptionSymbols(dropdown, html_select.options.length);
+  let defaultOptionSymbol = getCustomSymbol(dropdown, DropdownClasses.customOptionDefaultSymbol);
+  defaultOptionSymbol?.remove();
+  let symbols = getOptionSymbols(dropdown, defaultOptionSymbol, html_select.options.length);
 
   Array.from(html_select.options).slice(1).forEach((html_option, index) => {
-    let option: Option;
-
-    if (symbols)
-      option = createOptionDiv(html_option, symbols[index]) as Option;
-    else
-      option = createOptionDiv(html_option, undefined) as Option;
-
+    let option = createOptionDiv(html_option, symbols[index]) as Option;
     option.selectIndex = index + 1;
     option.addEventListener("click", optionClicked.bind(option, selected, html_select));
     options.appendChild(option);
   })
 
-  let children: Element[] = Array.from(dropdown.children);
-  Array.from(dropdown.children).slice(0, children.findIndex(o => o.tagName === "SELECT")).forEach(o => o.classList.add(DropdownClasses.displayNone));
+  // let children: Element[] = Array.from(dropdown.children);
+  // Array.from(dropdown.children).slice(0, children.findIndex(o => o.tagName === "SELECT")).forEach(o => o.classList.add(DropdownClasses.displayNone));
 
   return options;
 }

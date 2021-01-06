@@ -5,9 +5,8 @@ export const enum DropdownClasses {
   generalSymbol = "dropdown-general-symbol",
 
   custom = "dropdown-custom",
-  customOptionDefaultSymbol = "dropdown-option-default-symbol",
-  customOptionSymbols = "dropdown-option-symbols",
-  customArrowSymbol = "dropdown-arrow-symbol",
+  customOptionDefaultSymbol = "option-default-symbol",
+  customArrowSymbol = "arrow-symbol",
 
   disabled = "dropdown-disabled",
 

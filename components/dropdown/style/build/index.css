@@ -169,22 +169,16 @@ a {
   color: inherit;
 }
 
-.dropdown-arrow-symbol {
-  color: inherit;
-}
-
-.dropdown-option-symbols {
-  color: inherit;
-}
-
-.dropdown-option-default-symbol {
-  color: inherit;
-}
-
 .my-custom-dropdown-1 {
   position: relative;
   width: 500px;
   height: 100px;
+}
+.my-custom-dropdown-1 .arrow-symbol {
+  color: inherit;
+}
+.my-custom-dropdown-1 .option-default-symbol {
+  color: inherit;
 }
 .my-custom-dropdown-1 .selected {
   cursor: pointer;
@@ -273,6 +267,12 @@ a {
   width: 360px;
   height: 52px;
 }
+.dropdown-general .arrow-symbol {
+  color: inherit;
+}
+.dropdown-general .option-default-symbol {
+  color: inherit;
+}
 .dropdown-general .selected {
   cursor: pointer;
   display: flex;
@@ -360,6 +360,12 @@ a {
   width: 360px;
   height: 52px;
 }
+.dropdown-general-symbol .arrow-symbol {
+  color: inherit;
+}
+.dropdown-general-symbol .option-default-symbol {
+  color: inherit;
+}
 .dropdown-general-symbol .selected {
   cursor: pointer;
   display: flex;
@@ -446,6 +452,12 @@ a {
   position: relative;
   width: 360px;
   height: 52px;
+}
+.dropdown-general .arrow-symbol {
+  color: inherit;
+}
+.dropdown-general .option-default-symbol {
+  color: inherit;
 }
 .dropdown-general .selected {
   cursor: pointer;

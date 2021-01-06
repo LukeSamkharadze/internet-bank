@@ -34,6 +34,16 @@
   width: $width;
   height: $selected-height;
 
+  ////////// Flags
+  .arrow-symbol {
+    @include empty;
+  }
+
+  .option-default-symbol {
+    @include empty;
+  }
+  ////////// Flags
+
   select {
     @extend .dropdown-display-none !optional;
   }
@@ -112,8 +122,7 @@
   }
 }
 
-// Flags
-
+////////// Flags
 .dropdown-disabled {
   @include empty;
 }
@@ -121,15 +130,4 @@
 .dropdown-custom {
   @include empty;
 }
-
-.dropdown-arrow-symbol {
-  @include empty;
-}
-
-.dropdown-option-symbols {
-  @include empty;
-}
-
-.dropdown-option-default-symbol {
-  @include empty;
-}
+////////// Flags
