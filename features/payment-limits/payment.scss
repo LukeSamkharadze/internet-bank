@@ -44,9 +44,11 @@
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
-                            padding-left: 15px;
+                            
+                            
                             p{
                                 color: $primary-dark;
+                                margin-left: 15px;
                             }
                             .limits-plusMinus{
                     margin-right: 15px;
@@ -83,7 +85,8 @@
                             @extend .limits-current;
                             background-color: $background-2;
                             border: none;
-                            // daamate bar
+                            display: flex;
+                            justify-content: center;
                         }
                     }
                 }
@@ -93,9 +96,6 @@
 
         .payment-buttons{
             margin-top: 125px;
-            button{
-                
-            }
             & :last-child{
                 background-color:$background-1;
                 width: 148px;

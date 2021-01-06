@@ -1444,10 +1444,10 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 15px;
 }
 .payment-wrap .payment-box .payment-section .limits-spendings .limits-wrap .limits-current p, .payment-wrap .payment-box .payment-section .limits-spendings .spendings-wrap .limits-current p, .payment-wrap .payment-box .payment-section .limits-spendings .spendings-wrap .spendings-current p {
   color: #252631;
+  margin-left: 15px;
 }
 .payment-wrap .payment-box .payment-section .limits-spendings .limits-wrap .limits-current .limits-plusMinus, .payment-wrap .payment-box .payment-section .limits-spendings .spendings-wrap .limits-current .limits-plusMinus, .payment-wrap .payment-box .payment-section .limits-spendings .spendings-wrap .spendings-current .limits-plusMinus {
   margin-right: 15px;
@@ -1475,6 +1475,8 @@ a {
 .payment-wrap .payment-box .payment-section .limits-spendings .spendings-wrap .spendings-current {
   background-color: #F8FAFB;
   border: none;
+  display: flex;
+  justify-content: center;
 }
 .payment-wrap .payment-buttons {
   margin-top: 125px;
