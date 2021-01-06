@@ -57,6 +57,11 @@
   font-weight: $weight;
 }
 
-@mixin empty {
+@mixin dropdown-empty {
   color: inherit;
+}
+
+@mixin dropdown-hide {
+  opacity: 0;
+  visibility: hidden;
 }

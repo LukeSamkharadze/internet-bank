@@ -18,7 +18,7 @@ export function closeAllSelect(element: any): void {
 
   for (let i = 0; i < options.length; i++)
     if (i !== current)
-      options[i].classList.add(HTMLClass.displayNone);
+      options[i].classList.add(HTMLClass.optionsHidden);
 }
 
 export function selectedClicked(this: Element, mouseEvent: MouseEvent): void {
@@ -30,7 +30,7 @@ export function selectedClicked(this: Element, mouseEvent: MouseEvent): void {
   closeAllSelect(this);
 
   if (this.nextSibling)
-    (<Element>this.nextSibling).classList.toggle(HTMLClass.displayNone);
+    (<Element>this.nextSibling).classList.toggle(HTMLClass.optionsHidden);
   (this.children[1]).classList.toggle(HTMLClass.arrowActive);
 }
 

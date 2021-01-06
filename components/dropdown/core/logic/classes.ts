@@ -19,6 +19,8 @@ export const enum HTMLClass {
   optionDefaultSymbol = "default-symbol",
   optionCustomSymbol = "custom-symbol",
 
+  optionsHidden = "options-hidden",
+
   selected = "selected",
   placeholder = "placeholder",
   options = "options",

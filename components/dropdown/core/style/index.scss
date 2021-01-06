@@ -4,7 +4,6 @@
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css");
 
-// TODO add ability to change height with inline style
 @mixin dropdown(
   $symbol: "",
   $symbol-font-weight: 400,
@@ -13,9 +12,11 @@
   $arrow-symbol-size: 18px,
   $arrow-symbol-font-weight: 900,
   $arrow-offset: 16px,
+  $arrow-transition-speed: 0.2s,
+  $arrow-transition-type: ease,
   $background-color: white,
   $active-color: $primary,
-  $shadow-color: rgba(0, 0, 0, 0.02),
+  $shadow-color: rgba(0, 0, 0, 0.03),
   $border-size: 1px,
   $border-radius: 4px,
   $border-style: solid,
@@ -23,8 +24,12 @@
   $selected-color: $dark-secondary-3,
   $selected-line-count: 2,
   $option-height: 46px,
+  $option-transition-speed: 0.1s,
+  $option-transition-type: ease,
   $option-color: $dark-secondary-3,
   $options-gap: 6px,
+  $options-transition-speed: 0.2s,
+  $options-transition-type: ease,
   $placeholder-color: $secondary-dark-2,
   $width: 360px
 ) {
@@ -36,11 +41,11 @@
 
   ////////// Flags
   .arrow-symbol {
-    @include empty;
+    @include dropdown-empty;
   }
 
   .option-default-symbol {
-    @include empty;
+    @include dropdown-empty;
   }
   ////////// Flags
 
@@ -69,6 +74,7 @@
       flex-shrink: 0;
       min-width: calc(#{$arrow-offset} * 3);
       color: $placeholder-color;
+      transition: visibility 0s, $arrow-transition-speed $arrow-transition-type;
 
       .default-symbol {
         &:after {
@@ -95,11 +101,13 @@
     border-radius: $border-radius;
     background-color: $background-color;
     top: calc(100% + #{$options-gap});
+    transition: opacity $options-transition-speed $options-transition-type, visibility 0.1s;
 
     .option {
       @include dropdown-option($option-height, false);
       color: $option-color;
       padding: 3px 17px;
+      transition: $option-transition-speed $option-transition-type;
 
       .custom-symbol,
       .default-symbol:after {
@@ -124,15 +132,19 @@
         padding: 0 17px 10px 17px;
       }
     }
+
+    &-hidden {
+      @include dropdown-hide;
+    }
   }
 }
 
 ////////// Flags
 .dropdown-disabled {
-  @include empty;
+  @include dropdown-empty;
 }
 
 .dropdown-custom {
-  @include empty;
+  @include dropdown-empty;
 }
 ////////// Flags

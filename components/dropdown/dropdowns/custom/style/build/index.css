@@ -149,7 +149,7 @@ a {
   text-align: right;
 }
 
-.dropdown-display-none {
+.dropdown-display-none, .my-custom-dropdown-1 > *:not(.selected):not(.placeholder):not(.options) {
   display: none;
 }
 
@@ -180,9 +180,6 @@ a {
 .my-custom-dropdown-1 .option-default-symbol {
   color: inherit;
 }
-.my-custom-dropdown-1 select {
-  display: none;
-}
 .my-custom-dropdown-1 .selected {
   cursor: pointer;
   display: flex;
@@ -210,6 +207,7 @@ a {
   flex-shrink: 0;
   min-width: calc(16px * 3);
   color: #98A9BC;
+  transition: visibility 0s, 0.2s ease;
 }
 .my-custom-dropdown-1 .selected .arrow-container .default-symbol:after {
   content: "";
@@ -228,10 +226,11 @@ a {
   z-index: 1;
   width: 100%;
   position: absolute;
-  box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.03);
   border-radius: 4px;
   background-color: white;
   top: calc(100% + 6px);
+  transition: opacity 0.2s ease, visibility 0.1s;
 }
 .my-custom-dropdown-1 .options .option {
   cursor: pointer;
@@ -242,6 +241,7 @@ a {
   padding: 4px 30px 0 14px;
   color: #1b1e24;
   padding: 3px 17px;
+  transition: 0.1s ease;
 }
 .my-custom-dropdown-1 .options .option .custom-symbol,
 .my-custom-dropdown-1 .options .option .default-symbol:after {
@@ -263,6 +263,10 @@ a {
 .my-custom-dropdown-1 .options .option:nth-last-child(1) {
   min-height: calc(46px + 9px);
   padding: 0 17px 10px 17px;
+}
+.my-custom-dropdown-1 .options-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=index.css.map */
