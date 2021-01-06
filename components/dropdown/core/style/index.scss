@@ -1,6 +1,6 @@
 @use "../../../../colors&typo/styles.scss" as *;
-@use "../utils/mixins.scss" as *;
-@use "../utils/classes.scss" as *;
+@use "utils/mixins.scss" as *;
+@use "utils/classes.scss" as *;
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css");
 
@@ -49,7 +49,12 @@
   }
 
   .selected {
-    @include dropdown-selected($selected-height, true, $arrow-offset);
+    $style: (
+      height: 100%,
+      is-fixed: true,
+      arrow-offset: $arrow-offset
+    );
+    @include dropdown-selected($style...);
     color: $selected-color;
     border-radius: $border-radius;
     background-color: $background-color;
@@ -89,7 +94,7 @@
     box-shadow: 0 0 6px 6px $shadow-color;
     border-radius: $border-radius;
     background-color: $background-color;
-    top: calc(#{$selected-height} + #{$options-gap});
+    top: calc(100% + #{$options-gap});
 
     .option {
       @include dropdown-option($option-height, false);
