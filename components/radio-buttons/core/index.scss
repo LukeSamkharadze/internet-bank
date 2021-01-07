@@ -2,22 +2,26 @@
 @import "base.scss";
 
 .radio-btn {
-  position: relative;
-  padding-left: 30px;
   font-family: $roboto;
   font-size: 14px;
   font-weight: 300;
   color: $secondary-dark-1;
-  line-height: 25px;
+  line-height: 20px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
   input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
+  }
+  label {
+    position: relative;
+    padding-left: 30px;
   }
   input:checked + label {
     color: $primary-dark;
@@ -29,7 +33,7 @@
       @include circle-center;
       width: 8px;
       height: 8px;
-      bottom: 11px;
+      bottom: 6px;
       left: 6px;
       background-color: #fff;
     }
@@ -44,7 +48,7 @@
     background-color: $outline;
     @include circle-center;
   }
-  input:disabled + label{
+  input:disabled + label {
     opacity: 70%;
   }
   .radio-error + label {

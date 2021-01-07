@@ -147,16 +147,16 @@ a {
 }
 
 .radio-btn {
-  position: relative;
-  padding-left: 30px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 300;
   color: #778CA2;
-  line-height: 25px;
+  line-height: 20px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
 }
 .radio-btn input {
   position: absolute;
@@ -164,6 +164,10 @@ a {
   cursor: pointer;
   height: 0;
   width: 0;
+}
+.radio-btn label {
+  position: relative;
+  padding-left: 30px;
 }
 .radio-btn input:checked + label {
   color: #252631;
@@ -174,12 +178,12 @@ a {
 .radio-btn input:checked + label:after {
   content: "";
   position: absolute;
-  bottom: 5px;
+  bottom: 0;
   left: 0;
   border-radius: 50%;
   width: 8px;
   height: 8px;
-  bottom: 11px;
+  bottom: 6px;
   left: 6px;
   background-color: #fff;
 }
@@ -192,7 +196,7 @@ a {
   height: 20px;
   background-color: #E8ECEF;
   position: absolute;
-  bottom: 5px;
+  bottom: 0;
   left: 0;
   border-radius: 50%;
 }
@@ -253,8 +257,8 @@ section .radios {
 section .radios > div {
   width: 31.5%;
 }
-section .radio-btn {
-  margin-bottom: 7px;
+section .radio-btn label:first-of-type {
+  margin-bottom: 15px;
 }
 
 /*# sourceMappingURL=index.css.map */
