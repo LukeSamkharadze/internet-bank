@@ -152,9 +152,6 @@ a {
   font-weight: 300;
   color: #778CA2;
   line-height: 20px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   display: flex;
   flex-direction: column;
 }
@@ -168,6 +165,9 @@ a {
 .radio-btn label {
   position: relative;
   padding-left: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .radio-btn input:checked + label {
   color: #252631;

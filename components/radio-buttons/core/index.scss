@@ -7,9 +7,6 @@
   font-weight: 300;
   color: $secondary-dark-1;
   line-height: 20px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   display: flex;
   flex-direction: column;
   input {
@@ -22,6 +19,9 @@
   label {
     position: relative;
     padding-left: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   input:checked + label {
     color: $primary-dark;
