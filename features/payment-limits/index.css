@@ -1478,6 +1478,13 @@ a {
   display: flex;
   justify-content: center;
 }
+.payment-wrap .payment-box .payment-section .limits-spendings .spendings-wrap .spendings-current > div {
+  border-radius: 4px;
+  width: 87%;
+}
+.payment-wrap .payment-box .payment-section .limits-spendings .spendings-wrap .spendings-current > div div {
+  height: 4px;
+}
 .payment-wrap .payment-buttons {
   margin-top: 125px;
 }

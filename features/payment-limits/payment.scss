@@ -87,6 +87,13 @@
                             border: none;
                             display: flex;
                             justify-content: center;
+                            &>div{
+                                border-radius: 4px;
+                                width: 87%;
+                                div{
+                                    height: 4px;
+                                }
+                            }
                         }
                     }
                 }
