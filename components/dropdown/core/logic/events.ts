@@ -6,7 +6,7 @@ export function closeAllSelect(element: any): void {
     return;
 
   let selecteds = document.getElementsByClassName(HTMLClass.selected);
-  let options = document.getElementsByClassName(HTMLClass.options);
+  let options = document.querySelectorAll(`.${HTMLClass.options}, .dropdown-full-custom .select .options`);
 
   let current = -1;
 
@@ -14,7 +14,7 @@ export function closeAllSelect(element: any): void {
     if (element === selecteds[i])
       current = i;
     else
-      (selecteds[i].children[1]).classList.remove(HTMLClass.arrowActive);
+      selecteds[i].children[1]?.classList.remove(HTMLClass.arrowActive);
 
   for (let i = 0; i < options.length; i++)
     if (i !== current)
@@ -30,18 +30,19 @@ export function selectedClicked(this: Element, mouseEvent: MouseEvent): void {
   closeAllSelect(this);
 
   if (this.nextSibling)
-    (<Element>this.nextSibling).classList.toggle(HTMLClass.hidden);
-  (this.children[1]).classList.toggle(HTMLClass.arrowActive);
+    (<Element>this.nextSibling)?.classList.toggle(HTMLClass.hidden);
+  this.children[1]?.classList.toggle(HTMLClass.arrowActive);
 }
 
-export function optionClicked(this: types.Option, selected: HTMLDivElement, html_select: HTMLSelectElement): void {
+export function optionClicked(this: types.Option, selected: HTMLDivElement, html_select: HTMLSelectElement | undefined, isCustom: boolean): void {
   selected.classList.remove(HTMLClass.placeholder);
 
-  let foundTextElement = Array.from(selected.children).find(o => (o).classList.contains(HTMLClass.text));
+  let foundTextElement = [...selected.children].find(o => (o).classList.contains(HTMLClass.text));
   if (foundTextElement)
-    (foundTextElement).innerHTML = this.innerText;
+    foundTextElement.innerHTML = (isCustom) ? this.innerHTML : this.innerText;
 
-  html_select.selectedIndex = this.selectIndex;
+  if (html_select)
+    html_select.selectedIndex = this.selectIndex;
 
   selected.click();
 }
