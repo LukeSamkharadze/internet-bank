@@ -1,73 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="index.css" rel = "Stylesheet">
-   
-</head>
-<body>
-    <div class ="column-on">
-    <div class = "toggle-container off-disaled">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link href="index.css" rel="Stylesheet" />
+	</head>
+	<body>
+		<div class="column-on">
+			<div class="toggle-container off-disaled">
+				<label class="switch">
+					<input type="checkbox" id = "toggle-off-disaled" unchecked />
+                    <span class="slider"></span>
+                    <label for="toggle-off-disaled" class = "text">Toggle off disabled</label>
+				</label>
+				
+			</div>
+			<div class="toggle-container off">
+				<label class="switch">
+					<input type="checkbox" id = "toggle-off" unchecked />
+                    <span class="slider"></span>
+                    <label for="toggle-off" class = "text">Toggle off</label>
+				</label>
+				
+			</div>
+			<div class="toggle-container error-off">
+				<label class="switch">
+					<input type="checkbox" id = "toggle-error-off" unchecked />
+                    <span class="slider"></span>
+                    <label for="toggle-error-off" class = "text">Error toggle off</label>
+				</label>
+				
+			</div>
+		</div>
 
-        <label class = "switch">
-            <input type = "checkbox" unchecked>
-             <span class = "slider"></span>
-         </label>
-         <span class = "text">Toggle off disabled</span>
-
-    </div> 
-    <div class = "toggle-container off">
-
-        <label class = "switch">
-            <input type = "checkbox" unchecked>
-             <span class = "slider"></span>
-         </label>
-         <span class = "text">Toggle off</span>
-
-    </div>
-    <div class = "toggle-container Error-off">
-
-        <label class = "switch">
-            <input type = "checkbox" unchecked>
-             <span class = "slider"></span>
-         </label>
-         <span class = "text">Error toggle off</span>
-
-    </div> 
-   
-
-    </div>
-
-    <div class ="column-off">
-        <div class = "toggle-container on-disable">
-
-            <label class = "switch">
-                <input type = "checkbox" checked>
-                 <span class = "slider"></span>
-             </label>
-             <span class = "text">Toggle on disabled</span>
-    
-        </div>
-        <div class = "toggle-container on">
-    
-            <label class = "switch">
-                <input type = "checkbox" checked>
-                 <span class = "slider"></span>
-             </label>
-             <span class = "text">Toggle on</span>
-    
-        </div>
-        <div class = "toggle-container Success-on">
-    
-            <label class = "switch">
-                <input type = "checkbox" checked>
-                 <span class = "slider"></span>
-             </label>
-             <span class = "text">Success toggle on</span>    
-    </div>
-
-    </div>
-</body>
+		<div class="column-off">
+			<div class="toggle-container on-disable">
+				<label class="switch">
+					<input type="checkbox" id = "toggle-on-disable" checked />
+                    <span class="slider"></span>
+                    <label for="toggle-on-disable" class = "text">Toggle on disabled</label>
+				</label>
+				
+			</div>
+			<div class="toggle-container on">
+				<label class="switch">
+					<input type="checkbox" id = "toggle-on" checked />
+                    <span class="slider"></span>
+                    <label for="toggle-on" class = "text">Toggle on</label>
+				</label>
+				
+			</div>
+			<div class="toggle-container success-on">
+				<label class="switch">
+					<input type="checkbox" id = "toggle-success-on" checked />
+                    <span class="slider"></span>
+                    <label for="toggle-success-on" class = "text">Success toggle on</label>
+				</label>
+				
+			</div>
+		</div>
+	</body>
 </html>

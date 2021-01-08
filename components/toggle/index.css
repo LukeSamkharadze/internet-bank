@@ -101,13 +101,17 @@ a {
   width: 190px;
 }
 .toggle-container .text {
-  display: inline-block;
+  cursor: pointer;
+  display: block;
   margin-left: 18px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #252631;
+  color: #778CA2;
   letter-spacing: 0.2px;
+  width: 125px;
+  margin-top: -15px;
+  margin-left: 53px;
 }
 .toggle-container .switch {
   position: relative;
@@ -155,6 +159,9 @@ a {
 .toggle-container input:checked + .slider:before {
   background-color: #ffffff;
 }
+.toggle-container input:checked ~ label.text {
+  color: #252631;
+}
 
 .off-disaled input:checked + .slider:before {
   -webkit-transform: translateX(0px);
@@ -172,27 +179,37 @@ a {
 }
 .off-disaled .text {
   color: #778CA2;
+  opacity: 70%;
+}
+.off-disaled input:checked ~ label.text {
+  color: #778CA2;
+  opacity: 70%;
 }
 
-.Error-off .text {
+.error-off .text {
   color: #FE4D97;
+  opacity: 100%;
 }
-.Error-off input:checked + .slider {
+.error-off input:checked + .slider {
   background-color: #F2F4F6;
 }
-.Error-off .slider {
+.error-off .slider {
   background-color: #FE4D97;
 }
-.Error-off .slider:before {
-  background-color: #FFFFFF;
+.error-off .slider:before {
+  background-color: #ffffff;
 }
-.Error-off input:checked + .slider::before {
+.error-off input:checked + .slider::before {
   background-color: #98A9BC;
+}
+.error-off input:checked ~ label.text {
+  color: #FE4D97;
+  opacity: 70%;
 }
 
 .on-disable .slider:before {
   left: 20px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .on-disable input:checked + .slider:before {
   -webkit-transform: translateX(0px);
@@ -204,14 +221,24 @@ a {
   opacity: 70%;
 }
 .on-disable .text {
-  color: #778CA2;
+  color: #252631;
+  opacity: 70%;
+}
+.on-disable input:checked ~ label.text {
+  color: #252631;
+  opacity: 70%;
 }
 
-.Success-on .text {
+.success-on .text {
   color: #6DD230;
+  opacity: 70%;
 }
-.Success-on input:checked + .slider {
+.success-on input:checked + .slider {
   background-color: #6DD230;
+}
+.success-on input:checked ~ label.text {
+  color: #6DD230;
+  opacity: 100%;
 }
 
 .column-off {
