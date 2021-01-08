@@ -1,9 +1,6 @@
 @use "../../../../../colors&typo/palette.scss" as *;
 @use "../../../core/style/index.scss" as *;
-
-.dropdown-general {
-  @include dropdown("");
-}
+@use "../../select/style/index.scss" as *;
 
 .dropdown-disabled {
   .selected {

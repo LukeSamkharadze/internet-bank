@@ -2,10 +2,11 @@
 
 .my-custom-dropdown-1 {
   @include dropdown(
-    $symbol: "\f005",
-    $symbol-font-weight: 900,
+    $options-symbol: "\f005",
+    $options-symbol-font-weight: 900,
     $width: 500px,
     $active-color: purple,
+    $option-active-color: red,
     $arrow-symbol: "\f1b9",
     $arrow-symbol-size: 30px,
     $selected-height: 100px,

@@ -30,18 +30,20 @@ export function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElem
   return selected;
 }
 
-export function createOptionDiv(html_option: HTMLOptionElement, symbol: Element | undefined): Element {
+export function createOptionDiv(dropdown: Element, html_option: HTMLOptionElement, symbol: Element | undefined): Element {
   let option = document.createElement("div");
   option.setAttribute("class", HTMLClass.option);
 
-  if (symbol)
+  if (symbol) {
     symbol.classList.add(HTMLClass.optionCustomSymbol);
-  else {
+    option.appendChild(symbol);
+  }
+  else if (dropdown.classList.contains(HTMLClass.generalSymbol)) {
     symbol = document.createElement("div");
     symbol.setAttribute("class", HTMLClass.optionDefaultSymbol);
+    option.appendChild(symbol);
   }
 
-  option.appendChild(symbol);
   option.innerHTML += html_option.innerHTML;
 
   return option;
@@ -56,7 +58,7 @@ export function createOptionsDiv(dropdown: Element, html_select: HTMLSelectEleme
   let symbols = utils.getOptionSymbols(dropdown, defaultOptionSymbol, html_select.options.length);
 
   Array.from(html_select.options).slice(1).forEach((html_option, index) => {
-    let option = createOptionDiv(html_option, symbols[index]) as Option;
+    let option = createOptionDiv(dropdown, html_option, symbols[index]) as Option;
     option.selectIndex = index + 1;
     option.addEventListener("click", events.optionClicked.bind(option, selected, html_select));
     options.appendChild(option);
