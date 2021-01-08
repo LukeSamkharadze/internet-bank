@@ -2,8 +2,6 @@
 @use "utils/mixins.scss" as *;
 @use "utils/classes.scss" as *;
 
-@import url("https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css");
-
 @mixin dropdown(
   $symbol: "",
   $symbol-font-weight: 400,
