@@ -51,7 +51,7 @@ export function createOptionDiv(dropdown: Element, html_option: HTMLOptionElemen
 
 export function createOptionsDiv(dropdown: Element, html_select: HTMLSelectElement, selected: HTMLDivElement): Element {
   let options = document.createElement("div");
-  options.setAttribute("class", `${HTMLClass.options} ${HTMLClass.optionsHidden}`);
+  options.setAttribute("class", `${HTMLClass.options} ${HTMLClass.hidden}`);
 
   let defaultOptionSymbol = utils.getCustomSymbol(dropdown, HTMLClass.customOptionDefaultSymbol);
   defaultOptionSymbol?.remove();

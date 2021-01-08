@@ -9,8 +9,8 @@ export const enum HTMLClass {
   customArrowSymbol = "arrow-symbol",
 
   disabled = "dropdown-disabled",
-
   displayNone = "dropdown-display-none",
+  hidden = "dropdown-hidden",
 
   arrowContainer = "arrow-container",
   arrowDefaultSymbol = "default-symbol",
@@ -18,8 +18,6 @@ export const enum HTMLClass {
 
   optionDefaultSymbol = "default-symbol",
   optionCustomSymbol = "custom-symbol",
-
-  optionsHidden = "options-hidden",
 
   selected = "selected",
   placeholder = "placeholder",

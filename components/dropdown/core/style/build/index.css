@@ -158,6 +158,11 @@ a {
   -ms-user-select: none;
 }
 
+.dropdown-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .dropdown-disabled {
   color: inherit;
 }

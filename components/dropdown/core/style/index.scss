@@ -144,10 +144,6 @@
         padding: $option-last-padding;
       }
     }
-
-    &-hidden {
-      @include dropdown-hide;
-    }
   }
 }
 
