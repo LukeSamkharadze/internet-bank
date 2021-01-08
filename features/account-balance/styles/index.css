@@ -174,10 +174,10 @@ a {
 .available-balances .balances-container * {
   background-color: inherit;
 }
-.available-balances .balances-container .la-arrow-up {
+.available-balances .balances-container .la-long-arrow-alt-up {
   color: #6DD230;
 }
-.available-balances .balances-container .la-arrow-down {
+.available-balances .balances-container .la-long-arrow-alt-down {
   color: #FE4D97;
 }
 .available-balances .balances-container .account-balance {
