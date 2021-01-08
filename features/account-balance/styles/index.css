@@ -180,9 +180,6 @@ a {
 .available-balances .balances-container .la-arrow-down {
   color: #FE4D97;
 }
-.available-balances .balances-container .last-arrow {
-  padding-left: 9px;
-}
 .available-balances .balances-container .account-balance {
   display: flex;
   align-self: center;
@@ -225,15 +222,21 @@ a {
   letter-spacing: 0.2px;
   color: #98A9BC;
 }
-.available-balances .balances-container .account-balance .card-position {
+.available-balances .balances-container .account-balance .detail-position, .available-balances .balances-container .account-balance .card-position {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 21px;
 }
+.available-balances .balances-container .account-balance .card-position {
+  width: 76px;
+  justify-content: space-between;
+  padding: 0;
+}
 .available-balances .balances-container .account-balance .balance {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .available-balances .balances-container .account-balance .balance div {
   font-family: "Roboto", sans-serif;
@@ -241,7 +244,6 @@ a {
   font-size: 16px;
   color: #252631;
   letter-spacing: 0.2px;
-  padding: 0 5px 2px 0;
 }
 .available-balances .balances-container .account-balance .balance .las {
   padding-bottom: 5px;

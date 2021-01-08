@@ -1,4 +1,4 @@
-@import '../../colors&typo/styles.scss';
+@import '../../../colors&typo/styles.scss';
 @mixin size {
     max-width: 555px;
     min-width: 372px;
@@ -28,9 +28,6 @@
         }
         .la-arrow-down {
             color: $secondary-3;
-        }
-        .last-arrow {
-            padding-left: 9px;
         }
         .account-balance {
             display: flex;
@@ -65,18 +62,24 @@
                 @include text-style(14px);
                 color: $secondary-dark-2;
             }
-            .card-position {
+            .detail-position {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 padding-left: 21px;
             }
+            .card-position {
+                @extend .detail-position;
+                width: 76px;
+                justify-content: space-between;
+                padding: 0;
+            }
             .balance {
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
                 div {
                     @include text-style(16px);
-                    padding: 0 5px 2px 0;
                 }
                 .las {
                     padding-bottom: 5px;
