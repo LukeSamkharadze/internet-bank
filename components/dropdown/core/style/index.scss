@@ -43,7 +43,8 @@
   $selected-height: 52px,
   $selected-color: $dark-secondary-3,
   $selected-line-count: 2,
-  $selected-background-color: $background-color
+  $selected-background-color: $background-color,
+  $selected-padding: 4px 0 0 14px
 ) {
   @extend p !optional;
   @extend .dropdown-disable-select !optional;
@@ -70,6 +71,7 @@
       height: 100%,
       is-fixed: true,
       arrow-offset: $arrow-offset,
+      padding: $selected-padding,
     );
     @include dropdown-selected($style...);
     color: $selected-color;
@@ -116,9 +118,8 @@
     transition: opacity $options-transition-speed $options-transition-type, visibility 0.1s;
 
     .option {
-      @include dropdown-option($option-height, false);
+      @include dropdown-box($option-height, false, $option-padding);
       color: $option-color;
-      padding: $option-padding;
       transition: $option-transition-speed $option-transition-type;
 
       .custom-symbol,

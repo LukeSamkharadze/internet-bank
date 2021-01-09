@@ -188,9 +188,9 @@ a {
   display: flex;
   align-items: center;
   width: 100%;
+  padding: 4px 0 0 14px;
   height: 100%;
   justify-content: space-between;
-  padding: 4px 0 0 14px;
   color: #1b1e24;
   border-radius: 4px;
   background-color: white;
@@ -240,10 +240,9 @@ a {
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 46px;
-  padding: 4px 30px 0 14px;
-  color: #1b1e24;
   padding: 0 17px;
+  min-height: 46px;
+  color: #1b1e24;
   transition: 0.1s ease;
 }
 .dropdown-general-symbol .options .option .custom-symbol,
