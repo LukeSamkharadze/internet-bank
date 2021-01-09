@@ -452,11 +452,11 @@ a {
 body {
   display: flex;
   flex-direction: column;
-  padding: 100px;
+  padding: 100px 100px 500px 100px;
   gap: 30px;
 }
 
-.dropdown-general-symbol .placeholder {
+#demo-dropdown-2 .placeholder {
   color: #1b1e24;
 }
 

@@ -13,11 +13,11 @@
 <body>
 
   <hr>
-  <h1>Perfectpixel</h1>
+  <h1>PERFECTPIXEL</h1>
 
   <label>
     <input type="checkbox" id="dropdown-debug">
-    To freeze options
+    FREEZE OPTIONS
   </label>
 
   <div class="dropdown-general">
@@ -30,7 +30,7 @@
     </select>
   </div>
 
-  <div class="dropdown-general-symbol">
+  <div class="dropdown-general-symbol" id="demo-dropdown-2">
     <select>
       <option>Text caption</option>
       <option>Select item 1</option>
@@ -51,7 +51,7 @@
   </div>
 
   <hr>
-  <h1>Bigger text</h1>
+  <h1>BIGGER TEXT</h1>
 
   <div class="dropdown-general">
     <select>
@@ -88,15 +88,11 @@
   </div>
 
   <hr>
-  <h1>Custom dropdowns</h1>
+  <h1>CUSTOM DROPDOWNS</h1>
 
-  <div class="dropdown-general-symbol" style="height: 250px;">
-    <div class="arrow-symbol" style="width: 50px; height: 30px; background-color: red;"></div>
-    <i class="fas fa-camera" style="font-size: 100px;"></i>
-    <i class="fas fa-camera"></i>
-    <i class="fas fa-angry" style="font-size: 33px"></i>
+  <div class="dropdown-general" style="width: 150px; height: 150px;">
     <select>
-      <option>Text caption</option>
+      <option>Placeholder</option>
       <option>Select item 1</option>
       <option>Select item 2</option>
       <option>Select item 3</option>
@@ -105,10 +101,6 @@
   </div>
 
   <div class="dropdown-custom my-custom-dropdown-1">
-    <i index="1" class="fas fa-angry" style="font-size: 50px"></i>
-    <em class="arrow-symbol las la-tty" style="font-size: 33px"></em>
-    <div style="width: 50px; height: 30px; background-color: green;"></div>
-    <div class="option-default-symbol las la-car" style="font-size: 30px;"></div>
     <select>
       <option>Placeholder</option>
       <option>Select item 1</option>
@@ -120,17 +112,29 @@
     </select>
   </div>
 
-  <div class="dropdown-custom my-custom-dropdown-1">
+  <div class="dropdown-general-symbol" style="height: 250px; width: 100%;">
+    <div class="arrow-symbol" style="width: 50px; height: 30px; background-color: red;"></div>
+    <i class="fas fa-camera" style="font-size: 100px;"></i>
+    <i class="fas fa-car" index="3" style="font-size: 50px;"></i>
+    <select>
+      <option>Text caption</option>
+      <option>Select item 1</option>
+      <option>Select item 2</option>
+      <option>Select item 3</option>
+      <option>Select item 4</option>
+    </select>
+  </div>
+
+  <div class="dropdown-general-symbol">
     <div class="option">zd</div>
     <div class="option">Select item 1</div>
-    <div class="option">Select item 2</div>
     <div class="option" index="2">
+      <div class="las la-car" style="font-size: 30px;"></div>
       <div class="las la-car" style="font-size: 30px;"></div>
       <div class="las la-car" style="font-size: 30px;"></div>
       <div class="las la-car" style="font-size: 30px;"></div>
     </div>
 
-    <!-- specify text for each option for full back functionality -->
     <select>
       <option>Placeholderrrrrrrr</option>
       <option>Select item 1111</option>
@@ -141,6 +145,8 @@
       </option>
     </select>
   </div>
+
+  <hr>
 
   <script type="text/javascript" src="core/logic/build/index.js"></script>
 </body>

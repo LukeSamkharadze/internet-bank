@@ -45,7 +45,7 @@ export function createOptionsDiv(dropdown: Element, html_select: HTMLSelectEleme
 
   let symbols = utils.getOptionSymbols(dropdown, defaultOptionSymbol, optionCount);
   let rawOptions = utils.getOptions(dropdown, html_select, optionCount);
-  
+
   rawOptions.forEach((rawOption, index) => {
     let isCustom = !rawOption.classList.contains(HTMLClass.textFlag);
     let option = createOptionDiv(dropdown, rawOption, symbols[index], isCustom) as Option;
@@ -66,7 +66,7 @@ export function createOptionDiv(dropdown: Element, rawOption: Element, symbol: E
       symbol.classList.add(HTMLClass.optionCustomSymbol);
       option.appendChild(symbol);
     }
-    else if (dropdown.classList.contains(HTMLClass.generalSymbol)) {
+    else if (dropdown.classList.contains(HTMLClass.generalSymbol) || dropdown.classList.contains(HTMLClass.custom)) {
       symbol = document.createElement("div");
       symbol.setAttribute("class", HTMLClass.optionDefaultSymbol);
       option.appendChild(symbol);

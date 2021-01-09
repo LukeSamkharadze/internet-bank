@@ -8,11 +8,12 @@
 body {
   display: flex;
   flex-direction: column;
-  padding: 100px;
+  padding: 100px 100px 500px 100px;
   gap: 30px;
 }
 
-.dropdown-general-symbol {
+#demo-dropdown-2
+{
   .placeholder {
     color: $dark-secondary-3;
   }
