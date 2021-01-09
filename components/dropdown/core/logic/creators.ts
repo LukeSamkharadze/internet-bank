@@ -9,7 +9,9 @@ export function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElem
 
   let content = document.createElement("div");
   content.setAttribute("class", HTMLClass.selectedContent);
-  content.innerHTML = utils.getPlaceholder(dropdown, html_select).innerHTML;
+  let placeholder = utils.getPlaceholder(dropdown, html_select);
+  placeholder.remove();
+  content.innerHTML = placeholder.innerHTML;
   selected.appendChild(content);
 
   let arrowContainer = document.createElement("div");
@@ -43,7 +45,7 @@ export function createOptionsDiv(dropdown: Element, html_select: HTMLSelectEleme
 
   let symbols = utils.getOptionSymbols(dropdown, defaultOptionSymbol, optionCount);
   let rawOptions = utils.getOptions(dropdown, html_select, optionCount);
-
+  
   rawOptions.forEach((rawOption, index) => {
     let isCustom = !rawOption.classList.contains(HTMLClass.textFlag);
     let option = createOptionDiv(dropdown, rawOption, symbols[index], isCustom) as Option;

@@ -39,7 +39,7 @@ export function getOptions(dropdown: Element, html_select: HTMLSelectElement | u
   let options: Element[] = Array(optionCount).fill(undefined);
 
   [...dropdown.children].filter(o => o.classList.contains(HTMLClass.option)).forEach(o => {
-    let indexValue = Number(o.getAttribute("index"));
+    let indexValue = parseInt(o.getAttribute("index")!);
     if (!isNaN(indexValue))
       options[indexValue] = o;
   });
