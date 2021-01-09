@@ -1,12 +1,12 @@
 import { HTMLClass } from "./classes";
 import * as types from "./types";
 
-export function closeAllSelect(element: any): void {
+export function closeAllDropdowns(element: any): void {
   if ((<HTMLInputElement>document.getElementById(HTMLClass.debug))?.checked)
     return;
 
   let selecteds = document.getElementsByClassName(HTMLClass.selected);
-  let options = document.querySelectorAll(`.${HTMLClass.options}, .dropdown-full-custom .select .options`);
+  let options = document.querySelectorAll(`.${HTMLClass.options}`);
 
   let current = -1;
 
@@ -27,7 +27,7 @@ export function selectedClicked(this: Element, mouseEvent: MouseEvent): void {
   if (this.parentElement?.classList.contains(HTMLClass.disabled))
     return;
 
-  closeAllSelect(this);
+  closeAllDropdowns(this);
 
   if (this.nextSibling)
     (<Element>this.nextSibling)?.classList.toggle(HTMLClass.hidden);
