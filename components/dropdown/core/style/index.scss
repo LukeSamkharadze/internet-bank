@@ -44,7 +44,7 @@
   $selected-color: $dark-secondary-3,
   $selected-line-count: 2,
   $selected-background-color: $background-color,
-  $selected-padding: 4px 0 0 14px
+  $selected-padding: 4px $arrow-offset 0 14px
 ) {
   @extend p !optional;
   @extend .dropdown-disable-select !optional;
@@ -84,9 +84,7 @@
     }
 
     .arrow-container {
-      @include dropdown-center-content;
       flex-shrink: 0;
-      min-width: calc(#{$arrow-offset} * 3);
       color: $placeholder-color;
       transition: visibility 0s, $arrow-transition-speed $arrow-transition-type;
 

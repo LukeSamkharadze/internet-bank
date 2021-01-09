@@ -21,4 +21,5 @@ export const enum HTMLClass {
   options = "options",
   option = "option",
   selectedContent = "content",
+  textFlag = "text" 
 }

@@ -7,10 +7,10 @@ export function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElem
   let selected = document.createElement("div");
   selected.setAttribute("class", `${HTMLClass.selected} ${HTMLClass.placeholder}`);
 
-  let text = document.createElement("div");
-  text.setAttribute("class", HTMLClass.selectedContent);
-  text.appendChild(utils.getPlaceholder(dropdown, html_select));
-  selected.appendChild(text);
+  let content = document.createElement("div");
+  content.setAttribute("class", HTMLClass.selectedContent);
+  content.innerHTML = utils.getPlaceholder(dropdown, html_select).innerHTML;
+  selected.appendChild(content);
 
   let arrowContainer = document.createElement("div");
   arrowContainer.setAttribute("class", HTMLClass.arrowContainer);
@@ -45,7 +45,7 @@ export function createOptionsDiv(dropdown: Element, html_select: HTMLSelectEleme
   let rawOptions = utils.getOptions(dropdown, html_select, optionCount);
 
   rawOptions.forEach((rawOption, index) => {
-    let isCustom = !rawOption.classList.contains("text");
+    let isCustom = !rawOption.classList.contains(HTMLClass.textFlag);
     let option = createOptionDiv(dropdown, rawOption, symbols[index], isCustom) as Option;
     option.selectIndex = index + 1;
     option.addEventListener("click", events.optionClicked.bind(option, selected, html_select, isCustom));

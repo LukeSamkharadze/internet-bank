@@ -52,8 +52,8 @@ export function getOptions(dropdown: Element, html_select: HTMLSelectElement | u
   options.forEach((option, index) => {
     if (!option) {
       let optionFromHTMLSelect = document.createElement("div");
-      optionFromHTMLSelect.setAttribute("class", "text");
-      optionFromHTMLSelect.innerText = html_select!.options[index + 1].innerHTML;
+      optionFromHTMLSelect.setAttribute("class", HTMLClass.textFlag);
+      optionFromHTMLSelect.innerHTML = html_select!.options[index + 1].innerHTML;
       options[index] = optionFromHTMLSelect;
     }
   })
