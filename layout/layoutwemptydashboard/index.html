@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -99,15 +100,44 @@
         </div>
         <div class="content">
             <div class="content-dashboard">
-                <div class="burger-menu">
-                    <div class="burger-menu__line"></div>
-                    <div class="burger-menu__line"></div>
-                    <div class="burger-menu__line"></div>
+                <div class="content-dashboard-wrapper">
+                    <div class="burger-menu">
+                        <div class="burger-menu__line"></div>
+                        <div class="burger-menu__line"></div>
+                        <div class="burger-menu__line"></div>
+                    </div>
+                    <h3 class="content-dashboard__title">Dashboard</h3>
                 </div>
-                <h3 class="content-dashboard__title">Dashboard</h3>
 
-                <div style="padding-left: 20px">Some Content in this line</div>
 
+                <div class="profileDiv">
+                    <div class="profileBef dropbtn" onclick="myFunction()">
+                        <div class="image dropbtn"><img class="dropbtn" src="User.png" alt=""></div>
+                        <div class="name dropbtn">Barry Armstrong</div>
+                    </div>
+                    <div class="line2"></div>
+                    <div class="profileHover" id="myDropdown">
+                        <div class="about">
+                            <div class="profileMini"><img src="User.png" alt=""></div>
+                            <div>
+                                <div>Barry Armstrong</div>
+                                <div class="gmail">b.armstrong@gmail.com</div>
+                            </div>
+
+                        </div>
+                        <div class="profSettings">
+                            <div><i class="las la-user"></i>
+                                <p>YOUR PROFILE</p>
+                            </div>
+                            <div><i class="las la-cog"></i>
+                                <p>SETTINGS</p>
+                            </div>
+                            <div><i class="las la-sign-out-alt"></i>
+                                <p>SIGN OUT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="content-main">
 
