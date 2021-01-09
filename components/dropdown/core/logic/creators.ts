@@ -8,14 +8,14 @@ export function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElem
   selected.setAttribute("class", `${HTMLClass.selected} ${HTMLClass.placeholder}`);
 
   let text = document.createElement("div");
-  text.setAttribute("class", HTMLClass.text);
+  text.setAttribute("class", HTMLClass.selectedContent);
   text.appendChild(utils.getPlaceholder(dropdown, html_select));
   selected.appendChild(text);
 
   let arrowContainer = document.createElement("div");
   arrowContainer.setAttribute("class", HTMLClass.arrowContainer);
 
-  let symbol = utils.getCustomSymbol(dropdown, HTMLClass.customArrowSymbol);
+  let symbol = utils.getCustomSymbol(dropdown, HTMLClass.arrowExplicitSymbol);
 
   if (symbol)
     arrowContainer.appendChild(symbol);
@@ -34,7 +34,7 @@ export function createOptionsDiv(dropdown: Element, html_select: HTMLSelectEleme
   let options = document.createElement("div");
   options.setAttribute("class", `${HTMLClass.options} ${HTMLClass.hidden}`);
 
-  let defaultOptionSymbol = utils.getCustomSymbol(dropdown, HTMLClass.customOptionDefaultSymbol);
+  let defaultOptionSymbol = utils.getCustomSymbol(dropdown, HTMLClass.optionExplicitSymbol);
   defaultOptionSymbol?.remove();
 
   let optionCount = Math.max(

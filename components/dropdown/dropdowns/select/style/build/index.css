@@ -196,7 +196,7 @@ a {
   background-color: white;
   border: 1px #E8ECEF solid;
 }
-.dropdown-general .selected .text {
+.dropdown-general .selected .content {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

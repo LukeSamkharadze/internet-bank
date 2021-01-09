@@ -196,7 +196,7 @@ a {
   background-color: white;
   border: 1px #E8ECEF solid;
 }
-.my-custom-dropdown-1 .selected .text {
+.my-custom-dropdown-1 .selected .content {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;

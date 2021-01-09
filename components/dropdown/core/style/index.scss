@@ -79,7 +79,7 @@
     background-color: $selected-background-color;
     border: $border-size $outline $border-style;
 
-    .text {
+    .content {
       @include dropdown-multiple-line-ellipsis($selected-line-count);
     }
 

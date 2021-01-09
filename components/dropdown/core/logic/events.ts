@@ -37,9 +37,9 @@ export function selectedClicked(this: Element, mouseEvent: MouseEvent): void {
 export function optionClicked(this: types.Option, selected: HTMLDivElement, html_select: HTMLSelectElement | undefined, isCustom: boolean): void {
   selected.classList.remove(HTMLClass.placeholder);
 
-  let foundTextElement = [...selected.children].find(o => (o).classList.contains(HTMLClass.text));
-  if (foundTextElement)
-    foundTextElement.innerHTML = (isCustom) ? this.innerHTML : this.innerText;
+  let foundContentElement = [...selected.children].find(o => (o).classList.contains(HTMLClass.selectedContent));
+  if (foundContentElement)
+    foundContentElement.innerHTML = (isCustom) ? this.innerHTML : this.innerText;
 
   if (html_select)
     html_select.selectedIndex = this.selectIndex;

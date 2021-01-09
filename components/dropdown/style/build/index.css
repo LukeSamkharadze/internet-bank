@@ -196,7 +196,7 @@ a {
   background-color: white;
   border: 1px #E8ECEF solid;
 }
-.my-custom-dropdown-1 .selected .text {
+.my-custom-dropdown-1 .selected .content {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -291,7 +291,7 @@ a {
   background-color: white;
   border: 1px #E8ECEF solid;
 }
-.dropdown-general .selected .text {
+.dropdown-general .selected .content {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -386,7 +386,7 @@ a {
   background-color: white;
   border: 1px #E8ECEF solid;
 }
-.dropdown-general-symbol .selected .text {
+.dropdown-general-symbol .selected .content {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
