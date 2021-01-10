@@ -1,7 +1,12 @@
 .payment {
+    font-size: 14px;
+    border-radius: 7px;
     background-color: white;
-    // development one
-    max-width: 555px;
+    display: none;
+    &.current-payment {
+        display: block;
+    }
+
     header {
         padding: 20px;
         padding-bottom: 20px;
@@ -12,16 +17,94 @@
         width: 91.91%;
         margin: 0 auto;
         padding-top: 23px;
+        padding-bottom: 18px;
 
         div:not(:last-child) {
-            margin-bottom: 20px;
+            margin-bottom: 19px;
         }
 
-        .amount-wrapper {
-            label {
-                display: block;
+        .amount-wrapper,
+        .currency-wrapper {
+            display: inline-block;
+            width: 48%;
+        }
+        .currency-wrapper {
+            float: right;
+        }
+
+        .payment-summary {
+            border: 2px dotted $outline;
+            border-radius: 5px;
+            padding: 25px 15px;
+            position: relative;
+
+            div {
+                :first-child {
+                    display: inline-block;
+                    font-weight: 300;
+                    width: 103px;
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
             }
+
+            i {
+                position: absolute;
+                right: 10px;
+                top: 16px;
+                font-size: 18px;
+                color: $primary;
+            }
+        }
+
+        .payment-buttons {
+            width: 100%;
             display: flex;
+            justify-content: space-between;
+
+            button {
+                width: 130px;
+            }
+
+            div {
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    // Bank transfer specific styles
+    &.bank-payment {
+        #transfer-type {
+            margin-bottom: 83px;
+        }
+    }
+
+    // instant tranfster specific styles
+    &.instant-payment {
+        .payment-buttons {
+            margin-top: 40px;
+        }
+    }
+
+    // instanty transfer + bank transfer specific styles
+
+    &.bank-payment,
+    &.instant-payment {
+        .payment-buttons {
+            align-items: center;
+            .primary {
+                width: 100%;
+            }
+            button {
+                width: 65%;
+            }
+            span {
+                display: inline-block;
+                width: 50%;
+                color: $secondary-dark-1;
+            }
         }
     }
 }

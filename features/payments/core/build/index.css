@@ -228,8 +228,13 @@ a {
 }
 
 .payment {
+  font-size: 14px;
+  border-radius: 7px;
   background-color: white;
-  max-width: 555px;
+  display: none;
+}
+.payment.current-payment {
+  display: block;
 }
 .payment header {
   padding: 20px;
@@ -244,15 +249,70 @@ a {
   width: 91.91%;
   margin: 0 auto;
   padding-top: 23px;
+  padding-bottom: 18px;
 }
 .payment form div:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 19px;
 }
-.payment form .amount-wrapper {
+.payment form .amount-wrapper,
+.payment form .currency-wrapper {
+  display: inline-block;
+  width: 48%;
+}
+.payment form .currency-wrapper {
+  float: right;
+}
+.payment form .payment-summary {
+  border: 2px dotted #E8ECEF;
+  border-radius: 5px;
+  padding: 25px 15px;
+  position: relative;
+}
+.payment form .payment-summary div :first-child {
+  display: inline-block;
+  font-weight: 300;
+  width: 103px;
+}
+.payment form .payment-summary div:not(:last-child) {
+  margin-bottom: 15px;
+}
+.payment form .payment-summary i {
+  position: absolute;
+  right: 10px;
+  top: 16px;
+  font-size: 18px;
+  color: #FFAB2B;
+}
+.payment form .payment-buttons {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
 }
-.payment form .amount-wrapper label {
-  display: block;
+.payment form .payment-buttons button {
+  width: 130px;
+}
+.payment form .payment-buttons div {
+  margin-bottom: 0px;
+}
+.payment.bank-payment #transfer-type {
+  margin-bottom: 83px;
+}
+.payment.instant-payment .payment-buttons {
+  margin-top: 40px;
+}
+.payment.bank-payment .payment-buttons, .payment.instant-payment .payment-buttons {
+  align-items: center;
+}
+.payment.bank-payment .payment-buttons .primary, .payment.instant-payment .payment-buttons .primary {
+  width: 100%;
+}
+.payment.bank-payment .payment-buttons button, .payment.instant-payment .payment-buttons button {
+  width: 65%;
+}
+.payment.bank-payment .payment-buttons span, .payment.instant-payment .payment-buttons span {
+  display: inline-block;
+  width: 50%;
+  color: #778CA2;
 }
 
 body {
@@ -260,6 +320,7 @@ body {
 }
 
 .payments {
+  font-family: "Roboto", sans-serif;
   width: 79.16%;
   margin: 0 auto;
   display: grid;
