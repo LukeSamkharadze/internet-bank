@@ -151,7 +151,6 @@ a {
   background: white;
   height: 718px;
   border-radius: 7px;
-  max-width: 555px;
 }
 .payment-providers header {
   padding: 20px;
@@ -189,8 +188,6 @@ a {
 
 .providers-list {
   padding-top: 9px;
-  display: flex;
-  flex-direction: column;
 }
 .providers-list .provider-wrapper {
   width: 100%;

@@ -15,48 +15,23 @@ providerWrappers.forEach((providerWrapper) => {
 });
 
 function search(text) {
-    //  tavidan yvelas order iqneba 1
-    providerWrappers.forEach((providerWrapper) => {
-        providerWrapper.style.order = "1";
-    });
     text = text.toLowerCase();
-    let maxcount = 0;
-    let bestMatchIndex;
-    let isCorrect = false; // tu bevri aso emtxveva mara 1 aso mainc ari ucxo, mashin ar vtvli.
     for (prov of providerCompanies) {
-        const arrayOfProviders = prov[1]; // mapshi 1 indexze ari p tagebis array.
-        arrayOfProviders.forEach((providerName) => {
+        let index = prov[0];
+        let listOfCompanies = prov[1];
+        let count = 0;
+        listOfCompanies.forEach((providerName) => {
             providerName = providerName.innerText.toLowerCase();
-            let count = 0;
-            if (providerName.includes(text)) {
-                isCorrect = true;
-            }
-            for (let i = 0; i < text.length; i++) {
-                if (text[i] == providerName[i]) {
-                    count++;
-                } else {
-                    continue;
-                }
-            }
-            if (count > maxcount) {
-                maxcount = count;
-                bestMatchIndex = [...prov[0]];
-                bestMatchWord = providerName;
+            if (providerName.indexOf(text) > -1) {
+                providerWrappers[index].style.display = "";
+                count++;
             }
         });
-    }
-
-    if (maxcount >= 1 && isCorrect) {
-        console.log(bestMatchIndex);
-        providerWrappers[bestMatchIndex].style.order = "-1";
-    } else {
-        providerWrappers.forEach((providerWrapper) => {
-            providerWrapper.style.order = "1";
-        });
+        if (!count) {
+            providerWrappers[index].style.display = "none";
+        }
     }
 }
-
-//  aq iwyeba dzveli kodi
 
 // adds commas after every provider copmany's name. (except last one)
 function addCommas() {
