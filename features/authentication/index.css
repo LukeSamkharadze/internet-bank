@@ -1062,8 +1062,9 @@ a {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 705px 735px;
-  width: 1440px;
+  grid-template-columns: 48.9583333333% 51.0416666667%;
+  max-width: 1440px;
+  min-width: 1200px;
   height: 900px;
 }
 .grid-container .authentication {
@@ -1071,11 +1072,11 @@ a {
 }
 .grid-container .authentication .minor-grid-container {
   position: relative;
-  left: 217px;
+  left: 12.9vw;
   top: 60px;
   display: grid;
   height: 780px;
-  grid-template-rows: 20.4% 10% 70% 10%;
+  grid-template-rows: 20.4% 10% 65% auto;
 }
 .grid-container .authentication .auth-form {
   width: 360px;
@@ -1095,18 +1096,54 @@ a {
   color: #252631;
   padding-top: 15px;
   font-weight: 300;
+  max-width: 95%;
+}
+.grid-container .authentication .auth-form a {
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;
 }
 .grid-container .authentication .auth-form form {
   position: relative;
   top: 45px;
 }
-.grid-container .authentication .auth-form form .checkbox + label {
-  z-index: 0;
+.grid-container .authentication .auth-form form .checkbox-flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0;
+}
+.grid-container .authentication .auth-form form .checkbox-flex label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #778CA2;
+  letter-spacing: 0.2px;
+  letter-spacing: 0;
+  padding-left: 13px;
+}
+.grid-container .authentication .auth-form form .checkbox-flex a {
+  position: relative;
+  right: 9px;
+}
+.grid-container .authentication .auth-form form .active {
+  width: 100%;
+}
+.grid-container .authentication .auth-form .auth-form-footer {
+  position: relative;
+}
+.grid-container .authentication .auth-form .auth-form-footer div {
+  position: absolute;
+  bottom: 0;
+}
+.grid-container .authentication .auth-form .auth-form-footer p {
+  display: inline-block;
+  margin-right: 3px;
 }
 .grid-container .img-bg {
   background-size: cover;
-  background-image: url(img/sidebar-img.png);
+  background-image: url(img/sidebar-img.webp);
   background-repeat: no-repeat;
+  background-position: center center;
   overflow: hidden;
 }
 

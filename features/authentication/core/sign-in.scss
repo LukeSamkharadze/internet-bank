@@ -5,8 +5,9 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: 705px 735px;
-  width: 1440px;
+  grid-template-columns: 48.95833333333333% 51.04166666666667%;
+  max-width: 1440px;
+  min-width: 1200px;
   height: 900px;
 
   .authentication {
@@ -14,11 +15,11 @@
 
     .minor-grid-container {
       position: relative;
-      left: 217px;
+      left: 12.9vw;
       top: 60px;
       display: grid;
       height: 780px;
-      grid-template-rows: 20.4% 10% 70% 10%;
+      grid-template-rows: 20.4% 10% 65% auto;
     }
 
     .auth-form {
@@ -42,15 +43,52 @@
           color: $primary-dark;
           padding-top: 15px;
           font-weight: 300;
+          max-width: 95%;
         }
+      }
+
+      a {
+        font-size: 14px;
+        line-height: 17px;
+        text-decoration: none;
       }
 
       form {
         position: relative;
         top: 45px;
 
-        .checkbox + label {
-          z-index: 0;
+        .checkbox-flex {
+          display: flex;
+          justify-content: space-between;
+          padding: 32px 0;
+
+          label {
+            @include text-style(14px, $secondary-dark-1);
+            letter-spacing: 0;
+            padding-left: 13px;
+          }
+
+          a {
+            position: relative;
+            right: 9px;
+          }
+        }
+
+        .active {
+          width: 100%;
+        }
+      }
+      .auth-form-footer {
+        position: relative;
+
+        div {
+          position: absolute;
+          bottom: 0;
+        }
+
+        p {
+          display: inline-block;
+          margin-right: 3px;
         }
       }
     }
@@ -58,8 +96,9 @@
 
   .img-bg {
     background-size: cover;
-    background-image: url(img/sidebar-img.png);
+    background-image: url(img/sidebar-img.webp);
     background-repeat: no-repeat;
+    background-position: center center;
     overflow: hidden;
   }
 }

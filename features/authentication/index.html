@@ -19,8 +19,8 @@
           <div class="sign-in">
             <h1>Sign in</h1>
             <p>
-              Please sign in to your personal account if you want to <br />
-              use all our premium products
+              Please sign in to your personal account if you want to use all our
+              premium products
             </p>
           </div>
           <form action="action=/#" method="POST" id="authentication-form">
@@ -45,14 +45,23 @@
                 placeholder="Enter your password"
               />
             </div>
-            <div class="checkbox">
-              <input type="checkbox" id="uncheck" />
-              <label for="uncheck">Unchecked</label>
+            <div class="checkbox-flex">
+              <div class="checkbox">
+                <input type="checkbox" id="remember-me" />
+                <label class="light" for="remember-me">Remember me</label>
+              </div>
+              <a href="#">Recover password</a>
             </div>
             <div class="primary">
-              <button class="active" type="button">Add Card</button>
+              <button class="active" type="button">Sign in</button>
             </div>
           </form>
+          <div class="auth-form-footer">
+            <div>
+              <p>Don’t have an account?</p>
+              <a href="#">Sign up here</a>
+            </div>
+          </div>
         </div>
       </section>
       <section class="img-bg"></section>

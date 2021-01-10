@@ -3,7 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../index.css" />
     <title>Sign in</title>
   </head>
-  <body></body>
+  <body>
+    <main class="grid-container">
+      <section class="authentication">
+        <div class="auth-form minor-grid-container">
+          <div>
+            <p>
+              <span class="TBC-bold">TBC</span>
+              <span class="banking-light">Banking</span>
+            </p>
+          </div>
+          <div class="sign-in">
+            <h1>Sign in</h1>
+            <p>
+              Please sign in to your personal account if you want to use all our
+              premium products
+            </p>
+          </div>
+          <form action="action=/#" method="POST" id="authentication-form">
+            <label class="input-label" for="basic-input-example"
+              >Your email</label
+            >
+            <div class="input-wrapper">
+              <input
+                id="basic-input-example"
+                type="text"
+                placeholder="Enter your email"
+              />
+            </div>
+            <br />
+            <label class="input-label" for="basic-input-example"
+              >Password</label
+            >
+            <div class="input-wrapper">
+              <input
+                id="basic-input-example"
+                type="text"
+                placeholder="Enter your password"
+              />
+            </div>
+            <div class="checkbox-flex">
+              <div class="checkbox">
+                <input type="checkbox" id="remember-me" />
+                <label class="light" for="remember-me">Remember me</label>
+              </div>
+              <a href="#">Recover password</a>
+            </div>
+            <div class="primary">
+              <button class="active" type="button">Sign in</button>
+            </div>
+          </form>
+          <div class="auth-form-footer">
+            <div>
+              <p>Don’t have an account?</p>
+              <a href="#">Sign up here</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="img-bg"></section>
+    </main>
+  </body>
 </html>
