@@ -2,7 +2,8 @@
 @import "../../../components/buttons/core/index.scss";
 
 .main-container {
-  width: 555px;
+  max-width: 555px;
+  min-width: 400px;
   height: 716px;
   border-radius: 4px;
 }
@@ -59,6 +60,12 @@
 
     .card-placeholder {
       position: relative;
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
 
       .crd-placeholder-txt {
         position: absolute;

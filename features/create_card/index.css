@@ -417,7 +417,8 @@ a {
 }
 
 .main-container {
-  width: 555px;
+  max-width: 555px;
+  min-width: 400px;
   height: 716px;
   border-radius: 4px;
 }
@@ -472,6 +473,11 @@ a {
 }
 .grid-container .gritem-2 .card-placeholder {
   position: relative;
+}
+.grid-container .gritem-2 .card-placeholder img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 .grid-container .gritem-2 .card-placeholder .crd-placeholder-txt {
   position: absolute;
