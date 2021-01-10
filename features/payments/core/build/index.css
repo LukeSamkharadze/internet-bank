@@ -202,12 +202,14 @@ a {
   margin: 0 auto;
   border-bottom: 1px solid #E8ECEF;
   padding-bottom: 13px;
+  display: grid;
+  grid-template-columns: 0.03fr 1fr;
+  grid-gap: 13px;
 }
 .providers-list .provider .icon-wrapper {
   width: 39px;
   height: 39px;
   border-radius: 50%;
-  float: left;
   background: #fff3df;
   display: flex;
   justify-content: center;
@@ -215,7 +217,10 @@ a {
   flex-direction: row;
   color: #FFAB2B;
   font-size: 20px;
-  margin-right: 13px;
+}
+.providers-list .provider .provider-info {
+  width: 100%;
+  display: inline-block;
 }
 .providers-list .provider p {
   display: inline-block;
