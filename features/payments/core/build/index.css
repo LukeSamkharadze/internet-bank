@@ -291,6 +291,7 @@ a {
   top: 16px;
   font-size: 18px;
   color: #FFAB2B;
+  cursor: help;
 }
 .payment form .payment-buttons {
   width: 100%;
