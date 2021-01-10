@@ -202,6 +202,7 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
 }
 .my-custom-dropdown-1 .selected .arrow-container {
   flex-shrink: 0;
@@ -240,6 +241,10 @@ a {
   min-height: 46px;
   color: #1b1e24;
   transition: 0.1s ease;
+  width: 100%;
+}
+.my-custom-dropdown-1 .options .option .custom-option-wrapper {
+  width: 100%;
 }
 .my-custom-dropdown-1 .options .option .custom-symbol,
 .my-custom-dropdown-1 .options .option .default-symbol {

@@ -81,6 +81,7 @@
 
     .content {
       @include dropdown-multiple-line-ellipsis($selected-line-count);
+      width: 100%;
     }
 
     .arrow-container {
@@ -119,6 +120,11 @@
       @include dropdown-box($option-height, false, $option-padding);
       color: $option-color;
       transition: $option-transition-speed $option-transition-type;
+      width: 100%;
+
+      .custom-option-wrapper {
+        width: 100%;
+      }
 
       .custom-symbol,
       .default-symbol {

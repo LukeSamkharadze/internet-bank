@@ -71,9 +71,14 @@ export function createOptionDiv(dropdown: Element, rawOption: Element, symbol: E
       symbol.setAttribute("class", HTMLClass.optionDefaultSymbol);
       option.appendChild(symbol);
     }
+    option.innerHTML += rawOption.innerHTML;
   }
-
-  option.innerHTML += rawOption.innerHTML;
+  else {
+    let customOptionWrapper = document.createElement("div");
+    customOptionWrapper.setAttribute("class", HTMLClass.customOptionWrapper);
+    customOptionWrapper.innerHTML += rawOption.innerHTML;
+    option.appendChild(customOptionWrapper);
+  }
 
   return option;
 }
