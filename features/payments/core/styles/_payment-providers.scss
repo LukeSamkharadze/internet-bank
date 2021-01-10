@@ -3,6 +3,7 @@
     background: white;
     height: 718px;
     border-radius: 7px;
+    max-width: 555px;
 
     header {
         padding: 20px;
@@ -38,6 +39,8 @@
 
 .providers-list {
     padding-top: 9px;
+    display: flex;
+    flex-direction: column;
 
     .provider-wrapper {
         width: 100%;
