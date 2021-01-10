@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../index.css" />
-    <title>Sign in</title>
+    <title>Create account</title>
   </head>
   <body>
     <main class="grid-container">
       <section class="authentication">
-        <div class="auth-form sign-in-form minor-grid-container">
+        <div class="auth-form register-form minor-grid-container">
           <div>
             <p>
               <span class="TBC-bold">TBC</span>
@@ -17,20 +17,25 @@
             </p>
           </div>
           <div class="sign-in">
-            <h1>Sign in</h1>
+            <h1>Create account</h1>
             <p>
-              Please sign in to your personal account if you want to use all our
+              Please sign up to your personal account if you want to use all our
               premium products
             </p>
           </div>
           <form action="action=/#" method="POST" id="authentication-form">
-            <label class="input-label" for="email-input">Your email</label>
+            <label class="input-label" for="fullname-input">Full name</label>
             <div class="input-wrapper">
               <input
-                id="email-input"
-                type="email"
-                placeholder="Enter your email"
+                id="fullname-input"
+                type="text"
+                placeholder="Your full name"
               />
+            </div>
+            <br />
+            <label class="input-label" for="email-input">Your email</label>
+            <div class="input-wrapper">
+              <input id="email-input" type="email" placeholder="Your email" />
             </div>
             <br />
             <label class="input-label" for="password-input">Password</label>
@@ -43,19 +48,20 @@
             </div>
             <div class="checkbox-flex">
               <div class="checkbox">
-                <input type="checkbox" id="remember-me" />
-                <label class="light" for="remember-me">Remember me</label>
+                <input type="checkbox" id="agree-terms" checked />
+                <label class="light" for="agree-terms"
+                  >I agree with terms & conditions</label
+                >
               </div>
-              <a href="./recover.html">Recover password</a>
             </div>
             <div class="primary">
-              <button class="active" type="submit">Sign in</button>
+              <button class="active" type="submit">Sign up</button>
             </div>
           </form>
           <div class="auth-form-footer">
             <div>
-              <p>Don’t have an account?</p>
-              <a href="./register.html">Sign up here</a>
+              <p>Already have an account?</p>
+              <a href="./sign-in.html">Sign in here</a>
             </div>
           </div>
         </div>

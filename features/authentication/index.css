@@ -1064,23 +1064,22 @@ a {
   display: grid;
   grid-template-columns: 48.9583333333% 51.0416666667%;
   max-width: 1440px;
-  min-width: 1200px;
+  min-width: 1024px;
   height: 900px;
 }
 .grid-container .authentication {
-  background: #fadede;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .grid-container .authentication .minor-grid-container {
   position: relative;
-  left: 12.9vw;
-  top: 60px;
+  left: 2.6vw;
   display: grid;
   height: 780px;
-  grid-template-rows: 20.4% 10% 65% auto;
 }
 .grid-container .authentication .auth-form {
   width: 360px;
-  background: white;
 }
 .grid-container .authentication .auth-form .TBC-bold {
   color: #FFAB2B;
@@ -1141,14 +1140,25 @@ a {
 }
 .grid-container .img-bg {
   background-size: cover;
-  background-image: url(img/sidebar-img.webp);
+  background-image: url(../../assets/img/webp/auth-sidebar-img.webp);
   background-repeat: no-repeat;
   background-position: center center;
   overflow: hidden;
 }
 
-.grid-container .img-bg {
-  background-image: url(./core/img/sidebar-img.png);
+.grid-container .authentication .recover-form {
+  grid-template-rows: 31.25% 10% 40% auto;
+}
+.grid-container .authentication .auth-form form .recover-btn {
+  margin-top: 25px;
+}
+
+.grid-container .authentication .register-form {
+  grid-template-rows: 14.5% 10% 65% auto;
+}
+
+.grid-container .authentication .sign-in-form {
+  grid-template-rows: 20.4% 10% 65% auto;
 }
 
 /*# sourceMappingURL=index.css.map */

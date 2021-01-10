@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
-    <title>Sign In</title>
+    <title>Register</title>
+    <style>
+      .grid-container {
+        margin: auto;
+      }
+    </style>
   </head>
   <body>
     <main class="grid-container">
       <section class="authentication">
-        <div class="auth-form minor-grid-container">
+        <div class="auth-form register-form minor-grid-container">
           <div>
             <p>
               <span class="TBC-bold">TBC</span>
@@ -17,49 +22,51 @@
             </p>
           </div>
           <div class="sign-in">
-            <h1>Sign in</h1>
+            <h1>Create account</h1>
             <p>
-              Please sign in to your personal account if you want to use all our
+              Please sign up to your personal account if you want to use all our
               premium products
             </p>
           </div>
           <form action="action=/#" method="POST" id="authentication-form">
-            <label class="input-label" for="basic-input-example"
-              >Your email</label
-            >
+            <label class="input-label" for="fullname-input">Full name</label>
             <div class="input-wrapper">
               <input
-                id="basic-input-example"
+                id="fullname-input"
                 type="text"
-                placeholder="Enter your email"
+                placeholder="Your full name"
               />
             </div>
             <br />
-            <label class="input-label" for="basic-input-example"
-              >Password</label
-            >
+            <label class="input-label" for="email-input">Your email</label>
+            <div class="input-wrapper">
+              <input id="email-input" type="email" placeholder="Your email" />
+            </div>
+            <br />
+            <label class="input-label" for="password-input">Password</label>
             <div class="input-wrapper">
               <input
-                id="basic-input-example"
-                type="text"
+                id="password-input"
+                type="password"
                 placeholder="Enter your password"
               />
             </div>
             <div class="checkbox-flex">
               <div class="checkbox">
-                <input type="checkbox" id="remember-me" />
-                <label class="light" for="remember-me">Remember me</label>
+                <input type="checkbox" id="agree-terms" checked />
+                <label class="light" for="agree-terms"
+                  >I agree with terms & conditions</label
+                >
               </div>
-              <a href="#">Recover password</a>
             </div>
             <div class="primary">
-              <button class="active" type="button">Sign in</button>
+              <button class="active" type="submit">Sign up</button>
             </div>
           </form>
           <div class="auth-form-footer">
             <div>
-              <p>Don’t have an account?</p>
-              <a href="#">Sign up here</a>
+              <p>Already have an account?</p>
+              <a href="./demo-sign-in.html">Sign in here</a>
             </div>
           </div>
         </div>
