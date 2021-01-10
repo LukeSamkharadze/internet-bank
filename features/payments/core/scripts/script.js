@@ -1,8 +1,6 @@
 const providers = [...document.getElementsByClassName("provider")];
 
-const providerWrappers = [
-    ...document.getElementsByClassName("provider-wrapper"),
-];
+const providerWrappers = [...document.getElementsByClassName("provider-wrapper")];
 const payments = [...document.getElementsByClassName("payment")];
 
 const searchInput = document.getElementById("find-provider-input");
@@ -21,10 +19,17 @@ function search(text) {
         let listOfCompanies = prov[1];
         let count = 0;
         listOfCompanies.forEach((providerName) => {
+            let p = providerName;
             providerName = providerName.innerText.toLowerCase();
             if (providerName.indexOf(text) > -1) {
                 providerWrappers[index].style.display = "";
                 count++;
+                p.style.color = "#FFAB2B";
+                if (text == "") {
+                    p.style.color = "#98A9BC";
+                }
+            } else {
+                p.style.color = "#98A9BC";
             }
         });
         if (!count) {
@@ -51,13 +56,9 @@ function changeProvider(selectedProviderWrapper) {
         return;
     }
 
-    document
-        .querySelector(".selected-provider")
-        .classList.remove("selected-provider");
+    document.querySelector(".selected-provider").classList.remove("selected-provider");
 
-    document
-        .querySelector(".current-payment")
-        .classList.remove("current-payment");
+    document.querySelector(".current-payment").classList.remove("current-payment");
 
     selectedProviderWrapper.classList.add("selected-provider");
 
