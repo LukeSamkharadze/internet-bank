@@ -3,7 +3,7 @@
     border-radius: 7px;
     background-color: white;
     display: none;
-    min-width: 283.828px;
+    min-width: 311.922px;
     &.current-payment {
         display: block;
     }
@@ -104,6 +104,7 @@
             span {
                 display: inline-block;
                 width: 50%;
+                min-width: 124.672px;
                 color: $secondary-dark-1;
             }
         }

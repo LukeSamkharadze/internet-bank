@@ -240,7 +240,7 @@ a {
   border-radius: 7px;
   background-color: white;
   display: none;
-  min-width: 283.828px;
+  min-width: 311.922px;
 }
 .payment.current-payment {
   display: block;
@@ -321,6 +321,7 @@ a {
 .payment.bank-payment .payment-buttons span, .payment.instant-payment .payment-buttons span {
   display: inline-block;
   width: 50%;
+  min-width: 124.672px;
   color: #778CA2;
 }
 
