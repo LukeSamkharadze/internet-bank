@@ -33,6 +33,7 @@
 
 ## **Specifying custom options**
 *(Not using them will automatically generate options from **select** element provided)* \
+*(Specify select and options for full back functionality)*
 1. *First custom option will be used as placeholder*
 1. *Use* **option** *class* *(This element will be used as custom option)* *(use* **INDEX** *attribute to be precise)*
 
