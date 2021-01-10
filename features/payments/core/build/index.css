@@ -148,7 +148,6 @@ a {
 
 .payment-providers {
   overflow: auto;
-  max-width: 555px;
   background: white;
   height: 718px;
   border-radius: 7px;
@@ -226,6 +225,34 @@ a {
 }
 .providers-list .selected-provider .provider {
   border-color: transparent;
+}
+
+.payment {
+  background-color: white;
+  max-width: 555px;
+}
+.payment header {
+  padding: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid #E8ECEF;
+}
+.payment form {
+  width: 91.91%;
+  margin: 0 auto;
+  padding-top: 23px;
+}
+.payment form div:not(:last-child) {
+  margin-bottom: 20px;
+}
+.payment form .amount-wrapper {
+  display: flex;
+}
+.payment form .amount-wrapper label {
+  display: block;
 }
 
 body {

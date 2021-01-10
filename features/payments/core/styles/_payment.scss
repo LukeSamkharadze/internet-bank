@@ -1,0 +1,27 @@
+.payment {
+    background-color: white;
+    // development one
+    max-width: 555px;
+    header {
+        padding: 20px;
+        padding-bottom: 20px;
+        @include flex(space-between);
+        border-bottom: 1px solid $outline;
+    }
+    form {
+        width: 91.91%;
+        margin: 0 auto;
+        padding-top: 23px;
+
+        div:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        .amount-wrapper {
+            label {
+                display: block;
+            }
+            display: flex;
+        }
+    }
+}
