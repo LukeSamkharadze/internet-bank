@@ -1,0 +1,56 @@
+@import "../../colors&typo/styles.scss";
+@import "core/index.scss";
+.notification{
+    color:$primary;
+}
+
+.head {
+    margin-top: 75px;
+    margin-bottom: 71px;
+    margin-left:150px;
+    @include text-style(30px,$primary-dark);
+   
+
+}
+
+.line{
+    height:1px;
+    width:100%;
+    background-color:$outline;
+
+}
+
+.line-1{
+    background-color:$outline;
+    margin-top:90px;
+    margin-left:150px;
+    height:1px;
+    width:556px;
+}
+
+.notification-header{
+    margin-left:150px;
+    margin-top:32px;
+    margin-bottom:32px;
+    font-size:16px;
+    color:$primary-dark;
+
+
+}
+
+
+
+.allNotifications{
+    display:grid;
+    grid-template-columns:555px;
+    margin-left:150px;
+    grid-gap:12px;
+}
+
+
+
+
+
+
+
+
