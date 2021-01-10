@@ -1,0 +1,16 @@
+@use "../../../core/style/index.scss" as *;
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+
+.my-custom-dropdown-1 {
+  @include dropdown(
+    $symbol: "\f005",
+    $symbol-font-weight: 900,
+    $width: 500px,
+    $active-color: purple,
+    $arrow-symbol: "\f1b9",
+    $arrow-symbol-size: 30px,
+    $selected-height: 100px,
+    $selected-line-count: 3
+  );
+}

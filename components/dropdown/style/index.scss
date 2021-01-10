@@ -1,0 +1,21 @@
+@use "../../../colors&typo/palette.scss" as *;
+@use "../core/style/index.scss" as *;
+@use "../dropdowns/custom/style/index.scss" as *;
+@use "../dropdowns/select/style/index.scss" as *;
+@use "../dropdowns/field/style/index.scss" as *;
+@use "../dropdowns/disabled/style/index.scss" as *;
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  gap: 30px;
+}
+
+.dropdown-general-symbol {
+  .placeholder {
+    color: $dark-secondary-3;
+  }
+}
