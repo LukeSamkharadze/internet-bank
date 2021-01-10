@@ -40,20 +40,21 @@ export function getOptions(dropdown: Element, html_select: HTMLSelectElement | u
 
   [...dropdown.children].filter(o => o.classList.contains(HTMLClass.option)).forEach(o => {
     let indexValue = parseInt(o.getAttribute("index")!);
-    if (!isNaN(indexValue))
+    if (!isNaN(indexValue) && indexValue < optionCount)
       options[indexValue] = o;
   });
 
   [...dropdown.children].filter(o => o.classList.contains(HTMLClass.option)).forEach(o => {
-    if (o.getAttribute("index") == null)
+    let indexValue = parseInt(o.getAttribute("index")!);
+    if (o.getAttribute("index") == null || (!isNaN(indexValue) && indexValue >= optionCount))
       options[options.findIndex(o => o === undefined)] = o;
   });
 
   options.forEach((option, index) => {
-    if (!option) {
+    if (!option && html_select?.options[index + 1] !== undefined) {
       let optionFromHTMLSelect = document.createElement("div");
       optionFromHTMLSelect.setAttribute("class", HTMLClass.textFlag);
-      optionFromHTMLSelect.innerHTML = html_select!.options[index + 1].innerHTML;
+      optionFromHTMLSelect.innerHTML = html_select.options[index + 1].innerHTML;
       options[index] = optionFromHTMLSelect;
     }
   })
