@@ -25,11 +25,14 @@ function search(text) {
                 providerWrappers[index].style.display = "";
                 count++;
                 p.style.color = "#FFAB2B";
+                p.style.borderColor = "#FFAB2B";
                 if (text == "") {
                     p.style.color = "#98A9BC";
+                    p.style.borderColor = "transparent";
                 }
             } else {
                 p.style.color = "#98A9BC";
+                p.style.borderColor = "transparent";
             }
         });
         if (!count) {
