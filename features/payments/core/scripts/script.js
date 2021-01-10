@@ -55,6 +55,9 @@ function addCommas() {
 
 // moving between providers.
 function changeProvider(selectedProviderWrapper) {
+    searchInput.value = "";
+    searchInput.dispatchEvent(new KeyboardEvent("keydown", { key: "" }));
+
     if (selectedProviderWrapper.classList.contains("selected-provider")) {
         return;
     }
