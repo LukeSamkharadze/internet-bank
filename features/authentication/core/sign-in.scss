@@ -1,0 +1,65 @@
+@import "../../../colors&typo/styles.scss";
+@import "../../../components/basic-inputs/core/index.scss";
+@import "../../../components/checkbox/core/index.scss";
+@import "../../../components/buttons/core/index.scss";
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 705px 735px;
+  width: 1440px;
+  height: 900px;
+
+  .authentication {
+    background: #fadede;
+
+    .minor-grid-container {
+      position: relative;
+      left: 217px;
+      top: 60px;
+      display: grid;
+      height: 780px;
+      grid-template-rows: 20.4% 10% 70% 10%;
+    }
+
+    .auth-form {
+      width: 360px;
+      background: rgb(255, 255, 255);
+
+      .TBC-bold {
+        color: $primary;
+        font: 500 20px /27px $rubik, sans-serif; //weight, size, line-height, font
+        letter-spacing: 0.01em;
+      }
+
+      .banking-light {
+        color: $primary;
+        font: 300 18px /24px $rubik, sans-serif; //weight, size, line-height, font
+        letter-spacing: 0.027em;
+      }
+
+      .sign-in {
+        p {
+          color: $primary-dark;
+          padding-top: 15px;
+          font-weight: 300;
+        }
+      }
+
+      form {
+        position: relative;
+        top: 45px;
+
+        .checkbox + label {
+          z-index: 0;
+        }
+      }
+    }
+  }
+
+  .img-bg {
+    background-size: cover;
+    background-image: url(img/sidebar-img.png);
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+}
