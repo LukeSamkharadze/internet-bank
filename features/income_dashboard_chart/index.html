@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income dashboard chart</title>
+    <link rel="stylesheet" href="./build/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<body>
+    <div class="monthly-chart">
+        <div class="title">
+            <div class="title-info">
+                <div class="info-title1">
+                    <h3>Monthly</h3>
+                </div>
+                <div class="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-legend">
+            <div class="left-legend">
+                <h2>$10.840</h2>
+                <p>Total Income</p>
+            </div>
+            <div class="right-legend">
+                <div class="legend-circle">
+                </div>
+                <p>Income</p>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <script src="./chart.js"></script>
+</body>
+</html>
