@@ -151,6 +151,7 @@ a {
   background: white;
   height: 718px;
   border-radius: 7px;
+  min-width: 220.828px;
 }
 .payment-providers header {
   padding: 20px;
@@ -232,6 +233,7 @@ a {
   border-radius: 7px;
   background-color: white;
   display: none;
+  min-width: 283.828px;
 }
 .payment.current-payment {
   display: block;
