@@ -307,9 +307,9 @@ a {
 .notification p {
   font-size: 16px;
   position: absolute;
-  font-style: "Rubik", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
-  max-width: 460px;
+  max-width: 455px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -328,7 +328,7 @@ a {
   cursor: pointer;
   position: absolute;
   top: 24px;
-  left: 520px;
+  right: 15px;
 }
 
 .notif-darkBlueBg {
