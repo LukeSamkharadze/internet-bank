@@ -241,6 +241,7 @@ a {
   background-color: white;
   display: none;
   min-width: 311.922px;
+  width: 555px;
 }
 .payment.current-payment {
   display: block;
@@ -257,11 +258,11 @@ a {
 .payment form {
   width: 91.91%;
   margin: 0 auto;
-  padding-top: 23px;
-  padding-bottom: 18px;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 .payment form div:not(:last-child) {
-  margin-bottom: 19px;
+  margin-bottom: 21px;
 }
 .payment form .amount-wrapper,
 .payment form .currency-wrapper,
@@ -292,6 +293,7 @@ a {
   margin-bottom: 0;
 }
 .payment .payment-dropdown {
+  font-size: 14px;
   width: 100%;
 }
 .payment .payment-summary {
@@ -310,8 +312,8 @@ a {
 }
 .payment .payment-summary i {
   position: absolute;
-  right: 10px;
-  top: 16px;
+  right: 18px;
+  top: 20px;
   font-size: 18px;
   color: #FFAB2B;
   cursor: help;
@@ -323,38 +325,44 @@ a {
   flex-direction: row;
 }
 .payment .card-account span:last-child {
-  margin-right: 27px;
+  margin-right: 32px;
 }
-.payment #account .content span:last-child,
-.payment #account-bank .content span:last-child,
-.payment #account-instant .content span:last-child {
-  margin-right: 10px;
+.payment .card-account section img {
+  margin-right: 72px;
+}
+.payment #account .content section + span,
+.payment #account-bank .content section + span,
+.payment #account-instant .content section + span {
+  margin-right: 15px;
   color: #778CA2;
 }
 .payment .payment-system-dropdown img {
-  margin-right: 70px;
+  margin-right: 12px;
+}
+.payment #account img {
+  margin-right: 15px;
 }
 .payment.bank-payment #transfer-type {
-  margin-bottom: 83px;
+  margin-bottom: 66px;
 }
 .payment.bank-payment .dropdown-general {
   width: 100%;
 }
 .payment.instant-payment .payment-buttons {
-  margin-top: 40px;
+  margin-top: 22px;
 }
 .payment.bank-payment .payment-buttons, .payment.instant-payment .payment-buttons {
   align-items: center;
 }
 .payment.bank-payment .payment-buttons .primary, .payment.instant-payment .payment-buttons .primary {
-  width: 100%;
+  width: 95%;
 }
 .payment.bank-payment .payment-buttons button, .payment.instant-payment .payment-buttons button {
-  width: 65%;
+  width: 74.6%;
 }
 .payment.bank-payment .payment-buttons span, .payment.instant-payment .payment-buttons span {
   display: inline-block;
-  width: 50%;
+  width: 55%;
   min-width: 124.672px;
   color: #778CA2;
 }

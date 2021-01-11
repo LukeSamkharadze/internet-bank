@@ -4,6 +4,8 @@
     background-color: white;
     display: none;
     min-width: 311.922px;
+    // develpment one
+    width: 555px;
 
     &.current-payment {
         display: block;
@@ -19,11 +21,11 @@
     form {
         width: 91.91%;
         margin: 0 auto;
-        padding-top: 23px;
-        padding-bottom: 18px;
+        padding-top: 20px;
+        padding-bottom: 30px;
 
         div:not(:last-child) {
-            margin-bottom: 19px;
+            margin-bottom: 21px;
         }
 
         .amount-wrapper,
@@ -60,6 +62,7 @@
         margin-bottom: 0;
     }
     .payment-dropdown {
+        font-size: 14px;
         width: 100%;
     }
 
@@ -84,8 +87,8 @@
 
         i {
             position: absolute;
-            right: 10px;
-            top: 16px;
+            right: 18px;
+            top: 20px;
             font-size: 18px;
             color: $primary;
             cursor: help;
@@ -95,25 +98,32 @@
     .card-account {
         @include flex(space-between);
         & span:last-child {
-            margin-right: 27px;
+            margin-right: 32px;
+        }
+        section img {
+            margin-right: 72px;
         }
     }
 
-    #account .content span:last-child,
-    #account-bank .content span:last-child,
-    #account-instant .content span:last-child {
-        margin-right: 10px;
+    #account .content section + span,
+    #account-bank .content section + span,
+    #account-instant .content section + span {
+        margin-right: 15px;
         color: $secondary-dark-1;
     }
 
     .payment-system-dropdown img {
-        margin-right: 70px;
+        margin-right: 12px;
+    }
+
+    #account img {
+        margin-right: 15px;
     }
 
     // Bank transfer specific styles
     &.bank-payment {
         #transfer-type {
-            margin-bottom: 83px;
+            margin-bottom: 66px;
         }
 
         .dropdown-general {
@@ -124,7 +134,7 @@
     // instant tranfster specific styles
     &.instant-payment {
         .payment-buttons {
-            margin-top: 40px;
+            margin-top: 22px;
         }
     }
 
@@ -135,14 +145,14 @@
         .payment-buttons {
             align-items: center;
             .primary {
-                width: 100%;
+                width: 95%;
             }
             button {
-                width: 65%;
+                width: 74.6%;
             }
             span {
                 display: inline-block;
-                width: 50%;
+                width: 55%;
                 min-width: 124.672px;
                 color: $secondary-dark-1;
             }
