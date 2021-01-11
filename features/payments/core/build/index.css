@@ -264,34 +264,18 @@ a {
   margin-bottom: 19px;
 }
 .payment form .amount-wrapper,
-.payment form .currency-wrapper {
+.payment form .currency-wrapper,
+.payment form .transfer-type-wrapper {
   display: inline-block;
   width: 48%;
 }
-.payment form .currency-wrapper {
+.payment form .currency-wrapper,
+.payment form .transfer-type-wrapper {
   float: right;
 }
-.payment form .payment-summary {
-  border: 2px dotted #E8ECEF;
-  border-radius: 5px;
-  padding: 25px 15px;
-  position: relative;
-}
-.payment form .payment-summary div :first-child {
-  display: inline-block;
-  font-weight: 300;
-  width: 103px;
-}
-.payment form .payment-summary div:not(:last-child) {
-  margin-bottom: 15px;
-}
-.payment form .payment-summary i {
-  position: absolute;
-  right: 10px;
-  top: 16px;
-  font-size: 18px;
-  color: #FFAB2B;
-  cursor: help;
+.payment form .currency-wrapper .dropdown-general,
+.payment form .transfer-type-wrapper .dropdown-general {
+  width: 100%;
 }
 .payment form .payment-buttons {
   width: 100%;
@@ -304,8 +288,57 @@ a {
 .payment form .payment-buttons div {
   margin-bottom: 0px;
 }
+.payment .dropdown-general .content {
+  margin-bottom: 0;
+}
+.payment .payment-dropdown {
+  width: 100%;
+}
+.payment .payment-summary {
+  border: 2px dotted #E8ECEF;
+  border-radius: 5px;
+  padding: 25px 15px;
+  position: relative;
+}
+.payment .payment-summary div :first-child {
+  display: inline-block;
+  font-weight: 300;
+  width: 103px;
+}
+.payment .payment-summary div:not(:last-child) {
+  margin-bottom: 15px;
+}
+.payment .payment-summary i {
+  position: absolute;
+  right: 10px;
+  top: 16px;
+  font-size: 18px;
+  color: #FFAB2B;
+  cursor: help;
+}
+.payment .card-account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.payment .card-account span:last-child {
+  margin-right: 27px;
+}
+.payment #account .content span:last-child,
+.payment #account-bank .content span:last-child,
+.payment #account-instant .content span:last-child {
+  margin-right: 10px;
+  color: #778CA2;
+}
+.payment .payment-system-dropdown img {
+  margin-right: 70px;
+}
 .payment.bank-payment #transfer-type {
   margin-bottom: 83px;
+}
+.payment.bank-payment .dropdown-general {
+  width: 100%;
 }
 .payment.instant-payment .payment-buttons {
   margin-top: 40px;

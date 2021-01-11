@@ -10,6 +10,7 @@
         />
         <link rel="stylesheet" href="../../../components/basic-inputs/index.css" />
         <link rel="stylesheet" href="../../../components/buttons/core/index.css" />
+        <link rel="stylesheet" href="../../../components/dropdown/dropdowns/select/style/build/index.css" />
         <title>Document</title>
     </head>
     <body>
@@ -67,15 +68,30 @@
                         <h5>Online payment</h5>
                     </header>
                     <form>
-                        <!--  droebit input aris, mere dropdowns chavsvav -->
                         <label class="input-label" for="account">Select account</label>
-                        <div class="input-wrapper">
-                            <input id="account" type="text" placeholder="Placeholder" />
+
+                        <div class="dropdown-general payment-dropdown" id="account">
+                            <div class="option">select a card</div>
+                            <div class="option">
+                                <div class="card-account">
+                                    <img src="../../../assets/visa.svg" alt="" />
+                                    <span>3210 **** **** 4008</span>
+                                    <span class="payments-account-balance">$142.800.00</span>
+                                </div>
+                            </div>
+                            <select></select>
                         </div>
 
                         <label class="input-label" for="payment-system">Select payment system</label>
-                        <div class="input-wrapper">
-                            <input id="payment-system" type="text" placeholder="Placeholder" />
+                        <div class="dropdown-general payment-dropdown" id="payment-system">
+                            <div class="option">select a payment system</div>
+                            <div class="option">
+                                <div class="payment-system-dropdown">
+                                    <img src="../../../assets/paypal.svg" alt="" />
+                                    <span>Paypal</span>
+                                </div>
+                            </div>
+                            <select></select>
                         </div>
 
                         <label class="input-label" for="paypal-acc">PayPal account</label>
@@ -91,9 +107,11 @@
                         </div>
 
                         <div class="currency-wrapper">
-                            <label class="input-label" for="currency">currency</label>
-                            <div class="input-wrapper currency">
-                                <input id="currency" type="text" placeholder="Placeholder" />
+                            <label class="input-label" for="currency">Currency</label>
+                            <div class="dropdown-general" id="currency">
+                                <div class="option">select a currency</div>
+                                <div class="option">USD</div>
+                                <select></select>
                             </div>
                         </div>
 
@@ -129,10 +147,18 @@
                         <h5>Bank transfer</h5>
                     </header>
                     <form>
-                        <!--  droebit input aris, mere dropdowns chavsvav -->
                         <label class="input-label" for="account-bank">Select account</label>
-                        <div class="input-wrapper">
-                            <input id="account-bank" type="text" placeholder="Placeholder" />
+
+                        <div class="dropdown-general payment-dropdown" id="account-bank">
+                            <div class="option">select a card</div>
+                            <div class="option">
+                                <div class="card-account">
+                                    <img src="../../../assets/visa.svg" alt="" />
+                                    <span>3210 **** **** 4008</span>
+                                    <span class="payments-account-balance">$142.800.00</span>
+                                </div>
+                            </div>
+                            <select></select>
                         </div>
 
                         <label class="input-label" for="destination">Transfer to </label>
@@ -153,15 +179,19 @@
                         </div>
 
                         <div class="currency-wrapper">
-                            <label class="input-label" for="currency-bank">currency</label>
-                            <div class="input-wrapper currency">
-                                <input id="currency-bank" type="text" placeholder="Placeholder" />
+                            <label class="input-label" for="currency">Select payment system</label>
+                            <div class="dropdown-general" id="currency">
+                                <div class="option">select a currency</div>
+                                <div class="option">USD</div>
+                                <select></select>
                             </div>
                         </div>
 
                         <label class="input-label" for="transfer-type">Transfer type</label>
-                        <div class="input-wrapper">
-                            <input id="transfer-type" type="text" placeholder="Placeholder" />
+                        <div class="dropdown-general" id="transfer-type">
+                            <div class="option">Select transfer type</div>
+                            <div class="option">Personal tranfser</div>
+                            <select></select>
                         </div>
 
                         <div class="payment-buttons">
@@ -179,9 +209,18 @@
                     </header>
                     <form>
                         <!--  droebit input aris, mere dropdowns chavsvav -->
-                        <label class="input-label" for="account-bank">Select account</label>
-                        <div class="input-wrapper">
-                            <input id="account-bank" type="text" placeholder="Placeholder" />
+                        <label class="input-label" for="account-instant">Select account</label>
+
+                        <div class="dropdown-general payment-dropdown" id="account-instant">
+                            <div class="option">select a card</div>
+                            <div class="option">
+                                <div class="card-account">
+                                    <img src="../../../assets/visa.svg" alt="" />
+                                    <span>3210 **** **** 4008</span>
+                                    <span class="payments-account-balance">$142.800.00</span>
+                                </div>
+                            </div>
+                            <select></select>
                         </div>
 
                         <label class="input-label" for="destination">Transfer to </label>
@@ -196,10 +235,12 @@
                             </div>
                         </div>
 
-                        <div class="currency-wrapper">
-                            <label class="input-label" for="currency-bank">currency</label>
-                            <div class="input-wrapper currency">
-                                <input id="currency-bank" type="text" placeholder="Placeholder" />
+                        <div class="transfer-type-wrapper">
+                            <label class="input-label" for="transfer-type-instant">transfer type</label>
+                            <div class="dropdown-general" id="transfer-type-instant">
+                                <div class="option">select a transfter type</div>
+                                <div class="option">Personal transfter</div>
+                                <select></select>
                             </div>
                         </div>
 
@@ -215,5 +256,6 @@
         </section>
 
         <script src="./scripts/script.js"></script>
+        <script type="text/javascript" src="../../../components/dropdown/core/logic/build/index.js"></script>
     </body>
 </html>

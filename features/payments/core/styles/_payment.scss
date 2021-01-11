@@ -4,6 +4,7 @@
     background-color: white;
     display: none;
     min-width: 311.922px;
+
     &.current-payment {
         display: block;
     }
@@ -14,6 +15,7 @@
         @include flex(space-between);
         border-bottom: 1px solid $outline;
     }
+
     form {
         width: 91.91%;
         margin: 0 auto;
@@ -25,39 +27,17 @@
         }
 
         .amount-wrapper,
-        .currency-wrapper {
+        .currency-wrapper,
+        .transfer-type-wrapper {
             display: inline-block;
             width: 48%;
         }
-        .currency-wrapper {
+        .currency-wrapper,
+        .transfer-type-wrapper {
             float: right;
-        }
 
-        .payment-summary {
-            border: 2px dotted $outline;
-            border-radius: 5px;
-            padding: 25px 15px;
-            position: relative;
-
-            div {
-                :first-child {
-                    display: inline-block;
-                    font-weight: 300;
-                    width: 103px;
-                }
-
-                &:not(:last-child) {
-                    margin-bottom: 15px;
-                }
-            }
-
-            i {
-                position: absolute;
-                right: 10px;
-                top: 16px;
-                font-size: 18px;
-                color: $primary;
-                cursor: help;
+            .dropdown-general {
+                width: 100%;
             }
         }
 
@@ -76,10 +56,68 @@
         }
     }
 
+    .dropdown-general .content {
+        margin-bottom: 0;
+    }
+    .payment-dropdown {
+        width: 100%;
+    }
+
+    // online payment specefic styles
+    .payment-summary {
+        border: 2px dotted $outline;
+        border-radius: 5px;
+        padding: 25px 15px;
+        position: relative;
+
+        div {
+            :first-child {
+                display: inline-block;
+                font-weight: 300;
+                width: 103px;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
+
+        i {
+            position: absolute;
+            right: 10px;
+            top: 16px;
+            font-size: 18px;
+            color: $primary;
+            cursor: help;
+        }
+    }
+
+    .card-account {
+        @include flex(space-between);
+        & span:last-child {
+            margin-right: 27px;
+        }
+    }
+
+    #account .content span:last-child,
+    #account-bank .content span:last-child,
+    #account-instant .content span:last-child {
+        margin-right: 10px;
+        color: $secondary-dark-1;
+    }
+
+    .payment-system-dropdown img {
+        margin-right: 70px;
+    }
+
     // Bank transfer specific styles
     &.bank-payment {
         #transfer-type {
             margin-bottom: 83px;
+        }
+
+        .dropdown-general {
+            width: 100%;
         }
     }
 
