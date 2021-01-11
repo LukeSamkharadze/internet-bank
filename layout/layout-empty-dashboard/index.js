@@ -1,6 +1,6 @@
 const mainMenu = document.querySelector('.menu'),
     burgerMenu = document.querySelector('.burger-menu'),
-    topNav = document.querySelector('.dashboard'),
+    topNav = document.querySelector('.main-nav'),
     bottomNav = document.querySelector('.bottom-nav'),
     contentMain = document.querySelector('.content-main');
 

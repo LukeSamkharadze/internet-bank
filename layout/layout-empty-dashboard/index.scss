@@ -328,6 +328,7 @@ a {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        align-items: center;
         justify-content: space-between;
 
         &-wrapper {
@@ -345,7 +346,7 @@ a {
         border-top: 1px solid $outline;
         border-left: 1px solid $outline;
         background-color: $background-2;
-        padding: 0 28px 0 28px;
+        padding: 28px 28px 30px 28px;
     }
 
     .footer {
