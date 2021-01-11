@@ -17,37 +17,35 @@
             font-weight: 500;
             cursor: pointer;
 
+            position: relative;
+            bottom: 2px;
+
             i {
+                position: relative;
                 font-size: 18px;
                 color: $primary;
-                margin-right: 3px;
+                margin-right: 6px;
+                top:2px
             }
         }
     }
     
     ul {
-        display: table;
         padding: 1px 24px;
         background-color: white;
         border-radius: 4px;
     }
 
     .item {
-        display: table-row;
+        display: grid;
+        width: 100%;
+        grid-template-columns: 58px 329fr 188fr 268fr 89fr 113px;
 
         &>* {
             padding: 16px 0;
-            display: table-cell;
             padding-left: 23px;
             border-bottom: 1px solid $outline;
             vertical-align: middle;
-        }
-
-        $sizes: 58px, calc(100% / 874 * 326), calc(100% / 874 * 178), calc(100% / 874 * 261), calc(100% / 874 * 109), min-content;
-        @for $i from 1 through 6 {
-            div:nth-child(#{$i}) {
-                width: nth($list: $sizes, $n: $i);
-            }
         }
 
         div:first-child {
