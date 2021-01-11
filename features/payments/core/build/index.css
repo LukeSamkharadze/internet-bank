@@ -150,7 +150,7 @@ a {
   overflow: auto;
   background: white;
   height: 718px;
-  border-radius: 7px;
+  border-radius: 5px;
   min-width: 220.828px;
 }
 .payment-providers header {
@@ -237,11 +237,10 @@ a {
 
 .payment {
   font-size: 14px;
-  border-radius: 7px;
+  border-radius: 5px;
   background-color: white;
   display: none;
-  min-width: 311.922px;
-  width: 555px;
+  min-width: 384.922px;
 }
 .payment.current-payment {
   display: block;
@@ -262,7 +261,7 @@ a {
   padding-bottom: 30px;
 }
 .payment form div:not(:last-child) {
-  margin-bottom: 21px;
+  margin-bottom: 22px;
 }
 .payment form .amount-wrapper,
 .payment form .currency-wrapper,
@@ -293,8 +292,28 @@ a {
   margin-bottom: 0;
 }
 .payment .payment-dropdown {
-  font-size: 14px;
   width: 100%;
+}
+.payment .card-account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.payment .card-account section + span:last-child {
+  margin-right: 32px;
+}
+.payment .card-account section img {
+  margin-right: 19.449%;
+}
+.payment .card-account section {
+  width: 100%;
+}
+.payment #account .content section + span,
+.payment #account-bank .content section + span,
+.payment #account-instant .content section + span {
+  margin-right: 15px;
+  color: #778CA2;
 }
 .payment .payment-summary {
   border: 2px dotted #E8ECEF;
@@ -318,29 +337,11 @@ a {
   color: #FFAB2B;
   cursor: help;
 }
-.payment .card-account {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-}
-.payment .card-account span:last-child {
-  margin-right: 32px;
-}
-.payment .card-account section img {
-  margin-right: 72px;
-}
-.payment #account .content section + span,
-.payment #account-bank .content section + span,
-.payment #account-instant .content section + span {
+.payment #account img {
   margin-right: 15px;
-  color: #778CA2;
 }
 .payment .payment-system-dropdown img {
   margin-right: 12px;
-}
-.payment #account img {
-  margin-right: 15px;
 }
 .payment.bank-payment #transfer-type {
   margin-bottom: 66px;

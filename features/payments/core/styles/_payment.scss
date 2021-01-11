@@ -1,11 +1,9 @@
 .payment {
     font-size: 14px;
-    border-radius: 7px;
+    border-radius: 5px;
     background-color: white;
     display: none;
-    min-width: 311.922px;
-    // develpment one
-    width: 555px;
+    min-width: 384.922px;
 
     &.current-payment {
         display: block;
@@ -25,7 +23,7 @@
         padding-bottom: 30px;
 
         div:not(:last-child) {
-            margin-bottom: 21px;
+            margin-bottom: 22px;
         }
 
         .amount-wrapper,
@@ -61,9 +59,29 @@
     .dropdown-general .content {
         margin-bottom: 0;
     }
+
     .payment-dropdown {
-        font-size: 14px;
         width: 100%;
+    }
+
+    .card-account {
+        @include flex(space-between);
+        & section + span:last-child {
+            margin-right: 32px;
+        }
+        section img {
+            margin-right: 19.449%;
+        }
+        section {
+            width: 100%;
+        }
+    }
+
+    #account .content section + span,
+    #account-bank .content section + span,
+    #account-instant .content section + span {
+        margin-right: 15px;
+        color: $secondary-dark-1;
     }
 
     // online payment specefic styles
@@ -95,29 +113,13 @@
         }
     }
 
-    .card-account {
-        @include flex(space-between);
-        & span:last-child {
-            margin-right: 32px;
-        }
-        section img {
-            margin-right: 72px;
-        }
-    }
-
-    #account .content section + span,
-    #account-bank .content section + span,
-    #account-instant .content section + span {
+    //  online transferebshi ratomgac surattan ufro axlos aris card number vidre bank da instant transferebshi
+    #account img {
         margin-right: 15px;
-        color: $secondary-dark-1;
     }
 
     .payment-system-dropdown img {
         margin-right: 12px;
-    }
-
-    #account img {
-        margin-right: 15px;
     }
 
     // Bank transfer specific styles
