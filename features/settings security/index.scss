@@ -1,0 +1,70 @@
+
+
+@import '../../colors&typo/styles.scss';
+
+
+
+
+
+body {
+    margin-left: 24px;
+    margin-bottom: 24px;
+    margin-top:18px;
+    line-height: 40px;
+    @include text-style(14px);
+    text-transform:capitalize;
+}
+h4 {
+    font-size:18px
+}
+
+placeholder
+
+#pws {
+
+
+text-align: left;
+color: #98a9bc;
+border-bottom: solid 1px #E8ECEF;
+
+}
+
+.above
+{
+    display: flex;
+    label
+    {
+    display: block;
+    }
+    
+}
+
+
+
+input {
+    width: 336px;
+    height: 52px;
+   border-color:#E8ECEF ;
+   border-radius: 6px;
+    margin-right: 26px;
+    border-style:solid;
+    padding-left: 7px;
+    
+}
+
+input::placeholder{
+    color :#98A9BC;
+    text-transform:capitalize;
+
+}
+
+
+select {
+    width: 336px;
+    height: 52px;
+    border-radius: 6px;
+    border-color:#E8ECEF ;
+    margin-right: 26px;
+    border-style:solid;
+    margin-right: 26px;
+}
