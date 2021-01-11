@@ -1,5 +1,6 @@
-@import "../../../colors&typo/styles.scss";
-@import "../../../components/buttons/core/index.scss";
+@import "../../../colors&typo/styles";
+@import "../../../components/buttons/core/index";
+@import "../../../components/toggle/core/index";
 
 .main-container {
   max-width: 555px;
@@ -10,7 +11,6 @@
 
 .grid-container {
   display: grid;
-  background-color: rgb(216, 164, 181);
   grid-template-rows: 8% 42.5% 10%;
 
   [class|="gritem"] {
@@ -21,14 +21,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: palegreen;
     border-bottom: 1px solid $background-1;
 
     .crd-header {
       display: flex;
       align-items: center;
       position: relative;
-      background: papayawhip;
       width: 100%;
     }
 
@@ -52,7 +50,6 @@
   }
 
   .gritem-2 {
-    background: plum;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,7 +102,7 @@
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid $outline;
-        padding: 9.5px 0;
+        padding: 9.6px 0;
       }
 
       li:last-of-type {
@@ -114,6 +111,10 @@
 
       li * {
         display: inline-block;
+      }
+
+      .toggle-container {
+        width: auto;
       }
     }
 
