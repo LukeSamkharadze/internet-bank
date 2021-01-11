@@ -29,33 +29,33 @@ a {
     min-width: 83px;
     max-width: 83px;
 
-    .dashboard__title {
+    .dashboard-title {
         padding-left: 15px;
         opacity: 0;
         visibility: hidden;
     }
 
-    .dashboard__icon {
+    .dashboard-icon {
         padding-left: 24px;
     }
 
-    .intro-heading__title {
+    .intro-heading-title {
         padding-left: 20px;
     }
 
-    .intro-heading__subtitle {
+    .intro-heading-subtitle {
         visibility: hidden;
         opacity: 0;
     }
 
-    .accounts-block {
+    .accounts-item {
         .span-hidden {
             font-size: 14px;
             visibility: visible;
             opacity: 1;
         }
 
-        &:hover .accounts__icon {
+        &:hover .accounts-icon {
             padding-left: 7px;
         }
 
@@ -67,16 +67,16 @@ a {
         opacity: 0;
     }
 
-    .accounts__icon {
+    .accounts-icon {
         padding: 0;
     }
 
-    .accounts__icon i {
+    .accounts-icon i {
         font-size: 22px;
         opacity: 0;
     }
 
-    .accounts__main-title {
+    .accounts-main-title {
         visibility: hidden;
         opacity: 0;
     }
@@ -116,7 +116,7 @@ a {
         -ms-flex-align: center;
         align-items: center;
 
-        &__title {
+        &-title {
             padding-left: 70px;
             -webkit-transition: .3s;
             -o-transition: .3s;
@@ -126,7 +126,7 @@ a {
             text-transform: uppercase;
         }
 
-        &__subtitle {
+        &-subtitle {
             visibility: visible;
             opacity: 1;
             font-size: 18px;
@@ -140,7 +140,7 @@ a {
 .dashboard {
     padding-top: 19px;
 
-    &-block {
+    &-item {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -159,7 +159,7 @@ a {
             background-color: $background-2;
             border-left: 2px solid $primary;
 
-            .dashboard__icon {
+            .dashboard-icon {
                 padding-left: 33px;
 
                 i {
@@ -169,7 +169,7 @@ a {
         }
     }
 
-    &__icon {
+    &-icon {
         -webkit-transition: .3s;
         -o-transition: .3s;
         transition: .3s;
@@ -184,13 +184,13 @@ a {
         }
     }
 
-    &__title {
+    &-title {
         opacity: 1;
         padding-left: 30px;
         visibility: visible;
-        -webkit-transition: 0.4s;
-        -o-transition: 0.4s;
-        transition: 0.4s;
+        -webkit-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
         color: $primary-dark;
         font-family: $roboto;
         font-size: 14px;
@@ -216,7 +216,7 @@ a {
 }
 
 .accounts {
-    &__main-title {
+    &-main-title {
         visibility: visible;
         opacity: 1;
         -webkit-transition: .4s;
@@ -229,7 +229,7 @@ a {
         padding: 19px 0 3px 28px;
     }
 
-    &-block {
+    &-item {
         transition: .3s;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -251,7 +251,7 @@ a {
         }
 
         &:hover {
-            .accounts__icon {
+            .accounts-icon {
                 padding-left: 35px;
             }
         }
@@ -262,7 +262,7 @@ a {
 
     }
 
-    &__icon {
+    &-icon {
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s;
@@ -279,7 +279,7 @@ a {
         }
     }
 
-    &__title {
+    &-title {
         -webkit-transition: .4s;
         -o-transition: .4s;
         transition: .4s;
@@ -335,7 +335,7 @@ a {
             align-items: center;
         }
 
-        &__title {
+        &-title {
             padding-left: 20px;
         }
     }
@@ -345,6 +345,7 @@ a {
         border-top: 1px solid $outline;
         border-left: 1px solid $outline;
         background-color: $background-2;
+        padding: 0 28px 0 28px;
     }
 
     .footer {
@@ -376,7 +377,7 @@ a {
         height: 23px;
         cursor: pointer;
 
-        &__line {
+        &-line {
             width: 20px;
             height: 2px;
             background-color: #778ca2;
@@ -384,7 +385,7 @@ a {
     }
 }
 
-.profileBef {
+.profile-bef {
     margin-right: 34px;
     user-select: none;
     cursor: pointer;
@@ -404,10 +405,12 @@ a {
         border-radius: 50%;
         border: 2px solid $primary;
         margin-right: 11.3px;
+
         img {
             width: 32px;
         }
     }
+
     .name {
         letter-spacing: 0.2px;
         font-family: $roboto;
@@ -415,7 +418,7 @@ a {
     }
 }
 
-.profileHover {
+.profile-hover {
     color: $primary-dark;
     background-color: white;
     font-weight: 500;
@@ -443,7 +446,7 @@ a {
         line-height: 20px;
         padding-top: 2px;
 
-        .profileMini {
+        .profile-mini {
             margin-right: 15px;
             margin-left: 22px;
             height: 36px;
@@ -460,7 +463,7 @@ a {
 
     }
 
-    .profSettings {
+    .prof-settings {
         font-weight: 500;
         padding-left: 23px;
         display: flex;
@@ -495,7 +498,6 @@ a {
     }
 
 }
-
 
 .show {
     display: block;
