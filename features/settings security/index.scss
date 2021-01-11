@@ -5,13 +5,16 @@
 
 
 
-
+.dropdown-general {
+    width: 336px ;
+    margin-right:26px;
+}
 
 body {
     margin-left: 24px;
     margin-bottom: 24px;
     margin-top:18px;
-    line-height: 40px;
+    line-height: 42px;
     @include text-style(14px);
     text-transform:capitalize;
 }
@@ -20,13 +23,13 @@ h4 {
 }
 
 
-
-#pws {
+.headrs{
 
 
 text-align: left;
 color: #98a9bc;
 border-bottom: solid 1px #E8ECEF;
+width: 695px;
 
 }
 

@@ -453,11 +453,16 @@ header h1 {
   height: 200px;
 }
 
+.dropdown-general {
+  width: 336px;
+  margin-right: 26px;
+}
+
 body {
   margin-left: 24px;
   margin-bottom: 24px;
   margin-top: 18px;
-  line-height: 40px;
+  line-height: 42px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -470,10 +475,11 @@ h4 {
   font-size: 18px;
 }
 
-#pws {
+.headrs {
   text-align: left;
   color: #98a9bc;
   border-bottom: solid 1px #E8ECEF;
+  width: 695px;
 }
 
 .above {
