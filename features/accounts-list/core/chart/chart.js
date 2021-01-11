@@ -4,9 +4,12 @@ function createChart( data ) {
     canvas.height = '100%';
     const ctx = canvas.getContext('2d');
 
-    script = document.scripts[document.scripts.length - 1];
-    script.parentElement.insertBefore(canvas, script);
-    const {0: color, 1: bg} = window.getComputedStyle(script.parentElement).backgroundImage.match(/rgb\((\d+,? ?){3}\)/g) ?? [];
+    const script = document.scripts[document.scripts.length - 1];
+    const chartContainer = script.parentElement;
+    chartContainer.insertBefore(canvas, script);
+    const {0: color, 1: bg} = window.getComputedStyle(chartContainer).backgroundImage.match(/rgb\((\d+,? ?){3}\)/g) ?? [];
+    canvas.style.backgroundImage = window.getComputedStyle(chartContainer).backgroundImage;
+    chartContainer.style.background = 'none';
 
     const max = data.reduce((prev, cur) => Math.max(prev, cur));
     data.forEach((val, index) => data[index] = max - val);
