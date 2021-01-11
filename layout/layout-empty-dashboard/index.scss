@@ -29,13 +29,13 @@ a {
     min-width: 83px;
     max-width: 83px;
 
-    .dashboard-title {
+    .side-bar-title {
         padding-left: 15px;
         opacity: 0;
         visibility: hidden;
     }
 
-    .dashboard-icon {
+    .side-bar-icon {
         padding-left: 24px;
     }
 
@@ -137,7 +137,7 @@ a {
     }
 }
 
-.dashboard {
+.side-bar {
     padding-top: 19px;
 
     &-item {
@@ -159,7 +159,7 @@ a {
             background-color: $background-2;
             border-left: 2px solid $primary;
 
-            .dashboard-icon {
+            .side-bar-icon {
                 padding-left: 33px;
 
                 i {
