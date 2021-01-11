@@ -3,8 +3,29 @@
 @import '../../colors&typo/styles.scss';
 @import '../../components/buttons/index.scss';
 
-
-
+#btn {
+    margin-top: 183px;
+    #btn1{
+       width: 206px;
+       height: 46px;
+    }
+    #btn2{
+        margin-left: 12px;
+     width: 148px;
+       height: 46px;
+    }
+}
+.svg1{
+    position: absolute;
+    top:56px;
+    right: 43px;
+}
+.svg2{
+    position: absolute;
+    top:56px;
+    right: 43px;
+    
+}
 .dropdown-general {
     width: 336px ;
     margin-right:26px;
@@ -35,6 +56,9 @@ width: 695px;
 
 .above
 {
+    div{
+        position: relative;
+    }
     display: flex;
     label
     {
