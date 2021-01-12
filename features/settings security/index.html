@@ -1,79 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../components/dropdown/dropdowns/select/style/build/index.css">
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
-    
-    <link rel="stylesheet" href="index.css">
-    
-    
-    
-</head>
-<body>
-  <div class ="security-settings-wrapper">
-    
-  <div class="security">
-<h4 >security</h4>
-<div class="headers">change password</div>
-
-<form>
-    <div class="settings-form-aligment">
-        <div >
-            <label class="left" for="current password">current password</label>
-            <input type="password"  name="current password" id="current password" placeholder="enter your password " required> 
-            <svg  class="svg2" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19">
-                <text id="ico" fill="#778ca2" font-size="18" font-family="LineAwesome"><tspan x="0" y="16"></tspan></text>
-              </svg>
-        </div>
-        <div  >
-            <label class="right" for="new password">new password</label>
-            <input type="password" id="new password" name="new password" placeholder="enter your password " required> 
-            
-              <svg class="svg1" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19">
-                <text id="ico" fill="#778ca2" font-size="18" font-family="LineAwesome"><tspan x="0" y="16"></tspan></text>
-              </svg>
-              
-              
-        </div>
-    </div>
-    <div class="headrs" >security questions</div>
-    <div class="settings-form-aligment">
-        <div>
-            <label class="select" for="question1">question #1</label>
-            <div class="dropdown-general">
-                <select>
-                  <option>Placeholder</option>
-                  <option>Select item 1</option>
-                  <option>Select item 2</option>
-                  <option>Select item 3</option>
-                  <option>Select item 4</option>
-                </select>
-              </div>
-        </div>
-        
-        <div >
-            <label class="answer1" for="question1">Answer</label>
-            <input type="text" id="question1" name="question1" placeholder="enter your answer"> 
-        </div>
-    </div>
-</form>
-<div id='btn' class="primary buttons">
-<button class="active btn">UPDATE SETTINGS</button>
-<button  class="resting btn">CANCEL</button>
-<div>
-
-
-        
-</div>
-
-         
-
-
-
-</div>
-<script type="text/javascript" src="../../components/dropdown/core/logic/build/index.js"></script>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="../../components/dropdown/dropdowns/select/style/build/index.css">
+      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+   </head>
+   <body>
+      <div class ="security-settings-wrapper">
+      <div class="security">
+      <h4 >security</h4>
+      <div class="headers">change password</div>
+      <form>
+         <div class="settings-form-aligment">
+            <div >
+               <label for="current password">current password</label>
+               <input type="password"  name="current password" id="current password" placeholder="enter your password " required> 
+               <svg  class="svg2" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19">
+                  <text id="ico" fill="#778ca2" font-size="18" font-family="LineAwesome">
+                     <tspan x="0" y="16"></tspan>
+                  </text>
+               </svg>
+            </div>
+            <div  >
+               <label  for="new password">new password</label>
+               <input type="password" id="new password" name="new password" placeholder="enter your password " required> 
+               <svg class="svg1" xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19">
+                  <text id="ico" fill="#778ca2" font-size="18" font-family="LineAwesome">
+                     <tspan x="0" y="16"></tspan>
+                  </text>
+               </svg>
+            </div>
+         </div>
+         <div class="headers">security questions</div>
+         <div class="settings-form-aligment">
+            <div>
+               <label class="select" for="question1">question #1</label>
+               <div class="dropdown-general">
+                  <select>
+                     <option>Placeholder</option>
+                     <option>Select item 1</option>
+                     <option>Select item 2</option>
+                     <option>Select item 3</option>
+                     <option>Select item 4</option>
+                  </select>
+               </div>
+            </div>
+            <div >
+               <label class="answer1" for="question1">Answer</label>
+               <input type="text" id="question1" name="question1" placeholder="enter your answer"> 
+            </div>
+         </div>
+      </form>
+      <div id='btn' class="primary buttons">
+         <button class="active btn">UPDATE SETTINGS</button>
+         <button  class="resting btn">CANCEL</button>
+         <div>
+         </div>
+      </div>
+      <script type="text/javascript" src="../../components/dropdown/core/logic/build/index.js"></script>
+   </body>
 </html>

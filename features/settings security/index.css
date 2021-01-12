@@ -457,15 +457,17 @@ header h1 {
   margin-left: 24px;
   margin-bottom: 24px;
   margin-top: 18px;
-  line-height: 50px;
+  line-height: 42px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 18px;
   color: #252631;
   letter-spacing: 0.2px;
   text-transform: capitalize;
+  max-width: 1140px;
 }
 .security-settings-wrapper #btn {
+  display: flex;
   margin-top: 183px;
 }
 .security-settings-wrapper #btn button:nth-of-type(1) {
@@ -477,30 +479,23 @@ header h1 {
   width: 148px;
   height: 46px;
 }
-.security-settings-wrapper .svg1 {
-  position: absolute;
-  top: 56px;
-  right: 43px;
-}
-.security-settings-wrapper .svg2 {
-  position: absolute;
-  top: 56px;
-  right: 43px;
-}
 .security-settings-wrapper .dropdown-general {
   width: 336px;
   margin-right: 26px;
 }
 .security-settings-wrapper h4 {
   font-size: 18px;
+  margin-bottom: -30px;
 }
 .security-settings-wrapper .headers {
   text-align: left;
   color: #98a9bc;
   border-bottom: solid 1px #e8ecef;
   width: 695px;
+  margin-top: 31px;
 }
 .security-settings-wrapper .settings-form-aligment {
+  margin-top: 20px;
   display: flex;
 }
 .security-settings-wrapper .settings-form-aligment div {
@@ -508,6 +503,17 @@ header h1 {
 }
 .security-settings-wrapper .settings-form-aligment label {
   display: block;
+  margin-bottom: 10px;
+}
+.security-settings-wrapper .settings-form-aligment .svg1 {
+  position: absolute;
+  top: 68px;
+  right: 43px;
+}
+.security-settings-wrapper .settings-form-aligment .svg2 {
+  position: absolute;
+  top: 68px;
+  right: 43px;
 }
 .security-settings-wrapper input {
   width: 336px;
@@ -529,7 +535,6 @@ header h1 {
   border-color: #e8ecef;
   margin-right: 26px;
   border-style: solid;
-  margin-right: 26px;
 }
 
 /*# sourceMappingURL=index.css.map */
