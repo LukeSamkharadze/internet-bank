@@ -453,37 +453,7 @@ header h1 {
   height: 200px;
 }
 
-#btn {
-  margin-top: 183px;
-}
-#btn #btn1 {
-  width: 206px;
-  height: 46px;
-}
-#btn #btn2 {
-  margin-left: 12px;
-  width: 148px;
-  height: 46px;
-}
-
-.svg1 {
-  position: absolute;
-  top: 56px;
-  right: 43px;
-}
-
-.svg2 {
-  position: absolute;
-  top: 56px;
-  right: 43px;
-}
-
-.dropdown-general {
-  width: 336px;
-  margin-right: 26px;
-}
-
-body {
+.security-settings-wrapper {
   margin-left: 24px;
   margin-bottom: 24px;
   margin-top: 18px;
@@ -495,48 +465,68 @@ body {
   letter-spacing: 0.2px;
   text-transform: capitalize;
 }
-
-h4 {
+.security-settings-wrapper #btn {
+  margin-top: 183px;
+}
+.security-settings-wrapper #btn button:nth-of-type(1) {
+  width: 206px;
+  height: 46px;
+}
+.security-settings-wrapper #btn button:nth-of-type(2) {
+  margin-left: 12px;
+  width: 148px;
+  height: 46px;
+}
+.security-settings-wrapper .svg1 {
+  position: absolute;
+  top: 56px;
+  right: 43px;
+}
+.security-settings-wrapper .svg2 {
+  position: absolute;
+  top: 56px;
+  right: 43px;
+}
+.security-settings-wrapper .dropdown-general {
+  width: 336px;
+  margin-right: 26px;
+}
+.security-settings-wrapper h4 {
   font-size: 18px;
 }
-
-.headrs {
+.security-settings-wrapper .headrs {
   text-align: left;
   color: #98a9bc;
-  border-bottom: solid 1px #E8ECEF;
+  border-bottom: solid 1px #e8ecef;
   width: 695px;
 }
-
-.above {
+.security-settings-wrapper .settings-form-aligment {
   display: flex;
 }
-.above div {
+.security-settings-wrapper .settings-form-aligment div {
   position: relative;
 }
-.above label {
+.security-settings-wrapper .settings-form-aligment label {
   display: block;
 }
-
-input {
+.security-settings-wrapper input {
   width: 336px;
   height: 52px;
-  border-color: #E8ECEF;
+  border-color: #e8ecef;
   border-radius: 6px;
   margin-right: 26px;
   border-style: solid;
   padding-left: 7px;
 }
-
-input::placeholder {
-  color: #98A9BC;
+.security-settings-wrapper input::placeholder {
+  color: #98a9bc;
   text-transform: capitalize;
 }
-
-select {
+.security-settings-wrapper select {
   width: 336px;
   height: 52px;
   border-radius: 6px;
-  border-color: #E8ECEF;
+  border-color: #e8ecef;
   margin-right: 26px;
   border-style: solid;
   margin-right: 26px;

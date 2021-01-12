@@ -1,98 +1,84 @@
-
-
-@import '../../colors&typo/styles.scss';
-@import '../../components/buttons/index.scss';
-
-#btn {
-    margin-top: 183px;
-    #btn1{
-       width: 206px;
-       height: 46px;
-    }
-    #btn2{
-        margin-left: 12px;
-     width: 148px;
-       height: 46px;
-    }
-}
-.svg1{
-    position: absolute;
-    top:56px;
-    right: 43px;
-}
-.svg2{
-    position: absolute;
-    top:56px;
-    right: 43px;
-    
-}
-.dropdown-general {
-    width: 336px ;
-    margin-right:26px;
-}
-
-body {
+@import "../../colors&typo/styles.scss";
+@import "../../components/buttons/index.scss";
+.security-settings-wrapper {
     margin-left: 24px;
     margin-bottom: 24px;
-    margin-top:18px;
+    margin-top: 18px;
     line-height: 42px;
     @include text-style(14px);
-    text-transform:capitalize;
+    text-transform: capitalize;
+  
+#btn {
+  margin-top: 183px;
+  button:nth-of-type(1) {
+    width: 206px;
+    height: 46px;
+  }
+  button:nth-of-type(2) {
+    margin-left: 12px;
+    width: 148px;
+    height: 46px;
+  }
 }
+.svg1 {
+  position: absolute;
+  top: 56px;
+  right: 43px;
+}
+.svg2 {
+  position: absolute;
+  top: 56px;
+  right: 43px;
+}
+.dropdown-general {
+  width: 336px;
+  margin-right: 26px;
+}
+
+
 h4 {
-    font-size:18px
+  font-size: 18px;
 }
 
-
-.headrs{
-
-
-text-align: left;
-color: #98a9bc;
-border-bottom: solid 1px #E8ECEF;
-width: 695px;
-
+.headrs {
+  text-align: left;
+  color: #98a9bc;
+  border-bottom: solid 1px #e8ecef;
+  width: 695px;
 }
 
-.above
-{
-    div{
-        position: relative;
-    }
-    display: flex;
-    label
-    {
+.settings-form-aligment {
+  div {
+    position: relative;
+  }
+  display: flex;
+  label {
     display: block;
-    }
-    
+  }
 }
-
-
 
 input {
-    width: 336px;
-    height: 52px;
-   border-color:#E8ECEF ;
-   border-radius: 6px;
-    margin-right: 26px;
-    border-style:solid;
-    padding-left: 7px;
-    
+  width: 336px;
+  height: 52px;
+  border-color: #e8ecef;
+  border-radius: 6px;
+  margin-right: 26px;
+  border-style: solid;
+  padding-left: 7px;
 }
 
-input::placeholder{
-    color :#98A9BC;
-    text-transform:capitalize;
-
+input::placeholder {
+  color: #98a9bc;
+  text-transform: capitalize;
 }
-
 
 select {
-    width: 336px;
-    height: 52px;
-    border-radius: 6px;
-    border-color:#E8ECEF ;
-    margin-right: 26px;
-    border-style:solid;
-    margin-right: 26px;
+  width: 336px;
+  height: 52px;
+  border-radius: 6px;
+  border-color: #e8ecef;
+  margin-right: 26px;
+  border-style: solid;
+  margin-right: 26px;
+}
 }

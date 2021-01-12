@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
     <link rel="stylesheet" href="../../components/dropdown/dropdowns/select/style/build/index.css">
     <link rel="stylesheet" href="index.css">
     
@@ -12,13 +12,14 @@
     
 </head>
 <body>
+  <div class ="security-settings-wrapper">
     
   <div class="security">
 <h4 >security</h4>
 <div class="headrs">change password</div>
 
 <form>
-    <div class="above">
+    <div class="settings-form-aligment">
         <div >
             <label class="left" for="current password">current password</label>
             <input type="password"  name="current password" id="current password" placeholder="enter your password "> 
@@ -38,7 +39,7 @@
         </div>
     </div>
     <div class="headrs" >security questions</div>
-    <div class="above">
+    <div class="settings-form-aligment">
         <div>
             <label class="select" for="question1">question #1</label>
             <div class="dropdown-general">
@@ -59,8 +60,8 @@
     </div>
 </form>
 <div id='btn' class="primary buttons">
-<button id="btn1" class="active btn">UPDATE SETTINGS</button>
-<button id="btn2" class="resting btn">CANSEL</button>
+<button class="active btn">UPDATE SETTINGS</button>
+<button  class="resting btn">CANCEL</button>
 <div>
 
 
@@ -71,6 +72,7 @@
 
 
 
+</div>
 <script type="text/javascript" src="../../components/dropdown/core/logic/build/index.js"></script>
 </body>
 </html>
