@@ -35,9 +35,10 @@
   $option-transition-speed: 0.1s,
   $option-transition-type: ease,
   $option-color: $dark-secondary-3,
-  $option-padding: 0 17px,
-  $option-first-padding: 12px 17px 0 17px,
-  $option-last-padding: 0 17px 10px 17px,
+  $option-leftnright-padding: 17px,
+  $option-default-padding: 0 $option-leftnright-padding,
+  $option-first-padding: 12px $option-leftnright-padding 0 $option-leftnright-padding,
+  $option-last-padding: 0 $option-leftnright-padding 10px $option-leftnright-padding,
   $option-active-color: $active-color,
   // ================= //
   $selected-height: 52px,
@@ -117,23 +118,10 @@
     transition: opacity $options-transition-speed $options-transition-type, visibility 0.1s;
 
     .option {
-      @include dropdown-box($option-height, false, $option-padding);
+      @include dropdown-box($option-height, false, $option-default-padding);
       color: $option-color;
       transition: $option-transition-speed $option-transition-type;
       width: 100%;
-
-      .custom-option-wrapper {
-        width: 100%;
-      }
-
-      .custom-symbol,
-      .default-symbol {
-        margin: $options-symbol-margin;
-      }
-
-      .default-symbol:after {
-        @include dropdown-symbol($options-symbol, $options-symbol-font-size, $options-symbol-font-weight);
-      }
 
       &:hover {
         color: $option-active-color;
@@ -147,6 +135,23 @@
       &:nth-last-child(1) {
         min-height: calc(#{$option-height} + 9px);
         padding: $option-last-padding;
+      }
+
+      &:only-child {
+        padding: $option-default-padding;
+      }
+
+      .custom-option-wrapper {
+        width: 100%;
+      }
+
+      .custom-symbol,
+      .default-symbol {
+        margin: $options-symbol-margin;
+      }
+
+      .default-symbol:after {
+        @include dropdown-symbol($options-symbol, $options-symbol-font-size, $options-symbol-font-weight);
       }
     }
   }

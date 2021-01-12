@@ -243,6 +243,20 @@ a {
   transition: 0.1s ease;
   width: 100%;
 }
+.my-custom-dropdown-1 .options .option:hover {
+  color: red;
+}
+.my-custom-dropdown-1 .options .option:nth-child(1) {
+  min-height: calc(46px + 12px);
+  padding: 12px 17px 0 17px;
+}
+.my-custom-dropdown-1 .options .option:nth-last-child(1) {
+  min-height: calc(46px + 9px);
+  padding: 0 17px 10px 17px;
+}
+.my-custom-dropdown-1 .options .option:only-child {
+  padding: 0 17px;
+}
 .my-custom-dropdown-1 .options .option .custom-option-wrapper {
   width: 100%;
 }
@@ -255,17 +269,6 @@ a {
   font-family: "Line Awesome Free";
   font-size: 18px;
   font-weight: 900;
-}
-.my-custom-dropdown-1 .options .option:hover {
-  color: red;
-}
-.my-custom-dropdown-1 .options .option:nth-child(1) {
-  min-height: calc(46px + 12px);
-  padding: 12px 17px 0 17px;
-}
-.my-custom-dropdown-1 .options .option:nth-last-child(1) {
-  min-height: calc(46px + 9px);
-  padding: 0 17px 10px 17px;
 }
 
 .dropdown-general {
@@ -339,6 +342,20 @@ a {
   transition: 0.1s ease;
   width: 100%;
 }
+.dropdown-general .options .option:hover {
+  color: #FFAB2B;
+}
+.dropdown-general .options .option:nth-child(1) {
+  min-height: calc(46px + 12px);
+  padding: 12px 17px 0 17px;
+}
+.dropdown-general .options .option:nth-last-child(1) {
+  min-height: calc(46px + 9px);
+  padding: 0 17px 10px 17px;
+}
+.dropdown-general .options .option:only-child {
+  padding: 0 17px;
+}
 .dropdown-general .options .option .custom-option-wrapper {
   width: 100%;
 }
@@ -351,17 +368,6 @@ a {
   font-family: "Line Awesome Free";
   font-size: 18px;
   font-weight: 400;
-}
-.dropdown-general .options .option:hover {
-  color: #FFAB2B;
-}
-.dropdown-general .options .option:nth-child(1) {
-  min-height: calc(46px + 12px);
-  padding: 12px 17px 0 17px;
-}
-.dropdown-general .options .option:nth-last-child(1) {
-  min-height: calc(46px + 9px);
-  padding: 0 17px 10px 17px;
 }
 
 .dropdown-general-symbol {
@@ -435,6 +441,20 @@ a {
   transition: 0.1s ease;
   width: 100%;
 }
+.dropdown-general-symbol .options .option:hover {
+  color: #FFAB2B;
+}
+.dropdown-general-symbol .options .option:nth-child(1) {
+  min-height: calc(46px + 12px);
+  padding: 12px 17px 0 17px;
+}
+.dropdown-general-symbol .options .option:nth-last-child(1) {
+  min-height: calc(46px + 9px);
+  padding: 0 17px 10px 17px;
+}
+.dropdown-general-symbol .options .option:only-child {
+  padding: 0 17px;
+}
 .dropdown-general-symbol .options .option .custom-option-wrapper {
   width: 100%;
 }
@@ -447,17 +467,6 @@ a {
   font-family: "Line Awesome Free";
   font-size: 18px;
   font-weight: 400;
-}
-.dropdown-general-symbol .options .option:hover {
-  color: #FFAB2B;
-}
-.dropdown-general-symbol .options .option:nth-child(1) {
-  min-height: calc(46px + 12px);
-  padding: 12px 17px 0 17px;
-}
-.dropdown-general-symbol .options .option:nth-last-child(1) {
-  min-height: calc(46px + 9px);
-  padding: 0 17px 10px 17px;
 }
 
 .dropdown-disabled .selected {
