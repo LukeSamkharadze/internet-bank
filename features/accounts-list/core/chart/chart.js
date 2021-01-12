@@ -7,7 +7,7 @@ function createChart( data ) {
     const script = document.scripts[document.scripts.length - 1];
     const chartContainer = script.parentElement;
     chartContainer.insertBefore(canvas, script);
-    const {0: color, 1: bg} = window.getComputedStyle(chartContainer).backgroundImage.match(/rgb\((\d+,? ?){3}\)/g) ?? [];
+    const {0: color, 1: bg} = (window.getComputedStyle(chartContainer).backgroundImage.match(/rgba\( *(\d+ *, *){3}\d+(.\d+)? *\)/g) ?? []).map(rgba => rgbaToRgb(rgba));
     canvas.style.backgroundImage = window.getComputedStyle(chartContainer).backgroundImage;
     chartContainer.style.background = 'none';
 
@@ -49,4 +49,8 @@ function createChart( data ) {
             }
         }
     });
+}
+
+function rgbaToRgb( rgba ) {
+    return 'rgb(' + (rgba.match(/\d+ *,/g) ?? ['255,','255,','255,']).join('').slice(0, -1) + ')';
 }

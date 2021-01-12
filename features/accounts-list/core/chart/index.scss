@@ -52,7 +52,7 @@
             color: $color;
         }
         .chart {
-            background-image: linear-gradient(0deg, $color, $bg);
+            background-image: linear-gradient(0deg, rgba($color: $color, $alpha: 0.2), rgba($color: $bg, $alpha: 0.2));
         }
     }
 

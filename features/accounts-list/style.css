@@ -790,19 +790,19 @@ a {
   color: #6DD230;
 }
 .chart-container.green .chart {
-  background-image: linear-gradient(0deg, #6DD230, white);
+  background-image: linear-gradient(0deg, rgba(109, 210, 48, 0.2), rgba(255, 255, 255, 0.2));
 }
 .chart-container.orange sup {
   color: #FFAB2B;
 }
 .chart-container.orange .chart {
-  background-image: linear-gradient(0deg, #FFAB2B, white);
+  background-image: linear-gradient(0deg, rgba(255, 171, 43, 0.2), rgba(255, 255, 255, 0.2));
 }
 .chart-container.pink sup {
   color: #FE4D97;
 }
 .chart-container.pink .chart {
-  background-image: linear-gradient(0deg, #FE4D97, white);
+  background-image: linear-gradient(0deg, rgba(254, 77, 151, 0.2), rgba(255, 255, 255, 0.2));
 }
 
 .list {
