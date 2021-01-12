@@ -152,26 +152,72 @@ a {
 .settings input {
   border: none;
 }
-.settings textarea:focus, .settings input:focus {
+.settings textarea:focus,
+.settings input:focus {
   outline: none;
+}
+.settings .left-settings {
+  display: inline;
+}
+.settings .right-settings {
+  float: right;
+  margin-right: -29.5px;
+}
+.settings .right-settings p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #778CA2;
+  letter-spacing: 0.2px;
+}
+.settings .right-settings .position-left {
+  float: left;
+}
+.settings .right-settings .position-right {
+  float: right;
+}
+.settings .right-settings .text-1 {
+  margin-right: -3px;
+}
+.settings .right-settings .photo-1 {
+  margin-right: 5px;
+}
+.settings .right-settings .text-2 {
+  margin-right: -5px;
+}
+.settings .right-settings .photo-2 {
+  margin-right: 6px;
+  margin-left: 10px;
+}
+.settings .dropdown-general {
+  font-size: 12px;
+  width: 140px;
+  margin-top: -3px;
+  height: 5px;
+}
+.settings .dropdown-general .selected {
+  border: 0px;
+}
+.settings .dropdown-general .placeholder {
+  color: #252631;
+  padding: 0px 0 0 14px;
+  height: 25px;
+}
+.settings .dropdown-style {
+  width: 87px;
 }
 
 .transaction {
-  padding: 20px 23px 10px 23px;
+  padding: 10px 23px 9px 23px;
+}
+.transaction img {
+  margin-right: 0.6%;
 }
 
 .left {
   display: inline;
 }
-
-.right {
-  float: right;
-}
-.right span {
-  float: right;
-}
-
-h2 {
+.left h2 {
   display: inline-block;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -181,7 +227,7 @@ h2 {
   vertical-align: top;
   line-height: 20px;
 }
-h2 span {
+.left h2 span {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -189,16 +235,23 @@ h2 span {
   letter-spacing: 0.2px;
 }
 
-h1 {
-  margin-top: -3px;
+.right {
+  float: right;
 }
+.right span {
+  float: right;
+}
+.right .green-font {
+  color: #6DD230;
+}
+
 h1 span {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #252631;
   letter-spacing: 0.2px;
-  margin-top: 7px;
+  margin-top: 4px;
 }
 h1 .date {
   font-family: "Roboto", sans-serif;
@@ -206,15 +259,20 @@ h1 .date {
   font-size: 14px;
   color: #98A9BC;
   letter-spacing: 0.2px;
-  margin-top: 0px;
+  margin-top: -4px;
 }
 
-img {
-  margin-right: 0.6%;
+.first-element {
+  padding-top: 18px;
 }
 
 .last-element {
   opacity: 0.3;
+}
+
+.center-hr {
+  width: 98%;
+  margin: auto;
 }
 
 /*# sourceMappingURL=index.css.map */

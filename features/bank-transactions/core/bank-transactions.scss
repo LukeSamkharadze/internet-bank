@@ -1,55 +1,50 @@
-@import '../../../colors&typo/styles.scss';
-.settings{
-    padding: 19.12px 23px;
-    input{
-        border:none;
-       
-    }
-    textarea:focus, input:focus{
-        outline: none;
-    }
+@import "../../../colors&typo/styles.scss";
+.settings {
+  padding: 19.12px 23px;
+  input {
+    border: none;
+  }
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
 }
-.transaction{
-    padding: 20px 23px 10px 23px;
+.transaction {
+  padding: 20px 23px 10px 23px;
 }
-.left{
-display: inline;
+.left {
+  display: inline;
 }
 
 .right {
-    float: right;
+  float: right;
 
-    span{
-        float: right;
-    }
+  span {
+    float: right;
+  }
 }
 h2 {
-    display: inline-block;
-    @include text-style(16px, $primary-dark);
-    vertical-align: top;
-    line-height: 20px;
-    span{
-        @include text-style(14px, $secondary-dark-2)
-    }
-
+  display: inline-block;
+  @include text-style(16px, $primary-dark);
+  vertical-align: top;
+  line-height: 20px;
+  span {
+    @include text-style(14px, $secondary-dark-2);
+  }
 }
 
-h1{
-    span{
-        @include text-style(14px, $primary-dark);
-        margin-top: 7px;
-        // margin-right: -7px;
-    }
-    // @include text-style(14px, $secondary-dark-2);
-    margin-top: -3px;
-    // margin-right: -4px;
-    .date{
-        @include text-style(14px, $secondary-dark-2);
-        margin-top:0px;
-    }
-    
+h1 {
+  span {
+    @include text-style(14px, $primary-dark);
+    margin-top: 7px;
+  }
+  margin-top: -3px;
+  .date {
+    @include text-style(14px, $secondary-dark-2);
+    margin-top: 0px;
+  }
 }
 
-img{
-    margin-right: 0.6%;
+img {
+  margin-right: 0.6%;
 }

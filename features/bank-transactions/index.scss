@@ -1,60 +1,116 @@
-@import '../../colors&typo/styles.scss';
+// @use '../../components/dropdown/dropdowns/select/style/index.scss' as *;
 
-.settings{
-    padding: 19.12px 23px;
-    input{
-        border:none;
-       
-    }
-    textarea:focus, input:focus{
-        outline: none;
-    }
-}
-.transaction{
-    padding: 20px 23px 10px 23px;
-}
+@import "../../colors&typo/styles.scss";
 
-.left{
-display: inline;
-}
-
-.right {
+.settings {
+  padding: 19.12px 23px;
+  input {
+    border: none;
+  }
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+  .left-settings {
+    display: inline;
+  }
+  .right-settings {
     float: right;
-
-    span{
-        float: right;
+    margin-right: -29.5px;
+    p {
+      @include text-style(12px, $secondary-dark-1);
     }
+    .position-left {
+      float: left;
+    }
+    .position-right {
+      float: right;
+    }
+    .text-1 {
+      margin-right: -3px;
+    }
+    .photo-1 {
+      margin-right: 5px;
+    }
+    .text-2 {
+      margin-right: -5px;
+    }
+    .photo-2 {
+      margin-right: 6px;
+      margin-left: 10px;
+    }
+  }
+  .dropdown-general {
+    font-size: 12px;
+    width: 140px;
+    margin-top: -3px;
+    height: 5px;
+
+    .selected {
+      border: 0px;
+    }
+    .placeholder {
+      color: $primary-dark;
+      padding: 0px 0 0 14px;
+      height: 25px;
+    }
+  }
+  .dropdown-style {
+    width: 87px;
+  }
+}
+.transaction {
+  padding: 10px 23px 9px 23px;
+
+  img {
+    margin-right: 0.6%;
+  }
 }
 
-h2 {
+.left {
+  display: inline;
+  h2 {
     display: inline-block;
     @include text-style(16px, $primary-dark);
     vertical-align: top;
     line-height: 20px;
-    span{
-        @include text-style(14px, $secondary-dark-2)
+    span {
+      @include text-style(14px, $secondary-dark-2);
     }
+  }
 }
 
-h1{
-    span{
-        @include text-style(14px, $primary-dark);
-        margin-top: 7px;
-        // margin-right: -7px;
-    }
-    // @include text-style(14px, $secondary-dark-2);
-    margin-top: -3px;
-    // margin-right: -4px;
-    .date{
-        @include text-style(14px, $secondary-dark-2);
-        margin-top:0px;
-    }
+.right {
+  float: right;
+
+  span {
+    float: right;
+  }
+  .green-font {
+    color: $secondary-2;
+  }
 }
 
-img{
-    margin-right: 0.6%;
+h1 {
+  span {
+    @include text-style(14px, $primary-dark);
+    margin-top: 4px;
+  }
+
+  .date {
+    @include text-style(14px, $secondary-dark-2);
+    margin-top: -4px;
+  }
+}
+.first-element {
+  padding-top: 18px;
 }
 
-.last-element{
-    opacity: 0.3;
+.last-element {
+  opacity: 0.3;
+}
+
+.center-hr {
+  width: 98%;
+  margin: auto;
 }
