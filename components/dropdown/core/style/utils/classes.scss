@@ -9,3 +9,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+.dropdown-hidden {
+  opacity: 0;
+  visibility: hidden;
+}

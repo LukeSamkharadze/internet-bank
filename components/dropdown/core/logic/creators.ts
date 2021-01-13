@@ -3,19 +3,21 @@ import { Option } from "./types";
 import * as utils from "./utils";
 import * as events from "./events"
 
-export function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElement): HTMLDivElement {
+export function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElement | undefined): HTMLDivElement {
   let selected = document.createElement("div");
   selected.setAttribute("class", `${HTMLClass.selected} ${HTMLClass.placeholder}`);
 
-  let text = document.createElement("div");
-  text.setAttribute("class", HTMLClass.text);
-  text.innerHTML = html_select.options[html_select.selectedIndex].innerHTML;
-  selected.appendChild(text);
+  let content = document.createElement("div");
+  content.setAttribute("class", HTMLClass.selectedContent);
+  let placeholder = utils.getPlaceholder(dropdown, html_select);
+  placeholder.remove();
+  content.innerHTML = placeholder.innerHTML;
+  selected.appendChild(content);
 
   let arrowContainer = document.createElement("div");
   arrowContainer.setAttribute("class", HTMLClass.arrowContainer);
 
-  let symbol = utils.getCustomSymbol(dropdown, HTMLClass.customArrowSymbol);
+  let symbol = utils.getCustomSymbol(dropdown, HTMLClass.arrowExplicitSymbol);
 
   if (symbol)
     arrowContainer.appendChild(symbol);
@@ -30,37 +32,53 @@ export function createSelectedDiv(dropdown: Element, html_select: HTMLSelectElem
   return selected;
 }
 
-export function createOptionDiv(html_option: HTMLOptionElement, symbol: Element | undefined): Element {
-  let option = document.createElement("div");
-  option.setAttribute("class", HTMLClass.option);
-
-  if (symbol)
-    symbol.classList.add(HTMLClass.optionCustomSymbol);
-  else {
-    symbol = document.createElement("div");
-    symbol.setAttribute("class", HTMLClass.optionDefaultSymbol);
-  }
-
-  option.appendChild(symbol);
-  option.innerHTML += html_option.innerHTML;
-
-  return option;
-}
-
-export function createOptionsDiv(dropdown: Element, html_select: HTMLSelectElement, selected: HTMLDivElement): Element {
+export function createOptionsDiv(dropdown: Element, html_select: HTMLSelectElement | undefined, selected: HTMLDivElement): Element {
   let options = document.createElement("div");
-  options.setAttribute("class", `${HTMLClass.options} ${HTMLClass.optionsHidden}`);
+  options.setAttribute("class", `${HTMLClass.options} ${HTMLClass.hidden}`);
 
-  let defaultOptionSymbol = utils.getCustomSymbol(dropdown, HTMLClass.customOptionDefaultSymbol);
+  let defaultOptionSymbol = utils.getCustomSymbol(dropdown, HTMLClass.optionExplicitSymbol);
   defaultOptionSymbol?.remove();
-  let symbols = utils.getOptionSymbols(dropdown, defaultOptionSymbol, html_select.options.length);
 
-  Array.from(html_select.options).slice(1).forEach((html_option, index) => {
-    let option = createOptionDiv(html_option, symbols[index]) as Option;
+  let optionCount = Math.max(
+    [...dropdown.children].filter(o => o.classList.contains(HTMLClass.option)).length,
+    (html_select) ? html_select.options.length - 1 : 0);
+
+  let symbols = utils.getOptionSymbols(dropdown, defaultOptionSymbol, optionCount);
+  let rawOptions = utils.getOptions(dropdown, html_select, optionCount);
+
+  rawOptions.forEach((rawOption, index) => {
+    let isCustom = !rawOption.classList.contains(HTMLClass.textFlag);
+    let option = createOptionDiv(dropdown, rawOption, symbols[index], isCustom) as Option;
     option.selectIndex = index + 1;
-    option.addEventListener("click", events.optionClicked.bind(option, selected, html_select));
+    option.addEventListener("click", events.optionClicked.bind(option, selected, html_select, isCustom));
     options.appendChild(option);
   })
 
   return options;
+}
+
+export function createOptionDiv(dropdown: Element, rawOption: Element, symbol: Element | undefined, isCustom: boolean): Element {
+  let option = document.createElement("div");
+  option.setAttribute("class", HTMLClass.option);
+
+  if (!isCustom) {
+    if (symbol) {
+      symbol.classList.add(HTMLClass.optionCustomSymbol);
+      option.appendChild(symbol);
+    }
+    else if (dropdown.classList.contains(HTMLClass.generalSymbol) || dropdown.classList.contains(HTMLClass.custom)) {
+      symbol = document.createElement("div");
+      symbol.setAttribute("class", HTMLClass.optionDefaultSymbol);
+      option.appendChild(symbol);
+    }
+    option.innerHTML += rawOption.innerHTML;
+  }
+  else {
+    let customOptionWrapper = document.createElement("div");
+    customOptionWrapper.setAttribute("class", HTMLClass.customOptionWrapper);
+    customOptionWrapper.innerHTML += rawOption.innerHTML;
+    option.appendChild(customOptionWrapper);
+  }
+
+  return option;
 }

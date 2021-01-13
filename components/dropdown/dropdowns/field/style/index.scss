@@ -1,5 +1,5 @@
 @use "../../../core/style/index.scss" as *;
 
 .dropdown-general-symbol {
-  @include dropdown("\f004");
+  @include dropdown($options-symbol: "\f004");
 }

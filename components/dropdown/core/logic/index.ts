@@ -2,12 +2,9 @@ import { HTMLClass } from "./classes";
 import * as events from "./events";
 import * as creators from "./creators"
 
-function main() {
+function main(): void {
   for (let dropdown of document.querySelectorAll(`.${HTMLClass.custom}, .${HTMLClass.general}, .${HTMLClass.generalSymbol}`)) {
-    let html_select = dropdown.getElementsByTagName("SELECT")[0] as HTMLSelectElement;
-
-    if (html_select === undefined)
-      continue;
+    let html_select = dropdown.getElementsByTagName("select")[0];
 
     let selected = creators.createSelectedDiv(dropdown, html_select);
     let options = creators.createOptionsDiv(dropdown, html_select, selected);
@@ -17,7 +14,7 @@ function main() {
     selected.addEventListener("click", events.selectedClicked);
   }
 
-  document.addEventListener("click", events.closeAllSelect);
+  document.addEventListener("click", events.closeAllDropdowns);
 }
 
 main();
