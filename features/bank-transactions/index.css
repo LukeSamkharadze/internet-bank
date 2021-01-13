@@ -146,78 +146,83 @@ a {
   text-align: right;
 }
 
-.settings {
+.bank-transactions {
+  min-width: 551px;
+}
+.bank-transactions .settings {
   padding: 19.12px 23px;
 }
-.settings input {
+.bank-transactions .settings input {
   border: none;
 }
-.settings textarea:focus,
-.settings input:focus {
+.bank-transactions .settings textarea:focus,
+.bank-transactions .settings input:focus {
   outline: none;
 }
-.settings .left-settings {
+.bank-transactions .settings .left-settings {
   display: inline;
 }
-.settings .right-settings {
+.bank-transactions .settings .right-settings {
   float: right;
   margin-right: -29.5px;
 }
-.settings .right-settings p {
+.bank-transactions .settings .right-settings p {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 12px;
   color: #778CA2;
   letter-spacing: 0.2px;
 }
-.settings .right-settings .position-left {
+.bank-transactions .settings .right-settings .position-left {
   float: left;
 }
-.settings .right-settings .position-right {
+.bank-transactions .settings .right-settings .position-right {
   float: right;
 }
-.settings .right-settings .text-1 {
+.bank-transactions .settings .right-settings .text-1 {
   margin-right: -3px;
 }
-.settings .right-settings .photo-1 {
+.bank-transactions .settings .right-settings .photo-1 {
   margin-right: 5px;
 }
-.settings .right-settings .text-2 {
+.bank-transactions .settings .right-settings .text-2 {
   margin-right: -5px;
 }
-.settings .right-settings .photo-2 {
+.bank-transactions .settings .right-settings .photo-2 {
   margin-right: 6px;
   margin-left: 10px;
 }
-.settings .dropdown-general {
+.bank-transactions .settings .right-settings .options {
+  position: static;
+}
+.bank-transactions .settings .dropdown-general {
   font-size: 12px;
   width: 140px;
   margin-top: -3px;
   height: 5px;
 }
-.settings .dropdown-general .selected {
+.bank-transactions .settings .dropdown-general .selected {
   border: 0px;
+  padding: 12px 0 0 14px;
 }
-.settings .dropdown-general .placeholder {
+.bank-transactions .settings .dropdown-general .placeholder {
   color: #252631;
   padding: 0px 0 0 14px;
   height: 25px;
 }
-.settings .dropdown-style {
+.bank-transactions .settings .dropdown-style {
   width: 87px;
 }
-
-.transaction {
+.bank-transactions .transaction {
   padding: 10px 23px 9px 23px;
 }
-.transaction img {
+.bank-transactions .transaction img {
   margin-right: 0.6%;
 }
-
-.left {
+.bank-transactions .left {
   display: inline;
 }
-.left h2 {
+.bank-transactions .left h2 {
   display: inline-block;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -227,25 +232,24 @@ a {
   vertical-align: top;
   line-height: 20px;
 }
-.left h2 span {
+.bank-transactions .left h2 span {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #98A9BC;
   letter-spacing: 0.2px;
 }
-
-.right {
+.bank-transactions .right {
+  float: right;
+  padding-bottom: 9px;
+}
+.bank-transactions .right span {
   float: right;
 }
-.right span {
-  float: right;
-}
-.right .green-font {
+.bank-transactions .right .green-font {
   color: #6DD230;
 }
-
-h1 span {
+.bank-transactions h1 span {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -253,7 +257,7 @@ h1 span {
   letter-spacing: 0.2px;
   margin-top: 4px;
 }
-h1 .date {
+.bank-transactions h1 .date {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -261,16 +265,13 @@ h1 .date {
   letter-spacing: 0.2px;
   margin-top: -4px;
 }
-
-.first-element {
+.bank-transactions .first-element {
   padding-top: 18px;
 }
-
-.last-element {
+.bank-transactions .last-element {
   opacity: 0.3;
 }
-
-.center-hr {
+.bank-transactions .center-hr {
   width: 98%;
   margin: auto;
 }
