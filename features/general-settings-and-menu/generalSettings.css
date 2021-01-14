@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
@@ -656,19 +657,25 @@ a {
 .mainContainer .generalSettings .settingsInfo .userInfo .dropdown-general .selected {
   margin-top: 10px;
 }
-.mainContainer .generalSettings .settingsInfo .userInfo .dropdown-general .options {
+.mainContainer .generalSettings .settingsInfo .userInfo .dropdown-general .selected .default-symbol:after {
+  content: "" !important;
+  font-family: "Line Awesome Free";
+  font-size: 18px;
+  font-weight: 900;
+}
+.mainContainer .generalSettings .settingsInfo .userInfo .options {
   margin-top: 25px;
 }
-.mainContainer .generalSettings .settingsInfo .userInfo .lastName {
+.mainContainer .generalSettings .settingsInfo .lastName {
   grid-column: 2/2;
 }
-.mainContainer .generalSettings .settingsInfo .generalInfo {
+.mainContainer .generalSettings .generalInfo {
   margin-bottom: 25px;
   font-size: 16px;
   color: #252631;
   font-weight: 400;
 }
-.mainContainer .generalSettings .settingsInfo .userProfile {
+.mainContainer .generalSettings .userProfile {
   width: 696px;
   border: 1px solid #E8ECEF;
   display: flex;
@@ -676,56 +683,57 @@ a {
   border-radius: 7px;
   padding: 27px 0px 27px 26px;
 }
-.mainContainer .generalSettings .settingsInfo .userProfile .profilePic {
+.mainContainer .generalSettings .userProfile .profilePic {
   width: 67px;
   height: 67px;
   background-color: #E8ECEF;
   border-radius: 50%;
   padding: 3px 5px;
 }
-.mainContainer .generalSettings .settingsInfo .userProfile p {
+.mainContainer .generalSettings .userProfile p {
   font-size: 18px;
   font-weight: 400;
   color: #252631;
   margin-left: 19px;
   margin-top: -5px;
 }
-.mainContainer .generalSettings .primary {
+.mainContainer .primary {
   margin-left: 24px;
   margin-top: 31px;
 }
-.mainContainer .generalSettings .primary .resting {
+.mainContainer .primary .resting {
   width: 148px;
   margin-left: 12px;
   padding-right: 15px;
 }
-.mainContainer .generalSettings .buttons {
+.mainContainer .buttons {
   padding-top: 140px;
 }
-.mainContainer .menu {
+
+.menu {
   max-width: 262px;
   border-left: 1px solid #E8ECEF;
   display: flex;
   margin-left: -5px;
 }
-.mainContainer .menu .menuTabs {
+.menu .menuTabs {
   padding-top: 26px;
   padding-left: 18px;
 }
-.mainContainer .menu .menuTabs p:nth-child(1) {
+.menu .menuTabs p:nth-child(1) {
   color: #252631;
 }
-.mainContainer .menu .menuTabs p {
+.menu .menuTabs p {
   margin-bottom: 21px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: #778CA2;
 }
-.mainContainer .menu .menuTabs p:nth-last-child(1) {
+.menu .menuTabs p:nth-last-child(1) {
   margin-top: 492px;
 }
-.mainContainer .menu .tabStick {
+.menu .tabStick {
   height: 15px;
   margin-top: 26px;
   background-color: black;

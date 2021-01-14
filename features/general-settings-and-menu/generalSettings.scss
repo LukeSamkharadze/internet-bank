@@ -31,7 +31,15 @@
             
             .selected {
                 margin-top: 10px;
-              
+             
+                .default-symbol:after{
+                  content: "\f107" !important;
+         font-family: "Line Awesome Free";
+                     font-size: 18px;
+       font-weight: 900;
+                }
+                
+              }
             }
             .options {
                 margin-top:25px;
@@ -125,4 +133,4 @@
       display: block;
     }
   }
-}
+
