@@ -1,50 +1,61 @@
 @import "../../../colors&typo/styles.scss";
-.settings {
-  padding: 19.12px 23px;
-  input {
-    border: none;
-  }
-  textarea:focus,
-  input:focus {
-    outline: none;
-  }
-}
-.transaction {
-  padding: 20px 23px 10px 23px;
-}
-.left {
-  display: inline;
-}
 
-.right {
-  float: right;
+.bank-transactions {
+  min-width: 551px;
 
-  span {
+  .settings {
+    padding: 19.12px 23px;
+    input {
+      border: none;
+    }
+    textarea:focus,
+    input:focus {
+      outline: none;
+    }
+  }
+
+  .left {
+    display: inline;
+    h2 {
+      display: inline-block;
+      @include text-style(16px, $primary-dark);
+      vertical-align: top;
+      line-height: 20px;
+
+      span {
+        @include text-style(14px, $secondary-dark-2);
+      }
+    }
+  }
+  
+  .transaction {
+    padding: 10px 23px 9px 23px;
+
+    img {
+      margin-right: 0.6%;
+    }
+  }
+
+  .right {
     float: right;
+    padding-bottom: 9px;
+    span {
+      float: right;
+    }
+    .green-font {
+      color: $secondary-2;
+    }
   }
-}
-h2 {
-  display: inline-block;
-  @include text-style(16px, $primary-dark);
-  vertical-align: top;
-  line-height: 20px;
-  span {
-    @include text-style(14px, $secondary-dark-2);
-  }
-}
 
-h1 {
-  span {
-    @include text-style(14px, $primary-dark);
-    margin-top: 7px;
-  }
-  margin-top: -3px;
-  .date {
-    @include text-style(14px, $secondary-dark-2);
-    margin-top: 0px;
-  }
-}
+  h1 {
+    span {
+      @include text-style(14px, $primary-dark);
+      margin-top: 4px;
+    }
 
-img {
-  margin-right: 0.6%;
+    .date {
+      @include text-style(14px, $secondary-dark-2);
+      margin-top: -4px;
+    }
+  }
 }
