@@ -43,7 +43,8 @@
         margin-left: 26px;
       }
       .options {
-        position: static;
+        // position: static;
+        margin-top: 10px;
       }
     }
 
@@ -74,7 +75,6 @@
       margin-right: 0.6%;
     }
   }
-
 
   .left {
     display: inline;

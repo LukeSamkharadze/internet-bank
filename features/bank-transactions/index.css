@@ -191,7 +191,7 @@ a {
   margin-left: 26px;
 }
 .bank-transactions .settings .right-settings .options {
-  position: static;
+  margin-top: 10px;
 }
 .bank-transactions .settings .dropdown-general {
   font-size: 12px;
