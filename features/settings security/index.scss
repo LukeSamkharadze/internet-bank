@@ -1,19 +1,26 @@
 @import "../../colors&typo/styles.scss";
 
 @import "../../components/buttons/index.scss";
+@import"../../components/basic-inputs/core/index.scss";
 
 .security-settings-wrapper {
   margin-left: 24px;
   margin-bottom: 24px;
   margin-top: 18px;
   line-height: 42px;
-  @include text-style(18px);
+  @include text-style(14px);
   text-transform: capitalize;
   max-width: 1140px;
+  .aligment-flex
+  {
+    display:flex;
+  }
 
   #btn {
-    display: flex;
+    display:flex;
+  
     margin-top: 183px;
+   
     button:nth-of-type(1) {
       width: 206px;
       height: 46px;
@@ -45,30 +52,20 @@
 
   .settings-form-aligment {
     margin-top: 20px;
-    div {
-      position: relative;
-    }
+  
     display: flex;
+    flex-direction: column;
     label {
-      display: block;
+      
       margin-bottom: 10px;
     }
-    .svg1 {
-      position: absolute;
-      top: 68px;
-      right: 43px;
-    }
-    .svg2 {
-      position: absolute;
-      top:68px;
-      right: 43px;
-    }
+  
   }
 
   input {
     width: 336px;
     height: 52px;
-    border-color: #e8ecef;
+    border-color: #e8ecef !important;
     border-radius: 6px;
     margin-right: 26px;
     border-style: solid;
@@ -80,13 +77,11 @@
     text-transform: capitalize;
   }
 
-  select {
-    width: 336px;
-    height: 52px;
-    border-radius: 6px;
-    border-color: #e8ecef;
-    margin-right: 26px;
-    border-style: solid;
-    
-  }
+  
+i{
+  position: absolute;
+  right:45px;
+  ;
+}
+
 }

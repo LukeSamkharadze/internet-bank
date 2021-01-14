@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -453,6 +455,212 @@ header h1 {
   height: 200px;
 }
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.input-label {
+  box-sizing: border-box;
+  line-height: 19px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
+  font-weight: 300;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper input {
+  box-sizing: border-box;
+  padding: 19px 14px 15px 14px;
+  display: block;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #252631;
+  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
+  border-radius: 4px;
+  border: 1px solid #E8ECEF;
+}
+.input-wrapper input::-webkit-input-placeholder, .input-wrapper input::-ms-input-placeholder, .input-wrapper input::placeholder {
+  color: #98A9BC;
+}
+.input-wrapper input:focus, .input-wrapper input:active {
+  outline: none;
+}
+.input-wrapper input:disabled {
+  background-color: #F8FAFB;
+  color: #98A9BC;
+}
+.input-wrapper input.valid {
+  border-color: #6DD230;
+}
+.input-wrapper input.invalid {
+  border-color: #FE4D97;
+}
+.input-wrapper input.valid, .input-wrapper input.invalid {
+  padding-right: 35px;
+}
+.input-wrapper input.valid::-webkit-input-placeholder, .input-wrapper input.valid::-ms-input-placeholder, .input-wrapper input.valid::placeholder, .input-wrapper input.invalid::-webkit-input-placeholder, .input-wrapper input.invalid::-ms-input-placeholder, .input-wrapper input.invalid::placeholder {
+  color: #252631;
+}
+.input-wrapper i {
+  position: absolute;
+  font-size: 18px;
+  top: 18px;
+  right: 16px;
+}
+
 .security-settings-wrapper {
   margin-left: 24px;
   margin-bottom: 24px;
@@ -460,11 +668,14 @@ header h1 {
   line-height: 42px;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   color: #252631;
   letter-spacing: 0.2px;
   text-transform: capitalize;
   max-width: 1140px;
+}
+.security-settings-wrapper .aligment-flex {
+  display: flex;
 }
 .security-settings-wrapper #btn {
   display: flex;
@@ -497,28 +708,15 @@ header h1 {
 .security-settings-wrapper .settings-form-aligment {
   margin-top: 20px;
   display: flex;
-}
-.security-settings-wrapper .settings-form-aligment div {
-  position: relative;
+  flex-direction: column;
 }
 .security-settings-wrapper .settings-form-aligment label {
-  display: block;
   margin-bottom: 10px;
-}
-.security-settings-wrapper .settings-form-aligment .svg1 {
-  position: absolute;
-  top: 68px;
-  right: 43px;
-}
-.security-settings-wrapper .settings-form-aligment .svg2 {
-  position: absolute;
-  top: 68px;
-  right: 43px;
 }
 .security-settings-wrapper input {
   width: 336px;
   height: 52px;
-  border-color: #e8ecef;
+  border-color: #e8ecef !important;
   border-radius: 6px;
   margin-right: 26px;
   border-style: solid;
@@ -528,13 +726,9 @@ header h1 {
   color: #98a9bc;
   text-transform: capitalize;
 }
-.security-settings-wrapper select {
-  width: 336px;
-  height: 52px;
-  border-radius: 6px;
-  border-color: #e8ecef;
-  margin-right: 26px;
-  border-style: solid;
+.security-settings-wrapper i {
+  position: absolute;
+  right: 45px;
 }
 
 /*# sourceMappingURL=index.css.map */
