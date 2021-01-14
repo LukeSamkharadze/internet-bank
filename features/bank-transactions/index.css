@@ -164,7 +164,7 @@ a {
 }
 .bank-transactions .settings .right-settings {
   float: right;
-  margin-right: -29.5px;
+  margin-right: -12px;
 }
 .bank-transactions .settings .right-settings p {
   font-family: "Roboto", sans-serif;
@@ -178,6 +178,7 @@ a {
 }
 .bank-transactions .settings .right-settings .position-right {
   float: right;
+  margin-right: -6px;
 }
 .bank-transactions .settings .right-settings .text-1 {
   margin-right: -3px;
@@ -185,19 +186,16 @@ a {
 .bank-transactions .settings .right-settings .photo-1 {
   margin-right: 5px;
 }
-.bank-transactions .settings .right-settings .text-2 {
-  margin-right: -5px;
-}
 .bank-transactions .settings .right-settings .photo-2 {
   margin-right: 6px;
-  margin-left: 10px;
+  margin-left: 26px;
 }
 .bank-transactions .settings .right-settings .options {
   position: static;
 }
 .bank-transactions .settings .dropdown-general {
   font-size: 12px;
-  width: 140px;
+  width: 123px;
   margin-top: -3px;
   height: 5px;
 }
@@ -211,7 +209,7 @@ a {
   height: 25px;
 }
 .bank-transactions .settings .dropdown-style {
-  width: 87px;
+  width: 70px;
 }
 .bank-transactions .transaction {
   padding: 10px 23px 9px 23px;

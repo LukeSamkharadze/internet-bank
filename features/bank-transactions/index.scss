@@ -17,7 +17,7 @@
     }
     .right-settings {
       float: right;
-      margin-right: -29.5px;
+      margin-right: -12px;
       p {
         @include text-style(12px, $secondary-dark-1);
       }
@@ -26,6 +26,7 @@
       }
       .position-right {
         float: right;
+        margin-right: -6px;
       }
       .text-1 {
         margin-right: -3px;
@@ -33,12 +34,13 @@
       .photo-1 {
         margin-right: 5px;
       }
-      .text-2 {
-        margin-right: -5px;
-      }
+
+      // .text-2 {
+      //   // margin-right: -5px;
+      // }
       .photo-2 {
         margin-right: 6px;
-        margin-left: 10px;
+        margin-left: 26px;
       }
       .options {
         position: static;
@@ -47,7 +49,7 @@
 
     .dropdown-general {
       font-size: 12px;
-      width: 140px;
+      width: 123px;
       margin-top: -3px;
       height: 5px;
 
@@ -62,7 +64,7 @@
       }
     }
     .dropdown-style {
-      width: 87px;
+      width: 70px;
     }
   }
   .transaction {
@@ -72,6 +74,7 @@
       margin-right: 0.6%;
     }
   }
+
 
   .left {
     display: inline;
