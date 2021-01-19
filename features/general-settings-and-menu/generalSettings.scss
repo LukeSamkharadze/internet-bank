@@ -3,8 +3,10 @@
 @import "../../components/buttons/core/index.scss";
 
 .settingsAndMenu {
-  min-width: 1140px;
+  width: 100%;
+  width: 1020px;
   border-radius: 5px;
+  justify-content: space-between;
   position: relative;
   display: flex;
   font-family: "Roboto", sans-serif;
@@ -84,7 +86,7 @@
   }
 
   .buttons {
-    padding-top: 140px;
+    padding-top: 100px;
   }
   .menu {
     max-width: 262px;
