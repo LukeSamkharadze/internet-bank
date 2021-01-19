@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
@@ -625,22 +624,22 @@ a {
   background-color: #2CDBEC;
 }
 
-.mainContainer {
-  max-width: 1140px;
+.settingsAndMenu {
+  min-width: 1140px;
   border-radius: 5px;
   position: relative;
   display: flex;
   font-family: "Roboto", sans-serif;
 }
-.mainContainer .generalSettings {
+.settingsAndMenu .generalSettings {
   width: 877px;
   padding-top: 18px;
 }
-.mainContainer .generalSettings .settingsInfo {
+.settingsAndMenu .generalSettings .settingsInfo {
   width: 696px;
   padding-left: 24px;
 }
-.mainContainer .generalSettings .settingsInfo .userInfo {
+.settingsAndMenu .generalSettings .settingsInfo .userInfo {
   padding-top: 30px;
   display: grid;
   grid-template-columns: repeat(1fr, 2);
@@ -648,34 +647,24 @@ a {
   grid-column-gap: 24px;
   grid-row-gap: 22px;
 }
-.mainContainer .generalSettings .settingsInfo .userInfo .dropdown-general {
-  font-family: "Roboto", sans-serif;
+.settingsAndMenu .generalSettings .settingsInfo .userInfo .dropdown-general {
   color: #252631;
   margin-top: -2px;
   width: 336px;
 }
-.mainContainer .generalSettings .settingsInfo .userInfo .dropdown-general .selected {
+.settingsAndMenu .generalSettings .settingsInfo .userInfo .dropdown-general .selected {
   margin-top: 10px;
 }
-.mainContainer .generalSettings .settingsInfo .userInfo .dropdown-general .selected .default-symbol:after {
-  content: "" !important;
-  font-family: "Line Awesome Free";
-  font-size: 18px;
-  font-weight: 900;
-}
-.mainContainer .generalSettings .settingsInfo .userInfo .options {
-  margin-top: 25px;
-}
-.mainContainer .generalSettings .settingsInfo .lastName {
+.settingsAndMenu .generalSettings .settingsInfo .lastName {
   grid-column: 2/2;
 }
-.mainContainer .generalSettings .generalInfo {
+.settingsAndMenu .generalSettings .generalInfo {
   margin-bottom: 25px;
   font-size: 16px;
   color: #252631;
   font-weight: 400;
 }
-.mainContainer .generalSettings .userProfile {
+.settingsAndMenu .generalSettings .userProfile {
   width: 696px;
   border: 1px solid #E8ECEF;
   display: flex;
@@ -683,57 +672,56 @@ a {
   border-radius: 7px;
   padding: 27px 0px 27px 26px;
 }
-.mainContainer .generalSettings .userProfile .profilePic {
+.settingsAndMenu .generalSettings .userProfile .profilePic {
   width: 67px;
   height: 67px;
   background-color: #E8ECEF;
   border-radius: 50%;
   padding: 3px 5px;
 }
-.mainContainer .generalSettings .userProfile p {
+.settingsAndMenu .generalSettings .userProfile p {
   font-size: 18px;
   font-weight: 400;
   color: #252631;
   margin-left: 19px;
   margin-top: -5px;
 }
-.mainContainer .primary {
+.settingsAndMenu .primary {
   margin-left: 24px;
   margin-top: 31px;
 }
-.mainContainer .primary .resting {
+.settingsAndMenu .primary .resting {
   width: 148px;
   margin-left: 12px;
   padding-right: 15px;
 }
-.mainContainer .buttons {
+.settingsAndMenu .buttons {
   padding-top: 140px;
 }
-
-.menu {
+.settingsAndMenu .menu {
   max-width: 262px;
   border-left: 1px solid #E8ECEF;
   display: flex;
   margin-left: -5px;
 }
-.menu .menuTabs {
+.settingsAndMenu .menu .menuTabs {
   padding-top: 26px;
   padding-left: 18px;
 }
-.menu .menuTabs p:nth-child(1) {
+.settingsAndMenu .menu .menuTabs p:nth-child(1) {
   color: #252631;
 }
-.menu .menuTabs p {
+.settingsAndMenu .menu .menuTabs p {
   margin-bottom: 21px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: #778CA2;
 }
-.menu .menuTabs p:nth-last-child(1) {
+.settingsAndMenu .menu .menuTabs p:nth-last-child(1) {
   margin-top: 492px;
 }
-.menu .tabStick {
+.settingsAndMenu .menu .tabStick {
   height: 15px;
   margin-top: 26px;
   background-color: black;

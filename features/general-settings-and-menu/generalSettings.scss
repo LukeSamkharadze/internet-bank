@@ -2,8 +2,8 @@
 @import "../../components/basic-inputs/core/index.scss";
 @import "../../components/buttons/core/index.scss";
 
-.mainContainer {
-  max-width: 1140px;
+.settingsAndMenu {
+  min-width: 1140px;
   border-radius: 5px;
   position: relative;
   display: flex;
@@ -24,26 +24,16 @@
         grid-column-gap: 24px;
         grid-row-gap: 22px;
         .dropdown-general {
-          font-family: "Roboto", sans-serif;
+        
           color: $primary-dark;
           margin-top: -2px;
             width: 336px;   
             
             .selected {
                 margin-top: 10px;
-             
-                .default-symbol:after{
-                  content: "\f107" !important;
-         font-family: "Line Awesome Free";
-                     font-size: 18px;
-       font-weight: 900;
-                }
-                
-              }
+         }
             }
-            .options {
-                margin-top:25px;
-            }
+           
         }
         .lastName {
           grid-column: 2/2;
@@ -97,40 +87,42 @@
     .buttons {
       padding-top: 140px;
     }
-  }
-
-  .menu {
-    max-width: 262px;
-    border-left: 1px solid $outline;
-    display: flex;
-    margin-left: -5px;
-
-    .menuTabs {
-      padding-top: 26px;
-
-      padding-left: 18px;
-      p:nth-child(1) {
-        color: $primary-dark;
+    .menu {
+      max-width: 262px;
+      border-left: 1px solid $outline;
+      display: flex;
+      margin-left: -5px;
+  
+      .menuTabs {
+        padding-top: 26px;
+  
+        padding-left: 18px;
+        p:nth-child(1) {
+          color: $primary-dark;
+        }
+  
+        p {
+          margin-bottom: 21px;
+          font-weight: 500;
+          font-family: "Roboto", sans-serif;
+          font-size: 14px;
+          color: $secondary-dark-1;
+        }
+        p:nth-last-child(1) {
+          margin-top: 492px;
+        }
       }
-
-      p {
-        margin-bottom: 21px;
-        font-weight: 500;
-        font-family: "Roboto", sans-serif;
-        font-size: 14px;
-        color: $secondary-dark-1;
-      }
-      p:nth-last-child(1) {
-        margin-top: 492px;
+  
+      .tabStick {
+        height: 15px;
+        margin-top: 26px;
+        background-color: black;
+        width: 1.5px;
+        display: block;
       }
     }
-
-    .tabStick {
-      height: 15px;
-      margin-top: 26px;
-      background-color: black;
-      width: 1.5px;
-      display: block;
-    }
+  
+  
   }
 
+ 
