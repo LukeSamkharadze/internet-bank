@@ -647,12 +647,12 @@ a {
   grid-column-gap: 24px;
   grid-row-gap: 22px;
 }
-.settingsAndMenu .generalSettings .settingsInfo .userInfo .dropdown-general {
+.settingsAndMenu .generalSettings .settingsInfo .userInfo .dropdownContainer .dropdown-general {
   color: #252631;
   margin-top: -2px;
   width: 336px;
 }
-.settingsAndMenu .generalSettings .settingsInfo .userInfo .dropdown-general .selected {
+.settingsAndMenu .generalSettings .settingsInfo .userInfo .dropdownContainer .dropdown-general .selected {
   margin-top: 10px;
 }
 .settingsAndMenu .generalSettings .settingsInfo .lastName {
