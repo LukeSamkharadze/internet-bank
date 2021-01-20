@@ -1,0 +1,98 @@
+@import "../../colors&typo/styles.scss";
+
+@import "../../components/buttons/index.scss";
+@import"../../components/basic-inputs/core/index.scss";
+
+.security-settings-wrapper {
+  margin-left: 24px;
+  margin-bottom: 24px;
+  margin-top: 18px;
+  line-height: 42px;
+  @include text-style(14px);
+  text-transform: capitalize;
+  display: flex;
+
+ 
+  .security{
+    
+    
+    max-width: 1140px;
+    min-width:690px ;
+    width:100vw;
+  }
+  .aligment-flex
+  {
+    display:flex;
+    
+  }
+
+  #btn {
+    display:flex;
+    width: 32%;
+  
+    margin-top: 183px;
+   
+    button:nth-of-type(1) {
+      width: 56%;
+      height: 46px;
+    }
+    button:nth-of-type(2) {
+      margin-left: 3%;
+      width: 40%;
+      height: 46px;
+    }
+  }
+ 
+  .dropdown-general {
+    width: 336px;
+    margin-right: 26px;
+  }
+
+  h4 {
+    font-size: 18px;
+    margin-bottom: -30px;
+  }
+
+  .headers {
+    text-align: left;
+    color: #98a9bc;
+    border-bottom: solid 1px #e8ecef;
+    width: 61%;
+    margin-top: 31px;
+  }
+
+  .settings-form-aligment {
+    margin-top: 20px;
+ 
+    display: flex;
+    flex-direction: column;
+    label {
+      
+      margin-bottom: 10px;
+    }
+  
+  }
+
+  input {
+    width: 336px;
+    height: 52px;
+    border-color: #e8ecef !important;
+    border-radius: 6px;
+    margin-right: 26px;
+    border-style: solid;
+    padding-left: 7px;
+  }
+
+  input::placeholder {
+    color: #98a9bc;
+    text-transform: capitalize;
+  }
+
+  
+i{
+  position: absolute;
+  right:45px;
+  ;
+}
+
+}
