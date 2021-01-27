@@ -1,0 +1,90 @@
+@import '../../../colors&typo/styles.scss';
+@mixin size {
+    max-width: 555px;
+    min-width: 372px;
+}
+
+.available-balances {
+    display: flex;
+    flex-direction: column;
+    @include size;
+    .balances-title {
+        @include text-style(16px);
+        @include size;
+        letter-spacing: 0.5px;
+        border-bottom: 1px solid $outline;
+        padding: 20px 0px 18px 23px;
+    }
+    .balances-container {
+        * {
+            background-color: inherit;
+        }
+        padding: 20px;
+        @include size;
+        display: flex;
+        flex-direction: column;
+        .la-long-arrow-alt-up {
+            color: $secondary-2;
+        }
+        .la-long-arrow-alt-down {
+            color: $secondary-3;
+        }
+        .account-balance {
+            display: flex;
+            align-self: center;
+            justify-content: space-between;
+            border-bottom: 1px solid $outline;
+            padding: 13px 0 16px 0;
+            width: 100%;
+            &:first-child {
+                padding-top: 0px;
+            }
+            &:last-child {
+                border: 0px;
+            }
+            .logo-background {
+                width: 58.14px;
+                height: 40px;
+                background-color: $background-2;
+                display: flex;
+                justify-content: center;
+                margin-left: 5px;
+            }
+            .account-type {
+                display: flex;
+            }
+            .account-number {
+                @include text-style(16px);
+                padding-bottom: 5px;
+                letter-spacing: 0.4px;
+            }
+            .account-description {
+                @include text-style(14px);
+                color: $secondary-dark-2;
+            }
+            .detail-position {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 21px;
+            }
+            .card-position {
+                @extend .detail-position;
+                width: 76px;
+                justify-content: space-between;
+                padding: 0;
+            }
+            .balance {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                div {
+                    @include text-style(16px);
+                }
+                .las {
+                    padding-bottom: 5px;
+                }
+            }
+        }
+    }
+}

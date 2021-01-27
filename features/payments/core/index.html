@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="build/index.css" />
+        <link
+            rel="stylesheet"
+            href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+        />
+        <link rel="stylesheet" href="../../../components/basic-inputs/index.css" />
+        <link rel="stylesheet" href="../../../components/buttons/core/index.css" />
+        <link rel="stylesheet" href="../../../components/dropdown/dropdowns/select/style/build/index.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <section class="payments">
+            <section class="payment-providers">
+                <header>
+                    <h5>Payment providers</h5>
+                    <form class="find-provider">
+                        <label for="find-provider-input"><i class="las la-search"></i></label>
+                        <input type="text" id="find-provider-input" placeholder="FIND PROVIDER" />
+                    </form>
+                </header>
+                <section class="providers-list">
+                    <div class="provider-wrapper selected-provider" data-index="0">
+                        <div class="provider">
+                            <div class="icon-wrapper">
+                                <i class="las la-credit-card"></i>
+                            </div>
+                            <div class="provider-details">
+                                <h5>Electronic payments</h5>
+                                <p>Paypal</p>
+                                <p>Skrill</p>
+                                <p>Payoneer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="provider-wrapper" data-index="1">
+                        <div class="provider">
+                            <div class="icon-wrapper"></div>
+                            <div class="provider-info">
+                                <h5>Bank transfer</h5>
+                                <p>TBC</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="provider-wrapper" data-index="2">
+                        <div class="provider">
+                            <div class="icon-wrapper">
+                                <i class="las la-cart-plus"></i>
+                            </div>
+                            <div class="provider-info">
+                                <h5>Instant transfer</h5>
+                                <p>Visa</p>
+                                <p>Mastercard</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section class="payment-forms">
+                <div class="online-payment payment current-payment">
+                    <header>
+                        <h5>Online payment</h5>
+                    </header>
+                    <form>
+                        <label class="input-label" for="account">Select account</label>
+                        <div class="dropdown-general payment-dropdown" id="account">
+                            <div class="option">Select a card</div>
+                            <div class="option">
+                                <div class="card-account">
+                                    <section>
+                                        <img src="../../../assets/visa.svg" alt="" />
+                                        <span>3210 **** **** 4008</span>
+                                    </section>
+                                    <span class="payments-account-balance">$142.800.00</span>
+                                </div>
+                            </div>
+                            <select></select>
+                        </div>
+
+                        <label class="input-label" for="payment-system">Select payment system</label>
+                        <div class="dropdown-general payment-dropdown" id="payment-system">
+                            <div class="option">Select a payment system</div>
+                            <div class="option">
+                                <div class="payment-system-dropdown">
+                                    <img src="../../../assets/paypal.svg" alt="" />
+                                    <span>Paypal</span>
+                                </div>
+                            </div>
+                            <select></select>
+                        </div>
+
+                        <label class="input-label" for="paypal-acc">PayPal account</label>
+                        <div class="input-wrapper">
+                            <input id="paypal-acc" type="text" placeholder="Enter email account" />
+                        </div>
+
+                        <div class="amount-wrapper">
+                            <label class="input-label" for="amount">Amount</label>
+                            <div class="input-wrapper amount">
+                                <input id="amount" type="number" placeholder="Enter amount" />
+                            </div>
+                        </div>
+
+                        <div class="currency-wrapper">
+                            <label class="input-label" for="currency">Currency</label>
+                            <div class="dropdown-general" id="currency">
+                                <div class="option">Select a currency</div>
+                                <div class="option">USD</div>
+                                <select></select>
+                            </div>
+                        </div>
+
+                        <div class="payment-summary">
+                            <i class="las la-info-circle"></i>
+                            <div class="amount">
+                                <span>Amount</span>
+                                <span>1500 USD</span>
+                            </div>
+                            <div class="fee">
+                                <span>Fee</span>
+                                <span>15 USD</span>
+                            </div>
+                            <div class="proccesing">
+                                <span>Processing</span>
+                                <span>5 - 7 Business days</span>
+                            </div>
+                        </div>
+
+                        <div class="payment-buttons">
+                            <div class="primary">
+                                <button class="active">PAY NOW</button>
+                            </div>
+                            <div class="primary">
+                                <button class="resting btn">CANCEL</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="payment bank-payment">
+                    <header>
+                        <h5>Bank transfer</h5>
+                    </header>
+                    <form>
+                        <label class="input-label" for="account-bank">Select account</label>
+
+                        <div class="dropdown-general payment-dropdown" id="account-bank">
+                            <div class="option">Select a card</div>
+                            <div class="option">
+                                <div class="card-account">
+                                    <section>
+                                        <img src="../../../assets/visa.svg" alt="" />
+                                        <span>3210 **** **** 4008</span>
+                                    </section>
+                                    <span class="payments-account-balance">$142.800.00</span>
+                                </div>
+                            </div>
+                            <select></select>
+                        </div>
+
+                        <label class="input-label" for="destination">Transfer to </label>
+                        <div class="input-wrapper">
+                            <input id="destination" type="text" placeholder="Enter account number" />
+                        </div>
+
+                        <label class="input-label" for="beneficiary">Beneficiary</label>
+                        <div class="input-wrapper">
+                            <input id="beneficiary" type="text" placeholder="Enter beneficiary name" />
+                        </div>
+
+                        <div class="amount-wrapper">
+                            <label class="input-label" for="amount-bank">Amount</label>
+                            <div class="input-wrapper amount">
+                                <input id="amount-bank" type="number" placeholder="Enter amount" />
+                            </div>
+                        </div>
+
+                        <div class="currency-wrapper">
+                            <label class="input-label" for="currency">Currency</label>
+                            <div class="dropdown-general" id="currency">
+                                <div class="option">Select a currency</div>
+                                <div class="option">USD</div>
+                                <select></select>
+                            </div>
+                        </div>
+
+                        <label class="input-label" for="transfer-type">Transfer type</label>
+                        <div class="dropdown-general" id="transfer-type">
+                            <div class="option">Select transfer type</div>
+                            <div class="option">Personal tranfser</div>
+                            <select></select>
+                        </div>
+
+                        <div class="payment-buttons">
+                            <div class="primary">
+                                <button class="active">PAY NOW</button>
+                            </div>
+                            <span>2% Bank fee applied</span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="payment instant-payment">
+                    <header>
+                        <h5>Instant transfer</h5>
+                    </header>
+                    <form>
+                        <label class="input-label" for="account-instant">Select account</label>
+
+                        <div class="dropdown-general payment-dropdown" id="account-instant">
+                            <div class="option">Select a card</div>
+                            <div class="option">
+                                <div class="card-account">
+                                    <section>
+                                        <img src="../../../assets/visa.svg" alt="" />
+                                        <span>3210 **** **** 4008</span>
+                                    </section>
+                                    <span class="payments-account-balance">$142.800.00</span>
+                                </div>
+                            </div>
+                            <select></select>
+                        </div>
+
+                        <label class="input-label" for="destination-instant">Transfer to </label>
+                        <div class="input-wrapper">
+                            <input id="destination-instant" type="text" placeholder="Enter account number" />
+                        </div>
+
+                        <div class="amount-wrapper">
+                            <label class="input-label" for="amount-instant">Amount</label>
+                            <div class="input-wrapper amount">
+                                <input id="amount-instant" type="number" placeholder="Enter amount" />
+                            </div>
+                        </div>
+
+                        <div class="transfer-type-wrapper">
+                            <label class="input-label" for="transfer-type-instant">Transfer type</label>
+                            <div class="dropdown-general" id="transfer-type-instant">
+                                <div class="option">Select a transfter type</div>
+                                <div class="option">Personal transfter</div>
+                                <select></select>
+                            </div>
+                        </div>
+
+                        <div class="payment-buttons">
+                            <div class="primary">
+                                <button class="active">PAY NOW</button>
+                            </div>
+                            <span>2% Bank fee applied</span>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </section>
+
+        <script src="./scripts/script.js"></script>
+        <script type="text/javascript" src="../../../components/dropdown/core/logic/build/index.js"></script>
+    </body>
+</html>
