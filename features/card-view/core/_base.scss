@@ -6,7 +6,7 @@
     width: 100%;
     height: 100%;
     background-color: white;
-    padding: 14px 21px 18px 18px;
+    padding: 10px 21px 18px 18px;
     border-radius: 4px;
 }
 
@@ -29,11 +29,12 @@
 .title {
     width: 100%;
     padding-left: 6px;
-    height: 30px;
+    height: 46px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 16px;
 
     border-bottom: solid 1px $background-1;
 
@@ -66,11 +67,11 @@
 }
 
 .card-container {
-    height: 317px;
+    height: 300px;
     width: 100%;
     margin-left: 5px;
     margin-top: 2px;
-    padding-top: 58px;
+    padding-top: 42px;
     padding-right: 9px;
 
     animation-name: card-appear;
@@ -85,8 +86,8 @@
 
     .bg {
         position: absolute;
-        top: 0;
-        left: 50%;
+        top: -15px;
+        left: calc(50% - 5px);
         transform: translateX(-50%);
     }
 
@@ -189,6 +190,6 @@
     to {
         opacity: 1;
         pointer-events: all;
-        top: 0;
+        top: 0px;
     }
 }
