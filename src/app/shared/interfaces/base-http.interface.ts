@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
 export interface BaseHttpInterface<T> {
   getAll(): T[];
 
