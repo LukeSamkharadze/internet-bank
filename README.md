@@ -1,8 +1,10 @@
-# angular-project
+# angular-bootcamp-internet-bank
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `mpm run server` for a mock server. Navigate to `http://localhost:3000/` to see available endpoints
+
+Run `mpm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
@@ -13,6 +15,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [jest](https://jestjs.io/docs/en/getting-started.html)
 Check out extra library for better testing [spectator](https://github.com/ngneat/spectator)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
