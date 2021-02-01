@@ -14,7 +14,8 @@
     "target": "es2015",
     "lib": ["es2018", "dom"],
     "paths": {
-      "@shared/*": ["src/app/shared/*"],
+      "@shared/shared": ["src/app/shared/index.ts"],
+      "@features/shared": ["src/app/features/shared/index.ts"],
       "@core/*": ["src/app/core/*"]
     }
   },

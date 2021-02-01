@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ItemEntity, ListStyleEnum } from '../models/item.entity';
+import { ItemEntity } from '../models/item.entity';
+import { ListStyleEnum } from '../models/list-style.enum';
 
 @Component({
   selector: 'app-item-list',

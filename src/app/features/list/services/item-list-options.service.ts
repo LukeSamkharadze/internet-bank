@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ItemListOption, ListStyleEnum } from '../models/item.entity';
+import { ItemListOption } from '../models/item-list-option.entity';
+import { ListStyleEnum } from '../models/list-style.enum';
 
 @Injectable()
 export class ItemListOptionsService {
@@ -22,5 +23,13 @@ export class ItemListOptionsService {
 
   getItemListOptions(): ItemListOption[] {
     return this.itemListOptions;
+  }
+
+  getDefaultIndex(): number {
+    return this.itemListOptions.findIndex((ob) => ob.default);
+  }
+
+  getDefaultClassName(): ListStyleEnum {
+    return this.itemListOptions[this.getDefaultIndex()].className;
   }
 }

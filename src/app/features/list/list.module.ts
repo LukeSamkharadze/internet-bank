@@ -6,7 +6,7 @@ import { ItemListOptionsComponent } from './item-list-options/item-list-options.
 import { ItemService } from './services/item.service';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemListOptionsService } from './services/item-list-options.service';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@shared/shared';
 import { ListRoutingModule } from './list-routing.module';
 
 @NgModule({

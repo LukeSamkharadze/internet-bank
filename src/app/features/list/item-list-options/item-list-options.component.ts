@@ -5,7 +5,8 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { ItemListOption } from '../models/item.entity';
+import {  } from '../models/item.entity';
+import { ItemListOption } from '../models/item-list-option.entity';
 
 @Component({
   selector: 'app-item-list-options',
