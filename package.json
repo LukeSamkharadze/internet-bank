@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pretty": "pretty-quick --staged && ng lint && ng test"
+    "pretty": "pretty-quick && ng lint && ng test"
   },
   "husky": {
     "hooks": {
