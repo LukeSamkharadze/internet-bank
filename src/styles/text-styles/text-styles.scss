@@ -1,0 +1,76 @@
+@mixin text-style($font-size, $color: $primary-dark, $font-family: $roboto) {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: $font-size;
+    color: $color;
+    letter-spacing: 0.2px;
+}
+
+/////////// Headings
+h1 {
+    @include text-style(30px, $dark-secondary-3);
+}
+
+h2 {
+    @include text-style(26px);
+}
+
+h3 {
+    @include text-style(20px);
+}
+
+h4 {
+    @include text-style(18px);
+}
+
+h5 {
+    @include text-style(16px);
+}
+
+/////////// Text
+
+p {
+    color: $secondary-dark-2;
+    font-family: $roboto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+button {
+    color: $primary-dark;
+    font-family: $roboto;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+a {
+    color: $primary-dark;
+    font-family: $roboto;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.caption {
+    color: $dark-secondary-3;
+    font-family: $roboto;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.light {
+    font-weight: 300;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
