@@ -10,7 +10,7 @@ export class CheckboxesComponent implements OnInit {
   @Input() checked: boolean;
   @Input() disabled: boolean;
   @Input() checkboxError: string;
-  @Input() checkboxText!: string;
+  @Input() checkboxText: string;
   constructor() {}
 
   ngOnInit(): void {}
