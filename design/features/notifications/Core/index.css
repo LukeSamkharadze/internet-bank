@@ -1,0 +1,331 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.successful-pay, .unsuccessful-pay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 93px;
+  margin-right: 19px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 64px;
+  background-color: #6DD230;
+}
+
+.successful-pay .payment-text, .unsuccessful-pay .payment-text {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.successful-pay span, .unsuccessful-pay span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.las {
+  color: #fafbff;
+}
+
+.la-bell {
+  font-size: 22px;
+  margin-right: 13px;
+  margin-left: 18px;
+}
+
+.la-times-circle {
+  font-size: 18px;
+  margin-right: 14px;
+  margin-left: 6.5rem;
+}
+
+.la-times-circle:hover {
+  cursor: pointer;
+}
+
+.unsuccessful-pay {
+  background-color: #FFAB2B;
+  min-width: 35rem;
+  margin-top: 12px;
+  margin-right: 16px;
+}
+
+.unsuccessful-pay .la-times-circle {
+  margin-left: 20px;
+}
+
+#bell-notifications {
+  position: absolute;
+  display: none;
+  background-color: white;
+  top: 46px;
+  right: -4px;
+  width: 341px;
+  -webkit-box-shadow: 0px 0px 10px -5px #707070;
+          box-shadow: 0px 0px 10px -5px #707070;
+}
+
+#bell-notifications li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#bell-notifications li .notification-bottom {
+  letter-spacing: -0.01px;
+  padding-bottom: 22px;
+  padding-right: 35px;
+}
+
+#bell-notifications ul :not(:first-child) {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+
+#bell-notifications ul :not(:last-child):hover {
+  background-color: #F8FAFB;
+  cursor: pointer;
+}
+
+#bell-notifications ul :not(:last-child):hover .tooltip {
+  background-color: #F8FAFB;
+}
+
+#bell-notifications ul p:hover {
+  cursor: pointer;
+}
+
+#bell-notifications li:nth-of-type(1) > div > .notification-header {
+  padding-top: 20px;
+}
+
+#bell-notifications .notification-header {
+  padding-right: 35px;
+  font-family: "Rubik", sans-serif;
+  font-size: 14px;
+  color: #1b1e24;
+  font-weight: 400;
+}
+
+#bell-notifications .notification-footer-text {
+  font-weight: 500;
+  color: #FFAB2B;
+  padding: 15px 0;
+}
+
+#bell-notifications .notification-footer {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #F8FAFB;
+}
+
+#bell-notifications .bell-image {
+  padding-right: 15px;
+  padding-left: 20px;
+}
+
+#bell-notifications .tooltip {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  position: absolute;
+  right: 22px;
+  top: -4px;
+  -webkit-transform: rotate(50deg);
+          transform: rotate(50deg);
+}
+
+#bell-notifications.bell-notifications {
+  display: block;
+  z-index: 2;
+}
+
+.bell-notifications-icon {
+  position: relative;
+}
+
+.bell-notifications-icon .la-bell {
+  color: #778CA2;
+  margin: 0;
+}
+
+.bell-notifications-icon .la-bell:hover {
+  color: #FFAB2B;
+  cursor: pointer;
+}
+
+.bell-notifications-icon .dot {
+  position: absolute;
+  top: 0.5px;
+  right: 1.5px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: #FE4D97;
+}
+
+.bell-notifications-icon .bell {
+  position: relative;
+  width: 22px;
+  margin-right: 20px;
+}
+/*# sourceMappingURL=index.css.map */

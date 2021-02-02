@@ -1,0 +1,19 @@
+@import "core/index.scss";
+@import "../header-profile-#31/index.scss";
+
+.profileBef {
+    width: auto;
+}
+
+.line2 {
+    z-index: -1;
+}
+
+
+.feature31 {
+    .payment {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
