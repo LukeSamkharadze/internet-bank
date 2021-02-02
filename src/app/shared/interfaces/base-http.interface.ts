@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface BaseHttpInterface<T> {
-  getAll(): T[];
+  getAll(): Observable<T[]>;
 
-  getById(): T;
+  getById(): Observable<T>;
 
-  create(): T;
+  create(): Observable<T>;
 
-  update(): T;
+  update(): Observable<T>;
 
-  delete(): void;
+  delete(): Observable<void>;
 }
