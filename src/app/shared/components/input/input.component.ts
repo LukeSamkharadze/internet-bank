@@ -8,11 +8,12 @@ import { FormControl } from '@angular/forms';
 })
 export class InputComponent implements OnInit {
   @Input() control: FormControl;
+  @Input() caption = '';
+  @Input() type = 'text';
+  @Input() placeholder = 'Placeholder';
+  @Input() validated = true;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

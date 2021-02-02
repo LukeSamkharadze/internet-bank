@@ -1,1 +1,14 @@
-<input [formControl]="control"/>
+<label class="input-label" *ngIf="caption">{{ caption }}</label>
+<div class="input-wrapper">
+  <input
+    [type]="type"
+    [ngClass]="{ validated: validated }"
+    [placeholder]="placeholder"
+    [formControl]="control"
+  />
+  <i
+    *ngIf="validated && control.touched"
+    class="las"
+    [ngClass]="{ 'la-ban': !control.valid, 'la-check': control.valid }"
+  ></i>
+</div>
