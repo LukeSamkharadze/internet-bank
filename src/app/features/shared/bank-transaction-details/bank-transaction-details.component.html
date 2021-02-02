@@ -1,16 +1,30 @@
 <div class="popup-blur"></div>
 <div class="details-popup">
   <div class="details-popup-upper">
-    <i class="las la-times-circle" (click)='closeModal()'></i>
+    <i class="las la-times-circle" (click)="closeModal()"></i>
   </div>
   <div class="details-popup-lower">
-    <div class="details-popup-lower-logo"><img [src]="transaction.icon" alt='Transaction Icon'></div>
+    <div class="details-popup-lower-logo">
+      <img [src]="transaction.icon" alt="Transaction Icon" />
+    </div>
     <div></div>
     <div class="details-popup-lower-heading">
       <h3>{{ transaction.title }}</h3>
     </div>
     <div class="details-popup-lower-tag">
-      <div class="tag green-text-tag">{{ transaction.status }}<i class="las la-times"></i></div>
+      <div
+        class="tag"
+        [ngClass]="{
+          'white-text-tag': transaction.tagColor == 'white',
+          'cyan-text-tag': transaction.tagColor == 'cyan',
+          'green-text-tag': transaction.tagColor == 'green',
+          'orange-text-tag': transaction.tagColor == 'orange',
+          'pink-text-tag': transaction.tagColor == 'pink',
+          'gray-text-tag': transaction.tagColor == 'gray'
+        }"
+      >
+        {{ transaction.status }}<i class="las la-times"></i>
+      </div>
     </div>
     <div class="details-popup-lower-transaction">
       <div class="details-popup-lower-transaction-account">
@@ -18,12 +32,15 @@
         <p>Payment account</p>
       </div>
       <div class="details-popup-lower-transaction-amount">
-        <p class="details-popup-lower-transaction-number">{{ transaction.amount }}</p>
+        <p class="details-popup-lower-transaction-number">
+          {{ transaction.amount }}
+        </p>
         <p>{{ transaction.date }}</p>
       </div>
     </div>
     <div class="details-popup-lower-receipt">
-      <i class="las la-envelope"></i><p>SEND RECEIPT</p>
+      <i class="las la-envelope"></i>
+      <p>SEND RECEIPT</p>
     </div>
   </div>
 </div>
