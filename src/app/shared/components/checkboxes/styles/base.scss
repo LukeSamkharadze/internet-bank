@@ -1,30 +1,29 @@
-@import '../../../../../styles/index.scss';
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @mixin flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@mixin checkbox_default($col, $fontSize:16px) {
-    cursor: pointer;
-    position: relative;
-    font-family: $roboto;
-    font-weight: 300;
-    font-size: 16px;
-    color: $col;
-    padding-left: 10px;
+@mixin checkbox_default($col, $fontSize: 16px) {
+  cursor: pointer;
+  position: relative;
+  font-family: $roboto;
+  font-weight: 300;
+  font-size: 16px;
+  color: $col;
+  padding-left: 10px;
 }
 
 @mixin checkbox_default_before($color) {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
-    background-color: rgba($color: $color, $alpha: 0.15);
-    top: 0;
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: rgba($color: $color, $alpha: 0.15);
+  top: 0;
 }

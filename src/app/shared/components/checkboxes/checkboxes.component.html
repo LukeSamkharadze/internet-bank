@@ -5,7 +5,7 @@
     [checked]="checked"
     [disabled]="disabled"
   />
-  <label for="{{ checkboxType }}" class="{{ checkboxError }}">{{
-    checkboxText
-  }}</label>
+  <label for="{{ checkboxType }}" class="{{ checkboxError }}"
+    ><ng-content></ng-content
+  ></label>
 </div>
