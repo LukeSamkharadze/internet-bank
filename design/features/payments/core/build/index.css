@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  color: #1b1e24;
+  letter-spacing: 0.2px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #252631;
+  letter-spacing: 0.2px;
+}
+
+p {
+  color: #98A9BC;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+button {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+a {
+  color: #252631;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.caption {
+  color: #1b1e24;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.payment-providers {
+  overflow: auto;
+  background: white;
+  height: 718px;
+  border-radius: 5px;
+  min-width: 220.828px;
+}
+.payment-providers header {
+  padding: 20px;
+  padding-bottom: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid #E8ECEF;
+}
+.payment-providers header form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.payment-providers header label {
+  margin-right: 5px;
+  color: #778CA2;
+  font-size: 18px;
+  text-align: start;
+}
+.payment-providers header input {
+  margin-top: 2px;
+  border: none;
+  width: 95px;
+  outline: none;
+}
+.payment-providers header input::placeholder {
+  letter-spacing: -0.6px;
+  color: #778CA2;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.providers-list {
+  padding-top: 9px;
+}
+.providers-list .provider-wrapper {
+  width: 100%;
+  padding-top: 11px;
+}
+.providers-list .provider-wrapper:hover {
+  cursor: pointer;
+}
+.providers-list .provider {
+  width: 91.202%;
+  margin: 0 auto;
+  border-bottom: 1px solid #E8ECEF;
+  padding-bottom: 13px;
+  display: grid;
+  grid-template-columns: 0.03fr 1fr;
+  grid-gap: 13px;
+}
+.providers-list .provider .icon-wrapper {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #fff3df;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: #FFAB2B;
+  font-size: 20px;
+}
+.providers-list .provider .provider-info {
+  width: 100%;
+  display: inline-block;
+}
+.providers-list .provider p {
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  margin-top: 1px;
+  transition: color 0.5s, border-color 0.5s;
+}
+.providers-list .selected-provider {
+  background: #fffbf4;
+}
+.providers-list .selected-provider .provider {
+  border-color: transparent;
+}
+
+.payment {
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: white;
+  display: none;
+  min-width: 384.922px;
+}
+.payment.current-payment {
+  display: block;
+}
+.payment header {
+  padding: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid #E8ECEF;
+}
+.payment form {
+  width: 91.91%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.payment form div:not(:last-child) {
+  margin-bottom: 22px;
+}
+.payment form .amount-wrapper,
+.payment form .currency-wrapper,
+.payment form .transfer-type-wrapper {
+  display: inline-block;
+  width: 48%;
+}
+.payment form .currency-wrapper,
+.payment form .transfer-type-wrapper {
+  float: right;
+}
+.payment form .currency-wrapper .dropdown-general,
+.payment form .transfer-type-wrapper .dropdown-general {
+  width: 100%;
+}
+.payment form .payment-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.payment form .payment-buttons button {
+  width: 130px;
+}
+.payment form .payment-buttons div {
+  margin-bottom: 0px;
+}
+.payment .dropdown-general .content {
+  margin-bottom: 0;
+}
+.payment .payment-dropdown {
+  width: 100%;
+}
+.payment .card-account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.payment .card-account section + span:last-child {
+  margin-right: 32px;
+}
+.payment .card-account section img {
+  margin-right: 19.449%;
+}
+.payment .card-account section {
+  width: 100%;
+}
+.payment #account .content section + span,
+.payment #account-bank .content section + span,
+.payment #account-instant .content section + span {
+  margin-right: 15px;
+  color: #778CA2;
+}
+.payment .payment-summary {
+  border: 2px dotted #E8ECEF;
+  border-radius: 5px;
+  padding: 25px 15px;
+  position: relative;
+}
+.payment .payment-summary div :first-child {
+  display: inline-block;
+  font-weight: 300;
+  width: 103px;
+}
+.payment .payment-summary div:not(:last-child) {
+  margin-bottom: 15px;
+}
+.payment .payment-summary i {
+  position: absolute;
+  right: 18px;
+  top: 20px;
+  font-size: 18px;
+  color: #FFAB2B;
+  cursor: help;
+}
+.payment #account img {
+  margin-right: 15px;
+}
+.payment .payment-system-dropdown img {
+  margin-right: 12px;
+}
+.payment.bank-payment #transfer-type {
+  margin-bottom: 66px;
+}
+.payment.bank-payment .dropdown-general {
+  width: 100%;
+}
+.payment.instant-payment .payment-buttons {
+  margin-top: 22px;
+}
+.payment.bank-payment .payment-buttons, .payment.instant-payment .payment-buttons {
+  align-items: center;
+}
+.payment.bank-payment .payment-buttons .primary, .payment.instant-payment .payment-buttons .primary {
+  width: 95%;
+}
+.payment.bank-payment .payment-buttons button, .payment.instant-payment .payment-buttons button {
+  width: 74.6%;
+}
+.payment.bank-payment .payment-buttons span, .payment.instant-payment .payment-buttons span {
+  display: inline-block;
+  width: 55%;
+  min-width: 124.672px;
+  color: #778CA2;
+}
+
+.payments {
+  font-family: "Roboto", sans-serif;
+  width: 79.16%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+/*# sourceMappingURL=index.css.map */

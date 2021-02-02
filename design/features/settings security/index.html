@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="../../components/dropdown/dropdowns/select/style/build/index.css">
+      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+   </head>
+   <body>
+      <div class ="security-settings-wrapper">
+      <div class="security">
+      <h4 >security</h4>
+      <div class="headers">change password</div>
+      <form>
+         <div class="settings-form-aligment">
+            <div class="aligment-flex">
+            <div >
+               <label class="input-label" for="input-icon-example">current password</label>
+               <div class="input-wrapper">
+                 <input type="password" id="input-icon-example" class="valid" type="text" placeholder="Placeholder" required>
+                 <i class="las la-eye"></i>
+               </div>
+            </div>
+            <div  >
+               <label class="input-label" for="input-icon-example">new password</label>
+               <div class="input-wrapper">
+                 <input  id="input-icon-example" class="valid" type="text" placeholder="Placeholder" required>
+                 <i class="las la-lock"></i>
+               </div>
+            </div>
+         </div>
+         </div>
+         <div class="headers">security questions</div>
+         <div class="settings-form-aligment">
+            <div class="aligment-flex">
+            <div>
+               <label class="select" for="dropdown-general">question #1</label>
+               <div class="dropdown-general">
+                  <select>
+                     <option>Placeholder</option>
+                     <option>Select item 1</option>
+                     <option>Select item 2</option>
+                     <option>Select item 3</option>
+                     <option>Select item 4</option>
+                  </select>
+               </div>
+            </div>
+            <div >
+               <label class="input-label" for="input-icon-example">answer</label>
+               <div class="input-wrapper">
+                 <input  id="input-icon-example" class="valid" type="text" placeholder="Placeholder">
+                 
+            </div>
+         </div>
+      </div>
+         <div id='btn' class="primary buttons">
+            <button class="active btn">UPDATE SETTINGS</button>
+            <button  class="resting btn">CANCEL</button>
+            <div>
+            </div>
+         </div>
+      </form>
+     
+      
+      
+      <script type="text/javascript" src="../../components/dropdown/core/logic/build/index.js"></script>
+   </body>
+</html>

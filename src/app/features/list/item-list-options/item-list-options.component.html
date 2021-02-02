@@ -1,0 +1,10 @@
+<div id="btnContainer">
+  <button
+    class="btn"
+    *ngFor="let option of options; let index = index"
+    [class.active]="index === activeIndex"
+    (click)="activate(index)"
+  >
+    {{ option.title }}
+  </button>
+</div>
