@@ -1,17 +1,12 @@
-// @import "../../../colors&typo/base.scss";
-// @import "../../../colors&typo/styles.scss";
-// @import '../../../components/tags/index.scss';
-@import '../../../../../design/colors&typo/base.scss';
-@import "../../../../../design/colors&typo/styles.scss";
-@import '../../../../../design/components/tags/core/index.scss';
-//@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 @import '../../../../../node_modules/line-awesome/dist/line-awesome/scss/line-awesome';
+@import '../../../../styles/index.scss';
+@import '../../../../../design/components/tags/index.scss';
 @mixin ellipsis {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-$trans-bg-color: #FFFFFF;
+$trans-bg-color: #ffffff;
 .popup-blur {
   position: absolute;
   top: 0;
@@ -20,149 +15,149 @@ $trans-bg-color: #FFFFFF;
   width: 100%;
   height: 100vh;
   backdrop-filter: blur(14px);
-  background: rgba(0,0,0,0.6)
+  background: rgba(0, 0, 0, 0.6);
 }
 .details-popup {
-    width: 360px;
-    border-radius: 4px;
+  width: 360px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-rows: 148px auto;
+  min-width: 360px;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  .details-popup-upper {
+    background-color: rgb(221, 32, 49);
+    opacity: 70%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    position: relative;
+    i {
+      color: white;
+      position: absolute;
+      right: 12px;
+      top: 13px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+  .details-popup-lower {
+    background-color: $trans-bg-color;
+    position: relative;
     display: grid;
-    grid-template-rows: 148px auto;
-    min-width: 360px;
-    background-color: white;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 4;
-    .details-popup-upper {
-        background-color: rgb(221,32,49);
-        opacity: 70%;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        position: relative;
-        i {
-            color: white;
-            position: absolute;
-            right: 12px;
-            top: 13px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+    padding: 43px 20px 21px 20px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    .details-popup-lower-logo {
+      height: 62px;
+      width: 62px;
+      border: 4px solid $trans-bg-color;
+      overflow: hidden;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: -1px;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 62px;
+      }
     }
-    .details-popup-lower {
-        background-color: $trans-bg-color;
-        position:relative;
-        display: grid;
-        padding: 43px 20px 21px 20px;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        .details-popup-lower-logo {
-            height: 62px;
-            width: 62px;
-            border: 4px solid $trans-bg-color;
-            overflow: hidden;
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            top: -1px;
-            img {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%,-50%);
-              max-height: 62px;
-            }
-        }
-        .details-popup-lower-heading {
-            max-width: 320px;
-            h3 {
-                word-break: break-word;
-                line-height: 26px;
-                text-align: center;
-                max-width: 320px;
-            }
-        }
-        .details-popup-lower-tag {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            max-height:92px;
-            padding: 10px 10px 45px;
-          div {
-                margin-left: 2px;
-            }
-            :nth-child(1){
-                margin-left:0;
-            }
-            :nth-child(4){
-                margin-left:0;
-            }
-        }
-        .details-popup-lower-transaction {
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
-            border-top: 2px solid #E8ECEF;
-            border-bottom: 2px solid #E8ECEF;
-            align-items: center;
-        }
-        .details-popup-lower-transaction-account {
-            @include ellipsis();
-            max-height: 64px;
-            max-width: 160px;
-            padding-top: 7px;
-            padding-bottom: 7px;
-            h5 {
-                @include ellipsis();
-                line-height: 21px;
-            }
-            p {
-                @include text-style(14px, $secondary-dark-2);
-                @include ellipsis();
-                padding-bottom: 6px;
-                letter-spacing: 0.1px;
-            }
-        }
-        .details-popup-lower-transaction-amount {
-            text-align: right;
-            overflow: hidden;
-            max-height: 64px;
-            max-width: 160px;
-            p {
-                @include text-style(14px, $secondary-dark-2);
-                @include ellipsis();
-                letter-spacing: 0.1px;
-            }
-            .details-popup-lower-transaction-number {
-                @include text-style(14px);
-                @include ellipsis();
-                margin-bottom: -3px;
-                font-weight: 500;
-            }
-        }
-        .details-popup-lower-receipt {
-            padding-top: 20px;
-            display: flex;
-            align-items: flex-end;
-            overflow:hidden;
-            margin-left: -2px;
-            i {
-                font-size: 18px;
-                padding-right: 5px;
-                padding-bottom: 3px;
-                color: $secondary-dark-1;
-                cursor: pointer;
-            }
-            p {
-                @include text-style(12px,$secondary-dark-1);
-                @include ellipsis();
-                display:inline-block;
-                line-height: 16px;
-                padding-bottom: 3px;
-                letter-spacing: 0.1px;
-                cursor: pointer;
-            }
-        }
+    .details-popup-lower-heading {
+      max-width: 320px;
+      h3 {
+        word-break: break-word;
+        line-height: 26px;
+        text-align: center;
+        max-width: 320px;
+      }
     }
+    .details-popup-lower-tag {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-height: 92px;
+      padding: 10px 10px 45px;
+      div {
+        margin-left: 2px;
+      }
+      :nth-child(1) {
+        margin-left: 0;
+      }
+      :nth-child(4) {
+        margin-left: 0;
+      }
+    }
+    .details-popup-lower-transaction {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      border-top: 2px solid #e8ecef;
+      border-bottom: 2px solid #e8ecef;
+      align-items: center;
+    }
+    .details-popup-lower-transaction-account {
+      @include ellipsis();
+      max-height: 64px;
+      max-width: 160px;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      h5 {
+        @include ellipsis();
+        line-height: 21px;
+      }
+      p {
+        @include text-style(14px, $secondary-dark-2);
+        @include ellipsis();
+        padding-bottom: 6px;
+        letter-spacing: 0.1px;
+      }
+    }
+    .details-popup-lower-transaction-amount {
+      text-align: right;
+      overflow: hidden;
+      max-height: 64px;
+      max-width: 160px;
+      p {
+        @include text-style(14px, $secondary-dark-2);
+        @include ellipsis();
+        letter-spacing: 0.1px;
+      }
+      .details-popup-lower-transaction-number {
+        @include text-style(14px);
+        @include ellipsis();
+        margin-bottom: -3px;
+        font-weight: 500;
+      }
+    }
+    .details-popup-lower-receipt {
+      padding-top: 20px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      margin-left: -2px;
+      i {
+        font-size: 18px;
+        padding-right: 5px;
+        padding-bottom: 3px;
+        color: $secondary-dark-1;
+        cursor: pointer;
+      }
+      p {
+        @include text-style(12px, $secondary-dark-1);
+        @include ellipsis();
+        display: inline-block;
+        line-height: 16px;
+        padding-bottom: 3px;
+        letter-spacing: 0.1px;
+        cursor: pointer;
+      }
+    }
+  }
 }
