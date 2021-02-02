@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-shared-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss']
+  styleUrls: ['./dropdown.component.scss'],
 })
 export class DropdownComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  @Input() formControl: FormControl;
+  @Input() optionsCount = 0;
 
-  ngOnInit(): void {
-  }
+  isOptionsOpened = true;
 
+  ngOnInit(): void {}
 }
