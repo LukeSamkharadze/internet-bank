@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Transaction } from './models/transaction.model';
 
 @Component({
@@ -6,12 +6,10 @@ import { Transaction } from './models/transaction.model';
   templateUrl: './bank-transaction-details.component.html',
   styleUrls: ['./bank-transaction-details.component.scss'],
 })
-export class BankTransactionDetailsComponent implements OnInit {
+export class BankTransactionDetailsComponent {
   @Input() transaction: Transaction;
   @Output() closePopup = new EventEmitter();
   constructor() {}
-
-  ngOnInit(): void {}
 
   closeModal() {
     this.closePopup.emit();
