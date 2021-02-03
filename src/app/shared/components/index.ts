@@ -1,7 +1,7 @@
 import { InputComponent } from './input/input.component';
-import { TagsComponent } from './tags/tags.component';
+import { TagComponent } from './tag/tag.component';
 
 export * from './input/input.component';
-export * from './tags/tags.component';
+export * from './tag/tag.component';
 
-export const components = [InputComponent, TagsComponent];
+export const components = [InputComponent, TagComponent];
