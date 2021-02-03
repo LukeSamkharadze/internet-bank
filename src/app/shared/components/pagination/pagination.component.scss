@@ -1,0 +1,48 @@
+@import './../../../../styles/index';
+
+.custom-pagination .page-number {
+  display: inline-block;
+  background: white;
+  margin: 0px 4px;
+  border-radius: 4px;
+}
+
+.page-number.current {
+  color: $primary !important;
+  border: 1px solid $outline;
+}
+.page-number {
+  color: $secondary-dark-1;
+  border: 1px solid $outline;
+  padding: 10px 5px 0px;
+}
+.page-number span {
+  font-family: $rubik;
+  display: block;
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.pagination-previous,
+.pagination-next {
+  display: inline-block;
+  font-weight: bold;
+  color: $secondary-dark-1;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+}
+.pagination-previous {
+  margin-right: 23px;
+}
+.pagination-next {
+  margin-left: 13px;
+}
+.next,
+.previous {
+  border: 1px solid $outline;
+  border-radius: 4px;
+  padding: 10px 13px;
+}

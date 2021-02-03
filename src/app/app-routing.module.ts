@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PaginationComponent } from './shared/components/pagination/pagination.component';
 
 const routes: Routes = [
   {
     path: 'list',
     loadChildren: () =>
-      import('./features/list/list.module').then(
-        (m) => m.ListModule,
-      ),
+      import('./features/list/list.module').then((m) => m.ListModule),
+  },
+  {
+    path: 'pagination',
+    data: { name: 'Pagination' },
+    component: PaginationComponent,
   },
   {
     path: '',
@@ -24,5 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
