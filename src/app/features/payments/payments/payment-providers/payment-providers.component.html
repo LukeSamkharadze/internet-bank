@@ -18,7 +18,7 @@
     >
       <div class="provider">
         <div class="icon-wrapper">
-          <i class="las la-credit-card"></i>
+          <i *ngIf="paymentType.icon" [ngClass]="paymentType.icon"></i>
         </div>
         <div class="provider-details">
           <h5>{{ paymentType.name }}</h5>

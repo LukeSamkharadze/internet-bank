@@ -10,14 +10,17 @@ export class ProvidersService {
     {
       name: 'Electronic Payments',
       providers: ['Paypal', 'Skrill', 'Payoneer'],
+      icon: 'las la-credit-card',
     },
     {
       name: 'Bank Transfer',
       providers: ['TBC'],
+      icon: '',
     },
     {
       name: 'Instant Transfer',
       providers: ['Visa', 'Mastercard'],
+      icon: 'las la-cart-plus',
     },
   ];
 

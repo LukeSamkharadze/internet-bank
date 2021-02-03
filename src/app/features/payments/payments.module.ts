@@ -4,6 +4,7 @@ import { PaymentsComponent } from './payments/payments.component';
 import { PaymentProvidersComponent } from './payments/payment-providers/payment-providers.component';
 import { PaymentFormComponent } from './payments/payment-form/payment-form.component';
 import { ProvidersService } from './services/providers.service';
+import { PaymentsRoutingModule } from './payments-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import { ProvidersService } from './services/providers.service';
     PaymentFormComponent,
     PaymentsComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, PaymentsRoutingModule],
   exports: [PaymentsComponent, PaymentFormComponent, PaymentProvidersComponent],
   providers: [ProvidersService],
 })
