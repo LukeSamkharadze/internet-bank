@@ -1,4 +1,4 @@
-export interface DataType {
+export interface incomeDataType {
   id: number;
   data: number[];
 }

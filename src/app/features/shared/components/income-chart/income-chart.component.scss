@@ -1,4 +1,4 @@
-@import '../../../../styles/index.scss';
+@import '../../../../../styles/index.scss';
 @mixin size($width, $height) {
   width: $width;
   height: $height;
@@ -9,27 +9,30 @@
   justify-content: $justify;
   align-items: $align;
 }
-
+:host {
+  @include size(360px, 406px);
+  display: block;
+}
 .monthly-chart {
   position: relative;
   display: grid;
   grid-template-rows: 1fr 1fr 4fr;
   font-family: $roboto;
   background-color: #fff;
-  padding: 10px;
   border-radius: 5px;
-  @include size(360px, 406px);
+  @include size(100%, 100%);
 }
 .title {
   padding: 0px 10px;
   @include Flex(space-between, center);
   @include size(100%, 100%);
   .title-info {
-    @include size(100%, 50%);
+    padding: 15px 0px;
+    @include size(100%, 100%);
     @include Flex(space-between, flex-start);
     .info-title1 {
+      border-bottom: #000000 2px solid;
       cursor: pointer;
-      border-bottom: 2px solid #000;
       @include size(auto, 100%);
       h3 {
         font-size: 14px;

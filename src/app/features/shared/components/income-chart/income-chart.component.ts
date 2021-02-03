@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
 import { finalize, map } from 'rxjs/operators';
-import { DataType } from './services/data/dataType';
+import { incomeDataType } from './services/data/dataType';
 import { GenerateChartService } from './services/chart/generate-chart.service';
 import { IncomeDataService } from './services/data/income-data.service';
 
@@ -16,7 +16,7 @@ export class IncomeChartComponent implements OnInit {
   gradientFill: any;
   gradientFill2: any;
   myChart: Chart;
-  data: DataType[];
+  data: incomeDataType[];
   color: string = `unset`;
   totalsum: number;
   constructor(
@@ -58,7 +58,7 @@ export class IncomeChartComponent implements OnInit {
       .pipe(
         map((value) => {
           if (!value[0]) {
-            alert('ბაზაში ინფორმაცია არ არის');
+            alert('No Data');
           } else {
             this.data = value;
           }
