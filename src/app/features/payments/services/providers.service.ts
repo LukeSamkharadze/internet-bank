@@ -11,28 +11,23 @@ export class ProvidersService {
       name: 'Electronic Payments',
       providers: ['Paypal', 'Skrill', 'Payoneer'],
       icon: 'las la-credit-card',
+      formPath: 'electronic-payment',
     },
     {
       name: 'Bank Transfer',
       providers: ['TBC'],
       icon: '',
+      formPath: 'bank-transfer',
     },
     {
       name: 'Instant Transfer',
       providers: ['Visa', 'Mastercard'],
       icon: 'las la-cart-plus',
+      formPath: 'instant-transfer',
     },
   ];
 
-  public chosenPaymentTypeName: BehaviorSubject<string> = new BehaviorSubject<
-    string
-  >(this.paymentTypes[0].name);
-
   getAllPaymentTypes(): PaymentType[] {
     return this.paymentTypes;
-  }
-
-  changePaymentTypeName(newPaymentTypeName: string) {
-    this.chosenPaymentTypeName.next(newPaymentTypeName);
   }
 }

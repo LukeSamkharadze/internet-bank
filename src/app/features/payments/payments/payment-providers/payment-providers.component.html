@@ -8,13 +8,10 @@
   </header>
   <div class="providers-list">
     <div
+      routerLink="{{ paymentType.formPath }}"
+      routerLinkActive="selected-provider"
       class="provider-wrapper"
       *ngFor="let paymentType of allPaymentTypes"
-      [ngClass]="{
-        'selected-provider':
-          paymentType.name === (chosenPaymentTypeName | async)
-      }"
-      (click)="changeProvider(paymentType.name)"
     >
       <div class="provider">
         <div class="icon-wrapper">

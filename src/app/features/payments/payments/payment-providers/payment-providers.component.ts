@@ -8,8 +8,7 @@ import { ProvidersService } from '../../services/providers.service';
 })
 export class PaymentProvidersComponent implements OnInit {
   public allPaymentTypes = this.providerService.getAllPaymentTypes();
-  // reference to the service's subject.
-  public chosenPaymentTypeName = this.providerService.chosenPaymentTypeName;
+
   constructor(private providerService: ProvidersService) {}
   ngOnInit(): void {}
 
@@ -18,9 +17,5 @@ export class PaymentProvidersComponent implements OnInit {
       return false;
     }
     return provider !== providersArray[providersArray.length - 1];
-  }
-
-  changeProvider(newProviderName: string) {
-    this.providerService.changePaymentTypeName(newProviderName);
   }
 }
