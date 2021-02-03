@@ -1,0 +1,36 @@
+@import '../../../../styles/index.scss';
+
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.content {
+  width: 1440px;
+  height: 1250px;
+}
+
+header {
+  border-bottom: 2px solid $background-1;
+
+  h1 {
+    margin: 64px auto 65px 150px;
+  }
+}
+
+.main {
+  width: 1141px;
+  margin: 0px auto;
+
+  .buttons {
+    width: 100%;
+    height: 133px;
+    border-top: 2px solid $background-1;
+    margin-top: 91px;
+
+    h5 {
+      margin-top: 31px;
+      margin-bottom: 33px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import '../../../../../styles/index.scss';
+$primary-hover: #f4a42b;
+
+.primary {
+  &.active {
+    color: white;
+    background-color: $primary;
+
+    &:hover {
+      color: white;
+      background-color: $primary-hover;
+    }
+  }
+
+  &.resting {
+    background-color: $background-1;
+    color: $secondary-dark-1;
+    &:hover {
+      background-color: $background-1;
+      color: $primary;
+    }
+  }
+}

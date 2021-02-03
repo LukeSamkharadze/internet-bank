@@ -1,0 +1,31 @@
+@import '../../../../../styles/index.scss';
+
+$secondary-1-hover: #4b78f3;
+$secondary-2-hover: #69c930;
+$secondary-3-hover: #f34b91;
+$secondary-4-hover: #2cdbec;
+
+@mixin color-options-btn($bg-color, $hovered-bg-color) {
+  color: white;
+  background-color: $bg-color;
+
+  &:hover {
+    background-color: $hovered-bg-color;
+  }
+}
+
+.blue {
+  @include color-options-btn($secondary-1, $secondary-1-hover);
+}
+
+.green {
+  @include color-options-btn($secondary-2, $secondary-2-hover);
+}
+
+.pink {
+  @include color-options-btn($secondary-3, $secondary-3-hover);
+}
+
+.lightBlue {
+  @include color-options-btn($secondary-4, $secondary-4-hover);
+}
