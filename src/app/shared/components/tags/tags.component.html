@@ -1,4 +1,4 @@
 <div class="tag" [class]="className">
-  <span>{{ text }}</span>
-  <i class="las la-times"></i>
+  <span><ng-content></ng-content></span>
+  <i class="las la-times" (click)="close()"></i>
 </div>

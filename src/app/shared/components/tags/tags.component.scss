@@ -15,7 +15,7 @@
     overflow: hidden;
     white-space: nowrap;
     @include text-style(14px);
-    font-family: monospace;
+    font-family: $rubik;
     line-height: 17px;
   }
 

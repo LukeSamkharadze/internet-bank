@@ -1,13 +1,16 @@
-# Instructions
+# Usage
 
-## Tag component gets 2 inputs:
+Pattern:
+`<app-shared-tags *ngIf="showTag" (closeTag)="closeTag()" [className]="'nameOfClass'"> Text </app-shared-tags>`
 
-    - `[text]` that appears inside the tag
-    - `[className]` that indicates concrete class for your tag
+    Put your tag text in place of `Text` written in the Pattern above.
 
-## Pattern
+    In your code, you need also to have:
 
-    `<app-shared-tags [text]="'text'" [className]="'className'"></app-shared-tags>`
+`showTag` variable for tag to be displayed. When true, tag is visible and when false, tag disappears.
+`closeTag()` function to close Tag - it makes `showTag` value false.
+
+`[className]` input is for concrete style. You need to indicate `nameOfClass` that is one of the names of classes listed below.
 
 ## Class Names
 
