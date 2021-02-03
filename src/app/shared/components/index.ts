@@ -1,9 +1,7 @@
 import { InputComponent } from './input/input.component';
-import { ButtonComponent } from './buttons/button/button.component';
-import { ButtonsComponent } from './buttons/buttons.component';
+import { ButtonComponent } from './button/button.component';
 
 export * from './input/input.component';
-export * from './buttons/button/button.component';
-export * from './buttons/buttons.component';
+export * from './button/button.component';
 
-export const components = [InputComponent, ButtonComponent, ButtonsComponent];
+export const components = [InputComponent, ButtonComponent];

@@ -3,9 +3,15 @@
 @import './styles/color-options-buttons/style.scss';
 @import './styles/icon/style.scss';
 
-button {
-  width: 206px;
+:host {
+  display: block;
   height: 46px;
+  width: 206px;
+}
+
+button {
+  height: 100%;
+  width: 100%;
   border-style: none;
   border-radius: 3px;
   font-size: 14px;
