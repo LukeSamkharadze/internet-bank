@@ -1,8 +1,8 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-textarea',
+  selector: 'app-shared-textarea',
   templateUrl: './textarea.component.html',
   styleUrls: ['./textarea.component.scss'],
   providers: [
@@ -13,18 +13,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class TextareaComponent implements OnInit, ControlValueAccessor {
+export class TextareaComponent implements ControlValueAccessor {
   @Input() placeholder = '';
-  value: string;
-  onChange: (val) => void;
-  onTouched: () => {};
+  value = '';
   disabled: boolean;
-
-  constructor() {}
-  ngOnInit(): void {}
+  onChanges = (value: any) => {};
+  onTouched = () => {};
 
   registerOnChange(fn: any): void {
-    this.onChange = fn;
+    this.onChanges = fn;
   }
 
   registerOnTouched(fn: any): void {
