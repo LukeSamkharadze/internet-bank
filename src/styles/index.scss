@@ -1,5 +1,3 @@
-@import './reset';
-@import './base.scss';
 @import './variables/colors.scss';
-@import './fonts/fonts';
-@import './text-styles/text-styles';
+@import './variables/variables.scss';
+@import './variables/mixins.scss';
