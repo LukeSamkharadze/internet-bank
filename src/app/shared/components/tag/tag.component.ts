@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./tag.component.scss'],
 })
 export class TagComponent {
-  @Input() color: string;
+  @Input() color = 'white';
   @Output() closeClicked = new EventEmitter();
 
   close(event: MouseEvent) {

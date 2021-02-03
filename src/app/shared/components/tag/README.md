@@ -1,7 +1,7 @@
 # Usage
 
 Pattern:
-`<app-shared-tag *ngIf="showTag" (closeClicked)="closeTag()" [color]="'white'"> Text </app-shared-tag>`
+`<app-shared-tag *ngIf="showTag" (closeClicked)="closeTag()" [color]=""> Text </app-shared-tag>`
 
 -- Put your tag text in place of 'Text' written in the Pattern above.
 -- You can give the tag `height` and `width` of your choice (you can give it a class or use style binding).
@@ -12,7 +12,7 @@ In your code, you need also to have:
 -- `closeTag()` function to close Tag - it makes `showTag` value false.
 
 `[color]` input is for concrete style. You need to indicate `color` that can be one of the colors listed below.
-For default style, use empty string like this: `[color]="''"` or `[color]="'default'"`;
+By default, when using `[color]` like this - `[color]=""`, tag text color is white (with blue background).
 
 ## Colors For Tag
 
