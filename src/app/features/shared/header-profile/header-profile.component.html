@@ -1,20 +1,21 @@
 <div class="profileDiv">
+  <ng-content class="dashboard"></ng-content>
   <div class="dashboard"><i class="las la-bars"></i>Dashboard</div>
   <div class="profileBef dropbtn" (click)="myFunction()">
     <div class="image dropbtn">
-      <img class="dropbtn" src="./assets/header-profile/User.png" alt="" />
+      <img class="dropbtn" src="{{ headerProfile.picture }}" alt="" />
     </div>
-    <div class="name dropbtn">Barry Armstrong</div>
+    <div class="name dropbtn">{{ headerProfile.name }}</div>
   </div>
   <div class="line2"></div>
   <div class="profileHover" id="myDropdown">
     <div class="about">
       <div class="profileMini">
-        <img src="./assets/header-profile/User.png" alt="" />
+        <img src="{{ headerProfile.picture }}" alt="" />
       </div>
       <div>
-        <div>Barry Armstrong</div>
-        <div class="gmail">b.armstrong@gmail.com</div>
+        <div>{{ headerProfile.name }}</div>
+        <div class="gmail">{{ headerProfile.gmail }}</div>
       </div>
     </div>
     <div class="profSettings">

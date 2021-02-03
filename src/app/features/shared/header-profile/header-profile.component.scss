@@ -1,5 +1,4 @@
-@import './src/styles/variables/colors';
-@import './src/styles/fonts/fonts';
+@import './../../../../styles/index';
 .line2 {
   height: 1px;
   width: 100%;
@@ -11,7 +10,7 @@
 
 .profileDiv {
   position: relative;
-  width: 1198px;
+  //width: 1198px;
   // margin: auto;
   height: 66px;
   // margin-left: 100px;
@@ -147,5 +146,8 @@
 }
 
 .show {
+  display: block;
+}
+:host {
   display: block;
 }

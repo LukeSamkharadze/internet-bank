@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HeaderProfile } from './header-profile.model';
 @Component({
   selector: 'app-header-profile',
   templateUrl: './header-profile.component.html',
   styleUrls: ['./header-profile.component.scss'],
 })
 export class HeaderProfileComponent implements OnInit {
-  constructor() {}
+  public headerProfile: HeaderProfile;
+  constructor() {
+    this.headerProfile = new HeaderProfile();
+    // this.headerProfile.name = HeaderProfile.name
+  }
 
   ngOnInit(): void {
     document.onclick = this.hideElement;

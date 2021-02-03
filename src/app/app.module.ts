@@ -3,11 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from '@core/core.module';
-import { HeaderProfileComponent } from './features/shared/header-profile/header-profile.component';
-import { FeaturesSharedModule } from '@features/shared';
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CoreModule, AppRoutingModule, FeaturesSharedModule],
+  imports: [BrowserModule, CoreModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
