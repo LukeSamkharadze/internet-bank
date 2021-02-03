@@ -1,4 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { Chart } from 'chart.js';
 import { finalize, map } from 'rxjs/operators';
 import { incomeDataType } from './services/data/dataType';
@@ -11,6 +18,8 @@ import { IncomeDataService } from './services/data/income-data.service';
   styleUrls: ['./income-chart.component.scss'],
 })
 export class IncomeChartComponent implements OnInit {
+  @Output()
+  public isClicked = new EventEmitter<MouseEvent>();
   @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
   gradientFill: any;
@@ -51,6 +60,9 @@ export class IncomeChartComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.incomeChart();
+  }
+  handleClick(event: MouseEvent) {
+    this.isClicked.emit(event);
   }
   incomeChart() {
     this.incomeDataService
