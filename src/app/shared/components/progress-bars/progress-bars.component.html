@@ -1,0 +1,10 @@
+<progress
+  [value]="val"
+  [max]="max"
+  [ngClass]="{
+    red: val / max < 0.26,
+    orange: val / max >= 0.26 && val / max < 0.61,
+    blue: val / max >= 0.61 && val / max < 0.81,
+    green: val / max >= 0.81 && val / max < 1
+  }"
+></progress>
