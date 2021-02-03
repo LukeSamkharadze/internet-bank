@@ -1,9 +1,4 @@
-// @import '../../../../../node_modules/line-awesome/dist/line-awesome/scss/line-awesome';
 @import '../../../../styles/index.scss';
-@import '../../../../../design/components/tags/index.scss';
-@import '../../../../styles/icons/icons.scss';
-// @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css');
-// @import url('https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css');
 @mixin ellipsis {
   white-space: nowrap;
   overflow: hidden;
@@ -39,12 +34,17 @@ $trans-bg-color: #ffffff;
     border-top-right-radius: 4px;
     position: relative;
     i {
+      transition: 0.3s linear;
       color: white;
       position: absolute;
       right: 12px;
       top: 13px;
       font-size: 18px;
       cursor: pointer;
+    }
+    i:hover {
+      transition: 0.3s linear;
+      transform: scale(1.2);
     }
   }
   .details-popup-lower {
