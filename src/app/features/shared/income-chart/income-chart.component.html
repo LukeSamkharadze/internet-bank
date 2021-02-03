@@ -1,0 +1,27 @@
+<div class="monthly-chart">
+  <div class="title">
+    <div class="title-info">
+      <div class="info-title1">
+        <h3>Monthly</h3>
+      </div>
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+  <div class="chart-legend">
+    <div class="left-legend">
+      <h2>${{ totalsum }}</h2>
+      <p>Total Income</p>
+    </div>
+    <div class="right-legend">
+      <div class="legend-circle" [style.background-color]="color"></div>
+      <p>Income</p>
+    </div>
+  </div>
+  <div class="chart-container">
+    <canvas #canvas></canvas>
+  </div>
+</div>
