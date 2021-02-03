@@ -1,5 +1,11 @@
 <div class="textAreaContainer">
-  <textarea placeholder="Your message" [formControl]="control"></textarea>
+  <textarea
+    [placeholder]="placeholder"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="onChange($event.target.value)"
+    (blur)="onTouched()"
+  ></textarea>
   <div class="icon-container">
     <i class="las la-meh"></i>
   </div>
