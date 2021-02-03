@@ -1,0 +1,35 @@
+<div class="payment-providers">
+  <header>
+    <h5>Payment providers</h5>
+    <form class="find-provider">
+      <label for="find-provider-input"><i class="las la-search"></i></label>
+      <input type="text" id="find-provider-input" placeholder="FIND PROVIDER" />
+    </form>
+  </header>
+  <div class="providers-list">
+    <div
+      class="provider-wrapper"
+      *ngFor="let paymentType of allPaymentTypes"
+      [ngClass]="{
+        'selected-provider':
+          paymentType.name === (chosenPaymentTypeName | async)
+      }"
+      (click)="changeProvider(paymentType.name)"
+    >
+      <div class="provider">
+        <div class="icon-wrapper">
+          <i class="las la-credit-card"></i>
+        </div>
+        <div class="provider-details">
+          <h5>{{ paymentType.name }}</h5>
+          <p *ngFor="let provider of paymentType.providers">
+            {{ provider
+            }}<span *ngIf="shouldAddComma(provider, paymentType.providers)"
+              >,&nbsp;
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

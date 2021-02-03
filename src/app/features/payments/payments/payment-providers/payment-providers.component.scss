@@ -1,0 +1,94 @@
+@import '../../helpers/mixins';
+@import '../styles';
+
+.payment-providers {
+  overflow: auto;
+  background: white;
+  height: 718px;
+  border-radius: 5px;
+  min-width: 220.828px;
+
+  header {
+    padding: 20px;
+    padding-bottom: 17px;
+    @include flex(space-between);
+    border-bottom: 1px solid $outline;
+
+    form {
+      @include flex(center, flex-start);
+    }
+
+    label {
+      margin-right: 5px;
+      color: $secondary-dark-1;
+      font-size: 18px;
+      text-align: start;
+    }
+
+    input {
+      margin-top: 2px;
+      border: none;
+      width: 95px;
+      outline: none;
+      &::placeholder {
+        letter-spacing: -0.6px;
+        color: $secondary-dark-1;
+        font-weight: 600;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.providers-list {
+  padding-top: 9px;
+
+  .provider-wrapper {
+    width: 100%;
+    padding-top: 11px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .provider {
+    width: 91.202%;
+    margin: 0 auto;
+    border-bottom: 1px solid $outline;
+    padding-bottom: 13px;
+    display: grid;
+    grid-template-columns: 0.03fr 1fr;
+    grid-gap: 13px;
+
+    .icon-wrapper {
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+      background: #fff3df;
+      @include flex;
+      color: $primary;
+      font-size: 20px;
+    }
+
+    .provider-info {
+      width: 100%;
+      display: inline-block;
+    }
+
+    p {
+      display: inline-block;
+      border-bottom: 1px solid transparent;
+      margin-top: 1px;
+      transition: color 0.5s, border-color 0.5s;
+    }
+  }
+
+  .selected-provider {
+    background: #fffbf4;
+
+    .provider {
+      border-color: transparent;
+    }
+  }
+}

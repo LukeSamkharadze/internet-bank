@@ -1,0 +1,10 @@
+.payments-wrapper {
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  // development one
+  background: grey;
+}
