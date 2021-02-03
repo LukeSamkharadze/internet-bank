@@ -147,6 +147,7 @@ a {
 }
 
 .tag, .hover-tag {
+  display: block;
   padding: 9.5px 26px 9.5px 30px;
   width: fit-content;
   min-height: 36px;
