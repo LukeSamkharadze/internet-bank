@@ -3,16 +3,19 @@
 **_Use this component in your feature like this:_**
 
 ```
-<app-bank-transaction-details
+<app-shared-bank-transaction-details
 	*ngIf="popDetails"
 	(closePopup)="closePopup()"
+  (sendReceipt)="sendReceipt()"
 	[transaction]="transactionObject">
-</app-bank-transaction-details>
+</app-shared-bank-transaction-details>
 ```
 
 where **popDetails** is a variable that is either true or false. If you want this modal to pop up then you should make popDetails **true**.
 
 closePopup is an event that is emitted when **(x)** button is pressed on popup. closePopup() function should be a function that makes popDetails variable **false**.
+
+**sendReceipt** is an event that is emitted when **SEND RECEIPT** or _mail_ icon is presssed.
 
 **transaction** is an input that should be like this
 
