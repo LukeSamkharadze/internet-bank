@@ -26,6 +26,7 @@ import {
 export class CheckboxesComponent
   implements ControlValueAccessor, Validator, OnInit {
   @ViewChild('input') input: ElementRef;
+  @Input() textBefore = false;
   @Input() checkboxType = 'uncheck';
   @Input() isRequired = false;
   @Input() checked = false;
@@ -50,7 +51,7 @@ export class CheckboxesComponent
 
   onChange(event) {}
 
-  onTouched() {}
+  onTouched = () => {};
 
   writeValue(obj: any): void {}
 
