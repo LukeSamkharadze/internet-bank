@@ -3,15 +3,22 @@
     <h5>Payment providers</h5>
     <form class="find-provider">
       <label for="find-provider-input"><i class="las la-search"></i></label>
-      <input type="text" id="find-provider-input" placeholder="FIND PROVIDER" />
+      <input
+        name="search"
+        type="text"
+        id="find-provider-input"
+        placeholder="FIND PROVIDER"
+        [(ngModel)]="userInput"
+      />
     </form>
   </header>
   <div class="providers-list">
     <div
+      (click)="userInput = ''"
       routerLink="{{ paymentType.formPath }}"
       routerLinkActive="selected-provider"
       class="provider-wrapper"
-      *ngFor="let paymentType of allPaymentTypes"
+      *ngFor="let paymentType of allPaymentTypes | search: userInput"
     >
       <div class="provider">
         <div class="icon-wrapper">

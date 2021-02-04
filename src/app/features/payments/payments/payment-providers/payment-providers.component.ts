@@ -8,7 +8,7 @@ import { ProvidersService } from '../../services/providers.service';
 })
 export class PaymentProvidersComponent implements OnInit {
   public allPaymentTypes = this.providerService.getAllPaymentTypes();
-
+  public userInput: string;
   constructor(private providerService: ProvidersService) {}
   ngOnInit(): void {}
 
