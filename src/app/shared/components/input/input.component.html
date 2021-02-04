@@ -3,15 +3,23 @@
 </label>
 <div class="input-wrapper">
   <input
+    #inputElement
     [id]="inputId"
     [type]="type"
-    [ngClass]="{ validated: validated }"
+    [ngClass]="{
+      validated: validated,
+      'ng-touched': controlDir.touched,
+      'ng-valid': controlDir.valid,
+      'ng-invalid': controlDir.invalid
+    }"
     [placeholder]="placeholder"
-    [formControl]="control"
+    (input)="_onChange($event.target.value)"
+    (blur)="_onTouched()"
+    [disabled]="_disabled"
   />
   <i
-    *ngIf="validated && control.touched"
+    *ngIf="validated && controlDir.touched"
     class="las"
-    [ngClass]="{ 'la-ban': !control.valid, 'la-check': control.valid }"
+    [ngClass]="{ 'la-ban': !controlDir.valid, 'la-check': controlDir.valid }"
   ></i>
 </div>
