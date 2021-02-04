@@ -16,18 +16,18 @@
     <div class="custom-pagination">
       <div
         class="pagination-previous"
-        (click)="onPageChange($event)"
         [class.disabled]="p.isFirstPage()"
+        (click)="pageChange($event)"
       >
         <span *ngIf="!p.isFirstPage()" (click)="p.previous()" class="previous">
           <i class="las la-angle-left"></i>
         </span>
       </div>
       <div
+        (click)="pageChange($event)"
         class="page-number"
         *ngFor="let page of p.pages"
         [class.current]="p.getCurrent() === page.value"
-        (click)="onPageChange($event)"
       >
         <span
           (click)="p.setCurrent(page.value)"
@@ -40,8 +40,8 @@
       </div>
       <div
         class="pagination-next"
-        (click)="onPageChange($event)"
         [class.disabled]="p.isLastPage()"
+        (click)="pageChange($event)"
       >
         <span *ngIf="!p.isLastPage()" (click)="p.next()" class="next"
           ><i class="las la-angle-right"></i>

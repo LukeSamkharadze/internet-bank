@@ -8,11 +8,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/list/list.module').then((m) => m.ListModule),
   },
-  // {
-  //   path: 'pagination',
-  //   data: { name: 'Pagination' },
-  //   component: PaginationComponent,
-  // },
   {
     path: '',
     redirectTo: 'list',

@@ -9,7 +9,7 @@ export class PaginationComponent {
   @Input() count = 100;
   @Input() itemsPerPage = 10;
   @Output() changePage = new EventEmitter();
-
+  current;
   collection = { count: this.count, data: [] };
   config = {
     id: 'custom',
@@ -26,9 +26,8 @@ export class PaginationComponent {
       });
     }
   }
-
-  onPageChange(event) {
-    this.config.currentPage = event;
-    this.changePage.emit(this.config.currentPage);
+  pageChange(event) {
+    this.current = this.config.currentPage;
+    this.changePage.emit(this.current);
   }
 }
