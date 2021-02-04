@@ -1,6 +1,9 @@
 <div class="popup-blur"></div>
 <div class="details-popup">
-  <div class="details-popup-upper">
+  <div
+    class="details-popup-upper"
+    [ngStyle]="{ 'background-color': background, opacity: opacity }"
+  >
     <i class="las la-times-circle" (click)="closeModal()"></i>
   </div>
   <div class="details-popup-lower">
@@ -11,22 +14,7 @@
     <div class="details-popup-lower-heading">
       <h3>{{ transaction.title }}</h3>
     </div>
-    <div class="details-popup-lower-tag">
-      <div
-        class="tag"
-        [ngClass]="{
-          'white-text-tag': transaction.tagColor == 'white',
-          'cyan-text-tag': transaction.tagColor == 'cyan',
-          'green-text-tag': transaction.tagColor == 'green',
-          'orange-text-tag': transaction.tagColor == 'orange',
-          'pink-text-tag': transaction.tagColor == 'pink',
-          'gray-text-tag': transaction.tagColor == 'gray'
-        }"
-      >
-        <!-- ეს ესე მექნება სანამ tags კომპონენტი დამთავრდება, დასატესტად -->
-        {{ transaction.status }}<i class="las la-times"></i>
-      </div>
-    </div>
+    <div class="details-popup-lower-tag"></div>
     <div class="details-popup-lower-transaction">
       <div class="details-popup-lower-transaction-account">
         <h5>xxxx {{ transaction.cardNumber }}</h5>
