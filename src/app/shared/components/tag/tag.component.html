@@ -1,0 +1,15 @@
+<div
+  class="tag"
+  [ngClass]="{
+    'white-text-tag': color == 'white',
+    'blue-text-tag': color == 'blue',
+    'cyan-text-tag': color == 'cyan',
+    'green-text-tag': color == 'green',
+    'orange-text-tag': color == 'orange',
+    'pink-text-tag': color == 'pink',
+    'gray-text-tag': color == 'gray'
+  }"
+>
+  <span><ng-content></ng-content></span>
+  <i class="las la-times" (click)="close($event)"></i>
+</div>

@@ -11,5 +11,4 @@ const modules = [CommonModule, ReactiveFormsModule];
   imports: [...modules],
   exports: [...SharedPipes, ...components, ...modules],
 })
-export class SharedModule {
-}
+export class SharedModule {}
