@@ -6,13 +6,7 @@ import { CoreModule } from '@core/core.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    CoreModule,
-    // PaginationComponent,
-    AppRoutingModule,
-    NgxPaginationModule,
-  ],
+  imports: [BrowserModule, CoreModule, AppRoutingModule, NgxPaginationModule],
   providers: [],
   bootstrap: [AppComponent],
 })
