@@ -47,7 +47,7 @@
 
 @mixin dropdown-symbol($unicode, $size, $weight) {
   content: $unicode;
-  font-family: "Line Awesome Free";
+  font-family: 'Line Awesome Free';
   font-size: $size;
   font-weight: $weight;
 }

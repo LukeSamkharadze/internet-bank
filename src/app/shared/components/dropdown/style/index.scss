@@ -1,6 +1,6 @@
-@import "../../../../../styles.scss";
-@import "utils/mixins.scss";
-@import "utils/classes.scss";
+@import '../../../../../styles.scss';
+@import 'utils/mixins.scss';
+@import 'utils/classes.scss';
 
 @mixin dropdown(
   $width: 360px,
@@ -12,7 +12,7 @@
   $border-style: solid,
   $placeholder-color: $secondary-dark-2,
   // ================= //
-  $options-symbol: "",
+  $options-symbol: '',
   $options-symbol-font-weight: 400,
   $options-symbol-font-size: 18px,
   $options-symbol-margin: 0 12px 5px -2px,
@@ -23,7 +23,7 @@
   $options-background-shadow: 0 0 6px 6px $shadow-color,
   $options-z-index: 2,
   // ================= //
-  $arrow-symbol: "\f107",
+  $arrow-symbol: '\f107',
   $arrow-symbol-size: 18px,
   $arrow-symbol-font-weight: 900,
   $arrow-offset: 16px,
@@ -37,8 +37,10 @@
   $option-color: $dark-secondary-3,
   $option-leftnright-padding: 17px,
   $option-default-padding: 0 $option-leftnright-padding,
-  $option-first-padding: 12px $option-leftnright-padding 0 $option-leftnright-padding,
-  $option-last-padding: 0 $option-leftnright-padding 10px $option-leftnright-padding,
+  $option-first-padding: 12px $option-leftnright-padding 0
+    $option-leftnright-padding,
+  $option-last-padding: 0 $option-leftnright-padding 10px
+    $option-leftnright-padding,
   $option-active-color: $active-color,
   // ================= //
   $selected-height: 52px,
@@ -92,7 +94,11 @@
 
       .default-symbol {
         &:after {
-          @include dropdown-symbol($arrow-symbol, $arrow-symbol-size, $arrow-symbol-font-weight);
+          @include dropdown-symbol(
+            $arrow-symbol,
+            $arrow-symbol-size,
+            $arrow-symbol-font-weight
+          );
         }
       }
     }
@@ -115,7 +121,8 @@
     border-radius: $border-radius;
     background-color: $options-background-color;
     top: calc(100% + #{$options-gap});
-    transition: opacity $options-transition-speed $options-transition-type, visibility 0.1s;
+    transition: opacity $options-transition-speed $options-transition-type,
+      visibility 0.1s;
 
     .option {
       @include dropdown-box($option-height, false, $option-default-padding);
@@ -151,7 +158,11 @@
       }
 
       .default-symbol:after {
-        @include dropdown-symbol($options-symbol, $options-symbol-font-size, $options-symbol-font-weight);
+        @include dropdown-symbol(
+          $options-symbol,
+          $options-symbol-font-size,
+          $options-symbol-font-weight
+        );
       }
     }
   }
@@ -168,5 +179,5 @@
 ////////// Flags
 
 .dropdown-general {
-  @include dropdown($options-symbol: "");
+  @include dropdown($options-symbol: '');
 }

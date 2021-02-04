@@ -1,12 +1,13 @@
 <!-- <ng-content *ngFor="let _ of [].constructor(optionsCount); let i = index" select="#{{i}}"></ng-content> -->
 
 <div class="dropdown-general" (click)="isOptionsOpened = !isOptionsOpened">
-
   <div class="selected placeholder">
     <div class="content">
-      <ng-content class="option" select="#0"></ng-content>
+      <ng-content select="#0"></ng-content>
     </div>
-    <div class="arrow-container">X</div>
+    <div class="arrow-container" [class.arrow-active]="isOptionsOpened">
+      <ng-content select="#arrow"></ng-content>
+    </div>
   </div>
 
   <div class="options" *ngIf="isOptionsOpened">
