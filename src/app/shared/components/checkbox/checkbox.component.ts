@@ -19,15 +19,15 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-shared-checkboxes',
-  templateUrl: './checkboxes.component.html',
-  styleUrls: ['./checkboxes.component.scss'],
+  selector: 'app-shared-checkbox',
+  templateUrl: './checkbox.component.html',
+  styleUrls: ['./checkbox.component.scss'],
 })
-export class CheckboxesComponent
+export class CheckboxComponent
   implements ControlValueAccessor, Validator, OnInit {
   @ViewChild('input') input: ElementRef;
   @Input() textBefore = false;
-  @Input() checkboxType = 'uncheck';
+  @Input() checkboxId = 'uncheck';
   @Input() isRequired = false;
   @Input() checked = false;
   @Input() disabled = false;
