@@ -9,6 +9,6 @@ const modules = [CommonModule, ReactiveFormsModule, NgxPaginationModule];
 @NgModule({
   declarations: [...SharedPipes, ...components],
   imports: [...modules],
-  exports: [...SharedPipes, ...components, ...modules],
+  exports: [...SharedPipes, ...components, ...modules, NgxPaginationModule],
 })
 export class SharedModule {}

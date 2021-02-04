@@ -10,10 +10,6 @@ export class PaginationComponent {
   @Input() itemsPerPage = 10;
   @Output() changePage = new EventEmitter();
 
-  public maxSize = 7;
-  public directionLinks = true;
-  public autoHide = false;
-  public responsive = true;
   collection = { count: this.count, data: [] };
   config = {
     id: 'custom',

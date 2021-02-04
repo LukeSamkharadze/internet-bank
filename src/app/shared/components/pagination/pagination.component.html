@@ -14,7 +14,11 @@
     (pageChange)="config.currentPage = $event"
   >
     <div class="custom-pagination">
-      <div class="pagination-previous" [class.disabled]="p.isFirstPage()">
+      <div
+        class="pagination-previous"
+        (click)="onPageChange($event)"
+        [class.disabled]="p.isFirstPage()"
+      >
         <span *ngIf="!p.isFirstPage()" (click)="p.previous()" class="previous">
           <i class="las la-angle-left"></i>
         </span>
@@ -23,6 +27,7 @@
         class="page-number"
         *ngFor="let page of p.pages"
         [class.current]="p.getCurrent() === page.value"
+        (click)="onPageChange($event)"
       >
         <span
           (click)="p.setCurrent(page.value)"
@@ -33,7 +38,11 @@
           <span>{{ page.label }}</span>
         </div>
       </div>
-      <div class="pagination-next" [class.disabled]="p.isLastPage()">
+      <div
+        class="pagination-next"
+        (click)="onPageChange($event)"
+        [class.disabled]="p.isLastPage()"
+      >
         <span *ngIf="!p.isLastPage()" (click)="p.next()" class="next"
           ><i class="las la-angle-right"></i>
         </span>
