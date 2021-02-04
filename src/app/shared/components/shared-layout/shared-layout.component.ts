@@ -15,6 +15,9 @@ export class SharedLayoutComponent implements AfterViewInit {
   @ViewChild('bottomNav')
   bottomNav: ElementRef;
 
+  @ViewChild('contentMain')
+  contentMain: ElementRef;
+
   constructor() {}
   ngAfterViewInit() {
     setTimeout(() => {
@@ -22,6 +25,6 @@ export class SharedLayoutComponent implements AfterViewInit {
         this.mainNav.nativeElement.offsetHeight +
         this.bottomNav.nativeElement.offsetHeight +
         'px';
-    }, 0);
+    });
   }
 }

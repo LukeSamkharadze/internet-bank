@@ -101,7 +101,11 @@
         here goes profile component
       </div>
     </div>
-    <div class="content-main" [ngStyle]="{ minHeight: contentMainHeight }">
+    <div
+      class="content-main"
+      [ngStyle]="{ minHeight: contentMainHeight }"
+      #contentMain
+    >
       <ng-content></ng-content>
     </div>
     <div class="footer">
