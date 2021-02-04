@@ -13,6 +13,7 @@ export class BankTransactionDetailsComponent {
   background = 'rgb(221, 32, 49)';
   opacity = '70%';
   error: string;
+  showTag = true;
 
   constructor() {
     if (this.transaction) {
@@ -30,5 +31,8 @@ export class BankTransactionDetailsComponent {
   closeModal() {
     this.closePopup.emit();
     return true;
+  }
+  closeTag() {
+    this.showTag = false;
   }
 }

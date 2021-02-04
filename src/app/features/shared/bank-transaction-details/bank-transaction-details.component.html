@@ -14,7 +14,15 @@
     <div class="details-popup-lower-heading">
       <h3>{{ transaction.title }}</h3>
     </div>
-    <div class="details-popup-lower-tag"></div>
+    <div class="details-popup-lower-tag">
+      <app-shared-tag
+        *ngIf="showTag"
+        (closeClicked)="closeTag()"
+        [color]="transaction.tagColor"
+      >
+        {{ transaction.status }}
+      </app-shared-tag>
+    </div>
     <div class="details-popup-lower-transaction">
       <div class="details-popup-lower-transaction-account">
         <h5>xxxx {{ transaction.cardNumber }}</h5>
