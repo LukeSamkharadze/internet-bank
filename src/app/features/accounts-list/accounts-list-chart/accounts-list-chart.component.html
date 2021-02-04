@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="./chart.js"></script>
+
+<div
+  [ngClass]="{ container: true, green: isGreen, orange: isYellow, pink: isRed }"
+>
+  <div class="info">
+    <p class="amount">
+      ${{ amount
+      }}<sup
+        ><i
+          [ngClass]="{
+            'las la-long-arrow-alt-up': !isRed,
+            'las la-long-arrow-alt-down': isRed
+          }"
+        ></i
+      ></sup>
+    </p>
+    <p class="title">{{ info.title }}</p>
+  </div>
+  <div class="chart">
+    <canvas #chart></canvas>
+  </div>
+</div>

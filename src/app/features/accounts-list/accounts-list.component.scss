@@ -1,0 +1,134 @@
+@import '../../../styles/index.scss';
+.content-main > *:not(:last-child) {
+  margin-bottom: 17px;
+}
+
+.charts-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 25px;
+  margin-bottom: 20px;
+}
+
+.profile-hover {
+  z-index: 1;
+}
+.list {
+  position: relative;
+  width: 100%;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .name {
+      @include text-style(16px, $secondary-dark-1);
+    }
+
+    .new {
+      @include text-style(12px);
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+
+      position: relative;
+      bottom: 2px;
+
+      i {
+        position: relative;
+        font-size: 18px;
+        color: $primary;
+        margin-right: 6px;
+        top: 2px;
+      }
+    }
+  }
+
+  ul {
+    padding: 1px 24px;
+    background-color: white;
+    border-radius: 4px;
+  }
+
+  .item {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 58px 329fr 188fr 268fr 89fr 113px;
+
+    & > * {
+      padding: 16px 0;
+      padding-left: 23px;
+      border-bottom: 1px solid $outline;
+      vertical-align: middle;
+    }
+
+    div:first-child {
+      padding-left: 0;
+    }
+    div:last-child .container {
+      margin-left: auto;
+      *,
+      & {
+        width: min-content;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .item:last-child > div {
+    border: none;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    width: 100%;
+    background-color: $background-2;
+    height: 40px;
+
+    i {
+      margin: 0 auto;
+    }
+
+    img {
+      margin: 0 auto;
+    }
+
+    &.green {
+      background-color: rgba($color: $secondary-2, $alpha: 0.1);
+      color: $secondary-2;
+    }
+
+    &.orange {
+      background-color: rgba($color: $primary, $alpha: 0.1);
+      color: $primary;
+    }
+
+    &.blue {
+      background-color: rgba($color: $secondary-1, $alpha: 0.1);
+      color: $secondary-1;
+    }
+  }
+
+  .primary {
+    @include text-style(16px);
+    margin-bottom: 1px;
+  }
+
+  .secondary {
+    @include text-style(14px, $secondary-dark-2);
+  }
+
+  .blocked {
+    .balance,
+    .done,
+    .additionalInfo {
+      .primary {
+        color: $secondary-dark-1;
+      }
+    }
+  }
+}
