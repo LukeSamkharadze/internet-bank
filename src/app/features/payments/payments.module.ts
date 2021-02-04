@@ -8,7 +8,7 @@ import { ElectronicPaymentFormComponent } from './payments/form-components/elect
 import { BankTransferFormComponent } from './payments/form-components/bank-transfer-form/bank-transfer-form.component';
 import { InstantTransferFormComponent } from './payments/form-components/instant-transfer-form/instant-transfer-form.component';
 import { SearchPipe } from './pipes/search.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,12 @@ import { FormsModule } from '@angular/forms';
     InstantTransferFormComponent,
     SearchPipe,
   ],
-  imports: [CommonModule, PaymentsRoutingModule, FormsModule],
+  imports: [
+    CommonModule,
+    PaymentsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [PaymentsComponent, PaymentProvidersComponent],
   providers: [ProvidersService],
 })
