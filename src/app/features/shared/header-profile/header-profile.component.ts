@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { HeaderProfile } from './header-profile.model';
+import { Component, OnInit, Input } from '@angular/core';
+
 @Component({
   selector: 'app-header-profile',
   templateUrl: './header-profile.component.html',
   styleUrls: ['./header-profile.component.scss'],
 })
 export class HeaderProfileComponent implements OnInit {
-  public headerProfile: HeaderProfile;
-  constructor() {
-    this.headerProfile = new HeaderProfile();
-    // this.headerProfile.name = HeaderProfile.name
-  }
+  @Input() userName = 'Barry Armstrong';
+  @Input() userGmail = 'b.armstrong@gmail.com';
+  @Input() userImage = './../../../../assets/header-profile/User.png';
+  constructor() {}
 
   ngOnInit(): void {
     document.onclick = this.hideElement;
