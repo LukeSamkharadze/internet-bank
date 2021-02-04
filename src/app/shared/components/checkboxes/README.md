@@ -1,3 +1,4 @@
+!!!!It only works with FormControls!!!!!
 In order to get the desired type of checkbox you have to use property binding and give
 Inputs:checkboxError(If u need red and green for unchecked and checked), and checkboxType string values, "'someval'", like this.
 

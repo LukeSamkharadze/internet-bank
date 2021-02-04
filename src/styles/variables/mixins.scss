@@ -1,0 +1,7 @@
+@mixin text-style($font-size, $color: $primary-dark, $font-family: $roboto) {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: $font-size;
+  color: $color;
+  letter-spacing: 0.2px;
+}
