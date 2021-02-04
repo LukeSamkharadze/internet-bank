@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ElementRef,
   Self,
   ViewChild,
@@ -11,8 +10,6 @@ import {
   AbstractControl,
   ControlValueAccessor,
   NgControl,
-  NG_VALUE_ACCESSOR,
-  NG_VALIDATORS,
   Validator,
   ValidatorFn,
   Validators,
