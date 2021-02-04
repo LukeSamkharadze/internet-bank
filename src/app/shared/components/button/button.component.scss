@@ -7,21 +7,24 @@
   display: inline-block;
   height: 46px;
   width: fit-content;
-  min-width: 121px;
+}
+
+span {
+  width: 100%;
+  float: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 button {
   height: 100%;
   width: 100%;
-  padding: 0 60px;
+  padding: 0 10px;
   border-style: none;
   border-radius: 3px;
   font-size: 14px;
   line-height: 49px;
-  position: relative;
   outline: none;
   cursor: pointer;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
