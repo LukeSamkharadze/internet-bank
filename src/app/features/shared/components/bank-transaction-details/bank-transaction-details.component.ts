@@ -19,7 +19,7 @@ export class BankTransactionDetailsComponent {
   };
   @Output() closePopup = new EventEmitter();
   @Output() sendReceipt = new EventEmitter();
-  background = 'rgb(221, 32, 49)';
+  background = '#fff';
   opacity = '70%';
   error: string;
   showTag = true;
@@ -33,7 +33,10 @@ export class BankTransactionDetailsComponent {
           this.background = data.hex;
           this.opacity = '100%';
         })
-        .catch((e) => (this.error = e));
+        .catch((e) => {
+          this.error = e;
+          this.background = 'rgb(221, 32, 49)';
+        });
     }
   }
 

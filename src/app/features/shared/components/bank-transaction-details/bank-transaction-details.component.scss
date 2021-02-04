@@ -6,7 +6,7 @@
 }
 $trans-bg-color: #ffffff;
 .popup-blur {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 3;
@@ -16,20 +16,22 @@ $trans-bg-color: #ffffff;
   background: rgba(0, 0, 0, 0.6);
 }
 .details-popup {
-  width: 360px;
-  border-radius: 4px;
-  display: grid;
-  grid-template-rows: 148px auto;
-  min-width: 360px;
-  background-color: white;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
+  overflow-y: auto;
+  max-height: 100%;
+  .details-container {
+    width: 360px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-rows: 148px auto;
+    min-width: 360px;
+    background-color: white;
+  }
   .details-popup-upper {
-    background-color: rgb(221, 32, 49);
-    // opacity: 70%;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     position: relative;

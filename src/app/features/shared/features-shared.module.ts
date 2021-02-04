@@ -6,7 +6,7 @@ import { SharedModule } from '@shared/shared';
 @NgModule({
   declarations: [...components],
   imports: [CommonModule, SharedModule],
-  exports: [...components],
+  exports: [...components, SharedModule],
   providers: [],
 })
 export class FeaturesSharedModule {}
