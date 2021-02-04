@@ -1,9 +1,13 @@
 <div class="checkbox">
   <input
+    #input
     type="checkbox"
     id="{{ checkboxType }}"
     [checked]="checked"
     [disabled]="disabled"
+    (input)="onChange($event.target.value)"
+    (blur)="onTouched()"
+    value="{{ !input.checked }}"
   />
   <label for="{{ checkboxType }}" class="{{ checkboxError }}"
     ><ng-content></ng-content
