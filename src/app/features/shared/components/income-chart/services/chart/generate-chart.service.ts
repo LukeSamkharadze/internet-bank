@@ -9,8 +9,27 @@ export class GenerateChartService {
   incomeColor: BehaviorSubject<string> = new BehaviorSubject(`unset`);
   totalIncome: BehaviorSubject<number> = new BehaviorSubject(0);
   constructor() {}
-  generateChart(ctx, dataservice) {
+  generateChart(ctx, monthRange, dataservice) {
     const dataset: {}[] = [];
+    let months: string[] = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    if (monthRange === 2) {
+      months = months.slice(6, 12);
+    } else if (monthRange === 1) {
+      months = months.slice(0, 6);
+    }
     let sum = 0;
     for (let i = 0; i < dataservice.length; i++) {
       const red = Math.floor(Math.random() * (255 - 1) + 1);
@@ -20,9 +39,15 @@ export class GenerateChartService {
       const color0 = `rgba(${red},${green},${blue},0)`;
       const color05 = `rgba(${red},${green},${blue},0.5)`;
       const color03 = `rgba(${red},${green},${blue},0.3)`;
+      let slicedData: number[] = dataservice[i].data;
+      if (monthRange === 2) {
+        slicedData = slicedData.slice(6, 12);
+      } else if (monthRange === 1) {
+        slicedData = slicedData.slice(0, 6);
+      }
       if (i === 0) {
         this.incomeColor.next(color1);
-        sum = dataservice[i].data.reduce((acc, val) => {
+        sum = slicedData.reduce((acc, val) => {
           return acc + val;
         }, 0);
         this.totalIncome.next(sum);
@@ -41,7 +66,7 @@ export class GenerateChartService {
         borderWidth: 1.5,
         pointHoverBorderColor: color05,
         pointHoverBackgroundColor: color1,
-        data: dataservice[i].data,
+        data: slicedData,
       });
     }
     return new Chart(ctx, {
@@ -49,7 +74,7 @@ export class GenerateChartService {
       type: 'line',
       // The data for our dataset
       data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul'],
+        labels: months,
         datasets: dataset,
         fill: false,
       },
@@ -109,10 +134,22 @@ export class GenerateChartService {
                   return 'March';
                 case 'Apr':
                   return 'April';
+                case 'May':
+                  return 'May';
                 case 'Jun':
                   return 'June';
                 case 'Jul':
                   return 'July';
+                case 'Aug':
+                  return 'August';
+                case 'Sep':
+                  return 'September';
+                case 'Oct':
+                  return 'Octomber';
+                case 'Nov':
+                  return 'November';
+                case 'Dec':
+                  return 'December';
               }
             },
             label(tooltipItem, data) {

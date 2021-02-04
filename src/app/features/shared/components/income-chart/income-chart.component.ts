@@ -5,6 +5,7 @@ import {
   ElementRef,
   Output,
   EventEmitter,
+  Input,
 } from '@angular/core';
 import { Chart } from 'chart.js';
 import { finalize, map } from 'rxjs/operators';
@@ -20,6 +21,7 @@ import { IncomeDataService } from './services/data/income-data.service';
 export class IncomeChartComponent implements OnInit {
   @Output()
   public isClicked = new EventEmitter<MouseEvent>();
+  @Input() monthRange: number = 0;
   @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
   gradientFill: any;
@@ -78,6 +80,7 @@ export class IncomeChartComponent implements OnInit {
         finalize(() => {
           this.myChart = this.generateChartService.generateChart(
             this.ctx,
+            this.monthRange,
             this.data
           );
         })
