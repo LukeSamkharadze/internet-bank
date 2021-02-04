@@ -2,33 +2,32 @@
 
 N1
 <app-shared-button
-[ngClass]="{'primary': true, 'active': true}"
-[width]="100"
-[height]="55"
+[className]="{'primary': true, 'active': true}"
+style="width: 170px; height: 50px;"
 (clicked)="onClick(\$event)">active
 </app-shared-button>
 
 <app-shared-button
-[ngClass]="{'primary': true, 'resting': true}"
+[className]="{'primary': true, 'resting': true}"
+style="width: 170px; height: 50px;"
 (clicked)="onClick(\$event)">resting
 </app-shared-button>
 
 <app-shared-button
-[ngClass]="{'blue': true}"
+[className]="{'blue': true}"
+style="width: 180px; height: 50px;"
 (clicked)="onClick(\$event)">active
 </app-shared-button>
 
 N2 (with icon)
 
 <app-shared-button
-[ngClass]="{'primary': true, 'resting': true}"
-[width]="90"
-[height]="40"
+[className]="{'outline': true, 'resting': true}"
+style="width: 200px; height: 50px;"
 (clicked)="onClick(\$event)">
 <i class="lar la-heart icon"></i>resting
 </app-shared-button>
 
-ირჩევ სასურველ კლასს, უსაზღვრავ width და height-ს (ან default დაუტოვებ: height: 46px; width: 206px;), უწერ ღილაკს ტექსტს და
-თუ წაჭიროა ამატებ აიქონს.
+ირჩევ სასურველ კლასს, უსაზღვრავ width და height-ს უწერ ღილაკს ტექსტს და თუ წაჭიროა ამატებ აიქონს.
 
 კლასების ვარიანტები: "primary active", "primary resting", "outline active", "outline resting", "blue", "green", "pink", "lightBlue". :)) ♥

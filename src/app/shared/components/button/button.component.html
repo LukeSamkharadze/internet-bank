@@ -1,8 +1,3 @@
-<button
-  [class]="ngClass"
-  [style.width.px]="width"
-  [style.height.px]="height"
-  (click)="onClick($event)"
->
+<button [ngClass]="className" (click)="onClick($event)">
   <ng-content></ng-content>
 </button>

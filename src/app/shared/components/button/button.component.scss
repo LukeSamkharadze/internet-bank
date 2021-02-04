@@ -4,14 +4,16 @@
 @import './styles/icon/style.scss';
 
 :host {
-  display: block;
+  display: inline-block;
   height: 46px;
-  width: 206px;
+  width: fit-content;
+  min-width: 121px;
 }
 
 button {
   height: 100%;
   width: 100%;
+  padding: 0 60px;
   border-style: none;
   border-radius: 3px;
   font-size: 14px;
@@ -19,4 +21,7 @@ button {
   position: relative;
   outline: none;
   cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
