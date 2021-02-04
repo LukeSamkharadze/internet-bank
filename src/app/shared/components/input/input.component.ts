@@ -38,11 +38,11 @@ export class InputComponent
   constructor(@Self() public controlDir: NgControl) {
     this.controlDir.valueAccessor = this;
   }
-  registerOnValidatorChange?(fn: () => void): void {
-    throw new Error('Method not implemented.');
-  }
 
   writeValue(obj: any): void {
+    if (!obj) {
+      obj = '';
+    }
     if (this.input && this.input.nativeElement) {
       this.input.nativeElement.value = obj;
     } else {

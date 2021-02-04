@@ -2,7 +2,6 @@
 
 // Basic Text Input Styles
 .input-label {
-  box-sizing: border-box;
   line-height: 19px;
   @include text-style(14px);
   letter-spacing: 0.15px;
@@ -15,7 +14,6 @@
   position: relative;
 
   input {
-    box-sizing: border-box;
     padding: 19px 14px 15px 14px;
     display: block;
     width: 100%;
@@ -52,11 +50,6 @@
       &.ng-valid,
       &.ng-invalid {
         padding-right: 35px;
-        &::-webkit-input-placeholder,
-        &::-ms-input-placeholder,
-        &::placeholder {
-          color: $primary-dark;
-        }
       }
     }
   }
