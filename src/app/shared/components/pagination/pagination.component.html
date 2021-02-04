@@ -16,7 +16,7 @@
     <div class="custom-pagination">
       <div class="pagination-previous" [class.disabled]="p.isFirstPage()">
         <span *ngIf="!p.isFirstPage()" (click)="p.previous()" class="previous">
-          <
+          <i class="las la-angle-left"></i>
         </span>
       </div>
       <div
@@ -34,7 +34,9 @@
         </div>
       </div>
       <div class="pagination-next" [class.disabled]="p.isLastPage()">
-        <span *ngIf="!p.isLastPage()" (click)="p.next()" class="next"> > </span>
+        <span *ngIf="!p.isLastPage()" (click)="p.next()" class="next"
+          ><i class="las la-angle-right"></i>
+        </span>
       </div>
     </div>
   </pagination-template>

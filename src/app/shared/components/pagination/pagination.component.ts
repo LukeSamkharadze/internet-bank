@@ -1,30 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss'],
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent {
+  @Input() count = 100;
+  @Input() itemsPerPage = 10;
+  @Output() changePage = new EventEmitter();
+
   public maxSize = 7;
   public directionLinks = true;
   public autoHide = false;
   public responsive = true;
-  public labels: any = {
-    previousLabel: '<--',
-    nextLabel: '-->',
-    screenReaderPaginationLabel: 'Pagination',
-    screenReaderPageLabel: 'page',
-    screenReaderCurrentLabel: `You're on page`,
-  };
-  collection = { count: 30, data: [] };
+  collection = { count: this.count, data: [] };
   config = {
     id: 'custom',
-    itemsPerPage: 5,
+    itemsPerPage: this.itemsPerPage,
     currentPage: 1,
     totalItems: this.collection.count,
   };
-  ngOnInit(): void {}
 
   constructor() {
     for (let i = 0; i < this.collection.count; i++) {
@@ -36,7 +32,7 @@ export class PaginationComponent implements OnInit {
   }
 
   onPageChange(event) {
-    console.log(event);
     this.config.currentPage = event;
+    this.changePage.emit(this.config.currentPage);
   }
 }

@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SharedPipes } from './pipes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { components } from './components';
-import { PaginationComponent } from './components/pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-const modules = [CommonModule, ReactiveFormsModule];
+const modules = [CommonModule, ReactiveFormsModule, NgxPaginationModule];
 
 @NgModule({
-  declarations: [...SharedPipes, ...components, PaginationComponent],
-  imports: [...modules, NgxPaginationModule],
+  declarations: [...SharedPipes, ...components],
+  imports: [...modules],
   exports: [...SharedPipes, ...components, ...modules],
 })
 export class SharedModule {}
