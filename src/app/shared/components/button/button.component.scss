@@ -1,0 +1,30 @@
+@import './styles/primary-buttons/style.scss';
+@import './styles/outline-buttons/style.scss';
+@import './styles/color-options-buttons/style.scss';
+@import './styles/icon/style.scss';
+
+:host {
+  display: inline-block;
+  height: 46px;
+  width: fit-content;
+}
+
+span {
+  width: 100%;
+  float: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+button {
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
+  border-style: none;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 49px;
+  outline: none;
+  cursor: pointer;
+}

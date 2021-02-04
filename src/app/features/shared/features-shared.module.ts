@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { FeatNotificationComponent } from './feat-notification/feat-notification.component';
+import { components } from './components';
 
 @NgModule({
-  declarations: [FeatNotificationComponent],
+  declarations: [...components],
   imports: [CommonModule],
+  exports: [...components],
+  providers: [],
 })
 export class FeaturesSharedModule {}
