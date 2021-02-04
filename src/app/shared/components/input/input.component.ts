@@ -23,7 +23,6 @@ import {
 export class InputComponent
   implements ControlValueAccessor, OnInit, AfterViewInit {
   defaultValue = null;
-  @Input() control: FormControl;
   @Input() inputId = '';
   @Input() type = 'text';
   @Input() placeholder = 'Placeholder';
