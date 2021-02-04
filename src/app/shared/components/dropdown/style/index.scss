@@ -1,4 +1,3 @@
-@import '../../../../../styles.scss';
 @import 'utils/mixins.scss';
 @import 'utils/classes.scss';
 
@@ -91,6 +90,7 @@
       flex-shrink: 0;
       color: $placeholder-color;
       transition: visibility 0s, $arrow-transition-speed $arrow-transition-type;
+      font-size: $arrow-symbol-size;
 
       .default-symbol {
         &:after {
@@ -177,7 +177,3 @@
   @include dropdown-empty;
 }
 ////////// Flags
-
-.dropdown-general {
-  @include dropdown($options-symbol: '');
-}

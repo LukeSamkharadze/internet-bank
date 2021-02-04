@@ -3,22 +3,12 @@
 <div class="dropdown-general" (click)="isOptionsOpened = !isOptionsOpened">
   <div class="selected placeholder">
     <div class="content">
-      <ng-content select="#0"></ng-content>
+      <ng-content select="#placeholder"></ng-content>
     </div>
     <div class="arrow-container" [class.arrow-active]="isOptionsOpened">
       <ng-content select="#arrow"></ng-content>
     </div>
   </div>
 
-  <div class="options" *ngIf="isOptionsOpened">
-    <div class="option">
-      <ng-content select="#1"></ng-content>
-    </div>
-    <div class="option">
-      <ng-content select="#2"></ng-content>
-    </div>
-    <div class="option">
-      <ng-content select="#3"></ng-content>
-    </div>
-  </div>
+  <ng-content *ngIf="isOptionsOpened" select=".options"> </ng-content>
 </div>
