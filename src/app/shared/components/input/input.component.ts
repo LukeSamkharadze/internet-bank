@@ -32,9 +32,9 @@ export class InputComponent
   @Input() validated = true;
   @ViewChild('inputElement', { static: true }) input: ElementRef;
 
-  _onChange = (val) => {};
-  _onTouched = () => {};
-  _disabled = false;
+  disabled = false;
+  onChange = (val) => {};
+  onTouched = () => {};
 
   constructor(@Self() public controlDir: NgControl) {
     this.controlDir.valueAccessor = this;
@@ -52,15 +52,15 @@ export class InputComponent
   }
 
   registerOnChange(fn: any): void {
-    this._onChange = fn;
+    this.onChange = fn;
   }
 
   registerOnTouched(fn: any): void {
-    this._onTouched = fn;
+    this.onTouched = fn;
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this._disabled = isDisabled;
+    this.disabled = isDisabled;
   }
 
   ngOnInit(): void {

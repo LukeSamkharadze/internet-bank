@@ -13,9 +13,9 @@
       'ng-invalid': controlDir.invalid
     }"
     [placeholder]="placeholder"
-    (input)="_onChange($event.target.value)"
-    (blur)="_onTouched()"
-    [disabled]="_disabled"
+    (input)="onChange($event.target.value)"
+    (blur)="onTouched()"
+    [disabled]="disabled"
   />
   <i
     *ngIf="validated && controlDir.touched"
