@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { BalanceStructure } from './services/balanceType';
-import { HttpService } from './services/http.service';
+import { HttpService } from './services/account-balances.service';
 @Component({
   selector: 'app-features-shared-accountBalances',
   templateUrl: './account-balances.component.html',
@@ -13,7 +13,7 @@ export class AccountBalancesComponent implements OnInit {
   constructor(private http: HttpService) {}
 
   ngOnInit(): void {
-    this.http._EmpStructures.subscribe(() => {
+    this.http._BalanceStructures.subscribe(() => {
       this.getBalanceInfo();
     });
     this.getBalanceInfo();

@@ -2,21 +2,21 @@
 
 N1
 
-``` HTML
+```HTML
 <app-shared-button
 [className]="{'primary': true, 'active': true}"
 style="width: 170px; height: 50px;"
 (clicked)="onClick(\$event)">active</app-shared-button>
 ```
 
-``` HTML
+```HTML
 <app-shared-button
 [className]="{'primary': true, 'resting': true}"
 style="width: 170px; height: 50px;"
 (clicked)="onClick(\$event)">resting</app-shared-button>
 ```
 
-``` HTML
+```HTML
 <app-shared-button
 [className]="{'blue': true}"
 style="width: 180px; height: 50px;"
@@ -25,7 +25,7 @@ style="width: 180px; height: 50px;"
 
 N2 (with icon)
 
-``` HTML
+```HTML
 <app-shared-button
 [className]="{'outline': true, 'resting': true}"
 style="width: 200px; height: 50px;"

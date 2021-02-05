@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from '../../../../../../environments/environment.prod';
 import { BalanceStructure } from './balanceType';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
-  private url: string = `http://localhost:3000/`;
-  _EmpStructures = new Subject<BalanceStructure[]>();
+  private url: string = environment.URL;
+  _BalanceStructures = new Subject<BalanceStructure[]>();
 
   constructor(private http: HttpClient) {}
   get() {
