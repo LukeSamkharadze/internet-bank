@@ -1,6 +1,19 @@
 .checkbox {
   padding-bottom: 10px;
   label {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
     @include checkbox_default($secondary-dark-1);
     padding-left: 25px;
   }
@@ -14,7 +27,7 @@
     width: 0;
   }
   input:disabled + label {
-    opacity: 80%;
+    opacity: 70%;
   }
   input:checked + label {
     color: $primary-dark;

@@ -14,7 +14,7 @@
     (blur)="onBlur($event)"
     value="{{ !input.checked }}"
   />
-  <label for="{{ checkboxId }}" class="{{ checkboxError }}"
+  <label for="{{ checkboxId }}" [ngClass]="{ 'checkbox-error': checkboxError }"
     ><ng-content></ng-content>
   </label>
 </div>

@@ -20,13 +20,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class CheckboxComponent implements ControlValueAccessor {
+  randInt = Math.random() * 100;
   @ViewChild('input') input: ElementRef;
   @Input() textBefore = false;
-  @Input() checkboxId = 'uncheck';
+  checkboxId = `id${this.randInt}`;
   @Input() isRequired = false;
   @Input() checked = false;
   @Input() disabled = false;
-  @Input() checkboxError = '';
+  @Input() checkboxError = false;
 
   isChecked = false;
   onChange = (_) => {};
@@ -37,7 +38,6 @@ export class CheckboxComponent implements ControlValueAccessor {
   }
 
   registerOnChange(fn: any): void {
-    console.log(this.onChange);
     this.onChange = fn;
   }
 
