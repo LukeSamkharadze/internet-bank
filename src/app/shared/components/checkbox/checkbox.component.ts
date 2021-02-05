@@ -21,9 +21,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class CheckboxComponent implements ControlValueAccessor {
   randInt = Math.random() * 100;
+  checkboxId = `id${this.randInt}`;
   @ViewChild('input') input: ElementRef;
   @Input() textBefore = false;
-  checkboxId = `id${this.randInt}`;
   @Input() isRequired = false;
   @Input() checked = false;
   @Input() disabled = false;
