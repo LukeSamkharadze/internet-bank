@@ -36,6 +36,10 @@
           formControlName="cardName"
           type="text"
           id="cardName"
+          [ngClass]="{
+            valid: form.controls.cardName.valid,
+            invalid: form.controls.cardName.invalid
+          }"
           placeholder="Please add your card name"
         />
       </div>
@@ -45,6 +49,10 @@
           formControlName="accountNumber"
           type="text"
           id="accountNumber"
+          [ngClass]="{
+            valid: form.controls.accountNumber.valid,
+            invalid: form.controls.accountNumber.invalid
+          }"
           placeholder="Please add your account number"
         />
       </div>
@@ -54,6 +62,10 @@
           formControlName="cardNumber"
           type="number"
           id="cardNumber"
+          [ngClass]="{
+            valid: form.controls.cardNumber.valid,
+            invalid: form.controls.cardNumber.invalid
+          }"
           placeholder="Please add your card number"
         />
       </div>
@@ -63,6 +75,10 @@
           formControlName="cardholder"
           type="text"
           id="cardholder"
+          [ngClass]="{
+            valid: form.controls.cardholder.valid,
+            invalid: form.controls.cardholder.invalid
+          }"
           placeholder="Please add your name"
         />
       </div>
@@ -72,6 +88,10 @@
           formControlName="expirationDate"
           type="text"
           id="expirationDate"
+          [ngClass]="{
+            valid: form.controls.expirationDate.valid,
+            invalid: form.controls.expirationDate.invalid
+          }"
           placeholder="Please add your card number expiration date"
         />
       </div>
@@ -82,6 +102,10 @@
           #amount
           type="number"
           id="availableAmount"
+          [ngClass]="{
+            valid: form.controls.availableAmount.valid,
+            invalid: form.controls.availableAmount.invalid
+          }"
           placeholder="Please add your available amount"
         />
       </div>
@@ -95,11 +119,17 @@
         </div>
       </div>
       <!-- იმპორტირებული ღილაკი ქვემოთ -->
-      <div class="primary">
-        <button class="active" type="submit" [disabled]="form.invalid">
-          Add Card
-        </button>
-      </div>
+      <app-shared-button
+        [className]="'primary active'"
+        style="
+          width: 206px;
+          height: 46px;
+          position: relative;
+          left: 10px;
+          top: 9px;
+        "
+        >Add Card</app-shared-button
+      >
     </form>
   </div>
 </section>

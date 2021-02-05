@@ -15,10 +15,12 @@ export class CreateCardComponent implements OnInit {
 
   // ბარათების დამატება სერვერზე, სერვისის დახმარებით
   onSubmit() {
-    this.cardService
-      .create(this.form.getRawValue())
-      .pipe(tap(() => this.form.reset()))
-      .subscribe();
+    if (this.form.valid) {
+      this.cardService
+        .create(this.form.getRawValue())
+        .pipe(tap(() => this.form.reset()))
+        .subscribe();
+    }
   }
 
   // ბარათის შესავსები ფორმა და მისი ვალიდაცია

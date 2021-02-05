@@ -1,6 +1,4 @@
 @import 'src/styles/index';
-// @import '../../../components/buttons/core/index';
-// @import '../../../components/toggle/core/index';
 
 .main-container {
   max-width: 555px;
@@ -36,6 +34,7 @@
       letter-spacing: 0;
       line-height: 17px;
       padding-left: 18px;
+      user-select: none;
     }
 
     .crd-money {
@@ -54,6 +53,7 @@
     align-items: center;
     justify-content: center;
     padding-bottom: 10px;
+    user-select: none;
 
     .card-placeholder {
       position: relative;
@@ -99,7 +99,7 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid $outline;
-      padding: 9.6px 10px;
+      padding: 6.9px 10px;
       transition: 0.4s;
 
       &:hover {
@@ -109,7 +109,7 @@
       }
 
       input {
-        width: 70%;
+        width: 60%;
         border: none;
         padding: 3px 5px;
         text-align: right;
@@ -121,6 +121,14 @@
           outline: none;
           border-radius: 3px;
           background: hsl(0, 0%, 93%);
+
+          &.valid {
+            background: hsl(120, 60%, 90%);
+          }
+
+          &.invalid {
+            background: hsl(34, 80%, 90%);
+          }
         }
 
         &::-webkit-outer-spin-button,
@@ -148,20 +156,12 @@
       .toggle-container {
         display: flex;
         justify-content: space-between;
+        height: 26.15px;
         width: 100%;
 
         input {
           width: auto;
         }
-      }
-    }
-
-    // იმპორტირებული ღილაკის პოზიციონირება
-    .primary {
-      .active {
-        position: relative;
-        left: 10px;
-        top: 6px;
       }
     }
   }
