@@ -11,7 +11,6 @@ import {
 import { ItemListOptionsService } from './services/item-list-options.service';
 import { ItemListOption } from './models/item-list-option.entity';
 import { ListStyleEnum } from './models/list-style.enum';
-import { generateGuid } from '@shared/shared';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -31,7 +30,6 @@ export class ListComponent implements OnInit {
   listStyle$: BehaviorSubject<ListStyleEnum> = new BehaviorSubject<
     ListStyleEnum
   >(this.itemListOptionsService.getDefaultClassName());
-  uniqueGuide = generateGuid();
 
   group: FormGroup = new FormGroup({ id: new FormControl('') });
 
