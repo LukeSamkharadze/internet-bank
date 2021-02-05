@@ -6,6 +6,7 @@ import {
   Output,
   EventEmitter,
   Input,
+  AfterViewInit,
 } from '@angular/core';
 import { Chart } from 'chart.js';
 import { finalize, map } from 'rxjs/operators';
@@ -18,7 +19,7 @@ import { IncomeDataService } from './services/data/income-data.service';
   templateUrl: './income-chart.component.html',
   styleUrls: ['./income-chart.component.scss'],
 })
-export class IncomeChartComponent implements OnInit {
+export class IncomeChartComponent implements OnInit, AfterViewInit {
   @Output()
   public isClicked = new EventEmitter<MouseEvent>();
   @Input() monthRange = 0;

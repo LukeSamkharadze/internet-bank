@@ -4,8 +4,8 @@ import { components } from './components';
 import { SharedModule } from '@shared/shared';
 import { CardService } from './services/card.service';
 
-let services = [CardService];
-let modules = [CommonModule, SharedModule];
+const services = [CardService];
+const modules = [CommonModule, SharedModule];
 
 @NgModule({
   declarations: [...components],
