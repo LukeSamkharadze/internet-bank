@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { components } from './components';
+import { SharedModule } from '@shared/shared';
 import { CardService } from './services/card.service';
+
 @NgModule({
-  declarations: [],
-  imports: [CommonModule],
+  declarations: [...components],
+  imports: [CommonModule, SharedModule],
+  exports: [...components, SharedModule],
   providers: [CardService],
-  exports: [],
 })
 export class FeaturesSharedModule {}
