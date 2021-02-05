@@ -1,0 +1,12 @@
+<div class="textAreaContainer">
+  <textarea
+    [placeholder]="placeholder"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="onChanges($event.target.value)"
+    (blur)="onTouched()"
+  ></textarea>
+  <div class="icon-container">
+    <i class="las la-meh"></i>
+  </div>
+</div>
