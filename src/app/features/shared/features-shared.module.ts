@@ -4,10 +4,13 @@ import { components } from './components';
 import { SharedModule } from '@shared/shared';
 import { CardService } from './services/card.service';
 
+let services = [CardService];
+let modules = [CommonModule, SharedModule];
+
 @NgModule({
   declarations: [...components],
-  imports: [CommonModule, SharedModule],
-  exports: [...components, SharedModule],
-  providers: [CardService],
+  imports: [...modules],
+  exports: [...components, ...modules],
+  providers: [...services],
 })
 export class FeaturesSharedModule {}

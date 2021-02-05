@@ -76,5 +76,37 @@
         10000
       ]
     }
+  ],
+  "cards": [
+    {
+      "cardName": "Visa Card",
+      "accountNumber": "GE32TB1111222233334444",
+      "cardNumber": 1111222233334444,
+      "cardholder": "Barry Armstrong",
+      "expirationDate": "20.12.2024",
+      "availableAmount": 2000,
+      "security3D": false,
+      "id": 1
+    },
+    {
+      "cardName": "Master Card",
+      "accountNumber": "GE32TB2222111133334444",
+      "cardNumber": 2222111133334444,
+      "cardholder": "John Lennon",
+      "expirationDate": "04.05.2030",
+      "availableAmount": 25000,
+      "security3D": true,
+      "id": 2
+    },
+    {
+      "cardName": "Master Card",
+      "accountNumber": "GE32TB3333111122224444",
+      "cardNumber": 3333111122224444,
+      "cardholder": "Till Lindemann",
+      "expirationDate": "01.11.2026",
+      "availableAmount": 45000,
+      "security3D": true,
+      "id": 3
+    }
   ]
 }

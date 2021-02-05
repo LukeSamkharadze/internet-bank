@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Chart } from 'chart.js';
 import { finalize, map } from 'rxjs/operators';
-import { incomeDataType } from './services/data/dataType';
+import { IncomeDataType } from './services/data/dataType';
 import { GenerateChartService } from './services/chart/generate-chart.service';
 import { IncomeDataService } from './services/data/income-data.service';
 
@@ -21,14 +21,14 @@ import { IncomeDataService } from './services/data/income-data.service';
 export class IncomeChartComponent implements OnInit {
   @Output()
   public isClicked = new EventEmitter<MouseEvent>();
-  @Input() monthRange: number = 0;
+  @Input() monthRange = 0;
   @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
   gradientFill: any;
   gradientFill2: any;
   myChart: Chart;
-  data: incomeDataType[];
-  color: string = `unset`;
+  data: IncomeDataType[];
+  color = `unset`;
   totalsum: number;
   constructor(
     private generateChartService: GenerateChartService,
