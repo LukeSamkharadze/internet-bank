@@ -1,9 +1,7 @@
-@import '../../../../../styles/./text-styles/./text.scss';
 .checkbox {
   padding-top: 2px;
   padding-bottom: 4px;
   label {
-    @extend .disable-select;
     @include checkbox_default($secondary-dark-1);
     padding-left: 25px;
   }

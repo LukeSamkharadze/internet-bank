@@ -14,7 +14,7 @@
   />
   <label
     (click)="checkDisabled()"
-    [ngClass]="{ 'checkbox-error': checkboxError }"
+    [ngClass]="{ 'checkbox-error': checkboxError, 'disable-select': true }"
     ><ng-content></ng-content>
   </label>
 </div>
