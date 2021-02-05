@@ -1,4 +1,39 @@
 {
+  "account-balances": [
+    {
+      "id": 1,
+      "iconAddress": "../../assets/card-logos/visa.svg",
+      "cardNumber": "3210 **** **** 4008",
+      "description": "Card Number",
+      "balance": "$88.200",
+      "arrow": "la-arrow-up"
+    },
+    {
+      "id": 2,
+      "iconAddress": "../../assets/card-logos/mastercard.svg",
+      "cardNumber": "4008 **** **** 9464",
+      "description": "Card Number",
+      "balance": "$66.400",
+      "arrow": "la-arrow-down"
+    },
+    {
+      "id": 3,
+      "iconAddress": "../../assets/card-logos/paypal.svg",
+      "cardNumber": "Paypal account",
+      "description": "E-wallet",
+      "balance": "$18.500",
+      "arrow": "la-arrow-up"
+    },
+
+    {
+      "id": 4,
+      "iconAddress": "../../assets/card-logos/payoneer.svg",
+      "cardNumber": "Payoneer account",
+      "description": "E-wallet",
+      "balance": "$6.400",
+      "arrow": "la-arrow-down"
+    }
+  ],
   "items": [
     {
       "id": 1,
