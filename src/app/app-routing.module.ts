@@ -14,11 +14,6 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'progress-bars',
-    data: { name: 'Progress-bars' },
-    component: ProgressBarsComponent,
-  },
-  {
     path: '**',
     redirectTo: 'list',
   },
