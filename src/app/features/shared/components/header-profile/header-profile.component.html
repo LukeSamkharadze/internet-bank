@@ -1,0 +1,33 @@
+<div #headerProfile>
+  <div #dropbtn class="profileBef dropbtn" (click)="myFunction()">
+    <div class="image dropbtn">
+      <img class="dropbtn" src="{{ userImage }}" alt="" />
+    </div>
+    <div class="name dropbtn">{{ this.user.name }}</div>
+  </div>
+  <div #myDropdown class="profileHover" id="myDropdown">
+    <div class="about">
+      <div class="profileMini">
+        <img src="{{ userImage }}" alt="" />
+      </div>
+      <div>
+        <div>{{ this.user.name }}</div>
+        <div class="gmail">{{ this.user.gmail }}</div>
+      </div>
+    </div>
+    <div class="profSettings">
+      <a routerLink="/myprofile">
+        <i class="las la-user"></i>
+        <p>YOUR PROFILE</p>
+      </a>
+      <a routerLink="/settings">
+        <i class="las la-cog"></i>
+        <p>SETTINGS</p>
+      </a>
+      <a routerLink="/sign-out">
+        <i class="las la-sign-out-alt"></i>
+        <p>SIGN OUT</p>
+      </a>
+    </div>
+  </div>
+</div>

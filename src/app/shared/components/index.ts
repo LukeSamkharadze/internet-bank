@@ -1,5 +1,4 @@
 import { InputComponent } from './input/input.component';
-import { HeaderProfileComponent } from './../../features/shared/header-profile/header-profile.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { TagComponent } from './tag/tag.component';
 import { ButtonComponent } from './button/button.component';
@@ -14,5 +13,4 @@ export const components = [
   TextareaComponent,
   TagComponent,
   ButtonComponent,
-  HeaderProfileComponent,
 ];
