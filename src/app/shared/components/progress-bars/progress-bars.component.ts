@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-shared-progress-bars',
@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./progress-bars.component.scss'],
 })
 export class ProgressBarsComponent implements OnInit {
-  public val = 59;
+  @Input()
+  public value = 0;
+
+  @Input()
   public max = 100;
 
   constructor() {}
@@ -14,15 +17,15 @@ export class ProgressBarsComponent implements OnInit {
   ngOnInit(): void {}
 
   red() {
-    return this.val / this.max < 0.26;
+    return this.value / this.max < 0.26;
   }
   orange() {
-    return this.val / this.max >= 0.26 && this.val / this.max < 0.61;
+    return this.value / this.max >= 0.26 && this.value / this.max < 0.61;
   }
   blue() {
-    return this.val / this.max >= 0.61 && this.val / this.max < 0.81;
+    return this.value / this.max >= 0.61 && this.value / this.max < 0.81;
   }
   green() {
-    return this.val / this.max >= 0.81 && this.val / this.max < 1;
+    return this.value / this.max >= 0.81 && this.value / this.max < 1;
   }
 }
