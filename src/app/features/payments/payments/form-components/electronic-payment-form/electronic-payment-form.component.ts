@@ -12,15 +12,31 @@ import {
   styleUrls: ['./electronic-payment-form.component.scss'],
 })
 export class ElectronicPaymentFormComponent implements OnInit {
+  title = 'Online payment';
   form: FormGroup;
   ngOnInit(): void {
     this.form = new FormGroup({
       account: new FormControl('', Validators.required),
       paymentSystem: new FormControl('', Validators.required),
-      paypalAccount: new FormControl('', Validators.required),
+      paypalAccount: new FormControl('', [
+        Validators.required,
+        Validators.email,
+      ]),
       amount: new FormControl('', Validators.required),
       currency: new FormControl('', Validators.required),
     });
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      alert('forma daasubmite yvero');
+    } else {
+      this.form.markAllAsTouched();
+    }
+  }
+
+  onReset() {
+    this.form.reset();
   }
 
   // getters

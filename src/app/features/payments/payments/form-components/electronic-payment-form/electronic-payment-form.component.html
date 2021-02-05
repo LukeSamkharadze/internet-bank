@@ -1,1 +1,109 @@
-<p>electronic-payment-form works!</p>
+<div class="payment">
+  <header>
+    <h5>{{ title }}</h5>
+  </header>
+  <form [formGroup]="form">
+    <div class="input-wrapper">
+      <label class="input-label" for="account"
+        >Select account
+        <span *ngIf="account.hasError('required') && account.touched"
+          >*required*</span
+        >
+      </label>
+      <app-shared-input
+        formControlName="account"
+        inputId="account"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="payment-system"
+        >Payment system
+        <span
+          *ngIf="paymentSystem.hasError('required') && paymentSystem.touched"
+          >*required*</span
+        >
+      </label>
+      <app-shared-input
+        inputId="payment-system"
+        formControlName="paymentSystem"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="paypal"
+        >Paypal account
+        <span
+          *ngIf="paypalAccount.hasError('required') && paypalAccount.touched"
+          >*required*</span
+        >
+        <span *ngIf="paypalAccount.hasError('email') && paypalAccount.touched"
+          >*invalid email*</span
+        ></label
+      >
+      <app-shared-input
+        placeholder="Enter email account"
+        inputId="paypal"
+        formControlName="paypalAccount"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper half-width">
+      <label class="input-label" for="amount"
+        >Amount
+        <span *ngIf="amount.hasError('required') && amount.touched"
+          >*required*</span
+        ></label
+      >
+      <app-shared-input
+        inputId="amount"
+        formControlName="amount"
+        type="number"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper half-width float-right">
+      <label class="input-label" for="currency"
+        >Currency
+        <span *ngIf="currency.hasError('required') && currency.touched"
+          >*required*</span
+        ></label
+      >
+      <app-shared-input
+        inputId="currency"
+        formControlName="currency"
+      ></app-shared-input>
+    </div>
+
+    <div class="payment-summary" *ngIf="form.valid">
+      <i class="las la-info-circle"></i>
+      <div class="amount">
+        <span>Amount</span>
+        <span>{{ amount.value }} {{ currency.value }}</span>
+      </div>
+      <div class="fee">
+        <span>Fee</span>
+        <span>{{ (amount.value * 1) / 100 }} {{ currency.value }}</span>
+      </div>
+      <div class="proccesing">
+        <span>Processing</span>
+        <span>5 - 7 Business days</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <app-shared-button
+        [className]="{ primary: true, active: true }"
+        class="button"
+        (clicked)="onSubmit()"
+        >PAY NOW</app-shared-button
+      >
+      <app-shared-button
+        [className]="{ primary: true, resting: true }"
+        class="button"
+        (clicked)="onReset()"
+        >RESET</app-shared-button
+      >
+    </div>
+  </form>
+</div>

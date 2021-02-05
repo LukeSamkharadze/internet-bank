@@ -1,0 +1,15 @@
+@import '../shared/forms';
+
+.payment {
+  .footer {
+    margin-top: 22px;
+    #button {
+      width: 50%;
+    }
+    span {
+      width: 50%;
+      text-align: center;
+      color: $secondary-dark-1;
+    }
+  }
+}

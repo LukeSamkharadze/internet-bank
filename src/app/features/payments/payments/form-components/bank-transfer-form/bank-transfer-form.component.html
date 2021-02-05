@@ -1,1 +1,97 @@
-<p>bank-transfer-form works!</p>
+<div class="payment">
+  <header>
+    <h5>{{ title }}</h5>
+  </header>
+  <form [formGroup]="form">
+    <div class="input-wrapper">
+      <label class="input-label" for="account"
+        >Select account
+        <span *ngIf="account.hasError('required') && account.touched"
+          >*required*</span
+        >
+      </label>
+      <app-shared-input
+        formControlName="account"
+        inputId="account"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="transfer-to"
+        >Transfer to
+        <span *ngIf="transferTo.hasError('required') && transferTo.touched"
+          >*required*</span
+        ></label
+      >
+      <app-shared-input
+        inputId="transfer-to"
+        formControlName="transferTo"
+        placeholder="Enter account number"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="beneficiary"
+        >Beneficiary
+        <span *ngIf="beneficiary.hasError('required') && beneficiary.touched"
+          >*required*</span
+        ></label
+      >
+      <app-shared-input
+        placeholder="Enter beneficiary name"
+        inputId="beneficiary"
+        formControlName="beneficiary"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper half-width">
+      <label class="input-label" for="amount"
+        >Amount
+        <span *ngIf="amount.hasError('required') && amount.touched"
+          >*required*</span
+        ></label
+      >
+      <app-shared-input
+        inputId="amount"
+        formControlName="amount"
+        type="number"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper half-width float-right">
+      <label class="input-label" for="currency"
+        >Currency
+        <span *ngIf="currency.hasError('required') && currency.touched"
+          >*required*</span
+        ></label
+      >
+      <app-shared-input
+        inputId="currency"
+        formControlName="currency"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="transfer-type"
+        >Transfer type
+        <span *ngIf="transferType.hasError('required') && transferType.touched"
+          >*required*</span
+        ></label
+      >
+      <app-shared-input
+        inputId="transfer-type"
+        formControlName="transferType"
+      ></app-shared-input>
+    </div>
+
+    <div class="footer">
+      <app-shared-button
+        [className]="{ primary: true, active: true }"
+        id="button"
+        (clicked)="onSubmit()"
+        >PAY NOW</app-shared-button
+      >
+      <span>2% Bank fee applied </span>
+    </div>
+  </form>
+</div>

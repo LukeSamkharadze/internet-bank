@@ -12,6 +12,7 @@ import {
   styleUrls: ['./instant-transfer-form.component.scss'],
 })
 export class InstantTransferFormComponent implements OnInit {
+  title = 'Instant transfer';
   form: FormGroup;
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -22,6 +23,13 @@ export class InstantTransferFormComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    if (this.form.valid) {
+      alert('forma daasubmite yvero');
+    } else {
+      this.form.markAllAsTouched();
+    }
+  }
   // getters
   // @ts-ignore
   get account(): AbstractControl {

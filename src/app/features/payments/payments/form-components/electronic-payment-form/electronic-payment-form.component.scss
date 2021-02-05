@@ -1,0 +1,35 @@
+@import '../shared/forms';
+
+.payment {
+  .payment-summary {
+    border: 2px dotted $outline;
+    border-radius: 5px;
+    padding: 25px 15px;
+    position: relative;
+
+    div {
+      :first-child {
+        display: inline-block;
+        font-weight: 300;
+        width: 103px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+
+    i {
+      position: absolute;
+      right: 18px;
+      top: 20px;
+      font-size: 18px;
+      color: $primary;
+      cursor: help;
+    }
+  }
+
+  .footer .button {
+    width: 130px;
+  }
+}

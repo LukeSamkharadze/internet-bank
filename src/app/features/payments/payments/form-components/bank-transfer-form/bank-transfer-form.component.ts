@@ -12,6 +12,7 @@ import {
   styleUrls: ['./bank-transfer-form.component.scss'],
 })
 export class BankTransferFormComponent implements OnInit {
+  title = 'Bank transfer';
   form: FormGroup;
 
   ngOnInit(): void {
@@ -23,6 +24,14 @@ export class BankTransferFormComponent implements OnInit {
       currency: new FormControl('', Validators.required),
       transferType: new FormControl('', Validators.required),
     });
+  }
+
+  onSubmit(): void {
+    if (this.form.valid) {
+      alert('forma daasubmite yvero');
+    } else {
+      this.form.markAllAsTouched();
+    }
   }
 
   // getters

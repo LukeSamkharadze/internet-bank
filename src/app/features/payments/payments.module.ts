@@ -9,6 +9,7 @@ import { BankTransferFormComponent } from './payments/form-components/bank-trans
 import { InstantTransferFormComponent } from './payments/form-components/instant-transfer-form/instant-transfer-form.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PaymentsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   exports: [PaymentsComponent, PaymentProvidersComponent],
   providers: [ProvidersService],
