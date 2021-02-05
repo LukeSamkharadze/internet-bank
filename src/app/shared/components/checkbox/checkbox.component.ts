@@ -20,11 +20,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class CheckboxComponent implements ControlValueAccessor {
-  randInt = Math.random() * 100;
-  checkboxId = `id${this.randInt}`;
-  @ViewChild('input') input: ElementRef;
+  @Input() id = null;
   @Input() textBefore = false;
-  @Input() isRequired = false;
   @Input() checked = false;
   @Input() disabled = false;
   @Input() checkboxError = false;
@@ -32,7 +29,12 @@ export class CheckboxComponent implements ControlValueAccessor {
   isChecked = false;
   onChange = (_) => {};
   onBlur = (_) => {};
-
+  checkDisabled() {
+    if (!this.disabled) {
+      this.checked = !this.checked;
+      this.onChange(this.checked);
+    }
+  }
   writeValue(obj: boolean): void {
     this.isChecked = obj;
   }

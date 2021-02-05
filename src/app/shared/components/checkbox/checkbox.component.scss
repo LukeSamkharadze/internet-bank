@@ -1,4 +1,4 @@
-@import '../../../../styles/index.scss';
+@import '../../../../styles/./index.scss';
 @import './styles/base.scss';
 @import './styles/main.scss';
 input[type='checkbox' i]:disabled {
@@ -8,4 +8,24 @@ input[type='checkbox' i]:disabled {
   border: 0px;
   background: transparent;
   opacity: 0;
+}
+
+:host {
+  display: inline-block;
+}
+
+.disable-select {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
 }
