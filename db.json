@@ -2,42 +2,42 @@
   "items": [
     {
       "id": 1,
-      "name": "test 1",
+      "name": "table",
       "img": "https://picsum.photos/200?random=1"
     },
     {
       "id": 2,
-      "name": "test 2",
+      "name": "chair",
       "img": "https://picsum.photos/200?random=2"
     },
     {
       "id": 3,
-      "name": "test 3",
+      "name": "magazine",
       "img": "https://picsum.photos/200?random=3"
     },
     {
       "id": 4,
-      "name": "test 4",
+      "name": "train",
       "img": "https://picsum.photos/200?random=4"
     },
     {
       "id": 5,
-      "name": "test 5",
+      "name": "shaker",
       "img": "https://picsum.photos/200?random=5"
     },
     {
       "id": 6,
-      "name": "test 6",
+      "name": "gym",
       "img": "https://picsum.photos/200?random=6"
     },
     {
       "id": 7,
-      "name": "test 7",
+      "name": "bus",
       "img": "https://picsum.photos/200?random=7"
     },
     {
       "id": 8,
-      "name": "test 8",
+      "name": "ferrari",
       "img": "https://picsum.photos/200?random=8"
     }
   ],

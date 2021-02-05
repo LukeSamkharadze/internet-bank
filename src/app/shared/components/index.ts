@@ -15,5 +15,5 @@ export const components = [
   TextareaComponent,
   TagComponent,
   ButtonComponent,
-  LayoutComponent
-]
+  LayoutComponent,
+];
