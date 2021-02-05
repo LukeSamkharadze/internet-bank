@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-shared-progress-bars',
+  selector: 'app-shared-progress-bar',
   templateUrl: './progress-bars.component.html',
   styleUrls: ['./progress-bars.component.scss'],
 })
