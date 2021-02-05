@@ -1,0 +1,22 @@
+<div
+  class="notification"
+  [ngClass]="{
+    'white-notification': color == 'white',
+    'blue-notification': color == 'blue',
+    'dark-notification': color == 'dark',
+    'dark-grey-notification': color == 'dark-grey',
+    'orange-notification': color == 'orange',
+    'light-grey-notification': color == 'light-grey',
+    'pink-notification': color == 'pink',
+    'cyan-notification': color == 'cyan',
+    'outline-color-notification': color == 'outline-color',
+    'lighter-grey-notification': color == 'lighter-grey',
+    'lightest-grey-notification': color == 'lightest-grey',
+    'green-notification': color == 'green'
+  }"
+>
+  <i class="las la-bell"></i>
+
+  <span><ng-content></ng-content></span>
+  <i class="las la-times-circle" (click)="closeModal()"></i>
+</div>
