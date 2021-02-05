@@ -1,0 +1,105 @@
+<section class="main-container grid-container">
+  <div class="gritem-1">
+    <div class="crd-header">
+      <img
+        src="./assets/create-card/create-card-visa-icon.svg"
+        alt="visa card mini logo"
+      />
+      <p class="add-crd-txt">Add new card</p>
+      <p class="crd-money">
+        {{ (amount.value ? amount.value : 0) | currency }}
+      </p>
+    </div>
+  </div>
+  <div class="gritem-2">
+    <div class="card-placeholder">
+      <img
+        src="./assets/create-card/card-bg.svg"
+        alt="card placeholder"
+        height="200"
+        width="327.586"
+      />
+      <div class="crd-placeholder-txt text-center">
+        <i class="las la-plus-circle"></i>
+        <div>
+          <h4>Add new card</h4>
+          <p>Start process</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gritem-3">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="li">
+        <label for="cardName">Card name</label>
+        <input
+          formControlName="cardName"
+          type="text"
+          id="cardName"
+          placeholder="Please add your card name"
+        />
+      </div>
+      <div class="li">
+        <label for="accountNumber">Account number</label>
+        <input
+          formControlName="accountNumber"
+          type="text"
+          id="accountNumber"
+          placeholder="Please add your account number"
+        />
+      </div>
+      <div class="li">
+        <label for="cardNumber">Card number</label>
+        <input
+          formControlName="cardNumber"
+          type="number"
+          id="cardNumber"
+          placeholder="Please add your card number"
+        />
+      </div>
+      <div class="li">
+        <label for="cardholder">Cardholder</label>
+        <input
+          formControlName="cardholder"
+          type="text"
+          id="cardholder"
+          placeholder="Please add your name"
+        />
+      </div>
+      <div class="li">
+        <label for="expirationDate">Expiration date</label>
+        <input
+          formControlName="expirationDate"
+          type="text"
+          id="expirationDate"
+          placeholder="Please add your card number expiration date"
+        />
+      </div>
+      <div class="li">
+        <label for="availableAmount">Available amount</label>
+        <input
+          formControlName="availableAmount"
+          #amount
+          type="number"
+          id="availableAmount"
+          placeholder="Please add your available amount"
+        />
+      </div>
+      <div class="li">
+        <!-- იმპორტირებული გადამრთველი ქვემოთ -->
+        <!-- <p>3D Security</p> -->
+        <div class="toggle-container">
+          <label for="toggle-on" class="switch">3D Security</label>
+          <input formControlName="security3D" type="checkbox" id="toggle-on" />
+          <!-- <span class="slider"></span> -->
+        </div>
+      </div>
+      <!-- იმპორტირებული ღილაკი ქვემოთ -->
+      <div class="primary">
+        <button class="active" type="submit" [disabled]="form.invalid">
+          Add Card
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
