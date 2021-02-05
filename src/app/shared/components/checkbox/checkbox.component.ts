@@ -27,11 +27,13 @@ export class CheckboxComponent implements ControlValueAccessor {
   @Input() checkboxError = false;
   @Input() required: boolean | string;
   isChecked = false;
+  control: AbstractControl;
   onChange = (_) => {};
   onBlur = (_) => {};
+
   validate(control: AbstractControl): { [key: string]: any } | null {
     if (this.required || this.required === '') {
-      control.markAsTouched();
+      this.control = control;
       return control.value + '' !== 'true'
         ? {
             appRequiredTrue: {
@@ -41,6 +43,7 @@ export class CheckboxComponent implements ControlValueAccessor {
           }
         : null;
     }
+
     return null;
   }
 
@@ -48,6 +51,7 @@ export class CheckboxComponent implements ControlValueAccessor {
     if (!this.disabled) {
       this.checked = !this.checked;
       this.onChange(this.checked);
+      this.control.markAsTouched();
     }
   }
   writeValue(obj: boolean): void {
