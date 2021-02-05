@@ -1,0 +1,45 @@
+<div class="popup-blur"></div>
+<div class="details-popup">
+  <div class="details-container">
+    <div
+      class="details-popup-upper"
+      [ngStyle]="{ 'background-color': background, opacity: opacity }"
+    >
+      <i class="las la-times-circle" (click)="closeModal()"></i>
+    </div>
+    <div class="details-popup-lower">
+      <div class="details-popup-lower-logo">
+        <img [src]="transaction.icon" alt="Transaction Icon" />
+      </div>
+      <div></div>
+      <div class="details-popup-lower-heading">
+        <h3>{{ transaction.title }}</h3>
+      </div>
+      <div class="details-popup-lower-tag">
+        <app-shared-tag
+          *ngIf="showTag"
+          (closeClicked)="closeTag()"
+          [color]="transaction.tagColor"
+        >
+          {{ transaction.status }}
+        </app-shared-tag>
+      </div>
+      <div class="details-popup-lower-transaction">
+        <div class="details-popup-lower-transaction-account">
+          <h5>xxxx {{ transaction.cardNumber }}</h5>
+          <p>Payment account</p>
+        </div>
+        <div class="details-popup-lower-transaction-amount">
+          <p class="details-popup-lower-transaction-number">
+            {{ transaction.amount }}
+          </p>
+          <p>{{ transaction.date }}</p>
+        </div>
+      </div>
+      <div class="details-popup-lower-receipt">
+        <i class="las la-envelope" (click)="receipt(transaction)"></i>
+        <p (click)="receipt(transaction)">SEND RECEIPT</p>
+      </div>
+    </div>
+  </div>
+</div>

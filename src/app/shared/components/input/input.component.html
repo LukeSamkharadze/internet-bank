@@ -1,1 +1,25 @@
-<input [formControl]="control"/>
+<label class="input-label" [for]="inputId">
+  <ng-content></ng-content>
+</label>
+<div class="input-wrapper">
+  <input
+    #inputElement
+    [id]="inputId"
+    [type]="type"
+    [ngClass]="{
+      validated: validated,
+      'ng-touched': controlDir.touched,
+      'ng-valid': controlDir.valid,
+      'ng-invalid': controlDir.invalid
+    }"
+    [placeholder]="placeholder"
+    (input)="onChange($event.target.value)"
+    (blur)="onTouched()"
+    [disabled]="disabled"
+  />
+  <i
+    *ngIf="validated && controlDir.touched"
+    class="las"
+    [ngClass]="{ 'la-ban': !controlDir.valid, 'la-check': controlDir.valid }"
+  ></i>
+</div>
