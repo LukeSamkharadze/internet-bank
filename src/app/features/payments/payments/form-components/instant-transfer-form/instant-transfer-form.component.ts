@@ -5,11 +5,13 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { animations } from '../shared/animations';
 
 @Component({
   selector: 'app-instant-transfer-form',
   templateUrl: './instant-transfer-form.component.html',
   styleUrls: ['./instant-transfer-form.component.scss'],
+  animations: [animations.errorTrigger, animations.formTrigger],
 })
 export class InstantTransferFormComponent implements OnInit {
   title = 'Instant transfer';

@@ -5,11 +5,13 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { animations } from '../shared/animations';
 
 @Component({
   selector: 'app-bank-transfer-form',
   templateUrl: './bank-transfer-form.component.html',
   styleUrls: ['./bank-transfer-form.component.scss'],
+  animations: [animations.errorTrigger, animations.formTrigger],
 })
 export class BankTransferFormComponent implements OnInit {
   title = 'Bank transfer';

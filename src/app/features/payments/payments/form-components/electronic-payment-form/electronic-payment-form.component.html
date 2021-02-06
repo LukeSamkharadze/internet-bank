@@ -2,11 +2,13 @@
   <header>
     <h5>{{ title }}</h5>
   </header>
-  <form [formGroup]="form">
+  <form [formGroup]="form" [@formTrigger]>
     <div class="input-wrapper">
       <label class="input-label" for="account"
         >Select account
-        <span *ngIf="account.hasError('required') && account.touched"
+        <span
+          [@errorTrigger]
+          *ngIf="account.hasError('required') && account.touched"
           >*required*</span
         >
       </label>
@@ -20,6 +22,7 @@
       <label class="input-label" for="payment-system"
         >Payment system
         <span
+          [@errorTrigger]
           *ngIf="paymentSystem.hasError('required') && paymentSystem.touched"
           >*required*</span
         >
@@ -34,10 +37,13 @@
       <label class="input-label" for="paypal"
         >Paypal account
         <span
+          [@errorTrigger]
           *ngIf="paypalAccount.hasError('required') && paypalAccount.touched"
           >*required*</span
         >
-        <span *ngIf="paypalAccount.hasError('email') && paypalAccount.touched"
+        <span
+          [@errorTrigger]
+          *ngIf="paypalAccount.hasError('email') && paypalAccount.touched"
           >*invalid email*</span
         ></label
       >
@@ -51,7 +57,9 @@
     <div class="input-wrapper half-width">
       <label class="input-label" for="amount"
         >Amount
-        <span *ngIf="amount.hasError('required') && amount.touched"
+        <span
+          [@errorTrigger]
+          *ngIf="amount.hasError('required') && amount.touched"
           >*required*</span
         ></label
       >
@@ -65,7 +73,9 @@
     <div class="input-wrapper half-width float-right">
       <label class="input-label" for="currency"
         >Currency
-        <span *ngIf="currency.hasError('required') && currency.touched"
+        <span
+          [@errorTrigger]
+          *ngIf="currency.hasError('required') && currency.touched"
           >*required*</span
         ></label
       >
@@ -75,7 +85,7 @@
       ></app-shared-input>
     </div>
 
-    <div class="payment-summary" *ngIf="form.valid">
+    <div class="payment-summary" *ngIf="form.valid" [@summaryTrigger]>
       <i class="las la-info-circle"></i>
       <div class="amount">
         <span>Amount</span>

@@ -5,11 +5,17 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { animations } from '../shared/animations';
 
 @Component({
   selector: 'app-electronic-payment-form',
   templateUrl: './electronic-payment-form.component.html',
   styleUrls: ['./electronic-payment-form.component.scss'],
+  animations: [
+    animations.errorTrigger,
+    animations.summaryTrigger,
+    animations.formTrigger,
+  ],
 })
 export class ElectronicPaymentFormComponent implements OnInit {
   title = 'Online payment';
