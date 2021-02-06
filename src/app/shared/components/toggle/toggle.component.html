@@ -1,6 +1,12 @@
 <div class="toggle-container" [class]="toggleType">
   <label class="switch">
-    <input type="checkbox" [formControl]="toggle" id="toggle" unchecked />
+    <input
+      type="checkbox"
+      [formControl]="toggle"
+      id="toggle"
+      [required]="required"
+      [checked]="checked"
+    />
     <span class="slider"></span>
     <label for="toggle" class="text disable-select"
       ><ng-content></ng-content

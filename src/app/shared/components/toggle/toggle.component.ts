@@ -3,6 +3,9 @@ import {
   FormControl,
   NG_VALUE_ACCESSOR,
   ControlValueAccessor,
+  NG_VALIDATORS,
+  AbstractControl,
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -15,14 +18,32 @@ import {
       multi: true,
       useExisting: forwardRef(() => ToggleComponent),
     },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: ToggleComponent,
+    },
   ],
 })
 export class ToggleComponent implements OnInit, ControlValueAccessor {
   @Input() toggleType: string;
-  public toggle = new FormControl('');
+  @Input() checked: boolean | string;
+  @Input() required: boolean | string;
+
+  public toggle;
   private onChange: () => void;
   private onTouched: () => void;
 
+  validate(): void {
+    if (this.required || this.required === '') {
+      this.toggle = new FormControl('', [Validators.requiredTrue]);
+    } else {
+      this.toggle = new FormControl();
+    }
+    if (this.checked === '') {
+      this.checked = true;
+    }
+  }
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
@@ -40,9 +61,18 @@ export class ToggleComponent implements OnInit, ControlValueAccessor {
       this.toggle.enable();
     }
   }
+  doBlur() {
+    this.onTouched();
+  }
 
   toggleisDisabled(): boolean {
-    if (this.toggleType === 'on-disable' || this.toggleType === 'off-disable') {
+    if (
+      this.toggleType === 'off-disabled' ||
+      this.toggleType === 'on-disabled'
+    ) {
+      this.toggleType === 'off-disabled'
+        ? this.toggle.setValue(false)
+        : this.toggle.setValue(true);
       return true;
     } else {
       return false;
@@ -50,6 +80,8 @@ export class ToggleComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
+    this.validate();
+    this.toggle.setValue(this.checked);
     this.setDisabledState(this.toggleisDisabled());
   }
 }
