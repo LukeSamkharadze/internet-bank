@@ -27,7 +27,7 @@ export class InstantTransferFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      alert('forma daasubmite yvero');
+      alert('success');
     } else {
       this.form.markAllAsTouched();
     }

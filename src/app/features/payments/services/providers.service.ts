@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PaymentType } from '../models/paymentType.entity';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class ProvidersService {
-  constructor() {}
-
   private paymentTypes: PaymentType[] = [
     {
       name: 'Electronic Payments',

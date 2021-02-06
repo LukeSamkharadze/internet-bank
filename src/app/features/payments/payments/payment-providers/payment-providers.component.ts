@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProvidersService } from '../../services/providers.service';
 
 @Component({
@@ -6,11 +6,10 @@ import { ProvidersService } from '../../services/providers.service';
   templateUrl: './payment-providers.component.html',
   styleUrls: ['./payment-providers.component.scss'],
 })
-export class PaymentProvidersComponent implements OnInit {
+export class PaymentProvidersComponent {
   public allPaymentTypes = this.providerService.getAllPaymentTypes();
   public userInput: string;
   constructor(private providerService: ProvidersService) {}
-  ngOnInit(): void {}
 
   shouldAddComma(provider, providersArray) {
     if (providersArray.length < 2) {

@@ -30,7 +30,7 @@ export class BankTransferFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      alert('forma daasubmite yvero');
+      alert('success');
     } else {
       this.form.markAllAsTouched();
     }
