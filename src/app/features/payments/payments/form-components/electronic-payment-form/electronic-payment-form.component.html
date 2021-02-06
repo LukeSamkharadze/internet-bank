@@ -20,7 +20,7 @@
 
     <div class="input-wrapper">
       <label class="input-label" for="payment-system"
-        >Payment system
+        >Select payment system
         <span
           [@errorTrigger]
           *ngIf="paymentSystem.hasError('required') && paymentSystem.touched"
@@ -51,6 +51,7 @@
         placeholder="Enter email account"
         inputId="paypal"
         formControlName="paypalAccount"
+        type="email"
       ></app-shared-input>
     </div>
 
@@ -67,6 +68,7 @@
         inputId="amount"
         formControlName="amount"
         type="number"
+        placeholder="Enter amount"
       ></app-shared-input>
     </div>
 

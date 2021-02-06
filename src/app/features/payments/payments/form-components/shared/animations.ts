@@ -24,7 +24,8 @@ export const animations = {
       animate(250),
     ]),
   ]),
-  summaryTrigger: trigger('summaryTrigger', [
+
+  formTrigger: trigger('formTrigger', [
     transition('void =>   *', [
       style({
         transform: 'translateY(-20px)',
@@ -33,8 +34,10 @@ export const animations = {
       animate(250),
     ]),
   ]),
+};
 
-  formTrigger: trigger('formTrigger', [
+export const summaryAnimation = {
+  summaryTrigger: trigger('summaryTrigger', [
     transition('void =>   *', [
       style({
         transform: 'translateY(-20px)',

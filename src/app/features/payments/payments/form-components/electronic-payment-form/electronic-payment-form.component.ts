@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { animations } from '../shared/animations';
+import { summaryAnimation } from '../shared/animations';
 
 @Component({
   selector: 'app-electronic-payment-form',
@@ -13,8 +14,8 @@ import { animations } from '../shared/animations';
   styleUrls: ['./electronic-payment-form.component.scss'],
   animations: [
     animations.errorTrigger,
-    animations.summaryTrigger,
     animations.formTrigger,
+    summaryAnimation.summaryTrigger,
   ],
 })
 export class ElectronicPaymentFormComponent implements OnInit {
