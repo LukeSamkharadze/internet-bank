@@ -7,7 +7,7 @@
           <img [src]="item.iconAddress" />
         </div>
         <div class="detail-position">
-          <div class="account-number">{{ item.cardNumber }}</div>
+          <div class="account-number">{{ item.cardNumber | hideNums }}</div>
           <div class="account-description">{{ item.description }}</div>
         </div>
       </div>

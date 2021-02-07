@@ -3,7 +3,7 @@
     {
       "id": 1,
       "iconAddress": "../../assets/card-logos/visa.svg",
-      "cardNumber": "3210 **** **** 4008",
+      "cardNumber": "3210 1234 4567 4008",
       "description": "Card Number",
       "balance": "$88.200",
       "arrow": "la-long-arrow-alt-up"
@@ -11,7 +11,7 @@
     {
       "id": 2,
       "iconAddress": "../../assets/card-logos/mastercard.svg",
-      "cardNumber": "4008 **** **** 9464",
+      "cardNumber": "4008 1234 4567 9464",
       "description": "Card Number",
       "balance": "$66.400",
       "arrow": "la-long-arrow-alt-down"

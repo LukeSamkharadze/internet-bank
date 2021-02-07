@@ -2,12 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from '../../../../../../environments/environment.prod';
-import { BalanceStructure } from './balanceType';
+import { BalanceStructure } from '../models/balanceType';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class HttpService {
+@Injectable()
+export class AccountBalancesService {
   private url: string = environment.URL;
   _BalanceStructures = new Subject<BalanceStructure[]>();
 

@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { BalanceStructure } from './services/balanceType';
-import { HttpService } from './services/account-balances.service';
+import { BalanceStructure } from './models/balanceType';
+import { AccountBalancesService } from './services/account-balances.service';
 @Component({
   selector: 'app-features-shared-accountBalances',
   templateUrl: './account-balances.component.html',
   styleUrls: ['./account-balances.component.scss'],
+  providers: [AccountBalancesService],
 })
 export class AccountBalancesComponent implements OnInit {
   accountDetails: BalanceStructure[];
 
-  constructor(private http: HttpService) {}
+  constructor(private http: AccountBalancesService) {}
 
   ngOnInit(): void {
     this.http._BalanceStructures.subscribe(() => {
@@ -24,7 +25,6 @@ export class AccountBalancesComponent implements OnInit {
       .pipe(
         map((balances: any) => {
           this.accountDetails = [...balances];
-          console.log(balances);
         })
       )
       .subscribe();
