@@ -1,12 +1,5 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import {
-  FormControl,
-  NG_VALUE_ACCESSOR,
-  ControlValueAccessor,
-  NG_VALIDATORS,
-  AbstractControl,
-  Validators,
-} from '@angular/forms';
+import { FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shared-toggle',
@@ -18,14 +11,9 @@ import {
       multi: true,
       useExisting: forwardRef(() => ToggleComponent),
     },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: ToggleComponent,
-    },
   ],
 })
-export class ToggleComponent implements OnInit, ControlValueAccessor {
+export class ToggleComponent implements OnInit {
   @Input() toggleType: string;
   @Input() checked: boolean | string;
   @Input() required: boolean | string;
