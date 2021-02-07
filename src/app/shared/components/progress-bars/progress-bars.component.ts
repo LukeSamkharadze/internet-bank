@@ -12,20 +12,76 @@ export class ProgressBarsComponent implements OnInit {
   @Input()
   public max = 100;
 
+  private colorRed = [255, 0, 0];
+  private colorRedOrange = [255, 160, 122];
+  private colorOrange = [255, 165, 0];
+  private colorBlue = [65, 105, 225];
+  private colorLightBlue = [77, 124, 255];
+  private colorLightGreen = [189, 255, 177];
+  private colorGreen = [57, 255, 20];
+
+  private firstBreakP = 0.26;
+  private secondBreakP = 0.61;
+  private thirdBreakP = 0.81;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.defineColor();
+  }
+  pickHex(color1, color2, weight) {
+    const p = weight;
+    const w = p * 2 - 1;
+    const w1 = (w / 1 + 1) / 2;
+    const w2 = 1 - w1;
+    const rgb = [
+      Math.round(color1[0] * w1 + color2[0] * w2),
+      Math.round(color1[1] * w1 + color2[1] * w2),
+      Math.round(color1[2] * w1 + color2[2] * w2),
+    ];
+    return rgb;
+  }
 
-  red() {
-    return this.value / this.max < 0.26;
-  }
-  orange() {
-    return this.value / this.max >= 0.26 && this.value / this.max < 0.61;
-  }
-  blue() {
-    return this.value / this.max >= 0.61 && this.value / this.max < 0.81;
-  }
-  green() {
-    return this.value / this.max >= 0.81 && this.value / this.max < 1;
+  defineColor() {
+    const coefficient = this.value / this.max;
+    let color;
+    color = 'black';
+    if (coefficient < this.firstBreakP) {
+      color = this.pickHex(
+        this.colorRed,
+        this.colorRedOrange,
+        1 - coefficient / this.firstBreakP
+      );
+    } else if (
+      coefficient >= this.firstBreakP &&
+      coefficient < this.secondBreakP
+    ) {
+      color = this.pickHex(
+        this.colorRedOrange,
+        this.colorOrange,
+        1 -
+          (coefficient - this.firstBreakP) /
+            (this.secondBreakP - this.firstBreakP)
+      );
+    } else if (
+      coefficient >= this.secondBreakP &&
+      coefficient < this.thirdBreakP
+    ) {
+      color = this.pickHex(
+        this.colorLightBlue,
+        this.colorBlue,
+        1 -
+          (coefficient - this.secondBreakP) /
+            (this.thirdBreakP - this.secondBreakP)
+      );
+    } else {
+      color = this.pickHex(
+        this.colorLightGreen,
+        this.colorGreen,
+        1 - (coefficient - this.thirdBreakP) / (1 - this.thirdBreakP)
+      );
+    }
+    color = 'rgb(' + color.toString() + ')';
+    document.documentElement.style.setProperty('--backgroundColor', color);
   }
 }

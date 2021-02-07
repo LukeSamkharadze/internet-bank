@@ -4,6 +4,10 @@
   display: block;
   height: 4px;
 }
+:root {
+  backgroundcolor: black;
+}
+
 progress {
   width: 100%;
   background-color: $background-1;
@@ -16,17 +20,6 @@ progress::-webkit-progress-bar {
   border-radius: 10px;
 }
 progress::-webkit-progress-value {
+  background-color: var(--backgroundColor);
   border-radius: 10px;
-}
-progress.red::-webkit-progress-value {
-  background-color: $secondary-3;
-}
-progress.blue::-webkit-progress-value {
-  background-color: $secondary-1;
-}
-progress.green::-webkit-progress-value {
-  background-color: $secondary-2;
-}
-progress.orange::-webkit-progress-value {
-  background-color: $primary;
 }
