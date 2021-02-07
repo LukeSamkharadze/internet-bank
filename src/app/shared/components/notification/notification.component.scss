@@ -1,24 +1,19 @@
-@import '../../../../styles/index.scss';
+@import './index.scss';
 
 $notif-width: 555px;
 $content-widtha: $notif-width - 100px;
-
 .notification {
+  padding-left: 50px;
   width: $notif-width;
-  height: 64px;
-  background-color: $secondary-1;
+  background-color: #4d7cfe;
   position: relative;
-  span {
+  padding-top: 23px;
+  padding-bottom: 23px;
+  div {
     font-size: 16px;
-    position: absolute;
     font-family: $rubik;
     font-weight: 500;
     max-width: $content-widtha;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    top: 24px;
-    left: 51px;
   }
 
   :first-child {
@@ -38,44 +33,44 @@ $content-widtha: $notif-width - 100px;
   }
 }
 
-@mixin notif-style($bg-color, $text-color) {
+@mixin notif-style($bg-color, $text-color: #fff) {
   background-color: $bg-color;
-  span,
+  div,
   i {
     color: $text-color;
   }
 }
 
 .orange-notification {
-  @include notif-style($primary, white);
+  @include notif-style($primary);
 }
 .blue-notification {
-  @include notif-style($secondary-1, white);
+  @include notif-style($secondary-1);
 }
 .dark-notification {
-  @include notif-style($primary-dark, white);
+  @include notif-style($primary-dark);
 }
 
 .dark-grey-notification {
-  @include notif-style($secondary-dark-1, white);
+  @include notif-style($secondary-dark-1);
 }
 
 .light-grey-notification {
-  @include notif-style($secondary-dark-2, white);
+  @include notif-style($secondary-dark-2);
 }
 
 .green-notification {
-  @include notif-style($secondary-2, white);
+  @include notif-style($secondary-2);
 }
 .pink-notification {
-  @include notif-style($secondary-3, white);
+  @include notif-style($secondary-3);
 }
 
 .cyan-notification {
-  @include notif-style($secondary-4, white);
+  @include notif-style($secondary-4);
 }
 
-.outline-color-notification {
+.grey-color-notification {
   @include notif-style($outline, $secondary-dark-1);
 }
 .lighter-grey-notification {
