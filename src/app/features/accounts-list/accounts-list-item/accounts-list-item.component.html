@@ -1,0 +1,46 @@
+<div class="icon-container">
+  <div
+    [ngClass]="{
+      icon: true,
+      green: isMortgage,
+      blue: isConsumer,
+      orange: isCumulative
+    }"
+  >
+    <img
+      src="../../../../assets/features/accounts-list/visa.svg"
+      alt="Visa"
+      *ngIf="isVisa"
+    />
+    <img
+      src="../../../../assets/features/accounts-list/master-card.svg"
+      alt="Master Card"
+      *ngIf="isMasterCard"
+    />
+    <i class="las la-lock" *ngIf="isCumulative"></i>
+    <i class="lar la-building" *ngIf="isMortgage"></i>
+    <i class="las la-laptop" *ngIf="isConsumer"></i>
+  </div>
+</div>
+<div class="info">
+  <p class="primary">{{ title }}</p>
+  <p class="secondary">{{ titles.type }}</p>
+</div>
+<div class="balance">
+  <p class="primary">${{ info.balance }}</p>
+  <p class="secondary">{{ titles.balance }}</p>
+</div>
+<div class="done">
+  <p class="primary">${{ info.amount }}</p>
+  <p class="secondary">{{ titles.amount }}</p>
+</div>
+<div class="additionalInfo">
+  <p class="primary">{{ info.additionalInfo }}</p>
+  <p class="secondary">{{ titles.additionalInfo }}</p>
+</div>
+<div class="status">
+  <div class="status-container">
+    <p class="primary">{{ info.status }}</p>
+    <p class="secondary">{{ titles.status }}</p>
+  </div>
+</div>

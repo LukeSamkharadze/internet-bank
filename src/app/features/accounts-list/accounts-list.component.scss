@@ -1,5 +1,6 @@
-@import '../../../styles/index.scss';
-.content-main > *:not(:last-child) {
+@import './index.scss';
+
+:host > *:not(:last-child) {
   margin-bottom: 17px;
 }
 
@@ -11,9 +12,6 @@
   margin-bottom: 20px;
 }
 
-.profile-hover {
-  z-index: 1;
-}
 .list {
   position: relative;
   width: 100%;
@@ -46,89 +44,13 @@
     }
   }
 
-  ul {
+  .items {
     padding: 1px 24px;
     background-color: white;
     border-radius: 4px;
-  }
 
-  .item {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 58px 329fr 188fr 268fr 89fr 113px;
-
-    & > * {
-      padding: 16px 0;
-      padding-left: 23px;
+    & > *:not(:last-child) {
       border-bottom: 1px solid $outline;
-      vertical-align: middle;
-    }
-
-    div:first-child {
-      padding-left: 0;
-    }
-    div:last-child .container {
-      margin-left: auto;
-      *,
-      & {
-        width: min-content;
-        white-space: nowrap;
-      }
-    }
-  }
-
-  .item:last-child > div {
-    border: none;
-  }
-
-  .icon {
-    display: flex;
-    align-items: center;
-    border-radius: 4px;
-    width: 100%;
-    background-color: $background-2;
-    height: 40px;
-
-    i {
-      margin: 0 auto;
-    }
-
-    img {
-      margin: 0 auto;
-    }
-
-    &.green {
-      background-color: rgba($color: $secondary-2, $alpha: 0.1);
-      color: $secondary-2;
-    }
-
-    &.orange {
-      background-color: rgba($color: $primary, $alpha: 0.1);
-      color: $primary;
-    }
-
-    &.blue {
-      background-color: rgba($color: $secondary-1, $alpha: 0.1);
-      color: $secondary-1;
-    }
-  }
-
-  .primary {
-    @include text-style(16px);
-    margin-bottom: 1px;
-  }
-
-  .secondary {
-    @include text-style(14px, $secondary-dark-2);
-  }
-
-  .blocked {
-    .balance,
-    .done,
-    .additionalInfo {
-      .primary {
-        color: $secondary-dark-1;
-      }
     }
   }
 }

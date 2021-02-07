@@ -1,22 +1,68 @@
-<div class="content-main">
-  <div class="charts-container">
-    <app-accounts-list-chart
-      [info]="{
-        title: 'Cards balance',
-        data: [78000, 91000, 78000, 52000, 72800, 104000, 124800]
+<div class="charts-container">
+  <app-accounts-list-chart
+    [info]="{
+      title: 'Cards balance',
+      data: [78000, 91000, 78000, 52000, 72800, 104000, 124800]
+    }"
+  ></app-accounts-list-chart>
+  <app-accounts-list-chart
+    [info]="{
+      title: 'Deposit (3% Rate)',
+      data: [35250, 38070, 39480, 40890, 38070, 49350, 56400]
+    }"
+  ></app-accounts-list-chart>
+  <app-accounts-list-chart
+    [info]="{
+      title: 'Pending credit',
+      data: [41300, 28910, 16520, 28910, 24800]
+    }"
+  ></app-accounts-list-chart>
+</div>
+
+<div class="list" *ngIf="cards.length">
+  <div class="header">
+    <p class="name">Your cards</p>
+    <p class="new"><i class="las la-plus-circle"></i>New cart</p>
+  </div>
+  <div class="items">
+    <app-accounts-list-item
+      *ngFor="let info of cards"
+      [info]="info"
+      [ngClass]="{
+        blocked: info.status === 'Paid' || info.status === 'Blocked'
       }"
-    ></app-accounts-list-chart>
-    <app-accounts-list-chart
-      [info]="{
-        title: 'Deposit (3% Rate)',
-        data: [35250, 38070, 39480, 40890, 38070, 49350, 56400]
+    ></app-accounts-list-item>
+  </div>
+</div>
+
+<div class="list" *ngIf="deposits.length">
+  <div class="header">
+    <p class="name">Open Deposit</p>
+    <p class="new"><i class="las la-plus-circle"></i>New deposit</p>
+  </div>
+  <div class="items">
+    <app-accounts-list-item
+      *ngFor="let info of deposits"
+      [info]="info"
+      [ngClass]="{
+        blocked: info.status === 'Paid' || info.status === 'Blocked'
       }"
-    ></app-accounts-list-chart>
-    <app-accounts-list-chart
-      [info]="{
-        title: 'Pending credit',
-        data: [41300, 28910, 16520, 28910, 24800]
+    ></app-accounts-list-item>
+  </div>
+</div>
+
+<div class="list" *ngIf="loans.length">
+  <div class="header">
+    <p class="name">Your Credits</p>
+    <p class="new"><i class="las la-plus-circle"></i>New deposit</p>
+  </div>
+  <div class="items">
+    <app-accounts-list-item
+      *ngFor="let info of loans"
+      [info]="info"
+      [ngClass]="{
+        blocked: info.status === 'Paid' || info.status === 'Blocked'
       }"
-    ></app-accounts-list-chart>
+    ></app-accounts-list-item>
   </div>
 </div>
