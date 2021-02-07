@@ -10,11 +10,11 @@ export class CardService implements BaseHttpInterface<ICard> {
   constructor(private http: HttpClient) {}
 
   create(card: ICard): Observable<ICard> {
-    return this.http.post<ICard>(`${environment.url}cards`, card);
+    return this.http.post<ICard>(`${environment.URL}cards`, card);
   }
 
   getAll(): Observable<ICard[]> {
-    return this.http.get<ICard[]>(`${environment.url}cards`);
+    return this.http.get<ICard[]>(`${environment.URL}cards`);
   }
 
   getById(): Observable<ICard> {

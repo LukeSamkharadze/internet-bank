@@ -95,6 +95,7 @@
 
   .gritem-3 {
     .li {
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -121,14 +122,20 @@
           outline: none;
           border-radius: 3px;
           background: hsl(0, 0%, 93%);
+          transition: 0.3s;
 
           &.valid {
             background: hsl(120, 60%, 90%);
           }
 
           &.invalid {
-            background: hsl(34, 80%, 90%);
+            background: hsl(0, 80%, 90%);
           }
+        }
+
+        &:hover + .pop-up {
+          visibility: visible;
+          opacity: 1;
         }
 
         &::-webkit-outer-spin-button,
@@ -140,6 +147,46 @@
         /* Firefox */
         &[type='number'] {
           -moz-appearance: textfield;
+        }
+      }
+
+      .pop-up {
+        position: absolute;
+        padding: 4px 2px;
+        border-radius: 3px;
+        bottom: 120%;
+        right: 5%;
+        min-width: 50%;
+        background: hsl(0, 0%, 98%);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        text-align: center;
+        user-select: none;
+        transition: 0.4s;
+        visibility: hidden;
+        opacity: 0;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -7px;
+          border-width: 7px;
+          border-style: solid;
+          border-color: hsl(0, 0%, 70%) transparent transparent transparent;
+        }
+
+        .la-info-circle {
+          color: $secondary-dark-2;
+          padding-right: 2px;
+        }
+
+        span {
+          color: $secondary-dark-2;
+          font-family: $roboto;
+          font-size: 14px;
+          font-weight: 300;
+          font-style: italic;
         }
       }
 

@@ -42,6 +42,10 @@
           }"
           placeholder="Please add your card name"
         />
+        <div class="pop-up">
+          <i class="las la-info-circle"></i>
+          <span>Type: Letters and numbers</span>
+        </div>
       </div>
       <div class="li">
         <label for="accountNumber">Account number</label>
@@ -55,6 +59,10 @@
           }"
           placeholder="Please add your account number"
         />
+        <div class="pop-up">
+          <i class="las la-info-circle"></i>
+          <span>Type: 16 numbers</span>
+        </div>
       </div>
       <div class="li">
         <label for="cardNumber">Card number</label>
@@ -68,6 +76,10 @@
           }"
           placeholder="Please add your card number"
         />
+        <div class="pop-up">
+          <i class="las la-info-circle"></i>
+          <span>Type: 16 numbers</span>
+        </div>
       </div>
       <div class="li">
         <label for="cardholder">Cardholder</label>
@@ -81,6 +93,10 @@
           }"
           placeholder="Please add your name"
         />
+        <div class="pop-up">
+          <i class="las la-info-circle"></i>
+          <span>Type: Only letters</span>
+        </div>
       </div>
       <div class="li">
         <label for="expirationDate">Expiration date</label>
@@ -94,6 +110,10 @@
           }"
           placeholder="Please add your card number expiration date"
         />
+        <div class="pop-up">
+          <i class="las la-info-circle"></i>
+          <span>Type: Date format 'MM/YY'</span>
+        </div>
       </div>
       <div class="li">
         <label for="availableAmount">Available amount</label>
@@ -108,6 +128,10 @@
           }"
           placeholder="Please add your available amount"
         />
+        <div class="pop-up">
+          <i class="las la-info-circle"></i>
+          <span>Type: Only positive numbers</span>
+        </div>
       </div>
       <div class="li">
         <!-- იმპორტირებული გადამრთველი ქვემოთ -->
@@ -121,6 +145,7 @@
       <!-- იმპორტირებული ღილაკი ქვემოთ -->
       <app-shared-button
         [className]="'primary active'"
+        [isDisabled]="form.status == 'INVALID' ? true : false"
         style="
           width: 206px;
           height: 46px;
