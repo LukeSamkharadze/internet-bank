@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { animations } from '../shared/animations';
+import { InstantTransfer } from '../../../models/instantTransfer.entity';
+import { TransferService } from '../../../services/transfer.service';
 
 @Component({
   selector: 'app-instant-transfer-form',
@@ -16,6 +18,7 @@ import { animations } from '../shared/animations';
 export class InstantTransferFormComponent implements OnInit {
   title = 'Instant transfer';
   form: FormGroup;
+  constructor(private transferService: TransferService) {}
   ngOnInit(): void {
     this.form = new FormGroup({
       account: new FormControl('', Validators.required),
@@ -27,7 +30,18 @@ export class InstantTransferFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      alert('success');
+      const transfer: InstantTransfer = {
+        date: new Date(),
+        paymentType: 'instant',
+        fromAccount: this.account.value,
+        destinationAccountNumber: this.transferTo.value,
+        amount: this.amount.value,
+        transferType: this.transferType.value,
+      };
+      this.transferService.addTransfer(transfer).subscribe((_) => {
+        alert('successful payment');
+      });
+      this.form.reset();
     } else {
       this.form.markAllAsTouched();
     }

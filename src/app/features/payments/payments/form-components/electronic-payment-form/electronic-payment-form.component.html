@@ -35,22 +35,24 @@
 
     <div class="input-wrapper">
       <label class="input-label" for="paypal"
-        >Paypal account
+        >(droebit statikurad) Paypal account
         <span
           [@errorTrigger]
-          *ngIf="paypalAccount.hasError('required') && paypalAccount.touched"
+          *ngIf="
+            destinationEmail.hasError('required') && destinationEmail.touched
+          "
           >*required*</span
         >
         <span
           [@errorTrigger]
-          *ngIf="paypalAccount.hasError('email') && paypalAccount.touched"
+          *ngIf="destinationEmail.hasError('email') && destinationEmail.touched"
           >*invalid email*</span
         ></label
       >
       <app-shared-input
         placeholder="Enter email account"
         inputId="paypal"
-        formControlName="paypalAccount"
+        formControlName="destinationEmail"
         type="email"
       ></app-shared-input>
     </div>

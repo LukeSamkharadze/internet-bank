@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { animations } from '../shared/animations';
+import { TransferService } from '../../../services/transfer.service';
+import { BankTransfer } from '../../../models/bankTransfer.entity';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -16,6 +18,7 @@ import { animations } from '../shared/animations';
 export class BankTransferFormComponent implements OnInit {
   title = 'Bank transfer';
   form: FormGroup;
+  constructor(private transferService: TransferService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -30,7 +33,20 @@ export class BankTransferFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      alert('success');
+      const transfer: BankTransfer = {
+        date: new Date(),
+        paymentType: 'bank',
+        fromAccount: this.account.value,
+        destinationAccountNumber: this.transferTo.value,
+        beneficiary: this.beneficiary.value,
+        amount: this.amount.value,
+        currency: this.currency.value,
+        transferType: this.transferType.value,
+      };
+      this.transferService.addTransfer(transfer).subscribe((_) => {
+        alert('successful payment');
+      });
+      this.form.reset();
     } else {
       this.form.markAllAsTouched();
     }

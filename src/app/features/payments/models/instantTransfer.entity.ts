@@ -1,6 +1,6 @@
 import { SharedTransfer } from './sharedTransfer.entity';
 
-export interface InstantTransferEntity extends SharedTransfer {
+export interface InstantTransfer extends SharedTransfer {
   destinationAccountNumber: string;
   transferType: string;
 }

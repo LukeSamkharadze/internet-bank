@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { animations } from '../shared/animations';
 import { summaryAnimation } from '../shared/animations';
+import { TransferService } from '../../../services/transfer.service';
+import { ElectronicTransfer } from '../../../models/electronicTransfer.entity';
 
 @Component({
   selector: 'app-electronic-payment-form',
@@ -21,11 +23,12 @@ import { summaryAnimation } from '../shared/animations';
 export class ElectronicPaymentFormComponent implements OnInit {
   title = 'Online payment';
   form: FormGroup;
+  constructor(private transferService: TransferService) {}
   ngOnInit(): void {
     this.form = new FormGroup({
       account: new FormControl('', Validators.required),
       paymentSystem: new FormControl('', Validators.required),
-      paypalAccount: new FormControl('', [
+      destinationEmail: new FormControl('', [
         Validators.required,
         Validators.email,
       ]),
@@ -36,7 +39,19 @@ export class ElectronicPaymentFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      alert('success');
+      const transfer: ElectronicTransfer = {
+        date: new Date(),
+        paymentType: 'electronic',
+        fromAccount: this.account.value,
+        paymentSystem: this.paymentSystem.value,
+        destinationEmail: this.destinationEmail.value,
+        amount: this.amount.value,
+        currency: this.currency.value,
+      };
+      this.transferService.addTransfer(transfer).subscribe((_) => {
+        alert('successful payment');
+      });
+      this.form.reset();
     } else {
       this.form.markAllAsTouched();
     }
@@ -58,8 +73,8 @@ export class ElectronicPaymentFormComponent implements OnInit {
   }
 
   // @ts-ignore
-  get paypalAccount(): AbstractControl {
-    return this.form.get('paypalAccount');
+  get destinationEmail(): AbstractControl {
+    return this.form.get('destinationEmail');
   }
 
   // @ts-ignore
