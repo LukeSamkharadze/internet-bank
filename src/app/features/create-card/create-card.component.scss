@@ -109,6 +109,15 @@
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
 
+      &:hover .pop-up {
+        display: block;
+      }
+
+      .la-check {
+        color: hsl(120, 30%, 50%);
+        margin-left: 3px;
+      }
+
       input {
         width: 60%;
         border: none;
@@ -131,11 +140,6 @@
           &.invalid {
             background: hsl(0, 80%, 90%);
           }
-        }
-
-        &:hover + .pop-up {
-          visibility: visible;
-          opacity: 1;
         }
 
         &::-webkit-outer-spin-button,
@@ -161,9 +165,7 @@
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
         text-align: center;
         user-select: none;
-        transition: 0.4s;
-        visibility: hidden;
-        opacity: 0;
+        display: none;
 
         &::after {
           content: '';

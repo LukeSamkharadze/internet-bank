@@ -31,7 +31,11 @@
   <div class="gritem-3">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="li">
-        <label for="cardName">Card name</label>
+        <label for="cardName"
+          >Card name
+          <i class="las la-check" *ngIf="form.controls.cardName.valid"></i
+        ></label>
+
         <input
           formControlName="cardName"
           type="text"
@@ -48,7 +52,10 @@
         </div>
       </div>
       <div class="li">
-        <label for="accountNumber">Account number</label>
+        <label for="accountNumber"
+          >Account number
+          <i class="las la-check" *ngIf="form.controls.accountNumber.valid"></i
+        ></label>
         <input
           formControlName="accountNumber"
           type="text"
@@ -65,7 +72,10 @@
         </div>
       </div>
       <div class="li">
-        <label for="cardNumber">Card number</label>
+        <label for="cardNumber"
+          >Card number
+          <i class="las la-check" *ngIf="form.controls.cardNumber.valid"></i
+        ></label>
         <input
           formControlName="cardNumber"
           type="number"
@@ -82,7 +92,10 @@
         </div>
       </div>
       <div class="li">
-        <label for="cardholder">Cardholder</label>
+        <label for="cardholder"
+          >Cardholder
+          <i class="las la-check" *ngIf="form.controls.cardholder.valid"></i
+        ></label>
         <input
           formControlName="cardholder"
           type="text"
@@ -99,7 +112,10 @@
         </div>
       </div>
       <div class="li">
-        <label for="expirationDate">Expiration date</label>
+        <label for="expirationDate"
+          >Expiration date
+          <i class="las la-check" *ngIf="form.controls.expirationDate.valid"></i
+        ></label>
         <input
           formControlName="expirationDate"
           type="text"
@@ -116,7 +132,13 @@
         </div>
       </div>
       <div class="li">
-        <label for="availableAmount">Available amount</label>
+        <label for="availableAmount"
+          >Available amount
+          <i
+            class="las la-check"
+            *ngIf="form.controls.availableAmount.valid"
+          ></i
+        ></label>
         <input
           formControlName="availableAmount"
           #amount
