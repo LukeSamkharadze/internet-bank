@@ -1,0 +1,19 @@
+<div class="radio-wrapper" *ngFor="let button of buttons; let i = index">
+  <div
+    class="radio-container"
+    (click)="changeRadio(i)"
+    [ngClass]="{ 'radio-error': checkError }"
+  >
+    <input
+      type="radio"
+      #i
+      [name]="button.name"
+      [value]="button.value"
+      [disabled]="isDisabled"
+      [ngModel]="value"
+      (ngModelChange)="change($event)"
+    />
+    <div #text class="text" [title]="button.value">{{ button.value }}</div>
+    <span class="checkmark" (click)="changeRadio(i)"></span>
+  </div>
+</div>

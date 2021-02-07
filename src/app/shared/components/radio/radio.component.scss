@@ -1,0 +1,89 @@
+@import 'index.scss';
+@mixin center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+:host {
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+.radio-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 25px;
+  // margin-bottom: 12px;
+  padding-left: 27px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: $roboto;
+  font-weight: 300;
+  color: $secondary-dark-1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    // position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked ~ .checkmark {
+      background-color: $secondary-dark-2;
+      &:after {
+        display: block;
+      }
+    }
+    &:checked ~ .text {
+      color: $primary-dark;
+    }
+    &:disabled ~ .checkmark {
+      opacity: 70%;
+    }
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: $outline;
+    border-radius: 50%;
+    &:after {
+      content: '';
+      display: none;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      @include center-circle();
+    }
+  }
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  &.radio-error {
+    .checkmark {
+      opacity: 70%;
+      background-color: $secondary-3;
+    }
+    .text {
+      color: $secondary-3;
+    }
+    input {
+      &:checked ~ .checkmark {
+        background-color: rgba($color: $outline, $alpha: 0.7);
+        &:after {
+          background-color: $secondary-2;
+        }
+      }
+      &:checked ~ .text {
+        color: $secondary-2;
+      }
+    }
+  }
+}

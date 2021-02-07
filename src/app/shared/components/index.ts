@@ -4,6 +4,7 @@ import { TextareaComponent } from './textarea/textarea.component';
 import { TagComponent } from './tag/tag.component';
 import { ButtonComponent } from './button/button.component';
 import { LayoutComponent } from './layout/layout.component';
+import { RadioComponent } from './radio/radio.component';
 
 export * from './input/input.component';
 export * from './textarea/textarea.component';
@@ -19,4 +20,5 @@ export const components = [
   ButtonComponent,
   CheckboxComponent,
   LayoutComponent,
+  RadioComponent,
 ];
