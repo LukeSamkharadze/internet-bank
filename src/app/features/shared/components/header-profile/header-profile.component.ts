@@ -6,6 +6,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { User } from './user-interface';
+
 @Component({
   selector: 'app-shared-header-profile',
   templateUrl: './header-profile.component.html',
@@ -13,29 +14,37 @@ import { User } from './user-interface';
 })
 export class HeaderProfileComponent implements AfterViewInit {
   @ViewChild('myDropdown') myDropdown: ElementRef;
+  @ViewChild('dropbtn') dropbtn: ElementRef;
   user: User;
   @Input() userName = 'Barry Armstrong';
-  @Input() userGmail = 'b.armstrong@gmail.com';
+  @Input() userMail = 'b.armstrong@gmail.com';
   @Input() userImage = './../../../../assets/header-profile/User.png';
   constructor() {
     this.user = {
       name: this.userName,
-      gmail: this.userGmail,
+      mail: this.userMail,
       image: this.userImage,
     };
   }
 
   ngAfterViewInit() {
-    document.onclick = this.hideElement;
     const myDrop = this.myDropdown.nativeElement;
+    const dropb = this.dropbtn.nativeElement;
     myDrop.addEventListener('click', (e: MouseEvent) => this.stayOnDropdown(e));
+    dropb.addEventListener('click', (e: MouseEvent) => myDrop.focus());
+    document.addEventListener('click', (e: MouseEvent) =>
+      myDrop.blur(this.hideElement(e))
+    );
   }
+
   stayOnDropdown(event: MouseEvent) {
     event.stopPropagation();
   }
+
   myFunction() {
     this.myDropdown.nativeElement.classList.toggle('show');
   }
+
   hideElement(e) {
     if (!e.target.matches('.dropbtn')) {
       const myDropdown = document.getElementById('myDropdown');
