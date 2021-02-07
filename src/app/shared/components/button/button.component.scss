@@ -3,6 +3,9 @@
 @import './styles/color-options-buttons/style.scss';
 @import './styles/icon/style.scss';
 
+$disabled-btn-bg-color: #ebe8e8;
+$disabled-btn-color: #c4c2c2;
+
 :host {
   display: inline-block;
   height: 46px;
@@ -27,4 +30,10 @@ button {
   line-height: 49px;
   outline: none;
   cursor: pointer;
+
+  &:disabled {
+    background-color: $disabled-btn-bg-color !important;
+    color: $disabled-btn-color !important;
+    border-color: $disabled-btn-color !important;
+  }
 }

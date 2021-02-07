@@ -1,0 +1,20 @@
+<div
+  class="checkbox"
+  [ngClass]="{
+    checkboxActive: textBefore
+  }"
+>
+  <input
+    type="checkbox"
+    id="{{ id }}"
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="onChanged($event)"
+    (blur)="onBlur($event)"
+  />
+  <label
+    (click)="checkDisabled()"
+    [ngClass]="{ 'checkbox-error': checkboxError, 'disable-select': true }"
+    ><ng-content></ng-content>
+  </label>
+</div>
