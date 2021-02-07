@@ -8,20 +8,8 @@
     margin-left: 18px;
     @include text-style(14px, $secondary-dark-1);
     width: 125px;
-    margin-top: -15px;
+    margin-top: -13px;
     margin-left: 53px;
-  }
-  .disable-select {
-    user-select: none;
-    /* supported by Chrome and Opera */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
   }
   .switch {
     position: relative;
@@ -158,4 +146,14 @@
     color: $secondary-2;
     opacity: 100%;
   }
+}
+
+.textBefore {
+  cursor: pointer;
+  display: block;
+  @include text-style(14px, $secondary-dark-1);
+  width: auto;
+  margin-top: -13px;
+  margin-right: 10px;
+  margin-top: 2px;
 }
