@@ -1,6 +1,10 @@
-@import '../../../../styles/index.scss';
-@import '../../../../../design/features/header-profile-#31/index.scss';
-@import '../../../../../node_modules/line-awesome/dist/line-awesome/css/line-awesome.min.css';
+@import '../../../../../styles/index.scss';
+@import '../../../../../../design/features/header-profile-#31/index.scss';
+@import '../../../../../../node_modules/line-awesome/dist/line-awesome/css/line-awesome.min.css';
+
+.feat-notifications {
+  margin-left: 30%;
+}
 
 .successful-pay {
   display: flex;
@@ -60,8 +64,8 @@
   position: absolute;
   display: block;
   background-color: white;
-  top: 46px;
-  right: -4px;
+  top: 32px;
+  right: -21px;
   width: 341px;
   box-shadow: 0px 0px 10px -5px rgba(112, 112, 112, 1);
   li {
