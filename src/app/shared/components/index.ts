@@ -12,6 +12,7 @@ export * from './tag/tag.component';
 export * from './button/button.component';
 export * from './checkbox/checkbox.component';
 export * from './layout/layout.component';
+export * from './progress-bars/progress-bars.component';
 
 export const components = [
   InputComponent,

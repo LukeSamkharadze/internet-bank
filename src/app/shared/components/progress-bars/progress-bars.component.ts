@@ -16,7 +16,7 @@ export class ProgressBarsComponent implements OnInit {
   private colorRedOrange = [255, 160, 122];
   private colorOrange = [255, 165, 0];
   private colorBlue = [65, 105, 225];
-  private colorLightBlue = [77, 124, 255];
+  private colorLightBlue = [65, 105, 225];
   private colorLightGreen = [189, 255, 177];
   private colorGreen = [57, 255, 20];
 
@@ -27,6 +27,10 @@ export class ProgressBarsComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this.defineColor();
+  }
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngOnChanges(): void {
     this.defineColor();
   }
   pickHex(color1, color2, weight) {
@@ -57,8 +61,18 @@ export class ProgressBarsComponent implements OnInit {
       coefficient < this.secondBreakP
     ) {
       color = this.pickHex(
-        this.colorRedOrange,
-        this.colorOrange,
+        this.pickHex(
+          this.colorRedOrange,
+          this.colorOrange,
+          1 -
+            (coefficient - this.firstBreakP) /
+              (this.secondBreakP - this.firstBreakP)
+        ),
+        this.pickHex(
+          this.colorOrange,
+          this.colorLightBlue,
+          1 - coefficient / this.secondBreakP
+        ),
         1 -
           (coefficient - this.firstBreakP) /
             (this.secondBreakP - this.firstBreakP)
@@ -68,8 +82,20 @@ export class ProgressBarsComponent implements OnInit {
       coefficient < this.thirdBreakP
     ) {
       color = this.pickHex(
-        this.colorLightBlue,
-        this.colorBlue,
+        this.pickHex(
+          this.colorLightBlue,
+          this.colorBlue,
+          1 -
+            (coefficient - this.secondBreakP) /
+              (this.thirdBreakP - this.secondBreakP)
+        ),
+        this.pickHex(
+          this.colorBlue,
+          this.colorLightGreen,
+          1 -
+            (coefficient - this.secondBreakP) /
+              (this.thirdBreakP - this.secondBreakP)
+        ),
         1 -
           (coefficient - this.secondBreakP) /
             (this.thirdBreakP - this.secondBreakP)
