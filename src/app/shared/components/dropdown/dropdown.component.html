@@ -1,14 +1,41 @@
 <!-- <ng-content *ngFor="let _ of [].constructor(optionsCount); let i = index" select="#{{i}}"></ng-content> -->
 
-<div class="dropdown-general" (click)="isOptionsOpened = !isOptionsOpened">
-  <div class="selected placeholder">
-    <div class="content">
-      <ng-content select="#placeholder"></ng-content>
-    </div>
+<ng-template #defaultSelected let-option>
+  <div class="content">{{ option }}</div>
+</ng-template>
+
+<ng-template #defaultOption let-option>
+  <div class="option" (click)="optionClicked(option)">{{ option }}</div>
+</ng-template>
+
+<div
+  tabindex="0"
+  class="dropdown-general"
+  (click)="dropdownClicked()"
+  (blur)="onTouched()"
+>
+  <div class="selected" [class.placeholder]="isPlaceholderOn">
+    <ng-container
+      [ngTemplateOutlet]="defaultSelected"
+      [ngTemplateOutletContext]="{
+        $implicit: isPlaceholderOn ? placeholder : value
+      }"
+    >
+    </ng-container>
+
     <div class="arrow-container" [class.arrow-active]="isOptionsOpened">
       <ng-content select="#arrow"></ng-content>
     </div>
   </div>
 
-  <ng-content *ngIf="isOptionsOpened" select=".options"> </ng-content>
+  <div class="options" *ngIf="isOptionsOpened">
+    <ng-container
+      *ngFor="let option of options"
+      [ngTemplateOutlet]="defaultOption"
+      [ngTemplateOutletContext]="{ $implicit: option }"
+    >
+    </ng-container>
+  </div>
+
+  <!-- <ng-content *ngIf="isOptionsOpened" select=".options"> </ng-content> -->
 </div>
