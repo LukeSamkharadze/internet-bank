@@ -1,4 +1,4 @@
-გამოყენების გამალითი:
+Usage example:
 
 N1
 
@@ -6,6 +6,7 @@ N1
 <app-shared-button
 [className]="{'primary': true, 'active': true}"
 style="width: 170px; height: 50px;"
+[isDisabled]="boolean"
 (clicked)="onClick(\$event)">active</app-shared-button>
 ```
 
@@ -32,6 +33,6 @@ style="width: 200px; height: 50px;"
 (clicked)="onClick(\$event)"><i class="lar la-heart icon"></i>resting</app-shared-button>
 ```
 
-ირჩევ სასურველ კლასს, უსაზღვრავ width და height-ს უწერ ღილაკს ტექსტს და თუ წაჭიროა ამატებ აიქონს.
+Select your desired class name, write **width** and **height** (optional), select whether the button is disabled or not (optional, the button is active by default), write the button text and add an icon if you need.
 
-კლასების ვარიანტები: "primary active", "primary resting", "outline active", "outline resting", "blue", "green", "pink", "lightBlue". :)) ♥
+**Class names**: "primary active", "primary resting", "outline active", "outline resting", "blue", "green", "pink", "lightBlue".
