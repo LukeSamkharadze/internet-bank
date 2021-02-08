@@ -6,28 +6,17 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { GetTransactionsService } from './services/get-transactions.service';
-import { BankTransactionDetailsComponent } from './../bank-transaction-details/bank-transaction-details.component';
+import { TransactionsList } from './models/bank-transaction.model';
+
 @Component({
-  selector: 'app-bank-transactions',
+  selector: 'app-shared-bank-transactions',
   templateUrl: './bank-transactions.component.html',
   styleUrls: ['./bank-transactions.component.scss'],
 })
 export class BankTransactionsComponent implements OnInit, OnChanges {
   @Input() input;
-
   hasInput;
-  transactionsList: Array<{
-    id: number;
-    title: string;
-    icon: string;
-    type: string;
-    amount: string;
-    date: string;
-    status: string;
-    tagColor: string;
-    cardNUmber: number;
-  }> = [];
-
+  transactionsList: Array<TransactionsList> = [];
   show = true;
   searchText;
   popDetails = false;
