@@ -1,5 +1,6 @@
 @import '../../../../styles/index.scss';
 @import '../../../../../design/features/header-profile-#31/index.scss';
+@import '../../../../../node_modules/line-awesome/dist/line-awesome/css/line-awesome.min.css';
 
 .successful-pay {
   display: flex;
@@ -55,9 +56,9 @@
   }
 }
 
-#bell-notifications {
+.bell-notifications {
   position: absolute;
-  display: none;
+  display: block;
   background-color: white;
   top: 46px;
   right: -4px;
