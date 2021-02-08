@@ -1,13 +1,19 @@
 @import './index.scss';
+
+:host {
+  display: block;
+  width: 555px;
+  min-width: 372px;
+}
+
 .available-balances {
   display: flex;
   flex-direction: column;
-  max-width: 555px;
-  min-width: 372px;
+  width: 100%;
   border-radius: 2px;
   .balances-title {
     @include text-style(16px);
-    max-width: 555px;
+    width: 100%;
     font-size: 16px;
     letter-spacing: 0.5px;
     border-bottom: 1px solid $outline;
@@ -18,8 +24,7 @@
       background-color: inherit;
     }
     padding: 20px;
-    max-width: 555px;
-    min-width: 372px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     .la-long-arrow-alt-up {
