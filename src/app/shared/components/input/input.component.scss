@@ -1,0 +1,63 @@
+@import 'index.scss';
+
+// Basic Text Input Styles
+.input-label {
+  line-height: 19px;
+  @include text-style(14px);
+  letter-spacing: 0.15px;
+  font-weight: 300;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.input-wrapper {
+  position: relative;
+
+  input {
+    padding: 19px 14px 15px 14px;
+    display: block;
+    width: 100%;
+    @include text-style(14px);
+    letter-spacing: 0.15px;
+    border-radius: 4px;
+    border: 1px solid $outline;
+
+    &::-webkit-input-placeholder,
+    &::-ms-input-placeholder,
+    &::placeholder {
+      color: $secondary-dark-2;
+    }
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: $background-2;
+      color: $secondary-dark-2;
+    }
+
+    &.ng-touched.validated {
+      &.ng-valid {
+        border-color: $secondary-2;
+      }
+
+      &.ng-invalid {
+        border-color: $secondary-3;
+      }
+
+      &.ng-valid,
+      &.ng-invalid {
+        padding-right: 35px;
+      }
+    }
+  }
+
+  i {
+    position: absolute;
+    font-size: 18px;
+    top: 18px;
+    right: 16px;
+  }
+}

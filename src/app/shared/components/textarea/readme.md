@@ -1,9 +1,5 @@
 To use textarea in your form, simply implement it like this:
 
-`<div class='textarea-wrapper'>`
+`<app-shared-textarea formControlName='nameGoesHere' [placeholder]="'your Placeholder'"></app-shared-textarea>`
 
-`<app-textarea formControlName='nameGoesHere' [placeholder]='your Placeholder'></app-textarea>`
-
-`</div>`
-
-if you want to change size of textarea, change size of wrapper.
+if you want to change size of textarea, select selector tag itself.

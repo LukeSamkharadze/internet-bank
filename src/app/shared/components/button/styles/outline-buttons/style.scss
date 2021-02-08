@@ -1,0 +1,27 @@
+@import '../../../../styles/index.scss';
+
+@mixin outline-btn($border-color, $color) {
+  background-color: white;
+  border: 2px solid $border-color;
+  color: $color;
+}
+
+.outline {
+  &.active {
+    @include outline-btn($primary, $primary-dark);
+
+    &:hover {
+      color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  &.resting {
+    @include outline-btn($outline, $secondary-dark-1);
+
+    &:hover {
+      border: 2px solid $outline;
+      color: $primary;
+    }
+  }
+}

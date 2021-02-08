@@ -1,16 +1,14 @@
-<ng-container *ngIf="vm$ | async as vm">
-  <div class="container">
-    <app-item-list-options
-      [options]="itemListOptions"
-      [activeIndex]="vm.optionActiveIndex"
-      (activeIndexChange)="activeIndexChange($event)"
-    >
-    </app-item-list-options>
-    <app-item-list
-      [items]="vm.items"
-      [listStyle]="vm.listStyle"
-    ></app-item-list>
-  </div>
-</ng-container>
+<app-shared-input [formControl]="idFormControl"></app-shared-input>
 
-<app-shared-input [control]="idFormControl"></app-shared-input>
+<div class="container">
+  <app-item-list-options
+    [options]="itemListOptions"
+    [activeIndex]="optionActiveIndex$ | async"
+    (activeIndexChange)="activeIndexChange($event)"
+  >
+  </app-item-list-options>
+  <app-item-list
+    [items]="items$ | async"
+    [listStyle]="listStyle$ | async"
+  ></app-item-list>
+</div>
