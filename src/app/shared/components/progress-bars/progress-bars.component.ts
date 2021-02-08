@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-shared-progress-bar',
   templateUrl: './progress-bars.component.html',
   styleUrls: ['./progress-bars.component.scss'],
 })
-export class ProgressBarsComponent implements OnInit {
+export class ProgressBarsComponent implements OnInit, OnChanges {
   @Input()
   public value = 0;
 
@@ -24,12 +24,10 @@ export class ProgressBarsComponent implements OnInit {
   private secondBreakP = 0.61;
   private thirdBreakP = 0.81;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.defineColor();
   }
-  // tslint:disable-next-line:use-lifecycle-interface
+
   ngOnChanges(): void {
     this.defineColor();
   }
