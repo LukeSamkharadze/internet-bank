@@ -1,10 +1,13 @@
 @import '../../../../styles/index.scss';
 .toggle-container {
   display: flex;
-  width: 190px;
+  :host {
+    display: inline-block;
+  }
   .text {
     cursor: pointer;
     display: block;
+    white-space: nowrap;
     margin-left: 18px;
     @include text-style(14px, $secondary-dark-1);
     width: 125px;

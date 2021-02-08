@@ -6,7 +6,7 @@ import {
   NG_VALUE_ACCESSOR,
   Validators,
 } from '@angular/forms';
-
+let counter = 0;
 @Component({
   selector: 'app-shared-toggle',
   templateUrl: './toggle.component.html',
@@ -22,7 +22,7 @@ import {
 })
 export class ToggleComponent implements OnInit, ControlValueAccessor {
   @Input() textBefore = false;
-  @Input() checked = false;
+  @Input() checked: boolean | string = false;
   @Input() disabled = false;
   @Input() checkboxError = false;
   @Input() required: boolean | string;
@@ -31,6 +31,7 @@ export class ToggleComponent implements OnInit, ControlValueAccessor {
   isChecked = false;
   control: AbstractControl;
   public toggleClass;
+
   onChange = (_) => {};
   onBlur = (_) => {};
 
@@ -52,7 +53,6 @@ export class ToggleComponent implements OnInit, ControlValueAccessor {
 
   checkDisabled() {
     if (!this.disabled) {
-      this.checked = !this.checked;
       this.onChange(this.checked);
       this.control.markAsTouched();
     }
@@ -87,6 +87,11 @@ export class ToggleComponent implements OnInit, ControlValueAccessor {
       this.toggleClass = 'success-on';
     } else if (this.toggleType === 'error') {
       this.toggleClass = 'error-off';
+    }
+  }
+  constructor() {
+    if (this.toggleId === undefined) {
+      this.toggleId = `toggle${++counter}`;
     }
   }
 
