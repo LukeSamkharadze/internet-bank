@@ -21,7 +21,7 @@ import { FeaturesSharedModule } from '@features/shared';
 export class DropdownComponent implements ControlValueAccessor {
   @Input() value: any;
   @Input() placeholder: any;
-  @Input() options: any = [];
+  @Input() options: any[] = [];
 
   @Input() placeholderTemplate: TemplateRef<any>;
   @Input() selectedTemplate: TemplateRef<any>;

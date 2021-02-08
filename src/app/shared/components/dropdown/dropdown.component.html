@@ -1,11 +1,15 @@
 <!-- <ng-content *ngFor="let _ of [].constructor(optionsCount); let i = index" select="#{{i}}"></ng-content> -->
 
 <ng-template #defaultSelected let-option>
-  <div class="content">{{ option }}</div>
+  {{ option }}
 </ng-template>
 
 <ng-template #defaultOption let-option>
-  <div class="option" (click)="optionClicked(option)">{{ option }}</div>
+  {{ option }}
+</ng-template>
+
+<ng-template #defaultArrow>
+  <i class="las la-angle-down"></i>
 </ng-template>
 
 <div
@@ -15,26 +19,33 @@
   (blur)="onTouched()"
 >
   <div class="selected" [class.placeholder]="isPlaceholderOn">
-    <ng-container
-      [ngTemplateOutlet]="defaultSelected"
-      [ngTemplateOutletContext]="{
-        $implicit: isPlaceholderOn ? placeholder : value
-      }"
-    >
-    </ng-container>
+    <div class="content">
+      <ng-container
+        [ngTemplateOutlet]="selectedTemplate || defaultSelected"
+        [ngTemplateOutletContext]="{
+          $implicit: isPlaceholderOn ? placeholder : value
+        }"
+      >
+      </ng-container>
+    </div>
 
     <div class="arrow-container" [class.arrow-active]="isOptionsOpened">
-      <ng-content select="#arrow"></ng-content>
+      <ng-container [ngTemplateOutlet]="defaultArrow"></ng-container>
     </div>
   </div>
 
   <div class="options" *ngIf="isOptionsOpened">
-    <ng-container
+    <div
+      class="option"
       *ngFor="let option of options"
-      [ngTemplateOutlet]="defaultOption"
-      [ngTemplateOutletContext]="{ $implicit: option }"
+      (click)="optionClicked(option)"
     >
-    </ng-container>
+      <ng-container
+        [ngTemplateOutlet]="optionTemplate || defaultOption"
+        [ngTemplateOutletContext]="{ $implicit: option }"
+      >
+      </ng-container>
+    </div>
   </div>
 
   <!-- <ng-content *ngIf="isOptionsOpened" select=".options"> </ng-content> -->
