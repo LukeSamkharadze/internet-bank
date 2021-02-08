@@ -4,32 +4,35 @@
   </header>
   <form [formGroup]="form" [@formTrigger]>
     <div class="input-wrapper">
-      <label class="input-label" for="account"
+      <label class="input-label" for="from-account"
         >Select account
         <span
           [@errorTrigger]
-          *ngIf="account.hasError('required') && account.touched"
+          *ngIf="fromAccount.hasError('required') && fromAccount.touched"
           >*required*</span
         >
       </label>
       <app-shared-input
-        formControlName="account"
-        inputId="account"
+        formControlName="fromAccount"
+        inputId="from-account"
       ></app-shared-input>
     </div>
 
     <div class="input-wrapper">
-      <label class="input-label" for="transfer-to"
+      <label class="input-label" for="destination-account-number"
         >Transfer to
         <span
           [@errorTrigger]
-          *ngIf="transferTo.hasError('required') && transferTo.touched"
+          *ngIf="
+            destinationAccountNumber.hasError('required') &&
+            destinationAccountNumber.touched
+          "
           >*required*</span
         ></label
       >
       <app-shared-input
-        inputId="transfer-to"
-        formControlName="transferTo"
+        inputId="destination-account-number"
+        formControlName="destinationAccountNumber"
         placeholder="Enter account number"
       ></app-shared-input>
     </div>

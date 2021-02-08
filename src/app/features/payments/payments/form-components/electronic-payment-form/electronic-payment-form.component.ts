@@ -26,7 +26,7 @@ export class ElectronicPaymentFormComponent implements OnInit {
   constructor(private transferService: TransferService) {}
   ngOnInit(): void {
     this.form = new FormGroup({
-      account: new FormControl('', Validators.required),
+      fromAccount: new FormControl('', Validators.required),
       paymentSystem: new FormControl('', Validators.required),
       destinationEmail: new FormControl('', [
         Validators.required,
@@ -42,11 +42,7 @@ export class ElectronicPaymentFormComponent implements OnInit {
       const transfer: ElectronicTransfer = {
         date: new Date(),
         paymentType: 'electronic',
-        fromAccount: this.account.value,
-        paymentSystem: this.paymentSystem.value,
-        destinationEmail: this.destinationEmail.value,
-        amount: this.amount.value,
-        currency: this.currency.value,
+        ...this.form.getRawValue(),
       };
       this.transferService.addTransfer(transfer).subscribe((_) => {
         alert('successful payment');
@@ -63,8 +59,8 @@ export class ElectronicPaymentFormComponent implements OnInit {
 
   // getters
   // @ts-ignore
-  get account(): AbstractControl {
-    return this.form.get('account');
+  get fromAccount(): AbstractControl {
+    return this.form.get('fromAccount');
   }
 
   // @ts-ignore

@@ -105,7 +105,7 @@
       "fromAccount": "VISA 1923 2412 3412 1231",
       "destinationAccountNumber": "TBC2130000041241023",
       "amount": "2400",
-      "transferType": "RUB",
+      "transferType": "Personal transfer",
       "id": 3
     }
   ]

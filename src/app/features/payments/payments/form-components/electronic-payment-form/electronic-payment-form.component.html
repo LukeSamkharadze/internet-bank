@@ -4,17 +4,17 @@
   </header>
   <form [formGroup]="form" [@formTrigger]>
     <div class="input-wrapper">
-      <label class="input-label" for="account"
+      <label class="input-label" for="from-account"
         >Select account
         <span
           [@errorTrigger]
-          *ngIf="account.hasError('required') && account.touched"
+          *ngIf="fromAccount.hasError('required') && fromAccount.touched"
           >*required*</span
         >
       </label>
       <app-shared-input
-        formControlName="account"
-        inputId="account"
+        formControlName="fromAccount"
+        inputId="from-account"
       ></app-shared-input>
     </div>
 

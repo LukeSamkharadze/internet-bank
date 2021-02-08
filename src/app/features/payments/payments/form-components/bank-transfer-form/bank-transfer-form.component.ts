@@ -22,8 +22,8 @@ export class BankTransferFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      account: new FormControl('', Validators.required),
-      transferTo: new FormControl('', Validators.required),
+      fromAccount: new FormControl('', Validators.required),
+      destinationAccountNumber: new FormControl('', Validators.required),
       beneficiary: new FormControl('', Validators.required),
       amount: new FormControl('', Validators.required),
       currency: new FormControl('', Validators.required),
@@ -36,12 +36,7 @@ export class BankTransferFormComponent implements OnInit {
       const transfer: BankTransfer = {
         date: new Date(),
         paymentType: 'bank',
-        fromAccount: this.account.value,
-        destinationAccountNumber: this.transferTo.value,
-        beneficiary: this.beneficiary.value,
-        amount: this.amount.value,
-        currency: this.currency.value,
-        transferType: this.transferType.value,
+        ...this.form.getRawValue(),
       };
       this.transferService.addTransfer(transfer).subscribe((_) => {
         alert('successful payment');
@@ -54,12 +49,12 @@ export class BankTransferFormComponent implements OnInit {
 
   // getters
   // @ts-ignore
-  get account(): AbstractControl {
-    return this.form.get('account');
+  get fromAccount(): AbstractControl {
+    return this.form.get('fromAccount');
   }
   // @ts-ignore
-  get transferTo(): AbstractControl {
-    return this.form.get('transferTo');
+  get destinationAccountNumber(): AbstractControl {
+    return this.form.get('destinationAccountNumber');
   }
 
   // @ts-ignore
