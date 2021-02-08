@@ -10,24 +10,8 @@
 
 .profileDiv {
   position: relative;
-  //width: 1198px;
-  // margin: auto;
   height: 100%;
-  // margin-left: 100px;
 }
-//
-//.dashboard {
-//  font-family: $roboto;
-//  position: absolute;
-//  top: 50%;
-//  transform: translate(0%, -50%);
-//  margin-left: 35px;
-//  font-size: 20px;
-//  float: left;
-//  i {
-//    margin-right: 22px;
-//  }
-//}
 
 .profileBef {
   user-select: none;
@@ -39,9 +23,7 @@
   align-items: center;
   width: 155.75px;
   height: 40px;
-  // float: right;
-  // margin-right: 25px;
-  // right: 0%;
+  margin-left: 120px;
 
   .image {
     width: 40px;
@@ -76,10 +58,10 @@
   clear: both;
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.000005),
     0 6px 20px 0 rgba(0, 0, 0, 0.05);
-  // right: 0%;
-  // float: right;
   border-radius: 5px;
   margin-right: 20px;
+  position: absolute;
+  z-index: 1;
   .about {
     background-color: $background-2;
     height: 79.75px;
