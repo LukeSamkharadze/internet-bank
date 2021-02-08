@@ -39,7 +39,10 @@ export class CreateCardComponent implements OnInit {
       this.cardService
         .create(this.form.getRawValue())
         .pipe(tap(() => this.form.reset()))
-        .subscribe();
+        .subscribe(
+          () => {},
+          () => this.form.reset()
+        );
     }
   }
 
