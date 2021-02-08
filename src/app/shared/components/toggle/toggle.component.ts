@@ -53,6 +53,7 @@ export class ToggleComponent implements OnInit, ControlValueAccessor {
 
   checkDisabled() {
     if (!this.disabled) {
+      this.checked = !this.checked;
       this.onChange(this.checked);
       this.control.markAsTouched();
     }
