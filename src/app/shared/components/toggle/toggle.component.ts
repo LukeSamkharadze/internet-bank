@@ -95,7 +95,9 @@ export class ToggleComponent implements OnInit, ControlValueAccessor {
       this.toggleId = `toggle${++counter}`;
     }
   }
-
+  markAschecked() {
+    this.checked = !this.checked;
+  }
   ngOnInit(): void {
     this.setToggleClass();
   }
