@@ -20,7 +20,11 @@
   <div class="selected" [class.placeholder]="isPlaceholderOn">
     <div class="content">
       <ng-container
-        [ngTemplateOutlet]="selectedTemplate || defaultSelected"
+        [ngTemplateOutlet]="
+          isPlaceholderOn
+            ? placeholderTemplate || defaultSelected
+            : selectedTemplate || defaultSelected
+        "
         [ngTemplateOutletContext]="{
           $implicit: isPlaceholderOn ? placeholder : value
         }"
