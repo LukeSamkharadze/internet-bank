@@ -15,38 +15,41 @@ export class NewsArticleComponent implements OnInit {
   dateStr: string;
 
   ngOnInit(): void {
-    this.dates();
+    this.choosingTimePeriod();
   }
 
-  dates() {
+  choosingTimePeriod() {
     const currentTime = new Date();
     const timeDiffInMS =
       currentTime.getTime() - this.articleReleaseDate.getTime();
 
     if (timeDiffInMS >= 31579200000) {
-      this.culculate(timeDiffInMS, 'Years', 31579200000);
+      this.calculateTimediff(timeDiffInMS, 31579200000, 'Years');
     } else if (timeDiffInMS >= 2.628e9) {
-      this.culculate(timeDiffInMS, 'Months', 2.628e9);
+      this.calculateTimediff(timeDiffInMS, 2.628e9, 'Months');
     } else if (timeDiffInMS >= 86400000) {
-      this.culculate(timeDiffInMS, 'Days', 86400000);
+      this.calculateTimediff(timeDiffInMS, 86400000, 'Days');
     } else if (timeDiffInMS >= 3600000) {
-      this.culculate(timeDiffInMS, 'Hours', 3600000);
+      this.calculateTimediff(timeDiffInMS, 3600000, 'Hours');
     } else if (timeDiffInMS >= 60000) {
-      this.culculate(timeDiffInMS, 'Minutes', 60000);
+      this.calculateTimediff(timeDiffInMS, 60000, 'Minutes');
     } else {
       this.dateStr = 'Just now';
       setTimeout(() => {
-        this.dates();
+        this.choosingTimePeriod();
       }, 60000);
     }
   }
 
-  culculate(timediff: number, str: string, num: number) {
-    this.dateStr = str;
-    this.dateNum = Math.floor(timediff / num);
-    const timePassed = timediff - this.dateNum * num;
-    const delay = num - timePassed;
-    console.log(delay, 'vaaa');
+  calculateTimediff(
+    timediff: number,
+    periodDuration: number,
+    PeriodName: string
+  ) {
+    this.dateStr = PeriodName;
+    this.dateNum = Math.floor(timediff / periodDuration);
+    const timeRemainder = timediff - this.dateNum * periodDuration;
+    const delay = periodDuration - timeRemainder;
     this.repeat(delay);
   }
 
@@ -55,9 +58,9 @@ export class NewsArticleComponent implements OnInit {
       // Maximum delay value
       delay = 2147483647;
     }
-    const ineterval = setInterval(() => {
-      this.dates();
-      clearInterval(ineterval);
+    const interval = setInterval(() => {
+      this.choosingTimePeriod();
+      clearInterval(interval);
     }, delay);
   }
 }
