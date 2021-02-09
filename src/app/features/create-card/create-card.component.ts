@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { tap } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 import { CardService } from '../shared/services/card.service';
 
 @Component({
@@ -38,11 +38,8 @@ export class CreateCardComponent implements OnInit {
       // ბარათების დამატების სერვისი
       this.cardService
         .create(this.form.getRawValue())
-        .pipe(tap(() => this.form.reset()))
-        .subscribe(
-          () => {},
-          () => this.form.reset()
-        );
+        .pipe(finalize(() => this.form.reset()))
+        .subscribe();
     }
   }
 
