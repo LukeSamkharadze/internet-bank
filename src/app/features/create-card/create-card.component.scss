@@ -136,10 +136,10 @@
           &.valid {
             background: hsl(120, 60%, 90%);
           }
+        }
 
-          &.invalid {
-            background: hsl(0, 80%, 90%);
-          }
+        &.invalid {
+          background: hsl(0, 80%, 90%);
         }
 
         &::-webkit-outer-spin-button,
@@ -212,6 +212,14 @@
           width: auto;
         }
       }
+    }
+
+    .shared-button {
+      width: 206px;
+      height: 46px;
+      position: relative;
+      left: 10px;
+      top: 9px;
     }
   }
 }

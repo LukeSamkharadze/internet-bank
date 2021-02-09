@@ -38,11 +38,12 @@
 
         <input
           formControlName="cardName"
+          #cardName
           type="text"
           id="cardName"
           [ngClass]="{
             valid: form.controls.cardName.valid,
-            invalid: form.controls.cardName.invalid
+            invalid: form.controls.cardName.invalid && cardName.value
           }"
           placeholder="Please add your card name"
         />
@@ -58,11 +59,12 @@
         ></label>
         <input
           formControlName="accountNumber"
+          #accountNumber
           type="text"
           id="accountNumber"
           [ngClass]="{
             valid: form.controls.accountNumber.valid,
-            invalid: form.controls.accountNumber.invalid
+            invalid: form.controls.accountNumber.invalid && accountNumber.value
           }"
           placeholder="Please add your account number"
         />
@@ -78,11 +80,12 @@
         ></label>
         <input
           formControlName="cardNumber"
+          #cardNumber
           type="number"
           id="cardNumber"
           [ngClass]="{
             valid: form.controls.cardNumber.valid,
-            invalid: form.controls.cardNumber.invalid
+            invalid: form.controls.cardNumber.invalid && cardNumber.value
           }"
           placeholder="Please add your card number"
         />
@@ -98,11 +101,12 @@
         ></label>
         <input
           formControlName="cardholder"
+          #cardholder
           type="text"
           id="cardholder"
           [ngClass]="{
             valid: form.controls.cardholder.valid,
-            invalid: form.controls.cardholder.invalid
+            invalid: form.controls.cardholder.invalid && cardholder.value
           }"
           placeholder="Please add your name"
         />
@@ -118,11 +122,13 @@
         ></label>
         <input
           formControlName="expirationDate"
+          #expirationDate
           type="text"
           id="expirationDate"
           [ngClass]="{
             valid: form.controls.expirationDate.valid,
-            invalid: form.controls.expirationDate.invalid
+            invalid:
+              form.controls.expirationDate.invalid && expirationDate.value
           }"
           placeholder="Please add your card number expiration date"
         />
@@ -146,7 +152,7 @@
           id="availableAmount"
           [ngClass]="{
             valid: form.controls.availableAmount.valid,
-            invalid: form.controls.availableAmount.invalid
+            invalid: form.controls.availableAmount.invalid && amount.value
           }"
           placeholder="Please add your available amount"
         />
@@ -166,15 +172,9 @@
       </div>
       <!-- იმპორტირებული ღილაკი ქვემოთ -->
       <app-shared-button
+        class="shared-button"
         [className]="'primary active'"
         [isDisabled]="form.invalid"
-        style="
-          width: 206px;
-          height: 46px;
-          position: relative;
-          left: 10px;
-          top: 9px;
-        "
         >Add Card</app-shared-button
       >
     </form>
