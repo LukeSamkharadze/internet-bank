@@ -34,8 +34,8 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
   isPlaceholderOn = true;
   disabled = false;
 
-  onChange: (_: any) => void;
-  onTouched: () => void;
+  onChange = (_: any) => {};
+  onTouched = () => {};
 
   ngOnChanges(changes: SimpleChanges) {
     this.isPlaceholderOn = !Boolean(changes.value);
