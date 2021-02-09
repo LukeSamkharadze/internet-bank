@@ -3,6 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'products',
+    loadChildren: () =>
+      import('./features/create-card/create-card.module').then(
+        (m) => m.CreateCardModule
+      ),
+  },
+  {
     path: 'list',
     loadChildren: () =>
       import('./features/list/list.module').then((m) => m.ListModule),
