@@ -5,9 +5,7 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () =>
-      import('./features/list/list.module').then(
-        (m) => m.ListModule,
-      ),
+      import('./features/list/list.module').then((m) => m.ListModule),
   },
   {
     path: '',
@@ -24,5 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
