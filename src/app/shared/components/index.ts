@@ -21,8 +21,8 @@ export const components = [
   TextareaComponent,
   TagComponent,
   ButtonComponent,
-  NotificationComponent,
   ProgressBarsComponent,
   CheckboxComponent,
   LayoutComponent,
+  NotificationComponent,
 ];
