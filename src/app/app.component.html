@@ -1,1 +1,7 @@
 <router-outlet></router-outlet>
+<app-shared-pagination
+  [count]="items"
+  [itemsPerPage]="perpage"
+  [currentPage]="3"
+  (changePage)="zd($event)"
+></app-shared-pagination>

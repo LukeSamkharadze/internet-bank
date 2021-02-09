@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-project';
+  items = 100;
+  perpage = 20;
+  zd(ae) {
+    console.log(ae);
+  }
 }
