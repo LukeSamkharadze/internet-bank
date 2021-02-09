@@ -23,8 +23,8 @@ export class AccountBalancesComponent implements OnInit {
     this.http
       .get()
       .pipe(
-        map((balances: any) => {
-          this.accountDetails = [...balances];
+        map((balances) => {
+          this.accountDetails = balances;
         })
       )
       .subscribe();

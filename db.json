@@ -4,6 +4,7 @@
       "id": 1,
       "iconAddress": "../../assets/card-logos/visa.svg",
       "cardNumber": "3210 1234 4567 4008",
+      "cardType": "visa",
       "description": "Card Number",
       "balance": "$88.200",
       "arrow": "la-long-arrow-alt-up"
@@ -12,6 +13,7 @@
       "id": 2,
       "iconAddress": "../../assets/card-logos/mastercard.svg",
       "cardNumber": "4008 1234 4567 9464",
+      "cardType": "mastercard",
       "description": "Card Number",
       "balance": "$66.400",
       "arrow": "la-long-arrow-alt-down"
@@ -19,7 +21,8 @@
     {
       "id": 3,
       "iconAddress": "../../assets/card-logos/paypal.svg",
-      "cardNumber": "Paypal account",
+      "cardType": "Paypal account",
+      "cardNumber": "",
       "description": "E-wallet",
       "balance": "$18.500",
       "arrow": "la-long-arrow-alt-up"
@@ -28,7 +31,8 @@
     {
       "id": 4,
       "iconAddress": "../../assets/card-logos/payoneer.svg",
-      "cardNumber": "Payoneer account",
+      "cardType": "Payoneer account",
+      "cardNumber": "",
       "description": "E-wallet",
       "balance": "$6.400",
       "arrow": "la-long-arrow-alt-down"

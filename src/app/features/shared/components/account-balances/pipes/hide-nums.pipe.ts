@@ -8,7 +8,7 @@ export class HideNumsPipe implements PipeTransform {
     let arr = value.split(' ');
     let checkVal = true;
     myLoop: for (let j of arr) {
-      if (j * 2) {
+      if (j * 2 !== NaN) {
         checkVal = true;
       } else {
         checkVal = false;
