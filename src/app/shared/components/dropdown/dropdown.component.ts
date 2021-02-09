@@ -42,7 +42,9 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
   }
 
   dropdownClicked() {
-    if (!this.disabled) this.isOptionsOpened = !this.isOptionsOpened;
+    if (!this.disabled) {
+      this.isOptionsOpened = !this.isOptionsOpened;
+    }
   }
 
   optionClicked(option: any) {
@@ -54,7 +56,9 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
   writeValue(value: any) {
     this.isPlaceholderOn = !Boolean(value);
 
-    if (value) this.value = value;
+    if (value) {
+      this.value = value;
+    }
   }
 
   registerOnChange(fn: (value: any) => any) {
