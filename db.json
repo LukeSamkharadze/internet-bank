@@ -2,7 +2,7 @@
   "account-balances": [
     {
       "id": 1,
-      "iconAddress": "../../assets/card-logos/visa.svg",
+      "iconAddress": "../../assets/..../visa.svg",
       "cardNumber": "3210 1234 4567 4008",
       "cardType": "visa",
       "description": "Card Number",
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "iconAddress": "../../assets/card-logos/mastercard.svg",
+      "iconAddress": "../../assets/..../mastercard.svg",
       "cardNumber": "4008 1234 4567 9464",
       "cardType": "mastercard",
       "description": "Card Number",
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "iconAddress": "../../assets/card-logos/paypal.svg",
+      "iconAddress": "../../assets/..../paypal.svg",
       "cardType": "Paypal account",
       "cardNumber": "",
       "description": "E-wallet",
@@ -30,7 +30,7 @@
 
     {
       "id": 4,
-      "iconAddress": "../../assets/card-logos/payoneer.svg",
+      "iconAddress": "../../assets/..../payoneer.svg",
       "cardType": "Payoneer account",
       "cardNumber": "",
       "description": "E-wallet",
