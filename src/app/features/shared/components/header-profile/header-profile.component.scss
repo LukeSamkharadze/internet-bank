@@ -1,17 +1,4 @@
 @import './index.scss';
-.line2 {
-  height: 1px;
-  width: 100%;
-  clear: both;
-  bottom: 0%;
-  position: absolute;
-  background-color: $outline;
-}
-
-.profileDiv {
-  position: relative;
-  height: 100%;
-}
 
 .profileBef {
   user-select: none;
@@ -23,8 +10,8 @@
   align-items: center;
   width: 155.75px;
   height: 40px;
-  margin-left: 120px;
-
+  // margin-left: 120px;
+  right: 0;
   .image {
     width: 40px;
     height: 40px;
@@ -52,6 +39,7 @@
   font-weight: 500;
   width: 286px;
   height: 237px;
+  right: 0;
   margin-bottom: 1px;
   box-sizing: border-box;
   display: none;
@@ -59,7 +47,7 @@
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.000005),
     0 6px 20px 0 rgba(0, 0, 0, 0.05);
   border-radius: 5px;
-  margin-right: 20px;
+  // margin-right: 20px;
   position: absolute;
   z-index: 1;
   .about {
@@ -122,4 +110,8 @@
 
 .show {
   display: block;
+}
+:host {
+  position: relative;
+  display: inline-block;
 }
