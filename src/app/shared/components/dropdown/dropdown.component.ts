@@ -1,10 +1,12 @@
-import { Component, Input, TemplateRef, forwardRef } from '@angular/core';
 import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
-  SelectControlValueAccessor,
-} from '@angular/forms';
-import { FeaturesSharedModule } from '@features/shared';
+  Component,
+  Input,
+  TemplateRef,
+  forwardRef,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-shared-dropdown',
@@ -18,7 +20,7 @@ import { FeaturesSharedModule } from '@features/shared';
     },
   ],
 })
-export class DropdownComponent implements ControlValueAccessor {
+export class DropdownComponent implements ControlValueAccessor, OnChanges {
   @Input() value: any;
   @Input() placeholder: any;
   @Input() options: any[] = [];
@@ -26,6 +28,7 @@ export class DropdownComponent implements ControlValueAccessor {
   @Input() placeholderTemplate: TemplateRef<any>;
   @Input() selectedTemplate: TemplateRef<any>;
   @Input() optionTemplate: TemplateRef<any>;
+  @Input() arrowTemplate: TemplateRef<any>;
 
   isOptionsOpened = false;
   isPlaceholderOn = true;
@@ -34,27 +37,35 @@ export class DropdownComponent implements ControlValueAccessor {
   onChange: (_: any) => void;
   onTouched: () => void;
 
-  writeValue(value: any): void {
-    this.value = value;
-  }
-  registerOnChange(fn: (value: any) => any): void {
-    this.onChange = fn;
-  }
-  registerOnTouched(fn: () => any): void {
-    this.onTouched = fn;
-  }
-  setDisabledState(isDisabled: boolean): void {
-    console.log(isDisabled);
-    // throw new Error('Method not implemented.');
+  ngOnChanges(changes: SimpleChanges) {
+    this.isPlaceholderOn = !Boolean(changes.value);
   }
 
   dropdownClicked() {
-    this.isOptionsOpened = !this.isOptionsOpened;
+    if (!this.disabled) this.isOptionsOpened = !this.isOptionsOpened;
   }
 
   optionClicked(option: any) {
     this.isPlaceholderOn = false;
     this.value = option;
     this.onChange(option);
+  }
+
+  writeValue(value: any) {
+    this.isPlaceholderOn = !Boolean(value);
+
+    if (value) this.value = value;
+  }
+
+  registerOnChange(fn: (value: any) => any) {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: () => any) {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
+    this.isOptionsOpened = false;
   }
 }

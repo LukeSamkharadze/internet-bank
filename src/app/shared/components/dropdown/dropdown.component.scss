@@ -1,4 +1,5 @@
 @import './index.scss';
+@import '../../../../styles/text-styles/text.scss';
 @import './style/index.scss';
 
 :host {
@@ -7,6 +8,14 @@
   height: 52px;
 }
 
-:host::ng-deep .dropdown-general {
-  @include dropdown($options-symbol: '');
+:host::ng-deep {
+  .dropdown-general {
+    @include dropdown($options-symbol: '');
+  }
+
+  .dropdown-disabled {
+    .selected {
+      background-color: $background-2;
+    }
+  }
 }

@@ -1,5 +1,3 @@
-<!-- <ng-content *ngFor="let _ of [].constructor(optionsCount); let i = index" select="#{{i}}"></ng-content> -->
-
 <ng-template #defaultSelected let-option>
   {{ option }}
 </ng-template>
@@ -15,6 +13,7 @@
 <div
   tabindex="0"
   class="dropdown-general"
+  [class.dropdown-disabled]="disabled"
   (click)="dropdownClicked()"
   (blur)="onTouched()"
 >
@@ -30,7 +29,9 @@
     </div>
 
     <div class="arrow-container" [class.arrow-active]="isOptionsOpened">
-      <ng-container [ngTemplateOutlet]="defaultArrow"></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="arrowTemplate || defaultArrow"
+      ></ng-container>
     </div>
   </div>
 
