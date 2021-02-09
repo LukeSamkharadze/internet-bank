@@ -35,25 +35,73 @@
       "id": 1
     },
     {
-      "cardName": "MASTER CARD",
-      "accountNumber": "GE32TB2222111133334444",
-      "cardNumber": 2222111133334444,
+      "balances": [
+        {
+          "cardName": "VISA CARD",
+          "accountNumber": "GE32TB1111222233334444",
+          "cardNumber": 1111222233334444,
+          "expirationDate": "10/24",
+          "availableAmount": 2000,
+          "arrow": "la-long-arrow-alt-up",
+          "security3D": false
+        },
+        {
+          "cardName": "VISA CARD",
+          "accountNumber": "GE32TB1111222233334444",
+          "cardNumber": 1111222233334444,
+          "expirationDate": "10/24",
+          "availableAmount": 2000,
+          "arrow": "la-long-arrow-alt-up",
+          "security3D": false
+        },
+        {
+          "cardName": "MASTER CARD",
+          "accountNumber": "GE32TB2222111133334444",
+          "cardNumber": 2222111133334444,
+          "arrow": "la-long-arrow-alt-up",
+          "expirationDate": "04/30",
+          "availableAmount": 25000,
+          "security3D": true
+        }
+      ],
+
       "cardholder": "JOHN LENNON",
-      "arrow": "la-long-arrow-alt-up",
-      "expirationDate": "04/30",
-      "availableAmount": 25000,
-      "security3D": true,
+
       "id": 2
     },
     {
-      "cardName": "MASTER CARD",
-      "accountNumber": "GE32TB3333111122224444",
-      "cardNumber": 3333111122224444,
+      "balances": [
+        {
+          "cardName": "VISA CARD",
+          "accountNumber": "GE32TB1111222233334444",
+          "cardNumber": 1111222233334444,
+          "expirationDate": "10/24",
+          "availableAmount": 2000,
+          "arrow": "la-long-arrow-alt-up",
+          "security3D": false
+        },
+        {
+          "cardName": "VISA CARD",
+          "accountNumber": "GE32TB1111222233334444",
+          "cardNumber": 1111222233334444,
+          "expirationDate": "10/24",
+          "availableAmount": 2000,
+          "arrow": "la-long-arrow-alt-up",
+          "security3D": false
+        },
+        {
+          "cardName": "MASTER CARD",
+          "accountNumber": "GE32TB2222111133334444",
+          "cardNumber": 2222111133334444,
+          "arrow": "la-long-arrow-alt-up",
+          "expirationDate": "04/30",
+          "availableAmount": 25000,
+          "security3D": true
+        }
+      ],
+
       "cardholder": "TILL LINDEMANN",
-      "arrow": "la-long-arrow-alt-up",
-      "expirationDate": "11/26",
-      "availableAmount": 45000,
-      "security3D": true,
+
       "id": 3
     }
   ],

@@ -2,7 +2,7 @@ export interface individualBalance {
   cardNumber: number;
   accountNumber: string;
   expirationDate: string;
-  availableAmount: string;
+  availableAmount: number;
   arrow: string;
   security3D: boolean;
   cardName: string;
