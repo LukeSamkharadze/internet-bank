@@ -44,8 +44,8 @@ export class NewsArticleComponent implements OnInit {
   culculate(timediff: number, str: string, num: number) {
     this.dateStr = str;
     this.dateNum = Math.floor(timediff / num);
-    let timePassed = timediff - this.dateNum * num;
-    let delay = num - timePassed;
+    const timePassed = timediff - this.dateNum * num;
+    const delay = num - timePassed;
     console.log(delay, 'vaaa');
     this.repeat(delay);
   }
