@@ -1,4 +1,5 @@
 import { InputComponent } from './input/input.component';
+import { ProgressBarsComponent } from './progress-bars/progress-bars.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { TagComponent } from './tag/tag.component';
@@ -13,6 +14,7 @@ export * from './button/button.component';
 export * from './notification/notification.component';
 export * from './checkbox/checkbox.component';
 export * from './layout/layout.component';
+export * from './progress-bars/progress-bars.component';
 
 export const components = [
   InputComponent,
@@ -20,6 +22,7 @@ export const components = [
   TagComponent,
   ButtonComponent,
   NotificationComponent,
+  ProgressBarsComponent,
   CheckboxComponent,
   LayoutComponent,
 ];
