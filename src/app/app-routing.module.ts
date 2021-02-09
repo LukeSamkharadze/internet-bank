@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PaginationComponent } from './shared/components/pagination/pagination.component';
 
 const routes: Routes = [
   {

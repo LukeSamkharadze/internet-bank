@@ -5,6 +5,7 @@ import {
   EventEmitter,
   OnInit,
   OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 
 @Component({
@@ -20,13 +21,9 @@ export class PaginationComponent implements OnInit, OnChanges {
   config;
   current;
   collection;
-  constructor() {
-    // myItemsPerPage არის Input რომელსაც შენს კომპონენტს ვაწვდით
-    setTimeout(() => {
-      this.count = 50;
-    }, 6000);
-  }
-  ngOnInit() {
+
+  ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges) {
     this.collection = { count: this.count, data: [] };
     this.config = {
       id: 'custom',
@@ -40,9 +37,6 @@ export class PaginationComponent implements OnInit, OnChanges {
         value: ' ',
       });
     }
-  }
-  ngOnChanges() {
-    this.collection = { count: this.count, data: [] };
   }
   pageChange(event) {
     this.current = this.config.currentPage;
