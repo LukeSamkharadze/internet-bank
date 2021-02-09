@@ -1,10 +1,15 @@
 @import './index.scss';
-
 $notif-width: 555px;
-$content-widtha: $notif-width - 100px;
-.notification {
-  padding-left: 50px;
+$content-widtha: $notif-width -100px;
+
+:host {
+  display: inline-block;
   width: $notif-width;
+}
+.notification {
+  width: 100%;
+  min-height: 64px;
+  padding-left: 50px;
   background-color: #4d7cfe;
   position: relative;
   padding-top: 23px;
@@ -41,47 +46,47 @@ $content-widtha: $notif-width - 100px;
   }
 }
 
-.orange-notification {
+.orange {
   @include notif-style($primary);
 }
-.blue-notification {
+.blue {
   @include notif-style($secondary-1);
 }
-.dark-notification {
+.dark {
   @include notif-style($primary-dark);
 }
 
-.dark-grey-notification {
+.dark-grey {
   @include notif-style($secondary-dark-1);
 }
 
-.light-grey-notification {
+.light-grey {
   @include notif-style($secondary-dark-2);
 }
 
-.green-notification {
+.green {
   @include notif-style($secondary-2);
 }
-.pink-notification {
+.pink {
   @include notif-style($secondary-3);
 }
 
-.cyan-notification {
+.cyan {
   @include notif-style($secondary-4);
 }
 
-.grey-color-notification {
+.grey {
   @include notif-style($outline, $secondary-dark-1);
 }
-.lighter-grey-notification {
+.lighter-grey {
   @include notif-style($background-1, $secondary-dark-1);
 }
 
-.lightest-grey-notification {
+.lightest-grey {
   @include notif-style($background-2, $secondary-dark-1);
 }
 
-.white-notification {
+.white {
   @include notif-style(white, $secondary-dark-1);
   box-shadow: 0px 0px 6px $outline;
 }
