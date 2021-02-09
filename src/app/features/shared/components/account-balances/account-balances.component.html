@@ -1,20 +1,26 @@
 <div class="available-balances">
   <div class="balances-title">Available balance</div>
   <div class="balances-container">
-    <div *ngFor="let item of accountDetails" class="account-balance">
+    <div *ngFor="let item of accountDetails.balances" class="account-balance">
       <div class="account-type">
         <div class="logo-background">
-          <img [src]="item.iconAddress" />
+          <img
+            src="../../assets/card-logos/{{
+              item.cardName.toLowerCase().split(' ')[0]
+            }}.svg"
+          />
         </div>
         <div class="detail-position">
           <div class="account-number">{{ item.cardNumber | hideNums }}</div>
-          <div class="account-description">{{ item.description }}</div>
+          <div class="account-description">
+            {{ item.cardName.includes('CARD') ? 'Card Number' : 'E-wallet' }}
+          </div>
         </div>
       </div>
 
       <div class="card-position">
         <div class="balance">
-          <div>{{ item.balance }}</div>
+          <div>${{ item.availableAmount }}</div>
           <i [ngClass]="item.arrow" class="las"></i>
         </div>
         <div class="account-description">Balance</div>

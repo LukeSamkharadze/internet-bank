@@ -6,12 +6,12 @@ import { BalanceStructure } from '../models/balanceType';
 
 @Injectable()
 export class AccountBalancesService {
-  _BalanceStructures = new Subject<BalanceStructure[]>();
+  id;
+  BalanceStructures = new Subject<any[]>();
 
   constructor(private http: HttpClient) {}
   get() {
-    return this.http.get<BalanceStructure[]>(
-      environment.URL + 'account-balances'
-    );
+    console.log(environment.URL + 'cards/' + this.id);
+    return this.http.get<any[]>(environment.URL + 'cards/' + this.id);
   }
 }
