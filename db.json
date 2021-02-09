@@ -105,7 +105,38 @@
       "fromAccount": "VISA 1923 2412 3412 1231",
       "destinationAccountNumber": "TBC2130000041241023",
       "amount": "2400",
-      "transferType": "Personal transfer",
+      "transferType": "Personal transfer"
+    }
+  ],
+  "cards": [
+    {
+      "cardName": "VISA CARD",
+      "accountNumber": "GE32TB1111222233334444",
+      "cardNumber": 1111222233334444,
+      "cardholder": "BARRY ARMSTRONG",
+      "expirationDate": "10/24",
+      "availableAmount": 2000,
+      "security3D": false,
+      "id": 1
+    },
+    {
+      "cardName": "MASTER CARD",
+      "accountNumber": "GE32TB2222111133334444",
+      "cardNumber": 2222111133334444,
+      "cardholder": "JOHN LENNON",
+      "expirationDate": "04/30",
+      "availableAmount": 25000,
+      "security3D": true,
+      "id": 2
+    },
+    {
+      "cardName": "MASTER CARD",
+      "accountNumber": "GE32TB3333111122224444",
+      "cardNumber": 3333111122224444,
+      "cardholder": "TILL LINDEMANN",
+      "expirationDate": "11/26",
+      "availableAmount": 45000,
+      "security3D": true,
       "id": 3
     }
   ]

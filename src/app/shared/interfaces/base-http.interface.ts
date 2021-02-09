@@ -6,7 +6,7 @@ export interface BaseHttpInterface<T> {
 
   getById(): Observable<T>;
 
-  create(): Observable<T>;
+  create(param: T): Observable<T>;
 
   update(): Observable<T>;
 
