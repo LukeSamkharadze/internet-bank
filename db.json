@@ -5,7 +5,6 @@
         {
           "cardName": "VISA CARD",
           "accountNumber": "GE32TB1111222233334444",
-          "iconAddress": "../../assets/card-logos/visa.svg",
           "cardNumber": 1111222233334444,
           "expirationDate": "10/24",
           "availableAmount": 2000,

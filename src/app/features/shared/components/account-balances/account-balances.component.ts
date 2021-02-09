@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { BalanceStructure } from './models/balanceType';
 import { AccountBalancesService } from './services/account-balances.service';
 @Component({
   selector: 'app-features-shared-accountBalances',
@@ -9,13 +8,13 @@ import { AccountBalancesService } from './services/account-balances.service';
   providers: [AccountBalancesService],
 })
 export class AccountBalancesComponent implements OnInit {
-  @Input() cardHolder: string;
+  @Input() cardHolderId: string;
   accountDetails;
 
   constructor(private http: AccountBalancesService) {}
 
   ngOnInit(): void {
-    this.http.id = this.cardHolder;
+    this.http.id = this.cardHolderId;
     this.http.BalanceStructures.subscribe(() => {
       this.getBalanceInfo();
     });
