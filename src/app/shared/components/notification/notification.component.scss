@@ -12,7 +12,7 @@ $content-widtha: $notif-width -100px;
   background-color: #4d7cfe;
   position: relative;
   padding: 20px;
-  div {
+  p {
     font-size: 16px;
     font-family: $rubik;
     font-weight: 500;
@@ -29,7 +29,7 @@ $content-widtha: $notif-width -100px;
     font-size: 20px;
     user-select: none;
     cursor: pointer;
-
+    float: right;
     position: absolute;
     top: 25px;
     right: 10px;
@@ -38,7 +38,7 @@ $content-widtha: $notif-width -100px;
 
 @mixin notif-style($bg-color, $text-color: #fff) {
   background-color: $bg-color;
-  div,
+  p,
   i {
     color: $text-color;
   }
