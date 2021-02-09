@@ -45,9 +45,3 @@ junit.xml
 # System Files
 .DS_Store
 Thumbs.db
-src/app/shared/components/dropdown/logic/classes.ts
-src/app/shared/components/dropdown/logic/creators.ts
-src/app/shared/components/dropdown/logic/events.ts
-src/app/shared/components/dropdown/logic/index.ts
-src/app/shared/components/dropdown/logic/types.ts
-src/app/shared/components/dropdown/logic/utils.ts
