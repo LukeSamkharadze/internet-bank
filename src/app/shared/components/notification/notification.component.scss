@@ -9,11 +9,9 @@ $content-widtha: $notif-width -100px;
 .notification {
   width: 100%;
   min-height: 64px;
-  padding-left: 50px;
   background-color: #4d7cfe;
   position: relative;
-  padding-top: 23px;
-  padding-bottom: 23px;
+  padding: 20px;
   div {
     font-size: 16px;
     font-family: $rubik;
@@ -23,18 +21,18 @@ $content-widtha: $notif-width -100px;
 
   :first-child {
     font-size: 24px;
-    position: absolute;
-    top: 20px;
-    left: 15px;
+    float: left;
+    padding-right: 10px;
   }
 
   :last-child {
     font-size: 20px;
     user-select: none;
     cursor: pointer;
+
     position: absolute;
-    top: 24px;
-    right: 15px;
+    top: 25px;
+    right: 10px;
   }
 }
 

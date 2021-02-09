@@ -1,20 +1,4 @@
-<div
-  class="notification"
-  [ngClass]="{
-    white: color == 'white',
-    blue: color == 'blue',
-    dark: color == 'dark',
-    'dark-grey': color == 'dark-grey',
-    orange: color == 'orange',
-    'light-grey': color == 'light-grey',
-    pink: color == 'pink',
-    cyan: color == 'cyan',
-    grey: color == 'grey',
-    'lighter-grey': color == 'lighter-grey',
-    'lightest-grey': color == 'lightest-grey',
-    green: color == 'green'
-  }"
->
+<div class="notification" [class]="color">
   <i class="las la-bell"></i>
 
   <div><ng-content></ng-content></div>
