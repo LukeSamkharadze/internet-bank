@@ -1,0 +1,14 @@
+<div class="news-list-container">
+  <app-news-item
+    *ngFor="let article of news"
+    [imgSrc]="article.urlToImage"
+    [articleUrl]="article.url"
+  >
+    <span articleTitle>{{ article.title }}</span>
+    <span articleDate>{{ article.publishedAt | dateAgo }}</span>
+    <span articleBody>{{ article.description }}</span>
+  </app-news-item>
+  <div>
+    <button (click)="displayMore()">Learn More</button>
+  </div>
+</div>
