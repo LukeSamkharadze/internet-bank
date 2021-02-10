@@ -2,7 +2,7 @@
   <img [src]="src" [alt]="alt" />
   <h2>{{ header }}</h2>
   <p>
-    {{ dateNum }} {{ dateStr }}
+    <ng-container *ngIf="dateNum">{{ dateNum }}</ng-container> {{ dateStr }}
     <ng-container *ngIf="dateNum">ago</ng-container> ({{
       articleReleaseDate | date
     }}

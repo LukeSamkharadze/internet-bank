@@ -1,8 +1,8 @@
 @import './index.scss';
 
 .container {
-  height: 806px;
-  width: 52.2%;
+  max-height: 806px;
+  width: 100%;
   min-width: 570px;
 
   > :not(:first-child) {
@@ -50,7 +50,7 @@
   }
 
   .scroll {
-    height: 300px;
+    max-height: 300px;
     width: 100%;
     position: relative;
     overflow: auto;
@@ -69,7 +69,10 @@
   }
 }
 
+:host {
+  display: inline-block;
+}
+
 :host ::ng-deep p {
   color: $primary-dark;
-  list-style: 21px;
 }

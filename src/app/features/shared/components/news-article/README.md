@@ -14,7 +14,7 @@ Select **src**, **alt**, **header**, **articleReleaseDate** (about date: **new D
 
 ```HTML
 <app-features-shared-news-article [src]="'https://s3-prod.crainsnewyork.com/s3fs-public/1008p2_Wall%20Street%20sign-Main_i.jpg'"
-[alt]="'some text'" [header]="'Hopes of trade deal push Wall Street higher'" [articleReleaseDate]="date">
+[alt]="'some text'" [header]="'Hopes of trade deal push Wall Street higher'" [articleReleaseDate]="date" style='width:52%'>
     <p>
         (Reuters) - U.S. stocks rose on Monday, boosted by technology and industrial companies, after
          President Donald Trump said he would delay a planned hike in tariffs on Chinese imports and that he was

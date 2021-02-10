@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-features-shared-news-article',
   templateUrl: './news-article.component.html',
   styleUrls: ['./news-article.component.scss'],
 })
-export class NewsArticleComponent implements OnInit {
+export class NewsArticleComponent implements OnInit, OnDestroy {
   @Input() src: string;
   @Input() alt: string;
   @Input() header: string;
@@ -13,6 +13,7 @@ export class NewsArticleComponent implements OnInit {
 
   dateNum: number;
   dateStr: string;
+  interval: any;
 
   ngOnInit(): void {
     this.choosingTimePeriod();
@@ -31,13 +32,12 @@ export class NewsArticleComponent implements OnInit {
       this.calculateTimediff(timeDiffInMS, 86400000, 'Days');
     } else if (timeDiffInMS >= 3600000) {
       this.calculateTimediff(timeDiffInMS, 3600000, 'Hours');
-    } else if (timeDiffInMS >= 60000) {
+    } else if (timeDiffInMS >= 120000) {
       this.calculateTimediff(timeDiffInMS, 60000, 'Minutes');
+    } else if (timeDiffInMS >= 60000) {
+      this.calculateTimediff(timeDiffInMS, 60000, 'Minute');
     } else {
-      this.dateStr = 'Just now';
-      setTimeout(() => {
-        this.choosingTimePeriod();
-      }, 60000);
+      this.calculateTimediff(timeDiffInMS, 60000, 'Just now');
     }
   }
 
@@ -58,9 +58,13 @@ export class NewsArticleComponent implements OnInit {
       // Maximum delay value
       delay = 2147483647;
     }
-    const interval = setInterval(() => {
+    this.interval = setInterval(() => {
+      clearInterval(this.interval);
       this.choosingTimePeriod();
-      clearInterval(interval);
     }, delay);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 }
