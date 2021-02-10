@@ -1,0 +1,25 @@
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin checkbox_default($col, $fontSize: 16px) {
+  cursor: pointer;
+  position: relative;
+  font-family: $roboto;
+  font-weight: 300;
+  font-size: 16px;
+  color: $col;
+}
+
+@mixin checkbox_default_before($color) {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: rgba($color: $color, $alpha: 0.15);
+  top: 0;
+  // right: -25px;
+}
