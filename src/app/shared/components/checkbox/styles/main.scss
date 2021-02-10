@@ -1,0 +1,60 @@
+.checkbox {
+  padding-top: 2px;
+  padding-bottom: 4px;
+  label {
+    @include checkbox_default($secondary-dark-1);
+    padding-left: 25px;
+  }
+  label::before {
+    @include flex;
+    @include checkbox_default_before($secondary-dark-1);
+  }
+  input {
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+  }
+  input:disabled + label {
+    padding-left: 18px;
+    opacity: 70%;
+  }
+  input:checked + label {
+    color: $primary-dark;
+  }
+  input:checked + label::before {
+    content: '\2714';
+    color: $background-2;
+    background-color: $secondary-dark-2;
+  }
+  .checkbox-error {
+    @include checkbox_default($secondary-3);
+  }
+  .checkbox-error::before {
+    @include flex;
+    @include checkbox_default_before($secondary-3);
+  }
+  input:checked + .checkbox-error {
+    color: $secondary-2;
+  }
+  input:checked + .checkbox-error::before {
+    content: '\2714';
+    color: $secondary-2;
+    background-color: rgba($color: $secondary-2, $alpha: 0.15);
+  }
+}
+
+.checkboxActive {
+  padding-right: 25px;
+  input:disabled + label {
+    padding-left: 0px;
+    opacity: 70%;
+  }
+  label,
+  .checkbox-error {
+    padding-left: 0px;
+  }
+  .checkbox-error::before,
+  label::before {
+    right: -25px;
+  }
+}

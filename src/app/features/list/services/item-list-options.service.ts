@@ -9,13 +9,13 @@ export class ItemListOptionsService {
       id: 1,
       title: 'List',
       className: ListStyleEnum.list,
-      default: true,
+      default: false,
     },
     {
       id: 2,
       title: 'Grid',
       className: ListStyleEnum.grid,
-      default: false,
+      default: true,
     },
   ];
 

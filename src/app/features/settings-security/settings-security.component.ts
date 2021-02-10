@@ -5,7 +5,7 @@ import {  FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
   templateUrl: './settings-security.component.html',
   styleUrls: ['./settings-security.component.scss']
 })
-export class SettingsSecurityComponent implements OnInit {
+ export class SettingsSecurityComponent implements OnInit {
 
 formChange: FormGroup;
   constructor() { }
