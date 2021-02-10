@@ -100,8 +100,13 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid $outline;
-      padding: 6.9px 10px;
+      padding: 0 10px;
+      height: 41px;
       transition: 0.4s;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
 
       &:hover {
         background: hsl(0, 0%, 98%);
@@ -200,17 +205,6 @@
         font-size: 14px;
         font-weight: 400;
         line-height: 21px;
-      }
-
-      .toggle-container {
-        display: flex;
-        justify-content: space-between;
-        height: 26.15px;
-        width: 100%;
-
-        input {
-          width: auto;
-        }
       }
     }
 
