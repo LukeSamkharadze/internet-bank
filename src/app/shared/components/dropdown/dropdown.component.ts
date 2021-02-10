@@ -38,7 +38,10 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
   onTouched = () => {};
 
   ngOnChanges(changes: SimpleChanges) {
-    this.isPlaceholderOn = !Boolean(changes.value);
+    if (changes.value) {
+      this.isPlaceholderOn = !Boolean(this.value);
+      this.onChange(this.value);
+    }
   }
 
   dropdownClicked() {
@@ -55,21 +58,19 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
 
   writeValue(value: any) {
     this.isPlaceholderOn = !Boolean(value);
-
-    if (value) {
-      this.value = value;
-    }
-  }
-
-  registerOnChange(fn: (value: any) => any) {
-    this.onChange = fn;
-  }
-  registerOnTouched(fn: () => any) {
-    this.onTouched = fn;
+    this.value = value;
   }
 
   setDisabledState(isDisabled: boolean) {
     this.disabled = isDisabled;
     this.isOptionsOpened = false;
+  }
+
+  registerOnChange(fn: (value: any) => any) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => any) {
+    this.onTouched = fn;
   }
 }
