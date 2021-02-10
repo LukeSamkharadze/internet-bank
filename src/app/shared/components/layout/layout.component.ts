@@ -1,12 +1,23 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+  OnInit,
+} from '@angular/core';
+import { CardService } from '../../../features/shared/services/card.service';
 @Component({
   selector: 'app-shared-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
+  providers: [CardService],
 })
-export class LayoutComponent implements AfterViewInit {
-  menuIsActive = false;
-  contentMainHeight;
+export class LayoutComponent implements OnInit, AfterViewInit {
+  public menuIsActive = false;
+  public contentTitlte = 'DASHBOARD';
+  public cardArray: Array<string> = [];
+  public cardNameArray: Array<string> = [];
+  public contentMainHeight;
 
   @ViewChild('mainNav')
   mainNav: ElementRef;
@@ -17,7 +28,17 @@ export class LayoutComponent implements AfterViewInit {
   @ViewChild('contentMain')
   contentMain: ElementRef;
 
-  constructor() {}
+  constructor(private cardService: CardService) {}
+
+  ngOnInit() {
+    this.cardService.getAll().subscribe((value) => {
+      for (let card of value) {
+        let cardNum = card.cardNumber.toString();
+        this.cardArray.push(cardNum.slice(-4));
+        this.cardNameArray.push(card.cardName);
+      }
+    });
+  }
   ngAfterViewInit() {
     setTimeout(() => {
       this.contentMainHeight =
