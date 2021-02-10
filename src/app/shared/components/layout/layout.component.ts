@@ -32,8 +32,8 @@ export class LayoutComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.cardService.getAll().subscribe((value) => {
-      for (let card of value) {
-        let cardNum = card.cardNumber.toString();
+      for (const card of value) {
+        const cardNum = card.cardNumber.toString();
         this.cardArray.push(cardNum.slice(-4));
         this.cardNameArray.push(card.cardName);
       }
