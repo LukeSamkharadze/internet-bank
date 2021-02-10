@@ -10,7 +10,7 @@
       [name]="button.name"
       [value]="button.value"
       [disabled]="isDisabled"
-      [ngModel]="value"
+      [ngModel]="radioValue"
       (ngModelChange)="change($event)"
     />
     <div #text class="text" [title]="button.value">{{ button.value }}</div>

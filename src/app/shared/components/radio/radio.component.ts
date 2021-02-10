@@ -28,17 +28,8 @@ export class RadioComponent implements AfterViewInit, ControlValueAccessor {
   @Input() isDisabled = false;
   @Input() checkError = false;
   @ViewChildren('text') textQuery: QueryList<ElementRef>;
-  private radioValue: string | number | boolean;
+  public radioValue: string | number | boolean;
 
-  get value(): string | number | boolean {
-    return this.radioValue;
-  }
-  set value(setValue: string | number | boolean) {
-    if (setValue !== this.radioValue) {
-      this.radioValue = setValue;
-      this.change(setValue);
-    }
-  }
   ngAfterViewInit(): void {
     // console.log(this.radioWrapper.nativeElement.clientWidth-25);
     this.textQuery.map((text) => {
