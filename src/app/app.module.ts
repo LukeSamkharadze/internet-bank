@@ -3,15 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from '@core/core.module';
-import { AccountsListComponent } from './features/accounts-list/accounts-list.component';
-import { AccountsListChartComponent } from './features/accounts-list/accounts-list-chart/accounts-list-chart.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AccountsListComponent,
-    AccountsListChartComponent,
-  ],
+  declarations: [AppComponent],
   imports: [BrowserModule, CoreModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
