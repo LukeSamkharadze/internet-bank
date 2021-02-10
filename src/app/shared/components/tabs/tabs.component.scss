@@ -18,15 +18,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  &:hover p {
+    color: $primary-dark;
+  }
   &:hover .lineanimation {
     display: block;
   }
 }
-a {
-  text-decoration: none;
-  p {
-    font-weight: 500;
-  }
+p {
+  font-weight: 500;
 }
 .caption {
   color: $primary-dark;

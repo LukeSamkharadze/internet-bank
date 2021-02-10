@@ -1,13 +1,14 @@
 <div class="tabs">
-  <div *ngFor="let tab of tabElementInput; index as i" class="tabelement">
-    <a (click)="clickTab(i)"
-      ><p>{{ tabElementInput[i] }}</p></a
-    >
+  <div
+    *ngFor="let tab of tabElementInput; index as i"
+    class="tabelement"
+    (click)="clickTab(i)"
+  >
+    <p>{{ tabElementInput[i] }}</p>
     <div class="lineanimation"></div>
     <p class="caption text-left paragraph" *ngIf="isClicked[i]">
       {{ tabComponentInput[i] }}
     </p>
   </div>
-
   <ng-content></ng-content>
 </div>
