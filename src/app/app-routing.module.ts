@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'products',
+    loadChildren: () =>
+      import('./features/create-card/create-card.module').then(
+        (m) => m.CreateCardModule
+      ),
+  },
+  {
     path: 'list',
     loadChildren: () =>
-      import('./features/list/list.module').then(
-        (m) => m.ListModule,
-      ),
+      import('./features/list/list.module').then((m) => m.ListModule),
   },
   {
     path: '',
@@ -24,5 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
