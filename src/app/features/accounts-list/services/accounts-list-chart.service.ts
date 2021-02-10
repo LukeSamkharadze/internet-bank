@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Chart } from 'chart.js';
 import IFilledArray from '../models/filled-array.entity';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AccountsListChartService {
   constructor() {}
 
