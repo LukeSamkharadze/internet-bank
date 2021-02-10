@@ -10,6 +10,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'ezuka',
+    loadChildren: () =>
+      import('./features/payment-limits/payment-limits.module').then(
+        (m) => m.PaymentLimitsModule
+      ),
+  },
+  {
     path: 'list',
     loadChildren: () =>
       import('./features/list/list.module').then((m) => m.ListModule),
