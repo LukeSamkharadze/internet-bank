@@ -4,4 +4,6 @@ export interface SharedTransfer {
   amount: number;
   id?: number;
   date: Date;
+  // unda daematos incomeOrOutcome: income | outcome.
+  // unda daematos statusi: success | failure ( error reason)
 }
