@@ -19,7 +19,6 @@ export class TabsComponent implements OnInit {
   // input: string[];
   @Input() tabElementInput: string[] = [];
   @Input() tabComponentInput: string[] = [];
-  // @Input() tabComponentInputObject: Object[];
 
   constructor() {}
 

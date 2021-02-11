@@ -6,9 +6,15 @@
   >
     <p>{{ tabElementInput[i] }}</p>
     <div class="lineanimation"></div>
-    <p class="caption text-left paragraph" *ngIf="isClicked[i]">
+    <p
+      class="caption text-left paragraph"
+      *ngIf="isClicked[i] && tabComponentInput.length > 0; else ngContent"
+    >
       {{ tabComponentInput[i] }}
     </p>
+    <ng-template #ngContent
+      ><p class="caption text-left paragraph" *ngIf="isClicked[i]">
+        <ng-content></ng-content></p
+    ></ng-template>
   </div>
-  <ng-content></ng-content>
 </div>
