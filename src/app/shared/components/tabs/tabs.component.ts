@@ -19,7 +19,7 @@ export class TabsComponent implements OnInit {
   // input: string[];
   @Input() tabElementInput: string[] = [];
   @Input() tabComponentInput: string[] = [];
-
+  tabIndex: number;
   constructor() {}
 
   ngOnInit(): void {
@@ -32,6 +32,8 @@ export class TabsComponent implements OnInit {
     for (let i = 0; i < this.isClicked.length; i++) {
       if (i === index) {
         this.isClicked[i] = true;
+        this.tabIndex = index;
+        console.log(index);
       } else {
         this.isClicked[i] = false;
       }
