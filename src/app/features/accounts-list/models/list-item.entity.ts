@@ -6,5 +6,5 @@ export default interface IItem {
   amount: number;
   additionalInfo: string;
   status: string;
-  number?: number;
+  number?: string;
 }

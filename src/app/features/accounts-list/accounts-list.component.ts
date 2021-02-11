@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ICard } from '../shared/interfaces/card.interface';
+import { IDeposit } from '../shared/interfaces/deposit.interface';
+import { ILoan } from '../shared/interfaces/loan.interface';
 import AccountType from './models/account-type.enum';
 import IItem from './models/list-item.entity';
+import { AccountsListInfoService } from './services/accounts-list-info.service';
 
 @Component({
   selector: 'app-accounts-list',
@@ -8,71 +12,15 @@ import IItem from './models/list-item.entity';
   styleUrls: ['./accounts-list.component.scss'],
 })
 export class AccountsListComponent implements OnInit {
-  infos: Array<IItem> = [
-    {
-      type: AccountType.visa,
-      balance: 88200,
-      amount: 1840,
-      additionalInfo: '06/22',
-      status: 'Active',
-      number: 3210000000004008,
-    },
-    {
-      type: AccountType.mastercard,
-      balance: 66400,
-      amount: 520,
-      additionalInfo: '07/22',
-      status: 'Active',
-      number: 4008000000009464,
-    },
-    {
-      type: AccountType.visa,
-      balance: 0.0,
-      amount: 0.0,
-      additionalInfo: '01/18',
-      status: 'Blocked',
-      number: 3344123456789018,
-    },
-    {
-      type: AccountType.cumulative,
-      balance: 56400,
-      amount: 640,
-      additionalInfo: '3%',
-      status: 'May 2018',
-    },
-    {
-      type: AccountType.mortgage,
-      balance: 84800,
-      amount: 24800,
-      additionalInfo: '14%',
-      status: 'Active',
-    },
-    {
-      type: AccountType.consumer,
-      balance: 66400,
-      amount: 650,
-      additionalInfo: '18%',
-      status: 'Paid',
-    },
-  ];
+  cards: Array<ICard> = [];
+  deposits: Array<IDeposit> = [];
+  loans: Array<ILoan> = [];
 
-  constructor() {}
+  constructor(public infoService: AccountsListInfoService) {}
 
-  ngOnInit(): void {}
-
-  get cards(): Array<IItem> {
-    return this.infos.filter(
-      (v) => v.type === AccountType.visa || v.type === AccountType.mastercard
-    );
-  }
-
-  get deposits(): Array<IItem> {
-    return this.infos.filter((v) => v.type === AccountType.cumulative);
-  }
-
-  get loans(): Array<IItem> {
-    return this.infos.filter(
-      (v) => v.type === AccountType.mortgage || v.type === AccountType.consumer
-    );
+  ngOnInit(): void {
+    this.infoService.getCards().subscribe((v) => (this.cards = v));
+    this.infoService.getDeposits().subscribe((v) => (this.deposits = v));
+    this.infoService.getLoans().subscribe((v) => (this.loans = v));
   }
 }

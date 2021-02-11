@@ -27,9 +27,9 @@
   <div class="items">
     <app-accounts-list-item
       *ngFor="let info of cards"
-      [info]="info"
+      [info]="infoService.cardToItem(info)"
       [ngClass]="{
-        blocked: info.status === 'Paid' || info.status === 'Blocked'
+        blocked: info.blocked
       }"
     ></app-accounts-list-item>
   </div>
@@ -43,9 +43,9 @@
   <div class="items">
     <app-accounts-list-item
       *ngFor="let info of deposits"
-      [info]="info"
+      [info]="infoService.depositToItem(info)"
       [ngClass]="{
-        blocked: info.status === 'Paid' || info.status === 'Blocked'
+        blocked: !info.functional
       }"
     ></app-accounts-list-item>
   </div>
@@ -59,9 +59,9 @@
   <div class="items">
     <app-accounts-list-item
       *ngFor="let info of loans"
-      [info]="info"
+      [info]="infoService.loanToItem(info)"
       [ngClass]="{
-        blocked: info.status === 'Paid' || info.status === 'Blocked'
+        blocked: !info.status
       }"
     ></app-accounts-list-item>
   </div>

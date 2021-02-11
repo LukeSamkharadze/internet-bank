@@ -7,4 +7,6 @@ export interface ICard {
   expirationDate: string;
   availableAmount: number;
   security3D: boolean;
+  balance?: number;
+  blocked?: boolean;
 }

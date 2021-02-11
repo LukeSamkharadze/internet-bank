@@ -108,5 +108,43 @@
       "security3D": true,
       "id": 3
     }
+  ],
+  "deposits": [
+    {
+      "id": 0,
+      "depositName": "Cumulative deposit",
+      "accountNumber": "UK64CT00000000000010034567",
+      "depositRate": 0.05,
+      "startDate": "20.06.2018",
+      "expirationDate": "20.06.2022",
+      "availableAmount": 56400,
+      "accuredInterest": 1640,
+      "balance": 56400,
+      "accured": 640
+    }
+  ],
+  "loans": [
+    {
+      "id": 0,
+      "loanName": "Mortgage loan",
+      "accountNumber": "UK64CT00000000000010034567",
+      "loanRate": 0.14,
+      "startDate": "20.06.2018",
+      "expirationDate": "20.06.2022",
+      "amount": 84800,
+      "paid": 24800,
+      "status": true
+    },
+    {
+      "id": 1,
+      "loanName": "Consumer loan",
+      "accountNumber": "UK64CT00000000000010035931",
+      "loanRate": 0.18,
+      "startDate": "20.06.2018",
+      "expirationDate": "20.06.2022",
+      "amount": 66400,
+      "paid": 650,
+      "status": false
+    }
   ]
 }
