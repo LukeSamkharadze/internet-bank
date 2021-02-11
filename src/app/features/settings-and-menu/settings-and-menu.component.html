@@ -1,0 +1,109 @@
+<head>
+  <link rel=“stylesheet”
+  href=“https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css”>
+  <link
+    rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+  />
+</head>
+
+<div class="settingsAndMenu">
+  <div class="generalSettings">
+    <div class="settingsInfo">
+      <p class="generalInfo">General information</p>
+      <div class="userProfile">
+        <div class="profilePic">
+          <img src="https://img.icons8.com/dotty/60/000000/user-male.png" />
+        </div>
+        <p>Barry Armstrong</p>
+      </div>
+      <div class="userInfo">
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div class="input-group">
+            <label for="first">First name</label>
+            <div class="input-wrapper">
+              <input formControlName="firstName" id="first" type="text" />
+            </div>
+          </div>
+          <div class="input-group lastName">
+            <label for="last">Last name</label>
+            <div class="input-wrapper">
+              <input id="last" type="text" formControlName="lastName" />
+            </div>
+          </div>
+          <div class="input-group contact">
+            <label for="email">Email</label>
+            <div class="input-wrapper">
+              <input
+                id="email"
+                type="text"
+                formControlName="email"
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
+          <div class="input-group contact">
+            <label for="phone"> Phone</label>
+            <div class="input-wrapper">
+              <input
+                id="phone"
+                formControlName="phone"
+                type="text"
+                placeholder="Enter phone number"
+              />
+            </div>
+          </div>
+          <div class="dropdownContainer input-label">
+            <label for="langDropdown">Language</label>
+            <div class="dropdown-general">
+              <select id="langDropdown" formControlName="language">
+                <option value="English">English</option>
+                <option value="Georgian">Georgian</option>
+                <option value="Russian">Russian</option>
+              </select>
+            </div>
+          </div>
+          <div class="dropdownContainer input-label">
+            <label for="sexDropdown">Sex</label>
+            <div class="dropdown-general">
+              <select id="sexDropdown" formControlName="sex">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="payment-buttons primary buttons">
+            <app-shared-button
+              [className]="{ primary: true, active: true }"
+              style="width: 206px; height: 46px"
+              [isDisabled]="form.invalid"
+              type="submit"
+              >UPDATE SETTINGS</app-shared-button
+            >
+
+            <app-shared-button
+              [className]="{ primary: true, resting: true }"
+              style="height: 46px; width: 103px"
+              type="reset"
+            >
+              CANCEL</app-shared-button
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu">
+    <div class="tabStick"></div>
+
+    <div class="menuTabs">
+      <a>General information</a>
+      <a>Security</a>
+      <a>Payment limits</a>
+      <a>Notifications</a>
+      <a> Close Account</a>
+    </div>
+  </div>
+</div>

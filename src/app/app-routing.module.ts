@@ -3,6 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'settings',
+    loadChildren: () =>
+      import('./features/settings-and-menu/settings-and-menu.module').then(
+        (m) => m.SettingsAndMenuModule
+      ),
+  },
+  {
     path: 'products',
     loadChildren: () =>
       import('./features/create-card/create-card.module').then(
