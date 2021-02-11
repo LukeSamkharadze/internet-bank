@@ -27,6 +27,19 @@
     padding-top: 20px;
     padding-bottom: 30px;
 
+    .account {
+      @include flex(space-between);
+      width: 100%;
+      padding: 0 10px;
+      img {
+        max-width: 40px;
+        max-height: 28px;
+      }
+    }
+    app-shared-dropdown {
+      width: 100%;
+    }
+
     div:not(:last-child) {
       margin-bottom: 20.3px;
     }

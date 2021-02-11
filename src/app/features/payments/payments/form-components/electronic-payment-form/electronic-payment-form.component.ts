@@ -9,6 +9,7 @@ import { animations } from '../shared/animations';
 import { summaryAnimation } from '../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { ElectronicTransfer } from '../../../models/electronicTransfer.entity';
+import { ProvidersService } from '../../../services/providers.service';
 
 @Component({
   selector: 'app-electronic-payment-form',
@@ -23,7 +24,13 @@ import { ElectronicTransfer } from '../../../models/electronicTransfer.entity';
 export class ElectronicPaymentFormComponent implements OnInit {
   title = 'Online payment';
   form: FormGroup;
-  constructor(private transferService: TransferService) {}
+  accounts = this.transferService.getAllCards();
+  paymentSystems = this.providersService.getElectronicPaymentProviders();
+
+  constructor(
+    private transferService: TransferService,
+    private providersService: ProvidersService
+  ) {}
   ngOnInit(): void {
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
@@ -66,6 +73,10 @@ export class ElectronicPaymentFormComponent implements OnInit {
   // @ts-ignore
   get paymentSystem(): AbstractControl {
     return this.form.get('paymentSystem');
+  }
+
+  get paymentSystemText(): string {
+    return this.paymentSystem.value.title;
   }
 
   // @ts-ignore

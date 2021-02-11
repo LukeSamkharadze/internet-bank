@@ -27,7 +27,7 @@
         <div class="provider-details">
           <h5>{{ paymentType.name }}</h5>
           <p *ngFor="let provider of paymentType.providers">
-            {{ provider
+            {{ provider.title
             }}<span *ngIf="shouldAddComma(provider, paymentType.providers)"
               >,&nbsp;
             </span>

@@ -18,6 +18,8 @@ import { BankTransfer } from '../../../models/bankTransfer.entity';
 export class BankTransferFormComponent implements OnInit {
   title = 'Bank transfer';
   form: FormGroup;
+  accounts = this.transferService.getAllCards();
+
   constructor(private transferService: TransferService) {}
 
   ngOnInit(): void {

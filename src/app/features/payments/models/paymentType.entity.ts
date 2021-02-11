@@ -1,6 +1,6 @@
 export interface PaymentType {
   name: string;
-  providers: string[];
+  providers: { title: string; iconPath?: string }[];
   icon?: string;
   formPath: string;
 }

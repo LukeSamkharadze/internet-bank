@@ -18,6 +18,7 @@ import { TransferService } from '../../../services/transfer.service';
 export class InstantTransferFormComponent implements OnInit {
   title = 'Instant transfer';
   form: FormGroup;
+  accounts = this.transferService.getAllCards();
   constructor(private transferService: TransferService) {}
   ngOnInit(): void {
     this.form = new FormGroup({

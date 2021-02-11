@@ -4,7 +4,7 @@
   </header>
   <form [formGroup]="form" [@formTrigger]>
     <div class="input-wrapper">
-      <label class="input-label" for="from-account"
+      <label class="input-label"
         >Select account
         <span
           [@errorTrigger]
@@ -12,10 +12,23 @@
           >*required*</span
         >
       </label>
-      <app-shared-input
+      <ng-template #account let-option>
+        <div class="account">
+          <img [src]="option['iconPath']" />
+          <span>{{ option['cardNumber'] }}</span>
+          <span>{{ option['availableAmount'] }}</span>
+        </div>
+      </ng-template>
+
+      <app-shared-dropdown
+        style="width: 100%"
         formControlName="fromAccount"
-        inputId="from-account"
-      ></app-shared-input>
+        placeholder="Please Select acc"
+        [options]="accounts"
+        [selectedTemplate]="account"
+        [optionTemplate]="account"
+      >
+      </app-shared-dropdown>
     </div>
 
     <div class="input-wrapper">
@@ -71,7 +84,7 @@
     </div>
 
     <div class="input-wrapper half-width float-right">
-      <label class="input-label" for="currency"
+      <label class="input-label"
         >Currency
         <span
           [@errorTrigger]
@@ -79,14 +92,17 @@
           >*required*</span
         ></label
       >
-      <app-shared-input
-        inputId="currency"
+
+      <app-shared-dropdown
+        placeholder="Select currency"
+        [options]="['USD']"
         formControlName="currency"
-      ></app-shared-input>
+      >
+      </app-shared-dropdown>
     </div>
 
     <div class="input-wrapper">
-      <label class="input-label" for="transfer-type"
+      <label class="input-label"
         >Transfer type
         <span
           [@errorTrigger]
@@ -94,10 +110,12 @@
           >*required*</span
         ></label
       >
-      <app-shared-input
-        inputId="transfer-type"
+      <app-shared-dropdown
+        placeholder="Select transfer type"
+        [options]="['Personal transfer']"
         formControlName="transferType"
-      ></app-shared-input>
+      >
+      </app-shared-dropdown>
     </div>
 
     <div class="footer">

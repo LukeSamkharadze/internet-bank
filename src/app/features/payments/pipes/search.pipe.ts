@@ -9,7 +9,9 @@ export class SearchPipe implements PipeTransform {
     if (input) {
       return paymentTypes.filter((payment) => {
         for (const provider of payment.providers) {
-          if (provider.toLowerCase().indexOf(input.toLocaleLowerCase()) >= 0) {
+          if (
+            provider.title.toLowerCase().indexOf(input.toLocaleLowerCase()) >= 0
+          ) {
             return payment;
           }
         }
