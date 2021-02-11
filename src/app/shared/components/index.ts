@@ -8,6 +8,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { LayoutComponent } from './layout/layout.component';
 import { NotificationComponent } from './notification/notification.component';
 import { ToggleComponent } from './toggle/toggle.component';
+import { RadioComponent } from './radio/radio.component';
 
 export * from './pagination/pagination.component';
 export * from './input/input.component';
@@ -31,4 +32,5 @@ export const components = [
   LayoutComponent,
   NotificationComponent,
   ToggleComponent,
+  RadioComponent,
 ];

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedPipes } from './pipes';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { components } from './components';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -11,6 +11,7 @@ const modules = [
   ReactiveFormsModule,
   HttpClientModule,
   NgxPaginationModule,
+  FormsModule,
 ];
 
 @NgModule({

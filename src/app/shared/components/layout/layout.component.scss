@@ -238,15 +238,7 @@ a {
     -ms-flex-align: center;
     align-items: center;
     cursor: pointer;
-    border-left: 2px solid $secondary-1;
-
-    &:nth-child(3) {
-      border-left: 2px solid $primary;
-    }
-
-    &:nth-child(4) {
-      border-left: 2px solid $secondary-3;
-    }
+    border-left: 2px solid transparent;
 
     &:hover {
       .accounts-icon {
@@ -256,6 +248,7 @@ a {
 
     &:hover {
       background-color: $background-2;
+      border-left: 2px solid $primary;
     }
   }
 
@@ -345,7 +338,7 @@ a {
   }
 
   .content-main-inner {
-    min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 130px);
   }
 
   .footer {
