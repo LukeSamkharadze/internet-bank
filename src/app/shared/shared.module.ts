@@ -12,6 +12,7 @@ const modules = [
   FormsModule,
   HttpClientModule,
   NgxPaginationModule,
+  FormsModule,
 ];
 
 @NgModule({

@@ -8,43 +8,43 @@
         </div>
       </div>
       <div class="main-nav" #mainNav>
-        <a class="main-nav-item" href="#">
+        <a class="main-nav-item" (click)="contentTitlte = 'DASHBOARD'">
           <div class="main-nav-icon">
             <i class="las la-clock"></i>
           </div>
           <div class="main-nav-title">DASHBOARD</div>
         </a>
-        <a class="main-nav-item" href="#">
+        <a class="main-nav-item" (click)="contentTitlte = 'TRANSACTIONS'">
           <div class="main-nav-icon">
             <i class="las la-redo"></i>
           </div>
           <div class="main-nav-title">TRANSACTIONS</div>
         </a>
-        <a class="main-nav-item" href="#">
+        <a class="main-nav-item" (click)="contentTitlte = 'PRODUCTS'">
           <div class="main-nav-icon">
             <i class="las la-briefcase"></i>
           </div>
           <div class="main-nav-title">PRODUCTS</div>
         </a>
-        <a class="main-nav-item" href="#">
+        <a class="main-nav-item" (click)="contentTitlte = 'PAYMENTS'">
           <div class="main-nav-icon">
             <i class="las la-credit-card"></i>
           </div>
           <div class="main-nav-title">PAYMENTS</div>
         </a>
-        <a class="main-nav-item" href="#">
+        <a class="main-nav-item" (click)="contentTitlte = 'STOCKS'">
           <div class="main-nav-icon">
             <i class="las la-chart-area"></i>
           </div>
           <div class="main-nav-title">STOCKS</div>
         </a>
-        <a class="main-nav-item" href="#">
+        <a class="main-nav-item" (click)="contentTitlte = 'LINK'">
           <div class="main-nav-icon">
             <i class="las la-file-alt"></i>
           </div>
           <div class="main-nav-title">LINK</div>
         </a>
-        <a class="main-nav-item" href="#">
+        <a class="main-nav-item" (click)="contentTitlte = 'UI KIT'">
           <div class="main-nav-icon">
             <i class="las la-puzzle-piece"></i>
           </div>
@@ -57,33 +57,29 @@
     <div class="bottom-nav" #bottomNav>
       <div class="accounts">
         <h3 class="accounts-main-title">Accounts</h3>
-        <a class="accounts-item" href="#">
-          <div class="accounts-icon">
-            <i class="lab la-cc-visa"></i>
-          </div>
-          <div class="accounts-title">
-            <span class="span-visible">Card xxxx-80</span
-            ><span class="span-hidden">**</span>04
-          </div>
-        </a>
-        <a class="accounts-item" href="#">
-          <div class="accounts-icon">
-            <i class="lab la-cc-mastercard"></i>
-          </div>
-          <div class="accounts-title">
-            <span class="span-visible">Card xxxx-19</span
-            ><span class="span-hidden">**</span>02
-          </div>
-        </a>
-        <a class="accounts-item" href="#">
-          <div class="accounts-icon">
-            <i class="las la-address-card"></i>
-          </div>
-          <div class="accounts-title">
-            <span class="span-visible">Card xxxx-18</span
-            ><span class="span-hidden">**</span>04
-          </div>
-        </a>
+
+        <div
+          class="accounts-inner"
+          *ngFor="let cardNumber of cardArray; let i = index"
+        >
+          <a class="accounts-item">
+            <div class="accounts-icon">
+              <i
+                *ngIf="cardNameArray[i] === 'MASTER CARD'"
+                class="lab la-cc-mastercard"
+              ></i>
+              <i
+                *ngIf="cardNameArray[i] === 'VISA CARD'"
+                class="lab la-cc-visa"
+              ></i>
+            </div>
+            <div class="accounts-title">
+              <span class="span-visible"
+                >Card xxxx-{{ cardNumber | slice: 0:2 }}</span
+              ><span class="span-hidden">**</span>{{ cardNumber | slice: 2:4 }}
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -95,10 +91,10 @@
           <div class="burger-menu-line"></div>
           <div class="burger-menu-line"></div>
         </div>
-        <h3 class="content-dashboard-title">Dashboard</h3>
+        <h3 class="content-dashboard-title">{{ contentTitlte }}</h3>
       </div>
       <div class="test" style="padding-right: 50px">
-        here goes profile component
+        <ng-content select="[header-profile]"></ng-content>
       </div>
     </div>
     <div
@@ -107,7 +103,7 @@
       #contentMain
     >
       <div class="content-main-inner">
-        <ng-content></ng-content>
+        <ng-content select="[content]"></ng-content>
       </div>
     </div>
     <div class="footer">
