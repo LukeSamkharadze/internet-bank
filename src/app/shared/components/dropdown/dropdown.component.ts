@@ -1,4 +1,11 @@
 import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import {
   Component,
   Input,
   TemplateRef,
@@ -7,6 +14,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { optionsAnimation } from './animations/options';
 
 @Component({
   selector: 'app-shared-dropdown',
@@ -19,6 +27,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       multi: true,
     },
   ],
+  animations: [optionsAnimation],
 })
 export class DropdownComponent implements ControlValueAccessor, OnChanges {
   @Input() value: any;

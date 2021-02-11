@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <div class="options" *ngIf="isOptionsOpened">
+  <div class="options" *ngIf="isOptionsOpened" @openClose>
     <div
       class="option"
       *ngFor="let option of options"

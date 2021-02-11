@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { components } from './components';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const modules = [
   CommonModule,
@@ -13,6 +14,7 @@ const modules = [
   HttpClientModule,
   NgxPaginationModule,
   FormsModule,
+  BrowserAnimationsModule,
 ];
 
 @NgModule({
