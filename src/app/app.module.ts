@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { FeaturesSharedModule } from './features/shared/features-shared.module';
 import { CoreModule } from '@core/core.module';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DashboardComponent],
   imports: [
     BrowserModule,
     CoreModule,
