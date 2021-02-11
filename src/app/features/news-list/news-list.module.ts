@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared';
 import { NewsListComponent } from './news-list.component';
 import { NewsItemComponent } from './news-item/news-item.component';
-import { DateAgoPipe } from './date-ago.pipe';
+import { DateAgoPipe } from '../../shared/pipes/date-ago.pipe';
 
 @NgModule({
   declarations: [NewsListComponent, NewsItemComponent, DateAgoPipe],
