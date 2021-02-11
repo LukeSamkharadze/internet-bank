@@ -70,7 +70,7 @@ Example for displaying complex `options` and just description in `selected`
 
 ```HTML
 <ng-template #optionTemplate let-option>
-  <img src="{{ option.imgURL }}"></img>
+  <img src="{{ option.imgURL }}">
   <button (click)="__DO_SOMETHING__()">CLICK HERE</button>
   <p>{{ option.description }}</p>
 </ng-template>

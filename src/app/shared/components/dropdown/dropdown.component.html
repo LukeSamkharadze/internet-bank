@@ -17,7 +17,7 @@
   (click)="dropdownClicked()"
   (blur)="onTouched()"
 >
-  <div class="selected" [class.placeholder]="isPlaceholderOn">
+  <div class="selected" [class.placeholder]="isPlaceholderOn || disabled">
     <div class="content">
       <ng-container
         [ngTemplateOutlet]="
