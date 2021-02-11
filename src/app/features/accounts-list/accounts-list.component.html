@@ -1,20 +1,9 @@
-<div class="charts-container">
+<div class="charts-container" *ngIf="incomes.length">
   <app-accounts-list-chart
+    *ngFor="let income of incomes"
     [info]="{
-      title: 'Cards balance',
-      data: [78000, 91000, 78000, 52000, 72800, 104000, 124800]
-    }"
-  ></app-accounts-list-chart>
-  <app-accounts-list-chart
-    [info]="{
-      title: 'Deposit (3% Rate)',
-      data: [35250, 38070, 39480, 40890, 38070, 49350, 56400]
-    }"
-  ></app-accounts-list-chart>
-  <app-accounts-list-chart
-    [info]="{
-      title: 'Pending credit',
-      data: [41300, 28910, 16520, 28910, 24800]
+      title: income.name ? income.name : 'unknown',
+      data: income.data
     }"
   ></app-accounts-list-chart>
 </div>
