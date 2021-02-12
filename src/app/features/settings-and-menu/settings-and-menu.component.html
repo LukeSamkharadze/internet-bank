@@ -56,21 +56,23 @@
           <div class="dropdownContainer input-label">
             <label for="langDropdown">Language</label>
             <div class="dropdown-general">
-              <select id="langDropdown" formControlName="language">
-                <option value="English">English</option>
-                <option value="Georgian">Georgian</option>
-                <option value="Russian">Russian</option>
-              </select>
+              <app-shared-dropdown
+                id="langDropdown"
+                formControlName="language"
+                [options]="['English', 'Georgian', 'Russian']"
+              >
+              </app-shared-dropdown>
             </div>
           </div>
           <div class="dropdownContainer input-label">
             <label for="sexDropdown">Sex</label>
             <div class="dropdown-general">
-              <select id="sexDropdown" formControlName="sex">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
+              <app-shared-dropdown
+                id="sexDropdown"
+                formControlName="sex"
+                [options]="['Male', 'Female', 'Other']"
+              >
+              </app-shared-dropdown>
             </div>
           </div>
           <div class="payment-buttons primary buttons">
@@ -99,11 +101,11 @@
     <div class="tabStick"></div>
 
     <div class="menuTabs">
-      <a>General information</a>
-      <a>Security</a>
-      <a>Payment limits</a>
-      <a>Notifications</a>
-      <a> Close Account</a>
+      <a routerLink="/settings" [className]="'active'">General information</a>
+      <a routerLink="#">Security</a>
+      <a routerLink="/payments">Payment limits</a>
+      <a routerLink="#">Notifications</a>
+      <a routerLink="#"> Close Account</a>
     </div>
   </div>
 </div>
