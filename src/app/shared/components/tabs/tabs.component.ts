@@ -13,23 +13,14 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   selector: 'app-shared-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: forwardRef(() => {}),
-    },
-  ],
 })
 export class TabsComponent implements OnInit {
-  tabStyle: string;
+  // tabStyle: string;
   activeTab: string;
   @Input() tabElementInput: string[] = [];
   @Input() tabComponentInput: string[] = [];
   @ContentChildren(TemplateRef) itemTemplate: TemplateRef<any>[];
   tabIndex: number;
-
-  constructor() {}
 
   ngOnInit(): void {}
   changeTabStyle(tabName) {

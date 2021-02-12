@@ -1,13 +1,14 @@
-@import '../../../../styles/index.scss';
+@import './index.scss';
 .tab-content {
   position: relative;
   margin-top: 20px;
   padding-right: 160px;
-  margin-left: 20px;
+  padding-left: 20px;
+  :host {
+    display: block;
+  }
 }
-#text1 {
-  display: block;
-}
+
 .active {
   color: black;
 }
@@ -19,7 +20,7 @@
   box-sizing: border-box;
   color: $secondary-dark-1;
   text-decoration: none;
-  margin-left: 23px;
+  padding-left: 23px;
   margin-right: 0px;
   margin-top: 17px;
   display: flex;
