@@ -10,7 +10,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'ezuka',
+    path: 'payments',
     loadChildren: () =>
       import('./features/payment-limits/payment-limits.module').then(
         (m) => m.PaymentLimitsModule
