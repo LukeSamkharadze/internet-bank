@@ -1,0 +1,57 @@
+@mixin dropdown-box($height, $is-fixed, $padding) {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: $padding;
+
+  @if $is-fixed {
+    height: $height;
+  } @else {
+    min-height: $height;
+  }
+}
+
+@mixin dropdown-selected($height, $is-fixed, $arrow-offset, $padding) {
+  @include dropdown-box($height, $is-fixed, $padding);
+  justify-content: space-between;
+}
+
+@mixin dropdown-multiple-line-ellipsis($line-count) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line-count;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin dropdown-center($is-vertical, $is-horizontal) {
+  @if $is-vertical and $is-horizontal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $is-vertical {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $is-horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@mixin dropdown-center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin dropdown-symbol($unicode, $size, $weight) {
+  content: $unicode;
+  font-family: 'Line Awesome Free';
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin dropdown-empty {
+  color: inherit;
+}
