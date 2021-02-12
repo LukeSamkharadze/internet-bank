@@ -162,15 +162,16 @@
         </div>
       </div>
       <div class="li">
-        <!-- იმპორტირებული გადამრთველი ქვემოთ -->
-        <!-- <p>3D Security</p> -->
-        <div class="toggle-container">
-          <label for="toggle-on" class="switch">3D Security</label>
-          <input formControlName="security3D" type="checkbox" id="toggle-on" />
-          <!-- <span class="slider"></span> -->
-        </div>
+        <!-- Imported toggle below -->
+        <label for="security3D">3D Security</label>
+        <app-shared-toggle
+          toggleId="security3D"
+          formControlName="security3D"
+          [checked]="form.controls.security3D.value"
+          [textBefore]="true"
+        ></app-shared-toggle>
       </div>
-      <!-- იმპორტირებული ღილაკი ქვემოთ -->
+      <!-- Imported button below -->
       <app-shared-button
         class="shared-button"
         [className]="'primary active'"
