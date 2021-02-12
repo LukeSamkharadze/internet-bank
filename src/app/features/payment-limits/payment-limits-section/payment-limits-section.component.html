@@ -1,0 +1,37 @@
+<div class="payment-section">
+  <p>{{ title }}</p>
+  <div class="limits-spendings">
+    <div class="limits-wrap">
+      <p class="light">Current limit</p>
+      <label class="limits-current" for="myInput">
+        <div class="custom-input">
+          <input
+            id="myInput"
+            (input)="changed($event.target.value)"
+            (blur)="touched()"
+            [formControl]="inputForm"
+            #inputElement
+            type="number"
+          />
+          <p *ngIf="input1.nativeElement.value">{{ currency }}</p>
+        </div>
+
+        <div class="limits-plusMinus">
+          <i class="las la-minus-circle plusMinus" (click)="onMinus()"></i>
+          <i class="las la-plus-circle plusMinus" (click)="onPlus()"></i>
+        </div>
+      </label>
+    </div>
+    <div class="spendings-wrap">
+      <div class="spendings-header">
+        <p class="light">Spendings</p>
+        <p>{{ spending }} {{ currency }}</p>
+      </div>
+
+      <div class="spendings-current">
+        <app-shared-progress-bar [value]="spending" [max]="inputElement.value">
+        </app-shared-progress-bar>
+      </div>
+    </div>
+  </div>
+</div>

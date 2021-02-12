@@ -1,0 +1,100 @@
+@import '../../../../styles/index.scss';
+.payment-section {
+  margin-bottom: 31px;
+
+  & > p:first-of-type {
+    padding-bottom: 4px;
+    border-bottom: 1px solid $outline;
+    margin-bottom: 21px;
+    margin-left: -1px;
+  }
+  &:not(:first-of-type) {
+    & > p:first-of-type {
+      margin-bottom: 23px;
+    }
+  }
+  .limits-spendings {
+    display: flex;
+    justify-content: space-between;
+
+    .limits-wrap {
+      width: 48.2%;
+      & > p:first-of-type {
+        color: $primary-dark;
+      }
+      .limits-current {
+        margin-top: 11px;
+        height: 52px;
+        border: 1px solid $outline;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .custom-input {
+          display: flex;
+
+          p {
+            color: $primary-dark;
+          }
+          input {
+            color: $primary-dark;
+            margin-left: 15px;
+            border: none;
+            background-color: transparent;
+            outline: none;
+          }
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+          }
+        }
+
+        .limits-plusMinus {
+          margin-right: 15px;
+          display: flex;
+          font-size: 18px;
+          color: $secondary-dark-1;
+          .plusMinus {
+            cursor: pointer;
+            &:first-of-type {
+              margin-right: 4px;
+            }
+          }
+        }
+      }
+    }
+    .spendings-wrap {
+      @extend .limits-wrap;
+
+      .spendings-header {
+        display: flex;
+        justify-content: space-between;
+        p {
+          color: $primary-dark;
+          &:last-of-type {
+            font-weight: 500;
+            margin-right: 2px;
+          }
+        }
+      }
+      .spendings-current {
+        @extend .limits-current;
+        background-color: $background-2;
+        border: none;
+        display: flex;
+        justify-content: center;
+        & > div {
+          border-radius: 4px;
+          width: 87%;
+          div {
+            height: 4px;
+          }
+        }
+        app-shared-progress-bar {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
