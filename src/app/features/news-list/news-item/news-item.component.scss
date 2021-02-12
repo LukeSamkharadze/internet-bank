@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  cursor: context-menu;
+  cursor: pointer;
 
   .news-img-wrapper {
     width: 96px;
@@ -20,6 +20,7 @@
     img {
       width: inherit;
       height: inherit;
+      object-fit: cover;
     }
   }
 
@@ -28,7 +29,6 @@
     width: 457px;
     a {
       @include text-style(14px);
-      cursor: pointer;
       font-weight: 500;
       letter-spacing: normal;
       text-decoration: none;
@@ -75,4 +75,8 @@
   height: 1px;
   width: 93.5%;
   border-bottom: 1px solid $background-1;
+}
+
+.news-item:hover .news-text-wrapper > a {
+  text-decoration: underline;
 }

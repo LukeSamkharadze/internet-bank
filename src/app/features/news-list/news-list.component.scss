@@ -20,5 +20,9 @@
         outline: none;
       }
     }
+
+    &.news-error {
+      @include text-style(14px);
+    }
   }
 }

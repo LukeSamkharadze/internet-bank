@@ -8,7 +8,10 @@
     <span articleDate>{{ article.publishedAt | dateAgo }}</span>
     <span articleBody>{{ article.description }}</span>
   </app-news-item>
-  <div>
+  <div *ngIf="showLearnMore">
     <button (click)="displayMore()">Learn More</button>
   </div>
+  <ng-container *ngIf="noNewsToDisplay">
+    <div class="news-error">No news to display ...</div>
+  </ng-container>
 </div>

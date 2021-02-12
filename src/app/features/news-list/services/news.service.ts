@@ -13,7 +13,7 @@ export class NewsService {
   news: Observable<NewsItem[]>;
   getMoreNews: Subject<number>;
   totalNumberOfNews = 0;
-  numberOfNews = 1;
+  numberOfNews = 5;
 
   constructor(private http: HttpClient, private router: Router) {
     this.getMoreNews = new BehaviorSubject<number>(this.numberOfNews);
