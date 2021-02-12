@@ -14,7 +14,6 @@ const modules = [
   HttpClientModule,
   NgxPaginationModule,
   FormsModule,
-  BrowserAnimationsModule,
 ];
 
 @NgModule({
