@@ -1,0 +1,6 @@
+@import 'index.scss';
+
+.articleNotFound {
+  padding: 20px 0px 0px 20px;
+  @include text-style(14px);
+}

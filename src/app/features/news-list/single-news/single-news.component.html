@@ -1,0 +1,14 @@
+<div *ngIf="!articleNotFound">
+  <app-features-shared-news-article
+    [src]="articleSrc"
+    [alt]="articleAlt"
+    [header]="articleHeader"
+    [articleReleaseDate]="articleReleaseDate"
+    style="width: 52%"
+  >
+    {{ articleText }}
+  </app-features-shared-news-article>
+</div>
+<ng-container *ngIf="articleNotFound">
+  <div class="articleNotFound">Something went wrong ...</div>
+</ng-container>
