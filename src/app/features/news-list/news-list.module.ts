@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared';
 import { NewsListComponent } from './news-list.component';
 import { NewsItemComponent } from './news-item/news-item.component';
-import { DateAgoPipe } from '../../shared/pipes/date-ago.pipe';
+import { FeaturesSharedModule } from '../shared/features-shared.module';
+import { NewsListRoutingModule } from './news-list-routing.module';
 
 @NgModule({
-  declarations: [NewsListComponent, NewsItemComponent, DateAgoPipe],
-  imports: [CommonModule, SharedModule],
+  declarations: [NewsListComponent, NewsItemComponent],
+  imports: [SharedModule, FeaturesSharedModule, NewsListRoutingModule],
   providers: [],
   exports: [NewsListComponent],
 })
