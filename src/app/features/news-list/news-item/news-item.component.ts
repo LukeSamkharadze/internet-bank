@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NewsService } from '../services/news.service';
 
 @Component({
   selector: 'app-news-item',
@@ -8,8 +6,6 @@ import { NewsService } from '../services/news.service';
   styleUrls: ['./news-item.component.scss'],
 })
 export class NewsItemComponent {
-  constructor(private newsService: NewsService) {}
-
   @Input() imgSrc: string;
   @Input() time: Date;
   @Input() articleUrl: string;

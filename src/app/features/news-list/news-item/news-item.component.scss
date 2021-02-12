@@ -27,7 +27,7 @@
   .news-text-wrapper {
     padding-left: 20px;
     width: 457px;
-    a {
+    h3 {
       @include text-style(14px);
       font-weight: 500;
       letter-spacing: normal;

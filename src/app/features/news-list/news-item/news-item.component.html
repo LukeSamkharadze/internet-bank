@@ -1,11 +1,9 @@
 <div class="news-item">
   <div class="news-img-wrapper">
-    <img [src]="imgSrc" (error)="showPlacehoderImg()" alt="news" />
+    <img [src]="imgSrc" (error)="showPlacehoderImg()" alt="news article" />
   </div>
   <div class="news-text-wrapper">
-    <a [href]="articleUrl" target="blank"
-      ><ng-content select="[articleTitle]"></ng-content
-    ></a>
+    <h3><ng-content select="[articleTitle]"></ng-content></h3>
     <div>
       <span><ng-content select="[articleDate]"></ng-content></span>
       <span><i class="las la-comments"></i>{{ comments }}</span>

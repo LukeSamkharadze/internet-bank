@@ -3,6 +3,7 @@ import { catchError, map, retry } from 'rxjs/operators';
 import { NewsItem } from './models/news-item.entity';
 import { NewsService } from './services/news.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-list',
@@ -14,6 +15,7 @@ export class NewsListComponent implements OnInit {
   totalResults = 0;
   showLearnMore = false;
   noNewsToDisplay = false;
+
   constructor(public newsService: NewsService) {}
 
   ngOnInit(): void {

@@ -14,6 +14,7 @@ export class NewsService {
   getMoreNews: Subject<number>;
   totalNumberOfNews = 0;
   numberOfNews = 5;
+  article: NewsItem;
 
   constructor(private http: HttpClient, private router: Router) {
     this.getMoreNews = new BehaviorSubject<number>(this.numberOfNews);
@@ -27,5 +28,11 @@ export class NewsService {
     // 2370d68f7865460280f4eb4f61e4fcba
     const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&pageSize=${numOfNews}&apiKey=4d79b03f861e401482765e7950a1b96a`;
     return this.http.get<NewsResponse>(url);
+  }
+
+  // redirect to the single news page
+  goToSingleNews(article: NewsItem) {
+    this.article = article;
+    this.router.navigate(['/news/article']);
   }
 }

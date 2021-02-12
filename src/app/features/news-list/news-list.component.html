@@ -1,8 +1,10 @@
 <div class="news-list-container">
   <app-news-item
     *ngFor="let article of news"
+    routerLink="./article"
     [imgSrc]="article.urlToImage"
     [articleUrl]="article.url"
+    (click)="newsService.goToSingleNews(article)"
   >
     <span articleTitle>{{ article.title }}</span>
     <span articleDate>{{ article.publishedAt | dateAgo }}</span>
