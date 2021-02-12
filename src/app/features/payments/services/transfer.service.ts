@@ -4,59 +4,106 @@ import { BankTransfer } from '../models/bankTransfer.entity';
 import { ElectronicTransfer } from '../models/electronicTransfer.entity';
 import { InstantTransfer } from '../models/instantTransfer.entity';
 import { environment } from '../../../../environments/environment.prod';
+import { ICard } from '../../shared/interfaces/card.interface';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class TransferService {
   constructor(private http: HttpClient) {}
 
-  // droebit statikuri arraya. db.json ro mowesrigdeba mere shevcvli
-  // iqneba array of Cards (blaxadis inerface[])
-  private currentUsersCards = [
-    {
-      userId: 20,
-      cardName: 'Visa',
-      id: 1,
-      accountNumber: '123456789',
-      cardNumber: '390081542451',
-      cardholder: 'vigaca vigacadze',
-      expirationDate: 'xval',
-      availableAmount: 1500,
-      security3D: false,
-      iconPath: './assets/create-card/create-card-visa-icon.svg',
-    },
-    {
-      userId: 33,
-      cardName: 'Mastercard',
-      id: 2,
-      accountNumber: '98765431',
-      cardNumber: '25660191283471',
-      cardholder: 'vigaca vigacadze',
-      expirationDate: 'xval',
-      availableAmount: 400,
-      security3D: false,
-      iconPath: './assets/create-card/mastercard.svg',
-    },
-  ];
+  public currentUsersCards = this.http.get<ICard[]>(environment.URL + 'cards');
 
-  getAllCards() {
-    return this.currentUsersCards;
+  bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
+    return new Observable((subscriber) => {
+      this.http
+        .get<ICard[]>(
+          environment.URL +
+            `cards?cardNumber=${transfer.fromAccount.cardNumber}`
+        )
+        .subscribe((acc) => {
+          const fromAccount: ICard = acc[0];
+          if (fromAccount.availableAmount < transfer.amount) {
+            subscriber.next({
+              status: 'error',
+              reason: 'not enough balance',
+            });
+            return;
+          } else {
+            this.http
+              .get<ICard[]>(
+                environment.URL +
+                  `cards?accountNumber=${transfer.destinationAccountNumber}`
+              )
+              .subscribe((destAcc) => {
+                const destinationAccount = destAcc[0];
+                if (!destinationAccount) {
+                  subscriber.next({
+                    status: 'error',
+                    reason: 'such user does not exist',
+                  });
+                  return;
+                } else {
+                  this.removeBalance(
+                    fromAccount,
+                    Number(transfer.amount)
+                  ).subscribe(() => {
+                    this.addBalance(
+                      destinationAccount,
+                      Number(transfer.amount)
+                    ).subscribe(() => {
+                      subscriber.next({ status: 'success' });
+                    });
+                  });
+                }
+              });
+          }
+        });
+    });
   }
 
-  addTransfer(transfer: BankTransfer | ElectronicTransfer | InstantTransfer) {
-    // unda shemowmdes aqvs tu ara users imxela balance ramdensac ricxavs.
-    // unda shemowmdes misi payemnts limitebi.
-    // unde shemowmdes sadac ricxavs arsebobs tu ara msgavsi angarishi.
-    // saidanac iricxeba unda gamoakldes mis balanss sheyvanili tanxa.
-    // da visac uricxavs mis balanss miematos tanxa.
-
-    // erroris shemtxvevashi albat http iterceptors da loaders gamoviyeneb
-    // da mere  popups gamovutan sadac error ewereba da forms davareseteb.
-    return this.http.post(environment.URL + 'payments', transfer); // subscribe
+  electronicTransfer(transfer: ElectronicTransfer) {
+    console.log(transfer.paymentSystem);
+    return new Observable((subscriber) => {
+      this.http
+        .get<ICard[]>(
+          environment.URL +
+            `cards?cardNumber=${transfer.fromAccount.cardNumber}`
+        )
+        .subscribe((acc) => {
+          const fromAccount: ICard = acc[0];
+          if (fromAccount.availableAmount < transfer.amount) {
+            subscriber.next({
+              status: 'error',
+              reason: 'not enough balance',
+            });
+            return;
+          }
+          this.removeBalance(fromAccount, transfer.amount).subscribe(() => {
+            subscriber.next({
+              status: 'success',
+            });
+          });
+        });
+    });
   }
 
-  validateTransfer() {} // daabrunebs an trues an tu dafailda rame mizezis gamo mag mizezs
-  getUserByCardNumber() {}
-  getUserByAccountNumber() {}
-  removeBalance(user) {}
-  addBalance(user) {}
+  removeBalance(card: ICard, amountToRemove: number) {
+    card.availableAmount -= amountToRemove;
+    return this.http.put(environment.URL + `cards/${card.id}`, card);
+  }
+
+  addBalance(card: ICard, amountToAdd: number) {
+    card.availableAmount += amountToAdd;
+    return this.http.put(environment.URL + `cards/${card.id}`, card);
+  }
+
+  postTransactionToDb(
+    transfer: ElectronicTransfer | BankTransfer | InstantTransfer
+  ) {
+    const transferForDb = {
+      ...transfer,
+      fromAccount: transfer.fromAccount.accountNumber,
+    };
+    return this.http.post(environment.URL + 'payments', transferForDb);
+  }
 }

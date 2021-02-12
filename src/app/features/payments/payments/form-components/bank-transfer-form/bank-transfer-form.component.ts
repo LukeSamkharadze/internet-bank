@@ -8,6 +8,7 @@ import {
 import { animations } from '../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { BankTransfer } from '../../../models/bankTransfer.entity';
+import { ICard } from '../../../../shared/interfaces/card.interface';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -18,7 +19,10 @@ import { BankTransfer } from '../../../models/bankTransfer.entity';
 export class BankTransferFormComponent implements OnInit {
   title = 'Bank transfer';
   form: FormGroup;
-  accounts = this.transferService.getAllCards();
+  accountsArray: ICard[];
+  accountsSubscription = this.transferService.currentUsersCards.subscribe(
+    (cards) => (this.accountsArray = cards)
+  );
 
   constructor(private transferService: TransferService) {}
 
@@ -40,10 +44,20 @@ export class BankTransferFormComponent implements OnInit {
         paymentType: 'bank',
         ...this.form.getRawValue(),
       };
-      this.transferService.addTransfer(transfer).subscribe((_) => {
-        alert('successful payment');
-      });
-      this.form.reset();
+      this.transferService
+        .bankOrInstantTransfer(transfer)
+        .subscribe((data: { status: string; reason?: string }) => {
+          if (data.status === 'success') {
+            alert('success');
+            this.form.reset();
+            this.transferService.postTransactionToDb(transfer).subscribe();
+            this.transferService.currentUsersCards.subscribe(
+              (cards) => (this.accountsArray = cards)
+            );
+          } else {
+            alert(data.reason);
+          }
+        });
     } else {
       this.form.markAllAsTouched();
     }

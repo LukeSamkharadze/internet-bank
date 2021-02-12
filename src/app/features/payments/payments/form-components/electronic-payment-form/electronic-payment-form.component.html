@@ -24,7 +24,7 @@
         style="width: 100%"
         formControlName="fromAccount"
         placeholder="Please Select acc"
-        [options]="accounts"
+        [options]="accountsArray"
         [selectedTemplate]="account"
         [optionTemplate]="account"
       >
@@ -59,9 +59,9 @@
       </app-shared-dropdown>
     </div>
 
-    <div class="input-wrapper">
+    <div class="input-wrapper" *ngIf="paymentSystem.value">
       <label class="input-label"
-        >{{ paymentSystemText }} account
+        >{{ paymentSystem.value.title }} account
         <span
           [@errorTrigger]
           *ngIf="

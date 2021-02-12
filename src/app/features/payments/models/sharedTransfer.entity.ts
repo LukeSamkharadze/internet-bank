@@ -1,6 +1,8 @@
+import { ICard } from '../../shared/interfaces/card.interface';
+
 export interface SharedTransfer {
   paymentType: 'bank' | 'electronic' | 'instant';
-  fromAccount: string; // type should be of Account. temporarily string.
+  fromAccount: ICard;
   amount: number;
   id?: number;
   date: Date;

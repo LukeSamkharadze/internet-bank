@@ -10,6 +10,7 @@ import { summaryAnimation } from '../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { ElectronicTransfer } from '../../../models/electronicTransfer.entity';
 import { ProvidersService } from '../../../services/providers.service';
+import { ICard } from '../../../../shared/interfaces/card.interface';
 
 @Component({
   selector: 'app-electronic-payment-form',
@@ -24,7 +25,10 @@ import { ProvidersService } from '../../../services/providers.service';
 export class ElectronicPaymentFormComponent implements OnInit {
   title = 'Online payment';
   form: FormGroup;
-  accounts = this.transferService.getAllCards();
+  accountsArray: ICard[];
+  accountsSubscription = this.transferService.currentUsersCards.subscribe(
+    (cards) => (this.accountsArray = cards)
+  );
   paymentSystems = this.providersService.getElectronicPaymentProviders();
 
   constructor(
@@ -50,10 +54,22 @@ export class ElectronicPaymentFormComponent implements OnInit {
         date: new Date(),
         paymentType: 'electronic',
         ...this.form.getRawValue(),
+        paymentSystem: this.paymentSystem.value.title,
       };
-      this.transferService.addTransfer(transfer).subscribe((_) => {
-        alert('successful payment');
-      });
+      this.transferService
+        .electronicTransfer(transfer)
+        .subscribe((data: { status: string; reason?: string }) => {
+          if (data.status === 'success') {
+            alert('success');
+            this.form.reset();
+            this.transferService.postTransactionToDb(transfer).subscribe();
+            this.transferService.currentUsersCards.subscribe(
+              (cards) => (this.accountsArray = cards)
+            );
+          } else {
+            alert(data.reason);
+          }
+        });
       this.form.reset();
     } else {
       this.form.markAllAsTouched();
@@ -75,9 +91,9 @@ export class ElectronicPaymentFormComponent implements OnInit {
     return this.form.get('paymentSystem');
   }
 
-  get paymentSystemText(): string {
-    return this.paymentSystem.value.title;
-  }
+  // get paymentSystemText(): string {
+  //   return this.paymentSystem.value.title;
+  // }
 
   // @ts-ignore
   get destinationEmail(): AbstractControl {
