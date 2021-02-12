@@ -1,4 +1,12 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  ContentChildren,
+  forwardRef,
+  Input,
+  OnInit,
+  TemplateRef,
+} from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -14,29 +22,29 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class TabsComponent implements OnInit {
-  isClicked: boolean[];
-  // tabElements: string[];
-  // input: string[];
+  tabStyle: string;
+  activeTab: string;
   @Input() tabElementInput: string[] = [];
   @Input() tabComponentInput: string[] = [];
+  @ContentChildren(TemplateRef) itemTemplate: TemplateRef<any>[];
   tabIndex: number;
+
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.tabElementInput);
-    // this.tabElements = ['Latest News', 'Most Popular', 'Trending News'];
-    // this.input = ['hello there', 'lorem ipsum', 'Lorem ipsum dolor sit amet'];
-    this.isClicked = new Array(this.tabElementInput.length);
+  ngOnInit(): void {}
+  changeTabStyle(tabName) {
+    return this.tabIsActive(tabName) ? 'active tabname' : 'tabname';
   }
-  clickTab(index) {
-    for (let i = 0; i < this.isClicked.length; i++) {
-      if (i === index) {
-        this.isClicked[i] = true;
-        this.tabIndex = index;
-        console.log(index);
-      } else {
-        this.isClicked[i] = false;
-      }
-    }
+  changeLineStyle(tabName) {
+    return this.tabIsActive(tabName)
+      ? 'lineActive lineanimation'
+      : 'lineanimation';
+  }
+  tabIsActive(tabName) {
+    return tabName === this.activeTab;
+  }
+
+  clickTab(tab) {
+    this.activeTab = tab;
   }
 }
