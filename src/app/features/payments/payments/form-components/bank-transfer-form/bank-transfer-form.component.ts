@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -9,6 +9,7 @@ import { animations } from '../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { BankTransfer } from '../../../models/bankTransfer.entity';
 import { ICard } from '../../../../shared/interfaces/card.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -16,10 +17,11 @@ import { ICard } from '../../../../shared/interfaces/card.interface';
   styleUrls: ['./bank-transfer-form.component.scss'],
   animations: [animations.errorTrigger, animations.formTrigger],
 })
-export class BankTransferFormComponent implements OnInit {
+export class BankTransferFormComponent implements OnInit, OnDestroy {
   title = 'Bank transfer';
   form: FormGroup;
   accountsArray: ICard[];
+  private subscriptions = new Subscription();
 
   constructor(private transferService: TransferService) {}
 
@@ -42,26 +44,32 @@ export class BankTransferFormComponent implements OnInit {
         paymentType: 'bank',
         ...this.form.getRawValue(),
       };
-      this.transferService
-        .bankOrInstantTransfer(transfer)
-        .subscribe((data: { status: string; reason?: string }) => {
-          if (data.status === 'success') {
-            alert('success');
-            this.form.reset();
-            this.transferService.postTransactionToDb(transfer).subscribe();
-            this.loadCards();
-          } else {
-            alert(data.reason);
-          }
-        });
+      this.subscriptions.add(
+        this.transferService
+          .bankOrInstantTransfer(transfer)
+          .subscribe((data: { status: string; reason?: string }) => {
+            if (data.status === 'success') {
+              alert('success');
+              this.form.reset();
+              this.subscriptions.add(
+                this.transferService.postTransactionToDb(transfer).subscribe()
+              );
+              this.loadCards();
+            } else {
+              alert(data.reason);
+            }
+          })
+      );
     } else {
       this.form.markAllAsTouched();
     }
   }
 
   loadCards() {
-    this.transferService.currentUsersCards.subscribe(
-      (cards) => (this.accountsArray = cards)
+    this.subscriptions.add(
+      this.transferService.currentUsersCards.subscribe(
+        (cards) => (this.accountsArray = cards)
+      )
     );
   }
 
@@ -93,5 +101,9 @@ export class BankTransferFormComponent implements OnInit {
   // @ts-ignore
   get transferType(): AbstractControl {
     return this.form.get('transferType');
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 }

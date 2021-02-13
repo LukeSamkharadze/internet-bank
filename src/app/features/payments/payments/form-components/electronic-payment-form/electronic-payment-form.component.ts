@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -11,6 +11,7 @@ import { TransferService } from '../../../services/transfer.service';
 import { ElectronicTransfer } from '../../../models/electronicTransfer.entity';
 import { ProvidersService } from '../../../services/providers.service';
 import { ICard } from '../../../../shared/interfaces/card.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-electronic-payment-form',
@@ -22,11 +23,12 @@ import { ICard } from '../../../../shared/interfaces/card.interface';
     summaryAnimation.summaryTrigger,
   ],
 })
-export class ElectronicPaymentFormComponent implements OnInit {
+export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
   title = 'Online payment';
   form: FormGroup;
   accountsArray: ICard[];
   paymentSystems = this.providersService.getElectronicPaymentProviders();
+  private subscriptions = new Subscription();
 
   constructor(
     private transferService: TransferService,
@@ -54,21 +56,22 @@ export class ElectronicPaymentFormComponent implements OnInit {
         ...this.form.getRawValue(),
         paymentSystem: this.paymentSystem.value.title,
       };
-      this.transferService
-        .electronicTransfer(transfer)
-        .subscribe((data: { status: string; reason?: string }) => {
-          if (data.status === 'success') {
-            alert('success');
-            this.form.reset();
-            this.transferService.postTransactionToDb(transfer).subscribe();
-            // this.transferService.currentUsersCards.subscribe(
-            //   (cards) => (this.accountsArray = cards)
-            // );
-            this.loadCards();
-          } else {
-            alert(data.reason);
-          }
-        });
+      this.subscriptions.add(
+        this.transferService
+          .electronicTransfer(transfer)
+          .subscribe((data: { status: string; reason?: string }) => {
+            if (data.status === 'success') {
+              alert('success');
+              this.form.reset();
+              this.subscriptions.add(
+                this.transferService.postTransactionToDb(transfer).subscribe()
+              );
+              this.loadCards();
+            } else {
+              alert(data.reason);
+            }
+          })
+      );
     } else {
       this.form.markAllAsTouched();
     }
@@ -78,9 +81,12 @@ export class ElectronicPaymentFormComponent implements OnInit {
     this.form.reset();
   }
   //
+
   loadCards() {
-    this.transferService.currentUsersCards.subscribe(
-      (cards) => (this.accountsArray = cards)
+    this.subscriptions.add(
+      this.transferService.currentUsersCards.subscribe(
+        (cards) => (this.accountsArray = cards)
+      )
     );
   }
 
@@ -95,10 +101,6 @@ export class ElectronicPaymentFormComponent implements OnInit {
     return this.form.get('paymentSystem');
   }
 
-  // get paymentSystemText(): string {
-  //   return this.paymentSystem.value.title;
-  // }
-
   // @ts-ignore
   get destinationEmail(): AbstractControl {
     return this.form.get('destinationEmail');
@@ -112,5 +114,9 @@ export class ElectronicPaymentFormComponent implements OnInit {
   // @ts-ignore
   get currency(): AbstractControl {
     return this.form.get('currency');
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 }

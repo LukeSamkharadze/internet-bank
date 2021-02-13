@@ -28,16 +28,31 @@
     padding-bottom: 30px;
 
     .account {
-      @include flex(space-between);
+      display: grid;
+      grid-template-columns: 0.6fr 1fr 1fr;
+      align-items: center;
       width: 100%;
       padding: 0 10px;
+      padding-left: 5px;
       img {
-        max-width: 40px;
-        max-height: 28px;
+        width: 40px;
+        height: 28px;
+      }
+      .amount {
+        text-align: right;
+        color: $secondary-dark-1;
       }
     }
     app-shared-dropdown {
       width: 100%;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      &.invalid-dropdown {
+        border-color: $secondary-3;
+      }
+      &.valid-dropdown {
+        border-color: $secondary-2;
+      }
     }
 
     div:not(:last-child) {

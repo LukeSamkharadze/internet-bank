@@ -16,11 +16,17 @@
         <div class="account">
           <img [src]="option['iconPath']" />
           <span>{{ option['cardNumber'] }}</span>
-          <span>{{ option['availableAmount'] }}</span>
+          <span class="amount"
+            >{{ option['availableAmount'] | currency }}
+          </span>
         </div>
       </ng-template>
 
       <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown': fromAccount.errors && fromAccount.touched,
+          'valid-dropdown': !fromAccount.errors
+        }"
         style="width: 100%"
         formControlName="fromAccount"
         placeholder="Please Select acc"
@@ -49,6 +55,10 @@
       </ng-template>
 
       <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown': paymentSystem.errors && paymentSystem.touched,
+          'valid-dropdown': !paymentSystem.errors
+        }"
         style="width: 100%"
         formControlName="paymentSystem"
         placeholder="Please Select payment system"
@@ -110,6 +120,10 @@
         ></label
       >
       <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown': currency.errors && currency.touched,
+          'valid-dropdown': !currency.errors
+        }"
         placeholder="Select currency"
         [options]="['USD']"
         formControlName="currency"

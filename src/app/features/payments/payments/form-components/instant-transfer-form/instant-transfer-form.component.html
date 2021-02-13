@@ -15,8 +15,10 @@
       <ng-template #account let-option>
         <div class="account">
           <img [src]="option['iconPath']" />
-          <span>{{ option['cardNumber'] }}</span>
-          <span>{{ option['availableAmount'] }}</span>
+          <span class="card-number">{{ option['cardNumber'] }}</span>
+          <span class="amount"
+            >{{ option['availableAmount'] | currency }}
+          </span>
         </div>
       </ng-template>
 
@@ -24,6 +26,10 @@
         style="width: 100%"
         formControlName="fromAccount"
         placeholder="Please Select acc"
+        [ngClass]="{
+          'invalid-dropdown': fromAccount.errors && fromAccount.touched,
+          'valid-dropdown': !fromAccount.errors
+        }"
         [options]="accountsArray"
         [selectedTemplate]="account"
         [optionTemplate]="account"
@@ -77,6 +83,10 @@
         ></label
       >
       <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown': transferType.errors && transferType.touched,
+          'valid-dropdown': !transferType.errors
+        }"
         placeholder="Select transfer type"
         [options]="['Personal transfer']"
         formControlName="transferType"

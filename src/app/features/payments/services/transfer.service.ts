@@ -40,7 +40,8 @@ export class TransferService {
               () => {
                 this.addBalance(
                   destinationAccount,
-                  Number(transfer.amount)
+                  Number(transfer.amount),
+                  true
                 ).subscribe(() => {
                   subscriber.next({ status: 'success' });
                 });
@@ -53,7 +54,6 @@ export class TransferService {
   }
 
   electronicTransfer(transfer: ElectronicTransfer) {
-    console.log(transfer.paymentSystem);
     return new Observable((subscriber) => {
       this.getCardByCardNumber(transfer.fromAccount.cardNumber).subscribe(
         (acc) => {
@@ -80,7 +80,8 @@ export class TransferService {
     return this.http.put(environment.URL + `cards/${card.id}`, card);
   }
 
-  addBalance(card: ICard, amountToAdd: number) {
+  addBalance(card: ICard, amountToAdd: number, tax = false) {
+    amountToAdd = tax ? amountToAdd - (amountToAdd * 2) / 100 : amountToAdd;
     card.availableAmount += amountToAdd;
     return this.http.put(environment.URL + `cards/${card.id}`, card);
   }
