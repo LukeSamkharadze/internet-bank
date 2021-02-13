@@ -6,6 +6,7 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { FormFields } from '../shared/interfaces/form.interface';
 
 @Component({
   selector: 'app-settings-and-menu',
@@ -37,6 +38,9 @@ export class SettingsAndMenuComponent implements OnInit {
   }
 
   submit() {
-    console.log('11');
+    console.log(this.form.value);
+  }
+  reset() {
+    this.form.reset();
   }
 }

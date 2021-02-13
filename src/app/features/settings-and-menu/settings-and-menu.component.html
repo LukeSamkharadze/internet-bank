@@ -23,12 +23,32 @@
             <label for="first">First name</label>
             <div class="input-wrapper">
               <input formControlName="firstName" id="first" type="text" />
+              <div
+                class="validation"
+                *ngIf="
+                  form.get('firstName').invalid && form.get('firstName').touched
+                "
+              >
+                <small *ngIf="form.get('firstName').errors.required"
+                  >This field is neccessary!</small
+                >
+              </div>
             </div>
           </div>
           <div class="input-group lastName">
             <label for="last">Last name</label>
             <div class="input-wrapper">
               <input id="last" type="text" formControlName="lastName" />
+              <div
+                class="validation"
+                *ngIf="
+                  form.get('lastName').invalid && form.get('lastName').touched
+                "
+              >
+                <small *ngIf="form.get('lastName').errors.required"
+                  >This field is neccessary!</small
+                >
+              </div>
             </div>
           </div>
           <div class="input-group contact">
@@ -40,6 +60,17 @@
                 formControlName="email"
                 placeholder="Enter your email"
               />
+              <div
+                class="validation"
+                *ngIf="form.get('email').invalid && form.get('email').touched"
+              >
+                <small *ngIf="form.get('email').errors.required"
+                  >This field is neccessary!</small
+                >
+                <small *ngIf="form.get('email').errors.email"
+                  >Incorrect email!</small
+                >
+              </div>
             </div>
           </div>
           <div class="input-group contact">
@@ -51,6 +82,17 @@
                 type="text"
                 placeholder="Enter phone number"
               />
+              <div
+                class="validation"
+                *ngIf="form.get('phone').invalid && form.get('phone').touched"
+              >
+                <small *ngIf="form.get('phone').errors.required"
+                  >This field is neccessary!</small
+                >
+                <small *ngIf="form.get('phone').errors.hasError('pattern')"
+                  >Incorrect phone number!</small
+                >
+              </div>
             </div>
           </div>
           <div class="dropdownContainer input-label">
@@ -60,6 +102,7 @@
                 id="langDropdown"
                 formControlName="language"
                 [options]="['English', 'Georgian', 'Russian']"
+                style="margin-top: 10px; width: 100% ;"
               >
               </app-shared-dropdown>
             </div>
@@ -71,6 +114,7 @@
                 id="sexDropdown"
                 formControlName="sex"
                 [options]="['Male', 'Female', 'Other']"
+                style="margin-top: 10px; width: 100%"
               >
               </app-shared-dropdown>
             </div>
@@ -87,7 +131,8 @@
             <app-shared-button
               [className]="{ primary: true, resting: true }"
               style="height: 46px; width: 103px"
-              type="reset"
+              type="button"
+              (click)="reset()"
             >
               CANCEL</app-shared-button
             >

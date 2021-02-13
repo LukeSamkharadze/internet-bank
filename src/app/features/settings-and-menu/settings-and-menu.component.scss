@@ -23,21 +23,67 @@
           grid-template-rows: repeat(1fr, 3);
           grid-column-gap: 24px;
           grid-row-gap: 22px;
-        }
-        .dropdownContainer {
-          .dropdown-general {
-            color: $primary-dark;
-            margin-top: -2px;
-            width: 336px;
+          input {
+            padding: 19px 14px 15px 14px;
+            display: block;
+            width: 100%;
+            @include text-style(14px);
+            letter-spacing: 0.15px;
+            border-radius: 4px;
+            border: 1px solid $outline;
+            margin-top: 10px;
+            &::-webkit-input-placeholder,
+            &::-ms-input-placeholder,
+            &::placeholder {
+              color: $secondary-dark-2;
+            }
 
-            .selected {
-              margin-top: 10px;
+            &:focus,
+            &:active {
+              outline: none;
+            }
+
+            &:disabled {
+              background-color: $background-2;
+              color: $secondary-dark-2;
+            }
+
+            &.ng-touched.validated {
+              &.ng-valid {
+                border-color: $secondary-2;
+              }
+
+              &.ng-invalid {
+                border-color: $secondary-3;
+              }
+
+              &.ng-valid,
+              &.ng-invalid {
+                padding-right: 35px;
+              }
             }
           }
+          .dropdownContainer {
+            .dropdown-general {
+              color: $primary-dark;
+              width: 336px;
+              .selected {
+                margin-top: 10px;
+              }
+            }
+          }
+          .validation {
+            padding-top: 5px;
+            small {
+              font-size: 10px;
+              color: red;
+            }
+          }
+
+          .lastName {
+            grid-column: 2/2;
+          }
         }
-      }
-      .lastName {
-        grid-column: 2/2;
       }
     }
 
@@ -135,46 +181,6 @@
       width: 1.7px;
       margin-left: -1px;
       display: block;
-    }
-  }
-}
-input {
-  padding: 19px 14px 15px 14px;
-  display: block;
-  width: 100%;
-  @include text-style(14px);
-  letter-spacing: 0.15px;
-  border-radius: 4px;
-  border: 1px solid $outline;
-
-  &::-webkit-input-placeholder,
-  &::-ms-input-placeholder,
-  &::placeholder {
-    color: $secondary-dark-2;
-  }
-
-  &:focus,
-  &:active {
-    outline: none;
-  }
-
-  &:disabled {
-    background-color: $background-2;
-    color: $secondary-dark-2;
-  }
-
-  &.ng-touched.validated {
-    &.ng-valid {
-      border-color: $secondary-2;
-    }
-
-    &.ng-invalid {
-      border-color: $secondary-3;
-    }
-
-    &.ng-valid,
-    &.ng-invalid {
-      padding-right: 35px;
     }
   }
 }
