@@ -10,6 +10,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'news',
+    loadChildren: () =>
+      import('./features/news-list/news-list.module').then(
+        (m) => m.NewsListModule
+      ),
+  },
+  {
     path: 'list',
     loadChildren: () =>
       import('./features/list/list.module').then((m) => m.ListModule),
