@@ -12,7 +12,7 @@ interface Itransaction {
   date: string;
   status: string;
   tagColor: string;
-  cardNUmber: number;
+  cardNumber: number;
 }
 
 @Injectable({

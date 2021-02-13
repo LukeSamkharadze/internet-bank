@@ -14,7 +14,9 @@
       </div>
 
       <ng-template #default>
-        <ng-content></ng-content>
+        <span class="mainTitle">
+          <ng-content></ng-content>
+        </span>
       </ng-template>
 
       <div class="right-settings">
@@ -63,7 +65,7 @@
         <div class="left">
           <img src="{{ transaction.icon }}" />
           <h2>
-            <a (click)="pop(transaction.id)">
+            <a class="title" (click)="pop(transaction.id)">
               {{ transaction.title }}
             </a>
             <br />

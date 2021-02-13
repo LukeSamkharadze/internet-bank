@@ -62,6 +62,9 @@
     .dropdown-style {
       width: 70px;
     }
+    .mainTitle {
+      @include text-style(16px, $primary-dark);
+    }
   }
 
   .transaction {
@@ -123,5 +126,8 @@
 
   .hr-bottom {
     margin-bottom: 9px;
+  }
+  .title {
+    cursor: pointer;
   }
 }

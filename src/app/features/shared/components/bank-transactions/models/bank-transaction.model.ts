@@ -7,5 +7,5 @@ export interface TransactionsList {
   date: string;
   status: string;
   tagColor: string;
-  cardNUmber: number;
+  cardNumber: number;
 }

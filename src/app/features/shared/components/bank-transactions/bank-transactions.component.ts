@@ -49,7 +49,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
           date: element.date,
           status: element.status,
           tagColor: element.tagColor,
-          cardNUmber: element.cardNUmber,
+          cardNumber: element.cardNumber,
         });
       });
     });
