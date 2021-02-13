@@ -30,7 +30,10 @@ export class BankTransferFormComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
       destinationAccountNumber: new FormControl('', Validators.required),
-      beneficiary: new FormControl('', Validators.required),
+      beneficiary: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[a-zA-Z\\s]*$'),
+      ]),
       amount: new FormControl('', Validators.required),
       currency: new FormControl('', Validators.required),
       transferType: new FormControl('', Validators.required),

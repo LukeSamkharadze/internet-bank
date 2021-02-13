@@ -63,6 +63,11 @@
           [@errorTrigger]
           *ngIf="beneficiary.hasError('required') && beneficiary.touched"
           >*required*</span
+        >
+        <span
+          [@errorTrigger]
+          *ngIf="beneficiary.hasError('pattern') && beneficiary.touched"
+          >*Only letters allowed*</span
         ></label
       >
       <app-shared-input
