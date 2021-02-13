@@ -1,0 +1,182 @@
+@import 'utils/mixins.scss';
+@import 'utils/classes.scss';
+
+@mixin dropdown(
+  //360px,
+  $width: 100%,
+  $background-color: white,
+  $active-color: $primary,
+  $shadow-color: rgba(0, 0, 0, 0.03),
+  $border-size: 1px,
+  $border-radius: 4px,
+  $border-style: solid,
+  $placeholder-color: $secondary-dark-2,
+  // ================= //
+  $options-symbol: '',
+  $options-symbol-font-weight: 400,
+  $options-symbol-font-size: 18px,
+  $options-symbol-margin: 0 12px 5px -2px,
+  $options-gap: 6px,
+  $options-transition-speed: 0.2s,
+  $options-transition-type: ease,
+  $options-background-color: $background-color,
+  $options-background-shadow: 0 0 6px 6px $shadow-color,
+  $options-z-index: 2,
+  // ================= //
+  $arrow-symbol: '\f107',
+  $arrow-symbol-size: 18px,
+  $arrow-symbol-font-weight: 900,
+  $arrow-offset: 16px,
+  $arrow-transition-speed: 0.2s,
+  $arrow-transition-type: ease,
+  $arrow-active-color: $active-color,
+  // ================= //
+  $option-height: 46px,
+  $option-transition-speed: 0.1s,
+  $option-transition-type: ease,
+  $option-color: $dark-secondary-3,
+  $option-leftnright-padding: 17px,
+  $option-default-padding: 0 $option-leftnright-padding,
+  $option-first-padding: 12px $option-leftnright-padding 0
+    $option-leftnright-padding,
+  $option-last-padding: 0 $option-leftnright-padding 10px
+    $option-leftnright-padding,
+  $option-active-color: $active-color,
+  // ================= //
+  //52px,
+  $selected-height: 100%,
+  $selected-color: $dark-secondary-3,
+  $selected-line-count: 2,
+  $selected-background-color: $background-color,
+  $selected-padding: 4px $arrow-offset 0 14px
+) {
+  @extend p !optional;
+  @extend .dropdown-disable-select !optional;
+  position: relative;
+  width: $width;
+  height: $selected-height;
+  outline: none;
+
+  ////////// Flags
+  .arrow-symbol {
+    @include dropdown-empty;
+  }
+
+  .option-default-symbol {
+    @include dropdown-empty;
+  }
+  ////////// Flags
+
+  & > *:not(.selected):not(.placeholder):not(.options) {
+    @extend .dropdown-display-none !optional;
+  }
+
+  .selected {
+    $style: (
+      height: 100%,
+      is-fixed: true,
+      arrow-offset: $arrow-offset,
+      padding: $selected-padding,
+    );
+    @include dropdown-selected($style...);
+    color: $selected-color;
+    border-radius: $border-radius;
+    background-color: $selected-background-color;
+    border: $border-size $outline $border-style;
+
+    .content {
+      @include dropdown-multiple-line-ellipsis($selected-line-count);
+      width: 100%;
+    }
+
+    .arrow-container {
+      flex-shrink: 0;
+      color: $placeholder-color;
+      transition: visibility 0s, $arrow-transition-speed $arrow-transition-type;
+      font-size: $arrow-symbol-size;
+
+      .default-symbol {
+        &:after {
+          @include dropdown-symbol(
+            $arrow-symbol,
+            $arrow-symbol-size,
+            $arrow-symbol-font-weight
+          );
+        }
+      }
+    }
+
+    .arrow-active {
+      color: $arrow-active-color;
+    }
+  }
+
+  .placeholder {
+    align-items: center;
+    color: $placeholder-color;
+  }
+
+  .options {
+    z-index: $options-z-index;
+    width: 100%;
+    position: absolute;
+    box-shadow: $options-background-shadow;
+    border-radius: $border-radius;
+    background-color: $options-background-color;
+    top: calc(100% + #{$options-gap});
+    transition: opacity $options-transition-speed $options-transition-type,
+      visibility 0.1s;
+
+    .option {
+      @include dropdown-box($option-height, false, $option-default-padding);
+      color: $option-color;
+      transition: $option-transition-speed $option-transition-type;
+      width: 100%;
+
+      &:hover {
+        color: $option-active-color;
+      }
+
+      &:nth-child(1) {
+        min-height: calc(#{$option-height} + 12px);
+        padding: $option-first-padding;
+      }
+
+      &:nth-last-child(1) {
+        min-height: calc(#{$option-height} + 9px);
+        padding: $option-last-padding;
+      }
+
+      &:only-child {
+        padding: $option-default-padding;
+      }
+
+      .custom-option-wrapper {
+        width: 100%;
+      }
+
+      .custom-symbol,
+      .default-symbol {
+        margin: $options-symbol-margin;
+      }
+
+      .default-symbol:after {
+        @include dropdown-symbol(
+          $options-symbol,
+          $options-symbol-font-size,
+          $options-symbol-font-weight
+        );
+      }
+    }
+  }
+}
+
+////////// Flags
+.dropdown-disabled {
+  @include dropdown-empty;
+}
+
+.dropdown-custom {
+  @include dropdown-empty;
+}
+////////// Flags
