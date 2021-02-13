@@ -20,13 +20,11 @@ export class BankTransferFormComponent implements OnInit {
   title = 'Bank transfer';
   form: FormGroup;
   accountsArray: ICard[];
-  accountsSubscription = this.transferService.currentUsersCards.subscribe(
-    (cards) => (this.accountsArray = cards)
-  );
 
   constructor(private transferService: TransferService) {}
 
   ngOnInit(): void {
+    this.loadCards();
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
       destinationAccountNumber: new FormControl('', Validators.required),
@@ -51,9 +49,7 @@ export class BankTransferFormComponent implements OnInit {
             alert('success');
             this.form.reset();
             this.transferService.postTransactionToDb(transfer).subscribe();
-            this.transferService.currentUsersCards.subscribe(
-              (cards) => (this.accountsArray = cards)
-            );
+            this.loadCards();
           } else {
             alert(data.reason);
           }
@@ -61,6 +57,12 @@ export class BankTransferFormComponent implements OnInit {
     } else {
       this.form.markAllAsTouched();
     }
+  }
+
+  loadCards() {
+    this.transferService.currentUsersCards.subscribe(
+      (cards) => (this.accountsArray = cards)
+    );
   }
 
   // getters

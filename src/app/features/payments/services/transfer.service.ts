@@ -5,7 +5,7 @@ import { ElectronicTransfer } from '../models/electronicTransfer.entity';
 import { InstantTransfer } from '../models/instantTransfer.entity';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class TransferService {
@@ -15,62 +15,49 @@ export class TransferService {
 
   bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
     return new Observable((subscriber) => {
-      this.http
-        .get<ICard[]>(
-          environment.URL +
-            `cards?cardNumber=${transfer.fromAccount.cardNumber}`
-        )
-        .subscribe((acc) => {
-          const fromAccount: ICard = acc[0];
+      this.getCardByCardNumber(transfer.fromAccount.cardNumber).subscribe(
+        (acc) => {
+          const fromAccount: ICard = acc[0]; // logged in user's card.
           if (fromAccount.availableAmount < transfer.amount) {
             subscriber.next({
               status: 'error',
               reason: 'not enough balance',
             });
             return;
-          } else {
-            this.http
-              .get<ICard[]>(
-                environment.URL +
-                  `cards?accountNumber=${transfer.destinationAccountNumber}`
-              )
-              .subscribe((destAcc) => {
-                const destinationAccount = destAcc[0];
-                if (!destinationAccount) {
-                  subscriber.next({
-                    status: 'error',
-                    reason: 'such user does not exist',
-                  });
-                  return;
-                } else {
-                  this.removeBalance(
-                    fromAccount,
-                    Number(transfer.amount)
-                  ).subscribe(() => {
-                    this.addBalance(
-                      destinationAccount,
-                      Number(transfer.amount)
-                    ).subscribe(() => {
-                      subscriber.next({ status: 'success' });
-                    });
-                  });
-                }
-              });
           }
-        });
+          this.getCardByAccountNumber(
+            transfer.destinationAccountNumber
+          ).subscribe((destAcc) => {
+            const destinationAccount = destAcc[0];
+            if (!destinationAccount) {
+              subscriber.next({
+                status: 'error',
+                reason: 'such user does not exist',
+              });
+              return;
+            }
+            this.removeBalance(fromAccount, Number(transfer.amount)).subscribe(
+              () => {
+                this.addBalance(
+                  destinationAccount,
+                  Number(transfer.amount)
+                ).subscribe(() => {
+                  subscriber.next({ status: 'success' });
+                });
+              }
+            );
+          });
+        }
+      );
     });
   }
 
   electronicTransfer(transfer: ElectronicTransfer) {
     console.log(transfer.paymentSystem);
     return new Observable((subscriber) => {
-      this.http
-        .get<ICard[]>(
-          environment.URL +
-            `cards?cardNumber=${transfer.fromAccount.cardNumber}`
-        )
-        .subscribe((acc) => {
-          const fromAccount: ICard = acc[0];
+      this.getCardByCardNumber(transfer.fromAccount.cardNumber).subscribe(
+        (acc) => {
+          const fromAccount: ICard = acc[0]; // logged in user's card.
           if (fromAccount.availableAmount < transfer.amount) {
             subscriber.next({
               status: 'error',
@@ -83,7 +70,8 @@ export class TransferService {
               status: 'success',
             });
           });
-        });
+        }
+      );
     });
   }
 
@@ -95,6 +83,18 @@ export class TransferService {
   addBalance(card: ICard, amountToAdd: number) {
     card.availableAmount += amountToAdd;
     return this.http.put(environment.URL + `cards/${card.id}`, card);
+  }
+
+  getCardByCardNumber(cardNumber: number) {
+    return this.http.get<ICard[]>(
+      environment.URL + `cards?cardNumber=${cardNumber}`
+    );
+  }
+
+  getCardByAccountNumber(accountNumber: string) {
+    return this.http.get<ICard[]>(
+      environment.URL + `cards?accountNumber=${accountNumber}`
+    );
   }
 
   postTransactionToDb(

@@ -26,9 +26,6 @@ export class ElectronicPaymentFormComponent implements OnInit {
   title = 'Online payment';
   form: FormGroup;
   accountsArray: ICard[];
-  accountsSubscription = this.transferService.currentUsersCards.subscribe(
-    (cards) => (this.accountsArray = cards)
-  );
   paymentSystems = this.providersService.getElectronicPaymentProviders();
 
   constructor(
@@ -36,6 +33,7 @@ export class ElectronicPaymentFormComponent implements OnInit {
     private providersService: ProvidersService
   ) {}
   ngOnInit(): void {
+    this.loadCards();
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
       paymentSystem: new FormControl('', Validators.required),
@@ -63,14 +61,14 @@ export class ElectronicPaymentFormComponent implements OnInit {
             alert('success');
             this.form.reset();
             this.transferService.postTransactionToDb(transfer).subscribe();
-            this.transferService.currentUsersCards.subscribe(
-              (cards) => (this.accountsArray = cards)
-            );
+            // this.transferService.currentUsersCards.subscribe(
+            //   (cards) => (this.accountsArray = cards)
+            // );
+            this.loadCards();
           } else {
             alert(data.reason);
           }
         });
-      this.form.reset();
     } else {
       this.form.markAllAsTouched();
     }
@@ -78,6 +76,12 @@ export class ElectronicPaymentFormComponent implements OnInit {
 
   onReset() {
     this.form.reset();
+  }
+  //
+  loadCards() {
+    this.transferService.currentUsersCards.subscribe(
+      (cards) => (this.accountsArray = cards)
+    );
   }
 
   // getters
