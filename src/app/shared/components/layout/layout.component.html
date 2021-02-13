@@ -1,0 +1,113 @@
+<main class="main">
+  <div class="menu" [ngClass]="{ 'menu--active': menuIsActive }">
+    <div class="top-nav">
+      <div class="intro">
+        <div class="intro-heading">
+          <div class="intro-heading-title">TBC</div>
+          <div class="intro-heading-subtitle">Banking</div>
+        </div>
+      </div>
+      <div class="main-nav" #mainNav>
+        <a class="main-nav-item" (click)="contentTitlte = 'DASHBOARD'">
+          <div class="main-nav-icon">
+            <i class="las la-clock"></i>
+          </div>
+          <div class="main-nav-title">DASHBOARD</div>
+        </a>
+        <a class="main-nav-item" (click)="contentTitlte = 'TRANSACTIONS'">
+          <div class="main-nav-icon">
+            <i class="las la-redo"></i>
+          </div>
+          <div class="main-nav-title">TRANSACTIONS</div>
+        </a>
+        <a class="main-nav-item" (click)="contentTitlte = 'PRODUCTS'">
+          <div class="main-nav-icon">
+            <i class="las la-briefcase"></i>
+          </div>
+          <div class="main-nav-title">PRODUCTS</div>
+        </a>
+        <a class="main-nav-item" (click)="contentTitlte = 'PAYMENTS'">
+          <div class="main-nav-icon">
+            <i class="las la-credit-card"></i>
+          </div>
+          <div class="main-nav-title">PAYMENTS</div>
+        </a>
+        <a class="main-nav-item" (click)="contentTitlte = 'STOCKS'">
+          <div class="main-nav-icon">
+            <i class="las la-chart-area"></i>
+          </div>
+          <div class="main-nav-title">STOCKS</div>
+        </a>
+        <a class="main-nav-item" (click)="contentTitlte = 'LINK'">
+          <div class="main-nav-icon">
+            <i class="las la-file-alt"></i>
+          </div>
+          <div class="main-nav-title">LINK</div>
+        </a>
+        <a class="main-nav-item" (click)="contentTitlte = 'UI KIT'">
+          <div class="main-nav-icon">
+            <i class="las la-puzzle-piece"></i>
+          </div>
+          <div class="main-nav-title">
+            <pre>UI KIT</pre>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="bottom-nav" #bottomNav>
+      <div class="accounts">
+        <h3 class="accounts-main-title">Accounts</h3>
+
+        <div
+          class="accounts-inner"
+          *ngFor="let cardNumber of cardArray; let i = index"
+        >
+          <a class="accounts-item">
+            <div class="accounts-icon">
+              <i
+                *ngIf="cardNameArray[i] === 'MASTER CARD'"
+                class="lab la-cc-mastercard"
+              ></i>
+              <i
+                *ngIf="cardNameArray[i] === 'VISA CARD'"
+                class="lab la-cc-visa"
+              ></i>
+            </div>
+            <div class="accounts-title">
+              <span class="span-visible"
+                >Card xxxx-{{ cardNumber | slice: 0:2 }}</span
+              ><span class="span-hidden">**</span>{{ cardNumber | slice: 2:4 }}
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content-dashboard">
+      <div class="content-dashboard-wrapper">
+        <div class="burger-menu" (click)="menuIsActive = !menuIsActive">
+          <div class="burger-menu-line"></div>
+          <div class="burger-menu-line"></div>
+          <div class="burger-menu-line"></div>
+        </div>
+        <h3 class="content-dashboard-title">{{ contentTitlte }}</h3>
+      </div>
+      <div class="test" style="padding-right: 50px">
+        <ng-content select="[header-profile]"></ng-content>
+      </div>
+    </div>
+    <div
+      class="content-main"
+      [ngStyle]="{ minHeight: contentMainHeight }"
+      #contentMain
+    >
+      <div class="content-main-inner">
+        <ng-content select="[content]"></ng-content>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-text">© 2019 TBC Banking - All Rights Reserved.</div>
+    </div>
+  </div>
+</main>
