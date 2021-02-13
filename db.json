@@ -87,7 +87,7 @@
       "date": "4 Aug 1:00 PM",
       "status": "paid",
       "tagColor": "green",
-      "cardNUmber": 5678
+      "cardNumber": 5678
     },
     {
       "id": 2,
@@ -97,8 +97,8 @@
       "amount": "- $10.480.00",
       "date": "5 Aug 3:00 PM",
       "status": "in progress",
-      "tagColor": "red",
-      "cardNUmber": 1278
+      "tagColor": "blue",
+      "cardNumber": 1278
     },
     {
       "id": 3,
@@ -109,7 +109,7 @@
       "date": "6 Aug 2:15 AM",
       "status": "paid",
       "tagColor": "green",
-      "cardNUmber": 4563
+      "cardNumber": 4563
     }
   ]
 }
