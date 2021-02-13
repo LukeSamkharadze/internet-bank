@@ -77,37 +77,7 @@
       ]
     }
   ],
-  "payments": [
-    {
-      "date": "2021-02-07T15:27:20.840Z",
-      "paymentType": "electronic",
-      "fromAccount": "VISA 3901 2312 2412 3912 (droebit stringis formatshia)",
-      "paymentSystem": "Paypal",
-      "destinationEmail": "dumm@gmail.com",
-      "amount": "1500",
-      "currency": "USD",
-      "id": 1
-    },
-    {
-      "date": "2021-02-07T15:27:57.523Z",
-      "paymentType": "bank",
-      "fromAccount": "MASTERCARD 3012 2124 5912 4123",
-      "destinationAccountNumber": "BOG912000000012312",
-      "beneficiary": "Lorem ispum",
-      "amount": "2500",
-      "currency": "GEL",
-      "transferType": "Personal transfer",
-      "id": 2
-    },
-    {
-      "date": "2021-02-07T15:28:45.725Z",
-      "paymentType": "instant",
-      "fromAccount": "VISA 1923 2412 3412 1231",
-      "destinationAccountNumber": "TBC2130000041241023",
-      "amount": "2400",
-      "transferType": "Personal transfer"
-    }
-  ],
+  "payments": [],
   "cards": [
     {
       "cardName": "VISA CARD",
