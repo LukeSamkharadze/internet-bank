@@ -11,9 +11,11 @@ import { Observable } from 'rxjs';
 export class TransferService {
   constructor(private http: HttpClient) {}
 
+  // userId filtri daemateba roca user auth daimerjeba.
   public currentUsersCards = this.http.get<ICard[]>(environment.URL + 'cards');
 
   bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
+    // payments limitsze checki daemateba roca damerjaven masterze.
     return new Observable((subscriber) => {
       this.getCardByCardNumber(transfer.fromAccount.cardNumber).subscribe(
         (acc) => {
@@ -54,6 +56,7 @@ export class TransferService {
   }
 
   electronicTransfer(transfer: ElectronicTransfer) {
+    // payments limitsze checki daemateba roca damerjaven masterze.
     return new Observable((subscriber) => {
       this.getCardByCardNumber(transfer.fromAccount.cardNumber).subscribe(
         (acc) => {

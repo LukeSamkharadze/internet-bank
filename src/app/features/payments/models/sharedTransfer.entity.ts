@@ -6,4 +6,6 @@ export interface SharedTransfer {
   amount: number;
   id?: number;
   date: Date;
+  // daemateba roca user authentication morcheba.
+  // fromUserId: number;
 }
