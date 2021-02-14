@@ -1,0 +1,15 @@
+<div class="list">
+  <div class="header">
+    <p class="name">Open Deposit</p>
+    <p class="new"><i class="las la-plus-circle"></i>New deposit</p>
+  </div>
+  <div class="items">
+    <app-accounts-list-item
+      *ngFor="let deposit of deposits"
+      [info]="infoService.depositToInfo(deposit)"
+      [color]="'orange'"
+      [class.blocked]="!deposit.functional"
+      ><i class="las la-lock"></i
+    ></app-accounts-list-item>
+  </div>
+</div>

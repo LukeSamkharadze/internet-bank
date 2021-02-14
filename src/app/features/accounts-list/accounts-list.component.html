@@ -8,50 +8,15 @@
   ></app-accounts-list-chart>
 </div>
 
-<div class="list" *ngIf="cards.length">
-  <div class="header">
-    <p class="name">Your cards</p>
-    <p class="new"><i class="las la-plus-circle"></i>New cart</p>
-  </div>
-  <div class="items">
-    <app-accounts-list-item
-      *ngFor="let info of cards"
-      [info]="infoService.cardToItem(info)"
-      [ngClass]="{
-        blocked: info.blocked
-      }"
-    ></app-accounts-list-item>
-  </div>
-</div>
-
-<div class="list" *ngIf="deposits.length">
-  <div class="header">
-    <p class="name">Open Deposit</p>
-    <p class="new"><i class="las la-plus-circle"></i>New deposit</p>
-  </div>
-  <div class="items">
-    <app-accounts-list-item
-      *ngFor="let info of deposits"
-      [info]="infoService.depositToItem(info)"
-      [ngClass]="{
-        blocked: !info.functional
-      }"
-    ></app-accounts-list-item>
-  </div>
-</div>
-
-<div class="list" *ngIf="loans.length">
-  <div class="header">
-    <p class="name">Your Credits</p>
-    <p class="new"><i class="las la-plus-circle"></i>New deposit</p>
-  </div>
-  <div class="items">
-    <app-accounts-list-item
-      *ngFor="let info of loans"
-      [info]="infoService.loanToItem(info)"
-      [ngClass]="{
-        blocked: !info.status
-      }"
-    ></app-accounts-list-item>
-  </div>
-</div>
+<app-accounts-list-cards
+  [cards]="cards"
+  *ngIf="cards.length"
+></app-accounts-list-cards>
+<app-accounts-list-deposits
+  [deposits]="deposits"
+  *ngIf="deposits.length"
+></app-accounts-list-deposits>
+<app-accounts-list-loans
+  [loans]="loans"
+  *ngIf="loans.length"
+></app-accounts-list-loans>

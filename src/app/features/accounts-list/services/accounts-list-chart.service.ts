@@ -4,8 +4,6 @@ import IFilledArray from '../models/filled-array.entity';
 
 @Injectable()
 export class AccountsListChartService {
-  constructor() {}
-
   createChart(canvas: HTMLCanvasElement, data: IFilledArray<number>): any {
     const dataCopy = Array.from(data);
 
@@ -82,6 +80,20 @@ export class AccountsListChartService {
 
   getIncreaseRate(data: IFilledArray<number>): number {
     const len = data.length;
-    return (data[len - 1] - data[len - 2]) / data[len - 1];
+    const fullAverage = (data[len - 1] - data[0]) / len;
+    const lastAverage = (data[len - 1] - data[len - 2]) / 2;
+    return (lastAverage / (fullAverage || 1)) * (lastAverage < 0 ? -1 : 1);
+  }
+
+  isGreen(data: IFilledArray<number>): boolean {
+    return this.getIncreaseRate(data) > 1.5;
+  }
+
+  isYellow(data: IFilledArray<number>): boolean {
+    return this.getIncreaseRate(data) >= 0 && !this.isGreen(data);
+  }
+
+  isRed(data: IFilledArray<number>): boolean {
+    return !this.isYellow(data) && !this.isGreen(data);
   }
 }

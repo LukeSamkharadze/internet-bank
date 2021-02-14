@@ -20,7 +20,7 @@ export class LoanService implements BaseHttpInterface<ILoan> {
     return this.http.get<ILoan[]>(`${environment.URL}loans`).pipe(retry(1));
   }
 
-  getById(): Observable<ILoan> {
+  getById(id: number): Observable<ILoan> {
     return EMPTY;
   }
 

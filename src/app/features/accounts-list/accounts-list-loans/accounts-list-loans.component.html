@@ -1,0 +1,15 @@
+<div class="list">
+  <div class="header">
+    <p class="name">Your Credits</p>
+    <p class="new"><i class="las la-plus-circle"></i>New deposit</p>
+  </div>
+  <div class="items">
+    <app-accounts-list-item
+      *ngFor="let loan of loans"
+      [info]="infoService.loanToInfo(loan)"
+      [color]="getColor(loan)"
+      [class.blocked]="!loan.status"
+      ><i [class]="getIconClass(loan)"></i>
+    </app-accounts-list-item>
+  </div>
+</div>

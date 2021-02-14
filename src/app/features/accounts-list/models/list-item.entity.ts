@@ -1,10 +1,7 @@
-import AccountType from './account-type.enum';
+type IFixedFiveArray<T> = [T, T, T, T, T];
+type IItem = IFixedFiveArray<{
+  title: string;
+  value: string;
+}>;
 
-export default interface IItem {
-  type: AccountType;
-  balance: number;
-  amount: number;
-  additionalInfo: string;
-  status: string;
-  number?: string;
-}
+export default IItem;

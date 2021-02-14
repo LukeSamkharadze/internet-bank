@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   Input,
-  OnInit,
   ViewChild,
 } from '@angular/core';
 import IItem from '../models/chart-item.entity';
@@ -14,15 +13,13 @@ import { AccountsListChartService } from '../services/accounts-list-chart.servic
   templateUrl: './accounts-list-chart.component.html',
   styleUrls: ['./accounts-list-chart.component.scss'],
 })
-export class AccountsListChartComponent implements OnInit, AfterViewInit {
+export class AccountsListChartComponent implements AfterViewInit {
   @Input() info: IItem;
   @ViewChild('chart', { static: true }) chartCanvas: ElementRef<
     HTMLCanvasElement
   >;
 
-  constructor(private chartService: AccountsListChartService) {}
-
-  ngOnInit(): void {}
+  constructor(public chartService: AccountsListChartService) {}
 
   ngAfterViewInit() {
     this.chartService.createChart(
@@ -31,23 +28,23 @@ export class AccountsListChartComponent implements OnInit, AfterViewInit {
     );
   }
 
-  get amount(): string {
+  getAmount(): string {
     return this.info.data[this.info.data.length - 1]
       .toString()
       .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, '.');
   }
 
-  get isGreen(): boolean {
-    return this.chartService.getIncreaseRate(this.info.data) > 0.15;
+  getArrowClass(): string {
+    return this.chartService.isRed(this.info.data)
+      ? 'las la-long-arrow-alt-down'
+      : 'las la-long-arrow-alt-up';
   }
 
-  get isYellow(): boolean {
-    return (
-      this.chartService.getIncreaseRate(this.info.data) >= 0 && !this.isGreen
-    );
-  }
-
-  get isRed(): boolean {
-    return !this.isYellow && !this.isGreen;
+  getColorClass(): string {
+    return this.chartService.isGreen(this.info.data)
+      ? 'green'
+      : this.chartService.isYellow(this.info.data)
+      ? 'orange'
+      : 'pink';
   }
 }

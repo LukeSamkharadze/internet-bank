@@ -1,19 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="./chart.js"></script>
 
-<div
-  [ngClass]="{ container: true, green: isGreen, orange: isYellow, pink: isRed }"
->
+<div [class]="'container ' + getColorClass()">
   <div class="info">
     <p class="amount">
-      ${{ amount
-      }}<sup
-        ><i
-          [class]="
-            isRed ? 'las la-long-arrow-alt-down' : 'las la-long-arrow-alt-up'
-          "
-        ></i
-      ></sup>
+      ${{ getAmount() }}<sup><i [class]="getArrowClass()"></i></sup>
     </p>
     <p class="title">{{ info.title }}</p>
   </div>

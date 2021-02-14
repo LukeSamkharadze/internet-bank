@@ -10,7 +10,7 @@ import { IDeposit } from '../interfaces/deposit.interface';
 export class DepositService implements BaseHttpInterface<IDeposit> {
   constructor(private http: HttpClient) {}
 
-  create(card: IDeposit): Observable<IDeposit> {
+  create(param: IDeposit): Observable<IDeposit> {
     return EMPTY;
   }
 
@@ -20,7 +20,7 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
       .pipe(retry(1));
   }
 
-  getById(): Observable<IDeposit> {
+  getById(id: number): Observable<IDeposit> {
     return EMPTY;
   }
 

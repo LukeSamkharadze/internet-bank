@@ -22,7 +22,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  getById(): Observable<ICard> {
+  getById(id: number): Observable<ICard> {
     return EMPTY;
   }
 

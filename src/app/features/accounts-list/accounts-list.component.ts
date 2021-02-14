@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IncomeDataType } from '../shared/components/income-chart/services/data/dataType';
-import { IncomeDataService } from '../shared/components/income-chart/services/data/income-data.service';
 import { ICard } from '../shared/interfaces/card.interface';
 import { IDeposit } from '../shared/interfaces/deposit.interface';
 import { ILoan } from '../shared/interfaces/loan.interface';
+import IItem from './models/chart-item.entity';
+import { AccountsListIncomeService } from './services/accounts-list-income.service';
 import { AccountsListInfoService } from './services/accounts-list-info.service';
 
 @Component({
@@ -15,11 +15,11 @@ export class AccountsListComponent implements OnInit {
   cards: Array<ICard> = [];
   deposits: Array<IDeposit> = [];
   loans: Array<ILoan> = [];
-  incomes: Array<IncomeDataType> = [];
+  incomes: Array<IItem> = [];
 
   constructor(
     public infoService: AccountsListInfoService,
-    private incomeService: IncomeDataService
+    private incomeService: AccountsListIncomeService
   ) {}
 
   ngOnInit(): void {
