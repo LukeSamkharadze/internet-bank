@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Transaction } from './models/transaction.model';
 import FastAverageColor from 'fast-average-color'; // npm install fast-average-color
 
@@ -7,7 +7,7 @@ import FastAverageColor from 'fast-average-color'; // npm install fast-average-c
   templateUrl: './bank-transaction-details.component.html',
   styleUrls: ['./bank-transaction-details.component.scss'],
 })
-export class BankTransactionDetailsComponent {
+export class BankTransactionDetailsComponent implements OnInit {
   @Input() transaction: Transaction = {
     title: 'Default Title',
     status: 'Paid',
@@ -24,7 +24,9 @@ export class BankTransactionDetailsComponent {
   error: string;
   showTag = true;
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit() {
     if (this.transaction) {
       const fac = new FastAverageColor();
       fac
