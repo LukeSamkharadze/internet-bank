@@ -1,0 +1,142 @@
+<head>
+  <link rel=“stylesheet”
+  href=“https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css”>
+  <link
+    rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+  />
+</head>
+
+<div class="generalSettings">
+  <div class="settingsInfo">
+    <p class="generalInfo">General information</p>
+    <div class="userProfile">
+      <div class="profilePic">
+        <img src="https://img.icons8.com/dotty/60/000000/user-male.png" />
+      </div>
+      <p>{{ useruna.firstName }} {{ useruna.lastName }}</p>
+    </div>
+    <div class="userInfo">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="input-group">
+          <label for="first">First name</label>
+          <div class="input-wrapper">
+            <input formControlName="firstName" id="first" type="text" />
+            <div
+              class="validation"
+              *ngIf="
+                form.get('firstName').invalid && form.get('firstName').touched
+              "
+            >
+              <small *ngIf="form.get('firstName').errors.required"
+                >This field is neccessary!</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="input-group lastName">
+          <label for="last">Last name</label>
+          <div class="input-wrapper">
+            <input id="last" type="text" formControlName="lastName" />
+            <div
+              class="validation"
+              *ngIf="
+                form.get('lastName').invalid && form.get('lastName').touched
+              "
+            >
+              <small *ngIf="form.get('lastName').errors.required"
+                >This field is neccessary!</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="input-group contact">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <input
+              id="email"
+              type="text"
+              formControlName="email"
+              placeholder="Enter your email"
+            />
+            <div
+              class="validation"
+              *ngIf="form.get('email').invalid && form.get('email').touched"
+            >
+              <small *ngIf="form.get('email').errors.required"
+                >This field is neccessary!</small
+              >
+              <small *ngIf="form.get('email').errors.email"
+                >Incorrect email!</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="input-group contact">
+          <label for="phone"> Phone</label>
+          <div class="input-wrapper">
+            <input
+              id="phone"
+              formControlName="phone"
+              type="text"
+              placeholder="Enter phone number(5-xxx-xxx)"
+            />
+            <div
+              class="validation"
+              *ngIf="form.get('phone').invalid && form.get('phone').touched"
+            >
+              <small *ngIf="form.get('phone').errors.required"
+                >This field is neccessary!</small
+              >
+              <small *ngIf="form.get('phone').errors.hasError('pattern')"
+                >Incorrect phone number!</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="dropdownContainer input-label">
+          <label for="langDropdown">Language</label>
+          <div class="dropdown-general">
+            <app-shared-dropdown
+              id="langDropdown"
+              formControlName="language"
+              [options]="['English', 'Georgian', 'Russian']"
+              style="margin-top: 10px; width: 100%"
+            >
+            </app-shared-dropdown>
+          </div>
+        </div>
+        <div class="dropdownContainer input-label">
+          <label for="sexDropdown">Sex</label>
+          <div class="dropdown-general">
+            <app-shared-dropdown
+              id="sexDropdown"
+              formControlName="sex"
+              [options]="['Male', 'Female', 'Other']"
+              style="margin-top: 10px; width: 100%"
+            >
+            </app-shared-dropdown>
+          </div>
+        </div>
+        <div class="payment-buttons primary buttons">
+          <app-shared-button
+            [className]="{ primary: true, active: true }"
+            style="width: 206px; height: 46px"
+            [isDisabled]="form.invalid"
+            type="submit"
+            >UPDATE SETTINGS</app-shared-button
+          >
+
+          <app-shared-button
+            [className]="{ primary: true, resting: true }"
+            style="height: 46px; width: 103px"
+            type="button"
+            (click)="reset()"
+          >
+            CANCEL</app-shared-button
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
