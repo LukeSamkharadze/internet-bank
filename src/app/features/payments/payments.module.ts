@@ -11,7 +11,6 @@ import { SearchPipe } from './pipes/search.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared';
 import { TransferService } from './services/transfer.service';
-// import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,7 @@ import { TransferService } from './services/transfer.service';
     ReactiveFormsModule,
     SharedModule,
   ],
-  exports: [PaymentsComponent, PaymentProvidersComponent],
+  exports: [PaymentsComponent],
   providers: [ProvidersService, TransferService],
 })
 export class PaymentsModule {}
