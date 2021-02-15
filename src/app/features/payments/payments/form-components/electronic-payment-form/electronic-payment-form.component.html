@@ -30,7 +30,7 @@
         style="width: 100%"
         formControlName="fromAccount"
         placeholder="Please Select acc"
-        [options]="accountsArray"
+        [options]="currentUsersCards | async"
         [selectedTemplate]="account"
         [optionTemplate]="account"
       >

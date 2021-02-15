@@ -10,7 +10,6 @@ import { summaryAnimation } from '../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { ElectronicTransfer } from '../../../models/electronicTransfer.entity';
 import { ProvidersService } from '../../../services/providers.service';
-import { ICard } from '../../../../shared/interfaces/card.interface';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -26,7 +25,7 @@ import { Subscription } from 'rxjs';
 export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
   title = 'Online payment';
   form: FormGroup;
-  accountsArray: ICard[];
+  currentUsersCards = this.transferService.currentUsersCards$;
   paymentSystems = this.providersService.getElectronicPaymentProviders();
   private subscriptions = new Subscription();
 
@@ -35,7 +34,6 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
     private providersService: ProvidersService
   ) {}
   ngOnInit(): void {
-    this.loadCards();
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
       paymentSystem: new FormControl('', Validators.required),
@@ -66,7 +64,7 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
               this.subscriptions.add(
                 this.transferService.postTransactionToDb(transfer).subscribe()
               );
-              this.loadCards();
+              this.transferService.reloadCards();
             } else {
               alert(data.reason);
             }
@@ -81,14 +79,6 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
     this.form.reset();
   }
   //
-
-  loadCards() {
-    this.subscriptions.add(
-      this.transferService.currentUsersCards.subscribe(
-        (cards) => (this.accountsArray = cards)
-      )
-    );
-  }
 
   // getters
   // @ts-ignore

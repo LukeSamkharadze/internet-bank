@@ -8,7 +8,6 @@ import {
 import { animations } from '../shared/animations';
 import { InstantTransfer } from '../../../models/instantTransfer.entity';
 import { TransferService } from '../../../services/transfer.service';
-import { ICard } from '../../../../shared/interfaces/card.interface';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -20,12 +19,11 @@ import { Subscription } from 'rxjs';
 export class InstantTransferFormComponent implements OnInit, OnDestroy {
   title = 'Instant transfer';
   form: FormGroup;
-  accountsArray: ICard[];
+  currentUsersCards = this.transferService.currentUsersCards$;
   private subscriptions = new Subscription();
 
   constructor(private transferService: TransferService) {}
   ngOnInit(): void {
-    this.loadCards();
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
       destinationAccountNumber: new FormControl('', Validators.required),
@@ -51,7 +49,7 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
               this.subscriptions.add(
                 this.transferService.postTransactionToDb(transfer).subscribe()
               );
-              this.loadCards();
+              this.transferService.reloadCards();
             } else {
               alert(data.reason);
             }
@@ -60,14 +58,6 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
     } else {
       this.form.markAllAsTouched();
     }
-  }
-
-  loadCards() {
-    this.subscriptions.add(
-      this.transferService.currentUsersCards.subscribe(
-        (cards) => (this.accountsArray = cards)
-      )
-    );
   }
   // getters
   // @ts-ignore

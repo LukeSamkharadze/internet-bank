@@ -5,14 +5,22 @@ import { ElectronicTransfer } from '../models/electronicTransfer.entity';
 import { InstantTransfer } from '../models/instantTransfer.entity';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { switchMapTo } from 'rxjs/operators';
 
 @Injectable()
 export class TransferService {
   constructor(private http: HttpClient) {}
 
+  public paymentHappened$ = new BehaviorSubject(null);
   // userId filtri daemateba roca user auth daimerjeba.
-  public currentUsersCards = this.http.get<ICard[]>(environment.URL + 'cards');
+  currentUsersCards$ = this.paymentHappened$.pipe(
+    switchMapTo(this.http.get<ICard[]>(environment.URL + 'cards'))
+  );
+
+  reloadCards() {
+    this.paymentHappened$.next(null);
+  }
 
   bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
     // payments limitsze checki daemateba roca damerjaven masterze.

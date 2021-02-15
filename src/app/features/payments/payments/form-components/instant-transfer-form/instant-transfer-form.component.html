@@ -30,7 +30,7 @@
           'invalid-dropdown': fromAccount.errors && fromAccount.touched,
           'valid-dropdown': !fromAccount.errors
         }"
-        [options]="accountsArray"
+        [options]="currentUsersCards | async"
         [selectedTemplate]="account"
         [optionTemplate]="account"
       >
