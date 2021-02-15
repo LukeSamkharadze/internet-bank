@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { catchError, map, retry } from 'rxjs/operators';
 import { NewsItem } from './models/news-item.entity';
 import { NewsService } from './services/news.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-list',
@@ -11,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./news-list.component.scss'],
 })
 export class NewsListComponent implements OnInit {
+  @Input() tabElementInput: string[]; // for tabs
+  @Input() tabComponentInput: string[]; // for tabs
+
   news: NewsItem[] = [];
   totalResults = 0;
   showLearnMore = false;
