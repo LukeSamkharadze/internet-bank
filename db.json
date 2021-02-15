@@ -82,32 +82,35 @@
     {
       "cardName": "VISA CARD",
       "accountNumber": "GE32TB1111222233334444",
-      "cardNumber": 1111222233331234,
+      "cardNumber": 4111222233331234,
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
       "availableAmount": 2000,
       "security3D": false,
-      "id": 1
+      "id": 1,
+      "iconPath": "./assets/create-card/create-card-visa-icon.svg"
     },
     {
       "cardName": "MASTER CARD",
       "accountNumber": "GE32TB2222111133334444",
-      "cardNumber": 2222111133338040,
+      "cardNumber": 5222111133338040,
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
       "availableAmount": 25000,
       "security3D": true,
-      "id": 2
+      "id": 2,
+      "iconPath": "./assets/create-card/mastercard.svg"
     },
     {
       "cardName": "MASTER CARD",
       "accountNumber": "GE32TB3333111122224444",
-      "cardNumber": 3333111122220097,
+      "cardNumber": 5333111122220097,
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
       "availableAmount": 45000,
       "security3D": true,
-      "id": 3
+      "id": 3,
+      "iconPath": "./assets/create-card/mastercard.svg"
     }
   ]
 }

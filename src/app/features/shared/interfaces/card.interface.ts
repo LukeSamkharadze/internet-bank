@@ -7,4 +7,5 @@ export interface ICard {
   expirationDate: string;
   availableAmount: number;
   security3D: boolean;
+  iconPath?: string;
 }
