@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SettingsAndMenuComponent } from './settings-and-menu.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {

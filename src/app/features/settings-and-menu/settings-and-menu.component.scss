@@ -32,8 +32,20 @@
         font-size: 14px;
         text-decoration: none;
         color: $secondary-dark-1;
+        &::before {
+          content: '';
+          height: 17px;
+          width: 1.9px;
+          background-color: black;
+          display: none;
+          transform: translateX(-19px);
+        }
+
         &.active {
           color: $primary-dark;
+          &::before {
+            display: inline-block;
+          }
         }
         &:hover {
           color: $primary-dark;
@@ -43,15 +55,6 @@
       a:nth-last-child(1) {
         margin-top: 492px;
       }
-    }
-
-    .tabStick {
-      height: 15px;
-      margin-top: 26px;
-      background-color: black;
-      width: 1.7px;
-      margin-left: -1px;
-      display: block;
     }
   }
 }
