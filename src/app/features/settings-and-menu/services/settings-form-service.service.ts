@@ -13,15 +13,11 @@ export class SettingsFormServiceService {
 
   constructor(private http: HttpClient) {}
 
-  getUserInfo(): Observable<FormFields[]> {
-    return this.http.get<FormFields[]>(this.URL + 'forms').pipe(
-      map((val) => {
-        return val;
-      })
-    );
+  getUserInfo(id): Observable<FormFields> {
+    return this.http.get<FormFields>(this.URL + `forms/${id}`);
   }
 
-  updateInfo(id) {
-    return this.http.post(this.URL + 'forms', id).pipe();
+  updateInfo(form: FormFields): Observable<FormFields> {
+    return this.http.put<FormFields>(this.URL + `forms/${form.id}`, form);
   }
 }

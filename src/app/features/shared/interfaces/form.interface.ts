@@ -1,8 +1,9 @@
 export interface FormFields {
   firstName: string;
-  lasttName: string;
+  lastName: string;
   phone: number;
   email: string;
-  language: 'English' | 'Russian' | 'Georgian';
-  sex: 'Male' | 'Female' | 'Other';
+  language: string;
+  sex: string;
+  id: number;
 }
