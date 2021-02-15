@@ -2,13 +2,14 @@
 .tab-content {
   position: relative;
   margin-top: 20px;
-  padding-right: 160px;
   padding-left: 20px;
   :host {
     display: block;
   }
 }
-
+.tabname {
+  padding-bottom: 18px;
+}
 .active {
   color: black;
 }
@@ -42,11 +43,9 @@ p {
   font-family: $roboto;
   font-size: 14px;
   font-weight: 400;
+  padding: 20px;
 }
 .tabs {
-  display: flex;
-  height: 59px;
-  width: 617px;
   :hover {
     color: $primary-dark;
   }
@@ -56,19 +55,17 @@ p {
   width: 75px;
   background-color: $primary-dark;
   position: relative;
-  top: 20px;
   display: none;
 }
 
 .paragraph {
-  position: absolute;
-  top: 82px;
-  width: 456px;
-  left: 20px;
+  position: relative;
 }
-
 .underline {
   width: 293px;
   height: 1px;
   background-color: $background-1;
+}
+#header {
+  display: flex;
 }
