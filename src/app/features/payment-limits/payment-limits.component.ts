@@ -22,37 +22,24 @@ export class PaymentLimitsComponent implements OnInit {
 
   id = 1;
 
-  // Cash withdrawals
+  everyLimit: ILimits = {
+    bankLimit: 0,
+    onlineLimit: 0,
+    cashLimit: 0,
+    bankSpending: 0,
+    cashSpending: 0,
+    onlineSpending: 0,
+  };
 
   @Input() withdrawCurrency = 'USD';
 
-  withdrawSpending = 0;
-
-  startWithdrawLimit = 0;
-
-  // Bank Transactions
-
   @Input() transactionCurrency = 'USD';
-
-  transactionSpending = 0;
-
-  startTransactionLimit = 0;
-
-  // Online payments
 
   @Input() onlineCurrency = 'USD';
 
-  onlineSpending = 0;
-
-  startOnlineLimit = 0;
-
   formGroup: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private currencyPipe: CurrencyPipe,
-    private http: PaymentLimitsService
-  ) {}
+  constructor(private fb: FormBuilder, private http: PaymentLimitsService) {}
 
   ngOnInit(): void {
     this.createFormGroup();
@@ -61,13 +48,7 @@ export class PaymentLimitsComponent implements OnInit {
 
   getHTTP() {
     this.http.getData(this.id).subscribe((val) => {
-      console.log(val);
-      this.onlineSpending = val.onlineSpending;
-      this.withdrawSpending = val.cashSpending;
-      this.transactionSpending = val.bankSpending;
-      this.startOnlineLimit = val.onlineLimit;
-      this.startTransactionLimit = val.bankLimit;
-      this.startWithdrawLimit = val.cashLimit;
+      this.everyLimit = val;
 
       this.withdrawLimit.patchValue(val.cashLimit);
       this.bankLimit.patchValue(val.bankLimit);
@@ -99,16 +80,16 @@ export class PaymentLimitsComponent implements OnInit {
   }
   onCancel(cancel) {
     this.formGroup.reset({
-      limitWithdraw: this.startWithdrawLimit,
-      limitBank: this.startTransactionLimit,
-      limitOnline: this.startOnlineLimit,
+      limitWithdraw: this.everyLimit.cashLimit,
+      limitBank: this.everyLimit.bankLimit,
+      limitOnline: this.everyLimit.onlineLimit,
     });
   }
   onUpdate(update) {
     if (
-      this.onlineLimit.value < this.onlineSpending ||
-      this.withdrawLimit.value < this.withdrawSpending ||
-      this.bankLimit.value < this.transactionSpending
+      this.onlineLimit.value < this.everyLimit.onlineSpending ||
+      this.withdrawLimit.value < this.everyLimit.cashSpending ||
+      this.bankLimit.value < this.everyLimit.bankSpending
     ) {
       alert('Limiti naklebi ver iqneba');
       return;
@@ -118,13 +99,13 @@ export class PaymentLimitsComponent implements OnInit {
       bankLimit: this.bankLimit.value,
       onlineLimit: this.onlineLimit.value,
       cashLimit: this.withdrawLimit.value,
-      bankSpending: this.transactionSpending,
-      cashSpending: this.withdrawSpending,
-      onlineSpending: this.onlineSpending,
+      bankSpending: this.everyLimit.bankSpending,
+      cashSpending: this.everyLimit.cashSpending,
+      onlineSpending: this.everyLimit.onlineSpending,
     };
     this.http.updateUser(this.id, newLimits).subscribe();
-    this.startOnlineLimit = this.onlineLimit.value;
-    this.startTransactionLimit = this.bankLimit.value;
-    this.startWithdrawLimit = this.withdrawLimit.value;
+    this.everyLimit.onlineLimit = this.onlineLimit.value;
+    this.everyLimit.bankLimit = this.bankLimit.value;
+    this.everyLimit.cashLimit = this.withdrawLimit.value;
   }
 }

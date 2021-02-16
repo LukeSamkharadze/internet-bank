@@ -7,7 +7,7 @@
         [currentName]="'limitWithdraw'"
         [title]="'Cash withdrawals'"
         [currency]="withdrawCurrency"
-        [spending]="withdrawSpending"
+        [spending]="everyLimit.cashSpending"
         (shChange)="onChange($event)"
       ></app-payment-limits-section>
 
@@ -16,7 +16,7 @@
         [currentName]="'limitBank'"
         [title]="'Bank transactions'"
         [currency]="transactionCurrency"
-        [spending]="transactionSpending"
+        [spending]="everyLimit.bankSpending"
         (shChange)="onChange($event)"
       >
       </app-payment-limits-section>
@@ -25,7 +25,7 @@
         [currentName]="'limitOnline'"
         [title]="'Online payments'"
         [currency]="onlineCurrency"
-        [spending]="onlineSpending"
+        [spending]="everyLimit.onlineSpending"
         (shChange)="onChange($event)"
       >
       </app-payment-limits-section>

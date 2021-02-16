@@ -44,8 +44,8 @@
   "limits": [
     {
       "bankLimit": 22000,
-      "onlineLimit": "10000",
-      "cashLimit": "9000",
+      "onlineLimit": 10000,
+      "cashLimit": 9000,
       "bankSpending": 9000,
       "cashSpending": 3000,
       "onlineSpending": 4000,

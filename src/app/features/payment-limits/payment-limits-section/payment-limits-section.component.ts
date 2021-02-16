@@ -1,44 +1,19 @@
 import {
   Component,
   ElementRef,
-  forwardRef,
   Input,
   OnInit,
   ViewChild,
-  Renderer2,
   EventEmitter,
   Output,
-  AfterViewInit,
   Self,
 } from '@angular/core';
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  FormControl,
-  NgControl,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-  ValidationErrors,
-  Validator,
-  ValidatorFn,
-} from '@angular/forms';
+import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-payment-limits-section',
   templateUrl: './payment-limits-section.component.html',
   styleUrls: ['./payment-limits-section.component.scss'],
-  providers: [
-    // {
-    //   provide:NG_VALUE_ACCESSOR,
-    //   multi:true,
-    //   useExisting:PaymentLimitsSectionComponent
-    // },
-    // {
-    //   provide:NG_VALIDATORS,
-    //   multi:true,
-    //   useExisting:PaymentLimitsSectionComponent
-    // }
-  ],
 })
 export class PaymentLimitsSectionComponent
   implements OnInit, ControlValueAccessor {
