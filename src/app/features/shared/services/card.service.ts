@@ -13,7 +13,7 @@ export class CardService implements BaseHttpInterface<ICard> {
   create(card: ICard): Observable<ICard> {
     card.iconPath = this.determineIconPath(card.cardNumber);
     return this.http
-      .post<ICard>(`${environment.URL}cards`, card)
+      .post<ICard>(`${environment.BaseUrl}cards`, card)
       .pipe(retry(1), catchError(this.handleError));
   }
 
@@ -30,7 +30,7 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
   getAll(): Observable<ICard[]> {
     return this.http
-      .get<ICard[]>(`${environment.URL}cards`)
+      .get<ICard[]>(`${environment.BaseUrl}cards`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
