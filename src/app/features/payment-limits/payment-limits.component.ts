@@ -10,7 +10,7 @@ import { ILimits, PaymentLimitsService } from './payment-limits.service';
   styleUrls: ['./payment-limits.component.scss'],
 })
 export class PaymentLimitsComponent implements OnInit {
-  //ro gaketdeba id is nacvlad localID
+  // ro gaketdeba id is nacvlad localID
   // localID = parseInt(localStorage.getItem("id"))
 
   id = 1;
@@ -98,7 +98,7 @@ export class PaymentLimitsComponent implements OnInit {
     });
   }
   onUpdate(update) {
-    let newLimits: ILimits = {
+    const newLimits: ILimits = {
       bankLimit: this.bankLimit.value,
       onlineLimit: this.onlineLimit.value,
       cashLimit: this.withdrawLimit.value,
