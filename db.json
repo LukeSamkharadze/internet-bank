@@ -114,10 +114,28 @@
       "firstName": "Barry",
       "lastName": "Armstrong",
       "email": "b.armstrong@gmail.com",
-      "phone": 555123555,
+      "phone": "593123444",
       "language": "English",
       "sex": "Male",
       "id": 1
+    },
+    {
+      "firstName": "John",
+      "lastName": "Lennon",
+      "email": "j.lennon@gmail.com",
+      "phone": "555132211",
+      "language": "Russian",
+      "sex": "Male",
+      "id": 2
+    },
+    {
+      "firstName": "Till",
+      "lastName": "Lindemann",
+      "email": "t.lindemann@gmail.com",
+      "phone": "555666111",
+      "language": "Georgian",
+      "sex": "Male",
+      "id": 3
     }
   ]
 }

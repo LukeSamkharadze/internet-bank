@@ -17,30 +17,35 @@ import { Observable } from 'rxjs';
 })
 export class SettingsComponent implements OnInit {
   form: FormGroup;
-  useruna: FormFields = {
+  user: FormFields = {
     firstName: '',
     lastName: '',
     phone: NaN,
     email: ' ',
     language: '',
     sex: '',
-    id: 1,
+    id: NaN,
   };
+  id: number;
 
   constructor(
     private fb: FormBuilder,
     private http: SettingsFormServiceService
   ) {
+    // this.id = parseInt(localStorage.getItem('id'));
+
+    // this.id is NaN so until it is set I will use default Id - 1
+
     this.http.getUserInfo(1).subscribe((value) => {
-      this.useruna = value;
+      this.user = value;
       this.form.patchValue({
-        firstName: this.useruna.firstName,
-        lastName: this.useruna.lastName,
-        email: this.useruna.email,
-        phone: this.useruna.phone,
-        language: this.useruna.language,
-        sex: this.useruna.sex,
-        id: this.useruna.id,
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        email: this.user.email,
+        phone: this.user.phone,
+        language: this.user.language,
+        sex: this.user.sex,
+        id: this.user.id,
       });
     });
   }
@@ -56,7 +61,7 @@ export class SettingsComponent implements OnInit {
         Validators.pattern('[a-zA-Z]*'),
       ]),
       email: new FormControl('', [Validators.email, Validators.required]),
-      phone: new FormControl('this.useruna.phone', [
+      phone: new FormControl('', [
         Validators.required,
         Validators.pattern('^(5)[0-9]{8}$'),
       ]),
@@ -67,21 +72,19 @@ export class SettingsComponent implements OnInit {
   }
 
   submit() {
-    this.useruna = this.form.value;
+    this.user = this.form.value;
 
-    this.http
-      .updateInfo(this.useruna)
-      .subscribe(() => console.log(this.useruna));
+    this.http.updateInfo(this.user).subscribe(() => console.log(this.user));
   }
   reset() {
     this.form.reset({
-      firstName: this.useruna.firstName,
-      lastName: this.useruna.lastName,
-      email: this.useruna.email,
-      phone: this.useruna.phone,
-      language: this.useruna.language,
-      sex: this.useruna.sex,
-      id: this.useruna.id,
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
+      email: this.user.email,
+      phone: this.user.phone,
+      language: this.user.language,
+      sex: this.user.sex,
+      id: this.user.id,
     });
   }
 }

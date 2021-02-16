@@ -7,6 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: SettingsAndMenuComponent,
+    children: [
+      { path: 'general', component: SettingsComponent },
+
+      // enter your paths here
+    ],
   },
 ];
 

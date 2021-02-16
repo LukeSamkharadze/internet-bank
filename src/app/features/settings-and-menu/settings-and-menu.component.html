@@ -1,18 +1,20 @@
 <div class="settingsAndMenu">
-  <app-settings></app-settings>
-
   <router-outlet></router-outlet>
 
   <div class="menu">
     <div class="menuTabs">
-      <a routerLink="/settings" routerLinkActive="active"
+      <a [routerLink]="['/settings/general']" routerLinkActive="active"
         >General information</a
       >
-      <a routerLink="#" routerLinkActive="active">Security</a>
-      <a routerLink="/payments" routerLinkActive="active">Payment limits</a>
+      <!-- ENTER YOUR PATHS BELOW LIKE THE UPPER ONE ^^^     -->
+
+      <a [routerLink]="['#']" routerLinkActive="active">Security</a>
+      <a [routerLink]="['settings/payments']" routerLinkActive="active"
+        >Payment limits</a
+      >
       <a routerLink="#" routerLinkActive="active">Notifications</a>
       <a
-        routerLink=""
+        routerLink="/"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >
