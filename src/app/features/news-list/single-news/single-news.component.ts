@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsItem } from '../models/news-item.entity';
 import { NewsService } from '../services/news.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { NewsService } from '../services/news.service';
   styleUrls: ['./single-news.component.scss'],
 })
 export class SingleNewsComponent implements OnInit {
+  article: NewsItem;
   articleSrc: string;
   articleAlt: string;
   articleHeader: string;
@@ -17,11 +19,12 @@ export class SingleNewsComponent implements OnInit {
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
-    if (this.newsService.article) {
-      this.articleReleaseDate = new Date(this.newsService.article.publishedAt);
-      this.articleSrc = this.newsService.article.urlToImage;
-      this.articleHeader = this.newsService.article.title;
-      this.articleText = this.newsService.article.content;
+    this.article = this.newsService.article;
+    if (this.article) {
+      this.articleReleaseDate = new Date(this.article.publishedAt);
+      this.articleSrc = this.article.urlToImage;
+      this.articleHeader = this.article.title;
+      this.articleText = this.article.content;
       this.articleAlt = 'News article';
     } else {
       this.articleNotFound = true;
