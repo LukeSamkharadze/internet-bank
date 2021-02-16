@@ -1,0 +1,32 @@
+<div class="tabs">
+  <div id="header">
+    <header
+      *ngFor="let tab of tabElementInput; index as i"
+      class="tabelement"
+      (click)="tabIndex = i; clickTab(tab)"
+    >
+      <p class="tabname" [ngClass]="changeTabStyle(tab)">
+        {{ tabElementInput[i] }}
+      </p>
+      <div class="lineanimation" [ngClass]="changeLineStyle(tab)"></div>
+    </header>
+  </div>
+  <div class="underline"></div>
+  <div>
+    <body>
+      <div *ngFor="let tab of tabElementInput; index as i">
+        <div class="caption text-left paragraph" *ngIf="tabIsActive(tab)">
+          <div *ngFor="let item of itemTemplate; index as in">
+            <ng-template
+              *ngIf="tabIndex == in"
+              [ngTemplateOutlet]="item"
+            ></ng-template>
+          </div>
+          <ng-container *ngIf="tabComponentInput.length == 0"
+            >There is no Content</ng-container
+          >
+        </div>
+      </div>
+    </body>
+  </div>
+</div>

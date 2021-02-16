@@ -1,0 +1,71 @@
+@import './index.scss';
+.tab-content {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 20px;
+  :host {
+    display: block;
+  }
+}
+.tabname {
+  padding-bottom: 18px;
+}
+.active {
+  color: black;
+}
+.lineActive {
+  display: block;
+}
+
+.tabelement {
+  box-sizing: border-box;
+  color: $secondary-dark-1;
+  text-decoration: none;
+  padding-left: 23px;
+  margin-right: 0px;
+  margin-top: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  &:hover .tabname {
+    color: $primary-dark;
+  }
+  &:hover .lineanimation {
+    display: block;
+  }
+}
+p {
+  font-weight: 500;
+}
+.caption {
+  color: $primary-dark;
+  font-family: $roboto;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 20px;
+}
+.tabs {
+  :hover {
+    color: $primary-dark;
+  }
+}
+.lineanimation {
+  height: 2px;
+  width: 75px;
+  background-color: $primary-dark;
+  position: relative;
+  display: none;
+}
+
+.paragraph {
+  position: relative;
+}
+.underline {
+  width: 293px;
+  height: 1px;
+  background-color: $background-1;
+}
+#header {
+  display: flex;
+}
