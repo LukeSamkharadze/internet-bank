@@ -12,8 +12,11 @@
             [formControl]="inputForm"
             #inputElement
             type="number"
+            [class.isLess]="isLess"
           />
-          <p *ngIf="input1.nativeElement.value">{{ currency }}</p>
+          <p [class.isLess]="isLess" *ngIf="input1.nativeElement.value">
+            {{ currency }}
+          </p>
         </div>
 
         <div class="limits-plusMinus">

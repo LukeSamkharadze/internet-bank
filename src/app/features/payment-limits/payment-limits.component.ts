@@ -1,8 +1,15 @@
 import { CurrencyPipe, registerLocaleData } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ILimits, PaymentLimitsService } from './payment-limits.service';
+import { ILimits } from './payment-interfaces';
+import { PaymentLimitsService } from './payment-limits.service';
 
 @Component({
   selector: 'app-payment-limits',
@@ -62,17 +69,17 @@ export class PaymentLimitsComponent implements OnInit {
       this.startTransactionLimit = val.bankLimit;
       this.startWithdrawLimit = val.cashLimit;
 
-      this.formGroup.get('limitWithdraw').patchValue(val.cashLimit);
-      this.formGroup.get('limitBank').patchValue(val.bankLimit);
-      this.formGroup.get('limitOnline').patchValue(val.onlineLimit);
+      this.withdrawLimit.patchValue(val.cashLimit);
+      this.bankLimit.patchValue(val.bankLimit);
+      this.onlineLimit.patchValue(val.onlineLimit);
     });
   }
 
   createFormGroup() {
     this.formGroup = this.fb.group({
-      limitWithdraw: '',
-      limitBank: '',
-      limitOnline: '',
+      limitWithdraw: [''],
+      limitBank: [''],
+      limitOnline: [''],
     });
   }
 
@@ -98,6 +105,15 @@ export class PaymentLimitsComponent implements OnInit {
     });
   }
   onUpdate(update) {
+    if (
+      this.onlineLimit.value < this.onlineSpending ||
+      this.withdrawLimit.value < this.withdrawSpending ||
+      this.bankLimit.value < this.transactionSpending
+    ) {
+      alert('Limiti naklebi ver iqneba');
+      return;
+    }
+
     const newLimits: ILimits = {
       bankLimit: this.bankLimit.value,
       onlineLimit: this.onlineLimit.value,
@@ -107,5 +123,8 @@ export class PaymentLimitsComponent implements OnInit {
       onlineSpending: this.onlineSpending,
     };
     this.http.updateUser(this.id, newLimits).subscribe();
+    this.startOnlineLimit = this.onlineLimit.value;
+    this.startTransactionLimit = this.bankLimit.value;
+    this.startWithdrawLimit = this.withdrawLimit.value;
   }
 }

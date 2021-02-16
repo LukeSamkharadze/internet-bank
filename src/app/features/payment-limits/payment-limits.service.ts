@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { ILimits } from './payment-interfaces';
 
 @Injectable()
 export class PaymentLimitsService {
@@ -14,14 +14,4 @@ export class PaymentLimitsService {
   updateUser(id: number, user: ILimits): Observable<boolean> {
     return this.http.put<boolean>(`http://localhost:3000/limits/${id}`, user);
   }
-}
-
-export interface ILimits {
-  id?: number;
-  bankLimit: number;
-  onlineLimit: number;
-  cashLimit: number;
-  bankSpending: number;
-  onlineSpending: number;
-  cashSpending: number;
 }

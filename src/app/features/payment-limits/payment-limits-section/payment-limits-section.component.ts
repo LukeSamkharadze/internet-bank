@@ -12,26 +12,44 @@ import {
   Self,
 } from '@angular/core';
 import {
+  AbstractControl,
   ControlValueAccessor,
   FormControl,
   NgControl,
+  NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
+  ValidationErrors,
+  Validator,
+  ValidatorFn,
 } from '@angular/forms';
 
 @Component({
   selector: 'app-payment-limits-section',
   templateUrl: './payment-limits-section.component.html',
   styleUrls: ['./payment-limits-section.component.scss'],
+  providers: [
+    // {
+    //   provide:NG_VALUE_ACCESSOR,
+    //   multi:true,
+    //   useExisting:PaymentLimitsSectionComponent
+    // },
+    // {
+    //   provide:NG_VALIDATORS,
+    //   multi:true,
+    //   useExisting:PaymentLimitsSectionComponent
+    // }
+  ],
 })
 export class PaymentLimitsSectionComponent
   implements OnInit, ControlValueAccessor {
   constructor(
     private element: ElementRef,
-    private renderer: Renderer2,
     @Self() public controlDir: NgControl
   ) {
     this.controlDir.valueAccessor = this;
   }
+
+  isLess = false;
 
   inputForm = new FormControl();
 
@@ -57,12 +75,12 @@ export class PaymentLimitsSectionComponent
     this.controlDir.valueChanges.subscribe((val) => {
       if (val < 0) {
         this.inputForm.patchValue(0);
-      } else if (val < this.spending) {
-        this.inputForm.patchValue(this.spending);
       }
 
       const arr = Array.from(String(val), Number).length;
       this.input1.nativeElement.style.width = arr * 7.5 + 5 + 'px';
+
+      this.isLess = val < this.spending;
     });
   }
 
