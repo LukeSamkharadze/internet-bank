@@ -8,10 +8,13 @@ import {
   Renderer2,
   EventEmitter,
   Output,
+  AfterViewInit,
+  Self,
 } from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
+  NgControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
@@ -19,25 +22,24 @@ import {
   selector: 'app-payment-limits-section',
   templateUrl: './payment-limits-section.component.html',
   styleUrls: ['./payment-limits-section.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PaymentLimitsSectionComponent),
-      multi: true,
-    },
-  ],
 })
 export class PaymentLimitsSectionComponent
   implements OnInit, ControlValueAccessor {
-  constructor(private element: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private element: ElementRef,
+    private renderer: Renderer2,
+    @Self() public controlDir: NgControl
+  ) {
+    this.controlDir.valueAccessor = this;
+  }
 
   inputForm = new FormControl();
 
   @Input() currency = 'USD';
 
-  @Input() limit = 12000;
+  // @Input() limit = 0;
 
-  @Input() spending = 8000;
+  @Input() spending = 0;
 
   @Input() title = '';
 
@@ -52,15 +54,16 @@ export class PaymentLimitsSectionComponent
   public isDisabled = false;
 
   ngOnInit(): void {
-    this.inputForm.valueChanges.subscribe((val) => {
+    this.controlDir.valueChanges.subscribe((val) => {
       if (val < 0) {
         this.inputForm.patchValue(0);
+      } else if (val < this.spending) {
+        this.inputForm.patchValue(this.spending);
       }
 
       const arr = Array.from(String(val), Number).length;
       this.input1.nativeElement.style.width = arr * 7.5 + 5 + 'px';
     });
-    this.inputForm.patchValue(this.limit);
   }
 
   writeValue(value: number): void {

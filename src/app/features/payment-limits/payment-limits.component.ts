@@ -1,6 +1,8 @@
 import { CurrencyPipe, registerLocaleData } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { ILimits, PaymentLimitsService } from './payment-limits.service';
 
 @Component({
   selector: 'app-payment-limits',
@@ -8,51 +10,102 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./payment-limits.component.scss'],
 })
 export class PaymentLimitsComponent implements OnInit {
+  //ro gaketdeba id is nacvlad localID
+  // localID = parseInt(localStorage.getItem("id"))
+
+  id = 1;
+
   // Cash withdrawals
 
   @Input() withdrawCurrency = 'USD';
 
-  @Input() withdrawLimit = 9000;
+  withdrawSpending = 0;
 
-  @Input() withdrawSpending = 8000;
+  startWithdrawLimit = 0;
 
   // Bank Transactions
 
   @Input() transactionCurrency = 'USD';
 
-  @Input() transactionLimit = 2000;
+  transactionSpending = 0;
 
-  @Input() transactionSpending = 1500;
+  startTransactionLimit = 0;
 
   // Online payments
 
   @Input() onlineCurrency = 'USD';
 
-  @Input() onlineLimit = 5000;
+  onlineSpending = 0;
 
-  @Input() onlineSpending = 2500;
+  startOnlineLimit = 0;
 
   formGroup: FormGroup;
 
-  constructor(private fb: FormBuilder, private currencyPipe: CurrencyPipe) {}
+  constructor(
+    private fb: FormBuilder,
+    private currencyPipe: CurrencyPipe,
+    private http: PaymentLimitsService
+  ) {}
 
   ngOnInit(): void {
-    this.formGroup = this.fb.group({
-      limitWithdraw: this.withdrawLimit,
-      limitBank: this.transactionLimit,
-      limitOnline: this.onlineLimit,
+    this.createFormGroup();
+    this.getHTTP();
+  }
+
+  getHTTP() {
+    this.http.getData(this.id).subscribe((val) => {
+      console.log(val);
+      this.onlineSpending = val.onlineSpending;
+      this.withdrawSpending = val.cashSpending;
+      this.transactionSpending = val.bankSpending;
+      this.startOnlineLimit = val.onlineLimit;
+      this.startTransactionLimit = val.bankLimit;
+      this.startWithdrawLimit = val.cashLimit;
+
+      this.formGroup.get('limitWithdraw').patchValue(val.cashLimit);
+      this.formGroup.get('limitBank').patchValue(val.bankLimit);
+      this.formGroup.get('limitOnline').patchValue(val.onlineLimit);
     });
+  }
+
+  createFormGroup() {
+    this.formGroup = this.fb.group({
+      limitWithdraw: '',
+      limitBank: '',
+      limitOnline: '',
+    });
+  }
+
+  get bankLimit() {
+    return this.formGroup.get('limitBank');
+  }
+
+  get withdrawLimit() {
+    return this.formGroup.get('limitWithdraw');
+  }
+  get onlineLimit() {
+    return this.formGroup.get('limitOnline');
   }
 
   onChange(val) {
     this.formGroup.get(val.name).patchValue(val.data);
   }
-  onCancle(cancle) {
-    console.log(cancle);
-    console.log('CANCLE');
+  onCancel(cancel) {
+    this.formGroup.reset({
+      limitWithdraw: this.startWithdrawLimit,
+      limitBank: this.startTransactionLimit,
+      limitOnline: this.startOnlineLimit,
+    });
   }
   onUpdate(update) {
-    console.log(update);
-    console.log('UPDATE');
+    let newLimits: ILimits = {
+      bankLimit: this.bankLimit.value,
+      onlineLimit: this.onlineLimit.value,
+      cashLimit: this.withdrawLimit.value,
+      bankSpending: this.transactionSpending,
+      cashSpending: this.withdrawSpending,
+      onlineSpending: this.onlineSpending,
+    };
+    this.http.updateUser(this.id, newLimits).subscribe();
   }
 }

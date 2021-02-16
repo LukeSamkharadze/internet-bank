@@ -8,7 +8,6 @@
         [title]="'Cash withdrawals'"
         [currency]="withdrawCurrency"
         [spending]="withdrawSpending"
-        [limit]="withdrawLimit"
         (shChange)="onChange($event)"
       ></app-payment-limits-section>
 
@@ -18,7 +17,6 @@
         [title]="'Bank transactions'"
         [currency]="transactionCurrency"
         [spending]="transactionSpending"
-        [limit]="transactionLimit"
         (shChange)="onChange($event)"
       >
       </app-payment-limits-section>
@@ -28,7 +26,6 @@
         [title]="'Online payments'"
         [currency]="onlineCurrency"
         [spending]="onlineSpending"
-        [limit]="onlineLimit"
         (shChange)="onChange($event)"
       >
       </app-payment-limits-section>
@@ -43,7 +40,7 @@
         <app-shared-button
           [className]="{ primary: true, active: false }"
           style="width: 148px; height: 50px"
-          (clicked)="onCancle($event)"
+          (clicked)="onCancel($event)"
           >Cancel</app-shared-button
         >
       </div>

@@ -41,6 +41,35 @@
       "img": "https://picsum.photos/200?random=8"
     }
   ],
+  "limits": [
+    {
+      "bankLimit": 25000,
+      "onlineLimit": 10000,
+      "cashLimit": 27000,
+      "bankSpending": 9000,
+      "cashSpending": 3000,
+      "onlineSpending": 4000,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "bankLimit": 8000,
+      "onlineLimit": 5000,
+      "cashLimit": 4000,
+      "bankSpending": 3000,
+      "onlineSpending": 2000,
+      "cashSpending": 1000
+    },
+    {
+      "id": 3,
+      "bankLimit": 12000,
+      "onlineLimit": 10000,
+      "cashLimit": 8000,
+      "bankSpending": 11000,
+      "onlineSpending": 9000,
+      "cashSpending": 7000
+    }
+  ],
   "income": [
     {
       "id": 1,
