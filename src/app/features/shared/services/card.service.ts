@@ -17,8 +17,8 @@ export class CardService implements BaseHttpInterface<ICard> {
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  determineIconPath(cardNumber: number) {
-    const firstDigit = String(cardNumber)[0];
+  determineIconPath(cardNumber: string) {
+    const firstDigit = cardNumber[0];
     switch (firstDigit) {
       case '4':
         return './assets/create-card/create-card-visa-icon.svg';
