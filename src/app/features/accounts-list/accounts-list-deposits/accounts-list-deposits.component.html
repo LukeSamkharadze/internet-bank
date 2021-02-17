@@ -8,7 +8,7 @@
       *ngFor="let deposit of deposits"
       [info]="infoService.depositToInfo(deposit)"
       [color]="'orange'"
-      [class.blocked]="!deposit.functional"
+      [class.blocked]="deposit.blocked"
       ><i class="las la-lock"></i
     ></app-accounts-list-item>
   </div>

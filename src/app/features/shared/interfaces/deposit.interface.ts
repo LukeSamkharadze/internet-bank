@@ -1,11 +1,8 @@
-export interface IDeposit {
-  id: number;
+import IParent from './parent.interface';
+
+export interface IDeposit extends IParent {
   depositName: string;
-  accountNumber: string;
   depositRate: number;
   startDate: string;
-  expirationDate: string;
-  balance?: number;
   accured?: number;
-  functional?: boolean;
 }

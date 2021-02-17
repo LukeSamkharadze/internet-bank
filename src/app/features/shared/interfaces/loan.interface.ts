@@ -1,11 +1,8 @@
-export interface ILoan {
-  id: number;
+import IParent from './parent.interface';
+
+export interface ILoan extends IParent {
   loanName: string;
-  accountNumber: string;
   loanRate: number;
   startDate: string;
-  expirationDate: string;
-  amount?: number;
   paid?: number;
-  status?: boolean;
 }

@@ -131,9 +131,9 @@
       "loanRate": 0.14,
       "startDate": "20.06.2018",
       "expirationDate": "20.06.2022",
-      "amount": 84800,
+      "balance": 84800,
       "paid": 24800,
-      "status": true
+      "blocked": true
     },
     {
       "id": 1,
@@ -142,9 +142,9 @@
       "loanRate": 0.18,
       "startDate": "20.06.2018",
       "expirationDate": "20.06.2022",
-      "amount": 66400,
+      "balance": 66400,
       "paid": 650,
-      "status": false
+      "blocked": false
     }
   ],
   "charts": [

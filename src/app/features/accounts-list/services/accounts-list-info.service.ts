@@ -86,7 +86,7 @@ export class AccountsListInfoService {
   }
 
   loanToInfo(loan: ILoan): IItem {
-    const amount = loan.amount || 0;
+    const amount = loan.balance || 0;
     const paid = loan.paid || 0;
     return [
       {
@@ -107,7 +107,7 @@ export class AccountsListInfoService {
       },
       {
         title: 'Status',
-        value: loan.status ? 'Active' : 'Paid',
+        value: loan.blocked ? 'Paid' : 'Active',
       },
     ];
   }

@@ -1,12 +1,9 @@
-export interface ICard {
-  id: number;
+import IParent from './parent.interface';
+
+export interface ICard extends IParent {
   cardName: string;
-  accountNumber: string;
   cardNumber: string;
   cardholder: string;
-  expirationDate: string;
   availableAmount: number;
   security3D: boolean;
-  balance?: number;
-  blocked?: boolean;
 }

@@ -8,7 +8,7 @@
       *ngFor="let loan of loans"
       [info]="infoService.loanToInfo(loan)"
       [color]="getColor(loan)"
-      [class.blocked]="!loan.status"
+      [class.blocked]="loan.blocked"
       ><i [class]="getIconClass(loan)"></i>
     </app-accounts-list-item>
   </div>
