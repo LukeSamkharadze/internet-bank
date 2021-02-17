@@ -18,7 +18,7 @@ export class TabsComponent implements OnInit {
   // tabStyle: string;
   activeTab: string;
   @Input() tabElementInput: string[] = [];
-  @Input() tabComponentInput: string[] = [];
+  // @Input() tabComponentInput: string[] = [];
   @ContentChildren(TemplateRef) itemTemplate: TemplateRef<any>[];
   tabIndex: number;
 
