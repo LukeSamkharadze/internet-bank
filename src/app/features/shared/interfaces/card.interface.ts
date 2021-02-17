@@ -6,4 +6,5 @@ export interface ICard extends IParent {
   cardholder: string;
   availableAmount: number;
   security3D: boolean;
+  iconPath?: string;
 }
