@@ -15,14 +15,15 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   styleUrls: ['./tabs.component.scss'],
 })
 export class TabsComponent implements OnInit {
-  // tabStyle: string;
   activeTab: string;
   @Input() tabElementInput: string[] = [];
-  // @Input() tabComponentInput: string[] = [];
   @ContentChildren(TemplateRef) itemTemplate: TemplateRef<any>[];
   tabIndex: number;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.clickTab(this.tabElementInput[0]);
+    this.tabIndex = 0;
+  }
   changeTabStyle(tabName) {
     return this.tabIsActive(tabName) ? 'active tabname' : 'tabname';
   }

@@ -43,7 +43,7 @@ p {
   font-family: $roboto;
   font-size: 14px;
   font-weight: 400;
-  // padding: 20px;
+  padding: 20px;
 }
 .tabs {
   width: fit-content;
@@ -70,4 +70,5 @@ p {
 #header {
   width: fit-content;
   display: flex;
+  height: 58px;
 }
