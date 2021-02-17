@@ -7,8 +7,6 @@ export class AccountsListChartService {
   createChart(canvas: HTMLCanvasElement, data: IFilledArray<number>): any {
     const dataCopy = Array.from(data);
 
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = canvas.parentElement.clientHeight;
     const ctx = canvas.getContext('2d');
 
     const chartContainer = canvas.parentElement;
