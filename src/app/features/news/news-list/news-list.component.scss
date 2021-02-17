@@ -1,0 +1,28 @@
+@import 'index.scss';
+
+.news-list-container {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  div {
+    padding: 20px 0px 20px 32px;
+    button {
+      @include text-style(14px);
+      font-weight: 500;
+      cursor: pointer;
+      background: none;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &.news-error {
+      @include text-style(14px);
+    }
+  }
+}
