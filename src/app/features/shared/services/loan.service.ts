@@ -6,9 +6,7 @@ import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import { ILoan } from '../interfaces/loan.interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class LoanService implements BaseHttpInterface<ILoan> {
   constructor(private http: HttpClient) {}
 
