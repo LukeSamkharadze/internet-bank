@@ -6,12 +6,17 @@ import { SharedModule } from './shared/shared.module';
 import { FeaturesSharedModule } from './features/shared/features-shared.module';
 import { CoreModule } from '@core/core.module';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent, DashboardComponent],
   imports: [
     BrowserModule,
-    CoreModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
+    CoreModule,
     SharedModule,
     FeaturesSharedModule,
   ],
