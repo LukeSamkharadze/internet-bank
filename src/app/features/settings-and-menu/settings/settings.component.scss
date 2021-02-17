@@ -4,15 +4,15 @@
   padding-top: 18px;
 
   .settingsInfo {
-    width: 696px;
+    width: 100%;
     padding-left: 24px;
     .userInfo {
       padding-top: 30px;
 
       form {
         display: grid;
-        grid-template-columns: repeat(1fr, 2);
-        grid-template-rows: repeat(1fr, 3);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 24px;
         grid-row-gap: 22px;
         input {
@@ -76,20 +76,9 @@
           grid-column: 2/2;
         }
 
-        .primary {
-          margin-left: 24px;
-          margin-top: 31px;
-
-          .resting {
-            width: 148px;
-            margin-left: 12px;
-            padding-right: 15px;
-          }
-        }
-
         .buttons {
           display: flex;
-          padding-top: 100px;
+          padding-top: 60px;
           margin-left: 0;
           app-shared-button {
             margin-right: 15px;

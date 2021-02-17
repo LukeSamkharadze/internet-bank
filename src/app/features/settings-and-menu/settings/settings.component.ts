@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormsModule,
   FormGroup,
@@ -10,6 +10,7 @@ import { FormFields } from '../../shared/interfaces/form.interface';
 import { SettingsFormServiceService } from '../services/settings-form-service.service';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -36,18 +37,7 @@ export class SettingsComponent implements OnInit {
 
     // this.id is NaN so until it is set I will use default Id - 1
 
-    this.http.getUserInfo(1).subscribe((value) => {
-      this.user = value;
-      this.form.patchValue({
-        firstName: this.user.firstName,
-        lastName: this.user.lastName,
-        email: this.user.email,
-        phone: this.user.phone,
-        language: this.user.language,
-        sex: this.user.sex,
-        id: this.user.id,
-      });
-    });
+    this.getUser();
   }
 
   ngOnInit(): void {
@@ -72,19 +62,19 @@ export class SettingsComponent implements OnInit {
   }
 
   submit() {
-    this.user = this.form.value;
-
-    this.http.updateInfo(this.user).subscribe(() => console.log(this.user));
+    if (!this.form.invalid) {
+      this.user = this.form.value;
+      this.http.updateInfo(this.user).subscribe(() => console.log(this.user));
+    }
   }
   reset() {
-    this.form.reset({
-      firstName: this.user.firstName,
-      lastName: this.user.lastName,
-      email: this.user.email,
-      phone: this.user.phone,
-      language: this.user.language,
-      sex: this.user.sex,
-      id: this.user.id,
+    this.form.reset(this.user);
+  }
+
+  getUser() {
+    this.http.getUserInfo(1).subscribe((value) => {
+      this.user = value;
+      this.form.patchValue(this.user);
     });
   }
 }

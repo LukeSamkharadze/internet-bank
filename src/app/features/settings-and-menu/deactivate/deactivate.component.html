@@ -1,0 +1,20 @@
+<div class="background"></div>
+<div class="container">
+  <p>Are you sure you want to delete the account?</p>
+  <div class="buttons">
+    <app-shared-button
+      [className]="{ primary: true, active: true }"
+      style="width: 96px; height: 46px"
+      (click)="confirm.emit()"
+      >Confirm</app-shared-button
+    >
+
+    <app-shared-button
+      [className]="{ primary: true, resting: true }"
+      style="height: 46px; width: 96px"
+      (click)="close.emit()"
+    >
+      CANCEL</app-shared-button
+    >
+  </div>
+</div>

@@ -4,10 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment.prod';
 import { FormFields } from '../../shared/interfaces/form.interface';
-
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class SettingsFormServiceService {
   private URL = environment.URL;
 
@@ -19,5 +16,8 @@ export class SettingsFormServiceService {
 
   updateInfo(form: FormFields): Observable<FormFields> {
     return this.http.put<FormFields>(this.URL + `forms/${form.id}`, form);
+  }
+  deleteUser(id): Observable<string> {
+    return this.http.delete<string>(this.URL + `forms/${id}`);
   }
 }

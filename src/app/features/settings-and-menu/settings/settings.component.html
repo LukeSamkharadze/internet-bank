@@ -18,10 +18,15 @@
     </div>
     <div class="userInfo">
       <form [formGroup]="form" (ngSubmit)="submit()">
-        <div class="input-group">
+        <div>
           <label for="first">First name</label>
-          <div class="input-wrapper">
-            <input formControlName="firstName" id="first" type="text" />
+          <div>
+            <input
+              formControlName="firstName"
+              id="first"
+              type="text"
+              placeholder="Enter your first name"
+            />
             <div
               class="validation"
               *ngIf="
@@ -31,13 +36,21 @@
               <small *ngIf="form.get('firstName').errors.required"
                 >This field is neccessary!</small
               >
+              <small *ngIf="form.get('firstName').hasError('pattern')"
+                >Your first name should contain only letters!</small
+              >
             </div>
           </div>
         </div>
-        <div class="input-group lastName">
+        <div class="lastName">
           <label for="last">Last name</label>
-          <div class="input-wrapper">
-            <input id="last" type="text" formControlName="lastName" />
+          <div>
+            <input
+              id="last"
+              type="text"
+              formControlName="lastName"
+              placeholder="Enter your last name"
+            />
             <div
               class="validation"
               *ngIf="
@@ -47,10 +60,13 @@
               <small *ngIf="form.get('lastName').errors.required"
                 >This field is neccessary!</small
               >
+              <small *ngIf="form.get('lastName').hasError('pattern')"
+                >Your last name should contain only letters!</small
+              >
             </div>
           </div>
         </div>
-        <div class="input-group contact">
+        <div class="contact">
           <label for="email">Email</label>
           <div class="input-wrapper">
             <input
@@ -72,9 +88,9 @@
             </div>
           </div>
         </div>
-        <div class="input-group contact">
+        <div class="contact">
           <label for="phone"> Phone</label>
-          <div class="input-wrapper">
+          <div>
             <input
               id="phone"
               formControlName="phone"
@@ -88,13 +104,13 @@
               <small *ngIf="form.get('phone').errors.required"
                 >This field is neccessary!</small
               >
-              <small *ngIf="form.get('phone').errors.hasError('pattern')"
+              <small *ngIf="form.get('phone').hasError('pattern')"
                 >Incorrect phone number!</small
               >
             </div>
           </div>
         </div>
-        <div class="dropdownContainer input-label">
+        <div class="dropdownContainer">
           <label for="langDropdown">Language</label>
           <div class="dropdown-general">
             <app-shared-dropdown
@@ -106,7 +122,7 @@
             </app-shared-dropdown>
           </div>
         </div>
-        <div class="dropdownContainer input-label">
+        <div class="dropdownContainer">
           <label for="sexDropdown">Sex</label>
           <div class="dropdown-general">
             <app-shared-dropdown
@@ -118,11 +134,10 @@
             </app-shared-dropdown>
           </div>
         </div>
-        <div class="payment-buttons primary buttons">
+        <div class="buttons">
           <app-shared-button
             [className]="{ primary: true, active: true }"
             style="width: 206px; height: 46px"
-            [isDisabled]="form.invalid"
             type="submit"
             >UPDATE SETTINGS</app-shared-button
           >

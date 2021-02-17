@@ -1,5 +1,8 @@
 @import 'src/styles/index';
-
+:host {
+  width: 100%;
+  display: inline-block;
+}
 .settingsAndMenu {
   min-width: 950px;
   width: 95%;
@@ -52,8 +55,19 @@
         }
       }
 
-      a:nth-last-child(1) {
-        margin-top: 492px;
+      button {
+        margin-top: 402px;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: $secondary-dark-1;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        text-transform: capitalize;
+        &:hover {
+          color: $primary-dark;
+        }
       }
     }
   }
