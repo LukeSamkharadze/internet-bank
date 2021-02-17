@@ -1,6 +1,6 @@
 
 ``` TS
-  tabNames = ['Latest News', 'Trending News', 'Most Popular']
+tabNames = ['Latest News', 'Trending News', 'Most Popular']
 ```
 
 ``` HTML
