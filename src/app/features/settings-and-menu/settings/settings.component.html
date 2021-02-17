@@ -18,15 +18,21 @@
     </div>
     <div class="userInfo">
       <form [formGroup]="form" (ngSubmit)="submit()">
-        <div>
+        <div class="input-wrapper">
           <label for="first">First name</label>
           <div>
-            <input
+            <!-- <input
               formControlName="firstName"
               id="first"
               type="text"
               placeholder="Enter your first name"
-            />
+            /> -->
+            <app-shared-input
+              id="first"
+              formControlName="firstName"
+              type="text"
+              placeholder="Enter your first name"
+            ></app-shared-input>
             <div
               class="validation"
               *ngIf="
@@ -45,12 +51,18 @@
         <div class="lastName">
           <label for="last">Last name</label>
           <div>
-            <input
+            <!-- <input
               id="last"
               type="text"
               formControlName="lastName"
               placeholder="Enter your last name"
-            />
+            /> -->
+            <app-shared-input
+              id="last"
+              type="text"
+              formControlName="lastName"
+              placeholder="Enter your last name"
+            ></app-shared-input>
             <div
               class="validation"
               *ngIf="
@@ -66,15 +78,22 @@
             </div>
           </div>
         </div>
-        <div class="contact">
+        <div class="input-wrapper">
           <label for="email">Email</label>
-          <div class="input-wrapper">
-            <input
+          <div>
+            <!-- <input
               id="email"
               type="text"
               formControlName="email"
               placeholder="Enter your email"
-            />
+            /> -->
+            <app-shared-input
+              type="text"
+              id="email"
+              formControlName="email"
+              placeholder="Enter your email"
+            ></app-shared-input>
+
             <div
               class="validation"
               *ngIf="form.get('email').invalid && form.get('email').touched"
@@ -88,15 +107,21 @@
             </div>
           </div>
         </div>
-        <div class="contact">
+        <div class="input-wrapper">
           <label for="phone"> Phone</label>
           <div>
-            <input
+            <!-- <input
               id="phone"
               formControlName="phone"
               type="text"
               placeholder="Enter phone number(5-xxx-xxx)"
-            />
+            /> -->
+            <app-shared-input
+              id="phone"
+              formControlName="phone"
+              placeholder="Enter your phone"
+              type="text"
+            ></app-shared-input>
             <div
               class="validation"
               *ngIf="form.get('phone').invalid && form.get('phone').touched"
@@ -151,7 +176,23 @@
             CANCEL</app-shared-button
           >
         </div>
+        <div class="cancel">
+          <app-shared-button
+            [className]="{ pink: true }"
+            style="height: 46px; width: 200px"
+            type="button"
+            (click)="showContent = true"
+          >
+            <i class="lar la-trash-alt icon"></i> Delete
+            Account</app-shared-button
+          >
+        </div>
       </form>
     </div>
   </div>
 </div>
+<app-deactivate
+  *ngIf="showContent"
+  (closeAccount)="showContent = false"
+  (confirm)="deleteUser(this.user.id)"
+></app-deactivate>

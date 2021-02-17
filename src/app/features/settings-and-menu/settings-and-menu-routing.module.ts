@@ -10,7 +10,8 @@ const routes: Routes = [
     component: SettingsAndMenuComponent,
     children: [
       { path: 'general', component: SettingsComponent },
-
+      { path: '', redirectTo: 'general' },
+      { path: '**', redirectTo: 'general' },
       // enter your paths here
     ],
   },

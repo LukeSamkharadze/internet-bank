@@ -1,6 +1,7 @@
 @import 'src/styles/index';
 .generalSettings {
   max-width: 877px;
+  width: 100%;
   padding-top: 18px;
 
   .settingsInfo {
@@ -15,50 +16,11 @@
         grid-template-rows: repeat(3, 1fr);
         grid-column-gap: 24px;
         grid-row-gap: 22px;
-        input {
-          padding: 19px 14px 15px 14px;
-          display: block;
-          width: 100%;
-          @include text-style(14px);
-          letter-spacing: 0.15px;
-          border-radius: 4px;
-          border: 1px solid $outline;
-          margin-top: 10px;
-          &::-webkit-input-placeholder,
-          &::-ms-input-placeholder,
-          &::placeholder {
-            color: $secondary-dark-2;
-          }
 
-          &:focus,
-          &:active {
-            outline: none;
-          }
-
-          &:disabled {
-            background-color: $background-2;
-            color: $secondary-dark-2;
-          }
-
-          &.ng-touched.validated {
-            &.ng-valid {
-              border-color: $secondary-2;
-            }
-
-            &.ng-invalid {
-              border-color: $secondary-3;
-            }
-
-            &.ng-valid,
-            &.ng-invalid {
-              padding-right: 35px;
-            }
-          }
-        }
         .dropdownContainer {
           .dropdown-general {
             color: $primary-dark;
-            width: 336px;
+            width: 339px;
             .selected {
               margin-top: 10px;
             }
@@ -78,11 +40,16 @@
 
         .buttons {
           display: flex;
-          padding-top: 60px;
-          margin-left: 0;
+          padding: 40px 0px 20px 0px;
           app-shared-button {
             margin-right: 15px;
           }
+        }
+        .cancel {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin-top: 20px;
         }
       }
     }
@@ -94,7 +61,7 @@
       font-weight: 400;
     }
     .userProfile {
-      width: 696px;
+      width: 703px;
       border: 1px solid $outline;
       display: flex;
       align-items: center;

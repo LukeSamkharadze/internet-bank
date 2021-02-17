@@ -114,7 +114,7 @@
       "firstName": "Barry",
       "lastName": "Armstrong",
       "email": "b.armstrong@gmail.com",
-      "phone": "555999111",
+      "phone": "555123456",
       "language": "English",
       "sex": "Male",
       "id": 1
@@ -122,7 +122,7 @@
     {
       "firstName": "John",
       "lastName": "Lennon",
-      "email": "j.lennon@gmail.com",
+      "email": "j.lennon@yahoo.com",
       "phone": "555132211",
       "language": "Russian",
       "sex": "Male",
@@ -131,7 +131,7 @@
     {
       "firstName": "Till",
       "lastName": "Lindemann",
-      "email": "t.lindemann@gmail.com",
+      "email": "t.lindemann@icloud.com",
       "phone": "555666111",
       "language": "Georgian",
       "sex": "Male",

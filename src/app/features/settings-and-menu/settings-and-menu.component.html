@@ -13,12 +13,6 @@
         >Payment limits</a
       >
       <a routerLink="#" routerLinkActive="active">Notifications</a>
-      <button (click)="showContent = true">Close Account</button>
     </div>
   </div>
 </div>
-<app-deactivate
-  *ngIf="showContent"
-  (closeAccount)="showContent = false"
-  (confirm)="deleteUser(this.id)"
-></app-deactivate>

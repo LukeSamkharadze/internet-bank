@@ -4,8 +4,9 @@
   display: inline-block;
 }
 .settingsAndMenu {
-  min-width: 950px;
-  width: 95%;
+  min-width: 1030px;
+  background: #fff;
+  width: 100%;
   border-radius: 5px;
   justify-content: space-between;
   position: relative;
@@ -13,7 +14,9 @@
   font-family: 'Roboto', sans-serif;
 
   .menu {
-    max-width: 262px;
+    width: 100%;
+    background: #fff;
+    max-width: 222px;
     border-left: 1px solid $outline;
     display: flex;
     margin-left: -5px;
@@ -55,20 +58,20 @@
         }
       }
 
-      button {
-        margin-top: 402px;
-        font-weight: 500;
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        color: $secondary-dark-1;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        text-transform: capitalize;
-        &:hover {
-          color: $primary-dark;
-        }
-      }
+      // button {
+      //   margin-top: 402px;
+      //   font-weight: 500;
+      //   font-family: 'Roboto', sans-serif;
+      //   font-size: 14px;
+      //   color: $secondary-dark-1;
+      //   border: none;
+      //   background-color: transparent;
+      //   cursor: pointer;
+      //   text-transform: capitalize;
+      //   &:hover {
+      //     color: $primary-dark;
+      //   }
+      // }
     }
   }
 }

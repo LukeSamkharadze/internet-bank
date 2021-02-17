@@ -1,17 +1,27 @@
+<head>
+  <link rel=“stylesheet”
+  href=“https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css”>
+  <link
+    rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+  />
+</head>
 <div class="background"></div>
 <div class="container">
-  <p>Are you sure you want to delete the account?</p>
+  <h2>Are you sure?</h2>
+  <p>You will not be able to reactivate this account</p>
   <div class="buttons">
     <app-shared-button
-      [className]="{ primary: true, active: true }"
-      style="width: 96px; height: 46px"
+      [className]="{ blue: true }"
+      style="width: 116px; height: 46px"
       (click)="confirm.emit()"
-      >Confirm</app-shared-button
+    >
+      Confirm</app-shared-button
     >
 
     <app-shared-button
       [className]="{ primary: true, resting: true }"
-      style="height: 46px; width: 96px"
+      style="height: 46px; width: 116px"
       (click)="closeAccount.emit()"
     >
       CANCEL</app-shared-button

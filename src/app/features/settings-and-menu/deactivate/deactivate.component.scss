@@ -1,4 +1,5 @@
 @import 'src/styles/index';
+
 .background {
   top: 0;
   right: 0;
@@ -9,25 +10,30 @@
 }
 .container {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 40%;
   transform: translate(-50%, -50%);
   width: 300px;
   height: 200px;
-  background-color: #fff;
+  background-color: crimson;
   display: flex;
   flex-direction: column;
   border-radius: 6px;
-  justify-content: space-between;
 
-  p {
-    font-size: 22px;
+  h2 {
+    font-size: 30px;
     font-weight: 600;
-    color: $primary-dark;
-    width: 200px;
+    color: floralwhite;
+    width: 250px;
     line-height: 30px;
     margin: auto;
     text-align: center;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: floralwhite;
+    font-size: 14px;
   }
   .buttons {
     display: flex;

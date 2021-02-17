@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 import { SettingsFormServiceService } from './services/settings-form-service.service';
+import { SettingsComponent } from './settings/settings.component';
 @Component({
   selector: 'app-settings-and-menu',
   templateUrl: './settings-and-menu.component.html',
@@ -10,13 +12,8 @@ export class SettingsAndMenuComponent implements OnInit {
   // სანამ ბალახაძე დაასრულებს მანამდე default id-ის მნიშვნელობას გამოვიყენებ
 
   id = 1;
-  showContent = false;
+
   constructor(private http: SettingsFormServiceService) {}
 
   ngOnInit() {}
-
-  deleteUser(id) {
-    this.http.deleteUser(id).subscribe();
-    this.showContent = false;
-  }
 }

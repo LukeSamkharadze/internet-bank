@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import {
   FormsModule,
   FormGroup,
@@ -10,6 +10,8 @@ import { FormFields } from '../../shared/interfaces/form.interface';
 import { SettingsFormServiceService } from '../services/settings-form-service.service';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { SettingsAndMenuComponent } from '../settings-and-menu.component';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-settings',
@@ -17,6 +19,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent implements OnInit {
+  @Output() delete = new EventEmitter();
+  showContent = false;
+
   form: FormGroup;
   user: FormFields = {
     firstName: '',
@@ -27,7 +32,7 @@ export class SettingsComponent implements OnInit {
     sex: '',
     id: NaN,
   };
-  id: number;
+  id: 1;
 
   constructor(
     private fb: FormBuilder,
@@ -74,7 +79,13 @@ export class SettingsComponent implements OnInit {
   getUser() {
     this.http.getUserInfo(1).subscribe((value) => {
       this.user = value;
+      console.log(1);
       this.form.patchValue(this.user);
     });
+  }
+  deleteUser(id) {
+    this.showContent = false;
+    this.http.deleteUser(id).subscribe();
+    this.form.reset();
   }
 }
