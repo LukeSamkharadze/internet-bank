@@ -1,6 +1,6 @@
 <main class="grid-container">
   <section class="authentication">
-    <div class="auth-form sign-in-form minor-grid-container">
+    <div class="auth-form recover-form minor-grid-container">
       <div>
         <p>
           <span class="TBC-bold">TBC</span>
@@ -8,13 +8,18 @@
         </p>
       </div>
       <div class="sign-in">
-        <h1>Sign in</h1>
+        <h1>Recover password</h1>
         <p>
           Please sign in to your personal account if you want to use all our
           premium products
         </p>
       </div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" id="login-form">
+      <form
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+        #frm="ngForm"
+        id="authentication-form"
+      >
         <!-- Imported Custom Input 1 -->
         <app-shared-input
           [formControl]="emailFormControl"
@@ -26,32 +31,12 @@
           >Your email</app-shared-input
         >
         <br />
-        <!-- Imported Custom Input 2 -->
-        <app-shared-input
-          [formControl]="passwordFormControl"
-          [inputId]="'password-input'"
-          [type]="'password'"
-          [pattern]="passwordPattern"
-          [placeholder]="'Enter your password'"
-          [isRequired]="true"
-          >Password</app-shared-input
-        >
-
-        <div class="checkbox-flex">
-          <!-- Imported Checkbox -->
-          <app-shared-checkbox
-            [formControl]="rememberMeFormControl"
-            [checked]="true"
-            >Remember me</app-shared-checkbox
-          >
-          <a href="./recover">Recover password</a>
-        </div>
         <!-- Imported Button -->
         <app-shared-button
           class="shared-button"
           [isDisabled]="form.invalid"
           [className]="'primary active'"
-          >Sign In</app-shared-button
+          >Send confirmation</app-shared-button
         >
       </form>
       <div class="auth-form-footer">
