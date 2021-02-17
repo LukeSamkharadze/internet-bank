@@ -1,14 +1,15 @@
 @import './index.scss';
+:host {
+  display: block;
+}
 .tab-content {
   position: relative;
   margin-top: 20px;
-  padding-right: 160px;
-  padding-left: 20px;
-  :host {
-    display: block;
-  }
 }
-
+.tabname {
+  padding-bottom: 18px;
+  white-space: nowrap;
+}
 .active {
   color: black;
 }
@@ -20,7 +21,8 @@
   box-sizing: border-box;
   color: $secondary-dark-1;
   text-decoration: none;
-  padding-left: 23px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-right: 0px;
   margin-top: 17px;
   display: flex;
@@ -42,33 +44,33 @@ p {
   font-family: $roboto;
   font-size: 14px;
   font-weight: 400;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 .tabs {
-  display: flex;
-  height: 59px;
-  width: 617px;
+  width: fit-content;
   :hover {
     color: $primary-dark;
   }
 }
 .lineanimation {
   height: 2px;
-  width: 75px;
+  width: 100%;
   background-color: $primary-dark;
   position: relative;
-  top: 20px;
   display: none;
 }
 
 .paragraph {
-  position: absolute;
-  top: 82px;
-  width: 456px;
-  left: 20px;
+  position: relative;
 }
-
 .underline {
-  width: 293px;
+  width: 90%;
   height: 1px;
   background-color: $background-1;
+}
+#header {
+  width: fit-content;
+  display: flex;
+  height: 58px;
 }

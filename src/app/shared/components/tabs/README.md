@@ -1,23 +1,12 @@
-Pattern:
-<app-shared-tabs [tabElementInput]="['News latest', 'Information ', 'About Us']"
-[tabComponentInput] = "['first', 'second', 'third']">
-<ng-template #first>
-<p>Lorem Ipsum dolor sit amet</p>
-<img src="" alt="image">
 
-  </ng-template>
+``` TS
+tabNames = ['Latest News', 'Trending News', 'Most Popular']
+```
 
-<ng-template #second>
-<button> Hello </button>
-</ng-template>
-
-<ng-template #third>
-<p>
-Simple Text
-</p>
-</ng-template>
+``` HTML
+<app-shared-tabs [tabElementInput]="tabNames"> 
+  <ng-template>First</ng-template>
+  <ng-template>Second</ng-template>
+  <ng-template>Third</ng-template>
 </app-shared-tabs>
-
---Create Array of Tab Names
--- Create ids for ng-template
--- Put your component in the ng-template
+```
