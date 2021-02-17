@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { NewsListComponent } from './news-list.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SingleNewsComponent } from './single-news/single-news.component';
+import { NewsListComponent } from './news-list.component';
+import { NewsSingleArticleComponent } from './news-single-article/news-single-article.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'article',
-    component: SingleNewsComponent,
+    component: NewsSingleArticleComponent,
   },
 ];
 

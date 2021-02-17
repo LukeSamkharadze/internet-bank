@@ -16,11 +16,12 @@
     height: 96px;
     background: $outline;
     text-align: left;
-
+    border-radius: 2px;
     img {
       width: inherit;
       height: inherit;
       object-fit: cover;
+      border-radius: 2px;
     }
   }
 
@@ -58,7 +59,6 @@
       letter-spacing: normal;
       font-weight: 400;
       line-height: 21px;
-
       i {
         font-size: 16px;
         padding: 0 4px 0 15px;

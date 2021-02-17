@@ -4,12 +4,18 @@ import { NewsListComponent } from './news-list.component';
 import { NewsItemComponent } from './news-item/news-item.component';
 import { FeaturesSharedModule } from '../shared/features-shared.module';
 import { NewsListRoutingModule } from './news-list-routing.module';
-import { SingleNewsComponent } from './single-news/single-news.component';
+import { NewsSingleArticleComponent } from './news-single-article/news-single-article.component';
+import { NewsItemListComponent } from './news-item-list/news-item-list.component';
 
 @NgModule({
-  declarations: [NewsListComponent, NewsItemComponent, SingleNewsComponent],
+  declarations: [
+    NewsListComponent,
+    NewsItemComponent,
+    NewsSingleArticleComponent,
+    NewsItemListComponent,
+  ],
   imports: [SharedModule, FeaturesSharedModule, NewsListRoutingModule],
   providers: [],
-  exports: [NewsListComponent, SingleNewsComponent],
+  exports: [NewsListComponent, NewsSingleArticleComponent],
 })
 export class NewsListModule {}
