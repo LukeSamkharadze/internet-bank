@@ -1,10 +1,10 @@
 @import './index.scss';
+:host {
+  display: block;
+}
 .tab-content {
   position: relative;
   margin-top: 20px;
-  :host {
-    display: block;
-  }
 }
 .tabname {
   padding-bottom: 18px;
@@ -21,7 +21,8 @@
   box-sizing: border-box;
   color: $secondary-dark-1;
   text-decoration: none;
-  padding-left: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-right: 0px;
   margin-top: 17px;
   display: flex;
@@ -43,7 +44,8 @@ p {
   font-family: $roboto;
   font-size: 14px;
   font-weight: 400;
-  padding: 20px;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 .tabs {
   width: fit-content;
