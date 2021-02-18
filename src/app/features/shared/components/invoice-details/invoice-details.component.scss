@@ -38,6 +38,7 @@
       position: absolute;
       right: 22px;
       top: 34px;
+      cursor: pointer;
     }
     .details-left {
       background-color: rgba(255, 171, 43, 0.05);
@@ -60,6 +61,8 @@
           line-height: 22px;
           @include text-style(14px);
           letter-spacing: 0px;
+          max-width: 100%;
+          word-break: break-all;
         }
       }
       .invoice-date {
