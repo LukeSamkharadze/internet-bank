@@ -1,0 +1,9 @@
+<div class="icon-container">
+  <div [class]="'icon ' + color">
+    <ng-content></ng-content>
+  </div>
+</div>
+<div *ngFor="let item of info">
+  <p class="primary">{{ item.value }}</p>
+  <p class="secondary">{{ item.title }}</p>
+</div>
