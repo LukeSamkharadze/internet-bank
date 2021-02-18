@@ -1,24 +1,24 @@
 <div class="payment-providers">
   <header>
     <h5>Payment providers</h5>
-    <form class="find-provider">
+    <form class="find-provider" [formGroup]="form">
       <label for="find-provider-input"><i class="las la-search"></i></label>
       <input
         name="search"
         type="text"
         id="find-provider-input"
         placeholder="FIND PROVIDER"
-        [(ngModel)]="userInput"
+        formControlName="search"
       />
     </form>
   </header>
   <div class="providers-list">
     <div
-      (click)="userInput = ''"
+      (click)="paymentClicked()"
       routerLink="{{ paymentType.formPath }}"
       routerLinkActive="selected-provider"
       class="provider-wrapper"
-      *ngFor="let paymentType of allPaymentTypes | search: userInput"
+      *ngFor="let paymentType of allPaymentTypes$ | async"
     >
       <div class="provider">
         <div class="icon-wrapper">

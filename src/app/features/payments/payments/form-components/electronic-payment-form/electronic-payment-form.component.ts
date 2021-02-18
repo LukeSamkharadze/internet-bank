@@ -26,7 +26,7 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
   title = 'Online payment';
   form: FormGroup;
   currentUsersCards = this.transferService.currentUsersCards$;
-  paymentSystems = this.providersService.getElectronicPaymentProviders();
+  paymentSystems$ = this.providersService.getElectronicPaymentProviders();
   private subscriptions = new Subscription();
 
   constructor(

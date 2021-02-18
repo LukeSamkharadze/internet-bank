@@ -112,5 +112,38 @@
       "id": 3,
       "iconPath": "./assets/create-card/mastercard.svg"
     }
+  ],
+  "paymentTypes": [
+    {
+      "name": "Electronic Payments",
+      "providers": [
+        {
+          "title": "Paypal",
+          "iconPath": "./assets/electronic-payments/PayPal.svg"
+        },
+        {
+          "title": "Skrill",
+          "iconPath": "./assets/electronic-payments/Skrill_logo.svg"
+        },
+        {
+          "title": "Payoneer",
+          "iconPath": "./assets/electronic-payments/Payoneer_logo.svg"
+        }
+      ],
+      "icon": "las la-credit-card",
+      "formPath": "electronic-payment"
+    },
+    {
+      "name": "Bank Transfer",
+      "providers": [{ "title": "TBC" }],
+      "icon": "las la-piggy-bank",
+      "formPath": "bank-transfer"
+    },
+    {
+      "name": "Instant Transfer",
+      "providers": [{ "title": "Visa" }, { "title": "Mastercard" }],
+      "icon": "las la-cart-plus",
+      "formPath": "instant-transfer"
+    }
   ]
 }

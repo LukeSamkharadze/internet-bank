@@ -1,47 +1,43 @@
 import { Injectable } from '@angular/core';
 import { PaymentType } from '../models/paymentType.entity';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
+import { from, Observable } from 'rxjs';
+import { filter, map, switchMap, toArray } from 'rxjs/operators';
 
 @Injectable()
 export class ProvidersService {
-  private paymentTypes: PaymentType[] = [
-    {
-      name: 'Electronic Payments',
-      providers: [
-        {
-          title: 'Paypal',
-          iconPath: './assets/electronic-payments/PayPal.svg',
-        },
-        {
-          title: 'Skrill',
-          iconPath: './assets/electronic-payments/Skrill_logo.svg',
-        },
-        {
-          title: 'Payoneer',
-          iconPath: './assets/electronic-payments/Payoneer_logo.svg',
-        },
-      ],
-      icon: 'las la-credit-card',
-      formPath: 'electronic-payment',
-    },
-    {
-      name: 'Bank Transfer',
-      providers: [{ title: 'TBC' }],
-      icon: 'las la-piggy-bank',
-      formPath: 'bank-transfer',
-    },
-    {
-      name: 'Instant Transfer',
-      providers: [{ title: 'Visa' }, { title: 'Mastercard' }],
-      icon: 'las la-cart-plus',
-      formPath: 'instant-transfer',
-    },
-  ];
+  constructor(private http: HttpClient) {}
 
-  getAllPaymentTypes(): PaymentType[] {
-    return this.paymentTypes;
+  getPaymentTypes(userFilter: string = ''): Observable<PaymentType[]> {
+    return this.http.get<PaymentType[]>(environment.URL + 'paymentTypes').pipe(
+      switchMap((data) => from(data)),
+      filter((data: PaymentType) => {
+        for (const provider of data.providers) {
+          if (
+            provider.title
+              .toLowerCase()
+              .indexOf(userFilter.toLocaleLowerCase()) >= 0
+          ) {
+            return true;
+          }
+        }
+      }),
+      toArray()
+    );
   }
 
-  getElectronicPaymentProviders(): { title: string; iconPath?: string }[] {
-    return this.paymentTypes[0].providers;
+  getElectronicPaymentProviders(): Observable<
+    { title: string; iconPath?: string }[]
+  > {
+    return this.http.get<PaymentType[]>(environment.URL + 'paymentTypes').pipe(
+      switchMap((data) => from(data)),
+      filter((data: PaymentType) => {
+        if (data.name === 'Electronic Payments') {
+          return true;
+        }
+      }),
+      map((data) => data.providers)
+    );
   }
 }
