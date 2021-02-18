@@ -15,4 +15,9 @@ export class NewsItemComponent {
   showPlacehoderImg() {
     this.imgSrc = '../../../../assets/news-list/placeholder-img.png';
   }
+
+  // open article in a new window
+  openNewsArticle() {
+    window.open(this.articleUrl, '_blank');
+  }
 }

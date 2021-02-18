@@ -3,18 +3,13 @@ import { SharedModule } from '@shared/shared';
 import { NewsComponent } from './news.component';
 import { NewsItemComponent } from './news-item/news-item.component';
 import { FeaturesSharedModule } from '../shared/features-shared.module';
-import { NewsListRoutingModule } from './news-routing.module';
-import { NewsArticleComponent } from './news-article/news-article.component';
 import { NewsListComponent } from './news-list/news-list.component';
+import { NewsService } from './services/news.service';
 
 @NgModule({
-  declarations: [
-    NewsComponent,
-    NewsItemComponent,
-    NewsArticleComponent,
-    NewsListComponent,
-  ],
-  imports: [SharedModule, FeaturesSharedModule, NewsListRoutingModule],
-  exports: [NewsComponent, NewsArticleComponent],
+  declarations: [NewsComponent, NewsItemComponent, NewsListComponent],
+  imports: [SharedModule, FeaturesSharedModule],
+  providers: [NewsService],
+  exports: [NewsComponent],
 })
-export class NewsListModule {}
+export class NewsModule {}

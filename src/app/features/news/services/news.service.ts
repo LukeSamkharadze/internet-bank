@@ -17,7 +17,7 @@ export class NewsService {
   numberOfNews = 5;
   article: NewsItem;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
     this.getMoreNews = new BehaviorSubject<number>(this.numberOfNews);
     const newsNumberController = this.getMoreNews.pipe(
       scan((previous, current) => previous + current)
@@ -36,11 +36,5 @@ export class NewsService {
     // another apiKey: 2370d68f7865460280f4eb4f61e4fcba
     const url = `${environment.NewsApiUrl}/${sortBy}&language=en&pageSize=${numOfNews}&apiKey=4d79b03f861e401482765e7950a1b96a`;
     return this.http.get<NewsResponse>(url);
-  }
-
-  // redirect to the single news page
-  goToSingleNews(article: NewsItem) {
-    this.article = article;
-    this.router.navigate(['news/article']);
   }
 }
