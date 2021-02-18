@@ -20,6 +20,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'accounts-list',
+        loadChildren: () =>
+          import('./features/accounts-list/accounts-list.module').then(
+            (m) => m.AccountsListModule
+          ),
+      },
+      {
         path: 'list',
         loadChildren: () =>
           import('./features/list/list.module').then((m) => m.ListModule),
