@@ -97,7 +97,7 @@ export class TransferService {
     return this.http.put(environment.URL + `cards/${card.id}`, card);
   }
 
-  getCardByCardNumber(cardNumber: number) {
+  getCardByCardNumber(cardNumber: string) {
     return this.http.get<ICard[]>(
       environment.URL + `cards?cardNumber=${cardNumber}`
     );
