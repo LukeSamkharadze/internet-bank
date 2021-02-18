@@ -1,0 +1,18 @@
+@import './index.scss';
+
+:host {
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 17px;
+  width: 100%;
+  height: 100%;
+  padding: 28px 28px 30px 28px;
+}
+
+.charts-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 25px;
+  row-gap: 10px;
+}
