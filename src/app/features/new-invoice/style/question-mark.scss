@@ -1,0 +1,12 @@
+.question-mark:after {
+  content: '?';
+  display: inline-block;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 0.8em;
+  border-radius: 5px;
+  margin-left: 6px;
+  padding: 0.13em 0.2em 0.09em 0.2em;
+  color: $secondary-dark-1;
+  border: 2px solid;
+}

@@ -10,6 +10,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'new-invoice',
+    loadChildren: () =>
+      import('./features/new-invoice/new-invoice.module').then(
+        (m) => m.NewInvoiceModule
+      ),
+  },
+  {
     path: 'list',
     loadChildren: () =>
       import('./features/list/list.module').then((m) => m.ListModule),

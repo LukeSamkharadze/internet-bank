@@ -1,0 +1,231 @@
+<section class="main-container">
+  <div class="form">
+    <div class="question-mark-wrapper">
+      <div class="question-mark"></div>
+      <p class="preview">PREVIEW</p>
+    </div>
+    <form [formGroup]="form">
+      <p class="form-split"><span>Details</span></p>
+
+      <!-- Tamplate -->
+      <label class="dropdown-label" for="invoice-tamplate"
+        ><p>Tamplate</p>
+        <span
+          *ngIf="
+            form.controls['tamplate'].errors?.required &&
+            form.controls['tamplate'].touched
+          "
+          ><b class="dropdown-b">required</b></span
+        >
+      </label>
+
+      <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown':
+            form.controls['tamplate'].errors?.required &&
+            form.controls['tamplate'].touched,
+          'valid-dropdown': !form.controls['tamplate'].errors
+        }"
+        style="width: 100%"
+        formControlName="tamplate"
+        placeholder="Select Tamplate"
+        [options]="templateOptions"
+      >
+      </app-shared-dropdown>
+
+      <div class="flex-container">
+        <!-- invoice Number -->
+        <app-shared-input
+          inputId="invoice-number"
+          [type]="'number'"
+          formControlName="invoiceNumber"
+          placeholder="Enter Number"
+          style="width: 435px; margin-right: 1px; height: 56px"
+        >
+          Invoice Number
+          <span
+            *ngIf="
+              form.controls['invoiceNumber'].errors?.required &&
+              form.controls['invoiceNumber'].touched
+            "
+            ><b>required</b>
+          </span>
+        </app-shared-input>
+
+        <!-- Due Date -->
+
+        <app-shared-input
+          inputId="due-date"
+          [type]="'date'"
+          formControlName="dueDate"
+          placeholder="Select Date"
+          style="width: 435px"
+        >
+          Due Date
+          <span
+            *ngIf="
+              form.controls['dueDate'].errors?.required &&
+              form.controls['dueDate'].touched
+            "
+            ><b>required</b>
+          </span>
+        </app-shared-input>
+      </div>
+
+      <div class="flex-container">
+        <!-- Company Name -->
+        <app-shared-input
+          inputId="company-name"
+          formControlName="companyName"
+          placeholder="Enter Name"
+          style="width: 435px; margin-right: 1px"
+        >
+          Company Name
+          <span
+            *ngIf="
+              form.controls['companyName'].errors?.required &&
+              form.controls['companyName'].touched
+            "
+            ><b>required</b>
+          </span>
+        </app-shared-input>
+
+        <!-- Email -->
+
+        <app-shared-input
+          inputId="contanct-email"
+          [type]="'email'"
+          formControlName="contanctEmail"
+          placeholder="Enter Email"
+          style="width: 435px"
+        >
+          Contanct Email
+          <span
+            *ngIf="
+              form.controls['contanctEmail'].errors?.required &&
+              form.controls['contanctEmail'].touched
+            "
+            ><b>required</b>
+          </span>
+          <span
+            *ngIf="
+              form.controls['contanctEmail'].errors?.pattern &&
+              form.controls['contanctEmail'].touched
+            "
+            ><b>shued be email</b>
+          </span>
+        </app-shared-input>
+      </div>
+      <!-- Address -->
+
+      <div class="address-input-wrapper">
+        <app-shared-input
+          inputId="address"
+          formControlName="address"
+          placeholder="Enter billing address"
+          style="width: 880px"
+        >
+          Address
+          <span
+            *ngIf="
+              form.controls['address'].errors?.required &&
+              form.controls['address'].touched
+            "
+            ><b>required</b>
+          </span>
+        </app-shared-input>
+      </div>
+
+      <p class="form-split"><span>Products list</span></p>
+
+      <div class="flex-container">
+        <!-- Item Description -->
+        <app-shared-input
+          inputId="item-description"
+          formControlName="itemDescription"
+          placeholder="Enter billing address"
+          style="width: 440px"
+        >
+          Item description
+          <span
+            *ngIf="
+              form.controls['itemDescription'].errors?.required &&
+              form.controls['itemDescription'].touched
+            "
+            ><b>required</b>
+          </span>
+        </app-shared-input>
+        <div>
+          <!-- Item Qty -->
+
+          <label class="dropdown-label last" for="item-qty"
+            ><p>Item Qty</p>
+            <span
+              *ngIf="
+                form.controls['itemQty'].errors?.required &&
+                form.controls['itemQty'].touched
+              "
+              ><b class="dropdown-b">required</b></span
+            >
+          </label>
+          <app-shared-dropdown
+            id="item-qty"
+            [ngClass]="{
+              'invalid-dropdown':
+                form.controls['itemQty'].errors?.required &&
+                form.controls['itemQty'].touched,
+              'valid-dropdown': !form.controls['itemQty'].errors
+            }"
+            style="width: 210px"
+            formControlName="itemQty"
+            placeholder="Select amount"
+            [options]="itemQtyOptions"
+          >
+          </app-shared-dropdown>
+        </div>
+
+        <!-- Price -->
+        <app-shared-input
+          inputId="price"
+          [type]="'number'"
+          formControlName="price"
+          placeholder="Enter price"
+          style="width: 210px"
+        >
+          Price
+          <span
+            *ngIf="
+              form.controls['price'].errors?.required &&
+              form.controls['price'].touched
+            "
+            ><b>required</b>
+          </span>
+        </app-shared-input>
+      </div>
+    </form>
+    <div class="question-mark-wrapper bottom">
+      <div class="question-mark"></div>
+      <p class="preview">ADD NEW ITAM</p>
+    </div>
+  </div>
+
+  <div class="side-info">
+    <app-side-info></app-side-info>
+    <div class="buttons">
+      <app-shared-button
+        [className]="{ primary: true, active: true }"
+        style="width: 150px; height: 49px"
+        [isDisabled]="!form.valid"
+        (clicked)="onSubmit()"
+        >send invoice
+      </app-shared-button>
+
+      <app-shared-button
+        [className]="{ primary: true, resting: true }"
+        style="width: 150px; height: 49px"
+        (clicked)="onCencel()"
+        >cencel
+      </app-shared-button>
+    </div>
+  </div>
+</section>

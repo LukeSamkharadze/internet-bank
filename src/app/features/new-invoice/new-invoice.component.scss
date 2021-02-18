@@ -1,0 +1,111 @@
+@import 'src/styles/index';
+@import './style/question-mark.scss';
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-container {
+  width: 97%;
+  height: 718px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 2px;
+  @extend .flex;
+}
+
+.flex-container {
+  @extend .flex;
+}
+
+.form {
+  width: 70%;
+  margin-left: 20px;
+  min-width: 600px;
+  padding-right: 20px;
+}
+.side-info {
+  width: 350px;
+  min-width: 350px;
+  background-color: $background-2;
+}
+
+.question-mark-wrapper {
+  width: 90px;
+  @extend .flex;
+  padding-top: 20px;
+  &.bottom {
+    width: 125px;
+  }
+}
+
+.preview {
+  font-size: 12px;
+  color: $secondary-dark-1;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.form-split {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid $primary;
+  line-height: 0.1em;
+  margin: 40px 0 25px;
+  span {
+    background: #fff;
+    padding: 0 10px;
+    color: $primary;
+  }
+}
+
+app-shared-dropdown {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 9px;
+  height: 55px;
+  &.invalid-dropdown {
+    border-color: $secondary-3;
+  }
+  &.valid-dropdown {
+    border-color: $secondary-2;
+  }
+}
+
+.dropdown-label p {
+  font-weight: 300;
+  color: $primary-dark;
+  margin-top: 10px;
+  display: inline-block;
+}
+b {
+  color: $secondary-3;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+.dropdown-b {
+  float: right;
+  position: relative;
+  margin-top: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+app-shared-input {
+  position: relative;
+  margin-top: 10px;
+}
+
+.address-input-wrapper {
+  display: flex;
+}
+app-shared-button {
+  margin-right: 10px;
+}
+
+.buttons {
+  padding-left: 20px;
+}
