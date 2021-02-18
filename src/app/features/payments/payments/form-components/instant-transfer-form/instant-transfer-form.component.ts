@@ -27,7 +27,7 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
       destinationAccountNumber: new FormControl('', Validators.required),
-      amount: new FormControl('', Validators.required),
+      amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
       transferType: new FormControl('', Validators.required),
     });
   }

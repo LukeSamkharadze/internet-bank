@@ -8,7 +8,6 @@ import { ElectronicPaymentFormComponent } from './payments/form-components/elect
 import { BankTransferFormComponent } from './payments/form-components/bank-transfer-form/bank-transfer-form.component';
 import { InstantTransferFormComponent } from './payments/form-components/instant-transfer-form/instant-transfer-form.component';
 import { SearchPipe } from './pipes/search.pipe';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared';
 import { TransferService } from './services/transfer.service';
 
@@ -21,13 +20,7 @@ import { TransferService } from './services/transfer.service';
     InstantTransferFormComponent,
     SearchPipe,
   ],
-  imports: [
-    CommonModule,
-    PaymentsRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule,
-  ],
+  imports: [CommonModule, PaymentsRoutingModule, SharedModule],
   exports: [PaymentsComponent],
   providers: [ProvidersService, TransferService],
 })

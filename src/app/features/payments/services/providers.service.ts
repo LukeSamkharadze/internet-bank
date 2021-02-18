@@ -26,7 +26,7 @@ export class ProvidersService {
     {
       name: 'Bank Transfer',
       providers: [{ title: 'TBC' }],
-      icon: '',
+      icon: 'las la-piggy-bank',
       formPath: 'bank-transfer',
     },
     {

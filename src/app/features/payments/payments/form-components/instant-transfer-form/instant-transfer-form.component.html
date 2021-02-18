@@ -63,6 +63,9 @@
           [@errorTrigger]
           *ngIf="amount.hasError('required') && amount.touched"
           >*required*</span
+        >
+        <span [@errorTrigger] *ngIf="amount.hasError('min') && amount.touched"
+          >*too low*</span
         ></label
       >
       <app-shared-input

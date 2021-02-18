@@ -32,7 +32,7 @@ export class BankTransferFormComponent implements OnInit, OnDestroy {
         Validators.required,
         Validators.pattern('^[a-zA-Z\\s]*$'),
       ]),
-      amount: new FormControl('', Validators.required),
+      amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
       currency: new FormControl('', Validators.required),
       transferType: new FormControl('', Validators.required),
     });

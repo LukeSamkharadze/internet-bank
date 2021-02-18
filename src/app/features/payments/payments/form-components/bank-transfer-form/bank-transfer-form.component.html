@@ -27,7 +27,6 @@
           'invalid-dropdown': fromAccount.errors && fromAccount.touched,
           'valid-dropdown': !fromAccount.errors
         }"
-        style="width: 100%"
         formControlName="fromAccount"
         placeholder="Please Select acc"
         [options]="currentUsersCards | async"
@@ -84,6 +83,9 @@
           [@errorTrigger]
           *ngIf="amount.hasError('required') && amount.touched"
           >*required*</span
+        >
+        <span [@errorTrigger] *ngIf="amount.hasError('min') && amount.touched"
+          >*too low*</span
         ></label
       >
       <app-shared-input

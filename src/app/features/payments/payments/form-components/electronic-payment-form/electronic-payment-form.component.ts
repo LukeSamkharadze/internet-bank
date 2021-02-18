@@ -41,7 +41,7 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
         Validators.required,
         Validators.email,
       ]),
-      amount: new FormControl('', Validators.required),
+      amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
       currency: new FormControl('', Validators.required),
     });
   }
