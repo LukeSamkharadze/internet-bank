@@ -1,0 +1,202 @@
+@import './index.scss';
+@mixin heading($line-height: 20px) {
+  line-height: $line-height;
+  color: $primary-dark;
+  font-weight: 500;
+}
+.popup-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(2.5px);
+  background: rgba(0, 0, 0, 0.6);
+}
+.details-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  overflow-y: auto;
+  max-height: 100%;
+  .details-container {
+    width: 750px;
+    border-radius: 4px;
+    min-width: 750px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 292px auto;
+    position: relative;
+    i {
+      color: $secondary-dark-1;
+      font-size: 18px;
+    }
+    .close {
+      position: absolute;
+      right: 22px;
+      top: 34px;
+    }
+    .details-left {
+      background-color: rgba(255, 171, 43, 0.05);
+      width: 100%;
+      position: relative;
+      padding: 24px 30px 20px 25px;
+      display: grid;
+      grid-template-rows: 1fr 3fr 1fr 1fr auto;
+      .tag {
+        position: absolute;
+        right: 23px;
+        top: 24px;
+      }
+      .invoice-num {
+        margin-bottom: 44px;
+      }
+      .address {
+        margin-top: 15px;
+        p {
+          line-height: 22px;
+          @include text-style(14px);
+          letter-spacing: 0px;
+        }
+      }
+      .invoice-date {
+        margin-top: 20px;
+        h5 {
+          @include heading();
+        }
+      }
+      .invoice-due {
+        margin-top: 5px;
+        h5 {
+          @include heading();
+        }
+      }
+      .print-receipt {
+        p {
+          display: inline-block;
+          padding-left: 7px;
+          font-size: 12px;
+        }
+        p,
+        i {
+          cursor: pointer;
+        }
+      }
+    }
+    .details-right {
+      padding-top: 118px;
+      .inv-content-container {
+        width: 420px;
+        max-height: 291px;
+        overflow-y: auto;
+        margin: auto;
+      }
+      //sxvadasxva width akvs am or divs imitom rom scrollbari tables marjvniv gamochndes
+      .invoice-content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 395px;
+        height: 100%;
+        margin: auto;
+        .inv-row {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 55% 59px 59px 59px;
+          padding: 15.5px 0px 15px 0px;
+          border-bottom: 1px dashed $outline;
+          p {
+            text-align: right;
+            color: $primary-dark;
+          }
+          .inv-desc {
+            text-align: left;
+          }
+        }
+        .inv-heading {
+          padding: 0px 0px 6px 0px;
+          border-style: solid;
+          p {
+            color: $secondary-dark-2;
+          }
+        }
+      }
+      .invoice-total {
+        display: flex;
+        flex-direction: column;
+        width: 172px;
+        height: 160px;
+        margin-top: 5%;
+        margin-left: 56%;
+        position: relative;
+        .title {
+          color: $secondary-dark-2;
+        }
+        .amount,
+        .total-amount {
+          color: $primary-dark;
+        }
+        .title,
+        .amount,
+        .total-amount,
+        .total-title {
+          display: inline-block;
+        }
+        .inv-total-row {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+        .inv-total-foot {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 94%;
+          .total-title {
+            @include text-style(16px);
+          }
+          .total-amount {
+            @include text-style(18px);
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+@media print {
+  .popup-blur {
+    background-color: white;
+  }
+  .details-popup {
+    position: fixed;
+    left: 50%;
+    top: 33.3%;
+    transform: translate(-50%, -50%);
+    .details-container {
+      height: 420mm;
+      width: 290mm;
+      .details-right {
+        .inv-content-container {
+          padding-top: 150px;
+          max-height: auto;
+          overflow-y: visible;
+        }
+        .invoice-total {
+          position: fixed;
+          right: 2mm;
+          bottom: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+  i,
+  .print-receipt {
+    visibility: hidden;
+  }
+}
