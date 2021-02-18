@@ -23,7 +23,7 @@
   overflow-y: auto;
   max-height: 100%;
   .details-container {
-    width: 750px;
+    width: 100%;
     border-radius: 4px;
     min-width: 750px;
     background-color: white;
@@ -63,6 +63,10 @@
           letter-spacing: 0px;
           max-width: 100%;
           word-break: break-all;
+        }
+        p:not(:last-child) {
+          border-bottom: 1px solid rgba(255, 171, 43, 0.25);
+          padding: 1px 0px 1px 0px;
         }
       }
       .invoice-date {
