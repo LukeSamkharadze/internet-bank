@@ -16,7 +16,7 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
 
   getAll(): Observable<IDeposit[]> {
     return this.http
-      .get<IDeposit[]>(`${environment.URL}deposits`)
+      .get<IDeposit[]>(`${environment.BaseUrl}deposits`)
       .pipe(retry(1));
   }
 
