@@ -141,9 +141,71 @@
     },
     {
       "name": "Instant Transfer",
-      "providers": [{ "title": "Visa" }, { "title": "Mastercard" }],
+      "providers": [
+        {
+          "title": "Visa"
+        },
+        {
+          "title": "Mastercard"
+        }
+      ],
       "icon": "las la-cart-plus",
       "formPath": "instant-transfer"
+    }
+  ],
+  "deposits": [
+    {
+      "id": 0,
+      "depositName": "Cumulative deposit",
+      "accountNumber": "UK64CT00000000000010034567",
+      "depositRate": 0.05,
+      "startDate": "20.06.2018",
+      "expirationDate": "20.06.2022",
+      "availableAmount": 56400,
+      "accuredInterest": 1640,
+      "balance": 56400,
+      "accured": 640
+    }
+  ],
+  "loans": [
+    {
+      "id": 0,
+      "loanName": "Mortgage loan",
+      "accountNumber": "UK64CT00000000000010034567",
+      "loanRate": 0.14,
+      "startDate": "20.06.2018",
+      "expirationDate": "20.06.2022",
+      "balance": 84800,
+      "paid": 24800,
+      "blocked": true
+    },
+    {
+      "id": 1,
+      "loanName": "Consumer loan",
+      "accountNumber": "UK64CT00000000000010035931",
+      "loanRate": 0.18,
+      "startDate": "20.06.2018",
+      "expirationDate": "20.06.2022",
+      "balance": 66400,
+      "paid": 650,
+      "blocked": false
+    }
+  ],
+  "charts": [
+    {
+      "id": 1,
+      "name": "Cards balance",
+      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
+    },
+    {
+      "id": 2,
+      "name": "Deposit (3% Rate)",
+      "data": [35250, 38070, 39480, 40890, 38070, 49350, 56400]
+    },
+    {
+      "id": 3,
+      "name": "Pending credit",
+      "data": [41300, 28910, 16520, 28910, 24800]
     }
   ]
 }

@@ -1,0 +1,21 @@
+<ng-template #iconTemplate>
+  <i class="lar la-credit-card"></i>
+</ng-template>
+
+<div class="list">
+  <div class="header">
+    <p class="name">Your cards</p>
+    <p class="new"><i class="las la-plus-circle"></i>New cart</p>
+  </div>
+  <div class="items">
+    <app-accounts-list-item
+      *ngFor="let card of cards"
+      [info]="infoService.cardToInfo(card)"
+      [class.blocked]="card.blocked"
+      ><img
+        *ngIf="getSrc(card); else iconTemplate"
+        [src]="getSrc(card)"
+        [alt]="card.cardName"
+    /></app-accounts-list-item>
+  </div>
+</div>
