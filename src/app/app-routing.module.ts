@@ -4,10 +4,9 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { IsLoggedInGuard } from './features/shared/guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './features/shared/guards/is-logged-out.guard';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { LoginComponent } from './features/authentication/login/login.component';
 
 const routes: Routes = [
-  // All Other Paths
+  // Dashboard Paths
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -30,14 +29,13 @@ const routes: Routes = [
   // Authentication Paths
   {
     path: '',
-    component: LoginComponent,
+    canActivate: [IsLoggedOutGuard],
     loadChildren: () =>
       import('./features/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
-    canActivate: [IsLoggedOutGuard],
   },
-
+  // All Other Paths
   {
     path: '**',
     component: PageNotFoundComponent,

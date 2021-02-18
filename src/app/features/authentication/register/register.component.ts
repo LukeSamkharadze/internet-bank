@@ -11,13 +11,9 @@ import { UserService } from '../../shared/services/user.service';
   styleUrls: ['../authentication.component.scss', './register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  // Fullname requirements: Only Latin letters and symbols (,.'-).
-  fullnamePattern = /^[^\s]+( [^\s]+)+$/;
-  // Email requirements: any valid email patern 'x@x.xx'.
-  emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  // Password requirements: min 8 characters, numbers or symbols. Max 30 characters, numbers or symbols.
-  passwordPattern = /^[A-Za-z\d#$@!%&*?]{8,30}$/;
-  uniqueEmail: boolean;
+  fullnamePattern = this.authService.fullnamePattern;
+  emailPattern = this.authService.emailPattern;
+  passwordPattern = this.authService.passwordPattern;
 
   form: FormGroup = new FormGroup({
     fullname: new FormControl(''),
@@ -56,11 +52,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.uniqueEmail = this.authService.checkEmailUniqueness(
-      this.emailFormControl.value
-    );
-
-    if (this.uniqueEmail) {
+    // Check if input email is unique
+    if (this.authService.checkEmailUniqueness(this.emailFormControl.value)) {
       this.makeFullnameUpperCase();
 
       // User Form Value Destructuring (excludes 'terms' input)
@@ -72,7 +65,7 @@ export class RegisterComponent implements OnInit {
         .pipe(finalize(() => this.form.reset()))
         .subscribe();
 
-      // Wait 1 sec after succesful registration and redirect to 'Login'
+      // Wait 1 sec after successful registration and redirect to 'Login'
       setTimeout(() => {
         this.router.navigate(['/login']);
       }, 1000);

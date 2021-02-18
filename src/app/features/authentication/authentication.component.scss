@@ -7,7 +7,6 @@
   min-width: 1024px;
   height: 900px;
   margin: 0 auto;
-  // background: palegreen;
 
   .authentication {
     display: flex;
@@ -75,7 +74,56 @@
         .active {
           width: 100%;
         }
+
+        // Show input tooltip on hover
+        .input-container {
+          position: relative;
+
+          .input-tooltip {
+            display: none;
+            align-items: center;
+            position: absolute;
+            padding: 0 8px;
+            border-radius: 3px;
+            bottom: 0;
+            left: 103%;
+            width: fit-content;
+            height: 52.63px;
+            background: #292a2d;
+            user-select: none;
+
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              right: 100%;
+              margin-top: -8px;
+              border-width: 8px;
+              border-style: solid;
+              border-color: transparent #292a2d transparent transparent;
+            }
+
+            .la-info-circle {
+              color: #c4c2c2;
+              padding-right: 4px;
+            }
+
+            span {
+              color: #c4c2c2;
+              font-family: $roboto;
+              font-size: 14px;
+              font-weight: 300;
+              font-style: italic;
+              line-height: 17px;
+            }
+          }
+
+          &:hover .input-tooltip {
+            display: flex;
+          }
+        }
       }
+
       // Imported buttong styling
       .shared-button {
         width: 100%;
@@ -100,7 +148,6 @@
 
   .img-bg {
     background-size: cover;
-    // სურათის ბმული განკუთვნილია 1 დონით გარე სტილისთვის მისამართისთვის
     background-image: url(../../../assets/authentication/auth-sidebar-img.webp);
     background-repeat: no-repeat;
     background-position: center center;

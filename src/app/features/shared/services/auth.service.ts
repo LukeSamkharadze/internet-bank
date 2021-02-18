@@ -8,7 +8,12 @@ import { UserService } from './user.service';
   providedIn: 'root',
 })
 export class AuthService {
-  [x: string]: any;
+  // Fullname requirements: Only Latin letters and symbols (,.'-).
+  fullnamePattern = /^[^\s]+( [^\s]+)+$/;
+  // Email requirements: any valid email patern 'x@x.xx'.
+  emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  // Password requirements: min 8 characters, numbers or symbols. Max 30 characters, numbers or symbols.
+  passwordPattern = /^[A-Za-z\d#$@!%&*?]{8,50}$/;
   usersArr: IUser[];
   user: IUser;
 
@@ -39,18 +44,17 @@ export class AuthService {
   // Check if User is logged in
   userIsLoggedIn(): boolean {
     const uid = localStorage.getItem('userId');
-    // if (uid) {
-    //   this.router.navigate(['/dashboard']);
-    //   return true;
-    // } else if (!uid) {
-    //   this.router.navigate(['/login']);
-    //   return false;
-    // }
     return uid ? true : false;
   }
 
   // Check if email is already registered
   checkEmailUniqueness(email: string): boolean {
-    return this.usersArr.some((user) => user.email === email);
+    return this.usersArr.every((user) => user.email !== email);
+  }
+
+  // Remove user Id from localStorage on Logout and navigate to 'Login'
+  logout() {
+    localStorage.removeItem('userId');
+    this.router.navigate(['/login']);
   }
 }

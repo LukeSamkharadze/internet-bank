@@ -10,10 +10,9 @@ import { AuthService } from '../../shared/services/auth.service';
   styleUrls: ['../authentication.component.scss', './login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  // Email requirements: any valid email patern 'x@x.xx'.
-  emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  // Password requirements: min 8 characters, numbers or symbols. Max 30 characters, numbers or symbols.
-  passwordPattern = /^[A-Za-z\d#$@!%&*?]{8,30}$/;
+  emailPattern = this.authService.emailPattern;
+  passwordPattern = this.authService.passwordPattern;
+
   loginData: {
     email: string;
     password: string;

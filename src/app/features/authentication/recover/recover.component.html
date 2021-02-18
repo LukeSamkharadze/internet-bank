@@ -3,8 +3,10 @@
     <div class="auth-form recover-form minor-grid-container">
       <div>
         <p>
-          <span class="TBC-bold">TBC</span>
-          <span class="banking-light">Banking</span>
+          <a [routerLink]="['/login']">
+            <span class="TBC-bold">TBC</span>
+            <span class="banking-light">Banking</span>
+          </a>
         </p>
       </div>
       <div class="sign-in">
@@ -14,22 +16,23 @@
           premium products
         </p>
       </div>
-      <form
-        [formGroup]="form"
-        (ngSubmit)="onSubmit()"
-        #frm="ngForm"
-        id="authentication-form"
-      >
-        <!-- Imported Custom Input 1 -->
-        <app-shared-input
-          [formControl]="emailFormControl"
-          [inputId]="'email-input'"
-          [type]="'email'"
-          [pattern]="emailPattern"
-          [placeholder]="'Enter your email'"
-          [isRequired]="true"
-          >Your email</app-shared-input
-        >
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" id="authentication-form">
+        <div class="input-container">
+          <!-- Imported Custom Input 1 -->
+          <app-shared-input
+            [formControl]="emailFormControl"
+            [inputId]="'email-input'"
+            [type]="'email'"
+            [pattern]="emailPattern"
+            [placeholder]="'Enter your email'"
+            [isRequired]="true"
+            >Your email</app-shared-input
+          >
+          <div class="input-tooltip">
+            <i class="las la-info-circle"></i>
+            <span>Ex: some_email@somedomain.com</span>
+          </div>
+        </div>
         <br />
         <!-- Imported Button -->
         <app-shared-button
@@ -42,7 +45,7 @@
       <div class="auth-form-footer">
         <div>
           <p>Don’t have an account?</p>
-          <a href="./register">Sign up here</a>
+          <a [routerLink]="['/register']">Sign up here</a>
         </div>
       </div>
     </div>
