@@ -8,6 +8,8 @@ import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { DepositService } from './services/deposit.service';
 import { LoanService } from './services/loan.service';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
 
 const services = [
   CardService,
@@ -16,7 +18,7 @@ const services = [
   DepositService,
   LoanService,
 ];
-const modules = [CommonModule, SharedModule];
+const modules = [CommonModule, ChartsModule, SharedModule];
 
 @NgModule({
   declarations: [...components],
