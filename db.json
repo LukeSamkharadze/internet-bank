@@ -112,6 +112,26 @@
       "iconPath": "./assets/create-card/mastercard.svg"
     }
   ],
+  "users": [
+    {
+      "fullname": "SANCHO PANZA",
+      "email": "sanchito_p@gmail.com",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "fullname": "EDMOND DANTES",
+      "email": "vengence@hotmail.com",
+      "password": "vvvvvvvvvv",
+      "id": 2
+    },
+    {
+      "fullname": "VITO CORLEONE",
+      "email": "mafia_immortal@outlook.com",
+      "password": "ssssssssss",
+      "id": 3
+    }
+  ],
   "deposits": [
     {
       "id": 0,
