@@ -110,6 +110,17 @@
       "security3D": true,
       "id": 3,
       "iconPath": "./assets/create-card/mastercard.svg"
+    },
+    {
+      "cardName": "DFDSFS",
+      "accountNumber": "GE32TB4434234223333333",
+      "cardNumber": 4140424020402003,
+      "cardholder": "TSOTNE CHIKVOANI",
+      "expirationDate": "02/22",
+      "availableAmount": 1000,
+      "security3D": true,
+      "iconPath": "",
+      "id": 4
     }
   ],
   "users": [
@@ -121,8 +132,8 @@
     },
     {
       "fullname": "EDMOND DANTES",
-      "email": "vengence@hotmail.com",
-      "password": "vvvvvvvvvv",
+      "email": "admin@gmail.com",
+      "password": "12345678",
       "id": 2
     },
     {
@@ -174,17 +185,39 @@
     {
       "id": 1,
       "name": "Cards balance",
-      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
+      "data": [
+        78000,
+        91000,
+        78000,
+        52000,
+        72800,
+        104000,
+        124800
+      ]
     },
     {
       "id": 2,
       "name": "Deposit (3% Rate)",
-      "data": [35250, 38070, 39480, 40890, 38070, 49350, 56400]
+      "data": [
+        35250,
+        38070,
+        39480,
+        40890,
+        38070,
+        49350,
+        56400
+      ]
     },
     {
       "id": 3,
       "name": "Pending credit",
-      "data": [41300, 28910, 16520, 28910, 24800]
+      "data": [
+        41300,
+        28910,
+        16520,
+        28910,
+        24800
+      ]
     }
   ]
 }
