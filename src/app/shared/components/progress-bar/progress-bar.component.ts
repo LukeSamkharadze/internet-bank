@@ -2,8 +2,8 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-shared-progress-bar',
-  templateUrl: './progress-bars.component.html',
-  styleUrls: ['./progress-bars.component.scss'],
+  templateUrl: './progress-bar.component.html',
+  styleUrls: ['./progress-bar.component.scss'],
 })
 export class ProgressBarComponent implements OnInit, OnChanges {
   @Input()

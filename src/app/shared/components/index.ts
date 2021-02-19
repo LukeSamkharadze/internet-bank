@@ -1,6 +1,6 @@
 import { InputComponent } from './input/input.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { ProgressBarComponent } from './progress-bars/progress-bars.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ButtonComponent } from './button/button.component';
@@ -23,7 +23,7 @@ export * from './checkbox/checkbox.component';
 export * from './button/button.component';
 export * from './layout/layout.component';
 export * from './toggle/toggle.component';
-export * from './progress-bars/progress-bars.component';
+export * from './progress-bar/progress-bar.component';
 export * from './tabs/tabs.component';
 
 export const components = [
