@@ -9,11 +9,10 @@ import { catchError, retry } from 'rxjs/operators';
 import { BaseHttpInterface } from '@shared/shared';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CardService implements BaseHttpInterface<ICard> {
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   create(card: ICard): Observable<ICard> {
     card = this.determineIconPath(card);
@@ -26,9 +25,17 @@ export class CardService implements BaseHttpInterface<ICard> {
     const firstDigit = card.cardNumber[0];
     switch (firstDigit) {
       case '4':
-        return { ...card, iconPath: './assets/create-card/create-card-visa-icon.svg', cardType: 'VISA' };
+        return {
+          ...card,
+          iconPath: './assets/create-card/create-card-visa-icon.svg',
+          cardType: 'VISA',
+        };
       case '5':
-        return { ...card, iconPath: './assets/create-card/mastercard.svg', cardType: 'MASTERCARD' };
+        return {
+          ...card,
+          iconPath: './assets/create-card/mastercard.svg',
+          cardType: 'MASTERCARD',
+        };
       default:
         return { ...card };
     }

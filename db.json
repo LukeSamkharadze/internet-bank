@@ -80,48 +80,52 @@
   "cards": [
     {
       "cardName": "VISA CARD",
-      "cardType" : "VISA",
+      "cardType": "VISA",
       "accountNumber": "GE32TB1111222233334444",
-      "cardNumber": 4111222233331234,
+      "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
       "availableAmount": 2000,
       "security3D": false,
+      "userId": "3",
       "id": 1,
       "iconPath": "./assets/create-card/create-card-visa-icon.svg"
     },
     {
       "cardName": "MASTER CARD",
       "accountNumber": "GE32TB2222111133334444",
-      "cardNumber": 5222111133338040,
+      "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
       "availableAmount": 25000,
       "security3D": true,
+      "userId": "1",
       "id": 2,
       "iconPath": "./assets/create-card/mastercard.svg"
     },
     {
       "cardName": "MASTER CARD",
       "accountNumber": "GE32TB3333111122224444",
-      "cardNumber": 5333111122220097,
+      "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
       "availableAmount": 45000,
       "security3D": true,
+      "userId": "2",
       "id": 3,
       "iconPath": "./assets/create-card/mastercard.svg"
     },
     {
-      "cardName": "DFDSFS",
+      "cardName": "DFDSFS CARD",
       "accountNumber": "GE32TB4434234223333333",
-      "cardNumber": 4140424020402003,
+      "cardNumber": "4140424020402003",
       "cardholder": "TSOTNE CHIKVOANI",
       "expirationDate": "02/22",
       "availableAmount": 1000,
       "security3D": true,
-      "iconPath": "",
-      "id": 4
+      "userId": "2",
+      "id": 4,
+      "iconPath": "./assets/create-card/create-card-visa-icon.svg"
     }
   ],
   "users": [
@@ -186,39 +190,17 @@
     {
       "id": 1,
       "name": "Cards balance",
-      "data": [
-        78000,
-        91000,
-        78000,
-        52000,
-        72800,
-        104000,
-        124800
-      ]
+      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
     },
     {
       "id": 2,
       "name": "Deposit (3% Rate)",
-      "data": [
-        35250,
-        38070,
-        39480,
-        40890,
-        38070,
-        49350,
-        56400
-      ]
+      "data": [35250, 38070, 39480, 40890, 38070, 49350, 56400]
     },
     {
       "id": 3,
       "name": "Pending credit",
-      "data": [
-        41300,
-        28910,
-        16520,
-        28910,
-        24800
-      ]
+      "data": [41300, 28910, 16520, 28910, 24800]
     }
   ]
 }
