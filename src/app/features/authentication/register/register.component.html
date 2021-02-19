@@ -1,0 +1,108 @@
+<main class="grid-container">
+  <section class="authentication">
+    <div class="auth-form register-form minor-grid-container">
+      <div>
+        <p>
+          <a [routerLink]="['/login']">
+            <span class="TBC-bold">TBC</span>
+            <span class="banking-light">Banking</span>
+          </a>
+        </p>
+      </div>
+      <div class="sign-in">
+        <h1>Create account</h1>
+        <p>
+          Please sign up to your personal account if you want to use all our
+          premium products
+        </p>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" id="authentication-form">
+        <div class="input-container">
+          <!-- Imported Custom Input 1 -->
+          <app-shared-input
+            [formControl]="fullnameFormControl"
+            [inputId]="'fullname-input'"
+            [type]="'fullname'"
+            [pattern]="fullnamePattern"
+            [placeholder]="'Enter your full name'"
+            [isRequired]="true"
+            >Full name</app-shared-input
+          >
+          <div class="input-tooltip">
+            <i class="las la-info-circle"></i>
+            <span
+              >Use: Latin Letters or Symbols (,.'-)<br />Ex: Luk'e
+              Dinnerson</span
+            >
+          </div>
+        </div>
+        <br />
+
+        <div class="input-container">
+          <!-- Imported Custom Input 2 -->
+          <app-shared-input
+            [formControl]="emailFormControl"
+            [inputId]="'email-input'"
+            [type]="'email'"
+            [pattern]="emailPattern"
+            [placeholder]="'Enter your email'"
+            [isRequired]="true"
+            >Your email</app-shared-input
+          >
+          <div class="input-tooltip">
+            <i class="las la-info-circle"></i>
+            <span
+              >Use: Letters, Numbers or Symbols (#~!$%^&*|?/-_=+)<br />Ex:
+              some!_em^ail@somedomain.com</span
+            >
+          </div>
+        </div>
+        <br />
+
+        <div class="input-container">
+          <!-- Imported Custom Input 3 -->
+          <app-shared-input
+            [formControl]="passwordFormControl"
+            [inputId]="'password-input'"
+            [type]="'password'"
+            [pattern]="passwordPattern"
+            [placeholder]="'Enter your password'"
+            [isRequired]="true"
+            >Password</app-shared-input
+          >
+          <div class="input-tooltip">
+            <i class="las la-info-circle"></i>
+            <span
+              >Use: Letters, Numbers or Symbols (#$@!%&*?)<br />Min 8, max 50
+              characters</span
+            >
+          </div>
+        </div>
+
+        <div class="checkbox-flex">
+          <!-- Imported Checkbox -->
+          <app-shared-checkbox
+            [formControl]="termsFormControl"
+            [required]="true"
+            [checked]="true"
+            >I agree with terms & conditions</app-shared-checkbox
+          >
+        </div>
+        <!-- Imported Button   [isDisabled]="form.invalid" -->
+        <app-shared-button
+          class="shared-button"
+          [isDisabled]="form.invalid"
+          [className]="'primary active'"
+          >Sign up</app-shared-button
+        >
+      </form>
+      <div class="auth-form-footer">
+        <div>
+          <p>Already have an account?</p>
+          <a [routerLink]="['/login']">Sign in here</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="img-bg"></section>
+</main>

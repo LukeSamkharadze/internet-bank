@@ -1,10 +1,9 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface BaseHttpInterface<T> {
   getAll(): Observable<T[]>;
 
-  getById(): Observable<T>;
+  getById(id: number): Observable<T>;
 
   create(param: T): Observable<T>;
 

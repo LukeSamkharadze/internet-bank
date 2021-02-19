@@ -1,0 +1,14 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="./chart.js"></script>
+
+<div [class]="'container ' + getColorClass()">
+  <div class="info">
+    <p class="amount">
+      ${{ getAmount() }}<sup><i [class]="getArrowClass()"></i></sup>
+    </p>
+    <p class="title">{{ info.title }}</p>
+  </div>
+  <div class="chart">
+    <canvas #chart></canvas>
+  </div>
+</div>
