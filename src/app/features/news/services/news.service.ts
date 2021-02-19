@@ -33,8 +33,8 @@ export class NewsService {
         : typeOfNews === 'Trending News'
         ? 'top-headlines?country=us&category=business'
         : 'everything?sortBy=popularity&q=business';
-    // another apiKey: 2370d68f7865460280f4eb4f61e4fcba
-    const url = `${environment.NewsApiUrl}/${sortBy}&language=en&pageSize=${numOfNews}&apiKey=4d79b03f861e401482765e7950a1b96a`;
+    const apiKey = environment.NewsApi.apiKey[0];
+    const url = `${environment.NewsApi.Url}/${sortBy}&language=en&pageSize=${numOfNews}&apiKey=${apiKey}`;
     return this.http.get<NewsResponse>(url);
   }
 }
