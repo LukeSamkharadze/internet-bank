@@ -1,14 +1,14 @@
 <div class="payment-providers">
   <header>
     <h5>Payment providers</h5>
-    <form class="find-provider" [formGroup]="form">
+    <form class="find-provider">
       <label for="find-provider-input"><i class="las la-search"></i></label>
       <input
         name="search"
         type="text"
         id="find-provider-input"
         placeholder="FIND PROVIDER"
-        formControlName="search"
+        [formControl]="search"
       />
     </form>
   </header>

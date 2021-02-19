@@ -37,7 +37,7 @@ export class ProvidersService {
           return true;
         }
       }),
-      map((data) => data.providers)
+      map((data: PaymentType) => data.providers)
     );
   }
 }

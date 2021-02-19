@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProvidersService } from '../../services/providers.service';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import { debounce, debounceTime, tap } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-payment-providers',
@@ -10,8 +10,8 @@ import { debounce, debounceTime, tap } from 'rxjs/operators';
 })
 export class PaymentProvidersComponent implements OnInit {
   public allPaymentTypes$ = this.providerService.getPaymentTypes();
+  search = new FormControl('');
   constructor(private providerService: ProvidersService) {}
-  form: FormGroup;
 
   shouldAddComma(provider, providersArray) {
     if (providersArray.length < 2) {
@@ -25,20 +25,13 @@ export class PaymentProvidersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      search: new FormControl(''),
-    });
-
     this.search.valueChanges
       .pipe(
         debounceTime(500),
+        distinctUntilChanged(),
         tap((value) => this.onSearch(value))
       )
       .subscribe();
-  }
-
-  get search(): AbstractControl {
-    return this.form.get('search');
   }
 
   paymentClicked() {
