@@ -12,7 +12,6 @@ import { ToggleComponent } from './toggle/toggle.component';
 import { TagComponent } from './tag/tag.component';
 import { RadioComponent } from './radio/radio.component';
 
-
 export * from './dropdown/dropdown.component';
 export * from './pagination/pagination.component';
 export * from './input/input.component';
@@ -43,5 +42,4 @@ export const components = [
   NotificationComponent,
   ToggleComponent,
   RadioComponent,
-
 ];

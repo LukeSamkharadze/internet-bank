@@ -80,6 +80,7 @@
   "cards": [
     {
       "cardName": "VISA CARD",
+      "cardType" : "VISA",
       "accountNumber": "GE32TB1111222233334444",
       "cardNumber": 4111222233331234,
       "cardholder": "BARRY ARMSTRONG",
@@ -110,6 +111,37 @@
       "security3D": true,
       "id": 3,
       "iconPath": "./assets/create-card/mastercard.svg"
+    },
+    {
+      "cardName": "DFDSFS",
+      "accountNumber": "GE32TB4434234223333333",
+      "cardNumber": 4140424020402003,
+      "cardholder": "TSOTNE CHIKVOANI",
+      "expirationDate": "02/22",
+      "availableAmount": 1000,
+      "security3D": true,
+      "iconPath": "",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "fullname": "SANCHO PANZA",
+      "email": "sanchito_p@gmail.com",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "fullname": "EDMOND DANTES",
+      "email": "admin@gmail.com",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "fullname": "VITO CORLEONE",
+      "email": "mafia_immortal@outlook.com",
+      "password": "ssssssssss",
+      "id": 3
     }
   ],
   "deposits": [
@@ -154,17 +186,39 @@
     {
       "id": 1,
       "name": "Cards balance",
-      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
+      "data": [
+        78000,
+        91000,
+        78000,
+        52000,
+        72800,
+        104000,
+        124800
+      ]
     },
     {
       "id": 2,
       "name": "Deposit (3% Rate)",
-      "data": [35250, 38070, 39480, 40890, 38070, 49350, 56400]
+      "data": [
+        35250,
+        38070,
+        39480,
+        40890,
+        38070,
+        49350,
+        56400
+      ]
     },
     {
       "id": 3,
       "name": "Pending credit",
-      "data": [41300, 28910, 16520, 28910, 24800]
+      "data": [
+        41300,
+        28910,
+        16520,
+        28910,
+        24800
+      ]
     }
   ]
 }

@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="main-nav" #mainNav>
-        <a class="main-nav-item" (click)="contentTitlte = 'DASHBOARD'">
+        <a class="main-nav-item" (click)="contentTitlte = 'DASHBOARD'" [routerLink]="'dashboard'">
           <div class="main-nav-icon">
             <i class="las la-clock"></i>
           </div>
@@ -20,7 +20,7 @@
           </div>
           <div class="main-nav-title">TRANSACTIONS</div>
         </a>
-        <a class="main-nav-item" (click)="contentTitlte = 'PRODUCTS'">
+        <a class="main-nav-item" (click)="contentTitlte = 'PRODUCTS'" [routerLink]="'accounts-list'">
           <div class="main-nav-icon">
             <i class="las la-briefcase"></i>
           </div>
@@ -32,24 +32,18 @@
           </div>
           <div class="main-nav-title">PAYMENTS</div>
         </a>
-        <a class="main-nav-item" (click)="contentTitlte = 'STOCKS'">
-          <div class="main-nav-icon">
-            <i class="las la-chart-area"></i>
-          </div>
-          <div class="main-nav-title">STOCKS</div>
-        </a>
-        <a class="main-nav-item" (click)="contentTitlte = 'LINK'">
+        <a class="main-nav-item" (click)="contentTitlte = 'NEWS'">
           <div class="main-nav-icon">
             <i class="las la-file-alt"></i>
           </div>
-          <div class="main-nav-title">LINK</div>
+          <div class="main-nav-title">NEWS</div>
         </a>
-        <a class="main-nav-item" (click)="contentTitlte = 'UI KIT'">
+        <a class="main-nav-item" (click)="contentTitlte = 'INVOICES'">
           <div class="main-nav-icon">
             <i class="las la-puzzle-piece"></i>
           </div>
           <div class="main-nav-title">
-            <pre>UI KIT</pre>
+            <pre>INVOICES</pre>
           </div>
         </a>
       </div>
