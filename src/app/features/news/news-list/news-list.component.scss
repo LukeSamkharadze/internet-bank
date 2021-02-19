@@ -1,7 +1,12 @@
 @import 'index.scss';
 
+:host {
+  display: block;
+  width: 100%;
+  min-width: 322px;
+}
+
 .news-list-container {
-  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
