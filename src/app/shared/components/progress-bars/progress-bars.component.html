@@ -1,1 +1,3 @@
-<progress [value]="value" [max]="max"></progress>
+<div [attr.value]="value" [attr.max]="max">
+  <div [ngStyle]="styleObject()"></div>
+</div>

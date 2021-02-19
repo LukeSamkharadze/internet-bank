@@ -1,6 +1,6 @@
 import { InputComponent } from './input/input.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { ProgressBarsComponent } from './progress-bars/progress-bars.component';
+import { ProgressBarComponent } from './progress-bars/progress-bars.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ButtonComponent } from './button/button.component';
@@ -32,7 +32,7 @@ export const components = [
   TagComponent,
   ButtonComponent,
   PaginationComponent,
-  ProgressBarsComponent,
+  ProgressBarComponent,
   DropdownComponent,
   TextareaComponent,
   CheckboxComponent,
