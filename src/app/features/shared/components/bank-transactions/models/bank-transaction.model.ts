@@ -3,6 +3,7 @@ export interface TransactionsList {
   title: string;
   icon: string;
   type: string;
+  typeId: number;
   amount: string;
   date: string;
   status: string;

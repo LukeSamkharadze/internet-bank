@@ -16,5 +16,8 @@
   ],
   "compilerOptions": {
     "experimentalDecorators": true
+  },
+  "rules": {
+    "semicolon": [true, "always", "ignore-bound-class-methods"]
   }
 }

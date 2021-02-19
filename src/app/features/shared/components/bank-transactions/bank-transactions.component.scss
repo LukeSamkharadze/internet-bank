@@ -1,5 +1,9 @@
 @import './index.scss';
 .bank-transactions {
+  .myDiv {
+    overflow: auto;
+  }
+
   min-width: 551px;
   .settings {
     padding: 19.12px 23px;
@@ -21,6 +25,57 @@
       }
       .position-left {
         float: left;
+        ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+          padding: 0 !important;
+        }
+        ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+          background-color: white !important;
+        }
+        ::ng-deep .mat-form-field-infix {
+          width: 100px;
+        }
+        ::ng-deep .mat-form-field-underline {
+          width: 0;
+        }
+        ::ng-deep .mat-form-field-wrapper {
+          padding-bottom: 0;
+        }
+        ::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+          padding: 0.25em 0 0 0;
+        }
+        ::ng-deep .dropdown-general .selected {
+          padding: 0 4px 0 8px;
+        }
+        ::ng-deep .mat-body p,
+        .mat-body-1 p,
+        .mat-typography p {
+          margin: 0;
+        }
+        ::ng-deep
+          .bank-transactions[_ngcontent-rvx-c106]
+          .settings[_ngcontent-rvx-c106]
+          .right-settings[_ngcontent-rvx-c106]
+          .position-left[_ngcontent-rvx-c106]
+          .mat-form-field-appearance-fill
+          .mat-form-field-infix {
+          padding: 0;
+        }
+        ::ng-deep .dropdown-general {
+          height: 80%;
+        }
+        ::ng-deep .dropdown-general .selected {
+          // width: 85%;
+          border: none;
+        }
+        ::ng-deep .mat-form-field {
+          margin-top: -7px;
+        }
+        ::ng-deep .dropdown-general .selected .arrow-container {
+          color: #555c64;
+        }
+        .dropdown-general {
+          width: 85%;
+        }
       }
       .position-right {
         float: right;
@@ -28,6 +83,9 @@
       }
       .text-1 {
         margin-right: -3px;
+      }
+      .text-2 {
+        color: rgba(0, 0, 0, 0.6);
       }
       .photo-1 {
         margin-right: 5px;
@@ -42,26 +100,6 @@
       }
     }
 
-    .dropdown-general {
-      font-size: 12px;
-      width: 123px;
-      margin-top: -3px;
-      height: 5px;
-
-      .selected {
-        border: 0px;
-        padding: 12px 0 0 14px;
-      }
-      .placeholder {
-        color: $primary-dark;
-        padding: 0px 0 0 14px;
-        height: 25px;
-      }
-    }
-
-    .dropdown-style {
-      width: 70px;
-    }
     .mainTitle {
       @include text-style(16px, $primary-dark);
     }

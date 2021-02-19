@@ -1,5 +1,5 @@
 <section class="bank-transactions">
-  <div>
+  <div class="myDiv">
     <div class="settings">
       <div *ngIf="hasInput; else default" class="left-settings">
         <img src="../../../../../assets/bank-transactions/img/Search-bar.png" />
@@ -20,21 +20,27 @@
       </ng-template>
 
       <div class="right-settings">
-        <img
+        <!-- <img
           class="position-left photo-1"
-          src="../../../../../assets/bank-transactions/img/suitcase.png"
-        />
-        <p class="position-left text-1">DATE:</p>
+          src="../../../../../assets/bank-transactions/img/calendar.png"
+        /> -->
+        <p class="position-left text-1">
+          <!-- DATE: -->
+        </p>
         <div class="position-left">
-          <div class="dropdown-general">
-            <select>
-              <option>AUGUST 2018</option>
-              <option>item 1</option>
-              <option>item 2</option>
-              <option>item 3</option>
-              <option>item 4</option>
-            </select>
-          </div>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Choose a Date:</mat-label>
+            <input
+              matInput
+              [matDatepickerFilter]="myFilter"
+              [matDatepicker]="picker"
+              (dateChange)="dateChangeEvent($event)"
+            />
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <!-- <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
 
         <span *ngIf="show">
@@ -42,18 +48,16 @@
             class="position-left photo-2"
             src="../../assets/bank-transactions/img/suitcase.png"
           />
-          <p class="position-left text-2">TYPE</p>
+          <p class="position-left text-2">TYPE:</p>
           <div class="position-left">
-            <div class="dropdown-general dropdown-style">
-              <select>
-                <option>ALL</option>
-                <option>item 1</option>
-                <option>item 2</option>
-                <option>item 3</option>
-                <option>item 4</option>
-              </select>
-            </div>
-            <script src="../../components/dropdown/core/logic/build/index.js"></script>
+            <app-shared-dropdown
+              ngModel
+              placeholder="ALL"
+              [options]="['Phone payment', 'bank-transfer', 'Cash']"
+              (ngModelChange)="typeChangeEvent($event)"
+              style="width: 150px; height: 25px"
+            >
+            </app-shared-dropdown>
           </div>
         </span>
       </div>

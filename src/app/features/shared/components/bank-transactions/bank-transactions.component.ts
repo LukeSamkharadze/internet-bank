@@ -21,6 +21,22 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   searchText;
   popDetails = false;
   transactionObject = {};
+  monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  chosenDate = null;
+  chosenType = null;
 
   ngOnChanges(changes: SimpleChanges) {
     /* tslint:disable:no-string-literal */
@@ -34,25 +50,30 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
     /* tslint:enable:no-string-literal */
   }
 
-  constructor(private getTransactionService: GetTransactionsService) {}
+  constructor(
+    private getTransactionService: GetTransactionsService // private getTypesService: GetTypesService
+  ) {}
 
   fetchTransactions() {
-    this.getTransactionService.getTransactions().subscribe((data) => {
-      this.transactionsList = [];
-      data.forEach((element) => {
-        this.transactionsList.push({
-          id: element.id,
-          title: element.title,
-          icon: element.img,
-          type: element.type,
-          amount: element.amount,
-          date: element.date,
-          status: element.status,
-          tagColor: element.tagColor,
-          cardNumber: element.cardNumber,
+    this.getTransactionService
+      .getTransactions(this.chosenDate, this.chosenType)
+      .subscribe((data) => {
+        this.transactionsList = [];
+        data.forEach((element) => {
+          this.transactionsList.push({
+            id: element.id,
+            title: element.title,
+            icon: element.img,
+            type: element.type,
+            typeId: element.typeId,
+            amount: element.amount,
+            date: element.date,
+            status: element.status,
+            tagColor: element.tagColor,
+            cardNumber: element.cardNumber,
+          });
         });
       });
-    });
   }
 
   ngOnInit() {
@@ -69,4 +90,26 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   }
 
   sendReceipt() {}
+
+  // myFilter = (d: Date): boolean => {
+  //   const day = d.getDay();
+  //   // Prevent Saturday and Sunday from being selected.
+  //   return day !== 0 && day !== 6;
+  // };
+
+  myFilter(d: Date): boolean {
+    const day = d.getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
+  }
+  dateChangeEvent($event) {
+    this.chosenDate =
+      $event.value.getDate() + ' ' + this.monthNames[$event.value.getMonth()];
+    this.fetchTransactions();
+  }
+
+  typeChangeEvent($event) {
+    this.chosenType = $event;
+    this.fetchTransactions();
+  }
 }
