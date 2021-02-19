@@ -42,7 +42,7 @@ export class AuthService {
   // Retrieve registered user from DB
   login(loginData: { email: string; password: string }) {
     return this.userService.getAll().pipe(
-      map((obj) => obj.find((obj) => obj.email === loginData.email)),
+      map((objs) => objs.find((obj) => obj.email === loginData.email)),
       tap((data) => (this.user = data))
     );
   }
