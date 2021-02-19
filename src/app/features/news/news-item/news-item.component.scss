@@ -2,7 +2,7 @@
 
 :host {
   display: block;
-  max-width: 100%;
+  width: 100%;
   min-width: 320px;
 }
 
@@ -76,10 +76,10 @@
 .news-item::before {
   content: '';
   position: absolute;
-  left: 3.25%;
+  left: 21px;
   bottom: 0;
   height: 1px;
-  width: 93.5%;
+  width: 96%;
   border-bottom: 1px solid $background-1;
 }
 
