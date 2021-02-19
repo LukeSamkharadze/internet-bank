@@ -9,6 +9,6 @@ import { UserService } from '../shared/services/user.service';
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, RecoverComponent],
   imports: [AuthenticationRoutingModule, FeaturesSharedModule],
-  providers: [UserService],
+  providers: [],
 })
 export class AuthenticationModule {}
