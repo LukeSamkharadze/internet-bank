@@ -7,20 +7,20 @@ import { catchError, retry } from 'rxjs/operators';
 import { IUser } from '../interfaces/user.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService implements BaseHttpInterface<IUser> {
   constructor(private http: HttpClient) {}
 
   create(user: IUser): Observable<IUser> {
     return this.http
-      .post<IUser>(`${environment.URL}users`, user)
+      .post<IUser>(`${environment.BaseUrl}users`, user)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   getAll(): Observable<IUser[]> {
     return this.http
-      .get<IUser[]>(`${environment.URL}users`)
+      .get<IUser[]>(`${environment.BaseUrl}users`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
