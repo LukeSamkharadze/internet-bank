@@ -34,7 +34,7 @@ export class RecoverComponent {
           this.router.navigate(['/login']);
         } else {
           alert(
-            `Account under the email '${this.emailFormControl.value}' does not exist!\nPlease check your email!`
+            `Request Failure!\nAccount under the email '${this.emailFormControl.value}' does not exist!\nPlease check your email!`
           );
         }
       });

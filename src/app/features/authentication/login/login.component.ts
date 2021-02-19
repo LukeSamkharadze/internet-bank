@@ -56,16 +56,15 @@ export class LoginComponent implements OnInit {
     this.authService.loginCheck(this.loginData).subscribe((checkSuccess) => {
       if (checkSuccess) {
         this.authService.login(this.loginData).subscribe((user) => {
-          // When 'Remember Me' checked add 'User Id' & 'User Email' on localStorage
+          // Add 'User Id' on localStorage
+          localStorage.setItem('userId', JSON.stringify(user.id));
+
+          // When 'Remember Me' checked add 'User Email' on localStorage
           if (this.rememberMeFormControl.value) {
-            localStorage.setItem('userId', JSON.stringify(user.id));
             localStorage.setItem('userEmail', user.email);
-          } else {
-            // Add only 'User Id' on localStorage
-            localStorage.setItem('userId', JSON.stringify(user.id));
           }
 
-          // Wait 0.2 sec after succesful login and redirect to 'Dashboard'
+          // Wait 0.2 sec after successful login and redirect to 'Dashboard'
           setTimeout(() => {
             this.router.navigate(['/dashboard']);
           }, 200);
