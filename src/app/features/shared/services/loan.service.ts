@@ -2,11 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
+
+import { BaseHttpInterface } from '@shared/shared';
+
 import { environment } from '../../../../environments/environment';
-import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import { ILoan } from '../interfaces/loan.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class LoanService implements BaseHttpInterface<ILoan> {
   constructor(private http: HttpClient) {}
 

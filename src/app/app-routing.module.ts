@@ -4,14 +4,19 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { IsLoggedInGuard } from './features/shared/guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './features/shared/guards/is-logged-out.guard';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { ApplicationComponent } from './features/application/application.component';
 
 const routes: Routes = [
   // Dashboard Paths
   {
-    path: 'dashboard',
-    component: DashboardComponent,
+    path: '',
+    component: ApplicationComponent,
     canActivate: [IsLoggedInGuard],
     children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
       {
         path: 'products',
         loadChildren: () =>

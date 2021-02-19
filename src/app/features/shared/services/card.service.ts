@@ -1,33 +1,46 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, EMPTY, throwError } from 'rxjs';
+import { EMPTY, Observable, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
+
 import { ICard } from '../interfaces/card.interface';
 import { catchError, retry } from 'rxjs/operators';
 
-@Injectable()
+import { BaseHttpInterface } from '@shared/shared';
+
+@Injectable({
+  providedIn: 'root',
+})
 export class CardService implements BaseHttpInterface<ICard> {
   constructor(private http: HttpClient) {}
 
   create(card: ICard): Observable<ICard> {
-    card.iconPath = this.determineIconPath(card.cardNumber);
+    card = this.determineIconPath(card);
     return this.http
       .post<ICard>(`${environment.URL}cards`, card)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  determineIconPath(cardNumber: string) {
-    const firstDigit = cardNumber[0];
+  determineIconPath(card: ICard): ICard {
+    const firstDigit = card.cardNumber[0];
     switch (firstDigit) {
       case '4':
-        return './assets/create-card/create-card-visa-icon.svg';
+        return {
+          ...card,
+          iconPath: './assets/create-card/create-card-visa-icon.svg',
+          cardType: 'VISA',
+        };
       case '5':
-        return './assets/create-card/mastercard.svg';
+        return {
+          ...card,
+          iconPath: './assets/create-card/mastercard.svg',
+          cardType: 'MASTERCARD',
+        };
       default:
-        return '';
+        return { ...card };
     }
   }
+
   getAll(): Observable<ICard[]> {
     return this.http
       .get<ICard[]>(`${environment.URL}cards`)
