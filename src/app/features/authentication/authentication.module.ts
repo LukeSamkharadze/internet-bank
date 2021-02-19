@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { FeaturesSharedModule } from '@features/shared';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RecoverComponent } from './recover/recover.component';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
+import { FeaturesSharedModule } from '@features/shared';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, RecoverComponent],
-  imports: [FeaturesSharedModule, AuthenticationRoutingModule],
+  imports: [AuthenticationRoutingModule, FeaturesSharedModule],
   providers: [],
 })
 export class AuthenticationModule {}

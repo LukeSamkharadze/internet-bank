@@ -6,7 +6,9 @@ import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interfac
 import { catchError, retry } from 'rxjs/operators';
 import { IUser } from '../interfaces/user.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService implements BaseHttpInterface<IUser> {
   constructor(private http: HttpClient) {}
 

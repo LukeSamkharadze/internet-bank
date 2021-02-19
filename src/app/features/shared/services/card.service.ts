@@ -2,11 +2,15 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
+
 import { ICard } from '../interfaces/card.interface';
 import { catchError, retry } from 'rxjs/operators';
 
-@Injectable()
+import { BaseHttpInterface } from '@shared/shared';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class CardService implements BaseHttpInterface<ICard> {
   constructor(private http: HttpClient) {
   }

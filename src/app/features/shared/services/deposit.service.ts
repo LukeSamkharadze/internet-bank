@@ -6,7 +6,9 @@ import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import { IDeposit } from '../interfaces/deposit.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DepositService implements BaseHttpInterface<IDeposit> {
   constructor(private http: HttpClient) {}
 
