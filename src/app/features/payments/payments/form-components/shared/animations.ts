@@ -28,10 +28,11 @@ export const animations = {
   formTrigger: trigger('formTrigger', [
     transition('void =>   *', [
       style({
-        transform: 'translateY(-20px)',
+        transform: 'translateX(-30px)',
+        opacity: '0',
       }),
 
-      animate(250),
+      animate(300),
     ]),
   ]),
 };
