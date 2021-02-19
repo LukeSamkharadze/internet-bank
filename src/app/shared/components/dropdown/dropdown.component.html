@@ -1,0 +1,57 @@
+<ng-template #defaultSelected let-option>
+  {{ option }}
+</ng-template>
+
+<ng-template #defaultOption let-option>
+  {{ option }}
+</ng-template>
+
+<ng-template #defaultArrow>
+  <i class="las la-angle-down"></i>
+</ng-template>
+
+<div
+  tabindex="0"
+  class="dropdown-general"
+  [class.dropdown-disabled]="disabled"
+  (click)="dropdownClicked()"
+  (blur)="isOptionsOpened=false; onTouched()"
+>
+  <div class="selected" [class.placeholder]="isPlaceholderOn || disabled">
+    <div class="content">
+      <ng-container
+        [ngTemplateOutlet]="
+          isPlaceholderOn
+            ? placeholderTemplate || defaultSelected
+            : selectedTemplate || defaultSelected
+        "
+        [ngTemplateOutletContext]="{
+          $implicit: isPlaceholderOn ? placeholder : value
+        }"
+      >
+      </ng-container>
+    </div>
+
+    <div class="arrow-container" [class.arrow-active]="isOptionsOpened">
+      <ng-container
+        [ngTemplateOutlet]="arrowTemplate || defaultArrow"
+      ></ng-container>
+    </div>
+  </div>
+
+  <div class="options" *ngIf="isOptionsOpened" @openClose>
+    <div
+      class="option"
+      *ngFor="let option of options"
+      (click)="optionClicked(option)"
+    >
+      <ng-container
+        [ngTemplateOutlet]="optionTemplate || defaultOption"
+        [ngTemplateOutletContext]="{ $implicit: option }"
+      >
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- <ng-content *ngIf="isOptionsOpened" select=".options"> </ng-content> -->
+</div>

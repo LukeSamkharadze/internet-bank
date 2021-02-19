@@ -20,22 +20,22 @@ export class CreateCardComponent implements OnInit {
   }
 
   makeInputTransforms() {
-    // ბარათის და მისი ფლობელის სახელების მთავრულად გარდაქმნა
+    // Transform to uppercase Card's and Cardholder's names
     this.makeInputUpperCase('cardName');
     this.makeInputUpperCase('cardholder');
 
-    // ბარათის ანგარიშის ნომერზე 'GE32TB'-ის მიმატება
+    // Concat 'GE32TB' to the Account Number
     this.form
       .get('accountNumber')
       .setValue('GE32TB' + this.form.get('accountNumber').value);
   }
 
-  // ბარათების დამატება სერვერზე, სერვისის დახმარებით
+  // Adding Card on Server using Service
   onSubmit() {
     if (this.form.valid) {
       this.makeInputTransforms();
 
-      // ბარათების დამატების სერვისი
+      // Card addition Service
       this.cardService
         .create(this.form.getRawValue())
         .pipe(finalize(() => this.form.reset()))
@@ -43,10 +43,10 @@ export class CreateCardComponent implements OnInit {
     }
   }
 
-  // ბარათის შესავსები ფორმა და მისი ვალიდაცია
+  // Card Form and its validation
   ngOnInit(): void {
     this.form = this.fb.group({
-      // უნდა შეიყვანონ: ბარათის სახელწოდება (გამოიყენება მხოლოდ ასოები და რიცხვები)
+      // Must be typed: Card Name (only letters and numbers are allowed)
       cardName: [
         null,
         [
@@ -55,7 +55,7 @@ export class CreateCardComponent implements OnInit {
         ],
       ],
       accountNumber: [
-        // უნდა შეიყვანონ: 16 რიცხვი
+        // Must be typed: 16 numbers
         null,
         [
           Validators.required,
@@ -64,7 +64,7 @@ export class CreateCardComponent implements OnInit {
         ],
       ],
       cardNumber: [
-        // უნდა შეიყვანონ: 16 რიცხვი
+        // Must be typed: 16 numbers
         null,
         [
           Validators.required,
@@ -73,12 +73,12 @@ export class CreateCardComponent implements OnInit {
         ],
       ],
       cardholder: [
-        // უნდა შეიყვანონ: სახელი და გვარი (დაშვებულია მხოლოდ ასოები)
+        // Must be typed: Name and Surname (only letters are allowed)
         null,
         [Validators.required, Validators.pattern(/^[a-zA-Z]+( [a-zA-Z]+)*$/)],
       ],
       expirationDate: [
-        // უნდა შეიყვანონ: თთ.წწ შაბლონის მიხედვით (მინიმალური წელი 21)
+        // Must be typed: according 'MM/YY' example (minimum year 21)
         null,
         [
           Validators.required,
@@ -86,7 +86,7 @@ export class CreateCardComponent implements OnInit {
         ],
       ],
       availableAmount: [
-        // შეუძლიათ აკრიფონ: ნებისმიერი რიცხვი (ნეგატიურის გარდა)
+        // Must be typed: Any number (except negative one)
         null,
         [Validators.required, Validators.pattern(/^[0-9]+(\.[0-9])?[0-9]*$/)],
       ],

@@ -11,18 +11,30 @@ export class CardService implements BaseHttpInterface<ICard> {
   constructor(private http: HttpClient) {}
 
   create(card: ICard): Observable<ICard> {
+    card.iconPath = this.determineIconPath(card.cardNumber);
     return this.http
       .post<ICard>(`${environment.URL}cards`, card)
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  determineIconPath(cardNumber: string) {
+    const firstDigit = cardNumber[0];
+    switch (firstDigit) {
+      case '4':
+        return './assets/create-card/create-card-visa-icon.svg';
+      case '5':
+        return './assets/create-card/mastercard.svg';
+      default:
+        return '';
+    }
+  }
   getAll(): Observable<ICard[]> {
     return this.http
       .get<ICard[]>(`${environment.URL}cards`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  getById(): Observable<ICard> {
+  getById(id: number): Observable<ICard> {
     return EMPTY;
   }
 
