@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, OnDestroy } from '@angular/core';
 import {
   FormsModule,
   FormGroup,
@@ -9,7 +9,7 @@ import {
 import { FormFields } from '../../shared/interfaces/form.interface';
 import { SettingsFormServiceService } from '../services/settings-form-service.service';
 import { map, switchMap, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { SettingsAndMenuComponent } from '../settings-and-menu.component';
 import { EventEmitter } from 'events';
 
@@ -18,30 +18,29 @@ import { EventEmitter } from 'events';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy {
   @Output() delete = new EventEmitter();
   showContent = false;
+  passwordSave: string;
+  getSub: Subscription;
+  updSub: Subscription;
+  delSub: Subscription;
 
+  userReplicate;
   form: FormGroup;
   user: FormFields = {
-    firstName: '',
-    lastName: '',
+    fullname: '',
     phone: NaN,
     email: ' ',
     language: '',
     sex: '',
-    id: NaN,
+    id: parseInt(localStorage.getItem('userId'), 10),
   };
-  id: 1;
 
   constructor(
     private fb: FormBuilder,
     private http: SettingsFormServiceService
   ) {
-    // this.id = parseInt(localStorage.getItem('id'));
-
-    // this.id is NaN so until it is set I will use default Id - 1
-
     this.getUser();
   }
 
@@ -56,36 +55,65 @@ export class SettingsComponent implements OnInit {
         Validators.pattern('[a-zA-Z]*'),
       ]),
       email: new FormControl('', [Validators.email, Validators.required]),
-      phone: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^(5)[0-9]{8}$'),
-      ]),
+      phone: new FormControl('', [Validators.pattern('^(5)[0-9]{8}$')]),
       language: [''],
       sex: [''],
-      id: [''],
     });
   }
 
   submit() {
     if (!this.form.invalid) {
+      const temp = this.user.id;
       this.user = this.form.value;
-      this.http.updateInfo(this.user).subscribe(() => console.log(this.user));
+      this.user.id = temp;
+      this.check();
+      this.http.updateInfo(this.user).subscribe();
+      alert('Updated Successfully');
     }
   }
   reset() {
-    this.form.reset(this.user);
+    this.form.reset(this.userReplicate);
   }
 
   getUser() {
-    this.http.getUserInfo(1).subscribe((value) => {
+    this.getSub = this.http.getUserInfo(this.user.id).subscribe((value) => {
       this.user = value;
-      console.log(1);
-      this.form.patchValue(this.user);
+      this.passwordSave = this.user.password;
+      const split = this.user.fullname.split(' ');
+
+      this.form.patchValue({
+        ...this.user,
+        firstName: split[0],
+        lastName: split[1],
+      });
+      this.userReplicate = this.form.value;
     });
   }
   deleteUser(id) {
+    id = this.user.id;
     this.showContent = false;
-    this.http.deleteUser(id).subscribe();
+    this.http.deleteUser(this.user.id).subscribe();
     this.form.reset();
+  }
+  check() {
+    this.user.password = this.passwordSave;
+    this.user.fullname =
+      this.form.get('firstName').value + ' ' + this.form.get('lastName').value;
+    delete this.user.firstName;
+    delete this.user.lastName;
+    if (!this.user.phone) {
+      delete this.user.phone;
+    }
+    if (this.user.language == null || this.user.language === '') {
+      delete this.user.language;
+    }
+    if (this.user.sex == null || this.user.sex === '') {
+      delete this.user.sex;
+    }
+  }
+  ngOnDestroy(): void {
+    this.getSub.unsubscribe();
+    this.updSub.unsubscribe();
+    this.delSub.unsubscribe();
   }
 }

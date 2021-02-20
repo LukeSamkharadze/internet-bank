@@ -11,13 +11,13 @@ export class SettingsFormServiceService {
   constructor(private http: HttpClient) {}
 
   getUserInfo(id): Observable<FormFields> {
-    return this.http.get<FormFields>(this.URL + `forms/${id}`);
+    return this.http.get<FormFields>(this.URL + `users/${id}`);
   }
 
-  updateInfo(form: FormFields): Observable<FormFields> {
-    return this.http.put<FormFields>(this.URL + `forms/${form.id}`, form);
+  updateInfo(user: FormFields): Observable<FormFields> {
+    return this.http.put<FormFields>(this.URL + `users/${user.id}`, user);
   }
   deleteUser(id): Observable<string> {
-    return this.http.delete<string>(this.URL + `forms/${id}`);
+    return this.http.delete<string>(this.URL + `users/${id}`);
   }
 }

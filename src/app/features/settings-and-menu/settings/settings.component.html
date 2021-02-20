@@ -14,19 +14,13 @@
       <div class="profilePic">
         <img src="https://img.icons8.com/dotty/60/000000/user-male.png" />
       </div>
-      <p>{{ user.firstName }} {{ user.lastName }}</p>
+      <p>{{ user.fullname }}</p>
     </div>
     <div class="userInfo">
       <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="input-wrapper">
           <label for="first">First name</label>
           <div>
-            <!-- <input
-              formControlName="firstName"
-              id="first"
-              type="text"
-              placeholder="Enter your first name"
-            /> -->
             <app-shared-input
               id="first"
               formControlName="firstName"
@@ -51,12 +45,6 @@
         <div class="lastName">
           <label for="last">Last name</label>
           <div>
-            <!-- <input
-              id="last"
-              type="text"
-              formControlName="lastName"
-              placeholder="Enter your last name"
-            /> -->
             <app-shared-input
               id="last"
               type="text"
@@ -81,12 +69,6 @@
         <div class="input-wrapper">
           <label for="email">Email</label>
           <div>
-            <!-- <input
-              id="email"
-              type="text"
-              formControlName="email"
-              placeholder="Enter your email"
-            /> -->
             <app-shared-input
               type="text"
               id="email"
@@ -110,25 +92,16 @@
         <div class="input-wrapper">
           <label for="phone"> Phone</label>
           <div>
-            <!-- <input
-              id="phone"
-              formControlName="phone"
-              type="text"
-              placeholder="Enter phone number(5-xxx-xxx)"
-            /> -->
             <app-shared-input
               id="phone"
               formControlName="phone"
-              placeholder="Enter your phone"
+              placeholder="Enter your phone(5xx-xxx-xxx)"
               type="text"
             ></app-shared-input>
             <div
               class="validation"
               *ngIf="form.get('phone').invalid && form.get('phone').touched"
             >
-              <small *ngIf="form.get('phone').errors.required"
-                >This field is neccessary!</small
-              >
               <small *ngIf="form.get('phone').hasError('pattern')"
                 >Incorrect phone number!</small
               >
