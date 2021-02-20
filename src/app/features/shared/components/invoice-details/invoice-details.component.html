@@ -7,7 +7,11 @@
         <p>Invoice #</p>
         <h5>{{ invoice.number }}</h5>
         <div class="tag">
-          <app-shared-tag [color]="invoice.tagColor">
+          <app-shared-tag
+            [color]="invoice.tagColor"
+            *ngIf="showTag"
+            (closeClicked)="closeTag()"
+          >
             {{ invoice.status }}
           </app-shared-tag>
         </div>
