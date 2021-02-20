@@ -33,26 +33,29 @@
   .news-text-wrapper {
     padding-left: 20px;
     box-sizing: border-box;
+    width: 100%;
     min-width: 202.5px;
     h3 {
       @include text-style(14px);
-      font-weight: 500;
       letter-spacing: normal;
-      text-decoration: none;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      display: inline-block;
-      padding: 8px 0 1px 0;
+      font-weight: 500;
       width: 100%;
+      max-height: 36px;
+      padding: 8px 0 1px 0;
+      // show three dots at the end of second line
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     p {
       @include text-style(14px);
-      font-weight: 300;
       letter-spacing: normal;
+      font-weight: 300;
       width: 100%;
       height: 50px;
-      padding-top: 12px;
+      padding-top: 10px;
       // show three dots at the end of second line
       display: -webkit-box;
       -webkit-line-clamp: 2;
