@@ -1,0 +1,86 @@
+<main class="grid-container">
+  <section class="authentication">
+    <div class="auth-form sign-in-form minor-grid-container">
+      <div>
+        <p>
+          <a [routerLink]="['/login']">
+            <span class="TBC-bold">TBC</span>
+            <span class="banking-light">Banking</span>
+          </a>
+        </p>
+      </div>
+      <div class="sign-in">
+        <h1>Sign in</h1>
+        <p>
+          Please sign in to your personal account if you want to use all our
+          premium products
+        </p>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" id="login-form">
+        <div class="input-container">
+          <!-- Imported Custom Input 1 -->
+          <app-shared-input
+            [formControl]="emailFormControl"
+            [inputId]="'email-input'"
+            [type]="'email'"
+            [pattern]="emailPattern"
+            [placeholder]="'Enter your email'"
+            [isRequired]="true"
+            >Your email</app-shared-input
+          >
+          <div class="input-tooltip">
+            <i class="las la-info-circle"></i>
+            <span
+              >Use: Letters, Numbers or Symbols (#~!$%^&*|?/-_=+)<br />Ex:
+              some!_em^ail@somedomain.com</span
+            >
+          </div>
+        </div>
+        <br />
+        <div class="input-container">
+          <!-- Imported Custom Input 2 -->
+          <app-shared-input
+            [formControl]="passwordFormControl"
+            [inputId]="'password-input'"
+            [type]="'password'"
+            [pattern]="passwordPattern"
+            [placeholder]="'Enter your password'"
+            [isRequired]="true"
+            >Password</app-shared-input
+          >
+          <div class="input-tooltip">
+            <i class="las la-info-circle"></i>
+            <span
+              >Use: Letters, Numbers or Symbols (#$@!%&*?)<br />Min 8, max 50
+              characters</span
+            >
+          </div>
+        </div>
+
+        <div class="checkbox-flex">
+          <!-- Imported Checkbox -->
+          <app-shared-checkbox
+            [formControl]="rememberMeFormControl"
+            [checked]="true"
+            >Remember me</app-shared-checkbox
+          >
+          <a [routerLink]="['/recover']">Recover password</a>
+        </div>
+        <!-- Imported Button -->
+        <app-shared-button
+          class="shared-button"
+          [isDisabled]="form.invalid"
+          [className]="'primary active'"
+          >Sign In</app-shared-button
+        >
+      </form>
+      <div class="auth-form-footer">
+        <div>
+          <p>Don’t have an account?</p>
+          <a [routerLink]="['/register']">Sign up here</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="img-bg"></section>
+</main>

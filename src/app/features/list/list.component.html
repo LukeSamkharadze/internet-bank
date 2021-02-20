@@ -1,0 +1,14 @@
+<app-shared-input [formControl]="idFormControl"></app-shared-input>
+
+<div class="container">
+  <app-item-list-options
+    [options]="itemListOptions"
+    [activeIndex]="optionActiveIndex$ | async"
+    (activeIndexChange)="activeIndexChange($event)"
+  >
+  </app-item-list-options>
+  <app-item-list
+    [items]="items$ | async"
+    [listStyle]="listStyle$ | async"
+  ></app-item-list>
+</div>

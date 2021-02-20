@@ -1,0 +1,7 @@
+<div class="row">
+  <ng-container *ngFor="let item of items; trackBy: trackBy">
+    <div class="column" [ngClass]="listStyle">
+      <app-item [item]="item"></app-item>
+    </div>
+  </ng-container>
+</div>

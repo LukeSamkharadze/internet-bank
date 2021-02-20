@@ -1,24 +1,19 @@
-# angular-bootcamp-2020-internet-bank-project
+# angular-bootcamp-internet-bank
 
-## Main Rules
+## Development server
 
-- Team member can only take one issue at a time
-  - This means issue assigned to you should be completed (to be in done) until you take another one
-- How to take task
-  - See available tasks in TODO
-  - Take one of them and assign it to yourself
-  - Write this tasks number in stylesheet along your name
-- When you finished working on task
-  - Update and push your branch
-  - Create pull request and link it to your task
-- Every team member should test issues at least twice.
-  - Do not forget moving issue 
-    - to next column on the board after you finish testing 
-    - or back to in progress if you find any bugs
+Run `mpm run server` for a mock server. Navigate to `http://localhost:3000/` to see available endpoints
 
+Run `mpm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Build
 
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [jest](https://jestjs.io/docs/en/getting-started.html)
+Check out extra library for better testing [spectator](https://github.com/ngneat/spectator)
 
 
 

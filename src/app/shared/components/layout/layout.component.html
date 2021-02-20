@@ -1,0 +1,143 @@
+<main class="main">
+  <div class="menu" [ngClass]="{ 'menu--active': menuIsActive }">
+    <div class="top-nav">
+      <div class="intro">
+        <div class="intro-heading" (click)="redirectToDashboard()">
+          <div class="intro-heading-title">TBC</div>
+          <div class="intro-heading-subtitle">Banking</div>
+        </div>
+      </div>
+      <div class="main-nav" #mainNav>
+        <a
+          class="main-nav-item"
+          (click)="contentTitlte = 'DASHBOARD'"
+          [routerLink]="'dashboard'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-clock"></i>
+          </div>
+          <div class="main-nav-title">DASHBOARD</div>
+        </a>
+        <a
+          class="main-nav-item"
+          (click)="contentTitlte = 'TRANSACTIONS'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-redo"></i>
+          </div>
+          <div class="main-nav-title">TRANSACTIONS</div>
+        </a>
+        <a
+          class="main-nav-item"
+          (click)="contentTitlte = 'PRODUCTS'"
+          [routerLink]="'accounts-list'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-briefcase"></i>
+          </div>
+          <div class="main-nav-title">PRODUCTS</div>
+        </a>
+        <a
+          class="main-nav-item"
+          (click)="contentTitlte = 'PAYMENTS'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-credit-card"></i>
+          </div>
+          <div class="main-nav-title">PAYMENTS</div>
+        </a>
+        <a
+          class="main-nav-item"
+          (click)="contentTitlte = 'NEWS'"
+          [routerLink]="'news'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-file-alt"></i>
+          </div>
+          <div class="main-nav-title">NEWS</div>
+        </a>
+        <a
+          class="main-nav-item"
+          (click)="contentTitlte = 'INVOICES'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-puzzle-piece"></i>
+          </div>
+          <div class="main-nav-title">INVOICES</div>
+        </a>
+      </div>
+    </div>
+    <div class="bottom-nav" #bottomNav>
+      <div class="accounts">
+        <h3 class="accounts-main-title">Accounts</h3>
+        <div
+          class="accounts-inner"
+          *ngFor="let cardNumber of cardArray; let i = index"
+        >
+          <a class="accounts-item">
+            <div class="accounts-icon">
+              <div class="accounts-icon-wrapper">
+                <i
+                  *ngIf="cardTypeArray[i] === 'MASTERCARD'"
+                  class="fab fa-cc-mastercard"
+                ></i>
+                <i
+                  *ngIf="cardTypeArray[i] === 'VISA'"
+                  class="fab fa-cc-visa"
+                ></i>
+                <i
+                  *ngIf="
+                    cardTypeArray[i] !== 'VISA' &&
+                    cardTypeArray[i] !== 'MASTERCARD'
+                  "
+                  class="fas fa-credit-card"
+                ></i>
+              </div>
+            </div>
+            <div class="accounts-title">
+              <div class="card-full-detail">
+                Card xxxx-{{ cardNumber | slice: 0:4 }}
+              </div>
+              <div class="card-short-detail">
+                **{{ cardNumber | slice: 2:4 }}
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content-dashboard">
+      <div class="content-dashboard-wrapper">
+        <div class="burger-menu" (click)="menuIsActive = !menuIsActive">
+          <div class="burger-menu-line"></div>
+          <div class="burger-menu-line"></div>
+          <div class="burger-menu-line"></div>
+        </div>
+        <h3 class="content-dashboard-title">{{ contentTitlte }}</h3>
+      </div>
+      <div class="test" style="padding-right: 50px">
+        <ng-content select="[header-profile]"></ng-content>
+      </div>
+    </div>
+    <div
+      class="content-main"
+      [ngStyle]="{ minHeight: contentMainHeight }"
+      #contentMain
+    >
+      <div class="content-main-inner">
+        <ng-content select="[content]"></ng-content>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-text">© 2019 TBC Banking - All Rights Reserved.</div>
+    </div>
+  </div>
+</main>

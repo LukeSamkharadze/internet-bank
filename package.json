@@ -1,33 +1,63 @@
 
 {
-  "name": "angular-bootcamp-2020-internet-bank",
-  "version": "1.0.0",
-  "description": "Internet bank application",
-  "main": "index.js",
+  "name": "angular-project",
+  "version": "0.0.0",
   "scripts": {
-    "build-dropdown": "webpack & cd components/dropdown & build.bat",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ng": "ng",
+    "start": "ng serve -o",
+    "server": "json-server db.json --watch",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "pretty": "pretty-quick && ng lint && ng test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/needermen/angular-bootcamp-2020-internet-bank.git"
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && ng lint && ng test"
+    }
   },
-  "author": "Academy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/needermen/angular-bootcamp-2020-internet-bank/issues"
-  },
-  "homepage": "https://github.com/needermen/angular-bootcamp-2020-internet-bank#readme",
+  "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@angular/animations": "~10.0.11",
+    "@angular/common": "~10.0.11",
+    "@angular/compiler": "~10.0.11",
+    "@angular/core": "~10.0.11",
+    "@angular/forms": "~10.0.11",
+    "@angular/platform-browser": "~10.0.11",
+    "@angular/platform-browser-dynamic": "~10.0.11",
+    "@angular/router": "~10.0.11",
     "chart.js": "^2.9.4",
-    "line-awesome": "^1.3.0"
+    "jest-junit": "^11.1.0",
+    "ngx-pagination": "^5.0.0",
+    "rxjs": "~6.5.4",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.10.2",
+    "fast-average-color": "^6.3.0"
   },
   "devDependencies": {
-    "sass": "^1.30.0",
-    "ts-loader": "^8.0.13",
-    "typescript": "^4.1.3",
-    "webpack": "^5.11.1",
-    "webpack-cli": "^4.3.1"
+    "@angular-builders/jest": "^10.0.0",
+    "@angular-devkit/build-angular": "~0.1000.7",
+    "@angular/cli": "~10.0.7",
+    "@angular/compiler-cli": "~10.0.11",
+    "@angular/language-service": "~10.0.11",
+    "@ngneat/spectator": "^5.13.0",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/jest": "^26.0.10",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
+    "husky": "^4.2.5",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "jest": "^26.4.1",
+    "json-server": "^0.16.3",
+    "prettier": "^2.1.1",
+    "pretty-quick": "^3.0.0",
+    "protractor": "~7.0.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "~3.9.7"
   }
 }
