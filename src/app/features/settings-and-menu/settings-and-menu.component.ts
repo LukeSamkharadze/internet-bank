@@ -8,11 +8,6 @@ import { SettingsComponent } from './settings/settings.component';
   styleUrls: ['./settings-and-menu.component.scss'],
 })
 export class SettingsAndMenuComponent implements OnInit {
-  // id = parseInt(localStorage.getItem('id'));
-  // სანამ ბალახაძე დაასრულებს მანამდე default id-ის მნიშვნელობას გამოვიყენებ
-
-  id = 1;
-
   constructor(private http: SettingsFormServiceService) {}
 
   ngOnInit() {}
