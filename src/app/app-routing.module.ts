@@ -25,6 +25,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'card-view',
+        loadChildren: () =>
+          import('./features/card-view/card-view.module').then(
+            (m) => m.CardViewModule
+          ),
+      },
+      {
         path: 'accounts-list',
         loadChildren: () =>
           import('./features/accounts-list/accounts-list.module').then(
