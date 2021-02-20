@@ -1,0 +1,14 @@
+@import './src/styles/variables/colors';
+
+:host {
+  display: block;
+  height: 4px;
+}
+
+div {
+  width: 100%;
+  background-color: $background-1;
+  border-radius: 10px;
+  display: block;
+  height: 100%;
+}
