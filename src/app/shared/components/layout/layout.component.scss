@@ -11,9 +11,6 @@ a {
 }
 
 .menu {
-  -webkit-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s;
   margin-top: 21px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -23,6 +20,10 @@ a {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+
+  .intro-heading {
+    cursor: pointer;
+  }
 }
 
 .menu--active {
@@ -66,6 +67,16 @@ a {
     opacity: 0;
   }
 
+  .accounts {
+    .card-short-detail {
+      display: inline;
+    }
+
+    .card-full-detail {
+      display: none;
+    }
+  }
+
   .accounts-icon {
     padding: 0;
   }
@@ -102,9 +113,6 @@ a {
 
   &-heading {
     width: 100%;
-    -webkit-transition: 1s;
-    -o-transition: 1s;
-    transition: 1s;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -117,9 +125,6 @@ a {
 
     &-title {
       padding-left: 70px;
-      -webkit-transition: 0.3s;
-      -o-transition: 0.3s;
-      transition: 0.3s;
       font-size: 20px;
       font-weight: 500;
       text-transform: uppercase;
@@ -145,9 +150,6 @@ a {
     display: flex;
     padding-top: 23px;
     padding-bottom: 23px;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -168,6 +170,19 @@ a {
     }
   }
 
+  .nav-item-active {
+    background-color: $background-2;
+    border-left: 2px solid $primary;
+
+    .main-nav-icon {
+      padding-left: 33px;
+
+      i {
+        color: $primary;
+      }
+    }
+  }
+
   &-icon {
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
@@ -175,9 +190,6 @@ a {
     padding-left: 28px;
 
     i {
-      -webkit-transition: 0.3s;
-      -o-transition: 0.3s;
-      transition: 0.3s;
       color: $secondary-dark-1;
       font-size: 22px;
     }
@@ -187,9 +199,6 @@ a {
     opacity: 1;
     padding-left: 30px;
     visibility: visible;
-    -webkit-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition: 0.2s;
     color: $primary-dark;
     font-family: $roboto;
     font-size: 14px;
@@ -217,9 +226,6 @@ a {
   &-main-title {
     visibility: visible;
     opacity: 1;
-    -webkit-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
     color: $secondary-dark-2;
     font-family: Roboto;
     font-size: 14px;
@@ -227,26 +233,33 @@ a {
     padding: 19px 0 3px 28px;
   }
 
-  &-item {
+  .accounts-main-title {
+    padding-bottom: 5px;
+  }
+
+  .card-short-detail {
+    display: none;
+  }
+
+  .card-full-detail {
+    display: inline;
+  }
+
+  .accounts-icon {
     transition: 0.3s;
+  }
+
+  &-item {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
     cursor: pointer;
-    border-left: 2px solid $secondary-1;
-
-    &:nth-child(3) {
-      border-left: 2px solid $primary;
-    }
-
-    &:nth-child(4) {
-      border-left: 2px solid $secondary-3;
-    }
+    border-left: 2px solid transparent;
 
     &:hover {
       .accounts-icon {
@@ -256,30 +269,22 @@ a {
 
     &:hover {
       background-color: $background-2;
+      border-left: 2px solid $primary;
     }
   }
 
   &-icon {
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
     padding-left: 28px;
     padding-right: 28px;
 
     i {
-      font-size: 22px;
+      font-size: 17px;
       opacity: 1;
-      -webkit-transition: 0.4s;
-      -o-transition: 0.4s;
-      transition: 0.4s;
       color: $secondary-dark-1;
     }
   }
 
   &-title {
-    -webkit-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
     color: $primary-dark;
     font-family: $roboto;
     font-size: 14px;
@@ -289,18 +294,12 @@ a {
     .span-visible {
       visibility: visible;
       opacity: 1;
-      -webkit-transition: 0.4s;
-      -o-transition: 0.4s;
-      transition: 0.4s;
     }
 
     .span-hidden {
       visibility: hidden;
       font-size: 0;
       opacity: 0;
-      -webkit-transition: 0.4s;
-      -o-transition: 0.4s;
-      transition: 0.4s;
     }
   }
 }
@@ -345,7 +344,7 @@ a {
   }
 
   .content-main-inner {
-    min-height: calc(100vh - 180px);
+    min-height: calc(100vh - 130px);
   }
 
   .footer {

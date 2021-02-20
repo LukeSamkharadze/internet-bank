@@ -1,0 +1,121 @@
+@import './index.scss';
+
+.profileBef {
+  user-select: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: $primary-dark;
+  display: flex;
+  align-items: center;
+  width: 155.75px;
+  height: 40px;
+  // margin-left: 120px;
+  right: 0;
+  .image {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    border: 2px solid $primary;
+    float: left;
+    margin-right: 11.3px;
+
+    img {
+      width: 32px;
+    }
+  }
+  .name {
+    letter-spacing: 0.2px;
+    font-family: $roboto;
+    width: 69%;
+  }
+}
+.profileHover {
+  color: $primary-dark;
+  background-color: white;
+  font-weight: 500;
+  width: 286px;
+  height: 237px;
+  right: 0;
+  margin-bottom: 1px;
+  box-sizing: border-box;
+  display: none;
+  clear: both;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.000005),
+    0 6px 20px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  // margin-right: 20px;
+  position: absolute;
+  z-index: 1;
+  .about {
+    background-color: $background-2;
+    height: 79.75px;
+    font-family: $rubik;
+    align-items: center;
+    font-size: 14px;
+    display: flex;
+    box-sizing: border-box;
+    letter-spacing: 0.3px;
+    line-height: 20px;
+    padding-top: 2px;
+    .profileMini {
+      margin-right: 15px;
+      margin-left: 22px;
+      height: 36px;
+      width: 36px;
+      float: left;
+      letter-spacing: 0.3px;
+    }
+    .mail {
+      color: $secondary-dark-2;
+      letter-spacing: 0px;
+      font-weight: 400;
+    }
+  }
+
+  .profSettings {
+    font-weight: 500;
+    padding-left: 23px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 156.25px;
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 11px;
+    box-sizing: border-box;
+    a {
+      user-select: none;
+      cursor: pointer;
+      display: flex;
+      text-decoration: none;
+    }
+    i {
+      margin-right: 8px;
+      color: $secondary-dark-1;
+      font-size: 18px;
+    }
+    p {
+      color: $primary-dark;
+      font-size: 12px;
+      letter-spacing: 0.1px;
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+  }
+}
+
+.show {
+  display: block;
+}
+:host {
+  position: relative;
+  display: inline-block;
+}
+
+#myDropdown {
+  outline: none;
+}

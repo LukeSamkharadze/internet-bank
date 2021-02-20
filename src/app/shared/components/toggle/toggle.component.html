@@ -1,0 +1,33 @@
+<ng-template #portal>
+  <ng-content></ng-content>
+</ng-template>
+<div class="toggle-container" [class]="toggleClass">
+  <label
+    class="textBefore disable-select"
+    for="{{ toggleId }}"
+    *ngIf="textBefore"
+    ><ng-container *ngIf="textBefore" [ngTemplateOutlet]="portal"></ng-container
+  ></label>
+  <label class="switch">
+    <input
+      type="checkbox"
+      id="{{ toggleId }}"
+      [checked]="checked"
+      [disabled]="disabled"
+      (change)="onChanged($event)"
+      (blur)="onBlur($event)"
+      (click)="markAschecked()"
+    />
+    <span class="slider"></span>
+  </label>
+  <label
+    class="text disable-select"
+    *ngIf="!textBefore"
+    for="toggleId"
+    for="{{ toggleId }}"
+    ><ng-container
+      *ngIf="!textBefore"
+      [ngTemplateOutlet]="portal"
+    ></ng-container
+  ></label>
+</div>

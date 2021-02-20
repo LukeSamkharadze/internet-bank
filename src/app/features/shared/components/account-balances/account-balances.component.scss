@@ -1,5 +1,4 @@
 @import './index.scss';
-
 :host {
   display: block;
   width: 555px;
@@ -55,7 +54,13 @@
         background-color: $background-2;
         display: flex;
         justify-content: center;
+        align-items: center;
         margin-left: 5px;
+        border-radius: 5px;
+      }
+      .logo-background-deposit {
+        @extend .logo-background;
+        background-color: rgba($primary, 0.1);
       }
       .account-type {
         display: flex;
@@ -78,6 +83,9 @@
         width: 76px;
         justify-content: space-between;
         padding: 0;
+      }
+      .la-lock {
+        color: $primary;
       }
       .balance {
         display: flex;

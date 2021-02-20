@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { components } from './components';
 import { SharedModule } from '@shared/shared';
-import { HideNumsPipe } from './pipes/hide-nums.pipe';
+import { sharedPipes } from './pipes';
+
+const modules = [CommonModule, SharedModule];
 
 @NgModule({
-  declarations: [...components, HideNumsPipe],
-  imports: [CommonModule, SharedModule],
-  exports: [...components, SharedModule],
+  declarations: [...components, ...sharedPipes],
+  imports: [...modules],
+  exports: [...components, ...modules],
   providers: [],
 })
 export class FeaturesSharedModule {}

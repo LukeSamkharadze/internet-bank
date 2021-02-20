@@ -1,4 +1,4 @@
-export interface individualBalance {
+export interface IndividualBalance {
   cardNumber: number;
   accountNumber: string;
   expirationDate: string;
@@ -8,7 +8,7 @@ export interface individualBalance {
   cardName: string;
 }
 export interface BalanceStructure {
-  balances: individualBalance[];
+  balances: IndividualBalance[];
   cardholder: string;
   id: number;
 }

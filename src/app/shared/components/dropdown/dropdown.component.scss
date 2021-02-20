@@ -1,0 +1,21 @@
+@import './index.scss';
+@import '../../../../styles/text-styles/text.scss';
+@import './style/index.scss';
+
+:host {
+  display: inline-block;
+  width: 360px;
+  height: 52px;
+}
+
+:host::ng-deep {
+  .dropdown-general {
+    @include dropdown($options-symbol: '');
+  }
+
+  .dropdown-disabled {
+    .selected {
+      background-color: $background-2;
+    }
+  }
+}

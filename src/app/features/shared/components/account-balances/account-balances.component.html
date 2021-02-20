@@ -1,18 +1,29 @@
 <div class="available-balances">
   <div class="balances-title">Available balance</div>
   <div class="balances-container">
-    <div *ngFor="let item of accountDetails?.balances" class="account-balance">
+    <div *ngFor="let item of cards" class="account-balance">
       <div class="account-type">
-        <div class="logo-background">
-          <img
-            src="../../assets/card-logos/{{
-              item.cardName.toLowerCase().split(' ')[0]
-            }}.svg"
-          />
+        <div *ngIf="item.cardNumber" class="logo-background">
+          <img src="../../../../../{{ item.iconPath }}" />
+        </div>
+        <div
+          [ngClass]="'logo-background-deposit'"
+          *ngIf="!item.cardNumber"
+          class="logo-background"
+        >
+          <i class="las la-lock"></i>
         </div>
         <div class="detail-position">
-          <div class="account-number">{{ item.cardNumber | hideNums }}</div>
-          <div class="account-description">Card Number</div>
+          <div class="account-number" *ngIf="item.cardNumber">
+            {{ item.cardNumber | hideNums }}
+          </div>
+          <div class="account-number" *ngIf="!item.cardNumber">
+            Cumulative Deposit
+          </div>
+          <div class="account-description" *ngIf="item.cardNumber">
+            Card Number
+          </div>
+          <div class="account-description" *ngIf="!item.cardNumber">Name</div>
         </div>
       </div>
 
