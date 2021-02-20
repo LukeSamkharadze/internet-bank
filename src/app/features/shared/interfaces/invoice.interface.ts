@@ -1,3 +1,9 @@
+interface ItemsModel {
+  itemDescription: string;
+  itemQty: number;
+  price: number;
+}
+
 export interface Invoice {
   id: number;
   tamplate: string;
@@ -6,7 +12,5 @@ export interface Invoice {
   companyName: string;
   contanctEmail: string;
   address: string;
-  itemDescription: string;
-  itemQty: number;
-  price: number;
+  items: ItemsModel[];
 }

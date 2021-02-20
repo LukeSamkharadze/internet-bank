@@ -1,7 +1,7 @@
 <section class="main-container">
   <div class="form">
     <div class="question-mark-wrapper">
-      <div class="question-mark"></div>
+      <i class="fas fa-eye"></i>
       <p class="preview">PREVIEW</p>
     </div>
     <form [formGroup]="form">
@@ -112,7 +112,7 @@
               form.controls['contanctEmail'].errors?.pattern &&
               form.controls['contanctEmail'].touched
             "
-            ><b>shued be email</b>
+            ><b>should be an email</b>
           </span>
         </app-shared-input>
       </div>
@@ -138,74 +138,111 @@
 
       <p class="form-split"><span>Products list</span></p>
 
-      <div class="flex-container">
-        <!-- Item Description -->
-        <app-shared-input
-          inputId="item-description"
-          formControlName="itemDescription"
-          placeholder="Enter billing address"
-          style="width: 440px"
-        >
-          Item description
-          <span
-            *ngIf="
-              form.controls['itemDescription'].errors?.required &&
-              form.controls['itemDescription'].touched
-            "
-            ><b>required</b>
-          </span>
-        </app-shared-input>
-        <div>
-          <!-- Item Qty -->
+      <!-- Item description -->
 
-          <label class="dropdown-label last" for="item-qty"
-            ><p>Item Qty</p>
-            <span
-              *ngIf="
-                form.controls['itemQty'].errors?.required &&
-                form.controls['itemQty'].touched
-              "
-              ><b class="dropdown-b">required</b></span
+      <div
+        formArrayName="items"
+        *ngFor="let item of form.get('items')['controls']; let i = index"
+      >
+        <div [formGroupName]="i">
+          <div class="flex-container">
+            <app-shared-input
+              inputId="item-description"
+              formControlName="itemDescription"
+              placeholder="Enter billing address"
+              style="width: 440px"
             >
-          </label>
-          <app-shared-dropdown
-            id="item-qty"
-            [ngClass]="{
-              'invalid-dropdown':
-                form.controls['itemQty'].errors?.required &&
-                form.controls['itemQty'].touched,
-              'valid-dropdown': !form.controls['itemQty'].errors
-            }"
-            style="width: 210px"
-            formControlName="itemQty"
-            placeholder="Select amount"
-            [options]="itemQtyOptions"
-          >
-          </app-shared-dropdown>
-        </div>
+              Item description
+              <span
+                *ngIf="
+                  form.get('items')['controls'][i]['controls'][
+                    'itemDescription'
+                  ].errors?.required &&
+                  form.get('items')['controls'][i]['controls'][
+                    'itemDescription'
+                  ].touched
+                "
+                ><b>required</b>
+              </span>
+            </app-shared-input>
+            <div>
+              <!-- Item Qty -->
 
-        <!-- Price -->
-        <app-shared-input
-          inputId="price"
-          [type]="'number'"
-          formControlName="price"
-          placeholder="Enter price"
-          style="width: 210px"
-        >
-          Price
-          <span
-            *ngIf="
-              form.controls['price'].errors?.required &&
-              form.controls['price'].touched
-            "
-            ><b>required</b>
-          </span>
-        </app-shared-input>
+              <label class="dropdown-label last" for="item-qty"
+                ><p>Item Qty</p>
+                <span
+                  *ngIf="
+                    form.get('items')['controls'][i]['controls']['itemQty']
+                      .errors?.required &&
+                    form.get('items')['controls'][i]['controls']['itemQty']
+                      .touched
+                  "
+                  ><b class="dropdown-b">required</b></span
+                >
+              </label>
+              <app-shared-dropdown
+                id="item-qty"
+                [ngClass]="{
+                  'invalid-dropdown':
+                    form.get('items')['controls'][i]['controls']['itemQty']
+                      .errors?.required &&
+                    form.get('items')['controls'][i]['controls']['itemQty']
+                      .touched,
+                  'valid-dropdown': !form.get('items')['controls'][i][
+                    'controls'
+                  ]['itemQty'].errors
+                }"
+                style="width: 210px"
+                formControlName="itemQty"
+                placeholder="Select amount"
+                [options]="itemQtyOptions"
+              >
+              </app-shared-dropdown>
+            </div>
+
+            <!-- Price -->
+
+            <app-shared-input
+              inputId="price"
+              [type]="'number'"
+              formControlName="price"
+              placeholder="Enter price"
+              style="width: 210px"
+            >
+              Price
+              <span
+                *ngIf="
+                  form.get('items')['controls'][i]['controls']['price'].errors
+                    ?.required &&
+                  form.get('items')['controls'][i]['controls']['price'].touched
+                "
+                ><b>required</b>
+              </span>
+              <span
+                *ngIf="
+                  form.get('items')['controls'][i]['controls']['price']
+                    .errors &&
+                  !form.get('items')['controls'][i]['controls']['price'].errors
+                    ?.required &&
+                  form.get('items')['controls'][i]['controls']['price'].touched
+                "
+                ><b>should be more then 0.1</b>
+              </span>
+            </app-shared-input>
+
+            <i
+              *ngIf="i > 0"
+              class="far fa-trash-alt"
+              (click)="removeItem(i)"
+            ></i>
+          </div>
+        </div>
       </div>
     </form>
+
     <div class="question-mark-wrapper bottom">
-      <div class="question-mark"></div>
-      <p class="preview">ADD NEW ITAM</p>
+      <i class="fas fa-plus-circle"></i>
+      <a (click)="addItem()" class="preview">ADD NEW ITAM</a>
     </div>
   </div>
 
@@ -216,14 +253,14 @@
         [className]="{ primary: true, active: true }"
         style="width: 150px; height: 49px"
         [isDisabled]="!form.valid"
-        (clicked)="onSubmit()"
+        (click)="onSubmit()"
         >send invoice
       </app-shared-button>
 
       <app-shared-button
         [className]="{ primary: true, resting: true }"
         style="width: 150px; height: 49px"
-        (clicked)="onCencel()"
+        (click)="onCencel()"
         >cencel
       </app-shared-button>
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -19,6 +20,7 @@ import * as templateOptions from './dropdown-options/template-dropdown';
 })
 export class NewInvoiceComponent implements OnInit {
   form: FormGroup;
+  items: FormArray;
   templateOptions = templateOptions.templateOptions;
   itemQtyOptions = itemQtyOptions.itemQtyOptions;
 
@@ -28,7 +30,7 @@ export class NewInvoiceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
+    this.form = this.fb.group({
       tamplate: new FormControl('', Validators.required),
       invoiceNumber: new FormControl('', Validators.required),
       dueDate: new FormControl('', Validators.required),
@@ -40,18 +42,41 @@ export class NewInvoiceComponent implements OnInit {
         ),
       ]),
       address: new FormControl('', Validators.required),
-      itemDescription: new FormControl('', Validators.required),
-      itemQty: new FormControl('', Validators.required),
-      price: new FormControl('', Validators.required),
+      items: this.fb.array([this.createItem()]),
     });
   }
 
+  addItem(): void {
+    this.items = this.form.get('items') as FormArray;
+    this.items.push(this.createItem());
+  }
+
+  createItem(): FormGroup {
+    return this.fb.group({
+      itemDescription: new FormControl('', Validators.required),
+      itemQty: new FormControl('', Validators.required),
+      price: new FormControl('', [Validators.required, Validators.min(0.1)]),
+    });
+  }
+
+  removeItem(index: number) {
+    this.items.removeAt(index);
+  }
+
   chengeValueType() {
+    const controls = 'controls';
+    const price = 'price';
     this.form
       .get('invoiceNumber')
       .setValue(parseInt(this.form.get('invoiceNumber').value, 10));
 
-    this.form.get('price').setValue(parseInt(this.form.get('price').value, 10));
+    for (const i in this.items[controls]) {
+      if (this.items[controls].hasOwnProperty(i)) {
+        this.items[controls][i][controls][price].setValue(
+          parseInt(this.items[controls][i][controls][price].value, 10)
+        );
+      }
+    }
   }
 
   onSubmit() {

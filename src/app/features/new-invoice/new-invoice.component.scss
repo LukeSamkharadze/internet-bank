@@ -1,6 +1,19 @@
 @import 'src/styles/index';
 @import './style/question-mark.scss';
 
+a {
+  cursor: pointer;
+  &:hover {
+    color: $primary;
+  }
+}
+
+i {
+  color: $secondary-dark-1;
+  &:hover {
+    color: $primary;
+  }
+}
 .flex {
   display: flex;
   justify-content: space-between;
@@ -8,10 +21,11 @@
 
 .main-container {
   width: 97%;
-  height: 718px;
+  height: fit-content;
   background-color: #fff;
   margin: 20px;
   border-radius: 2px;
+  padding-bottom: 20px;
   @extend .flex;
 }
 
