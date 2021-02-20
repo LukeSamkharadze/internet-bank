@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Invoice } from './models/invoice.model';
+import { sample } from './models/sample.model';
 
 @Component({
   selector: 'app-shared-invoice-details',
@@ -7,49 +8,10 @@ import { Invoice } from './models/invoice.model';
   styleUrls: ['./invoice-details.component.scss'],
 })
 export class InvoiceDetailsComponent {
-  @Input() invoice: Invoice = {
-    number: 'IO-BN-124',
-    title: 'Vodafone LLC',
-    address: {
-      address1: '44-46 Morningside Road',
-      address2: 'EH10 4BF',
-      address3: 'Department 98',
-      city: 'Edinburgh',
-      country: 'Scotland',
-      mail: 'marketing@vdfn.com',
-    },
-    date: '6 Aug 2018, 2:15 AM',
-    due: '16 Aug 2018',
-    tagColor: 'green',
-    status: 'Paid',
-    currency: '$',
-    items: [
-      {
-        desc: 'Marketing materials',
-        rate: 50,
-        qty: 150,
-      },
-      {
-        desc: 'Website design',
-        rate: 350,
-        qty: 1,
-      },
-      {
-        desc: 'Mobile app',
-        rate: 550,
-        qty: 2,
-      },
-      {
-        desc: 'Printing equipment',
-        rate: 150,
-        qty: 10,
-      },
-    ],
-  };
+  showTag = true;
+  @Input() invoice: Invoice = sample;
 
   @Output() closePopup = new EventEmitter();
-
-  constructor() {}
 
   print() {
     window.print();
@@ -69,5 +31,9 @@ export class InvoiceDetailsComponent {
 
   close() {
     this.closePopup.emit();
+  }
+
+  closeTag() {
+    this.showTag = false;
   }
 }
