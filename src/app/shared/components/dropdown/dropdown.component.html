@@ -15,7 +15,7 @@
   class="dropdown-general"
   [class.dropdown-disabled]="disabled"
   (click)="dropdownClicked()"
-  (blur)="onTouched()"
+  (blur)="isOptionsOpened = false; onTouched()"
 >
   <div class="selected" [class.placeholder]="isPlaceholderOn || disabled">
     <div class="content">

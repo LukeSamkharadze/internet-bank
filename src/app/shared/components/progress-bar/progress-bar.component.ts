@@ -2,10 +2,10 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-shared-progress-bar',
-  templateUrl: './progress-bars.component.html',
-  styleUrls: ['./progress-bars.component.scss'],
+  templateUrl: './progress-bar.component.html',
+  styleUrls: ['./progress-bar.component.scss'],
 })
-export class ProgressBarsComponent implements OnInit, OnChanges {
+export class ProgressBarComponent implements OnInit, OnChanges {
   @Input()
   public value = 0;
 
@@ -106,6 +106,12 @@ export class ProgressBarsComponent implements OnInit, OnChanges {
       );
     }
     color = 'rgb(' + color.toString() + ')';
-    document.documentElement.style.setProperty('--backgroundColor', color);
+    return color;
+  }
+  public styleObject() {
+    return {
+      backgroundColor: this.defineColor(),
+      width: (this.value * 100) / this.max + '%',
+    };
   }
 }
