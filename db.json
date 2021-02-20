@@ -115,7 +115,6 @@
       "iconPath": "./assets/create-card/mastercard.svg"
     }
   ],
-
   "users": [
     {
       "fullname": "SANCHO PANZA",
@@ -191,30 +190,42 @@
       "data": [41300, 28910, 16520, 28910, 24800]
     }
   ],
-
   "invoice": [
     {
       "tamplate": "Website design",
-      "invoiceNumber": 1,
+      "invoiceNumber": "AS-5",
       "dueDate": "2021-02-08",
       "companyName": "AOT",
-      "contanctEmail": "aot.company@mail.com",
+      "contanctEmail": "aot.company@gmail.com",
       "address": "123 Main Street, Somewhere, CA 94000",
-      "itemDescription": "321 Main Street, Somewhere, CA 33003",
-      "itemQty": 2,
-      "price": 150,
+      "items": [
+        {
+          "itemDescription": "133 Main Street, Somewhere, CA 95000",
+          "itemQty": 1,
+          "price": 150
+        }
+      ],
       "id": 1
     },
     {
-      "tamplate": "Mobile App",
-      "invoiceNumber": 2,
+      "tamplate": "Marketing Materials",
+      "invoiceNumber": "RE-12",
       "dueDate": "2021-02-23",
-      "companyName": "RTY",
-      "contanctEmail": "rty.company@gmail.com",
-      "address": "223 Main Street, Somewhere, CA 34000",
-      "itemDescription": "233 Main Street, Somewhere, CA 35000",
-      "itemQty": 1,
-      "price": 300,
+      "companyName": "OP",
+      "contanctEmail": "op.company@gmail.com",
+      "address": "333 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "310 Main Street, Somewhere, CA 91910",
+          "itemQty": 10,
+          "price": 250
+        },
+        {
+          "itemDescription": "321 Main Street, Somewhere, CA 21999",
+          "itemQty": 150,
+          "price": 100
+        }
+      ],
       "id": 2
     }
   ]

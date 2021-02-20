@@ -1,5 +1,4 @@
 @import 'src/styles/index';
-@import '../style/question-mark.scss';
 
 .cotainer {
   padding: 20px;
@@ -18,6 +17,12 @@ h6 {
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 20px;
+}
+
+i {
+  color: $secondary-dark-1;
+  font-size: 25px;
+  line-height: 9px;
 }
 
 p {

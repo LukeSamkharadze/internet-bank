@@ -1,0 +1,96 @@
+<div [formGroup]="form">
+  <div
+    formArrayName="items"
+    *ngFor="let item of form.get('items')['controls']; let i = index"
+  >
+    <div [formGroupName]="i">
+      <div class="flex-container">
+        <app-shared-input
+          inputId="item-description"
+          formControlName="itemDescription"
+          placeholder="Enter billing address"
+          style="width: 48.5%"
+        >
+          Item description
+          <span
+            *ngIf="
+              form.get('items')['controls'][i]['controls']['itemDescription']
+                .errors?.required &&
+              form.get('items')['controls'][i]['controls']['itemDescription']
+                .touched
+            "
+            ><b>required</b>
+          </span>
+        </app-shared-input>
+        <div class="dropdown-wrapper">
+          <!-- Item Qty -->
+
+          <label class="dropdown-label last" for="item-qty"
+            ><p>Item Qty</p>
+            <span
+              *ngIf="
+                form.get('items')['controls'][i]['controls']['itemQty'].errors
+                  ?.required &&
+                form.get('items')['controls'][i]['controls']['itemQty'].touched
+              "
+              ><b class="dropdown-b">required</b></span
+            >
+          </label>
+          <app-shared-dropdown
+            id="item-qty"
+            [ngClass]="{
+              'invalid-dropdown':
+                form.get('items')['controls'][i]['controls']['itemQty'].errors
+                  ?.required &&
+                form.get('items')['controls'][i]['controls']['itemQty'].touched,
+              'valid-dropdown': !form.get('items')['controls'][i]['controls'][
+                'itemQty'
+              ].errors
+            }"
+            style="width: 100%"
+            formControlName="itemQty"
+            placeholder="Select amount"
+            [options]="itemQtyOptions"
+          >
+          </app-shared-dropdown>
+        </div>
+
+        <!-- Price -->
+
+        <app-shared-input
+          inputId="price"
+          [type]="'number'"
+          formControlName="price"
+          placeholder="Enter price"
+          style="width: 25%"
+        >
+          Price
+          <span
+            *ngIf="
+              form.get('items')['controls'][i]['controls']['price'].errors
+                ?.required &&
+              form.get('items')['controls'][i]['controls']['price'].touched
+            "
+            ><b>required</b>
+          </span>
+          <span
+            *ngIf="
+              form.get('items')['controls'][i]['controls']['price'].errors &&
+              !form.get('items')['controls'][i]['controls']['price'].errors
+                ?.required &&
+              form.get('items')['controls'][i]['controls']['price'].touched
+            "
+            ><b>should be more then 0.1</b>
+          </span>
+        </app-shared-input>
+
+        <i *ngIf="i > 0" class="far fa-trash-alt" (click)="removeItem(i)"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="icon-text-wrapper" (click)="addItem()">
+    <i class="fas fa-plus-circle"></i>
+    <p>ADD NEW ITAM</p>
+  </div>
+</div>

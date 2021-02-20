@@ -1,0 +1,33 @@
+@import '../style/shared.style.scss';
+
+.flex-container {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  i {
+    position: absolute;
+    top: 60px;
+    right: -25px;
+    color: inherit;
+  }
+}
+
+.dropdown-wrapper {
+  width: 25%;
+}
+.icon-text-wrapper {
+  width: 120px;
+  margin-top: 20px;
+  color: $secondary-dark-1;
+  cursor: pointer;
+  p {
+    float: right;
+    line-height: 17px;
+    color: inherit;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  &:hover {
+    color: $primary;
+  }
+}

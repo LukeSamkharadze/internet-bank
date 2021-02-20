@@ -8,9 +8,6 @@ import {
 } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { InvoiceService } from '../shared/services/invoice.service';
-import * as itemQtyOptions from './dropdown-options/item-qty-dropdown';
-
-import * as templateOptions from './dropdown-options/template-dropdown';
 
 @Component({
   selector: 'app-new-invoice',
@@ -21,8 +18,6 @@ import * as templateOptions from './dropdown-options/template-dropdown';
 export class NewInvoiceComponent implements OnInit {
   form: FormGroup;
   items: FormArray;
-  templateOptions = templateOptions.templateOptions;
-  itemQtyOptions = itemQtyOptions.itemQtyOptions;
 
   constructor(
     private fb: FormBuilder,
@@ -44,11 +39,8 @@ export class NewInvoiceComponent implements OnInit {
       address: new FormControl('', Validators.required),
       items: this.fb.array([this.createItem()]),
     });
-  }
 
-  addItem(): void {
     this.items = this.form.get('items') as FormArray;
-    this.items.push(this.createItem());
   }
 
   createItem(): FormGroup {
@@ -59,16 +51,9 @@ export class NewInvoiceComponent implements OnInit {
     });
   }
 
-  removeItem(index: number) {
-    this.items.removeAt(index);
-  }
-
   chengeValueType() {
     const controls = 'controls';
     const price = 'price';
-    this.form
-      .get('invoiceNumber')
-      .setValue(parseInt(this.form.get('invoiceNumber').value, 10));
 
     for (const i in this.items[controls]) {
       if (this.items[controls].hasOwnProperty(i)) {
