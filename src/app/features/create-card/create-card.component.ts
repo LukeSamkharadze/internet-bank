@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { CardService } from '../shared/services/card.service';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-features-create-card',
@@ -11,7 +12,11 @@ import { CardService } from '../shared/services/card.service';
 export class CreateCardComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private cardService: CardService) {}
+  constructor(
+    private fb: FormBuilder,
+    private cardService: CardService,
+    private authService: AuthService
+  ) {}
 
   makeInputUpperCase(input: string) {
     this.form
@@ -35,9 +40,15 @@ export class CreateCardComponent implements OnInit {
     if (this.form.valid) {
       this.makeInputTransforms();
 
+      // Adding current 'User Id' to card
+      const card = {
+        ...this.form.getRawValue(),
+        userId: this.authService.userId,
+      };
+
       // Card addition Service
       this.cardService
-        .create(this.form.getRawValue())
+        .create(card)
         .pipe(finalize(() => this.form.reset()))
         .subscribe();
     }

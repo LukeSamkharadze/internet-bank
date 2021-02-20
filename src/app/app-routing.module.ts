@@ -32,6 +32,11 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'news',
+        loadChildren: () =>
+          import('./features/news/news.module').then((m) => m.NewsModule),
+      },
+      {
         path: 'list',
         loadChildren: () =>
           import('./features/list/list.module').then((m) => m.ListModule),

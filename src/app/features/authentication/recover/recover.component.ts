@@ -8,8 +8,9 @@ import { AuthService } from '../../shared/services/auth.service';
   templateUrl: './recover.component.html',
   styleUrls: ['../authentication.component.scss', './recover.component.scss'],
 })
-export class RecoverComponent implements OnInit {
+export class RecoverComponent {
   emailPattern = this.authService.emailPattern;
+  uniqueEmail: boolean;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -22,19 +23,20 @@ export class RecoverComponent implements OnInit {
   }
 
   onSubmit() {
-    // Check if input email is registered in Database
-    if (!this.authService.checkEmailUniqueness(this.emailFormControl.value)) {
-      alert(
-        `Request Success!\nRecover password has been sent on the email: ${this.emailFormControl.value}`
-      );
-      // Redirect to 'Login' only if recover request was successful
-      this.router.navigate(['/login']);
-    } else {
-      alert(
-        `Account under the email '${this.emailFormControl.value}' does not exist!\nPlease check your email!`
-      );
-    }
+    this.authService
+      .checkEmailUniqueness(this.emailFormControl.value)
+      .subscribe((uniqueEmail) => {
+        if (!uniqueEmail) {
+          alert(
+            `Request Success!\nRecover password has been sent on the email: ${this.emailFormControl.value}`
+          );
+          // Redirect to 'Login' only if recover request was successful
+          this.router.navigate(['/login']);
+        } else {
+          alert(
+            `Request Failure!\nAccount under the email '${this.emailFormControl.value}' does not exist!\nPlease check your email!`
+          );
+        }
+      });
   }
-
-  ngOnInit(): void {}
 }

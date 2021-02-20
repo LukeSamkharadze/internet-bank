@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { UserService } from '../../shared/services/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['../authentication.component.scss', './register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   fullnamePattern = this.authService.fullnamePattern;
   emailPattern = this.authService.emailPattern;
   passwordPattern = this.authService.passwordPattern;
@@ -53,28 +53,31 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     // Check if input email is unique
-    if (this.authService.checkEmailUniqueness(this.emailFormControl.value)) {
-      this.makeFullnameUpperCase();
 
-      // User Form Value Destructuring (excludes 'terms' input)
-      const { terms, ...user } = this.form.getRawValue();
+    this.authService
+      .checkEmailUniqueness(this.emailFormControl.value)
+      .subscribe((uniqueEmail) => {
+        if (uniqueEmail) {
+          this.makeFullnameUpperCase();
 
-      // Add user data on DB and reset form
-      this.userService
-        .create(user)
-        .pipe(finalize(() => this.form.reset()))
-        .subscribe();
+          // User Form Value Destructuring (excludes 'terms' input)
+          const { terms, ...user } = this.form.getRawValue();
 
-      // Wait 1 sec after successful registration and redirect to 'Login'
-      setTimeout(() => {
-        this.router.navigate(['/login']);
-      }, 1000);
-    } else {
-      alert(
-        `The email address '${this.emailFormControl.value}' has already been registered!\nPlease provide another email!`
-      );
-    }
+          // Add user data on DB and reset form
+          this.userService
+            .create(user)
+            .pipe(finalize(() => this.form.reset()))
+            .subscribe();
+
+          // Wait 1 sec after successful registration and redirect to 'Login'
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 1000);
+        } else {
+          alert(
+            `The email address '${this.emailFormControl.value}' has already been registered!\nPlease provide another email!`
+          );
+        }
+      });
   }
-
-  ngOnInit(): void {}
 }

@@ -14,13 +14,13 @@ export class UserService implements BaseHttpInterface<IUser> {
 
   create(user: IUser): Observable<IUser> {
     return this.http
-      .post<IUser>(`${environment.URL}users`, user)
+      .post<IUser>(`${environment.BaseUrl}users`, user)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   getAll(): Observable<IUser[]> {
     return this.http
-      .get<IUser[]>(`${environment.URL}users`)
+      .get<IUser[]>(`${environment.BaseUrl}users`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
