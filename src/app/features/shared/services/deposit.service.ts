@@ -7,7 +7,7 @@ import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interfac
 import { IDeposit } from '../interfaces/deposit.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DepositService implements BaseHttpInterface<IDeposit> {
   constructor(private http: HttpClient) {}
