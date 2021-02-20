@@ -16,7 +16,7 @@ export class CardService implements BaseHttpInterface<ICard> {
   public subj = new Subject<boolean>();
   create(card: ICard): Observable<ICard> {
     card = this.determineIconPath(card);
-    return this.http.post<ICard>(`${environment.URL}cards`, card).pipe(
+    return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
       tap(() => {
         this.subj.next(true);
@@ -47,7 +47,7 @@ export class CardService implements BaseHttpInterface<ICard> {
 
   getAll(): Observable<ICard[]> {
     return this.http
-      .get<ICard[]>(`${environment.URL}cards`)
+      .get<ICard[]>(`${environment.BaseUrl}cards`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
