@@ -1,0 +1,156 @@
+@import 'src/styles/index';
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 48.95833333333333% 51.04166666666667%;
+  max-width: 1440px;
+  min-width: 1024px;
+  height: 900px;
+  margin: 0 auto;
+
+  .authentication {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .minor-grid-container {
+      position: relative;
+      left: 2.6vw;
+      display: grid;
+      height: 780px;
+    }
+
+    .auth-form {
+      width: 360px;
+
+      .TBC-bold {
+        color: $primary;
+        font: 500 20px /27px $rubik, sans-serif; //weight, size, line-height, font
+        letter-spacing: 0.01em;
+      }
+
+      .banking-light {
+        color: $primary;
+        font: 300 18px /24px $rubik, sans-serif; //weight, size, line-height, font
+        letter-spacing: 0.027em;
+      }
+
+      .sign-in {
+        p {
+          color: $primary-dark;
+          padding-top: 15px;
+          font-weight: 300;
+          max-width: 95%;
+        }
+      }
+
+      a {
+        font-size: 14px;
+        line-height: 17px;
+        text-decoration: none;
+      }
+
+      form {
+        position: relative;
+        top: 45px;
+
+        .checkbox-flex {
+          display: flex;
+          justify-content: space-between;
+          padding: 32px 0;
+
+          label {
+            @include text-style(14px, $secondary-dark-1);
+            letter-spacing: 0;
+            padding-left: 13px;
+          }
+
+          a {
+            position: relative;
+            right: 9px;
+          }
+        }
+
+        .active {
+          width: 100%;
+        }
+
+        // Show input tooltip on hover
+        .input-container {
+          position: relative;
+
+          .input-tooltip {
+            display: none;
+            align-items: center;
+            position: absolute;
+            padding: 0 8px;
+            border-radius: 3px;
+            bottom: 0;
+            left: 103%;
+            width: fit-content;
+            height: 52.63px;
+            background: #292a2d;
+            user-select: none;
+
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              right: 100%;
+              margin-top: -8px;
+              border-width: 8px;
+              border-style: solid;
+              border-color: transparent #292a2d transparent transparent;
+            }
+
+            .la-info-circle {
+              color: #c4c2c2;
+              padding-right: 4px;
+            }
+
+            span {
+              color: #c4c2c2;
+              font-family: $roboto;
+              font-size: 14px;
+              font-weight: 300;
+              font-style: italic;
+              line-height: 17px;
+            }
+          }
+
+          &:hover .input-tooltip {
+            display: flex;
+          }
+        }
+      }
+
+      // Imported buttong styling
+      .shared-button {
+        width: 100%;
+        height: 46px;
+      }
+
+      .auth-form-footer {
+        position: relative;
+
+        div {
+          position: absolute;
+          bottom: 0;
+        }
+
+        p {
+          display: inline-block;
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  .img-bg {
+    background-size: cover;
+    background-image: url(../../../assets/authentication/auth-sidebar-img.webp);
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+  }
+}

@@ -80,36 +80,62 @@
   "cards": [
     {
       "cardName": "VISA CARD",
+      "cardType": "VISA",
       "accountNumber": "GE32TB1111222233334444",
-      "cardNumber": 4111222233331234,
+      "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
       "availableAmount": 2000,
       "security3D": false,
+      "userId": "3",
       "id": 1,
       "iconPath": "./assets/create-card/create-card-visa-icon.svg"
     },
     {
       "cardName": "MASTER CARD",
+      "cardType": "MASTERCARD",
       "accountNumber": "GE32TB2222111133334444",
-      "cardNumber": 5222111133338040,
+      "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
       "availableAmount": 25000,
       "security3D": true,
+      "userId": "1",
       "id": 2,
       "iconPath": "./assets/create-card/mastercard.svg"
     },
     {
       "cardName": "MASTER CARD",
+      "cardType": "MASTERCARD",
       "accountNumber": "GE32TB3333111122224444",
-      "cardNumber": 5333111122220097,
+      "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
       "availableAmount": 45000,
       "security3D": true,
+      "userId": "2",
       "id": 3,
       "iconPath": "./assets/create-card/mastercard.svg"
+    }
+  ],
+  "users": [
+    {
+      "fullname": "SANCHO PANZA",
+      "email": "sanchito_p@gmail.com",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "fullname": "EDMOND DANTES",
+      "email": "admin@gmail.com",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "fullname": "VITO CORLEONE",
+      "email": "mafia_immortal@outlook.com",
+      "password": "ssssssssss",
+      "id": 3
     }
   ],
   "deposits": [
