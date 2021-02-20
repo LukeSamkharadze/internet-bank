@@ -1,0 +1,15 @@
+.grid-container {
+  .authentication {
+    .recover-form {
+      grid-template-rows: 31.25% 10% 40% auto;
+    }
+
+    .auth-form {
+      form {
+        .recover-btn {
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+}

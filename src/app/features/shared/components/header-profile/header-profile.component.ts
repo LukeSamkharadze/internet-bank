@@ -5,6 +5,7 @@ import {
   ElementRef,
   AfterViewInit,
 } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { User } from './user-interface';
 
 @Component({
@@ -19,7 +20,7 @@ export class HeaderProfileComponent implements AfterViewInit {
   @Input() userName = 'Barry Armstrong';
   @Input() userMail = 'b.armstrong@gmail.com';
   @Input() userImage = './../../../../assets/header-profile/User.png';
-  constructor() {
+  constructor(private authService: AuthService) {
     this.user = {
       name: this.userName,
       mail: this.userMail,
@@ -52,5 +53,9 @@ export class HeaderProfileComponent implements AfterViewInit {
         myDropdown.classList.remove('show');
       }
     }
+  }
+
+  signOut() {
+    this.authService.logout();
   }
 }

@@ -80,6 +80,7 @@
   "cards": [
     {
       "cardName": "VISA CARD",
+      "cardType": "VISA",
       "accountNumber": "GE32TB1111222233334444",
       "cardNumber": 4111222233331234,
       "cardholder": "BARRY ARMSTRONG",
@@ -91,6 +92,7 @@
     },
     {
       "cardName": "MASTER CARD",
+      "cardType": "MASTERCARD",
       "accountNumber": "GE32TB2222111133334444",
       "cardNumber": 5222111133338040,
       "cardholder": "JOHN LENNON",
@@ -102,6 +104,7 @@
     },
     {
       "cardName": "MASTER CARD",
+      "cardType": "MASTERCARD",
       "accountNumber": "GE32TB3333111122224444",
       "cardNumber": 5333111122220097,
       "cardholder": "TILL LINDEMANN",
@@ -112,30 +115,25 @@
       "iconPath": "./assets/create-card/mastercard.svg"
     }
   ],
-  "invoice": [
+
+  "users": [
     {
-      "tamplate": "Website design",
-      "invoiceNumber": 1,
-      "dueDate": "2021-02-08",
-      "companyName": "AOT",
-      "contanctEmail": "aot.company@mail.com",
-      "address": "123 Main Street, Somewhere, CA 94000",
-      "itemDescription": "321 Main Street, Somewhere, CA 33003",
-      "itemQty": 2,
-      "price": 150,
+      "fullname": "SANCHO PANZA",
+      "email": "sanchito_p@gmail.com",
+      "password": "12345678",
       "id": 1
     },
     {
-      "tamplate": "Mobile App",
-      "invoiceNumber": 2,
-      "dueDate": "2021-02-23",
-      "companyName": "RTY",
-      "contanctEmail": "rty.company@gmail.com",
-      "address": "223 Main Street, Somewhere, CA 34000",
-      "itemDescription": "233 Main Street, Somewhere, CA 35000",
-      "itemQty": 1,
-      "price": 300,
+      "fullname": "EDMOND DANTES",
+      "email": "admin@gmail.com",
+      "password": "12345678",
       "id": 2
+    },
+    {
+      "fullname": "VITO CORLEONE",
+      "email": "mafia_immortal@outlook.com",
+      "password": "ssssssssss",
+      "id": 3
     }
   ],
   "deposits": [
@@ -191,6 +189,33 @@
       "id": 3,
       "name": "Pending credit",
       "data": [41300, 28910, 16520, 28910, 24800]
+    }
+  ],
+
+  "invoice": [
+    {
+      "tamplate": "Website design",
+      "invoiceNumber": 1,
+      "dueDate": "2021-02-08",
+      "companyName": "AOT",
+      "contanctEmail": "aot.company@mail.com",
+      "address": "123 Main Street, Somewhere, CA 94000",
+      "itemDescription": "321 Main Street, Somewhere, CA 33003",
+      "itemQty": 2,
+      "price": 150,
+      "id": 1
+    },
+    {
+      "tamplate": "Mobile App",
+      "invoiceNumber": 2,
+      "dueDate": "2021-02-23",
+      "companyName": "RTY",
+      "contanctEmail": "rty.company@gmail.com",
+      "address": "223 Main Street, Somewhere, CA 34000",
+      "itemDescription": "233 Main Street, Somewhere, CA 35000",
+      "itemQty": 1,
+      "price": 300,
+      "id": 2
     }
   ]
 }
