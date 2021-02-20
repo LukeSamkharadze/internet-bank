@@ -92,6 +92,7 @@
     },
     {
       "cardName": "MASTER CARD",
+      "cardType": "MASTERCARD",
       "accountNumber": "GE32TB2222111133334444",
       "cardNumber": 5222111133338040,
       "cardholder": "JOHN LENNON",
@@ -103,6 +104,7 @@
     },
     {
       "cardName": "MASTER CARD",
+      "cardType": "MASTERCARD",
       "accountNumber": "GE32TB3333111122224444",
       "cardNumber": 5333111122220097,
       "cardholder": "TILL LINDEMANN",
@@ -111,17 +113,6 @@
       "security3D": true,
       "id": 3,
       "iconPath": "./assets/create-card/mastercard.svg"
-    },
-    {
-      "cardName": "DFDSFS",
-      "accountNumber": "GE32TB4434234223333333",
-      "cardNumber": 4140424020402003,
-      "cardholder": "TSOTNE CHIKVOANI",
-      "expirationDate": "02/22",
-      "availableAmount": 1000,
-      "security3D": true,
-      "iconPath": "",
-      "id": 4
     }
   ],
   "users": [
