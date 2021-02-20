@@ -2,7 +2,7 @@
 
 _Us this component in your feature like this_
 
-```
+```HTML
 <app-shared-invoice-details
 	*ngIf="popDetails"
 	(close)="closePopup()"
@@ -16,7 +16,7 @@ close is an event that is emitted when **(x)** button is pressed on popup. close
 
 **invoice** is an input that should look like this
 
-```
+```TS
 number: string,
 title: string,
 address: {
@@ -37,7 +37,7 @@ items: Item[]
 
 every parameter is **_required_**. **Item** is also an interface that looks like this
 
-```
+```TS
 desc: string,
 rate: number,
 qty: number,
@@ -45,7 +45,7 @@ qty: number,
 
 sample **invoiceObject**
 
-```
+```TS
 number: 'IO-BN-124',
     title: 'Vodafone LLC',
     address: {
