@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedPipes } from './pipes';
-import { ReactiveFormsModule } from '@angular/forms';
-import { components } from './components';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
-const modules = [CommonModule, ReactiveFormsModule];
+import { components } from './components';
+import { RouterModule } from '@angular/router';
+
+const modules = [
+  CommonModule,
+  ReactiveFormsModule,
+  FormsModule,
+  NgxPaginationModule,
+  RouterModule,
+];
 
 @NgModule({
   declarations: [...SharedPipes, ...components],
