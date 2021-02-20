@@ -1,0 +1,80 @@
+@import './index.scss';
+
+.container {
+  $bg: white;
+
+  padding: 15.5px 21.5px;
+  background-color: $bg;
+  border-radius: 4px;
+
+  width: 100%;
+  height: 81px;
+
+  display: grid;
+  column-gap: 5px;
+  grid-template-columns: min-content minmax(auto, 100px) minmax(38%, auto);
+  grid-template-rows: 100%;
+  align-items: center;
+
+  *,
+  & {
+    position: relative;
+  }
+
+  .info {
+    width: min-content;
+    * {
+      white-space: nowrap;
+      width: min-content;
+    }
+  }
+
+  .amount {
+    @include text-style(20px);
+    margin-bottom: 8px;
+
+    sup {
+      font-size: 80%;
+      vertical-align: top;
+      margin-left: 1.5px;
+      bottom: 3px;
+    }
+  }
+
+  .title {
+    @include text-style(14px, $secondary-dark-2);
+    letter-spacing: -0.02px;
+  }
+
+  .chart {
+    width: 100%;
+    height: 100%;
+    transform: rotateX(180deg);
+    grid-column-start: 3;
+  }
+
+  @mixin fill-chart($color) {
+    sup {
+      color: $color;
+    }
+    .chart {
+      background-image: linear-gradient(
+        0deg,
+        rgba($color: $color, $alpha: 0.2),
+        rgba($color: $bg, $alpha: 0.2)
+      );
+    }
+  }
+
+  &.green {
+    @include fill-chart($secondary-2);
+  }
+
+  &.orange {
+    @include fill-chart($primary);
+  }
+
+  &.pink {
+    @include fill-chart($secondary-3);
+  }
+}

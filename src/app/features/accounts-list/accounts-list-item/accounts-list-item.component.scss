@@ -1,0 +1,80 @@
+@import './index.scss';
+
+:host {
+  display: grid;
+  width: 100%;
+  padding-right: 7px;
+  grid-template-columns: 58px 329fr 188fr 268fr 89fr 113px;
+
+  & > * {
+    padding: 16px 0;
+    padding-left: 23px;
+    vertical-align: middle;
+  }
+
+  & > div:first-child {
+    padding-left: 0;
+  }
+  & > div:last-child {
+    margin-left: auto;
+    *,
+    & {
+      width: min-content;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  width: 100%;
+  background-color: $background-2;
+  height: 40px;
+
+  &.green {
+    background-color: rgba($color: $secondary-2, $alpha: 0.1);
+    color: $secondary-2;
+  }
+
+  &.orange {
+    background-color: rgba($color: $primary, $alpha: 0.1);
+    color: $primary;
+  }
+
+  &.blue {
+    background-color: rgba($color: $secondary-1, $alpha: 0.1);
+    color: $secondary-1;
+  }
+}
+
+.primary {
+  @include text-style(16px);
+  margin-bottom: 1px;
+}
+
+.secondary {
+  @include text-style(14px, $secondary-dark-2);
+}
+
+:host.blocked::ng-deep {
+  :nth-child(3),
+  :nth-child(4),
+  :nth-child(5) {
+    .primary {
+      color: $secondary-dark-1;
+    }
+  }
+}
+
+.icon::ng-deep {
+  i {
+    margin: 0 auto;
+  }
+
+  img {
+    margin: 0 auto;
+  }
+}
