@@ -12,11 +12,18 @@
 
 .form {
   width: 100%;
-  margin-left: 20px;
-  min-width: 600px;
-  margin-right: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
+  min-width: 660px;
+  > :not(:first-child) {
+    padding: 0 20px 20px 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.icon-text {
+  border-bottom: 1px solid $outline;
+  width: 100%;
+  padding-bottom: 16px;
 }
 
 .side-info {
@@ -30,6 +37,9 @@
   width: 90px;
   @extend .flex;
   padding-top: 20px;
+  &.top {
+    margin-left: 40px;
+  }
 }
 
 i {
