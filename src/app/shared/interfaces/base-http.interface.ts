@@ -7,7 +7,7 @@ export interface BaseHttpInterface<T> {
 
   create(param: T): Observable<T>;
 
-  update(user: T): Observable<T>;
+  update(param: T): Observable<T>;
 
-  delete(id): Observable<void>;
+  delete(param: T): Observable<void>;
 }

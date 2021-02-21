@@ -14,26 +14,32 @@ export class UserService implements BaseHttpInterface<IUser> {
 
   create(user: IUser): Observable<IUser> {
     return this.http
-      .post<IUser>(`${environment.URL}users`, user)
+      .post<IUser>(`${environment.BaseUrl}users`, user)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   getAll(): Observable<IUser[]> {
     return this.http
-      .get<IUser[]>(`${environment.URL}users`)
+      .get<IUser[]>(`${environment.BaseUrl}users`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   getById(id): Observable<IUser> {
-    return this.http.get<IUser>(environment.URL + `users/${id}`);
+    return this.http
+      .get<IUser>(environment.BaseUrl + `users/${id}`)
+      .pipe(retry(1), catchError(this.handleError));
   }
 
   update(user): Observable<IUser> {
-    return this.http.put<IUser>(environment.URL + `users/${user.id}`, user);
+    return this.http
+      .put<IUser>(environment.BaseUrl + `users/${user.id}`, user)
+      .pipe(retry(1), catchError(this.handleError));
   }
 
   delete(id): Observable<void> {
-    return this.http.delete<void>(environment.URL + `users/${id}`);
+    return this.http
+      .delete<void>(environment.BaseUrl + `users/${id}`)
+      .pipe(retry(1), catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
