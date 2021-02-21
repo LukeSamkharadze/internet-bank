@@ -25,19 +25,21 @@ export class CardService implements BaseHttpInterface<ICard> {
     );
   }
 
-  determineIconPath(card: ICard): ICard {
+  determineIconPath(card: ICard, solid: boolean = false): ICard {
     const firstDigit = card.cardNumber[0];
     switch (firstDigit) {
       case '4':
         return {
           ...card,
-          iconPath: './assets/create-card/create-card-visa-icon.svg',
+          iconPath: !solid
+            ? './assets/features/card-view/visa-logo.svg'
+            : './assets/features/card-view/visa-solid.svg',
           cardType: 'VISA',
         };
       case '5':
         return {
           ...card,
-          iconPath: './assets/create-card/mastercard.svg',
+          iconPath: './assets/features/card-view/master-card.svg',
           cardType: 'MASTERCARD',
         };
       default:

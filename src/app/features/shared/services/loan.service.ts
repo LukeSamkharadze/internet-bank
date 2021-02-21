@@ -12,9 +12,18 @@ import { ILoan } from '../interfaces/loan.interface';
   providedIn: 'root',
 })
 export class LoanService implements BaseHttpInterface<ILoan> {
+  private readonly icons = new Map<string, string>([
+    ['Mortgage', 'lar la-building'],
+    ['Consumer', 'las la-laptop'],
+  ]);
+  private readonly colors = new Map<string, string>([
+    ['Mortgage', 'green'],
+    ['Consumer', 'blue'],
+  ]);
+
   constructor(private http: HttpClient) {}
 
-  create(card: ILoan): Observable<ILoan> {
+  create(loan: ILoan): Observable<ILoan> {
     return EMPTY;
   }
 
@@ -32,5 +41,13 @@ export class LoanService implements BaseHttpInterface<ILoan> {
 
   delete(): Observable<void> {
     return EMPTY;
+  }
+
+  determineIcon(loan: ILoan): string {
+    return this.icons.get(loan.type);
+  }
+
+  determineColor(loan: ILoan): string {
+    return this.colors.get(loan.type);
   }
 }

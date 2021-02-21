@@ -10,6 +10,11 @@ import { IDeposit } from '../interfaces/deposit.interface';
   providedIn: 'root',
 })
 export class DepositService implements BaseHttpInterface<IDeposit> {
+  private readonly icons = new Map<string, string>([
+    ['Cumulative', 'las la-lock'],
+  ]);
+  private readonly colors = new Map<string, string>([['Cumulative', 'orange']]);
+
   constructor(private http: HttpClient) {}
 
   create(param: IDeposit): Observable<IDeposit> {
@@ -32,5 +37,13 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
 
   delete(): Observable<void> {
     return EMPTY;
+  }
+
+  determineIcon(deposit: IDeposit): string {
+    return this.icons.get(deposit.type);
+  }
+
+  determineColor(deposit: IDeposit): string {
+    return this.colors.get(deposit.type);
   }
 }
