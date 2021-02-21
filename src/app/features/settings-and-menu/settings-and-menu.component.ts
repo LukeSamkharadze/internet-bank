@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { finalize } from 'rxjs/operators';
-import { SettingsFormServiceService } from './services/settings-form-service.service';
 import { SettingsComponent } from './settings/settings.component';
 @Component({
   selector: 'app-settings-and-menu',
@@ -8,7 +7,7 @@ import { SettingsComponent } from './settings/settings.component';
   styleUrls: ['./settings-and-menu.component.scss'],
 })
 export class SettingsAndMenuComponent implements OnInit {
-  constructor(private http: SettingsFormServiceService) {}
+  constructor() {}
 
   ngOnInit() {}
 }

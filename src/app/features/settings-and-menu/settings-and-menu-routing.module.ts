@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SettingsFormServiceService } from './services/settings-form-service.service';
 import { SettingsAndMenuComponent } from './settings-and-menu.component';
 import { SettingsComponent } from './settings/settings.component';
 
@@ -20,6 +19,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [SettingsFormServiceService],
+  providers: [],
 })
 export class SettingsAndMenuRouting {}

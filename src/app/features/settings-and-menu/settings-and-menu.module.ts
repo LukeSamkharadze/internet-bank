@@ -4,7 +4,6 @@ import { FeaturesSharedModule } from '../shared/features-shared.module';
 import { SettingsAndMenuRouting } from './settings-and-menu-routing.module';
 import { SettingsComponent } from './settings/settings.component';
 import { DeactivateComponent } from './deactivate/deactivate.component';
-import { SettingsFormServiceService } from './services/settings-form-service.service';
 
 @NgModule({
   declarations: [
@@ -14,6 +13,6 @@ import { SettingsFormServiceService } from './services/settings-form-service.ser
   ],
   imports: [FeaturesSharedModule, SettingsAndMenuRouting],
   exports: [SettingsAndMenuComponent],
-  providers: [SettingsFormServiceService],
+  providers: [],
 })
 export class SettingsAndMenuModule {}

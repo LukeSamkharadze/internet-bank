@@ -123,10 +123,10 @@
       "password": "12345678"
     },
     {
-      "fullname": "EDMOND DANTES",
       "email": "admin@gmail.com",
+      "id": 2,
       "password": "12345678",
-      "id": 2
+      "fullname": "EDMOND DANTES"
     },
     {
       "fullname": "VITO CORLEONE",

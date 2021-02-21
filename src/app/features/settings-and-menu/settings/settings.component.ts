@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, OnDestroy } from '@angular/core';
 import {
   FormsModule,
   FormGroup,
@@ -6,12 +6,14 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
-import { FormFields } from '../../shared/interfaces/form.interface';
-import { SettingsFormServiceService } from '../services/settings-form-service.service';
-import { map, switchMap, tap } from 'rxjs/operators';
+
 import { Observable, Subscription } from 'rxjs';
-import { SettingsAndMenuComponent } from '../settings-and-menu.component';
+
 import { EventEmitter } from 'events';
+import { AuthService } from '../../shared/services/auth.service';
+import { Router } from '@angular/router';
+import { UserService } from '../../shared/services/user.service';
+import { IUser } from '../../shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-settings',
@@ -28,18 +30,21 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   userReplicate;
   form: FormGroup;
-  user: FormFields = {
+  user: IUser = {
     fullname: '',
     phone: NaN,
     email: ' ',
     language: '',
     sex: '',
+    password: '',
     id: parseInt(localStorage.getItem('userId'), 10),
   };
 
   constructor(
     private fb: FormBuilder,
-    private http: SettingsFormServiceService
+    private http: UserService,
+    private route: Router,
+    private auth: AuthService
   ) {
     this.getUser();
   }
@@ -67,8 +72,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.user = this.form.value;
       this.user.id = temp;
       this.check();
-      this.http.updateInfo(this.user).subscribe();
-      alert('Updated Successfully');
+      this.http.update(this.user).subscribe();
+      window.alert('Updated Successfully');
+      this.getUser();
     }
   }
   reset() {
@@ -76,7 +82,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   getUser() {
-    this.getSub = this.http.getUserInfo(this.user.id).subscribe((value) => {
+    this.getSub = this.http.getById(this.user.id).subscribe((value) => {
       this.user = value;
       this.passwordSave = this.user.password;
       const split = this.user.fullname.split(' ');
@@ -92,8 +98,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
   deleteUser(id) {
     id = this.user.id;
     this.showContent = false;
-    this.http.deleteUser(this.user.id).subscribe();
-    this.form.reset();
+    this.http.delete(this.user.id).subscribe();
+    window.alert('Successfully Deleted');
+    this.auth.logout();
   }
   check() {
     this.user.password = this.passwordSave;
@@ -111,9 +118,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
       delete this.user.sex;
     }
   }
-  ngOnDestroy(): void {
-    this.getSub.unsubscribe();
-    this.updSub.unsubscribe();
-    this.delSub.unsubscribe();
-  }
+
+  ngOnDestroy(): void {}
 }

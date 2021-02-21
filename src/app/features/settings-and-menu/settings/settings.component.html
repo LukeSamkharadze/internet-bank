@@ -17,7 +17,7 @@
       <p>{{ user.fullname }}</p>
     </div>
     <div class="userInfo">
-      <form [formGroup]="form" (ngSubmit)="submit()">
+      <form [formGroup]="form">
         <div class="input-wrapper">
           <label for="first">First name</label>
           <div>
@@ -137,6 +137,7 @@
             [className]="{ primary: true, active: true }"
             style="width: 206px; height: 46px"
             type="submit"
+            (click)="submit()"
             >UPDATE SETTINGS</app-shared-button
           >
 
