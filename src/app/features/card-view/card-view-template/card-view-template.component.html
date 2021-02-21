@@ -1,49 +1,47 @@
-<div class="card-details">
-  <div class="title">
-    <div class="main">
-      <div class="icon">
-        <ng-content select="[header]"></ng-content>
-      </div>
-      <p class="name">{{ name }}</p>
+<div class="title">
+  <div class="main">
+    <div [class]="'icon ' + (color$ | async)">
+      <ng-content select="[header]"></ng-content>
     </div>
-    <p class="amount">{{ amount }}</p>
+    <p class="name">{{ name$ | async }}</p>
   </div>
-  <div class="card-container" *ngIf="cardInfo">
-    <img
-      src="../../../../assets/features/card-view/blue.svg"
-      alt="Card Background"
-      class="bg"
-    />
-    <div class="card">
-      <div class="icon">
-        <ng-content select="[logo]"></ng-content>
-      </div>
-      <div class="card-header">
-        <p class="name">{{ cardInfo[0].value }}</p>
-        <p class="type">{{ cardInfo[0].title }}</p>
-      </div>
-      <div class="info">
-        <div *ngFor="let info of cardInfo[1]">
-          <p class="name">{{ info.value }}</p>
-          <p class="type">{{ info.title }}</p>
-        </div>
+  <p class="amount">{{ amount$ | async }}</p>
+</div>
+<div class="card-container" *ngIf="cardColor && cardInfo$ | async as cardInfo">
+  <img
+    [src]="'./assets/features/card-view/' + cardColor + '.svg'"
+    alt="Card Background"
+    class="bg"
+  />
+  <div class="card">
+    <div class="icon">
+      <ng-content select="[logo]"></ng-content>
+    </div>
+    <div class="card-header">
+      <p class="name">{{ cardInfo[0].value }}</p>
+      <p class="type">{{ cardInfo[0].title }}</p>
+    </div>
+    <div class="info">
+      <div *ngFor="let info of cardInfo[1]">
+        <p class="name">{{ info.value }}</p>
+        <p class="type">{{ info.title }}</p>
       </div>
     </div>
   </div>
-  <ul class="details" *ngIf="list">
-    <li *ngFor="let item of list">
-      <div class="account">{{ item.title }}</div>
-      <div class="name">{{ item.value }}</div>
-    </li>
-  </ul>
-  <div class="primary buttons">
-    <app-shared-button [className]="{ primary: true, resting: true }"
-      >DELETE</app-shared-button
-    >
-    <app-shared-button
-      [className]="{ primary: true, resting: true }"
-      *ngIf="canBlock"
-      >BLOCK</app-shared-button
-    >
-  </div>
+</div>
+<ul class="details" *ngIf="list$ | async as list">
+  <li *ngFor="let item of list">
+    <div class="account">{{ item.title }}</div>
+    <div class="name">{{ item.value }}</div>
+  </li>
+</ul>
+<div class="primary buttons">
+  <app-shared-button [className]="{ primary: true, resting: true }"
+    >DELETE</app-shared-button
+  >
+  <app-shared-button
+    [className]="{ primary: true, resting: true }"
+    *ngIf="canBlock"
+    >BLOCK</app-shared-button
+  >
 </div>

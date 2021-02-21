@@ -1,9 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 import ICardTemplate from '../models/card-view-card.entity';
 import IList from '../models/card-view-list.entity';
 
@@ -14,9 +10,11 @@ import IList from '../models/card-view-list.entity';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardViewTemplateComponent {
-  @Input() list: IList;
-  @Input() cardInfo: ICardTemplate;
-  @Input() name: string;
-  @Input() amount: string;
+  @Input() list$: Observable<IList>;
+  @Input() cardInfo$: Observable<ICardTemplate>;
+  @Input() name$: Observable<string>;
+  @Input() amount$: Observable<string>;
   @Input() canBlock: boolean;
+  @Input() color$: Observable<string>;
+  @Input() cardColor: string;
 }

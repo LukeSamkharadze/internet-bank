@@ -5,6 +5,7 @@
 }
 
 :host {
+  display: block;
   width: 100%;
   height: 100%;
   background-color: white;
@@ -19,7 +20,7 @@
   top: 0;
   left: 0;
 
-  i {
+  ::ng-deep i {
     margin: 0 auto;
   }
 
@@ -52,6 +53,21 @@
     margin-right: 15px;
 
     @include text-style(16px);
+
+    &.blue {
+      color: $secondary-1;
+      background-color: rgba($color: $secondary-1, $alpha: 0.1);
+    }
+
+    &.orange {
+      color: $primary;
+      background-color: rgba($color: $primary, $alpha: 0.1);
+    }
+
+    &.green {
+      color: $secondary-2;
+      background-color: rgba($color: $secondary-2, $alpha: 0.1);
+    }
   }
 
   .name {
