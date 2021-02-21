@@ -7,15 +7,17 @@ import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMapTo } from 'rxjs/operators';
+import { CardService } from '../../shared/services/card.service';
+import { BaseHttpInterface } from '@shared/shared';
 
 @Injectable()
 export class TransferService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cardService: CardService) {}
 
   public paymentHappened$ = new BehaviorSubject(null);
-  // userId filtri daemateba roca user auth daimerjeba.
+
   currentUsersCards$ = this.paymentHappened$.pipe(
-    switchMapTo(this.http.get<ICard[]>(environment.BaseUrl + 'cards'))
+    switchMapTo(this.cardService.getAll())
   );
 
   reloadCards() {
@@ -25,8 +27,9 @@ export class TransferService {
   bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
     // payments limitsze checki daemateba roca damerjaven masterze.
     return new Observable((subscriber) => {
-      this.getCardByCardNumber(transfer.fromAccount.cardNumber).subscribe(
-        (acc) => {
+      this.cardService
+        .getCardByCardNumber(transfer.fromAccount.cardNumber)
+        .subscribe((acc) => {
           const fromAccount: ICard = acc[0]; // logged in user's card.
           if (fromAccount.availableAmount < transfer.amount) {
             subscriber.next({
@@ -35,19 +38,21 @@ export class TransferService {
             });
             return;
           }
-          this.getCardByAccountNumber(
-            transfer.destinationAccountNumber
-          ).subscribe((destAcc) => {
-            const destinationAccount = destAcc[0];
-            if (!destinationAccount) {
-              subscriber.next({
-                status: 'error',
-                reason: 'such user does not exist',
-              });
-              return;
-            }
-            this.removeBalance(fromAccount, Number(transfer.amount)).subscribe(
-              () => {
+          this.cardService
+            .getCardByAccountNumber(transfer.destinationAccountNumber)
+            .subscribe((destAcc) => {
+              const destinationAccount = destAcc[0];
+              if (!destinationAccount) {
+                subscriber.next({
+                  status: 'error',
+                  reason: 'such user does not exist',
+                });
+                return;
+              }
+              this.removeBalance(
+                fromAccount,
+                Number(transfer.amount)
+              ).subscribe(() => {
                 this.addBalance(
                   destinationAccount,
                   Number(transfer.amount),
@@ -55,19 +60,18 @@ export class TransferService {
                 ).subscribe(() => {
                   subscriber.next({ status: 'success' });
                 });
-              }
-            );
-          });
-        }
-      );
+              });
+            });
+        });
     });
   }
 
   electronicTransfer(transfer: ElectronicTransfer) {
     // payments limitsze checki daemateba roca damerjaven masterze.
     return new Observable((subscriber) => {
-      this.getCardByCardNumber(transfer.fromAccount.cardNumber).subscribe(
-        (acc) => {
+      this.cardService
+        .getCardByCardNumber(transfer.fromAccount.cardNumber)
+        .subscribe((acc) => {
           const fromAccount: ICard = acc[0]; // logged in user's card.
           if (fromAccount.availableAmount < transfer.amount) {
             subscriber.next({
@@ -81,32 +85,19 @@ export class TransferService {
               status: 'success',
             });
           });
-        }
-      );
+        });
     });
   }
 
   removeBalance(card: ICard, amountToRemove: number) {
     card.availableAmount -= amountToRemove;
-    return this.http.put(environment.BaseUrl + `cards/${card.id}`, card);
+    return this.cardService.update(card);
   }
 
   addBalance(card: ICard, amountToAdd: number, tax = false) {
     amountToAdd = tax ? amountToAdd - (amountToAdd * 2) / 100 : amountToAdd;
     card.availableAmount += amountToAdd;
-    return this.http.put(environment.BaseUrl + `cards/${card.id}`, card);
-  }
-
-  getCardByCardNumber(cardNumber: string) {
-    return this.http.get<ICard[]>(
-      environment.BaseUrl + `cards?cardNumber=${cardNumber}`
-    );
-  }
-
-  getCardByAccountNumber(accountNumber: string) {
-    return this.http.get<ICard[]>(
-      environment.BaseUrl + `cards?accountNumber=${accountNumber}`
-    );
+    return this.cardService.update(card);
   }
 
   postTransactionToDb(
