@@ -1,0 +1,53 @@
+@import '../shared/forms';
+
+.payment {
+  .payment-system-template {
+    img {
+      max-width: 40px;
+      max-height: 28px;
+      margin-right: 20px;
+    }
+  }
+  .payment-summary {
+    img {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      right: 25px;
+      top: -5px;
+      display: none;
+    }
+    border: 2px dotted $outline;
+    border-radius: 5px;
+    padding: 25px 15px;
+    position: relative;
+    div {
+      :first-child {
+        display: inline-block;
+        font-weight: 300;
+        width: 103px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+
+    i {
+      position: absolute;
+      right: 18px;
+      top: 20px;
+      font-size: 18px;
+      color: $primary;
+      cursor: help;
+    }
+
+    i:hover + img {
+      display: block;
+    }
+  }
+
+  .footer .button {
+    width: 130px;
+  }
+}

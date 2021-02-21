@@ -7,12 +7,13 @@ import { ICard } from '../interfaces/card.interface';
 import { catchError, retry, tap } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardService implements BaseHttpInterface<ICard> {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private auth: AuthService) {}
   public subj = new Subject<boolean>();
   create(card: ICard): Observable<ICard> {
     card = this.determineIconPath(card);
@@ -46,16 +47,33 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   getAll(): Observable<ICard[]> {
+    const userId = this.auth.userId;
     return this.http
-      .get<ICard[]>(`${environment.BaseUrl}cards`)
+      .get<ICard[]>(`${environment.BaseUrl}cards?userId=${userId}`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  getCardByCardNumber(cardNumber: string) {
+    return this.http
+      .get<ICard[]>(environment.BaseUrl + `cards?cardNumber=${cardNumber}`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  getCardByAccountNumber(accountNumber: string) {
+    return this.http
+      .get<ICard[]>(
+        environment.BaseUrl + `cards?accountNumber=${accountNumber}`
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  update(card: ICard): Observable<ICard> {
+    return this.http
+      .put<ICard>(environment.BaseUrl + `cards/${card.id}`, card)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   getById(id: number): Observable<ICard> {
-    return EMPTY;
-  }
-
-  update(): Observable<ICard> {
     return EMPTY;
   }
 

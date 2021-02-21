@@ -41,6 +41,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/list/list.module').then((m) => m.ListModule),
       },
+      {
+        path: 'payments',
+        loadChildren: () =>
+          import('./features/payments/payments.module').then(
+            (m) => m.PaymentsModule
+          ),
+      },
     ],
   },
   // Authentication Paths
@@ -51,6 +58,16 @@ const routes: Routes = [
       import('./features/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
+  },
+  {
+    path: 'list',
+    loadChildren: () =>
+      import('./features/list/list.module').then((m) => m.ListModule),
+  },
+  {
+    path: '',
+    redirectTo: 'list',
+    pathMatch: 'full',
   },
   // All Other Paths
   {
