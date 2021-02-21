@@ -1,7 +1,7 @@
 <div class="available-balances">
-  <div class="balances-title">Available balance</div>
+  <div class="balances-title">Available balances</div>
   <div class="balances-container">
-    <div *ngFor="let item of cards" class="account-balance">
+    <div *ngFor="let item of balances.cards" class="account-balance">
       <div class="account-type">
         <div *ngIf="item.cardNumber" class="logo-background">
           <img src="../../../../../{{ item.iconPath }}" />

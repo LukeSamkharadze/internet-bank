@@ -1,18 +1,35 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { environment } from '../../../../../../environments/environment';
-import { BalanceStructure } from '../models/balanceType';
+
+import { AuthService } from '../../../services/auth.service';
+import { CardService } from '../../../services/card.service';
+import { DepositService } from '../../../services/deposit.service';
 
 @Injectable()
 export class AccountBalancesService {
-  id;
-  BalanceStructures = new Subject<BalanceStructure>();
+  cards = [];
+  constructor(
+    private loggedUser: AuthService,
+    private cardInfo: CardService,
+    private depositInfo: DepositService
+  ) {}
+  getBalanceInfo() {
+    this.getCards();
+    this.getDeposits();
+  }
 
-  constructor(private http: HttpClient) {}
-  get() {
-    return this.http.get<BalanceStructure>(
-      environment.URL + 'cards/' + this.id
-    );
+  getDeposits() {
+    this.depositInfo.getAll().subscribe((card) => {
+      this.cards = [
+        ...this.cards,
+        ...card.filter((depo) => depo.userId === this.loggedUser.userId),
+      ];
+    });
+  }
+  getCards() {
+    this.cardInfo.getAll().subscribe((card) => {
+      this.cards = card.filter(
+        (card) => card.userId === this.loggedUser.userId
+      );
+    });
   }
 }
