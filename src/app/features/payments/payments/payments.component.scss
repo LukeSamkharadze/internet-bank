@@ -8,7 +8,13 @@
 
 :host {
   width: 90%;
-  margin: 0 auto;
   display: block;
-  padding-top: 28px;
+  padding: 28px 0 0 28px;
+}
+@media only screen and (max-width: 950px) {
+  .payments-wrapper {
+    grid-template-columns: 1fr;
+    min-width: 250px;
+    padding-bottom: 28px;
+  }
 }

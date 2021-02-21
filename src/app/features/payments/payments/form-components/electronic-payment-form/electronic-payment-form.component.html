@@ -9,7 +9,7 @@
         <span
           [@errorTrigger]
           *ngIf="fromAccount.hasError('required') && fromAccount.touched"
-          >*required*</span
+          >Required</span
         >
       </label>
       <ng-template #account let-option>
@@ -29,7 +29,7 @@
         }"
         style="width: 100%"
         formControlName="fromAccount"
-        placeholder="Please Select acc"
+        placeholder="Select account"
         [options]="currentUsersCards | async"
         [selectedTemplate]="account"
         [optionTemplate]="account"
@@ -43,7 +43,7 @@
         <span
           [@errorTrigger]
           *ngIf="paymentSystem.hasError('required') && paymentSystem.touched"
-          >*required*</span
+          >Required</span
         >
       </label>
 
@@ -61,7 +61,7 @@
         }"
         style="width: 100%"
         formControlName="paymentSystem"
-        placeholder="Please Select payment system"
+        placeholder="Select payment system"
         [options]="paymentSystems$ | async"
         [selectedTemplate]="paymentSystemTemplate"
         [optionTemplate]="paymentSystemTemplate"
@@ -70,24 +70,24 @@
     </div>
 
     <div class="input-wrapper" *ngIf="paymentSystem.value">
-      <label class="input-label"
+      <label class="input-label" for="el-account"
         >{{ paymentSystem.value.title }} account
         <span
           [@errorTrigger]
           *ngIf="
             destinationEmail.hasError('required') && destinationEmail.touched
           "
-          >*required*</span
+          >Required</span
         >
         <span
           [@errorTrigger]
           *ngIf="destinationEmail.hasError('email') && destinationEmail.touched"
-          >*invalid email*</span
+          >Invalid email</span
         ></label
       >
       <app-shared-input
         placeholder="Enter email account"
-        inputId="paypal"
+        inputId="el-account"
         formControlName="destinationEmail"
         type="email"
       ></app-shared-input>
@@ -99,10 +99,10 @@
         <span
           [@errorTrigger]
           *ngIf="amount.hasError('required') && amount.touched"
-          >*required*</span
+          >Required</span
         >
         <span [@errorTrigger] *ngIf="amount.hasError('min') && amount.touched"
-          >*too low*</span
+          >Too low</span
         ></label
       >
       <app-shared-input
@@ -119,7 +119,7 @@
         <span
           [@errorTrigger]
           *ngIf="currency.hasError('required') && currency.touched"
-          >*required*</span
+          >Required</span
         ></label
       >
       <app-shared-dropdown

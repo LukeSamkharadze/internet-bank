@@ -9,7 +9,7 @@
         <span
           [@errorTrigger]
           *ngIf="fromAccount.hasError('required') && fromAccount.touched"
-          >*required*</span
+          >Required</span
         >
       </label>
       <ng-template #account let-option>
@@ -25,7 +25,7 @@
       <app-shared-dropdown
         style="width: 100%"
         formControlName="fromAccount"
-        placeholder="Please Select acc"
+        placeholder="Select account"
         [ngClass]="{
           'invalid-dropdown': fromAccount.errors && fromAccount.touched,
           'valid-dropdown': !fromAccount.errors
@@ -46,7 +46,7 @@
             destinationAccountNumber.hasError('required') &&
             destinationAccountNumber.touched
           "
-          >*required*</span
+          >Required</span
         ></label
       >
       <app-shared-input
@@ -62,10 +62,10 @@
         <span
           [@errorTrigger]
           *ngIf="amount.hasError('required') && amount.touched"
-          >*required*</span
+          >Required</span
         >
         <span [@errorTrigger] *ngIf="amount.hasError('min') && amount.touched"
-          >*too low*</span
+          >Too low</span
         ></label
       >
       <app-shared-input
@@ -82,7 +82,7 @@
         <span
           [@errorTrigger]
           *ngIf="transferType.hasError('required') && transferType.touched"
-          >*required*</span
+          >Required</span
         ></label
       >
       <app-shared-dropdown
