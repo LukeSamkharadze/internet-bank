@@ -15,7 +15,7 @@ export class TransferService {
   public paymentHappened$ = new BehaviorSubject(null);
   // userId filtri daemateba roca user auth daimerjeba.
   currentUsersCards$ = this.paymentHappened$.pipe(
-    switchMapTo(this.http.get<ICard[]>(environment.URL + 'cards'))
+    switchMapTo(this.http.get<ICard[]>(environment.BaseUrl + 'cards'))
   );
 
   reloadCards() {
@@ -88,24 +88,24 @@ export class TransferService {
 
   removeBalance(card: ICard, amountToRemove: number) {
     card.availableAmount -= amountToRemove;
-    return this.http.put(environment.URL + `cards/${card.id}`, card);
+    return this.http.put(environment.BaseUrl + `cards/${card.id}`, card);
   }
 
   addBalance(card: ICard, amountToAdd: number, tax = false) {
     amountToAdd = tax ? amountToAdd - (amountToAdd * 2) / 100 : amountToAdd;
     card.availableAmount += amountToAdd;
-    return this.http.put(environment.URL + `cards/${card.id}`, card);
+    return this.http.put(environment.BaseUrl + `cards/${card.id}`, card);
   }
 
   getCardByCardNumber(cardNumber: string) {
     return this.http.get<ICard[]>(
-      environment.URL + `cards?cardNumber=${cardNumber}`
+      environment.BaseUrl + `cards?cardNumber=${cardNumber}`
     );
   }
 
   getCardByAccountNumber(accountNumber: string) {
     return this.http.get<ICard[]>(
-      environment.URL + `cards?accountNumber=${accountNumber}`
+      environment.BaseUrl + `cards?accountNumber=${accountNumber}`
     );
   }
 
@@ -116,6 +116,6 @@ export class TransferService {
       ...transfer,
       fromAccount: transfer.fromAccount.accountNumber,
     };
-    return this.http.post(environment.URL + 'payments', transferForDb);
+    return this.http.post(environment.BaseUrl + 'payments', transferForDb);
   }
 }
