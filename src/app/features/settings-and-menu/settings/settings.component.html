@@ -1,18 +1,9 @@
-<head>
-  <link rel=“stylesheet”
-  href=“https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css”>
-  <link
-    rel="stylesheet"
-    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
-  />
-</head>
-
 <div class="generalSettings">
   <div class="settingsInfo">
     <p class="generalInfo">General information</p>
     <div class="userProfile">
       <div class="profilePic">
-        <img src="https://img.icons8.com/dotty/60/000000/user-male.png" />
+        <img src="../../../../assets/settings-and-menu/user-male.png" />
       </div>
       <p>{{ user.fullname }}</p>
     </div>
@@ -22,7 +13,7 @@
           <label for="first">First name</label>
           <div>
             <app-shared-input
-              id="first"
+              inputId="first"
               formControlName="firstName"
               type="text"
               placeholder="Enter your first name"
@@ -42,11 +33,11 @@
             </div>
           </div>
         </div>
-        <div class="lastName">
+        <div class="input-wrapper lastName">
           <label for="last">Last name</label>
           <div>
             <app-shared-input
-              id="last"
+              inputId="last"
               type="text"
               formControlName="lastName"
               placeholder="Enter your last name"
@@ -71,7 +62,7 @@
           <div>
             <app-shared-input
               type="text"
-              id="email"
+              inputId="email"
               formControlName="email"
               placeholder="Enter your email"
             ></app-shared-input>
@@ -93,7 +84,7 @@
           <label for="phone"> Phone</label>
           <div>
             <app-shared-input
-              id="phone"
+              inputId="phone"
               formControlName="phone"
               placeholder="Enter your phone(5xx-xxx-xxx)"
               type="text"
@@ -116,6 +107,7 @@
               formControlName="language"
               [options]="['English', 'Georgian', 'Russian']"
               style="margin-top: 10px; width: 100%"
+              placeholder="Select your language"
             >
             </app-shared-dropdown>
           </div>
@@ -128,6 +120,7 @@
               formControlName="sex"
               [options]="['Male', 'Female', 'Other']"
               style="margin-top: 10px; width: 100%"
+              placeholder="Select your sex"
             >
             </app-shared-dropdown>
           </div>
@@ -136,7 +129,6 @@
           <app-shared-button
             [className]="{ primary: true, active: true }"
             style="width: 206px; height: 46px"
-            type="submit"
             (click)="submit()"
             >UPDATE SETTINGS</app-shared-button
           >
@@ -144,7 +136,6 @@
           <app-shared-button
             [className]="{ primary: true, resting: true }"
             style="height: 46px; width: 103px"
-            type="button"
             (click)="reset()"
           >
             CANCEL</app-shared-button
@@ -154,8 +145,7 @@
           <app-shared-button
             [className]="{ pink: true }"
             style="height: 46px; width: 200px"
-            type="button"
-            (click)="showContent = true"
+            (click)="showDeleteModal = true"
           >
             <i class="lar la-trash-alt icon"></i> Delete
             Account</app-shared-button
@@ -166,7 +156,7 @@
   </div>
 </div>
 <app-deactivate
-  *ngIf="showContent"
-  (closeAccount)="showContent = false"
-  (confirm)="deleteUser(this.user.id)"
+  *ngIf="showDeleteModal"
+  (closeAccount)="showDeleteModal = false"
+  (confirm)="deleteUser()"
 ></app-deactivate>

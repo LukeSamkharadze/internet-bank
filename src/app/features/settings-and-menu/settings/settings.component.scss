@@ -6,7 +6,7 @@
 
   .settingsInfo {
     width: 100%;
-    padding-left: 24px;
+
     .userInfo {
       padding-top: 30px;
 
@@ -67,7 +67,7 @@
       align-items: center;
       border-radius: 7px;
       padding: 27px 0px 27px 26px;
-
+      overflow-y: auto;
       .profilePic {
         width: 67px;
         height: 67px;

@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { finalize } from 'rxjs/operators';
-import { SettingsComponent } from './settings/settings.component';
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-settings-and-menu',
   templateUrl: './settings-and-menu.component.html',
