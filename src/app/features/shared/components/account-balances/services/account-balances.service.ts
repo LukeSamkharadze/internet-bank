@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { ICard } from '../../../interfaces/card.interface';
+import { IDeposit } from '../../../interfaces/deposit.interface';
 
 import { AuthService } from '../../../services/auth.service';
 import { CardService } from '../../../services/card.service';
@@ -6,7 +8,7 @@ import { DepositService } from '../../../services/deposit.service';
 
 @Injectable()
 export class AccountBalancesService {
-  cards = [];
+  cards: Array<ICard | IDeposit>;
   constructor(
     private loggedUser: AuthService,
     private cardInfo: CardService,
