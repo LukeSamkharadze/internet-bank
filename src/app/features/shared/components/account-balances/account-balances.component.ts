@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BalanceStructure } from './models/balanceType';
 import { AccountBalancesService } from './services/account-balances.service';
 @Component({
-  selector: 'app-features-shared-accountBalances',
+  selector: 'app-features-shared-account-balances',
   templateUrl: './account-balances.component.html',
   styleUrls: ['./account-balances.component.scss'],
   providers: [AccountBalancesService],

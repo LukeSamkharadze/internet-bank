@@ -30,7 +30,7 @@ export class AccountBalancesService {
   getCards() {
     this.cardInfo.getAll().subscribe((card) => {
       this.cards = card.filter(
-        (card) => card.userId === this.loggedUser.userId
+        (icard) => icard.userId === this.loggedUser.userId
       );
     });
   }
