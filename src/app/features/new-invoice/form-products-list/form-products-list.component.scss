@@ -9,6 +9,13 @@
     top: 60px;
     right: -25px;
     color: inherit;
+    &.fa-trash-alt {
+      color: $secondary-dark-1;
+      &:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
   }
 }
 
@@ -29,5 +36,11 @@
   }
   &:hover {
     color: $primary;
+  }
+}
+
+:host ::ng-deep app-shared-input.num-input {
+  .input-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
   }
 }

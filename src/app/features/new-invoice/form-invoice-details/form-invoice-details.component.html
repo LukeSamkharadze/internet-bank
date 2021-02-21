@@ -1,26 +1,26 @@
 <div [formGroup]="form">
   <!-- Tamplate -->
   <label class="dropdown-label" for="invoice-tamplate"
-    ><p>Tamplate</p>
+    ><p>Template</p>
     <span
       *ngIf="
-        form.controls['tamplate'].errors?.required &&
-        form.controls['tamplate'].touched
+        form.controls['template'].errors?.required &&
+        form.controls['template'].touched
       "
-      ><b class="dropdown-b">required</b></span
+      ><b class="dropdown-b">Required</b></span
     >
   </label>
 
   <app-shared-dropdown
     [ngClass]="{
       'invalid-dropdown':
-        form.controls['tamplate'].errors?.required &&
-        form.controls['tamplate'].touched,
-      'valid-dropdown': !form.controls['tamplate'].errors
+        form.controls['template'].errors?.required &&
+        form.controls['template'].touched,
+      'valid-dropdown': !form.controls['template'].errors
     }"
     style="width: 100%"
-    formControlName="tamplate"
-    placeholder="Select Tamplate"
+    formControlName="template"
+    placeholder="Select Template"
     [options]="templateOptions"
   >
   </app-shared-dropdown>
@@ -39,28 +39,38 @@
           form.controls['invoiceNumber'].errors?.required &&
           form.controls['invoiceNumber'].touched
         "
-        ><b>required</b>
+        ><b>Required</b>
       </span>
     </app-shared-input>
 
     <!-- Due Date -->
 
-    <app-shared-input
-      inputId="due-date"
-      [type]="'date'"
-      formControlName="dueDate"
-      placeholder="Select Date"
-      style="width: 48.5%"
-    >
-      Due Date
-      <span
-        *ngIf="
-          form.controls['dueDate'].errors?.required &&
-          form.controls['dueDate'].touched
-        "
-        ><b>required</b>
-      </span>
-    </app-shared-input>
+    <div class="date">
+      <label for="due-date">
+        <p>Due Date</p>
+        <span
+          *ngIf="
+            form.controls['dueDate'].errors?.required &&
+            form.controls['dueDate'].touched
+          "
+          ><b>Required</b>
+        </span></label
+      >
+      <input
+        [ngClass]="{
+          invalid:
+            form.controls['dueDate'].errors?.required &&
+            form.controls['dueDate'].touched,
+          valid: !form.controls['dueDate'].errors
+        }"
+        formControlName="dueDate"
+        placeholder="Select date"
+        type="text"
+        onfocus="(this.type='date')"
+        onblur="(this.type='text')"
+        id="due-date"
+      />
+    </div>
   </div>
 
   <div class="flex-container">
@@ -77,7 +87,7 @@
           form.controls['companyName'].errors?.required &&
           form.controls['companyName'].touched
         "
-        ><b>required</b>
+        ><b>Required</b>
       </span>
     </app-shared-input>
 
@@ -96,14 +106,14 @@
           form.controls['contanctEmail'].errors?.required &&
           form.controls['contanctEmail'].touched
         "
-        ><b>required</b>
+        ><b>Required</b>
       </span>
       <span
         *ngIf="
           form.controls['contanctEmail'].errors?.pattern &&
           form.controls['contanctEmail'].touched
         "
-        ><b>should be an email</b>
+        ><b>Should be an email</b>
       </span>
     </app-shared-input>
   </div>
@@ -122,7 +132,7 @@
           form.controls['address'].errors?.required &&
           form.controls['address'].touched
         "
-        ><b>required</b>
+        ><b>Required</b>
       </span>
     </app-shared-input>
   </div>

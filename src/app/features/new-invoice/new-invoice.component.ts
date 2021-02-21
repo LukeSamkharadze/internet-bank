@@ -26,7 +26,7 @@ export class NewInvoiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      tamplate: new FormControl('', Validators.required),
+      template: new FormControl('', Validators.required),
       invoiceNumber: new FormControl('', Validators.required),
       dueDate: new FormControl('', Validators.required),
       companyName: new FormControl('', Validators.required),

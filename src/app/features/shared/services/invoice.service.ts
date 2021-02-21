@@ -12,7 +12,7 @@ export class InvoiceService implements BaseHttpInterface<Invoice> {
 
   create(invoice: Invoice): Observable<Invoice> {
     return this.http
-      .post<Invoice>(`${environment.URL}invoice`, invoice)
+      .post<Invoice>(`${environment.BaseUrl}invoices`, invoice)
       .pipe(retry(1), catchError(this.handleError));
   }
 

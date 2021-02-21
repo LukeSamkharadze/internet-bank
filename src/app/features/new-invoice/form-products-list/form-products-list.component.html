@@ -19,7 +19,7 @@
               form.get('items')['controls'][i]['controls']['itemDescription']
                 .touched
             "
-            ><b>required</b>
+            ><b>Required</b>
           </span>
         </app-shared-input>
         <div class="dropdown-wrapper">
@@ -33,7 +33,7 @@
                   ?.required &&
                 form.get('items')['controls'][i]['controls']['itemQty'].touched
               "
-              ><b class="dropdown-b">required</b></span
+              ><b class="dropdown-b">Required</b></span
             >
           </label>
           <app-shared-dropdown
@@ -58,6 +58,7 @@
         <!-- Price -->
 
         <app-shared-input
+          class="num-input"
           inputId="price"
           [type]="'number'"
           formControlName="price"
@@ -71,7 +72,7 @@
                 ?.required &&
               form.get('items')['controls'][i]['controls']['price'].touched
             "
-            ><b>required</b>
+            ><b>Required</b>
           </span>
           <span
             *ngIf="
@@ -80,7 +81,7 @@
                 ?.required &&
               form.get('items')['controls'][i]['controls']['price'].touched
             "
-            ><b>should be more then 0.1</b>
+            ><b>Should be more then 0.1</b>
           </span>
         </app-shared-input>
 
@@ -91,6 +92,6 @@
 
   <div class="icon-text-wrapper" (click)="addItem()">
     <i class="fas fa-plus-circle"></i>
-    <p>ADD NEW ITAM</p>
+    <p>ADD NEW ITEM</p>
   </div>
 </div>

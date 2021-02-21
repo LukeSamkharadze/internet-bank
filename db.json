@@ -193,9 +193,9 @@
       "data": [41300, 28910, 16520, 28910, 24800]
     }
   ],
-  "invoice": [
+  "invoices": [
     {
-      "tamplate": "Website design",
+      "template": "Website design",
       "invoiceNumber": "AS-5",
       "dueDate": "2021-02-08",
       "companyName": "AOT",
@@ -211,7 +211,7 @@
       "id": 1
     },
     {
-      "tamplate": "Marketing Materials",
+      "template": "Marketing Materials",
       "invoiceNumber": "RE-12",
       "dueDate": "2021-02-23",
       "companyName": "OP",
@@ -230,6 +230,32 @@
         }
       ],
       "id": 2
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "AS-123",
+      "dueDate": "2021-03-05",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "233 Main Street, Somewhere, CA 91999",
+          "itemQty": 2,
+          "price": 120
+        },
+        {
+          "itemDescription": "433 Main Street, Somewhere, CA 91999",
+          "itemQty": 10,
+          "price": 100
+        },
+        {
+          "itemDescription": "533 Main Street, Somewhere, CA 91999",
+          "itemQty": 1,
+          "price": 190
+        }
+      ],
+      "id": 3
     }
   ]
 }

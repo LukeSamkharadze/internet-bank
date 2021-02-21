@@ -6,7 +6,7 @@ interface ItemsModel {
 
 export interface Invoice {
   id: number;
-  tamplate: string;
+  template: string;
   invoiceNumber: string;
   dueDate: string;
   companyName: string;

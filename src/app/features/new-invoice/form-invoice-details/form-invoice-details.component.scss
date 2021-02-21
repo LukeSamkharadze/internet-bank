@@ -3,3 +3,42 @@
 .address-input-wrapper {
   display: flex;
 }
+
+.date {
+  width: 48.5%;
+  position: relative;
+  p {
+    margin: 10px 0 10px;
+  }
+  b {
+    font-size: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    vertical-align: baseline;
+    top: 12px;
+  }
+  input {
+    padding: 19px 14px 15px 14px;
+    display: block;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #252631;
+    letter-spacing: 0.2px;
+    letter-spacing: 0.15px;
+    border-radius: 4px;
+    border: 1px solid $outline;
+    &:focus {
+      outline: none;
+      height: 53px;
+    }
+    &.invalid {
+      border-color: $secondary-3;
+    }
+    &.valid {
+      border-color: $secondary-2;
+    }
+  }
+}
