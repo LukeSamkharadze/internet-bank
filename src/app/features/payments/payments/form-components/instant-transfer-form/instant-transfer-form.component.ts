@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { animations } from '../shared/animations';
-import { InstantTransfer } from '../../../models/instantTransfer.entity';
+import { InstantTransfer } from '../../../../shared/interfaces/instantTransfer.entity';
 import { TransferService } from '../../../services/transfer.service';
 import { Subscription } from 'rxjs';
 
@@ -34,26 +34,38 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      const transfer: InstantTransfer = {
+      let transfer: InstantTransfer = {
         date: new Date(),
         paymentType: 'instant',
+        fromUserId: this.fromAccount.value.userId,
         ...this.form.getRawValue(),
+        amount: Number(this.amount.value),
       };
       this.subscriptions.add(
         this.transferService
           .bankOrInstantTransfer(transfer)
-          .subscribe((data: { status: string; reason?: string }) => {
-            if (data.status === 'success') {
-              alert('success');
-              this.form.reset();
-              this.subscriptions.add(
-                this.transferService.postTransactionToDb(transfer).subscribe()
-              );
-              this.transferService.reloadCards();
-            } else {
-              alert(data.reason);
+          .subscribe(
+            (data: {
+              status: string;
+              destinationAccountUserId?: string;
+              reason?: string;
+            }) => {
+              if (data.status === 'success') {
+                alert('success');
+                this.form.reset();
+                transfer = {
+                  ...transfer,
+                  destinationAccountUserId: data.destinationAccountUserId,
+                };
+                this.subscriptions.add(
+                  this.transferService.postTransactionToDb(transfer).subscribe()
+                );
+                this.transferService.reloadCards();
+              } else {
+                alert(data.reason);
+              }
             }
-          })
+          )
       );
     } else {
       this.form.markAllAsTouched();

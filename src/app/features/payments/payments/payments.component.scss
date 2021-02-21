@@ -1,8 +1,14 @@
 .payments-wrapper {
-  //width: 79.16%;
   width: 100%;
   min-width: 645px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
+}
+
+:host {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  padding-top: 28px;
 }

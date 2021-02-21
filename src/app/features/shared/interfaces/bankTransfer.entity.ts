@@ -5,6 +5,5 @@ export interface BankTransfer extends SharedTransfer {
   beneficiary: string;
   currency: string;
   transferType: string;
-  // daemateba roca user authentication morcheba.
-  // toUserId: number;
+  destinationAccountUserId: string;
 }

@@ -8,7 +8,7 @@ import {
 import { animations } from '../shared/animations';
 import { summaryAnimation } from '../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
-import { ElectronicTransfer } from '../../../models/electronicTransfer.entity';
+import { ElectronicTransfer } from '../../../../shared/interfaces/electronicTransfer.entity';
 import { ProvidersService } from '../../../services/providers.service';
 import { Subscription } from 'rxjs';
 
@@ -52,7 +52,9 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
         date: new Date(),
         paymentType: 'electronic',
         ...this.form.getRawValue(),
+        fromUserId: this.fromAccount.value.userId,
         paymentSystem: this.paymentSystem.value.title,
+        amount: Number(this.amount.value),
       };
       this.subscriptions.add(
         this.transferService

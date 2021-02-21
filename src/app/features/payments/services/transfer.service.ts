@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BankTransfer } from '../models/bankTransfer.entity';
-import { ElectronicTransfer } from '../models/electronicTransfer.entity';
-import { InstantTransfer } from '../models/instantTransfer.entity';
+import { BankTransfer } from '../../shared/interfaces/bankTransfer.entity';
+import { ElectronicTransfer } from '../../shared/interfaces/electronicTransfer.entity';
+import { InstantTransfer } from '../../shared/interfaces/instantTransfer.entity';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMapTo } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
-import { BaseHttpInterface } from '@shared/shared';
 
 @Injectable()
 export class TransferService {
@@ -58,7 +57,10 @@ export class TransferService {
                   Number(transfer.amount),
                   true
                 ).subscribe(() => {
-                  subscriber.next({ status: 'success' });
+                  subscriber.next({
+                    status: 'success',
+                    destinationAccountUserId: destinationAccount.userId,
+                  });
                 });
               });
             });

@@ -1,4 +1,4 @@
-import { ICard } from '../../shared/interfaces/card.interface';
+import { ICard } from './card.interface';
 
 export interface SharedTransfer {
   paymentType: 'bank' | 'electronic' | 'instant';
@@ -6,6 +6,5 @@ export interface SharedTransfer {
   amount: number;
   id?: number;
   date: Date;
-  // daemateba roca user authentication morcheba.
-  // fromUserId: number;
+  fromUserId: string;
 }

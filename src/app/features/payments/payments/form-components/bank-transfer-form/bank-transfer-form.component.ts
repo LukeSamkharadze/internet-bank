@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { animations } from '../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
-import { BankTransfer } from '../../../models/bankTransfer.entity';
+import { BankTransfer } from '../../../../shared/interfaces/bankTransfer.entity';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -40,26 +40,38 @@ export class BankTransferFormComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.form.valid) {
-      const transfer: BankTransfer = {
+      let transfer: BankTransfer = {
         date: new Date(),
         paymentType: 'bank',
+        fromUserId: this.fromAccount.value.userId,
         ...this.form.getRawValue(),
+        amount: Number(this.amount.value),
       };
       this.subscriptions.add(
         this.transferService
           .bankOrInstantTransfer(transfer)
-          .subscribe((data: { status: string; reason?: string }) => {
-            if (data.status === 'success') {
-              alert('success');
-              this.form.reset();
-              this.subscriptions.add(
-                this.transferService.postTransactionToDb(transfer).subscribe()
-              );
-              this.transferService.reloadCards();
-            } else {
-              alert(data.reason);
+          .subscribe(
+            (data: {
+              status: string;
+              reason?: string;
+              destinationAccountUserId?: string;
+            }) => {
+              if (data.status === 'success') {
+                alert('success');
+                this.form.reset();
+                transfer = {
+                  ...transfer,
+                  destinationAccountUserId: data.destinationAccountUserId,
+                };
+                this.subscriptions.add(
+                  this.transferService.postTransactionToDb(transfer).subscribe()
+                );
+                this.transferService.reloadCards();
+              } else {
+                alert(data.reason);
+              }
             }
-          })
+          )
       );
     } else {
       this.form.markAllAsTouched();
