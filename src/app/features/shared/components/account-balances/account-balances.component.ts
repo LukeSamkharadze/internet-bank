@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BalanceStructure } from './models/balanceType';
 import { AccountBalancesService } from './services/account-balances.service';
 @Component({
   selector: 'app-features-shared-account-balances',
@@ -8,8 +7,6 @@ import { AccountBalancesService } from './services/account-balances.service';
   providers: [AccountBalancesService],
 })
 export class AccountBalancesComponent implements OnInit {
-  accountDetails: BalanceStructure;
-  balanceDetails = [];
   constructor(public balances: AccountBalancesService) {}
 
   ngOnInit(): void {
