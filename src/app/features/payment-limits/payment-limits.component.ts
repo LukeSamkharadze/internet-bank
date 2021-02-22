@@ -29,7 +29,6 @@ export class PaymentLimitsComponent implements OnInit {
     cashLimit: 0,
   };
 
-  currency: 'USD';
   onlineSpending = 0;
   bankSpending = 0;
 

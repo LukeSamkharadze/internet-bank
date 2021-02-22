@@ -28,7 +28,7 @@ export class PaymentLimitsSectionComponent
 
   inputForm = new FormControl();
 
-  @Input() currency = 'USD';
+  currency = 'USD';
 
   // @Input() limit = 0;
 
