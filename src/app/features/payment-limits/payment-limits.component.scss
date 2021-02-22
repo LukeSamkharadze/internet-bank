@@ -1,10 +1,12 @@
 @import '../../../styles/index.scss';
-// :host{display:inlile-block}
+:host {
+  display: inlile-block;
+  width: 100%;
+}
 form {
   .payment-wrap {
     background-color: white;
     padding: 18px 0px 0px 24px;
-    max-width: 870px;
     .payment-box {
       max-width: 699px;
       margin-top: 27px;

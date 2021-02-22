@@ -113,8 +113,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.getSub.unsubscribe();
-    this.updSub.unsubscribe();
-    this.delSub.unsubscribe();
+    // this.getSub.unsubscribe();
+    // this.updSub.unsubscribe();
+    // this.delSub.unsubscribe();
   }
 }

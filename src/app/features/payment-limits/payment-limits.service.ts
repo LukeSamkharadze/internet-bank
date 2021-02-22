@@ -9,10 +9,10 @@ export class PaymentLimitsService {
   constructor(private http: HttpClient) {}
 
   getData(id): Observable<ILimits> {
-    return this.http.get<ILimits>(`${environment.URL}limits/${id}`);
+    return this.http.get<ILimits>(`${environment.BaseUrl}limits/${id}`);
   }
 
   updateUser(id: number, user: ILimits): Observable<boolean> {
-    return this.http.put<boolean>(`${environment.URL}limits/${id}`, user);
+    return this.http.put<boolean>(`${environment.BaseUrl}limits/${id}`, user);
   }
 }

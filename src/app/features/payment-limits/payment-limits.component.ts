@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { AuthService } from '../shared/services/auth.service';
 import { ILimits } from './payment-interfaces';
 import { PaymentLimitsService } from './payment-limits.service';
 
@@ -17,10 +18,7 @@ import { PaymentLimitsService } from './payment-limits.service';
   styleUrls: ['./payment-limits.component.scss'],
 })
 export class PaymentLimitsComponent implements OnInit {
-  // ro gaketdeba id is nacvlad localID
-  // localID = parseInt(localStorage.getItem("id"))
-
-  id = 1;
+  id = parseInt(this.auth.userId, 10);
 
   everyLimit: ILimits = {
     bankLimit: 0,
@@ -39,7 +37,11 @@ export class PaymentLimitsComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: PaymentLimitsService) {}
+  constructor(
+    private auth: AuthService,
+    private fb: FormBuilder,
+    private http: PaymentLimitsService
+  ) {}
 
   ngOnInit(): void {
     this.createFormGroup();
