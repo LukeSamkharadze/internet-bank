@@ -32,10 +32,10 @@ export class ExpansesComponent implements OnInit {
       let sum = 0;
       this.chartData.map((item) => {
         if (!item.colorString) {
-          let red = Math.floor(Math.random() * 255);
-          let green = Math.floor(Math.random() * 255);
-          let blue = Math.floor(Math.random() * 255);
-          let color = `rgb(${red},${green},${blue})`;
+          const red = Math.floor(Math.random() * 255);
+          const green = Math.floor(Math.random() * 255);
+          const blue = Math.floor(Math.random() * 255);
+          const color = `rgb(${red},${green},${blue})`;
           Object.assign(item, { colorString: color });
         }
         sum += item.share;
