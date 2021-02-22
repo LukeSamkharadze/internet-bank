@@ -33,12 +33,11 @@
       <div class="card-position">
         <div class="balance">
           <div>${{ item.availableAmount }}</div>
-          <i [ngClass]="item.arrow" class="las"></i>
+          <i *ngIf="item.cardNumber" [ngClass]="item.arrow" class="las"></i>
+          <i *ngIf="!item.cardNumber" class="las la-long-arrow-alt-up"></i>
         </div>
         <div class="account-description">Balance</div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- determineArrow(item.accountNumber) -->
