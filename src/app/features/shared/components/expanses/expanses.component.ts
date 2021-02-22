@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { SeriesHighlight } from '@progress/kendo-angular-charts';
 import { Expanses } from '../../interfaces/expanses.interface';
 
@@ -11,17 +19,25 @@ export class ExpansesComponent implements OnInit {
   @Input() chartData: Expanses[] = [];
   @Input() header = `Expanses categories`;
   @Output()
+  @ViewChild('series')
+  series: ElementRef;
   public isClicked = new EventEmitter<MouseEvent>();
   public seriesHighlight: SeriesHighlight = {
     color: '#4D7CFE',
     opacity: 1,
   };
-  constructor() {}
 
   ngOnInit(): void {
     if (this.chartData.length !== 0) {
       let sum = 0;
       this.chartData.map((item) => {
+        if (!item.colorString) {
+          let red = Math.floor(Math.random() * 255);
+          let green = Math.floor(Math.random() * 255);
+          let blue = Math.floor(Math.random() * 255);
+          let color = `rgb(${red},${green},${blue})`;
+          Object.assign(item, { colorString: color });
+        }
         sum += item.share;
       });
       this.chartData.map((item) => {

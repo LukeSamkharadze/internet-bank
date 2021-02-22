@@ -4,7 +4,6 @@ import { RegisterComponent } from './register/register.component';
 import { RecoverComponent } from './recover/recover.component';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { FeaturesSharedModule } from '@features/shared';
-import { UserService } from '../shared/services/user.service';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, RecoverComponent],

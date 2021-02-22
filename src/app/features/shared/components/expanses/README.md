@@ -18,6 +18,8 @@ colorString: string
 `colorString` is used for color on Chart
 
 for example:
+
+```TS
 chartData: Expanses[]=[
 {
 kind:'Grocery', //Category name
@@ -40,5 +42,6 @@ share: 1000,
 colorString: '#D28760'
 }
 ]
+```
 
 [header]="'Your Header'" `-->` use for your custom Header !
