@@ -9,7 +9,7 @@ import { IncomeDataType } from './dataType';
   providedIn: 'root',
 })
 export class IncomeDataService {
-  private URL = environment.URL;
+  private URL = environment.BaseUrl;
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<IncomeDataType[]> {

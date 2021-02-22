@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 
@@ -54,31 +53,27 @@ export class LoginComponent implements OnInit {
       password: this.passwordFormControl.value,
     };
 
-    if (this.authService.loginCheck(this.loginData)) {
-      this.authService
-        .login(this.loginData)
-        .pipe(
+    this.authService.loginCheck(this.loginData).subscribe((checkSuccess) => {
+      if (checkSuccess) {
+        this.authService.login(this.loginData).subscribe((user) => {
           // Add 'User Id' on localStorage
-          tap((loggedIn) =>
-            localStorage.setItem('userId', JSON.stringify(loggedIn.userId))
-          ),
-          // When 'Remember Me' checked add 'User Email' on localStorage
-          tap((loggedIn) => {
-            if (this.rememberMeFormControl.value) {
-              localStorage.setItem('userEmail', loggedIn.userEmail);
-            }
-          })
-        )
-        .subscribe();
+          localStorage.setItem('userId', JSON.stringify(user.id));
 
-      // Wait 0.2 sec after succesful login and redirect to 'Dashboard'
-      setTimeout(() => {
-        this.router.navigate(['/dashboard']);
-      }, 200);
-    } else {
-      alert(
-        'Login data is wrong, please check again your "email" and "password"!'
-      );
-    }
+          // When 'Remember Me' checked add 'User Email' on localStorage
+          if (this.rememberMeFormControl.value) {
+            localStorage.setItem('userEmail', user.email);
+          }
+
+          // Wait 0.2 sec after successful login and redirect to 'Dashboard'
+          setTimeout(() => {
+            this.router.navigate(['/dashboard']);
+          }, 200);
+        });
+      } else {
+        alert(
+          'Login data is wrong, please check again your "email" and "password"!'
+        );
+      }
+    });
   }
 }

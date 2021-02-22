@@ -1,0 +1,20 @@
+.payments-wrapper {
+  width: 100%;
+  min-width: 645px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+:host {
+  width: 90%;
+  display: block;
+  padding: 28px 0 0 28px;
+}
+@media only screen and (max-width: 950px) {
+  .payments-wrapper {
+    grid-template-columns: 1fr;
+    min-width: 250px;
+    padding-bottom: 28px;
+  }
+}
