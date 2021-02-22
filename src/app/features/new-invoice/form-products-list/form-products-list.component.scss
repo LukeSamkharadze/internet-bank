@@ -18,8 +18,12 @@
     }
   }
 }
-.split {
-  top: -10px;
+
+@media screen and (max-width: 1500px) {
+  .split {
+    width: 70px;
+    top: -10px;
+  }
 }
 
 .dropdown-wrapper {
