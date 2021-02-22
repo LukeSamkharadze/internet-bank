@@ -1,0 +1,22 @@
+<div class="background"></div>
+<div class="container">
+  <h2>Are you sure?</h2>
+  <p>You will not be able to reactivate this account</p>
+  <div class="buttons">
+    <app-shared-button
+      [className]="{ blue: true }"
+      style="width: 116px; height: 46px"
+      (click)="confirm.emit()"
+    >
+      Confirm</app-shared-button
+    >
+
+    <app-shared-button
+      [className]="{ primary: true, resting: true }"
+      style="height: 46px; width: 116px"
+      (click)="closeAccount.emit()"
+    >
+      CANCEL</app-shared-button
+    >
+  </div>
+</div>

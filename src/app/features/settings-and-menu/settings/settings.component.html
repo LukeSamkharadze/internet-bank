@@ -1,0 +1,162 @@
+<div class="generalSettings">
+  <div class="settingsInfo">
+    <p class="generalInfo">General information</p>
+    <div class="userProfile">
+      <div class="profilePic">
+        <img src="../../../../assets/settings-and-menu/user-male.png" />
+      </div>
+      <p>{{ user.fullname }}</p>
+    </div>
+    <div class="userInfo">
+      <form [formGroup]="form">
+        <div class="input-wrapper">
+          <label for="first">First name</label>
+          <div>
+            <app-shared-input
+              inputId="first"
+              formControlName="firstName"
+              type="text"
+              placeholder="Enter your first name"
+            ></app-shared-input>
+            <div
+              class="validation"
+              *ngIf="
+                form.get('firstName').invalid && form.get('firstName').touched
+              "
+            >
+              <small *ngIf="form.get('firstName').errors.required"
+                >This field is neccessary!</small
+              >
+              <small *ngIf="form.get('firstName').hasError('pattern')"
+                >Your first name should contain only letters!</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="input-wrapper lastName">
+          <label for="last">Last name</label>
+          <div>
+            <app-shared-input
+              inputId="last"
+              type="text"
+              formControlName="lastName"
+              placeholder="Enter your last name"
+            ></app-shared-input>
+            <div
+              class="validation"
+              *ngIf="
+                form.get('lastName').invalid && form.get('lastName').touched
+              "
+            >
+              <small *ngIf="form.get('lastName').errors.required"
+                >This field is neccessary!</small
+              >
+              <small *ngIf="form.get('lastName').hasError('pattern')"
+                >Your last name should contain only letters!</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <label for="email">Email</label>
+          <div>
+            <app-shared-input
+              type="text"
+              inputId="email"
+              formControlName="email"
+              placeholder="Enter your email"
+            ></app-shared-input>
+
+            <div
+              class="validation"
+              *ngIf="form.get('email').invalid && form.get('email').touched"
+            >
+              <small *ngIf="form.get('email').errors.required"
+                >This field is neccessary!</small
+              >
+              <small *ngIf="form.get('email').errors.email"
+                >Incorrect email!</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <label for="phone"> Phone</label>
+          <div>
+            <app-shared-input
+              inputId="phone"
+              formControlName="phone"
+              placeholder="Enter your phone(5xx-xxx-xxx)"
+              type="text"
+            ></app-shared-input>
+            <div
+              class="validation"
+              *ngIf="form.get('phone').invalid && form.get('phone').touched"
+            >
+              <small *ngIf="form.get('phone').hasError('pattern')"
+                >Incorrect phone number!</small
+              >
+            </div>
+          </div>
+        </div>
+        <div class="dropdownContainer">
+          <label for="langDropdown">Language</label>
+          <div class="dropdown-general">
+            <app-shared-dropdown
+              id="langDropdown"
+              formControlName="language"
+              [options]="['English', 'Georgian', 'Russian']"
+              style="margin-top: 10px; width: 100%"
+              placeholder="Select your language"
+            >
+            </app-shared-dropdown>
+          </div>
+        </div>
+        <div class="dropdownContainer">
+          <label for="sexDropdown">Sex</label>
+          <div class="dropdown-general">
+            <app-shared-dropdown
+              id="sexDropdown"
+              formControlName="sex"
+              [options]="['Male', 'Female', 'Other']"
+              style="margin-top: 10px; width: 100%"
+              placeholder="Select your sex"
+            >
+            </app-shared-dropdown>
+          </div>
+        </div>
+        <div class="buttons">
+          <app-shared-button
+            [className]="{ primary: true, active: true }"
+            style="width: 206px; height: 46px"
+            (click)="submit()"
+            >UPDATE SETTINGS</app-shared-button
+          >
+
+          <app-shared-button
+            [className]="{ primary: true, resting: true }"
+            style="height: 46px; width: 103px"
+            (click)="reset()"
+          >
+            CANCEL</app-shared-button
+          >
+        </div>
+        <div class="cancel">
+          <app-shared-button
+            [className]="{ pink: true }"
+            style="height: 46px; width: 200px"
+            (click)="showDeleteModal = true"
+          >
+            <i class="lar la-trash-alt icon"></i> Delete
+            Account</app-shared-button
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-deactivate
+  *ngIf="showDeleteModal"
+  (closeAccount)="showDeleteModal = false"
+  (confirm)="deleteUser()"
+></app-deactivate>
