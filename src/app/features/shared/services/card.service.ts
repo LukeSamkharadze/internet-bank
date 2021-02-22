@@ -1,10 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, Subject, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 import { ICard } from '../interfaces/card.interface';
-import { catchError, retry, tap } from 'rxjs/operators';
+import { catchError, distinctUntilChanged, retry, tap } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
 
@@ -12,15 +12,32 @@ import { BaseHttpInterface } from '@shared/shared';
   providedIn: 'root',
 })
 export class CardService implements BaseHttpInterface<ICard> {
-  constructor(private http: HttpClient) {}
-  public subj = new Subject<boolean>();
+  private cardsArr: ICard[] = [];
+
+  private store = new BehaviorSubject<ICard[]>(this.cardsArr);
+
+  public cards$ = this.store.pipe(distinctUntilChanged());
+
+  public subj = new Subject<boolean>(); // ◄ ეს ხაზი ამოსაღებია
+
+  constructor(private http: HttpClient) {
+    this.getAll().subscribe((cards) =>
+      this.store.next((this.cardsArr = cards))
+    );
+  }
+
   create(card: ICard): Observable<ICard> {
     card = this.determineIconPath(card);
+
+    this.store.next((this.cardsArr = [...this.cardsArr, card]));
+
     return this.http.post<ICard>(`${environment.URL}cards`, card).pipe(
       retry(1),
+      // ▼ ▼ ▼ ამის ქვევით მოსაშლელია ▼ ▼ ▼
       tap(() => {
         this.subj.next(true);
       }),
+      // ▲ ▲ ▲ ამის ზევით მოსაშლელია ▲ ▲ ▲
       catchError(this.handleError)
     );
   }
