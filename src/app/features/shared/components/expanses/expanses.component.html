@@ -1,6 +1,11 @@
 <div class="expanses-wrapper">
   <div class="header">
     <h2>{{ header }}</h2>
+    <div class="dots" (click)="handleClick($event)">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
   </div>
   <div class="content">
     <div class="left-column">
@@ -14,13 +19,6 @@
     <div class="right-column">
       <div class="chart">
         <kendo-chart>
-          <kendo-chart-tooltip
-            [shared]="true"
-            [color]="'#98A9BC'"
-            [background]="'#FFFFFF'"
-            [format]="'Total: {0:c}'"
-          >
-          </kendo-chart-tooltip>
           <kendo-chart-series>
             <kendo-chart-series-item
               [highlight]="seriesHighlight"
@@ -36,6 +34,17 @@
                 background="none"
               >
               </kendo-chart-series-item-labels>
+              <kendo-chart-series-item-tooltip
+                [color]="'#252631'"
+                [background]="'transparent'"
+                [padding]="0"
+              >
+                <ng-template kendoChartSeriesTooltipTemplate let-value="value">
+                  <span id="tooltip-text"
+                    ><span id="tooltip-title">Total:</span> ${{ value }}</span
+                  >
+                </ng-template>
+              </kendo-chart-series-item-tooltip>
             </kendo-chart-series-item>
           </kendo-chart-series>
           <kendo-chart-legend [visible]="false"></kendo-chart-legend>

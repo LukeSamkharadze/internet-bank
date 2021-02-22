@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SeriesHighlight } from '@progress/kendo-angular-charts';
 import { Expanses } from '../../interfaces/expanses.interface';
 
@@ -10,6 +10,8 @@ import { Expanses } from '../../interfaces/expanses.interface';
 export class ExpansesComponent implements OnInit {
   @Input() chartData: Expanses[] = [];
   @Input() header = `Expanses categories`;
+  @Output()
+  public isClicked = new EventEmitter<MouseEvent>();
   public seriesHighlight: SeriesHighlight = {
     color: '#4D7CFE',
     opacity: 1,
@@ -24,7 +26,7 @@ export class ExpansesComponent implements OnInit {
       });
       this.chartData.map((item) => {
         Object.assign(item, {
-          percent: ((item.share / sum) * 100).toFixed(2) + '%',
+          percent: Math.round((item.share / sum) * 100) + '%',
         });
       });
     } else {
@@ -33,5 +35,8 @@ export class ExpansesComponent implements OnInit {
   }
   labelContent(e: any): string {
     return e.category;
+  }
+  handleClick(event: MouseEvent) {
+    this.isClicked.emit(event);
   }
 }

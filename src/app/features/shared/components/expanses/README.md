@@ -1,5 +1,9 @@
 How to use :
+
+```HTML
 <app-features-shared-expanses [chartData]="chartData" [header]="'Your Header'"></app-features-shared-expanses>
+```
+
 component needs data to display chart,
 
 chart data type:
