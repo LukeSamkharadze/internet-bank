@@ -7,6 +7,7 @@ import { NewsArticleComponent } from './news-article/news-article.component';
 export * from './income-chart/income-chart.component';
 export * from './news-article/news-article.component';
 export * from './header-profile/header-profile.component';
+export * from './bank-transactions/bank-transactions.component';
 
 export const components = [
   IncomeChartComponent,

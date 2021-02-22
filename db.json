@@ -83,36 +83,42 @@
       "title": "Vodafone account top up  ****04",
       "img": "\\assets\\bank-transactions\\img\\Ico-1.png",
       "type": "Phone payment",
+      "transactionType": "Income",
       "typeId": 3,
       "amount": "- $4.20",
       "date": "4 Aug 1:00 PM",
       "status": "paid",
       "tagColor": "green",
-      "cardNumber": 5678
+      "cardNumber": 5678,
+      "userId": 1
     },
     {
       "id": 2,
       "title": "Money transfer to John Doe",
       "img": "\\assets\\bank-transactions\\img\\Ico-2.png",
       "type": "bank-transfer",
+      "transactionType": "Expense",
       "typeId": 2,
       "amount": "- $10.480.00",
-      "date": "2/8/2021",
+      "date": "5 Aug 3:00 PM",
       "status": "in progress",
       "tagColor": "blue",
-      "cardNumber": 1278
+      "cardNumber": 1278,
+      "userId": 1
     },
     {
       "id": 3,
       "title": "ATM Cash withdrawal",
       "img": "\\assets\\bank-transactions\\img\\Ico-3.png",
       "type": "Cash",
+      "transactionType": "Income",
       "typeId": 1,
       "amount": "- $201.50",
       "date": "6 Aug 2:15 AM",
       "status": "paid",
       "tagColor": "green",
-      "cardNumber": 4563
+      "cardNumber": 4563,
+      "userId": 2
     }
   ],
   "cards": [

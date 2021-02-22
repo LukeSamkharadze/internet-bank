@@ -20,13 +20,7 @@
       </ng-template>
 
       <div class="right-settings">
-        <!-- <img
-          class="position-left photo-1"
-          src="../../../../../assets/bank-transactions/img/calendar.png"
-        /> -->
-        <p class="position-left text-1">
-          <!-- DATE: -->
-        </p>
+        <p class="position-left text-1"></p>
         <div class="position-left">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Choose a Date:</mat-label>
@@ -37,7 +31,6 @@
               (dateChange)="dateChangeEvent($event)"
             />
             <mat-datepicker-toggle matSuffix [for]="picker">
-              <!-- <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon> -->
             </mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>

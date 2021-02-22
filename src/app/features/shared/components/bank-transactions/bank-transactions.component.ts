@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { GetTransactionsService } from './services/get-transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
-
+import { AuthService } from './../../services/auth.service';
 @Component({
   selector: 'app-shared-bank-transactions',
   templateUrl: './bank-transactions.component.html',
@@ -37,6 +37,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   ];
   chosenDate = null;
   chosenType = null;
+  // currUserId;
 
   ngOnChanges(changes: SimpleChanges) {
     /* tslint:disable:no-string-literal */
@@ -51,7 +52,8 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   }
 
   constructor(
-    private getTransactionService: GetTransactionsService // private getTypesService: GetTypesService
+    private getTransactionService: GetTransactionsService,
+    private authService: AuthService
   ) {}
 
   fetchTransactions() {

@@ -120,7 +120,9 @@
       @include text-style(16px, $primary-dark);
       vertical-align: top;
       line-height: 20px;
-
+      a {
+        font-size: 16px;
+      }
       span {
         @include text-style(14px, $secondary-dark-2);
       }
