@@ -2,6 +2,7 @@ import { BankTransactionDetailsComponent } from './bank-transaction-details/bank
 import { IncomeChartComponent } from './income-chart/income-chart.component';
 import { HeaderProfileComponent } from './header-profile/header-profile.component';
 import { NewsArticleComponent } from './news-article/news-article.component';
+import { AccountsSpendingsComponent } from './accounts-spendings/accounts-spendings.component';
 
 export * from './income-chart/income-chart.component';
 export * from './news-article/news-article.component';
@@ -12,4 +13,5 @@ export const components = [
   BankTransactionDetailsComponent,
   NewsArticleComponent,
   HeaderProfileComponent,
+  AccountsSpendingsComponent,
 ];
