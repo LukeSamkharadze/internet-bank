@@ -47,7 +47,7 @@ export class NewInvoiceComponent implements OnInit {
     return this.fb.group({
       itemDescription: new FormControl('', Validators.required),
       itemQty: new FormControl('', Validators.required),
-      price: new FormControl('', [Validators.required, Validators.min(0.1)]),
+      price: new FormControl('', [Validators.required, Validators.min(0)]),
     });
   }
 
