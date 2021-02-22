@@ -141,7 +141,11 @@
     },
     {
       "name": "Bank Transfer",
-      "providers": [{ "title": "TBC" }],
+      "providers": [
+        {
+          "title": "TBC"
+        }
+      ],
       "icon": "las la-piggy-bank",
       "formPath": "bank-transfer"
     },
@@ -161,16 +165,16 @@
   ],
   "users": [
     {
-      "fullname": "SANCHO PANZA",
       "email": "sanchito_p@gmail.com",
-      "password": "12345678",
-      "id": 1
+      "id": 1,
+      "fullname": "SANCHO PANZA",
+      "password": "12345678"
     },
     {
-      "fullname": "EDMOND DANTES",
       "email": "admin@gmail.com",
+      "id": 2,
       "password": "12345678",
-      "id": 2
+      "fullname": "EDMOND DANTES"
     },
     {
       "fullname": "VITO CORLEONE",
