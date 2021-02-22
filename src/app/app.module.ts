@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { SettingsSecurityComponent } from './features/settings-security/settings-security.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from '@shared/shared';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from '@core/core.module';
 import { RouterModule } from '@angular/router';
@@ -12,9 +11,16 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ApplicationComponent } from './features/application/application.component';
 import { FeaturesSharedModule } from '@features/shared';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, SettingsSecurityComponent, DashboardComponent, PageNotFoundComponent, ApplicationComponent],
+  declarations: [
+    AppComponent,
+    SettingsSecurityComponent,
+    DashboardComponent,
+    PageNotFoundComponent,
+    ApplicationComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -22,10 +28,10 @@ import { FeaturesSharedModule } from '@features/shared';
     AppRoutingModule,
     CoreModule,
     RouterModule,
-    FeaturesSharedModule
+    FeaturesSharedModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

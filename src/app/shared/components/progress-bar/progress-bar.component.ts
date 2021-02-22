@@ -109,9 +109,16 @@ export class ProgressBarComponent implements OnInit, OnChanges {
     return color;
   }
   public styleObject() {
-    return {
-      backgroundColor: this.defineColor(),
-      width: (this.value * 100) / this.max + '%',
-    };
+    if (this.value / this.max <= 1) {
+      return {
+        backgroundColor: this.defineColor(),
+        width: (this.value * 100) / this.max + '%',
+      };
+    } else {
+      return {
+        backgroundColor: this.defineColor(),
+        width: '100%',
+      };
+    }
   }
 }

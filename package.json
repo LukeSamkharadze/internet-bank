@@ -27,12 +27,12 @@
     "@angular/platform-browser-dynamic": "~10.0.11",
     "@angular/router": "~10.0.11",
     "chart.js": "^2.9.4",
+    "fast-average-color": "^6.3.0",
     "jest-junit": "^11.1.0",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "fast-average-color": "^6.3.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-builders/jest": "^10.0.0",

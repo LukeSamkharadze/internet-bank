@@ -7,7 +7,7 @@ import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interfac
 import { IDeposit } from '../interfaces/deposit.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DepositService implements BaseHttpInterface<IDeposit> {
   constructor(private http: HttpClient) {}
@@ -18,7 +18,7 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
 
   getAll(): Observable<IDeposit[]> {
     return this.http
-      .get<IDeposit[]>(`${environment.URL}deposits`)
+      .get<IDeposit[]>(`${environment.BaseUrl}deposits`)
       .pipe(retry(1));
   }
 

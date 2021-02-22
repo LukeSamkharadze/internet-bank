@@ -1,0 +1,63 @@
+@import 'src/styles/index';
+:host {
+  width: 100%;
+  display: inline-block;
+}
+.settingsAndMenu {
+  min-width: 1030px;
+  background: #fff;
+  width: 100%;
+  min-height: calc(100vh - 125px);
+  border-radius: 5px;
+  justify-content: space-between;
+  position: relative;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+
+  .menu {
+    width: 100%;
+    background: #fff;
+    max-width: 222px;
+    border-left: 1px solid $outline;
+    display: flex;
+    margin-left: -5px;
+
+    .menuTabs {
+      padding-top: 26px;
+
+      padding-left: 18px;
+      p:nth-child(1) {
+        color: $primary-dark;
+      }
+
+      a {
+        display: block;
+        cursor: pointer;
+        margin-bottom: 21px;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        text-decoration: none;
+        color: $secondary-dark-1;
+        &::before {
+          content: '';
+          height: 17px;
+          width: 1.9px;
+          background-color: black;
+          display: none;
+          transform: translateX(-19px);
+        }
+
+        &.active {
+          color: $primary-dark;
+          &::before {
+            display: inline-block;
+          }
+        }
+        &:hover {
+          color: $primary-dark;
+        }
+      }
+    }
+  }
+}
