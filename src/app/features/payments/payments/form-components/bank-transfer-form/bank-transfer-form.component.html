@@ -1,0 +1,152 @@
+<div class="payment">
+  <header>
+    <h5>{{ title }}</h5>
+  </header>
+  <form [formGroup]="form" [@formTrigger]>
+    <div class="input-wrapper">
+      <label class="input-label"
+        >Select account
+        <span
+          [@errorTrigger]
+          *ngIf="fromAccount.hasError('required') && fromAccount.touched"
+          >Required</span
+        >
+      </label>
+      <ng-template #account let-option>
+        <div class="account">
+          <img [src]="option['iconPath']" />
+          <span>{{ option['cardNumber'] }}</span>
+          <span class="amount"
+            >{{ option['availableAmount'] | currency }}
+          </span>
+        </div>
+      </ng-template>
+
+      <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown': fromAccount.errors && fromAccount.touched,
+          'valid-dropdown': !fromAccount.errors
+        }"
+        formControlName="fromAccount"
+        placeholder="Select account"
+        [options]="currentUsersCards | async"
+        [selectedTemplate]="account"
+        [optionTemplate]="account"
+      >
+      </app-shared-dropdown>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="destination-account-number"
+        >Transfer to
+        <span
+          [@errorTrigger]
+          *ngIf="
+            destinationAccountNumber.hasError('required') &&
+            destinationAccountNumber.touched
+          "
+          >Required</span
+        ></label
+      >
+      <app-shared-input
+        inputId="destination-account-number"
+        formControlName="destinationAccountNumber"
+        placeholder="Enter account number"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="beneficiary"
+        >Beneficiary
+        <span
+          [@errorTrigger]
+          *ngIf="beneficiary.hasError('required') && beneficiary.touched"
+          >Required</span
+        >
+        <span
+          [@errorTrigger]
+          *ngIf="beneficiary.hasError('pattern') && beneficiary.touched"
+          >Only letters allowed</span
+        ></label
+      >
+      <app-shared-input
+        placeholder="Enter beneficiary name"
+        inputId="beneficiary"
+        formControlName="beneficiary"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper half-width">
+      <label class="input-label" for="amount"
+        >Amount
+        <span
+          [@errorTrigger]
+          *ngIf="amount.hasError('required') && amount.touched"
+          >Required</span
+        >
+        <span [@errorTrigger] *ngIf="amount.hasError('min') && amount.touched"
+          >Too low</span
+        ></label
+      >
+      <app-shared-input
+        inputId="amount"
+        formControlName="amount"
+        type="number"
+        placeholder="Enter amount"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper half-width float-right">
+      <label class="input-label"
+        >Currency
+        <span
+          [@errorTrigger]
+          *ngIf="currency.hasError('required') && currency.touched"
+          >Required</span
+        ></label
+      >
+
+      <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown': currency.errors && currency.touched,
+          'valid-dropdown': !currency.errors
+        }"
+        placeholder="Select currency"
+        [options]="['USD']"
+        formControlName="currency"
+      >
+      </app-shared-dropdown>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label"
+        >Transfer type
+        <span
+          [@errorTrigger]
+          *ngIf="transferType.hasError('required') && transferType.touched"
+          >Required</span
+        ></label
+      >
+      <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown': transferType.errors && transferType.touched,
+          'valid-dropdown': !transferType.errors
+        }"
+        placeholder="Select transfer type"
+        [options]="['Personal transfer']"
+        formControlName="transferType"
+      >
+      </app-shared-dropdown>
+    </div>
+
+    <div class="footer">
+      <app-shared-button
+        [className]="{ primary: true, active: true }"
+        id="button"
+        (clicked)="onSubmit()"
+        >PAY NOW</app-shared-button
+      >
+      <span>2% Bank fee applied </span>
+    </div>
+  </form>
+</div>
