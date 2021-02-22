@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-feat-notification',
@@ -6,25 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feat-notification.component.scss'],
 })
 export class FeatNotificationComponent implements OnInit {
-  successfulPay: boolean = true;
-  unsuccessfulPay: boolean = true;
+  appearance: boolean = true;
+  @Input() successfulPay: boolean;
+  @Input() bellAppearance: boolean;
+  @Input() newNotification: boolean = true;
   bellNotifications: boolean = false;
 
   constructor() {}
 
-  successfulPayMethod() {
-    this.successfulPay = false;
-    return this.successfulPay;
-  }
-
-  unsuccessfulPayMethod() {
-    this.unsuccessfulPay = false;
-    return this.unsuccessfulPay;
-  }
-
   bellMethod() {
     this.bellNotifications = !this.bellNotifications;
+    this.newNotification = false;
     return this.bellNotifications;
   }
+
+  closePopup() {
+    this.appearance = false;
+  }
+
   ngOnInit(): void {}
 }
