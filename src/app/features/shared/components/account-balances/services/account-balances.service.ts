@@ -34,4 +34,17 @@ export class AccountBalancesService {
       );
     });
   }
+  determineIconPath(card: ICard): string {
+    const cardType = card.cardType;
+    switch (cardType) {
+      case 'VISA':
+        return '../../../../.././assets/create-card/create-card-visa-icon.svg';
+
+      case 'MASTERCARD':
+        return '../../../../.././assets/create-card/mastercard-S.svg';
+
+      default:
+        return './assets/./card.png';
+    }
+  }
 }

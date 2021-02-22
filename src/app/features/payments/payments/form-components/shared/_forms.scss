@@ -1,0 +1,108 @@
+@import '../../../helpers/mixins';
+@import 'index';
+
+.payment {
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: white;
+  min-width: 384.922px;
+  font-family: 'Roboto', sans-serif;
+
+  header {
+    padding: 20px 0;
+    padding-bottom: 20px;
+    @include flex(flex-start);
+    border-bottom: 1px solid $outline;
+
+    h5 {
+      width: 91.91%;
+      margin: 0 auto;
+    }
+  }
+
+  form {
+    position: relative;
+    width: 91.91%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    .account {
+      display: grid;
+      grid-template-columns: 0.6fr 1fr 1fr;
+      align-items: center;
+      width: 100%;
+      padding: 0 10px;
+      padding-left: 5px;
+      img {
+        width: 40px;
+        height: 28px;
+      }
+      .amount {
+        text-align: right;
+        color: $secondary-dark-1;
+      }
+    }
+    app-shared-dropdown {
+      width: 100%;
+      height: 53.5px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      &.invalid-dropdown {
+        border-color: $secondary-3;
+      }
+      &.valid-dropdown {
+        border-color: $secondary-2;
+      }
+    }
+
+    div:not(:last-child) {
+      margin-bottom: 20.3px;
+    }
+
+    .input-label {
+      line-height: 19px;
+      letter-spacing: 0.15px;
+      font-weight: 300;
+      display: inline-block;
+      margin-bottom: 12px;
+      @include text-style(14px, $primary-dark);
+
+      span {
+        color: $secondary-3;
+        font-weight: bold;
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    .half-width {
+      position: relative;
+      display: inline-block;
+      width: 48%;
+    }
+
+    .float-right {
+      float: right;
+    }
+
+    .currency-wrapper,
+    .transfer-type-wrapper {
+      float: right;
+    }
+
+    .footer {
+      width: 100%;
+      @include flex(space-between);
+      button {
+        width: 130px;
+      }
+    }
+  }
+}
+
+:host ::ng-deep app-shared-input {
+  .input-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}

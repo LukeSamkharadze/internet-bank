@@ -77,6 +77,32 @@
       ]
     }
   ],
+  "payments": [
+    {
+      "date": "2021-02-22T08:17:10.874Z",
+      "paymentType": "electronic",
+      "fromAccount": "GE32TB3333111122224444",
+      "paymentSystem": "Paypal",
+      "destinationEmail": "nini@gmail.com",
+      "amount": 50,
+      "currency": "USD",
+      "fromUserId": "2",
+      "id": 1
+    },
+    {
+      "date": "2021-02-22T08:18:22.590Z",
+      "paymentType": "bank",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233335555",
+      "beneficiary": "BARRY ARMSTRONG",
+      "amount": 5000,
+      "currency": "USD",
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 2
+    }
+  ],
   "cards": [
     {
       "cardName": "VISA CARD",
@@ -85,7 +111,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 2000,
+      "availableAmount": 6900,
       "security3D": false,
       "userId": "3",
       "id": 1,
@@ -94,7 +120,7 @@
     {
       "cardName": "MASTER CARD",
       "cardType": "MASTERCARD",
-      "accountNumber": "GE32TB2222111133334444",
+      "accountNumber": "GE32TB2222111133335555",
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
@@ -111,25 +137,69 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 45000,
+      "availableAmount": 39950,
       "security3D": true,
       "userId": "2",
       "id": 3,
       "iconPath": "./assets/create-card/mastercard.svg"
     }
   ],
-  "users": [
+  "paymentTypes": [
     {
-      "fullname": "SANCHO PANZA",
-      "email": "sanchito_p@gmail.com",
-      "password": "12345678",
-      "id": 1
+      "name": "Electronic Payments",
+      "providers": [
+        {
+          "title": "Paypal",
+          "iconPath": "./assets/electronic-payments/PayPal.svg"
+        },
+        {
+          "title": "Skrill",
+          "iconPath": "./assets/electronic-payments/Skrill_logo.svg"
+        },
+        {
+          "title": "Payoneer",
+          "iconPath": "./assets/electronic-payments/Payoneer_logo.svg"
+        }
+      ],
+      "icon": "las la-credit-card",
+      "formPath": "electronic-payment"
     },
     {
-      "fullname": "EDMOND DANTES",
+      "name": "Bank Transfer",
+      "providers": [
+        {
+          "title": "TBC"
+        }
+      ],
+      "icon": "las la-piggy-bank",
+      "formPath": "bank-transfer"
+    },
+    {
+      "name": "Instant Transfer",
+      "providers": [
+        {
+          "title": "Visa"
+        },
+        {
+          "title": "Mastercard"
+        }
+      ],
+      "icon": "las la-cart-plus",
+      "formPath": "instant-transfer"
+    }
+  ],
+  "users": [
+    {
+      "email": "sanchito_p@gmail.com",
+      "id": 1,
+      "fullname": "SANCHO PANZA",
+      "password": "12345678"
+    },
+    {
       "email": "admin@gmail.com",
+      "id": 2,
       "password": "12345678",
-      "id": 2
+      "fullname": "EDMOND DANTES"
     },
     {
       "fullname": "VITO CORLEONE",
