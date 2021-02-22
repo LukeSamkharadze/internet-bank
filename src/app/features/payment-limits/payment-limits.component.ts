@@ -8,7 +8,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { reduce, scan, tap } from 'rxjs/operators';
+import { ElectronicTransfer } from '../shared/interfaces/electronicTransfer.entity';
 import { AuthService } from '../shared/services/auth.service';
+import { PaymentsGetterService } from '../shared/services/paymentsGetter.service';
 import { ILimits } from './payment-interfaces';
 import { PaymentLimitsService } from './payment-limits.service';
 
@@ -24,38 +27,58 @@ export class PaymentLimitsComponent implements OnInit {
     bankLimit: 0,
     onlineLimit: 0,
     cashLimit: 0,
-    bankSpending: 0,
-    cashSpending: 0,
-    onlineSpending: 0,
   };
 
-  @Input() withdrawCurrency = 'USD';
-
-  @Input() transactionCurrency = 'USD';
-
-  @Input() onlineCurrency = 'USD';
+  currency: 'USD';
+  onlineSpending = 0;
+  bankSpending = 0;
 
   formGroup: FormGroup;
 
   constructor(
     private auth: AuthService,
     private fb: FormBuilder,
-    private http: PaymentLimitsService
+    private paymentLimitService: PaymentLimitsService,
+    private paymentsGetterService: PaymentsGetterService
   ) {}
 
   ngOnInit(): void {
     this.createFormGroup();
     this.getHTTP();
+    this.getOnlineSpending();
+    this.getBankSpending();
   }
 
   getHTTP() {
-    this.http.getData(this.id).subscribe((val) => {
+    this.paymentLimitService.getData(this.id).subscribe((val) => {
       this.everyLimit = val;
 
       this.withdrawLimit.patchValue(val.cashLimit);
       this.bankLimit.patchValue(val.bankLimit);
       this.onlineLimit.patchValue(val.onlineLimit);
     });
+  }
+  getOnlineSpending() {
+    this.paymentsGetterService
+      .getOnlineSpendings(this.id.toString())
+      .subscribe((data: ElectronicTransfer[]) => {
+        let sum = 0;
+        data.forEach((payment: ElectronicTransfer) => {
+          sum += payment.amount;
+        });
+        this.onlineSpending = sum;
+      });
+  }
+  getBankSpending() {
+    this.paymentsGetterService
+      .getBankSpendings(this.id.toString())
+      .subscribe((data) => {
+        let sum = 0;
+        data.forEach((payment) => {
+          sum += payment.amount;
+        });
+        this.bankSpending = sum;
+      });
   }
 
   createFormGroup() {
@@ -89,9 +112,9 @@ export class PaymentLimitsComponent implements OnInit {
   }
   onUpdate(update) {
     if (
-      this.onlineLimit.value < this.everyLimit.onlineSpending ||
-      this.withdrawLimit.value < this.everyLimit.cashSpending ||
-      this.bankLimit.value < this.everyLimit.bankSpending
+      this.onlineLimit.value < this.onlineSpending ||
+      this.withdrawLimit.value < 1 ||
+      this.bankLimit.value < this.bankSpending
     ) {
       alert('Limiti naklebi ver iqneba');
       return;
@@ -101,11 +124,8 @@ export class PaymentLimitsComponent implements OnInit {
       bankLimit: this.bankLimit.value,
       onlineLimit: this.onlineLimit.value,
       cashLimit: this.withdrawLimit.value,
-      bankSpending: this.everyLimit.bankSpending,
-      cashSpending: this.everyLimit.cashSpending,
-      onlineSpending: this.everyLimit.onlineSpending,
     };
-    this.http.updateUser(this.id, newLimits).subscribe();
+    this.paymentLimitService.updateUser(this.id, newLimits).subscribe();
     this.everyLimit.onlineLimit = this.onlineLimit.value;
     this.everyLimit.bankLimit = this.bankLimit.value;
     this.everyLimit.cashLimit = this.withdrawLimit.value;

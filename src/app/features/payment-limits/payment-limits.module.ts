@@ -7,6 +7,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaymentLimitsSectionComponent } from './payment-limits-section/payment-limits-section.component';
 import { PaymentLimitsService } from './payment-limits.service';
+import { PaymentsGetterService } from '../shared/services/paymentsGetter.service';
 @NgModule({
   declarations: [PaymentLimitsComponent, PaymentLimitsSectionComponent],
   imports: [
@@ -15,6 +16,6 @@ import { PaymentLimitsService } from './payment-limits.service';
     SharedModule,
     ReactiveFormsModule,
   ],
-  providers: [CurrencyPipe, PaymentLimitsService],
+  providers: [CurrencyPipe, PaymentLimitsService, PaymentsGetterService],
 })
 export class PaymentLimitsModule {}

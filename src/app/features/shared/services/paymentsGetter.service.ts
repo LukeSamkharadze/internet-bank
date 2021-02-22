@@ -5,7 +5,7 @@ import { InstantTransfer } from '../interfaces/instantTransfer.entity';
 import { ElectronicTransfer } from '../interfaces/electronicTransfer.entity';
 import { environment } from '../../../../environments/environment';
 import { Observable, forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -52,4 +52,25 @@ export class PaymentsGetterService {
   }
 
   // Feel free to add getter by another specific property of payment.
+
+  getOnlineSpendings(userId: string): Observable<ElectronicTransfer[]> {
+    return this.http.get<ElectronicTransfer[]>(
+      environment.BaseUrl +
+        `payments?fromUserId=${userId}&paymentType=electronic`
+    );
+  }
+
+  getBankSpendings(userId: string) {
+    const instantTransfers = this.http.get<InstantTransfer[]>(
+      environment.BaseUrl + `payments?fromUserId=${userId}&paymentType=instant`
+    );
+
+    const bankTransfers = this.http.get<BankTransfer[]>(
+      environment.BaseUrl + `payments?fromUserId=${userId}&paymentType=bank`
+    );
+
+    return forkJoin([instantTransfers, bankTransfers]).pipe(
+      map((results) => [...results[0], ...results[1]])
+    );
+  }
 }

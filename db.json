@@ -46,28 +46,19 @@
       "bankLimit": 22000,
       "onlineLimit": 10000,
       "cashLimit": 9000,
-      "bankSpending": 9000,
-      "cashSpending": 3000,
-      "onlineSpending": 4000,
       "id": 1
     },
     {
       "id": 2,
       "bankLimit": 8000,
       "onlineLimit": 5000,
-      "cashLimit": 4000,
-      "bankSpending": 3000,
-      "onlineSpending": 2000,
-      "cashSpending": 1000
+      "cashLimit": 4000
     },
     {
       "id": 3,
       "bankLimit": 12000,
       "onlineLimit": 10000,
-      "cashLimit": 8000,
-      "bankSpending": 11000,
-      "onlineSpending": 9000,
-      "cashSpending": 7000
+      "cashLimit": 8000
     }
   ],
   "income": [
@@ -106,7 +97,54 @@
       ]
     }
   ],
-  "payments": [],
+  "payments": [
+    {
+      "date": "2021-02-22T19:32:55.861Z",
+      "paymentType": "electronic",
+      "fromAccount": "GE32TB1111222233334444",
+      "paymentSystem": "Skrill",
+      "destinationEmail": "mafia_immortal@outlook.com",
+      "amount": 1000,
+      "currency": "USD",
+      "fromUserId": "3",
+      "id": 1
+    },
+    {
+      "date": "2021-02-22T19:34:20.053Z",
+      "paymentType": "electronic",
+      "fromAccount": "GE32TB1111222233334444",
+      "paymentSystem": "Payoneer",
+      "destinationEmail": "mafia_immortal@outlook.com",
+      "amount": 1000,
+      "currency": "USD",
+      "fromUserId": "3",
+      "id": 2
+    },
+    {
+      "date": "2021-02-22T19:58:28.570Z",
+      "paymentType": "instant",
+      "fromUserId": "3",
+      "fromAccount": "GE32TB1111222233334444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 5000,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 3
+    },
+    {
+      "date": "2021-02-22T19:59:38.891Z",
+      "paymentType": "bank",
+      "fromUserId": "3",
+      "fromAccount": "GE32TB1111222233334444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "beneficiary": "BARRY ARMSTRONG",
+      "amount": 9000,
+      "currency": "USD",
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 4
+    }
+  ],
   "cards": [
     {
       "cardName": "VISA CARD",
@@ -115,7 +153,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 2000,
+      "availableAmount": 113720,
       "security3D": false,
       "userId": "3",
       "id": 1,

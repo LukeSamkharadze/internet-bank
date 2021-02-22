@@ -6,8 +6,8 @@
         formControlName="limitWithdraw"
         [currentName]="'limitWithdraw'"
         [title]="'Cash withdrawals'"
-        [currency]="withdrawCurrency"
-        [spending]="everyLimit.cashSpending"
+        [currency]="currency"
+        [spending]="1"
         (shChange)="onChange($event)"
       ></app-payment-limits-section>
 
@@ -15,8 +15,8 @@
         formControlName="limitBank"
         [currentName]="'limitBank'"
         [title]="'Bank transactions'"
-        [currency]="transactionCurrency"
-        [spending]="everyLimit.bankSpending"
+        [currency]="currency"
+        [spending]="bankSpending"
         (shChange)="onChange($event)"
       >
       </app-payment-limits-section>
@@ -24,8 +24,8 @@
         formControlName="limitOnline"
         [currentName]="'limitOnline'"
         [title]="'Online payments'"
-        [currency]="onlineCurrency"
-        [spending]="everyLimit.onlineSpending"
+        [currency]="currency"
+        [spending]="onlineSpending"
         (shChange)="onChange($event)"
       >
       </app-payment-limits-section>
