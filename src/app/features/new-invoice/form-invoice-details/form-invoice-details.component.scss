@@ -1,9 +1,9 @@
 @import '../style/shared.style.scss';
 
 .placeholder {
-  color: $primary-dark;
   content: attr(placeholder);
   width: 100%;
+  color: $secondary-dark-1;
 }
 
 .address-input-wrapper {
@@ -61,4 +61,10 @@ input[type='date'].has-value.ng-untouched:before {
 
 .has-value.ng-untouched.ng-pristine.ng-invalid {
   border-color: $outline;
+}
+.focused.invalid.ng-touched::before {
+  display: inline-block;
+}
+.focused::before {
+  display: none;
 }
