@@ -10,6 +10,8 @@ export class AccountsListIncomeService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<IItem[]> {
-    return this.http.get<IItem[]>(`${environment.URL}charts`).pipe(retry(1));
+    return this.http
+      .get<IItem[]>(`${environment.BaseUrl}charts`)
+      .pipe(retry(1));
   }
 }
