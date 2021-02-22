@@ -56,19 +56,17 @@
           ><b>Required</b>
         </span></label
       >
+
       <input
+        type="date"
+        formControlName="dueDate"
+        placeholder="Select date"
+        onchange="this.className=(this.value!=''?'has-value':'')"
         [ngClass]="{
           invalid:
             form.controls['dueDate'].errors?.required &&
-            form.controls['dueDate'].touched,
-          valid: !form.controls['dueDate'].errors
+            form.controls['dueDate'].touched
         }"
-        formControlName="dueDate"
-        placeholder="Select date"
-        type="text"
-        onfocus="(this.type='date')"
-        onblur="(this.type='text')"
-        id="due-date"
       />
     </div>
   </div>
