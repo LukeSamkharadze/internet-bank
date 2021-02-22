@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'products',
         loadChildren: () =>
           import('./features/create-card/create-card.module').then(
-            (m) => m.CreateCardModule,
+            (m) => m.CreateCardModule
           ),
       },
       {
@@ -30,6 +30,11 @@ const routes: Routes = [
           import('./features/accounts-list/accounts-list.module').then(
             (m) => m.AccountsListModule
           ),
+      },
+      {
+        path: 'news',
+        loadChildren: () =>
+          import('./features/news/news.module').then((m) => m.NewsModule),
       },
       {
         path: 'list',

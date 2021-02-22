@@ -20,6 +20,4 @@ const modules = [
   imports: [...modules],
   exports: [...SharedPipes, ...components, ...modules],
 })
-export class SharedModule {
-
-}
+export class SharedModule {}

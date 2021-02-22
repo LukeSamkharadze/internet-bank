@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { IUser } from '../interfaces/user.interface';
 import { UserService } from './user.service';
 
@@ -12,9 +12,8 @@ export class AuthService {
   fullnamePattern = /^[^\s]+( [^\s]+)+$/;
   // Email requirements: any valid email patern 'x@x.xx'.
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  // Password requirements: min 8 characters, numbers or symbols. Max 30 characters, numbers or symbols.
+  // Password requirements: min 8 characters, numbers or symbols. Max 50 characters, numbers or symbols.
   passwordPattern = /^[A-Za-z\d#$@!%&*?]{8,50}$/;
-  usersArr: IUser[];
   user: IUser;
 
   get userId() {
@@ -22,23 +21,30 @@ export class AuthService {
   }
 
   constructor(private userService: UserService, private router: Router) {
-    this.userService.getAll().subscribe((users) => (this.usersArr = users));
+    // this.userService.getAll().subscribe((users) => (this.usersArr = users));
   }
 
   // Check if User exists
-  loginCheck(loginData: { email: string; password: string }): boolean {
-    return this.usersArr.some(
-      (user) =>
-        user.email === loginData.email && user.password === loginData.password
-    );
+  loginCheck(loginData: { email: string; password: string }) {
+    return this.userService
+      .getAll()
+      .pipe(
+        map((src) =>
+          src.some(
+            (user) =>
+              user.email === loginData.email &&
+              user.password === loginData.password
+          )
+        )
+      );
   }
 
-  // If User exists return observable with its id and email
+  // Retrieve registered user from DB
   login(loginData: { email: string; password: string }) {
-    if (this.loginCheck(loginData)) {
-      this.user = this.usersArr.find((obj) => obj.email === loginData.email);
-      return of({ userId: this.user.id, userEmail: this.user.email });
-    }
+    return this.userService.getAll().pipe(
+      map((objs) => objs.find((obj) => obj.email === loginData.email)),
+      tap((data) => (this.user = data))
+    );
   }
 
   // Check if User is logged in
@@ -48,8 +54,10 @@ export class AuthService {
   }
 
   // Check if email is already registered
-  checkEmailUniqueness(email: string): boolean {
-    return this.usersArr.every((user) => user.email !== email);
+  checkEmailUniqueness(email: string) {
+    return this.userService
+      .getAll()
+      .pipe(map((src) => src.every((user) => user.email !== email)));
   }
 
   // Remove user Id from localStorage on Logout and navigate to 'Login'

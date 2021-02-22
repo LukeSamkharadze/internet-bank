@@ -10,5 +10,4 @@ export interface ICard extends IParent {
   iconPath?: string;
 }
 
-
 export type CardType = 'VISA' | 'MASTERCARD';

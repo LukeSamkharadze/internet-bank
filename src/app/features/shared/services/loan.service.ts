@@ -8,20 +8,18 @@ import { BaseHttpInterface } from '@shared/shared';
 import { environment } from '../../../../environments/environment';
 import { ILoan } from '../interfaces/loan.interface';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoanService implements BaseHttpInterface<ILoan> {
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   create(card: ILoan): Observable<ILoan> {
     return EMPTY;
   }
 
   getAll(): Observable<ILoan[]> {
-    return this.http.get<ILoan[]>(`${environment.URL}loans`).pipe(retry(1));
+    return this.http.get<ILoan[]>(`${environment.BaseUrl}loans`).pipe(retry(1));
   }
 
   getById(id: number): Observable<ILoan> {
