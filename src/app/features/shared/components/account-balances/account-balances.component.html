@@ -1,7 +1,10 @@
 <div class="available-balances">
   <div class="balances-title">Available balances</div>
   <div class="balances-container">
-    <div *ngFor="let item of balances.cards" class="account-balance">
+    <div
+      *ngFor="let item of balances.cards; let i = index"
+      class="account-balance"
+    >
       <div class="account-type">
         <div *ngIf="item.cardNumber" class="logo-background">
           <img src="{{ balances.determineIconPath(item) }}" />
@@ -30,10 +33,12 @@
       <div class="card-position">
         <div class="balance">
           <div>${{ item.availableAmount }}</div>
-          <i [ngClass]="determineArrow(item.accountNumber)" class="las"></i>
+          <i [ngClass]="item.arrow" class="las"></i>
         </div>
         <div class="account-description">Balance</div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- determineArrow(item.accountNumber) -->

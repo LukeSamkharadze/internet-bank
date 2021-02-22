@@ -8,7 +8,7 @@ import { DepositService } from '../../../services/deposit.service';
 
 @Injectable()
 export class AccountBalancesService {
-  cards: Array<ICard | IDeposit>;
+  public cards: Array<ICard | IDeposit>;
   constructor(
     private loggedUser: AuthService,
     private cardInfo: CardService,
