@@ -7,6 +7,7 @@ import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
   selector: 'app-payment-providers',
   templateUrl: './payment-providers.component.html',
   styleUrls: ['./payment-providers.component.scss'],
+  providers: [ProvidersService],
 })
 export class PaymentProvidersComponent implements OnInit {
   public allPaymentTypes$ = this.providerService.paymentTypes$;
