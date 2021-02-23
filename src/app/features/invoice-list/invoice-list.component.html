@@ -1,4 +1,10 @@
 <app-shared-tabs [tabElementInput]="tabNames">
+  <div class="date-picker">
+    <i class="las la-calendar"></i>
+    <label for="start">DATE:</label>
+
+    <input type="month" id="start" name="start" min="2018-03" value="2018-05" />
+  </div>
   <ng-template>
     <div class="content scroller gradient">
       <ul>
