@@ -12,6 +12,8 @@ import { AuthService } from './services/auth.service';
 
 import { RouterModule } from '@angular/router';
 
+import { FeaturesSharedRoutingModule } from './features-shared-routing.module';
+
 // const services = [CardService];
 const modules = [
   CommonModule,
@@ -23,6 +25,8 @@ const modules = [
   MatInputModule,
   MatNativeDateModule,
   RouterModule,
+
+  FeaturesSharedRoutingModule,
 ];
 
 @NgModule({

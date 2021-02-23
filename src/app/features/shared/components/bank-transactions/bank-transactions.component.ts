@@ -9,13 +9,14 @@ import { GetTransactionsService } from './services/get-transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
 import { AuthService } from './../../services/auth.service';
 @Component({
-  selector: 'app-shared-bank-transactions',
+  selector: 'app-features-shared-bank-transactions',
   templateUrl: './bank-transactions.component.html',
   styleUrls: ['./bank-transactions.component.scss'],
 })
-export class BankTransactionsComponent implements OnInit, OnChanges {
-  @Input() input;
-  hasInput;
+// OnChanges
+export class BankTransactionsComponent implements OnInit {
+  // @Input() input;
+  hasInput = true;
   transactionsList: Array<TransactionsList> = [];
   show = true;
   searchText;
@@ -39,17 +40,17 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   chosenType = null;
   // currUserId;
 
-  ngOnChanges(changes: SimpleChanges) {
-    /* tslint:disable:no-string-literal */
-    if (changes.hasOwnProperty('input')) {
-      if (changes['input'].isFirstChange()) {
-        // AKA initialization by angular
-        this.hasInput = true;
-        return this.hasInput;
-      }
-    }
-    /* tslint:enable:no-string-literal */
-  }
+  // ngOnChanges(changes: SimpleChanges) {
+  //   /* tslint:disable:no-string-literal */
+  //   if (changes.hasOwnProperty('input')) {
+  //     if (changes['input'].isFirstChange()) {
+  //       // AKA initialization by angular
+  //       this.hasInput = true;
+  //       return this.hasInput;
+  //     }
+  //   }
+  //   /* tslint:enable:no-string-literal */
+  // }
 
   constructor(
     private getTransactionService: GetTransactionsService,

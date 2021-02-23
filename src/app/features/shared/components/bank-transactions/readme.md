@@ -5,18 +5,18 @@
 **_A) if you want to use Search bar_**
 
 ```
-  <app-shared-bank-transactions
+  <app-features-shared-bank-transactions
       [input]="'string'">
- </app-shared-bank-transactions>
+ </app-features-shared-bank-transactions>
 
 ```
 
 **_B) if you want to give ANY title (for instance, lets give the following title: "Latest Transactions" _**
 
 ```
-  <app-shared-bank-transactions>
+  <app-features-shared-bank-transactions>
   Latest Transactions
-  </app-shared-bank-transactions>
+  </app-features-shared-bank-transactions>
 
 ```
 

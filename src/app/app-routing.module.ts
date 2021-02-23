@@ -49,6 +49,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'transactions',
+        loadChildren: () =>
+          import('./features/shared/features-shared.module').then(
+            (m) => m.FeaturesSharedModule
+          ),
+      },
+      {
         path: 'payments',
         loadChildren: () =>
           import('./features/payments/payments.module').then(
