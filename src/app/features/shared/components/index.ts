@@ -4,6 +4,7 @@ import { IncomeChartComponent } from './income-chart/income-chart.component';
 import { HeaderProfileComponent } from './header-profile/header-profile.component';
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { InvoiceDetailsComponent } from './invoice-details/invoice-details.component';
+import { ExpansesComponent } from './expanses/expanses.component';
 
 export * from './income-chart/income-chart.component';
 export * from './account-balances/account-balances.component';
@@ -18,4 +19,5 @@ export const components = [
   NewsArticleComponent,
   HeaderProfileComponent,
   InvoiceDetailsComponent,
+  ExpansesComponent,
 ];

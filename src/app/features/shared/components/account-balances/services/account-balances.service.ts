@@ -30,23 +30,19 @@ export class AccountBalancesService {
     });
   }
   getCards() {
-    return this.cardInfo.getAll().pipe(
-      map((card) => {
-        return card.filter((icard) => icard.userId === this.loggedUser.userId);
-      })
-    );
+    return this.cardInfo.cards$.pipe(map((card) => card));
   }
   determineIconPath(card: ICard): string {
     const cardType = card.cardType;
     switch (cardType) {
       case 'VISA':
-        return '../../../../.././assets/create-card/create-card-visa-icon.svg';
+        return './assets/create-card/create-card-visa-icon.svg';
 
       case 'MASTERCARD':
-        return '../../../../.././assets/create-card/mastercard-S.svg';
+        return './assets/create-card/mastercard-S.svg';
 
       default:
-        return '../../../../../assets/account-balances/card.png';
+        return './assets/account-balances/card.png';
     }
   }
 }

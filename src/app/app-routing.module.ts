@@ -42,6 +42,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/list/list.module').then((m) => m.ListModule),
       },
+
       {
         path: 'settings',
         loadChildren: () =>
@@ -54,6 +55,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/payments/payments.module').then(
             (m) => m.PaymentsModule
+          ),
+      },
+      {
+        path: 'new-invoice',
+        loadChildren: () =>
+          import('./features/new-invoice/new-invoice.module').then(
+            (m) => m.NewInvoiceModule
           ),
       },
     ],
@@ -77,7 +85,9 @@ const routes: Routes = [
     redirectTo: 'list',
     pathMatch: 'full',
   },
+
   // All Other Paths
+
   {
     path: '**',
     component: PageNotFoundComponent,
