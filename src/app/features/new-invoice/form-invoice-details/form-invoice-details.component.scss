@@ -51,6 +51,14 @@
   }
 }
 
+.dateLabel {
+  width: 60px;
+  float: left;
+  p {
+    width: inherit;
+  }
+}
+
 input[type='date']:not(.has-value):before {
   @extend .placeholder;
 }

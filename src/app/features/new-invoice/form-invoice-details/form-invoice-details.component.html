@@ -46,16 +46,14 @@
     <!-- Due Date -->
 
     <div class="date">
-      <label for="due-date">
-        <p>Due Date</p>
-        <span
-          *ngIf="
-            form.controls['dueDate'].errors?.required &&
-            form.controls['dueDate'].touched
-          "
-          ><b>Required</b>
-        </span></label
-      >
+      <label class="dateLabel" for="due-date"> <p>Due Date</p></label>
+      <span
+        *ngIf="
+          form.controls['dueDate'].errors?.required &&
+          form.controls['dueDate'].touched
+        "
+        ><b>Required</b>
+      </span>
       <input
         id="due-date"
         type="date"
