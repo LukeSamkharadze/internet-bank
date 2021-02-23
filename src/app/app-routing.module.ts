@@ -49,7 +49,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'transactions',
+        path: 'shared',
         loadChildren: () =>
           import('./features/shared/features-shared.module').then(
             (m) => m.FeaturesSharedModule

@@ -4,7 +4,7 @@ import { BankTransactionsComponent } from './components/bank-transactions/bank-t
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'transactions',
     component: BankTransactionsComponent,
     pathMatch: 'full',
   },
