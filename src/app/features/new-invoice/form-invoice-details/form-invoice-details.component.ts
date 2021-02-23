@@ -11,4 +11,5 @@ export class FormInvoiceDetailsComponent {
   @Input() form: FormGroup;
 
   templateOptions = templateOptions.templateOptions;
+  inputFocus: boolean;
 }

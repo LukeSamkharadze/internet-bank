@@ -62,9 +62,11 @@ input[type='date'].has-value.ng-untouched:before {
 .has-value.ng-untouched.ng-pristine.ng-invalid {
   border-color: $outline;
 }
-.focused.invalid.ng-touched::before {
-  display: inline-block;
+
+.ng-pristine.ng-invalid.ng-untouched.focused::before {
+  display: none;
 }
-.focused::before {
+
+.ng-pristine.ng-invalid.ng-touched.focused::before {
   display: none;
 }
