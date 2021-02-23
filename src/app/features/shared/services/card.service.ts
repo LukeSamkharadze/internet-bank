@@ -102,7 +102,9 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   getById(id: number): Observable<ICard> {
-    return EMPTY;
+    return this.http
+      .get<ICard>(`${environment.BaseUrl}cards/${id}`)
+      .pipe(retry(1));
   }
 
   delete(): Observable<void> {

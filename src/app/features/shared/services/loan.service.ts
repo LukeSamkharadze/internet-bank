@@ -7,6 +7,7 @@ import { BaseHttpInterface } from '@shared/shared';
 
 import { environment } from '../../../../environments/environment';
 import { ILoan } from '../interfaces/loan.interface';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,18 +22,23 @@ export class LoanService implements BaseHttpInterface<ILoan> {
     ['Consumer', 'blue'],
   ]);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   create(loan: ILoan): Observable<ILoan> {
     return EMPTY;
   }
 
   getAll(): Observable<ILoan[]> {
-    return this.http.get<ILoan[]>(`${environment.BaseUrl}loans`).pipe(retry(1));
+    const userId = this.auth.userId;
+    return this.http
+      .get<ILoan[]>(`${environment.BaseUrl}loans?userId=${userId}`)
+      .pipe(retry(1));
   }
 
   getById(id: number): Observable<ILoan> {
-    return EMPTY;
+    return this.http
+      .get<ILoan>(`${environment.BaseUrl}loans/${id}`)
+      .pipe(retry(1));
   }
 
   update(): Observable<ILoan> {

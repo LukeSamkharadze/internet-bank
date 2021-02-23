@@ -71,11 +71,7 @@ export class DepositDetailsComponent implements OnInit, OnDestroy {
     if (isNaN(id)) {
       return null;
     }
-    const deposit$ = this.depositService.getAll().pipe(
-      switchMap((v) => v),
-      filter((v) => v.id === id),
-      first()
-    );
+    const deposit$ = this.depositService.getById(id);
     return deposit$;
   }
 }

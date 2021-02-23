@@ -195,7 +195,8 @@
       "accuredInterest": 1640,
       "balance": 56400,
       "accured": 640,
-      "type": "Cumulative"
+      "type": "Cumulative",
+      "userId": "2"
     }
   ],
   "loans": [
@@ -209,7 +210,8 @@
       "balance": 84800,
       "paid": 24800,
       "blocked": true,
-      "type": "Mortgage"
+      "type": "Mortgage",
+      "userId": "2"
     },
     {
       "id": 2,
@@ -221,7 +223,8 @@
       "balance": 66400,
       "paid": 650,
       "blocked": false,
-      "type": "Consumer"
+      "type": "Consumer",
+      "userId": "3"
     }
   ],
   "charts": [

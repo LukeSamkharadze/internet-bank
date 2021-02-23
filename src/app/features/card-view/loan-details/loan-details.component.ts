@@ -67,11 +67,7 @@ export class LoanDetailsComponent implements OnInit, OnDestroy {
     if (isNaN(id)) {
       return null;
     }
-    const loan$ = this.loanService.getAll().pipe(
-      switchMap((v) => v),
-      filter((v) => v.id === id),
-      first()
-    );
+    const loan$ = this.loanService.getById(id);
     return loan$;
   }
 }

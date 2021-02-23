@@ -65,10 +65,7 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
     if (isNaN(id)) {
       return null;
     }
-    const card$ = this.cardService.getAll().pipe(
-      switchMap((v) => v),
-      filter((v) => v.id === id),
-      first(),
+    const card$ = this.cardService.getById(id).pipe(
       tap((v) => {
         this.icon = this.cardService.determineIconPath(v).iconPath;
         this.logo = this.cardService.determineIconPath(v, true).iconPath;
