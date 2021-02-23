@@ -1,0 +1,81 @@
+<div class="popup-blur"></div>
+<div class="details-popup print">
+  <div class="details-container">
+    <i class="las la-times-circle close" (click)="close()"></i>
+    <div class="details-left">
+      <div class="invoice-num">
+        <p>Invoice #</p>
+        <h5>{{ invoice.number }}</h5>
+        <div class="tag">
+          <app-shared-tag
+            [color]="invoice.tagColor"
+            *ngIf="showTag"
+            (closeClicked)="closeTag()"
+          >
+            {{ invoice.status }}
+          </app-shared-tag>
+        </div>
+      </div>
+      <div class="invoice-addr">
+        <p>To</p>
+        <h3>{{ invoice.title }}</h3>
+        <div class="address">
+          <p>{{ invoice.address.address3 }}</p>
+          <p>{{ invoice.address.address1 }}</p>
+          <p>{{ invoice.address.city }}</p>
+          <p>{{ invoice.address.country }}</p>
+          <p>{{ invoice.address.address2 }}</p>
+          <p>{{ invoice.address.mail }}</p>
+        </div>
+      </div>
+      <div class="invoice-date">
+        <p>Date</p>
+        <h5>{{ invoice.date }}</h5>
+      </div>
+      <div class="invoice-due">
+        <p>Due to</p>
+        <h5>{{ invoice.due }}</h5>
+      </div>
+      <div class="print-receipt">
+        <i class="las la-print" (click)="print()"></i>
+        <p (click)="print()">PRINT RECEIPT</p>
+      </div>
+    </div>
+    <div class="details-right">
+      <div class="inv-content-container">
+        <div class="invoice-content">
+          <div class="inv-row inv-heading">
+            <p class="inv-desc">Description</p>
+            <p class="inv-rate">Rate.</p>
+            <p class="inv-qty">Qty.</p>
+            <p class="inv-row-total">Total</p>
+          </div>
+          <div class="inv-row" *ngFor="let inv of invoice.items">
+            <p class="inv-desc">{{ inv.desc }}</p>
+            <p class="inv-rate">{{ invoice.currency + inv.rate }}</p>
+            <p class="inv-qty">{{ inv.qty }}</p>
+            <p class="inv-row-total">
+              {{ invoice.currency + inv.qty * inv.rate }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="invoice-total">
+        <div class="inv-total-row">
+          <p class="title">Subtotal:</p>
+          <p class="amount">{{ invoice.currency + getSubTotal() }}</p>
+        </div>
+        <div class="inv-total-row">
+          <p class="title">Tax 10%:</p>
+          <p class="amount">{{ invoice.currency + getTax() }}</p>
+        </div>
+        <div class="inv-total-row inv-total-foot">
+          <p class="total-title">Total:</p>
+          <p class="total-amount">
+            {{ invoice.currency + (getSubTotal() + getTax()) }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
