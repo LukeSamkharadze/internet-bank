@@ -1,0 +1,32 @@
+@import 'src/styles/index';
+
+.cotainer {
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $outline;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+}
+
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+i {
+  color: $secondary-dark-1;
+  font-size: 25px;
+  line-height: 9px;
+}
+
+p {
+  color: $primary-dark;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
