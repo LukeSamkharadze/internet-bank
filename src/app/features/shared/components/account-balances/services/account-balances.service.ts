@@ -46,7 +46,7 @@ export class AccountBalancesService {
         return '../../../../.././assets/create-card/mastercard-S.svg';
 
       default:
-        return './assets/./card.png';
+        return '../../../../../assets/account-balances/card.png';
     }
   }
 }
