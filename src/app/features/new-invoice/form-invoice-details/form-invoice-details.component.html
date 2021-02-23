@@ -62,7 +62,7 @@
         type="date"
         formControlName="dueDate"
         placeholder="Select date"
-        onfocus="this.className = ('focused')"
+        onfocus="this.className + ('focused')"
         onchange="this.className=(this.value!=''?'has-value':'')"
         [ngClass]="{
           invalid:
