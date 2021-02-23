@@ -63,11 +63,11 @@
         placeholder="Select date"
         (focus)="inputFocus = true"
         (blur)="inputFocus = false; (null)"
-        onchange="this.className=(this.value!=''?'has-value':'invalid')"
         [ngClass]="{
           invalid:
             form.controls['dueDate'].errors?.required &&
             form.controls['dueDate'].touched,
+          valid: !form.controls['dueDate'].errors,
           focused: inputFocus
         }"
       />

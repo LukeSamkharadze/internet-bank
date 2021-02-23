@@ -45,7 +45,7 @@
     &.invalid {
       border-color: $secondary-3;
     }
-    &.has-value {
+    &.valid {
       border-color: $secondary-2;
     }
   }
@@ -61,6 +61,10 @@ input[type='date'].has-value.ng-untouched:before {
 
 .has-value.ng-untouched.ng-pristine.ng-invalid {
   border-color: $outline;
+}
+
+.ng-touched.ng-dirty.ng-valid.valid::before {
+  display: none;
 }
 
 .ng-pristine.ng-invalid.ng-untouched.focused::before {
