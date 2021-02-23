@@ -77,32 +77,7 @@
       ]
     }
   ],
-  "payments": [
-    {
-      "date": "2021-02-22T08:17:10.874Z",
-      "paymentType": "electronic",
-      "fromAccount": "GE32TB3333111122224444",
-      "paymentSystem": "Paypal",
-      "destinationEmail": "nini@gmail.com",
-      "amount": 50,
-      "currency": "USD",
-      "fromUserId": "2",
-      "id": 1
-    },
-    {
-      "date": "2021-02-22T08:18:22.590Z",
-      "paymentType": "bank",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationAccountNumber": "GE32TB1111222233335555",
-      "beneficiary": "BARRY ARMSTRONG",
-      "amount": 5000,
-      "currency": "USD",
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 2
-    }
-  ],
+  "payments": [],
   "cards": [
     {
       "cardName": "VISA CARD",
@@ -111,7 +86,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 6900,
+      "availableAmount": 2000,
       "security3D": false,
       "userId": "3",
       "id": 1,
@@ -120,7 +95,7 @@
     {
       "cardName": "MASTER CARD",
       "cardType": "MASTERCARD",
-      "accountNumber": "GE32TB2222111133335555",
+      "accountNumber": "GE32TB2222111133334445",
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
@@ -137,7 +112,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 39950,
+      "availableAmount": 45000,
       "security3D": true,
       "userId": "2",
       "id": 3,
@@ -211,6 +186,7 @@
   "deposits": [
     {
       "id": 0,
+      "userId": "2",
       "depositName": "Cumulative deposit",
       "accountNumber": "UK64CT00000000000010034567",
       "depositRate": 0.05,
@@ -261,6 +237,66 @@
       "id": 3,
       "name": "Pending credit",
       "data": [41300, 28910, 16520, 28910, 24800]
+    }
+  ],
+  "invoices": [
+    {
+      "template": "Website design",
+      "invoiceNumber": "AS-5",
+      "dueDate": "2021-02-08",
+      "companyName": "AOT",
+      "contanctEmail": "aot.company@gmail.com",
+      "address": "123 Main Street, Somewhere, CA 94000",
+      "items": [
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 1,
+          "price": 150
+        }
+      ],
+      "id": 1
+    },
+    {
+      "template": "Marketing Materials",
+      "invoiceNumber": "RE-12",
+      "dueDate": "2021-02-23",
+      "companyName": "OP",
+      "contanctEmail": "op.company@gmail.com",
+      "address": "333 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 10,
+          "price": 250
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 150,
+          "price": 100
+        }
+      ],
+      "id": 2
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "AS-123",
+      "dueDate": "2021-03-05",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 120
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 100
+        }
+      ],
+      "id": 3
     }
   ]
 }

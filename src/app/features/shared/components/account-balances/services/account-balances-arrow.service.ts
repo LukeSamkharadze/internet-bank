@@ -10,14 +10,17 @@ export class ArrowDirectionService {
       this.getPayments
         .getByAccountNumber(accNum)
         .subscribe((val: BankTransfer[]) => {
-          const latestPaymentId = Math.max(...val.map((o) => o.id), 0);
-          this.lastPaymentAuthor =
-            val.filter((payment) => payment.id === latestPaymentId)[0]
-              .fromAccount +
-              '' ===
-            accNum;
-          console.log(this.lastPaymentAuthor);
-          resolve(this.lastPaymentAuthor);
+          if (val) {
+            const latestPaymentId = Math.max(...val.map((o) => o.id), 0);
+            if (val.filter((payment) => payment.id === latestPaymentId)[0]) {
+              this.lastPaymentAuthor =
+                val.filter((payment) => payment.id === latestPaymentId)[0]
+                  .fromAccount +
+                  '' ===
+                accNum;
+              resolve(this.lastPaymentAuthor);
+            }
+          }
         });
     }).then((res) => {
       if (res) {

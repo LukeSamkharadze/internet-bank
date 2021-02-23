@@ -5,34 +5,36 @@ import { IDeposit } from '../../../interfaces/deposit.interface';
 import { AuthService } from '../../../services/auth.service';
 import { CardService } from '../../../services/card.service';
 import { DepositService } from '../../../services/deposit.service';
+import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class AccountBalancesService {
-  cards: Array<ICard | IDeposit>;
+  public cards: Array<ICard | IDeposit>;
+  sub$ = new Subject();
   constructor(
     private loggedUser: AuthService,
     private cardInfo: CardService,
     private depositInfo: DepositService
   ) {}
-  getBalanceInfo() {
-    this.getCards();
-    this.getDeposits();
-  }
 
-  getDeposits() {
+  getBalances() {
     this.depositInfo.getAll().subscribe((card) => {
-      this.cards = [
-        ...this.cards,
-        ...card.filter((depo) => depo.userId === this.loggedUser.userId),
-      ];
+      this.getCards().subscribe((c) => {
+        this.cards = [
+          ...c,
+          ...card.filter((depo) => depo.userId + '' === this.loggedUser.userId),
+        ];
+        this.sub$.next(this.cards);
+      });
     });
   }
   getCards() {
-    this.cardInfo.getAll().subscribe((card) => {
-      this.cards = card.filter(
-        (icard) => icard.userId === this.loggedUser.userId
-      );
-    });
+    return this.cardInfo.getAll().pipe(
+      map((card) => {
+        return card.filter((icard) => icard.userId === this.loggedUser.userId);
+      })
+    );
   }
   determineIconPath(card: ICard): string {
     const cardType = card.cardType;

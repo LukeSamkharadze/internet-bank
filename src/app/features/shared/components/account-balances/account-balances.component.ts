@@ -1,13 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-} from '@angular/core';
-import { tick } from '@angular/core/testing';
-import { take, tap } from 'rxjs/operators';
-import { BankTransfer } from '../../interfaces/bankTransfer.entity';
-import { ICard } from '../../interfaces/card.interface';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { PaymentsGetterService } from '../../services/paymentsGetter.service';
 import { ArrowDirectionService } from './services/account-balances-arrow.service';
 import { AccountBalancesService } from './services/account-balances.service';
@@ -19,29 +10,31 @@ import { AccountBalancesService } from './services/account-balances.service';
 })
 export class AccountBalancesComponent implements OnInit, AfterViewInit {
   lastPaymentAuthor;
+  public cards = [];
   constructor(
     public balances: AccountBalancesService,
     public getPayments: PaymentsGetterService,
-    private getArrow: ArrowDirectionService
+    private arrowFunction: ArrowDirectionService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.balances.getBalances();
+  }
   ngAfterViewInit() {
-    this.balances.getBalanceInfo();
-    setTimeout(() => {
-      for (const i of this.balances.cards) {
-        this.getArrow.determineArrow(i.accountNumber).then(() => {
-          const index = this.balances.cards.indexOf(i);
-          this.balances.cards.splice(index, 1);
-          this.getArrow
+    this.balances.sub$.subscribe((card: Array<any>) => {
+      for (const i of card) {
+        this.arrowFunction.determineArrow(i.accountNumber).then(() => {
+          const index = card.indexOf(i);
+          card.splice(index, 1);
+          this.arrowFunction
             .determineArrow(i.accountNumber)
-            .then((arrowDirection) => {
-              const b = { ...i, arrow: arrowDirection };
-              this.balances.cards.splice(index, 0, b);
+            .then((arrowState) => {
+              const b = { ...i, arrow: arrowState };
+              card.splice(index, 0, b);
+              this.cards = card;
             });
-          console.log(this.balances.cards);
         });
       }
-    }, 2000);
+    });
   }
 }
