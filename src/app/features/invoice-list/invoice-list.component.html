@@ -1,0 +1,213 @@
+<app-shared-tabs [tabElementInput]="tabNames">
+  <ng-template>
+    <div class="content scroller gradient">
+      <ul>
+        <li *ngFor="let item of allInvoices">
+          <div class="one-line-invoice">
+            <div class="invoice-groop">
+              <div class="invoice-icon-container">
+                <div class="invoice-icon-circle"></div>
+                <div class="icon"><i class="las la-file-alt"></i></div>
+              </div>
+
+              <div class="invoice-name-container">
+                <p class="invoice-name invoice-list-header disable-select">
+                  {{ item.number }}
+                </p>
+                <p class="invoice disable-select">Invoice</p>
+              </div>
+
+              <div class="invoice-date-container">
+                <p class="invoice-date invoice-list-header disable-select">
+                  {{ item.due }}
+                </p>
+                <p class="invoice-due-date disable-select">Due date</p>
+              </div>
+
+              <div class="invoice-amount-container">
+                <p class="invoice-amount invoice-list-header disable-select">
+                  {{ item.currency }}{{ item.amount }}
+                </p>
+                <p class="amount disable-select">Amount</p>
+              </div>
+
+              <div
+                [ngClass]="{
+                  'invoice-status-paid-container': item.status === 'Paid',
+                  'invoice-status-pending-container': item.status === 'Pending',
+                  'invoice-status-cancelled-container':
+                    item.status === 'Cancelled'
+                }"
+              >
+                <div
+                  [ngClass]="{
+                    'invoice-status-green': item.status === 'Paid',
+                    'invoice-status-yellow': item.status === 'Pending',
+                    'invoice-status-red': item.status === 'Cancelled'
+                  }"
+                ></div>
+                <p class="invoice-list-header invoice-status disable-select">
+                  {{ item.status }}
+                </p>
+              </div>
+              <div
+                class="invoice-more-icon"
+                (click)="popUp(item)"
+                (ngModel)="(item)"
+              >
+                <i class="las la-ellipsis-h"></i>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+  <ng-template>
+    <div>
+      <ul>
+        <li *ngFor="let item of paidInvoices">
+          <div class="one-line-invoice">
+            <div class="invoice-groop">
+              <div class="invoice-icon-container">
+                <div class="invoice-icon-circle"></div>
+                <div class="icon"><i class="las la-file-alt"></i></div>
+              </div>
+
+              <div class="invoice-name-container">
+                <p class="invoice-name invoice-list-header disable-select">
+                  {{ item.number }}
+                </p>
+                <p class="invoice disable-select">Invoice</p>
+              </div>
+
+              <div class="invoice-date-container">
+                <p class="invoice-date invoice-list-header disable-select">
+                  {{ item.due }}
+                </p>
+                <p class="invoice-due-date disable-select">Due date</p>
+              </div>
+
+              <div class="invoice-amount-container">
+                <p class="invoice-amount invoice-list-header disable-select">
+                  {{ item.currency }}{{ item.amount }}
+                </p>
+                <p class="amount disable-select">Amount</p>
+              </div>
+
+              <div class="invoice-status-paid-container">
+                <div class="invoice-status-green"></div>
+                <p class="invoice-list-header invoice-status disable-select">
+                  {{ item.status }}
+                </p>
+              </div>
+              <div class="invoice-more-icon" (click)="popUp(item)">
+                <i class="las la-ellipsis-h"></i>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+  <ng-template
+    ><ul>
+      <li *ngFor="let item of pendingInvoices">
+        <div class="one-line-invoice">
+          <div class="invoice-groop">
+            <div class="invoice-icon-container">
+              <div class="invoice-icon-circle"></div>
+              <div class="icon"><i class="las la-file-alt"></i></div>
+            </div>
+
+            <div class="invoice-name-container">
+              <p class="invoice-name invoice-list-header disable-select">
+                {{ item.number }}
+              </p>
+              <p class="invoice disable-select">Invoice</p>
+            </div>
+
+            <div class="invoice-date-container">
+              <p class="invoice-date invoice-list-header disable-select">
+                {{ item.due }}
+              </p>
+              <p class="invoice-due-date disable-select">Due date</p>
+            </div>
+
+            <div class="invoice-amount-container">
+              <p class="invoice-amount invoice-list-header disable-select">
+                {{ item.currency }}{{ item.amount }}
+              </p>
+              <p class="amount disable-select">Amount</p>
+            </div>
+
+            <div class="invoice-status-pending-container">
+              <div class="invoice-status-yellow"></div>
+              <p class="invoice-list-header invoice-status disable-select">
+                {{ item.status }}
+              </p>
+            </div>
+            <div class="invoice-more-icon" (click)="popUp(item)">
+              <i class="las la-ellipsis-h"></i>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template>
+    <ul>
+      <li *ngFor="let item of cancelledInvoices">
+        <div class="one-line-invoice">
+          <div class="invoice-groop">
+            <div class="invoice-icon-container">
+              <div class="invoice-icon-circle"></div>
+              <div class="icon"><i class="las la-file-alt"></i></div>
+            </div>
+
+            <div class="invoice-name-container">
+              <p class="invoice-name invoice-list-header disable-select">
+                {{ item.number }}
+              </p>
+              <p class="invoice disable-select">Invoice</p>
+            </div>
+
+            <div class="invoice-date-container">
+              <p class="invoice-date invoice-list-header disable-select">
+                {{ item.due }}
+              </p>
+              <p class="invoice-due-date disable-select">Due date</p>
+            </div>
+
+            <div class="invoice-amount-container">
+              <p class="invoice-amount invoice-list-header disable-select">
+                {{ item.currency }}{{ item.amount }}
+              </p>
+              <p class="amount disable-select">Amount</p>
+            </div>
+
+            <div class="invoice-status-cancelled-container">
+              <div class="invoice-status-red"></div>
+              <p class="invoice-list-header invoice-status disable-select">
+                {{ item.status }}
+              </p>
+            </div>
+            <div class="invoice-more-icon" (click)="popUp(item)">
+              <i class="las la-ellipsis-h"></i>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </li>
+    </ul>
+  </ng-template>
+</app-shared-tabs>
+<app-shared-invoice-details
+  *ngIf="popDetails"
+  (closePopup)="closePopup()"
+  [invoice]="item"
+>
+</app-shared-invoice-details>
