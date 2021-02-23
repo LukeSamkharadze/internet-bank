@@ -48,6 +48,15 @@ export class TransferService {
                 });
                 return;
               }
+              if (
+                destinationAccount.accountNumber === fromAccount.accountNumber
+              ) {
+                subscriber.next({
+                  status: 'error',
+                  reason: 'Can not make payment on same account',
+                });
+                return;
+              }
               this.removeBalance(
                 fromAccount,
                 Number(transfer.amount)
