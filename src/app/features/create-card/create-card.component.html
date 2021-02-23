@@ -62,6 +62,7 @@
           #accountNumber
           type="text"
           id="accountNumber"
+          maxlength="16"
           [ngClass]="{
             valid: form.controls.accountNumber.valid,
             invalid: form.controls.accountNumber.invalid && accountNumber.value
@@ -83,6 +84,7 @@
           #cardNumber
           type="text"
           id="cardNumber"
+          maxlength="16"
           [ngClass]="{
             valid: form.controls.cardNumber.valid,
             invalid: form.controls.cardNumber.invalid && cardNumber.value
