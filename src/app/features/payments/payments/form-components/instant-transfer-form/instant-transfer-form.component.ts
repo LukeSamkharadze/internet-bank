@@ -9,9 +9,6 @@ import { animations } from '../shared/animations';
 import { InstantTransfer } from '../../../../shared/interfaces/instantTransfer.entity';
 import { TransferService } from '../../../services/transfer.service';
 import { Subscription } from 'rxjs';
-import IParent from '../../../../shared/interfaces/parent.interface';
-import { CardType } from '../../../../shared/interfaces/card.interface';
-import { CardService } from '../../../../shared/services/card.service';
 
 @Component({
   selector: 'app-instant-transfer-form',
@@ -25,29 +22,8 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
   currentUsersCards = this.transferService.currentUsersCards$;
   private subscriptions = new Subscription();
 
-  constructor(
-    private transferService: TransferService,
-    private cardService: CardService
-  ) {}
+  constructor(private transferService: TransferService) {}
   ngOnInit(): void {
-    setTimeout(() => {
-      this.cardService
-        .create({
-          cardName: 'VISA CARD',
-          cardType: 'VISA',
-          accountNumber: '1231',
-          cardNumber: '5111222233331234',
-          cardholder: 'BARRY ARMSTRONG',
-          expirationDate: '10/24',
-          availableAmount: 269,
-          security3D: false,
-          userId: '2',
-          id: 4,
-          iconPath: './assets/create-card/create-card-visa-icon.svg',
-        })
-        .subscribe();
-    }, 4000);
-
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
       destinationAccountNumber: new FormControl('', Validators.required),
