@@ -2,8 +2,15 @@
   <div class="date-picker">
     <i class="las la-calendar"></i>
     <label for="start">DATE:</label>
-
-    <input type="month" id="start" name="start" min="2018-03" value="2018-05" />
+    <input
+      type="month"
+      id="start"
+      name="start"
+      min="2018-03"
+      [(ngModel)]="data"
+      value="2018-05"
+      (ngModelChange)="dataChange()"
+    />
   </div>
   <ng-template>
     <div class="content scroller gradient">
@@ -17,7 +24,10 @@
               </div>
 
               <div class="invoice-name-container">
-                <p class="invoice-name invoice-list-header disable-select">
+                <p
+                  class="invoice-name invoice-list-header disable-select"
+                  (click)="popUp(item)"
+                >
                   {{ item.number }}
                 </p>
                 <p class="invoice disable-select">Invoice</p>
@@ -82,7 +92,10 @@
               </div>
 
               <div class="invoice-name-container">
-                <p class="invoice-name invoice-list-header disable-select">
+                <p
+                  class="invoice-name invoice-list-header disable-select"
+                  (click)="popUp(item)"
+                >
                   {{ item.number }}
                 </p>
                 <p class="invoice disable-select">Invoice</p>
@@ -129,7 +142,10 @@
             </div>
 
             <div class="invoice-name-container">
-              <p class="invoice-name invoice-list-header disable-select">
+              <p
+                class="invoice-name invoice-list-header disable-select"
+                (click)="popUp(item)"
+              >
                 {{ item.number }}
               </p>
               <p class="invoice disable-select">Invoice</p>
@@ -175,7 +191,10 @@
             </div>
 
             <div class="invoice-name-container">
-              <p class="invoice-name invoice-list-header disable-select">
+              <p
+                class="invoice-name invoice-list-header disable-select"
+                (click)="popUp(item)"
+              >
                 {{ item.number }}
               </p>
               <p class="invoice disable-select">Invoice</p>

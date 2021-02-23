@@ -52,6 +52,7 @@
     float: left;
     margin-left: 1.3%;
     height: 38px;
+    cursor: pointer;
   }
 
   .invoice-date-container {
@@ -153,9 +154,10 @@ hr {
 .one-line-invoice {
   box-sizing: border-box;
   width: 100%;
-  height: auto;
+  block-size: fit-content;
 }
-.one-line-invoice:hover {
+
+li:hover {
   background-color: rgb(255, 171, 43, 0.05);
   box-sizing: border-box;
 }
