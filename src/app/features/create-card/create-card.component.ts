@@ -49,7 +49,7 @@ export class CreateCardComponent implements OnInit {
       // Card addition Service
       this.cardService
         .create(card)
-        .pipe(finalize(() => this.form.reset()))
+        .pipe(finalize(() => this.form.reset({ security3D: true })))
         .subscribe();
     }
   }

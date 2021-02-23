@@ -109,13 +109,7 @@
       }
 
       &:hover {
-        background: hsl(0, 0%, 98%);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
-
-      &:hover .pop-up {
-        display: block;
+        background: hsl(200, 27%, 96%);
       }
 
       .la-check {
@@ -123,7 +117,16 @@
         margin-left: 3px;
       }
 
+      label {
+        transition: 0.3s;
+      }
+
+      &:hover label {
+        transform: translateX(7px);
+      }
+
       input {
+        height: 75%;
         width: 60%;
         border: none;
         padding: 3px 5px;
@@ -135,7 +138,7 @@
         &:active {
           outline: none;
           border-radius: 3px;
-          background: hsl(0, 0%, 93%);
+          background: hsl(200, 27%, 92%);
           transition: 0.3s;
 
           &.valid {
@@ -157,43 +160,53 @@
         &[type='number'] {
           -moz-appearance: textfield;
         }
+
+        &:focus + .pop-up {
+          visibility: visible;
+          opacity: 1;
+        }
       }
 
+      // Show input tooltip on hover
       .pop-up {
+        display: flex;
+        align-items: center;
         position: absolute;
-        padding: 4px 2px;
+        padding: 0 8px;
         border-radius: 3px;
-        bottom: 120%;
-        right: 5%;
-        min-width: 50%;
-        background: hsl(0, 0%, 98%);
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-        text-align: center;
+        bottom: 0;
+        left: 103%;
+        width: fit-content;
+        height: 40px;
+        background: #292a2d;
         user-select: none;
-        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.35s ease-in-out;
 
         &::after {
           content: '';
           position: absolute;
-          top: 100%;
-          left: 50%;
-          margin-left: -7px;
-          border-width: 7px;
+          top: 50%;
+          right: 100%;
+          margin-top: -8px;
+          border-width: 8px;
           border-style: solid;
-          border-color: hsl(0, 0%, 70%) transparent transparent transparent;
+          border-color: transparent #292a2d transparent transparent;
         }
 
         .la-info-circle {
-          color: $secondary-dark-2;
-          padding-right: 2px;
+          color: #c4c2c2;
+          padding-right: 4px;
         }
 
         span {
-          color: $secondary-dark-2;
+          color: #c4c2c2;
           font-family: $roboto;
           font-size: 14px;
           font-weight: 300;
           font-style: italic;
+          line-height: 17px;
         }
       }
 
