@@ -43,6 +43,6 @@ export class PaymentProvidersComponent implements OnInit {
   }
 
   trackByFn(index, item) {
-    return item.id;
+    return item.name;
   }
 }
