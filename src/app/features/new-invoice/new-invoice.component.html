@@ -1,0 +1,39 @@
+<section class="main-container">
+  <div class="form">
+    <div class="icon-text">
+      <div class="icon-text-wrapper top">
+        <i class="fas fa-eye"></i>
+        <p class="preview">PREVIEW</p>
+      </div>
+    </div>
+    <form [formGroup]="form">
+      <p class="form-split"><span>Details</span></p>
+
+      <app-form-invoice-details [form]="form"></app-form-invoice-details>
+
+      <p class="form-split"><span>Products list</span></p>
+
+      <app-form-products-list [form]="form"></app-form-products-list>
+    </form>
+  </div>
+
+  <div class="side-info">
+    <app-side-info></app-side-info>
+    <div class="buttons">
+      <app-shared-button
+        [className]="{ primary: true, active: true }"
+        style="width: 150px; height: 49px"
+        [isDisabled]="!form.valid"
+        (click)="onSubmit()"
+        >send invoice
+      </app-shared-button>
+
+      <app-shared-button
+        [className]="{ primary: true, resting: true }"
+        style="width: 150px; height: 49px"
+        (click)="onCencel()"
+        >cencel
+      </app-shared-button>
+    </div>
+  </div>
+</section>

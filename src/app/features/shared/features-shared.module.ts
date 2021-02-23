@@ -9,11 +9,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AuthService } from './services/auth.service';
-
 import { RouterModule } from '@angular/router';
-
 import { FeaturesSharedRoutingModule } from './features-shared-routing.module';
-
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
 // const services = [CardService];
 const modules = [
   CommonModule,
@@ -25,8 +24,9 @@ const modules = [
   MatInputModule,
   MatNativeDateModule,
   RouterModule,
-
   FeaturesSharedRoutingModule,
+  ChartsModule,
+  SharedModule,
 ];
 
 @NgModule({
