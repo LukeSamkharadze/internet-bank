@@ -119,6 +119,20 @@
       "tagColor": "green",
       "cardNumber": 4563,
       "userId": 2
+    },
+    {
+      "id": 4,
+      "title": "ATM Cash withdrawal",
+      "img": "\\assets\\bank-transactions\\img\\Ico-4.png",
+      "type": "Cash",
+      "transactionType": "Income",
+      "typeId": 1,
+      "amount": "- $204",
+      "date": "3 Aug 2:15 AM",
+      "status": "paid",
+      "tagColor": "green",
+      "cardNumber": 4873,
+      "userId": 1
     }
   ],
   "payments": [],

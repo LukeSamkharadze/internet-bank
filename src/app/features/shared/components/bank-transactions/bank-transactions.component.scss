@@ -1,5 +1,9 @@
 @import './index.scss';
 .bank-transactions {
+  width: 95%;
+  margin: auto;
+  margin-top: 25px;
+  background-color: white;
   .myDiv {
     overflow: auto;
   }

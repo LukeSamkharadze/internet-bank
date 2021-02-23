@@ -14,6 +14,7 @@ import { FeaturesSharedModule } from '@features/shared';
 import { AppRoutingModule } from './app-routing.module';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import 'hammerjs';
     FeaturesSharedModule,
     SharedModule,
     ChartsModule,
+    DateInputsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
