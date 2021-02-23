@@ -8,7 +8,7 @@ import { Invoice } from '../shared/interfaces/invoice-models.interface/invoice.m
 })
 export class InvoiceListComponent implements OnInit {
   tabNames = ['All', 'Paid', 'Pending', 'Cancelled'];
-  url = 'http://localhost:3000/invoices';
+  url = 'http://localhost:3000/invoice';
   public allInvoices: Array<Invoice>;
   public paidInvoices: Array<Invoice>;
   public pendingInvoices: Array<Invoice>;

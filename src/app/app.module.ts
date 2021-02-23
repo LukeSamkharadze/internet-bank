@@ -13,6 +13,8 @@ import { ApplicationComponent } from './features/application/application.compone
 import { FeaturesSharedModule } from '@features/shared';
 import { AppRoutingModule } from './app-routing.module';
 import { InvoiceListComponent } from './features/invoice-list/invoice-list.component';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { InvoiceListComponent } from './features/invoice-list/invoice-list.compo
     RouterModule,
     FeaturesSharedModule,
     SharedModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
