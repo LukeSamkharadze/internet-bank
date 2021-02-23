@@ -237,5 +237,65 @@
       "name": "Pending credit",
       "data": [41300, 28910, 16520, 28910, 24800]
     }
+  ],
+  "invoices": [
+    {
+      "template": "Website design",
+      "invoiceNumber": "AS-5",
+      "dueDate": "2021-02-08",
+      "companyName": "AOT",
+      "contanctEmail": "aot.company@gmail.com",
+      "address": "123 Main Street, Somewhere, CA 94000",
+      "items": [
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 1,
+          "price": 150
+        }
+      ],
+      "id": 1
+    },
+    {
+      "template": "Marketing Materials",
+      "invoiceNumber": "RE-12",
+      "dueDate": "2021-02-23",
+      "companyName": "OP",
+      "contanctEmail": "op.company@gmail.com",
+      "address": "333 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 10,
+          "price": 250
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 150,
+          "price": 100
+        }
+      ],
+      "id": 2
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "AS-123",
+      "dueDate": "2021-03-05",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 120
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 100
+        }
+      ],
+      "id": 3
+    }
   ]
 }

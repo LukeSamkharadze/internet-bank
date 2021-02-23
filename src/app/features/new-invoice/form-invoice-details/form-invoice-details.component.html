@@ -1,0 +1,138 @@
+<div [formGroup]="form">
+  <!-- Tamplate -->
+  <label class="dropdown-label" for="invoice-tamplate"
+    ><p>Template</p>
+    <span
+      *ngIf="
+        form.controls['template'].errors?.required &&
+        form.controls['template'].touched
+      "
+      ><b class="dropdown-b">Required</b></span
+    >
+  </label>
+
+  <app-shared-dropdown
+    [ngClass]="{
+      'invalid-dropdown':
+        form.controls['template'].errors?.required &&
+        form.controls['template'].touched,
+      'valid-dropdown': !form.controls['template'].errors
+    }"
+    style="width: 100%"
+    formControlName="template"
+    placeholder="Select Template"
+    [options]="templateOptions"
+  >
+  </app-shared-dropdown>
+
+  <div class="flex-container">
+    <!-- invoice Number -->
+    <app-shared-input
+      inputId="invoice-number"
+      formControlName="invoiceNumber"
+      placeholder="Enter Number"
+      style="width: 48.5%; height: 56px"
+    >
+      Invoice Number
+      <span
+        *ngIf="
+          form.controls['invoiceNumber'].errors?.required &&
+          form.controls['invoiceNumber'].touched
+        "
+        ><b>Required</b>
+      </span>
+    </app-shared-input>
+
+    <!-- Due Date -->
+
+    <div class="date">
+      <label class="dateLabel" for="due-date"> <p>Due Date</p></label>
+      <span
+        *ngIf="
+          form.controls['dueDate'].errors?.required &&
+          form.controls['dueDate'].touched
+        "
+        ><b>Required</b>
+      </span>
+      <input
+        id="due-date"
+        type="date"
+        formControlName="dueDate"
+        placeholder="Select date"
+        (focus)="inputFocus = true"
+        (blur)="inputFocus = false; (null)"
+        [ngClass]="{
+          invalid:
+            form.controls['dueDate'].errors?.required &&
+            form.controls['dueDate'].touched,
+          valid: !form.controls['dueDate'].errors,
+          focused: inputFocus
+        }"
+      />
+    </div>
+  </div>
+
+  <div class="flex-container">
+    <!-- Company Name -->
+    <app-shared-input
+      inputId="company-name"
+      formControlName="companyName"
+      placeholder="Enter Name"
+      style="width: 48.5%"
+    >
+      Company Name
+      <span
+        *ngIf="
+          form.controls['companyName'].errors?.required &&
+          form.controls['companyName'].touched
+        "
+        ><b>Required</b>
+      </span>
+    </app-shared-input>
+
+    <!-- Email -->
+
+    <app-shared-input
+      inputId="contanct-email"
+      [type]="'email'"
+      formControlName="contanctEmail"
+      placeholder="Enter Email"
+      style="width: 48.5%"
+    >
+      Contanct Email
+      <span
+        *ngIf="
+          form.controls['contanctEmail'].errors?.required &&
+          form.controls['contanctEmail'].touched
+        "
+        ><b>Required</b>
+      </span>
+      <span
+        *ngIf="
+          form.controls['contanctEmail'].errors?.pattern &&
+          form.controls['contanctEmail'].touched
+        "
+        ><b>Should be an email</b>
+      </span>
+    </app-shared-input>
+  </div>
+  <!-- Address -->
+
+  <div class="address-input-wrapper">
+    <app-shared-input
+      inputId="address"
+      formControlName="address"
+      placeholder="Enter billing address"
+      style="width: 100%"
+    >
+      Address
+      <span
+        *ngIf="
+          form.controls['address'].errors?.required &&
+          form.controls['address'].touched
+        "
+        ><b>Required</b>
+      </span>
+    </app-shared-input>
+  </div>
+</div>
