@@ -15,22 +15,20 @@ import { AuthService } from './auth.service';
 export class CardService implements BaseHttpInterface<ICard> {
   private cardsArr: ICard[] = [];
 
-  private store = new BehaviorSubject<ICard[]>(this.cardsArr);
+  private store$ = new BehaviorSubject<ICard[]>(this.cardsArr);
 
-  public cards$ = this.store.pipe(distinctUntilChanged());
+  public cards$ = this.store$.pipe(distinctUntilChanged());
 
   public subj = new Subject<boolean>(); // ◄ ეს ხაზი ამოსაღებია
 
   constructor(private http: HttpClient, private auth: AuthService) {
     this.getAll().subscribe((cards) =>
-      this.store.next((this.cardsArr = cards))
+      this.store$.next((this.cardsArr = cards))
     );
   }
 
   create(card: ICard): Observable<ICard> {
     card = this.determineIconPath(card);
-
-    this.store.next((this.cardsArr = [...this.cardsArr, card]));
 
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
@@ -39,6 +37,9 @@ export class CardService implements BaseHttpInterface<ICard> {
         this.subj.next(true);
       }),
       // ▲ ▲ ▲ ამის ზევით მოსაშლელია ▲ ▲ ▲
+      tap((newCard) =>
+        this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
+      ),
       catchError(this.handleError)
     );
   }
@@ -101,12 +102,10 @@ export class CardService implements BaseHttpInterface<ICard> {
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // მომხმარებლის შეცდომა
-
+      // Client Error
       errorMessage = `Error: ${error.error.message}`;
     } else {
-      // სერვერის შეცდომა
-
+      // Server Error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
 
