@@ -12,6 +12,8 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { ApplicationComponent } from './features/application/application.component';
 import { FeaturesSharedModule } from '@features/shared';
 import { AppRoutingModule } from './app-routing.module';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
     RouterModule,
     FeaturesSharedModule,
     SharedModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

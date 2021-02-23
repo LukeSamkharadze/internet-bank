@@ -77,6 +77,7 @@
       ]
     }
   ],
+  "payments": [],
   "cards": [
     {
       "cardName": "VISA CARD",
@@ -118,18 +119,62 @@
       "iconPath": "./assets/create-card/mastercard.svg"
     }
   ],
-  "users": [
+  "paymentTypes": [
     {
-      "fullname": "SANCHO PANZA",
-      "email": "sanchito_p@gmail.com",
-      "password": "12345678",
-      "id": 1
+      "name": "Electronic Payments",
+      "providers": [
+        {
+          "title": "Paypal",
+          "iconPath": "./assets/electronic-payments/PayPal.svg"
+        },
+        {
+          "title": "Skrill",
+          "iconPath": "./assets/electronic-payments/Skrill_logo.svg"
+        },
+        {
+          "title": "Payoneer",
+          "iconPath": "./assets/electronic-payments/Payoneer_logo.svg"
+        }
+      ],
+      "icon": "las la-credit-card",
+      "formPath": "electronic-payment"
     },
     {
-      "fullname": "EDMOND DANTES",
+      "name": "Bank Transfer",
+      "providers": [
+        {
+          "title": "TBC"
+        }
+      ],
+      "icon": "las la-piggy-bank",
+      "formPath": "bank-transfer"
+    },
+    {
+      "name": "Instant Transfer",
+      "providers": [
+        {
+          "title": "Visa"
+        },
+        {
+          "title": "Mastercard"
+        }
+      ],
+      "icon": "las la-cart-plus",
+      "formPath": "instant-transfer"
+    }
+  ],
+  "users": [
+    {
+      "email": "sanchito_p@gmail.com",
+      "id": 1,
+      "fullname": "SANCHO PANZA",
+      "password": "12345678"
+    },
+    {
       "email": "admin@gmail.com",
+      "id": 2,
       "password": "12345678",
-      "id": 2
+      "fullname": "EDMOND DANTES"
     },
     {
       "fullname": "VITO CORLEONE",
@@ -194,6 +239,66 @@
       "id": 3,
       "name": "Pending credit",
       "data": [41300, 28910, 16520, 28910, 24800]
+    }
+  ],
+  "invoices": [
+    {
+      "template": "Website design",
+      "invoiceNumber": "AS-5",
+      "dueDate": "2021-02-08",
+      "companyName": "AOT",
+      "contanctEmail": "aot.company@gmail.com",
+      "address": "123 Main Street, Somewhere, CA 94000",
+      "items": [
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 1,
+          "price": 150
+        }
+      ],
+      "id": 1
+    },
+    {
+      "template": "Marketing Materials",
+      "invoiceNumber": "RE-12",
+      "dueDate": "2021-02-23",
+      "companyName": "OP",
+      "contanctEmail": "op.company@gmail.com",
+      "address": "333 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 10,
+          "price": 250
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 150,
+          "price": 100
+        }
+      ],
+      "id": 2
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "AS-123",
+      "dueDate": "2021-03-05",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 120
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 100
+        }
+      ],
+      "id": 3
     }
   ]
 }

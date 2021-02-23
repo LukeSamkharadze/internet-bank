@@ -1,0 +1,45 @@
+@import 'src/styles/index';
+@import './flex.scss';
+
+.flex-container {
+  @extend .flex;
+}
+
+app-shared-dropdown {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 9px;
+  height: 55px;
+  &.invalid-dropdown {
+    border-color: $secondary-3;
+  }
+  &.valid-dropdown {
+    border-color: $secondary-2;
+  }
+}
+
+.dropdown-label p {
+  font-weight: 300;
+  color: $primary-dark;
+  margin-top: 10px;
+  display: inline-block;
+}
+b {
+  color: $secondary-3;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+.dropdown-b {
+  float: right;
+  position: relative;
+  margin-top: 13px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+app-shared-input {
+  position: relative;
+  margin-top: 10px;
+}
