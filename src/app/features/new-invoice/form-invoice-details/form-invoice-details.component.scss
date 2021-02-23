@@ -67,6 +67,10 @@ input[type='date'].has-value.ng-untouched:before {
   display: none;
 }
 
+.invalid.focused::before {
+  display: none;
+}
+
 .ng-pristine.ng-invalid.ng-touched.focused::before {
   display: none;
 }
