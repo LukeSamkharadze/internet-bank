@@ -65,6 +65,10 @@ i {
     padding: 0 10px;
     color: $primary;
   }
+  &.item {
+    margin-top: 5%;
+    margin-bottom: 3%;
+  }
 }
 
 app-shared-button {
