@@ -10,7 +10,6 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class AccountBalancesService {
-  public wholeBalances: Array<ICard | IDeposit>;
   balances$ = new Subject();
   constructor(
     private loggedUser: AuthService,
@@ -19,13 +18,15 @@ export class AccountBalancesService {
   ) {}
 
   getBalances() {
-    this.depositInfo.getAll().subscribe((card) => {
-      this.getCards().subscribe((c) => {
-        this.wholeBalances = [
-          ...c,
-          ...card.filter((depo) => depo.userId + '' === this.loggedUser.userId),
+    this.depositInfo.getAll().subscribe((deposits) => {
+      this.getCards().subscribe((cards) => {
+        const wholeBalances: Array<ICard | IDeposit> = [
+          ...cards,
+          ...deposits.filter(
+            (depo) => depo.userId + '' === this.loggedUser.userId
+          ),
         ];
-        this.balances$.next(this.wholeBalances);
+        this.balances$.next(wholeBalances);
       });
     });
   }

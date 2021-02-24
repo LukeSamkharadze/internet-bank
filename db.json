@@ -112,7 +112,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 44900,
+      "availableAmount": 45000,
       "security3D": true,
       "userId": "2",
       "id": 3,
@@ -124,15 +124,15 @@
       "name": "Electronic Payments",
       "providers": [
         {
-          "title": "Paypal",
+          "name": "Paypal",
           "iconPath": "./assets/electronic-payments/PayPal.svg"
         },
         {
-          "title": "Skrill",
+          "name": "Skrill",
           "iconPath": "./assets/electronic-payments/Skrill_logo.svg"
         },
         {
-          "title": "Payoneer",
+          "name": "Payoneer",
           "iconPath": "./assets/electronic-payments/Payoneer_logo.svg"
         }
       ],
@@ -143,7 +143,7 @@
       "name": "Bank Transfer",
       "providers": [
         {
-          "title": "TBC"
+          "name": "TBC"
         }
       ],
       "icon": "las la-piggy-bank",
@@ -153,10 +153,10 @@
       "name": "Instant Transfer",
       "providers": [
         {
-          "title": "Visa"
+          "name": "Visa"
         },
         {
-          "title": "Mastercard"
+          "name": "Mastercard"
         }
       ],
       "icon": "las la-cart-plus",
@@ -186,7 +186,6 @@
   "deposits": [
     {
       "id": 0,
-      "userId": "2",
       "depositName": "Cumulative deposit",
       "accountNumber": "UK64CT00000000000010034567",
       "depositRate": 0.05,

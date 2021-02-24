@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ICard } from '../../interfaces/card.interface';
+import { IDeposit } from '../../interfaces/deposit.interface';
 import { PaymentsGetterService } from '../../services/paymentsGetter.service';
 import { ArrowDirectionService } from './services/account-balances-arrow.service';
 import { AccountBalancesService } from './services/account-balances.service';
@@ -10,28 +12,31 @@ import { AccountBalancesService } from './services/account-balances.service';
 })
 export class AccountBalancesComponent implements OnInit, AfterViewInit {
   constructor(
-    public balances: AccountBalancesService,
+    public allBalances: AccountBalancesService,
     public getPayments: PaymentsGetterService,
     private arrowFunction: ArrowDirectionService
   ) {}
-
+  balance: Array<ICard | IDeposit>;
   ngOnInit(): void {
-    this.balances.getBalances();
+    this.allBalances.getBalances();
   }
   ngAfterViewInit() {
-    this.balances.balances$.subscribe((card: Array<any>) => {
-      for (const i of card) {
-        this.arrowFunction.determineArrow(i.accountNumber).then(() => {
-          const index = card.indexOf(i);
-          card.splice(index, 1);
-          this.arrowFunction
-            .determineArrow(i.accountNumber)
-            .then((arrowState) => {
-              const b = { ...i, arrow: arrowState };
-              card.splice(index, 0, b);
-            });
-        });
+    this.allBalances.balances$.subscribe(
+      (wholeBalance: Array<ICard | IDeposit>) => {
+        for (const i of wholeBalance) {
+          this.arrowFunction.determineArrow(i.accountNumber).then(() => {
+            const index = wholeBalance.indexOf(i);
+            wholeBalance.splice(index, 1);
+            this.arrowFunction
+              .determineArrow(i.accountNumber)
+              .then((arrowState) => {
+                const b = { ...i, arrow: arrowState };
+                wholeBalance.splice(index, 0, b);
+              });
+          });
+        }
+        this.balance = wholeBalance;
       }
-    });
+    );
   }
 }
