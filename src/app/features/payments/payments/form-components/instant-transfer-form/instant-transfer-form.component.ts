@@ -60,7 +60,6 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
                 this.subscriptions.add(
                   this.transferService.postTransactionToDb(transfer).subscribe()
                 );
-                this.transferService.reloadCards();
               } else {
                 alert(data.reason);
               }
