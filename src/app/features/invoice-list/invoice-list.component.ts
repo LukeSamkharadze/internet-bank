@@ -48,7 +48,7 @@ export class InvoiceListComponent implements OnInit {
   calculateAmount(allInvoices: object) {
     this.allInvoices.forEach((element) => {
       element.amount = 0;
-      for (let item of element.items) {
+      for (const item of element.items) {
         element.amount += parseFloat(item.rate) * parseFloat(item.qty);
       }
 
