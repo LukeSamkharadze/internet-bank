@@ -10,7 +10,7 @@ export class InvoiceListComponent implements OnInit {
   tabNames = ['All', 'Paid', 'Pending', 'Cancelled'];
   url = 'http://localhost:3000/invoice';
   public invoices: Array<Invoice>;
-  public allInvoices: Array<Invoice>;
+  public allInvoices = [];
   public paidInvoices: Array<Invoice>;
   public pendingInvoices: Array<Invoice>;
   public cancelledInvoices: Array<Invoice>;
@@ -45,9 +45,23 @@ export class InvoiceListComponent implements OnInit {
       (item) => item.status === 'Cancelled'
     );
   }
+  calculateAmount(allInvoices: object) {
+    this.allInvoices.forEach((element) => {
+      element.amount = 0;
+      for (let item of element.items) {
+        element.amount += parseFloat(item.rate) * parseFloat(item.qty);
+      }
+
+      element.amount = element.amount.toString();
+      console.log(element);
+    });
+  }
   dataChange() {
     this.allInvoices = [];
-    this.allInvoices = this.invoices.filter((item) => item.due === this.data);
+    this.allInvoices = this.invoices.filter(
+      (item) => item.due.slice(0, 7) === this.data
+    );
+    this.calculateAmount(this.allInvoices);
     this.loadValues();
   }
 }

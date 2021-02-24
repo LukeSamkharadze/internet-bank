@@ -162,9 +162,30 @@ li:hover {
   box-sizing: border-box;
 }
 app-shared-tabs {
-  width: 59%;
+  width: 100%;
   height: 718px;
   overflow: auto;
+}
+.gradient {
+  position: relative;
+}
+.gradient:after {
+  position: absolute;
+  bottom: 0;
+  height: 20%;
+  width: 100%;
+  content: '';
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  pointer-events: none; /* so the text is still selectable */
+}
+.content {
+  height: fit-content;
+  overflow: auto;
+  width: 100%;
 }
 .scroller::-webkit-scrollbar {
   width: 5px;
@@ -180,18 +201,6 @@ app-shared-tabs {
 .scroller:hover::-webkit-scrollbar-thumb {
   visibility: visible;
 }
-app-shared-tabs:after {
-  bottom: 0;
-  height: 20%;
-  width: 100%;
-  content: '';
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 1) 20%,
-    rgba(255, 255, 255, 0) 80%
-  );
-  pointer-events: none; /* so the text is still selectable */
-}
 ul:last-child {
   margin-bottom: 65px;
 }
@@ -200,6 +209,7 @@ ul {
 }
 :host {
   display: block;
+  width: 59%;
 }
 
 .date-picker {

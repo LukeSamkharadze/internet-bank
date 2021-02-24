@@ -311,11 +311,10 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "16 Aug 2018",
+      "due": "2018-08-01",
       "tagColor": "green",
       "status": "Paid",
       "currency": "$",
-      "amount": "1044.00",
       "items": [
         {
           "desc": "Sample Item 1",
@@ -351,11 +350,10 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "03 Dec 2018",
+      "due": "2018-08-01",
       "tagColor": "green",
       "status": "Paid",
       "currency": "$",
-      "amount": "894.20",
       "items": [
         {
           "desc": "Sample Item 1",
@@ -391,11 +389,10 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "10 Dec 2018",
+      "due": "2018-03-01",
       "tagColor": "green",
       "status": "Paid",
       "currency": "$",
-      "amount": "6904.00",
       "items": [
         {
           "desc": "Sample Item 1",
@@ -431,7 +428,7 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "16 May 2018",
+      "due": "2018-08-01",
       "tagColor": "orange",
       "status": "Pending",
       "currency": "$",
@@ -471,7 +468,7 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "04 Mar 2018",
+      "due": "2018-08-01",
       "tagColor": "orange",
       "status": "Pending",
       "currency": "$",
@@ -511,7 +508,7 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "08 Mar 2018",
+      "due": "2018-08-01",
       "tagColor": "orange",
       "status": "Pending",
       "currency": "$",
@@ -551,7 +548,7 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "17 Oct 2018",
+      "due": "2018-08-01",
       "tagColor": "pink",
       "status": "Cancelled",
       "currency": "$",
@@ -591,7 +588,7 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "22 Sep 2018",
+      "due": "2018-08-01",
       "tagColor": "green",
       "status": "Paid",
       "currency": "$",
@@ -631,7 +628,7 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "27 Oct 2018",
+      "due": "2018-08-01",
       "tagColor": "green",
       "status": "Paid",
       "currency": "$",
@@ -671,7 +668,47 @@
         "mail": "marketing@vdfn.com"
       },
       "date": "6 Aug 2018, 2:15 AM",
-      "due": "11 Apr 2018",
+      "due": "2018-08-01",
+      "tagColor": "green",
+      "status": "Paid",
+      "currency": "$",
+      "amount": "4.20",
+      "items": [
+        {
+          "desc": "Sample Item 1",
+          "rate": "50",
+          "qty": "150"
+        },
+        {
+          "desc": "Sample Item 2",
+          "rate": "350",
+          "qty": "1"
+        },
+        {
+          "desc": "Sample Item 3",
+          "rate": "550",
+          "qty": "2"
+        },
+        {
+          "desc": "Sample Item 4",
+          "rate": "150",
+          "qty": "10"
+        }
+      ]
+    },
+    {
+      "number": "IO-BN-242",
+      "title": "Vodafone LLC",
+      "address": {
+        "address1": "Street Address 1",
+        "address2": "Street Address 2",
+        "address3": "Street Address 3",
+        "city": "Edinburgh",
+        "country": "Scotland",
+        "mail": "marketing@vdfn.com"
+      },
+      "date": "6 Aug 2018, 2:15 AM",
+      "due": "2018-08-01",
       "tagColor": "green",
       "status": "Paid",
       "currency": "$",
