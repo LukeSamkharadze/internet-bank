@@ -95,22 +95,22 @@
     <app-shared-input
       inputId="contanct-email"
       [type]="'email'"
-      formControlName="contanctEmail"
+      formControlName="contactEmail"
       placeholder="Enter Email"
       style="width: 48.5%"
     >
-      Contanct Email
+      Contact Email
       <span
         *ngIf="
-          form.controls['contanctEmail'].errors?.required &&
-          form.controls['contanctEmail'].touched
+          form.controls['contactEmail'].errors?.required &&
+          form.controls['contactEmail'].touched
         "
         ><b>Required</b>
       </span>
       <span
         *ngIf="
-          form.controls['contanctEmail'].errors?.pattern &&
-          form.controls['contanctEmail'].touched
+          form.controls['contactEmail'].errors?.pattern &&
+          form.controls['contactEmail'].touched
         "
         ><b>Should be an email</b>
       </span>

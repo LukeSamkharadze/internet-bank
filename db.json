@@ -352,67 +352,46 @@
   "invoices": [
     {
       "template": "Website design",
-      "invoiceNumber": "AS-5",
-      "dueDate": "2021-02-08",
-      "companyName": "AOT",
-      "contanctEmail": "aot.company@gmail.com",
+      "invoiceNumber": "IO-BN-124",
+      "dueDate": "2021-03-11",
+      "companyName": "Vadafone LLC",
+      "contactEmail": "vadafone@gmail.com",
       "address": "123 Main Street, Somewhere, CA 94000",
-      "items": [
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 1,
-          "price": 150
-        }
-      ],
-      "totalAmount": 150,
-      "status": "Pending",
-      "id": 1
-    },
-    {
-      "template": "Marketing Materials",
-      "invoiceNumber": "RE-12",
-      "dueDate": "2021-02-23",
-      "companyName": "OP",
-      "contanctEmail": "op.company@gmail.com",
-      "address": "333 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 10,
-          "price": 250
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 150,
-          "price": 100
-        }
-      ],
-      "totalAmount": 17500,
-      "status": "Pending",
-      "id": 2
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "AS-123",
-      "dueDate": "2021-03-05",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
       "items": [
         {
           "itemDescription": "Marketing Materials",
           "itemQty": 2,
-          "price": 120
-        },
+          "price": 150
+        }
+      ],
+      "totalAmount": 300,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-02-24T18:34:49.334Z",
+      "id": 1
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-100",
+      "dueDate": "2021-03-13",
+      "companyName": "AOT LLC",
+      "contactEmail": "aot@gmail.com",
+      "address": "333 Main Street, Somewhere, CA 99000",
+      "items": [
         {
           "itemDescription": "Printing Equipment",
           "itemQty": 10,
           "price": 100
+        },
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 150,
+          "price": 100
         }
       ],
-      "totalAmount": 1240,
+      "totalAmount": 16000,
       "status": "Pending",
-      "id": 3
+      "invoiceCreateDate": "2021-02-24T18:37:01.789Z",
+      "id": 2
     }
   ]
 }
