@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Invoice } from '../../interfaces/invoice-models.interface/invoice.model';
-import { sample } from '../../interfaces/invoice-models.interface/sample.model';
+import { Invoice } from './models/invoice.model';
+import { sample } from './models/sample.model';
 
 @Component({
   selector: 'app-shared-invoice-details',

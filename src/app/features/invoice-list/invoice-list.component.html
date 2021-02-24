@@ -1,4 +1,4 @@
-<app-shared-tabs [tabElementInput]="tabNames" class="gradient">
+<app-shared-tabs [tabElementInput]="tabNames">
   <div class="date-picker">
     <i class="las la-calendar"></i>
     <label for="start">DATE:</label>
@@ -11,9 +11,10 @@
       data="2018-08"
       (ngModelChange)="dataChange()"
     />
+    {{ data }}
   </div>
   <ng-template>
-    <div class="content">
+    <div class="content gradient">
       <ul>
         <li *ngFor="let item of allInvoices">
           <div class="one-line-invoice">
@@ -28,21 +29,21 @@
                   class="invoice-name invoice-list-header disable-select"
                   (click)="popUp(item)"
                 >
-                  {{ item.number }}
+                  {{ item.invoiceNumber }}
                 </p>
                 <p class="invoice disable-select">Invoice</p>
               </div>
 
               <div class="invoice-date-container">
                 <p class="invoice-date invoice-list-header disable-select">
-                  {{ item.due | date: 'mediumDate' }}
+                  {{ item.dueDate | date: 'dd MMM, y' }}
                 </p>
                 <p class="invoice-due-date disable-select">Due date</p>
               </div>
 
               <div class="invoice-amount-container">
                 <p class="invoice-amount invoice-list-header disable-select">
-                  {{ item.amount | currency: 'USD' }}
+                  {{ item.totalAmount | currency: 'USD' }}
                 </p>
                 <p class="amount disable-select">Amount</p>
               </div>
@@ -81,7 +82,7 @@
     </div>
   </ng-template>
   <ng-template>
-    <div>
+    <div div class="content gradient">
       <ul>
         <li *ngFor="let item of paidInvoices">
           <div class="one-line-invoice">
@@ -96,21 +97,21 @@
                   class="invoice-name invoice-list-header disable-select"
                   (click)="popUp(item)"
                 >
-                  {{ item.number }}
+                  {{ item.invoiceNumber }}
                 </p>
                 <p class="invoice disable-select">Invoice</p>
               </div>
 
               <div class="invoice-date-container">
                 <p class="invoice-date invoice-list-header disable-select">
-                  {{ item.due | date: 'mediumDate' }}
+                  {{ item.dueDate | date: 'dd MMM, y' }}
                 </p>
                 <p class="invoice-due-date disable-select">Due date</p>
               </div>
 
               <div class="invoice-amount-container">
                 <p class="invoice-amount invoice-list-header disable-select">
-                  ${{ item.amount }}
+                  {{ item.totalAmount | currency: 'USD' }}
                 </p>
                 <p class="amount disable-select">Amount</p>
               </div>
@@ -131,103 +132,107 @@
       </ul>
     </div>
   </ng-template>
-  <ng-template
-    ><ul>
-      <li *ngFor="let item of pendingInvoices">
-        <div class="one-line-invoice">
-          <div class="invoice-groop">
-            <div class="invoice-icon-container">
-              <div class="invoice-icon-circle"></div>
-              <div class="icon"><i class="las la-file-alt"></i></div>
-            </div>
+  <ng-template>
+    <div div class="content gradient">
+      <ul>
+        <li *ngFor="let item of pendingInvoices">
+          <div class="one-line-invoice">
+            <div class="invoice-groop">
+              <div class="invoice-icon-container">
+                <div class="invoice-icon-circle"></div>
+                <div class="icon"><i class="las la-file-alt"></i></div>
+              </div>
 
-            <div class="invoice-name-container">
-              <p
-                class="invoice-name invoice-list-header disable-select"
-                (click)="popUp(item)"
-              >
-                {{ item.number }}
-              </p>
-              <p class="invoice disable-select">Invoice</p>
-            </div>
+              <div class="invoice-name-container">
+                <p
+                  class="invoice-name invoice-list-header disable-select"
+                  (click)="popUp(item)"
+                >
+                  {{ item.invoiceNumber }}
+                </p>
+                <p class="invoice disable-select">Invoice</p>
+              </div>
 
-            <div class="invoice-date-container">
-              <p class="invoice-date invoice-list-header disable-select">
-                {{ item.due | date: 'mediumDate' }}
-              </p>
-              <p class="invoice-due-date disable-select">Due date</p>
-            </div>
+              <div class="invoice-date-container">
+                <p class="invoice-date invoice-list-header disable-select">
+                  {{ item.dueDate | date: 'dd MMM, y' }}
+                </p>
+                <p class="invoice-due-date disable-select">Due date</p>
+              </div>
 
-            <div class="invoice-amount-container">
-              <p class="invoice-amount invoice-list-header disable-select">
-                ${{ item.amount }}
-              </p>
-              <p class="amount disable-select">Amount</p>
-            </div>
+              <div class="invoice-amount-container">
+                <p class="invoice-amount invoice-list-header disable-select">
+                  {{ item.totalAmount | currency: 'USD' }}
+                </p>
+                <p class="amount disable-select">Amount</p>
+              </div>
 
-            <div class="invoice-status-pending-container">
-              <div class="invoice-status-yellow"></div>
-              <p class="invoice-list-header invoice-status disable-select">
-                {{ item.status }}
-              </p>
-            </div>
-            <div class="invoice-more-icon" (click)="popUp(item)">
-              <i class="las la-ellipsis-h"></i>
+              <div class="invoice-status-pending-container">
+                <div class="invoice-status-yellow"></div>
+                <p class="invoice-list-header invoice-status disable-select">
+                  {{ item.status }}
+                </p>
+              </div>
+              <div class="invoice-more-icon" (click)="popUp(item)">
+                <i class="las la-ellipsis-h"></i>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-      </li>
-    </ul>
+          <hr />
+        </li>
+      </ul>
+    </div>
   </ng-template>
   <ng-template>
-    <ul>
-      <li *ngFor="let item of cancelledInvoices">
-        <div class="one-line-invoice">
-          <div class="invoice-groop">
-            <div class="invoice-icon-container">
-              <div class="invoice-icon-circle"></div>
-              <div class="icon"><i class="las la-file-alt"></i></div>
-            </div>
+    <div div class="content gradient">
+      <ul>
+        <li *ngFor="let item of cancelledInvoices">
+          <div class="one-line-invoice">
+            <div class="invoice-groop">
+              <div class="invoice-icon-container">
+                <div class="invoice-icon-circle"></div>
+                <div class="icon"><i class="las la-file-alt"></i></div>
+              </div>
 
-            <div class="invoice-name-container">
-              <p
-                class="invoice-name invoice-list-header disable-select"
-                (click)="popUp(item)"
-              >
-                {{ item.number }}
-              </p>
-              <p class="invoice disable-select">Invoice</p>
-            </div>
+              <div class="invoice-name-container">
+                <p
+                  class="invoice-name invoice-list-header disable-select"
+                  (click)="popUp(item)"
+                >
+                  {{ item.invoiceNumber }}
+                </p>
+                <p class="invoice disable-select">Invoice</p>
+              </div>
 
-            <div class="invoice-date-container">
-              <p class="invoice-date invoice-list-header disable-select">
-                {{ item.due | date: 'mediumDate' }}
-              </p>
-              <p class="invoice-due-date disable-select">Due date</p>
-            </div>
+              <div class="invoice-date-container">
+                <p class="invoice-date invoice-list-header disable-select">
+                  {{ item.dueDate | date: 'dd MMM, y' }}
+                </p>
+                <p class="invoice-due-date disable-select">Due date</p>
+              </div>
 
-            <div class="invoice-amount-container">
-              <p class="invoice-amount invoice-list-header disable-select">
-                ${{ item.amount }}
-              </p>
-              <p class="amount disable-select">Amount</p>
-            </div>
+              <div class="invoice-amount-container">
+                <p class="invoice-amount invoice-list-header disable-select">
+                  {{ item.totalAmount | currency: 'USD' }}
+                </p>
+                <p class="amount disable-select">Amount</p>
+              </div>
 
-            <div class="invoice-status-cancelled-container">
-              <div class="invoice-status-red"></div>
-              <p class="invoice-list-header invoice-status disable-select">
-                {{ item.status }}
-              </p>
-            </div>
-            <div class="invoice-more-icon" (click)="popUp(item)">
-              <i class="las la-ellipsis-h"></i>
+              <div class="invoice-status-cancelled-container">
+                <div class="invoice-status-red"></div>
+                <p class="invoice-list-header invoice-status disable-select">
+                  {{ item.status }}
+                </p>
+              </div>
+              <div class="invoice-more-icon" (click)="popUp(item)">
+                <i class="las la-ellipsis-h"></i>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-      </li>
-    </ul>
+          <hr />
+        </li>
+      </ul>
+    </div>
   </ng-template>
 </app-shared-tabs>
 <app-shared-invoice-details

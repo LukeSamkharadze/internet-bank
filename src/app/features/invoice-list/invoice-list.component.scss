@@ -11,6 +11,7 @@
 
   p {
     margin: 0;
+    font-size: 14px;
   }
 
   .invoice-list-header {
@@ -52,12 +53,20 @@
     float: left;
     margin-left: 1.3%;
     height: 38px;
+    width: 100px;
     cursor: pointer;
+
+    .invoice-name {
+      width: 100%;
+    }
+    .invoice {
+      display: block;
+    }
   }
 
   .invoice-date-container {
     float: left;
-    margin-left: 30.5%;
+    margin-left: 27%;
     height: 38px;
   }
   .invoice-amount-container {
@@ -164,17 +173,16 @@ li:hover {
 app-shared-tabs {
   width: 100%;
   height: 718px;
-  overflow: auto;
 }
 .gradient {
   position: relative;
 }
 .gradient:after {
   position: absolute;
-  bottom: 0;
-  height: 20%;
   width: 100%;
   content: '';
+  height: 100px;
+  bottom: 0px;
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 1) 20%,
@@ -183,8 +191,6 @@ app-shared-tabs {
   pointer-events: none; /* so the text is still selectable */
 }
 .content {
-  height: fit-content;
-  overflow: auto;
   width: 100%;
 }
 .scroller::-webkit-scrollbar {
@@ -202,10 +208,14 @@ app-shared-tabs {
   visibility: visible;
 }
 ul:last-child {
-  margin-bottom: 65px;
+  padding-bottom: 65px;
 }
 ul {
   padding: 0;
+  position: relative;
+  height: 655px;
+  width: 100%;
+  overflow: scroll;
 }
 :host {
   display: block;

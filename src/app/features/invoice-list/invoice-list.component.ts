@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Invoice } from '../shared/interfaces/invoice-models.interface/invoice.model';
+import { Invoice } from '../shared/interfaces/invoice.interface';
 @Component({
   selector: 'app-invoice-list',
   templateUrl: './invoice-list.component.html',
@@ -8,7 +8,7 @@ import { Invoice } from '../shared/interfaces/invoice-models.interface/invoice.m
 })
 export class InvoiceListComponent implements OnInit {
   tabNames = ['All', 'Paid', 'Pending', 'Cancelled'];
-  url = 'http://localhost:3000/invoice';
+  url = 'http://localhost:3000/invoices';
   public invoices: Array<Invoice>;
   public allInvoices = [];
   public paidInvoices: Array<Invoice>;
@@ -20,10 +20,10 @@ export class InvoiceListComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.data = '2018-08';
+    //this.data = '2018-08';
     this.http.get(this.url).subscribe((data: Array<Invoice>) => {
       this.invoices = data;
-      this.dataChange();
+      this.allInvoices = data;
       this.loadValues();
     });
   }
@@ -38,6 +38,7 @@ export class InvoiceListComponent implements OnInit {
     this.paidInvoices = this.allInvoices.filter(
       (item) => item.status === 'Paid'
     );
+
     this.pendingInvoices = this.allInvoices.filter(
       (item) => item.status === 'Pending'
     );
@@ -45,23 +46,10 @@ export class InvoiceListComponent implements OnInit {
       (item) => item.status === 'Cancelled'
     );
   }
-  calculateAmount(allInvoices: object) {
-    this.allInvoices.forEach((element) => {
-      element.amount = 0;
-      for (const item of element.items) {
-        element.amount += parseFloat(item.rate) * parseFloat(item.qty);
-      }
-
-      element.amount = element.amount.toString();
-      console.log(element);
-    });
-  }
   dataChange() {
-    this.allInvoices = [];
     this.allInvoices = this.invoices.filter(
-      (item) => item.due.slice(0, 7) === this.data
+      (item) => item.dueDate.slice(0, 7) === this.data
     );
-    this.calculateAmount(this.allInvoices);
     this.loadValues();
   }
 }

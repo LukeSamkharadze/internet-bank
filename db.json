@@ -302,445 +302,236 @@
       "totalAmount": 1240,
       "status": "Pending",
       "id": 3
-    }
-  ],
-  "invoice": [
+    },
     {
-      "number": "IO-BN-124",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "green",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-124",
+      "dueDate": "2018-08-16",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 120
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 100
+        }
+      ],
+      "totalAmount": 1240.0,
       "status": "Paid",
-      "currency": "$",
-      "items": [
-        {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
-        },
-        {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
-        }
-      ]
+      "id": 3
     },
     {
-      "number": "IO-BN-127",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "green",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-127",
+      "dueDate": "2018-08-03",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 1,
+          "price": 384.2
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 50
+        }
+      ],
+      "totalAmount": 894.2,
       "status": "Paid",
-      "currency": "$",
-      "items": [
-        {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
-        },
-        {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
-        }
-      ]
+      "id": 3
     },
     {
-      "number": "IO-BN-167",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-03-01",
-      "tagColor": "green",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-167",
+      "dueDate": "2018-11-10",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 1,
+          "price": 904
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 600
+        }
+      ],
+      "totalAmount": 6904.0,
       "status": "Paid",
-      "currency": "$",
-      "items": [
-        {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
-        },
-        {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
-        }
-      ]
+      "id": 3
     },
     {
-      "number": "IO-BN-172",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "orange",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-172",
+      "dueDate": "2018-05-16",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 4,
+          "price": 100
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 300
+        }
+      ],
+      "totalAmount": 3400.0,
       "status": "Pending",
-      "currency": "$",
-      "amount": "3400.00",
-      "items": [
-        {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
-        },
-        {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
-        }
-      ]
+      "id": 3
     },
     {
-      "number": "IO-BN-178",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "orange",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-178",
+      "dueDate": "2018-03-04",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 40
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 4,
+          "price": 100
+        }
+      ],
+      "totalAmount": 480.0,
       "status": "Pending",
-      "currency": "$",
-      "amount": "480.00",
-      "items": [
-        {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
-        },
-        {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
-        }
-      ]
+      "id": 3
     },
     {
-      "number": "IO-BN-196",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "orange",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-196",
+      "dueDate": "2018-03-08",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 120
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 870
+        }
+      ],
+      "totalAmount": 8940.0,
       "status": "Pending",
-      "currency": "$",
-      "amount": "8940.00",
-      "items": [
-        {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
-        },
-        {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
-        }
-      ]
+      "id": 3
     },
     {
-      "number": "IO-BN-215",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "pink",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-215",
+      "dueDate": "2018-10-17",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 4,
+          "price": 1985
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 100
+        }
+      ],
+      "totalAmount": 8940.0,
       "status": "Cancelled",
-      "currency": "$",
-      "amount": "9000.00",
-      "items": [
-        {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
-        },
-        {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
-        }
-      ]
+      "id": 3
     },
     {
-      "number": "IO-BN-230",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "green",
-      "status": "Paid",
-      "currency": "$",
-      "amount": "124.00",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-230",
+      "dueDate": "2018-09-22",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
       "items": [
         {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
+          "itemDescription": "Marketing Materials",
+          "itemQty": 5,
+          "price": 20
         },
         {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
+          "itemDescription": "Printing Equipment",
+          "itemQty": 6,
+          "price": 4
         }
-      ]
+      ],
+      "totalAmount": 124.0,
+      "status": "Paid",
+      "id": 3
     },
     {
-      "number": "IO-BN-237",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "green",
-      "status": "Paid",
-      "currency": "$",
-      "amount": "564.00",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-237",
+      "dueDate": "2018-10-27",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
       "items": [
         {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
+          "itemDescription": "Marketing Materials",
+          "itemQty": 1,
+          "price": 509
         },
         {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
+          "itemDescription": "Printing Equipment",
+          "itemQty": 5,
+          "price": 11
         }
-      ]
+      ],
+      "totalAmount": 564.0,
+      "status": "Paid",
+      "id": 3
     },
     {
-      "number": "IO-BN-242",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "green",
-      "status": "Paid",
-      "currency": "$",
-      "amount": "4.20",
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-242",
+      "dueDate": "2018-04-11",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
       "items": [
         {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
+          "itemDescription": "Marketing Materials",
+          "itemQty": 1,
+          "price": 3
         },
         {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
+          "itemDescription": "Printing Equipment",
+          "itemQty": 1,
+          "price": 1.2
         }
-      ]
-    },
-    {
-      "number": "IO-BN-242",
-      "title": "Vodafone LLC",
-      "address": {
-        "address1": "Street Address 1",
-        "address2": "Street Address 2",
-        "address3": "Street Address 3",
-        "city": "Edinburgh",
-        "country": "Scotland",
-        "mail": "marketing@vdfn.com"
-      },
-      "date": "6 Aug 2018, 2:15 AM",
-      "due": "2018-08-01",
-      "tagColor": "green",
+      ],
+      "totalAmount": 4.2,
       "status": "Paid",
-      "currency": "$",
-      "amount": "4.20",
-      "items": [
-        {
-          "desc": "Sample Item 1",
-          "rate": "50",
-          "qty": "150"
-        },
-        {
-          "desc": "Sample Item 2",
-          "rate": "350",
-          "qty": "1"
-        },
-        {
-          "desc": "Sample Item 3",
-          "rate": "550",
-          "qty": "2"
-        },
-        {
-          "desc": "Sample Item 4",
-          "rate": "150",
-          "qty": "10"
-        }
-      ]
+      "id": 3
     }
   ]
 }
