@@ -13,7 +13,6 @@ import { InvoiceService } from '../shared/services/invoice.service';
   selector: 'app-new-invoice',
   templateUrl: './new-invoice.component.html',
   styleUrls: ['./new-invoice.component.scss'],
-  providers: [InvoiceService],
 })
 export class NewInvoiceComponent implements OnInit {
   form: FormGroup;
