@@ -72,14 +72,14 @@ export class NewInvoiceComponent implements OnInit {
   onSubmit() {
     this.calculateTotalAmount();
 
-    const invoisesObj = {
+    const invoiceObj = {
       ...this.form.getRawValue(),
       totalAmount: this.totalAmount,
       status: 'Pending',
     };
 
     this.invoiceService
-      .create(invoisesObj)
+      .create(invoiceObj)
       .pipe(
         finalize(() => {
           this.form.reset();
