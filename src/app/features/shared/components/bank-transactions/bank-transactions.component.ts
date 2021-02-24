@@ -5,7 +5,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { GetTransactionsService } from './services/get-transactions.service';
+import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
 import { AuthService } from './../../services/auth.service';
 @Component({
@@ -13,12 +13,11 @@ import { AuthService } from './../../services/auth.service';
   templateUrl: './bank-transactions.component.html',
   styleUrls: ['./bank-transactions.component.scss'],
 })
-// OnChanges
-export class BankTransactionsComponent implements OnInit {
-  // @Input() input;
+export class BankTransactionsComponent implements OnInit, OnChanges {
+  @Input() input;
   hasInput = true;
-  transactionsList: Array<TransactionsList> = [];
   show = true;
+  transactionsList: Array<TransactionsList> = [];
   searchText;
   popDetails = false;
   transactionObject = {};
@@ -38,22 +37,23 @@ export class BankTransactionsComponent implements OnInit {
   ];
   chosenDate = null;
   chosenType = null;
-  // currUserId;
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   /* tslint:disable:no-string-literal */
-  //   if (changes.hasOwnProperty('input')) {
-  //     if (changes['input'].isFirstChange()) {
-  //       // AKA initialization by angular
-  //       this.hasInput = true;
-  //       return this.hasInput;
-  //     }
-  //   }
-  //   /* tslint:enable:no-string-literal */
-  // }
+  // if feature tag has an '[input]' property, make hasInput=false. Thus, searchtab will not be displayed.
+  ngOnChanges(changes: SimpleChanges) {
+    /* tslint:disable:no-string-literal */
+    if (changes.hasOwnProperty('input')) {
+      if (changes['input'].isFirstChange()) {
+        // AKA initialization by angular
+        this.hasInput = false;
+        this.show = false;
+        return this.hasInput;
+      }
+    }
+    /* tslint:enable:no-string-literal */
+  }
 
   constructor(
-    private getTransactionService: GetTransactionsService,
+    private getTransactionService: TransactionsService,
     private authService: AuthService
   ) {}
 
@@ -69,9 +69,11 @@ export class BankTransactionsComponent implements OnInit {
             icon: element.img,
             type: element.type,
             typeId: element.typeId,
+            transactionType: element.transactionType,
             amount: element.amount,
             date: element.date,
             status: element.status,
+
             tagColor: element.tagColor,
             cardNumber: element.cardNumber,
           });
@@ -93,12 +95,6 @@ export class BankTransactionsComponent implements OnInit {
   }
 
   sendReceipt() {}
-
-  // myFilter = (d: Date): boolean => {
-  //   const day = d.getDay();
-  //   // Prevent Saturday and Sunday from being selected.
-  //   return day !== 0 && day !== 6;
-  // };
 
   myFilter(d: Date): boolean {
     const day = d.getDay();

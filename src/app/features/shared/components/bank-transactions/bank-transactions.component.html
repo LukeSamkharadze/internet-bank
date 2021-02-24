@@ -57,7 +57,7 @@
             <app-shared-dropdown
               ngModel
               placeholder="ALL"
-              [options]="['Phone payment', 'bank-transfer', 'Cash']"
+              [options]="['Phone payment', 'Bank Transfer', 'Cash', 'All']"
               (ngModelChange)="typeChangeEvent($event)"
               style="width: 150px; height: 25px"
             >
@@ -82,7 +82,7 @@
         </div>
         <div class="right">
           <h1>
-            <span>{{ transaction.amount }} </span><br />
+            <span> - {{ transaction.amount }} </span><br />
             <span class="date">{{ transaction.date }}</span>
           </h1>
         </div>

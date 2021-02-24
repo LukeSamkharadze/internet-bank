@@ -3,23 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { reduce, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
-interface Itransaction {
-  id: number;
-  title: string;
-  img: string;
-  type: string;
-  typeId: number;
-  amount: string;
-  date: string;
-  status: string;
-  tagColor: string;
-  cardNumber: number;
-}
+import { Itransaction } from '../../../interfaces/bank-transactions.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GetTransactionsService {
+export class TransactionsService {
   host = 'http://localhost:3000';
   constructor(
     private httpClient: HttpClient,
@@ -31,12 +20,18 @@ export class GetTransactionsService {
 
     if (date !== null && date !== undefined) {
       if (type !== null && type !== undefined) {
-        url = `${this.host}/transaction?userId=${this.authService.userId}&date_like=${date}&type=${type}`;
+        if (type === 'All') {
+          url = `${this.host}/transaction?userId=${this.authService.userId}&date_like=${date}`;
+        } else {
+          url = `${this.host}/transaction?userId=${this.authService.userId}&date_like=${date}&type=${type}`;
+        }
       } else {
         url = `${this.host}/transaction?userId=${this.authService.userId}&date_like=${date}`;
       }
     } else {
-      if (type !== null && type !== undefined) {
+      if (type === 'All') {
+        url = `${this.host}/transaction?userId=${this.authService.userId}`;
+      } else if (type !== null && type !== undefined) {
         url = `${this.host}/transaction?userId=${this.authService.userId}&type=${type}`;
       } else {
         url = `${this.host}/transaction?userId=${this.authService.userId}`;

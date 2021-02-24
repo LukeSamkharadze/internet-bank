@@ -2,17 +2,21 @@
 .bank-transactions {
   width: 95%;
   margin: auto;
-  margin-top: 25px;
+  margin-top: 28px;
   background-color: white;
+
   .myDiv {
     overflow: auto;
+    min-height: 300px;
   }
 
-  min-width: 551px;
+  min-width: 700px;
   .settings {
     padding: 19.12px 23px;
+
     input {
       border: none;
+      margin-left: 8px;
     }
     textarea:focus,
     input:focus {
@@ -24,6 +28,7 @@
     .right-settings {
       float: right;
       margin-right: -12px;
+
       p {
         @include text-style(12px, $secondary-dark-1);
       }
@@ -73,6 +78,7 @@
         }
         ::ng-deep .mat-form-field {
           margin-top: -7px;
+          width: 150px;
         }
         ::ng-deep .dropdown-general .selected .arrow-container {
           color: #555c64;
@@ -166,10 +172,12 @@
   .center-hr {
     width: 98%;
     margin: auto;
+    border-top: 1px solid #e8ecef;
   }
 
   .hr-bottom {
     margin-bottom: 9px;
+    border-top: 1px solid #e8ecef;
   }
   .title {
     cursor: pointer;

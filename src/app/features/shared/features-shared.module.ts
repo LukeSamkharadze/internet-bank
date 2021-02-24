@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { FeaturesSharedRoutingModule } from './features-shared-routing.module';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
+
 // const services = [CardService];
 const modules = [
   CommonModule,
@@ -33,6 +34,6 @@ const modules = [
   declarations: [...components],
   imports: [...modules],
   exports: [...components, ...modules],
-  providers: [AuthService],
+  providers: [],
 })
 export class FeaturesSharedModule {}

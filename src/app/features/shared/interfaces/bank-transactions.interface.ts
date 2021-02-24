@@ -1,7 +1,7 @@
-export interface TransactionsList {
+export interface Itransaction {
   id: number;
   title: string;
-  icon: string;
+  img: string;
   type: string;
   typeId: number;
   transactionType: string;

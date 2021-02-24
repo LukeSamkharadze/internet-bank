@@ -3,20 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { reduce, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-
-interface Itransaction {
-  id: number;
-  title: string;
-  img: string;
-  type: string;
-  typeId: number;
-  transactionType: string;
-  amount: string;
-  date: string;
-  status: string;
-  tagColor: string;
-  cardNumber: number;
-}
+import { Itransaction } from '../interfaces/bank-transactions.interface';
 
 @Injectable({
   providedIn: 'root',
