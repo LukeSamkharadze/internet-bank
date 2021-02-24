@@ -69,14 +69,14 @@ export class NewInvoiceComponent implements OnInit {
   }
 
   onSubmit() {
-    const invoiceCreateDate = new Date();
+    const createDate = new Date();
     this.calculateTotalAmount();
 
     const invoiceObj = {
       ...this.form.getRawValue(),
       totalAmount: this.totalAmount,
       status: 'Pending',
-      invoiceCreateDate: invoiceCreateDate,
+      invoiceCreateDate: createDate,
     };
 
     this.invoiceService
