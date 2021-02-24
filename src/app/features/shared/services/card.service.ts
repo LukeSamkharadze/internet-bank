@@ -1,10 +1,25 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, Observable, Subject, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  EMPTY,
+  from,
+  Observable,
+  Subject,
+  throwError,
+} from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 import { ICard } from '../interfaces/card.interface';
-import { catchError, distinctUntilChanged, retry, tap } from 'rxjs/operators';
+import {
+  catchError,
+  distinctUntilChanged,
+  map,
+  retry,
+  switchMap,
+  take,
+  tap,
+} from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
 import { AuthService } from './auth.service';
@@ -26,7 +41,7 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   create(card: ICard): Observable<ICard> {
-    card = this.determineIconPath(card);
+    card = this.determineCardType(card);
 
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
@@ -42,20 +57,35 @@ export class CardService implements BaseHttpInterface<ICard> {
     );
   }
 
-  determineIconPath(card: ICard): ICard {
+  determineCardType(card: ICard): ICard {
     const firstDigit = card.cardNumber[0];
     switch (firstDigit) {
       case '4':
         return {
           ...card,
-          iconPath: './assets/create-card/create-card-visa-icon.svg',
           cardType: 'VISA',
         };
       case '5':
         return {
           ...card,
-          iconPath: './assets/create-card/mastercard.svg',
           cardType: 'MASTERCARD',
+        };
+      default:
+        return { ...card };
+    }
+  }
+
+  determineIconPath(card: ICard): ICard {
+    switch (card.cardType) {
+      case 'VISA':
+        return {
+          ...card,
+          iconPath: './assets/create-card/create-card-visa-icon.svg',
+        };
+      case 'MASTERCARD':
+        return {
+          ...card,
+          iconPath: './assets/create-card/mastercard.svg',
         };
       default:
         return { ...card };
@@ -66,7 +96,11 @@ export class CardService implements BaseHttpInterface<ICard> {
     const userId = this.auth.userId;
     return this.http
       .get<ICard[]>(`${environment.BaseUrl}cards?userId=${userId}`)
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        map((cards) => cards.map((card) => this.determineIconPath(card))),
+        retry(1),
+        catchError(this.handleError)
+      );
   }
 
   private updateStore() {
@@ -75,18 +109,28 @@ export class CardService implements BaseHttpInterface<ICard> {
     );
   }
 
-  getCardByCardNumber(cardNumber: string) {
+  getCardByCardNumber(cardNumber: string): Observable<ICard> {
     return this.http
       .get<ICard[]>(environment.BaseUrl + `cards?cardNumber=${cardNumber}`)
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        switchMap((cards) => from(cards)),
+        take(1),
+        retry(1),
+        catchError(this.handleError)
+      );
   }
 
-  getCardByAccountNumber(accountNumber: string) {
+  getCardByAccountNumber(accountNumber: string): Observable<ICard> {
     return this.http
       .get<ICard[]>(
         environment.BaseUrl + `cards?accountNumber=${accountNumber}`
       )
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        switchMap((cards) => from(cards)),
+        take(1),
+        retry(1),
+        catchError(this.handleError)
+      );
   }
 
   update(card: ICard): Observable<ICard> {

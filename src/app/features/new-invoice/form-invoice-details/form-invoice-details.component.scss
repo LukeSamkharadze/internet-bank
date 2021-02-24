@@ -59,11 +59,7 @@
   }
 }
 
-input[type='date']:not(.has-value):before {
-  @extend .placeholder;
-}
-
-input[type='date'].has-value.ng-untouched:before {
+input[type='date']:not(.valid):before {
   @extend .placeholder;
 }
 
@@ -76,6 +72,9 @@ input[type='date'].has-value.ng-untouched:before {
 }
 
 .ng-pristine.ng-invalid.ng-untouched.focused::before {
+  display: none;
+}
+.ng-untouched.ng-invalid.ng-dirty.valid.focused::before {
   display: none;
 }
 

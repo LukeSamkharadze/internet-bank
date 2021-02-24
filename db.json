@@ -139,7 +139,87 @@
       "toUser": 1
     }
   ],
-  "payments": [],
+  "payments": [
+    {
+      "date": "2021-02-24T15:14:33.215Z",
+      "paymentType": "bank",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "beneficiary": "ss",
+      "amount": 11,
+      "currency": "USD",
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 1
+    },
+    {
+      "date": "2021-02-24T17:13:22.469Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 1,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 2
+    },
+    {
+      "date": "2021-02-24T17:13:52.349Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB4434234223333333",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 1,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 3
+    },
+    {
+      "date": "2021-02-24T17:17:18.644Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 12123123,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 4
+    },
+    {
+      "date": "2021-02-24T17:17:47.372Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB4434234223333333",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 11,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 5
+    },
+    {
+      "date": "2021-02-24T17:18:31.356Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB4434234223333333",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 1,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 6
+    },
+    {
+      "date": "2021-02-24T17:20:15.279Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB4434234223333333",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 1,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 7
+    }
+  ],
   "cards": [
     {
       "cardName": "VISA CARD",
@@ -148,11 +228,10 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 2000,
+      "availableAmount": 11882686.02,
       "security3D": false,
       "userId": "3",
-      "id": 1,
-      "iconPath": "./assets/create-card/create-card-visa-icon.svg"
+      "id": 1
     },
     {
       "cardName": "MASTER CARD",
@@ -164,8 +243,7 @@
       "availableAmount": 25000,
       "security3D": true,
       "userId": "1",
-      "id": 2,
-      "iconPath": "./assets/create-card/mastercard.svg"
+      "id": 2
     },
     {
       "cardName": "MASTER CARD",
@@ -174,11 +252,22 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 45000,
+      "availableAmount": -12078135,
       "security3D": true,
       "userId": "2",
-      "id": 3,
-      "iconPath": "./assets/create-card/mastercard.svg"
+      "id": 3
+    },
+    {
+      "cardName": "ADMIN2",
+      "accountNumber": "GE32TB4434234223333333",
+      "cardNumber": "5829389283948298",
+      "cardholder": "ADMIN ADMIN",
+      "expirationDate": "11/23",
+      "availableAmount": 9986,
+      "security3D": true,
+      "userId": "2",
+      "cardType": "MASTERCARD",
+      "id": 4
     }
   ],
   "paymentTypes": [
@@ -315,6 +404,8 @@
           "price": 150
         }
       ],
+      "totalAmount": 150,
+      "status": "Pending",
       "id": 1
     },
     {
@@ -336,6 +427,8 @@
           "price": 100
         }
       ],
+      "totalAmount": 17500,
+      "status": "Pending",
       "id": 2
     },
     {
@@ -357,6 +450,8 @@
           "price": 100
         }
       ],
+      "totalAmount": 1240,
+      "status": "Pending",
       "id": 3
     }
   ]

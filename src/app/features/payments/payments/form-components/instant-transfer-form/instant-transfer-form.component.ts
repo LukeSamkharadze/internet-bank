@@ -5,16 +5,17 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { animations } from '../shared/animations';
+import { formAnimations } from '../../../../shared/animations';
 import { InstantTransfer } from '../../../../shared/interfaces/instantTransfer.entity';
 import { TransferService } from '../../../services/transfer.service';
 import { Subscription } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-instant-transfer-form',
   templateUrl: './instant-transfer-form.component.html',
   styleUrls: ['./instant-transfer-form.component.scss'],
-  animations: [animations.errorTrigger, animations.formTrigger],
+  animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
 export class InstantTransferFormComponent implements OnInit, OnDestroy {
   title = 'Instant transfer';
@@ -34,7 +35,7 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      let transfer: InstantTransfer = {
+      const transfer: InstantTransfer = {
         date: new Date(),
         paymentType: 'instant',
         fromUserId: this.fromAccount.value.userId,
@@ -44,27 +45,24 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
       this.subscriptions.add(
         this.transferService
           .bankOrInstantTransfer(transfer)
-          .subscribe(
-            (data: {
-              status: string;
-              destinationAccountUserId?: string;
-              reason?: string;
-            }) => {
-              if (data.status === 'success') {
-                alert('success');
-                this.form.reset();
-                transfer = {
-                  ...transfer,
-                  destinationAccountUserId: data.destinationAccountUserId,
-                };
-                this.subscriptions.add(
-                  this.transferService.postTransactionToDb(transfer).subscribe()
-                );
-              } else {
-                alert(data.reason);
-              }
-            }
+          .pipe(
+            map((destinationAccountUserId: string) => {
+              this.form.reset();
+              return {
+                ...transfer,
+                destinationAccountUserId,
+              };
+            }),
+            switchMap((transfera) =>
+              this.transferService.postTransactionToDb(transfera)
+            ),
+            catchError((error) => {
+              console.log(error);
+              alert(error);
+              return error;
+            })
           )
+          .subscribe()
       );
     } else {
       this.form.markAllAsTouched();

@@ -5,8 +5,8 @@ import { ElectronicTransfer } from '../../shared/interfaces/electronicTransfer.e
 import { InstantTransfer } from '../../shared/interfaces/instantTransfer.entity';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { switchMapTo } from 'rxjs/operators';
+import { forkJoin, Observable, of, throwError } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
 
 @Injectable()
@@ -17,56 +17,39 @@ export class TransferService {
 
   bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
     // payments limitsze checki daemateba roca damerjaven masterze.
-    return new Observable((subscriber) => {
-      this.cardService
-        .getCardByCardNumber(transfer.fromAccount.cardNumber)
-        .subscribe((acc) => {
-          const fromAccount: ICard = acc[0]; // logged in user's card.
-          if (fromAccount.availableAmount < transfer.amount) {
-            subscriber.next({
-              status: 'error',
-              reason: 'not enough balance',
-            });
-            return;
+    return this.cardService
+      .getCardByCardNumber(transfer.fromAccount.cardNumber)
+      .pipe(
+        tap((card) => {
+          if (card.availableAmount < transfer.amount) {
+            throw new Error('not enough balance');
           }
-          this.cardService
-            .getCardByAccountNumber(transfer.destinationAccountNumber)
-            .subscribe((destAcc) => {
-              const destinationAccount = destAcc[0];
-              if (!destinationAccount) {
-                subscriber.next({
-                  status: 'error',
-                  reason: 'such user does not exist',
-                });
-                return;
-              }
-              if (
-                destinationAccount.accountNumber === fromAccount.accountNumber
-              ) {
-                subscriber.next({
-                  status: 'error',
-                  reason: 'Can not make payment on same account',
-                });
-                return;
-              }
-              this.removeBalance(
-                fromAccount,
-                Number(transfer.amount)
-              ).subscribe(() => {
-                this.addBalance(
-                  destinationAccount,
-                  Number(transfer.amount),
-                  true
-                ).subscribe(() => {
-                  subscriber.next({
-                    status: 'success',
-                    destinationAccountUserId: destinationAccount.userId,
-                  });
-                });
-              });
-            });
-        });
-    });
+        }),
+        switchMap((card) =>
+          forkJoin([
+            of(card),
+            this.cardService.getCardByAccountNumber(
+              transfer.destinationAccountNumber
+            ),
+          ])
+        ),
+        tap(([fromAccount, destinationAccount]) => {
+          if (!destinationAccount) {
+            throw new Error('such user does not exist');
+          }
+          if (destinationAccount.accountNumber === fromAccount.accountNumber) {
+            throw new Error('Can not make payment on same account');
+          }
+        }),
+        switchMap(([fromAccount, destinationAccount]) => {
+          return forkJoin([
+            this.removeBalance(fromAccount, Number(transfer.amount)),
+            this.addBalance(destinationAccount, Number(transfer.amount), true),
+            of(destinationAccount),
+          ]);
+        }),
+        map(([rb, ab, destinationAccount]) => destinationAccount.userId)
+      );
   }
 
   electronicTransfer(transfer: ElectronicTransfer) {
