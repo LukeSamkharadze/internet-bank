@@ -18,7 +18,7 @@
       routerLink="{{ paymentType.formPath }}"
       routerLinkActive="selected-provider"
       class="provider-wrapper"
-      *ngFor="let paymentType of allPaymentTypes$ | async"
+      *ngFor="let paymentType of allPaymentTypes$ | async; trackBy: trackByFn"
     >
       <div class="provider">
         <div class="icon-wrapper">
@@ -26,8 +26,8 @@
         </div>
         <div class="provider-details">
           <h5>{{ paymentType.name }}</h5>
-          <p *ngFor="let provider of paymentType.providers">
-            {{ provider.title
+          <p *ngFor="let provider of paymentType.providers; trackBy: trackByFn">
+            {{ provider.name
             }}<span *ngIf="shouldAddComma(provider, paymentType.providers)"
               >,&nbsp;
             </span>

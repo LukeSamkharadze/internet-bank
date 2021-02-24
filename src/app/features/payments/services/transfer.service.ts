@@ -13,15 +13,7 @@ import { CardService } from '../../shared/services/card.service';
 export class TransferService {
   constructor(private http: HttpClient, private cardService: CardService) {}
 
-  public paymentHappened$ = new BehaviorSubject(null);
-
-  currentUsersCards$ = this.paymentHappened$.pipe(
-    switchMapTo(this.cardService.getAll())
-  );
-
-  reloadCards() {
-    this.paymentHappened$.next(null);
-  }
+  currentUsersCards$ = this.cardService.cards$;
 
   bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
     // payments limitsze checki daemateba roca damerjaven masterze.
@@ -45,6 +37,15 @@ export class TransferService {
                 subscriber.next({
                   status: 'error',
                   reason: 'such user does not exist',
+                });
+                return;
+              }
+              if (
+                destinationAccount.accountNumber === fromAccount.accountNumber
+              ) {
+                subscriber.next({
+                  status: 'error',
+                  reason: 'Can not make payment on same account',
                 });
                 return;
               }
