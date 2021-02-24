@@ -5,8 +5,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { animations } from '../shared/animations';
-import { summaryAnimation } from '../shared/animations';
+import {
+  summaryAnimation,
+  formAnimations,
+} from '../../../../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { ElectronicTransfer } from '../../../../shared/interfaces/electronicTransfer.entity';
 import { ProvidersService } from '../../../services/providers.service';
@@ -17,8 +19,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './electronic-payment-form.component.html',
   styleUrls: ['./electronic-payment-form.component.scss'],
   animations: [
-    animations.errorTrigger,
-    animations.formTrigger,
+    formAnimations.errorTrigger,
+    formAnimations.formTrigger,
     summaryAnimation.summaryTrigger,
   ],
 })

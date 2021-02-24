@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { animations } from '../shared/animations';
+import { formAnimations } from '../../../../shared/animations';
 import { InstantTransfer } from '../../../../shared/interfaces/instantTransfer.entity';
 import { TransferService } from '../../../services/transfer.service';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-instant-transfer-form',
   templateUrl: './instant-transfer-form.component.html',
   styleUrls: ['./instant-transfer-form.component.scss'],
-  animations: [animations.errorTrigger, animations.formTrigger],
+  animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
 export class InstantTransferFormComponent implements OnInit, OnDestroy {
   title = 'Instant transfer';

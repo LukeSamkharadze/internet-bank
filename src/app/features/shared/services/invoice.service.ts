@@ -6,7 +6,9 @@ import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import { Invoice } from '../interfaces/invoice.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class InvoiceService implements BaseHttpInterface<Invoice> {
   constructor(private http: HttpClient) {}
 

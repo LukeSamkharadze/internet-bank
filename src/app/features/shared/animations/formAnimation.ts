@@ -6,7 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 
-export const animations = {
+export const formAnimations = {
   errorTrigger: trigger('errorTrigger', [
     state(
       'show',
@@ -33,18 +33,6 @@ export const animations = {
       }),
 
       animate(300),
-    ]),
-  ]),
-};
-
-export const summaryAnimation = {
-  summaryTrigger: trigger('summaryTrigger', [
-    transition('void =>   *', [
-      style({
-        transform: 'translateY(-20px)',
-      }),
-
-      animate(250),
     ]),
   ]),
 };
