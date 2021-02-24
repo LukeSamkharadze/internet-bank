@@ -34,9 +34,29 @@ export class TransactionsService {
       } else if (type !== null && type !== undefined) {
         url = `${this.host}/transaction?userId=${this.authService.userId}&type=${type}`;
       } else {
-        url = `${this.host}/transaction?userId=${this.authService.userId}`;
+        url = `${this.host}/transaction?toUser=${this.authService.userId}`;
       }
     }
+
+    // if (date !== null && date !== undefined) {
+    //   if (type !== null && type !== undefined) {
+    //     if (type === 'All') {
+    //       url = `${this.host}/transaction?userId=${this.authService.userId}&date_like=${date}`;
+    //     } else {
+    //       url = `${this.host}/transaction?userId=${this.authService.userId}&date_like=${date}&type=${type}`;
+    //     }
+    //   } else {
+    //     url = `${this.host}/transaction?userId=${this.authService.userId}&date_like=${date}`;
+    //   }
+    // } else {
+    //   if (type === 'All') {
+    //     url = `${this.host}/transaction?userId=${this.authService.userId}`;
+    //   } else if (type !== null && type !== undefined) {
+    //     url = `${this.host}/transaction?userId=${this.authService.userId}&type=${type}`;
+    //   } else {
+    //     url = `${this.host}/transaction?userId=${this.authService.userId}`;
+    //   }
+    // }
 
     return this.httpClient.get(url).pipe(
       map((transaction: Array<Itransaction>) => {

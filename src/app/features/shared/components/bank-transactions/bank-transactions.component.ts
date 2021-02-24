@@ -76,6 +76,8 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
 
             tagColor: element.tagColor,
             cardNumber: element.cardNumber,
+            fromUser: element.fromUser,
+            toUser: element.toUser,
           });
         });
       });

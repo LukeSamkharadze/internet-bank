@@ -17,9 +17,7 @@ export class IncomeTransactionsService {
 
   getIncomeTransactions() {
     return this.httpClient
-      .get(
-        `${this.host}/transaction?userId=${this.authService.userId}transactionType=Income`
-      )
+      .get(`${this.host}/transaction?toUser=${this.authService.userId}`)
       .pipe(
         map((transactions: Array<Itransaction>) => {
           return transactions.map((transaction) => {

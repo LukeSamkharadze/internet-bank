@@ -10,4 +10,6 @@ export interface TransactionsList {
   status: string;
   tagColor: string;
   cardNumber: number;
+  fromUser: number;
+  toUser: number;
 }

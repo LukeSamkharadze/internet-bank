@@ -83,56 +83,60 @@
       "title": "Vodafone account top up  ****04",
       "img": "./assets/bank-transactions/img/Ico-1.png",
       "type": "Phone payment",
-      "transactionType": "Income",
+      "transactionType": "",
       "typeId": 3,
       "amount": "$4.20",
       "date": "4 Aug 1:00 PM",
       "status": "paid",
       "tagColor": "green",
       "cardNumber": 5678,
-      "userId": 1
+      "fromUser": 1,
+      "toUser": 2
     },
     {
       "id": 2,
       "title": "Money transfer to John Doe",
       "img": "./assets/bank-transactions/img/Ico-2.png",
       "type": "Bank Transfer",
-      "transactionType": "Expense",
+      "transactionType": "",
       "typeId": 2,
       "amount": "$10.480.00",
       "date": "5 Aug 3:00 PM",
       "status": "in progress",
       "tagColor": "blue",
       "cardNumber": 1278,
-      "userId": 1
+      "fromUser": 1,
+      "toUser": 2
     },
     {
       "id": 3,
       "title": "ATM Cash withdrawal",
       "img": "./assets/bank-transactions/img/Ico-3.png",
       "type": "Cash",
-      "transactionType": "Income",
+      "transactionType": "",
       "typeId": 1,
       "amount": "$201.50",
       "date": "6 Aug 2:15 AM",
       "status": "paid",
       "tagColor": "green",
       "cardNumber": 4563,
-      "userId": 2
+      "fromUser": 2,
+      "toUser": 1
     },
     {
       "id": 4,
       "title": "ATM Cash withdrawal",
       "img": "./assets/bank-transactions/img/Ico-4.png",
       "type": "Cash",
-      "transactionType": "Income",
+      "transactionType": "",
       "typeId": 1,
       "amount": "$204",
       "date": "3 Aug 2:15 AM",
       "status": "paid",
       "tagColor": "green",
       "cardNumber": 4873,
-      "userId": 1
+      "fromUser": 3,
+      "toUser": 1
     }
   ],
   "payments": [],
