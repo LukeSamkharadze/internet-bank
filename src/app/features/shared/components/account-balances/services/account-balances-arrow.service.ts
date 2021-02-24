@@ -1,33 +1,30 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { BankTransfer } from '../../../interfaces/bankTransfer.entity';
 import { PaymentsGetterService } from '../../../services/paymentsGetter.service';
 @Injectable()
 export class ArrowDirectionService {
-  constructor(public getPayments: PaymentsGetterService) {}
-  determineArrow(accNum) {
-    const promise = new Promise((resolve, reject) => {
-      this.getPayments
-        .getByAccountNumber(accNum)
-        .subscribe((val: BankTransfer[]) => {
-          if (val) {
-            const latestPaymentId = Math.max(...val.map((o) => o.id), 0);
-            if (val.filter((payment) => payment.id === latestPaymentId)[0]) {
-              const lastPaymentAuthor =
-                val.filter((payment) => payment.id === latestPaymentId)[0]
-                  .fromAccount +
-                  '' ===
-                accNum;
-              resolve(lastPaymentAuthor);
+  constructor(public paymentsGetterService: PaymentsGetterService) {}
+  determineArrow(accNum): Observable<string> {
+    return this.paymentsGetterService.getByAccountNumber(accNum).pipe(
+      map((val: BankTransfer[]) => {
+        if (val) {
+          const latestPaymentId = Math.max(...val.map((o) => o.id), 0);
+          if (val.filter((payment) => payment.id === latestPaymentId)[0]) {
+            if (
+              val.filter((payment) => payment.id === latestPaymentId)[0]
+                .fromAccount +
+                '' ===
+              accNum
+            ) {
+              return 'la-arrow-down';
+            } else {
+              return 'la-long-arrow-alt-up';
             }
           }
-        });
-    }).then((res) => {
-      if (res) {
-        return 'la-arrow-down';
-      } else {
-        return 'la-long-arrow-alt-up';
-      }
-    });
-    return promise;
+        }
+      })
+    );
   }
 }

@@ -54,7 +54,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       case '5':
         return {
           ...card,
-          iconPath: './assets/create-card/card-bg.svg',
+          iconPath: './assets/create-card/mastercard.svg',
           cardType: 'MASTERCARD',
         };
       default:

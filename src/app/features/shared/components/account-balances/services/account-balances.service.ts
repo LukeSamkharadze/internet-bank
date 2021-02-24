@@ -12,18 +12,18 @@ import { Subject } from 'rxjs';
 export class AccountBalancesService {
   balances$ = new Subject();
   constructor(
-    private loggedUser: AuthService,
-    private cardInfo: CardService,
-    private depositInfo: DepositService
+    private authService: AuthService,
+    private cardService: CardService,
+    private depositService: DepositService
   ) {}
 
   getBalances() {
-    this.depositInfo.getAll().subscribe((deposits) => {
+    this.depositService.getAll().subscribe((deposits) => {
       this.getCards().subscribe((cards) => {
         const wholeBalances: Array<ICard | IDeposit> = [
           ...cards,
           ...deposits.filter(
-            (depo) => depo.userId + '' === this.loggedUser.userId
+            (depo) => depo.userId + '' === this.authService.userId
           ),
         ];
         this.balances$.next(wholeBalances);
@@ -31,7 +31,7 @@ export class AccountBalancesService {
     });
   }
   getCards() {
-    return this.cardInfo.cards$.pipe(map((card) => card));
+    return this.cardService.cards$.pipe(map((card) => card));
   }
   determineIconPath(card: ICard): string {
     const cardType = card.cardType;

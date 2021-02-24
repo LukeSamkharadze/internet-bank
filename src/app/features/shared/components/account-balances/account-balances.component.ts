@@ -12,30 +12,28 @@ import { AccountBalancesService } from './services/account-balances.service';
 })
 export class AccountBalancesComponent implements OnInit, AfterViewInit {
   constructor(
-    public allBalances: AccountBalancesService,
-    public getPayments: PaymentsGetterService,
-    private arrowFunction: ArrowDirectionService
+    public accountBalancesService: AccountBalancesService,
+    public paymentsGetterService: PaymentsGetterService,
+    private arrowDirectionService: ArrowDirectionService
   ) {}
   balance: Array<ICard | IDeposit>;
   ngOnInit(): void {
-    this.allBalances.getBalances();
+    this.accountBalancesService.getBalances();
   }
   ngAfterViewInit() {
-    this.allBalances.balances$.subscribe(
+    this.accountBalancesService.balances$.subscribe(
       (wholeBalance: Array<ICard | IDeposit>) => {
         for (const i of wholeBalance) {
-          this.arrowFunction.determineArrow(i.accountNumber).then(() => {
-            const index = wholeBalance.indexOf(i);
-            wholeBalance.splice(index, 1);
-            this.arrowFunction
-              .determineArrow(i.accountNumber)
-              .then((arrowState) => {
-                const b = { ...i, arrow: arrowState };
-                wholeBalance.splice(index, 0, b);
-              });
-          });
+          const index = wholeBalance.indexOf(i);
+          wholeBalance.splice(index, 1);
+          const b = {
+            ...i,
+            arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
+          };
+          wholeBalance.splice(index, 0, b);
         }
         this.balance = wholeBalance;
+        console.log(this.balance);
       }
     );
   }

@@ -77,7 +77,32 @@
       ]
     }
   ],
-  "payments": [],
+  "payments": [
+    {
+      "date": "2021-02-24T10:19:41.151Z",
+      "paymentType": "electronic",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationEmail": "nini@gmail.com",
+      "amount": 78,
+      "currency": "USD",
+      "fromUserId": "2",
+      "id": 1
+    },
+
+    {
+      "date": "2021-02-24T10:58:31.676Z",
+      "paymentType": "bank",
+      "fromUserId": "3",
+      "fromAccount": "GE32TB1111222233334444",
+      "destinationAccountNumber": "GE32TB3333111122224444",
+      "beneficiary": "BARRY ARMSTRONG",
+      "amount": 13,
+      "currency": "USD",
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "2",
+      "id": 2
+    }
+  ],
   "cards": [
     {
       "cardName": "VISA CARD",
@@ -86,7 +111,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 2000,
+      "availableAmount": 2064.42,
       "security3D": false,
       "userId": "3",
       "id": 1,
@@ -112,7 +137,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 45000,
+      "availableAmount": 44776.74,
       "security3D": true,
       "userId": "2",
       "id": 3,
