@@ -50,7 +50,7 @@
       <ng-template #paymentSystemTemplate let-option>
         <div class="payment-system-template">
           <img [src]="option['iconPath']" />
-          <span>{{ option['title'] }}</span>
+          <span>{{ option['name'] }}</span>
         </div>
       </ng-template>
 
@@ -71,7 +71,7 @@
 
     <div class="input-wrapper" *ngIf="paymentSystem.value">
       <label class="input-label" for="el-account"
-        >{{ paymentSystem.value.title }} account
+        >{{ paymentSystem.value.name }} account
         <span
           [@errorTrigger]
           *ngIf="

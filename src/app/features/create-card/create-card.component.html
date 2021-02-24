@@ -1,10 +1,10 @@
 <section class="main-container grid-container">
   <div class="gritem-1">
     <div class="crd-header">
-      <img
-        src="./assets/create-card/create-card-visa-icon.svg"
-        alt="visa card mini logo"
-      />
+      <div class="visa-card-container">
+        <img src="./assets/cards/visa.svg" alt="visa card mini logo" />
+      </div>
+
       <p class="add-crd-txt">Add new card</p>
       <p class="crd-money">
         {{ (amount.value ? amount.value : 0) | currency }}
@@ -14,7 +14,7 @@
   <div class="gritem-2">
     <div class="card-placeholder">
       <img
-        src="./assets/create-card/card-bg.svg"
+        src="./assets/cards/create/card-bg.svg"
         alt="card placeholder"
         height="200"
         width="327.586"
@@ -62,6 +62,7 @@
           #accountNumber
           type="text"
           id="accountNumber"
+          maxlength="16"
           [ngClass]="{
             valid: form.controls.accountNumber.valid,
             invalid: form.controls.accountNumber.invalid && accountNumber.value
@@ -83,6 +84,7 @@
           #cardNumber
           type="text"
           id="cardNumber"
+          maxlength="16"
           [ngClass]="{
             valid: form.controls.cardNumber.valid,
             invalid: form.controls.cardNumber.invalid && cardNumber.value

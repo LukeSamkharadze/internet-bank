@@ -5,20 +5,23 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { animations } from '../shared/animations';
-import { summaryAnimation } from '../shared/animations';
+import {
+  summaryAnimation,
+  formAnimations,
+} from '../../../../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { ElectronicTransfer } from '../../../../shared/interfaces/electronicTransfer.entity';
 import { ProvidersService } from '../../../services/providers.service';
 import { Subscription } from 'rxjs';
+import { catchError, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-electronic-payment-form',
   templateUrl: './electronic-payment-form.component.html',
   styleUrls: ['./electronic-payment-form.component.scss'],
   animations: [
-    animations.errorTrigger,
-    animations.formTrigger,
+    formAnimations.errorTrigger,
+    formAnimations.formTrigger,
     summaryAnimation.summaryTrigger,
   ],
 })
@@ -59,18 +62,18 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
       this.subscriptions.add(
         this.transferService
           .electronicTransfer(transfer)
-          .subscribe((data: { status: string; reason?: string }) => {
-            if (data.status === 'success') {
+          .pipe(
+            tap(() => {
               alert('success');
               this.form.reset();
-              this.subscriptions.add(
-                this.transferService.postTransactionToDb(transfer).subscribe()
-              );
-              this.transferService.reloadCards();
-            } else {
-              alert(data.reason);
-            }
-          })
+            }),
+            switchMap(() => this.transferService.postTransactionToDb(transfer)),
+            catchError((error) => {
+              alert(error);
+              return error;
+            })
+          )
+          .subscribe()
       );
     } else {
       this.form.markAllAsTouched();
