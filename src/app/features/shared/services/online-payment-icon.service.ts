@@ -4,30 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class OnlinePaymentIconService {
+  private onlinePayments: string[] = ['paypal', 'skrill', 'payoneer'];
+
   determineOnlinePaymentsIcon(obj: any, title: string) {
+    console.log(title);
     title = title.toLocaleLowerCase();
-    switch (title) {
-      case 'paypal':
-        return {
-          ...obj,
-          iconPath: `./assets/electronic-payments/${title}.svg`,
-        };
-      case 'skrill':
-        return {
-          ...obj,
-          iconPath: `./assets/electronic-payments/${title}.svg`,
-        };
-      case 'payoneer':
-        return {
-          ...obj,
-          iconPath: `./assets/electronic-payments/${title}.svg`,
-        };
-      default:
-        return {
-          ...obj,
-          iconPath: 'path_to_default',
-        };
-    }
+    return {
+      ...obj,
+      iconPath: this.onlinePayments.includes(title)
+        ? `./assets/electronic-payments/${title}.svg`
+        : undefined,
+    };
   }
 }
-// ooga booga
