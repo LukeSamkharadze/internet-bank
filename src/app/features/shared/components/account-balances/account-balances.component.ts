@@ -9,8 +9,6 @@ import { AccountBalancesService } from './services/account-balances.service';
   providers: [AccountBalancesService, ArrowDirectionService],
 })
 export class AccountBalancesComponent implements OnInit, AfterViewInit {
-  lastPaymentAuthor;
-  public cards = [];
   constructor(
     public balances: AccountBalancesService,
     public getPayments: PaymentsGetterService,
@@ -21,7 +19,7 @@ export class AccountBalancesComponent implements OnInit, AfterViewInit {
     this.balances.getBalances();
   }
   ngAfterViewInit() {
-    this.balances.sub$.subscribe((card: Array<any>) => {
+    this.balances.balances$.subscribe((card: Array<any>) => {
       for (const i of card) {
         this.arrowFunction.determineArrow(i.accountNumber).then(() => {
           const index = card.indexOf(i);
@@ -31,7 +29,6 @@ export class AccountBalancesComponent implements OnInit, AfterViewInit {
             .then((arrowState) => {
               const b = { ...i, arrow: arrowState };
               card.splice(index, 0, b);
-              this.cards = card;
             });
         });
       }
