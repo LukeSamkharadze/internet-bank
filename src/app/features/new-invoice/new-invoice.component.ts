@@ -18,6 +18,7 @@ import { InvoiceService } from '../shared/services/invoice.service';
 export class NewInvoiceComponent implements OnInit {
   form: FormGroup;
   items: FormArray;
+  totalAmount = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -51,24 +52,34 @@ export class NewInvoiceComponent implements OnInit {
     });
   }
 
-  chengeValueType() {
+  calculateTotalAmount() {
     const controls = 'controls';
     const price = 'price';
+    const itemQty = 'itemQty';
 
     for (const i in this.items[controls]) {
       if (this.items[controls].hasOwnProperty(i)) {
         this.items[controls][i][controls][price].setValue(
           parseInt(this.items[controls][i][controls][price].value, 10)
         );
+        this.totalAmount +=
+          this.items[controls][i][controls][price].value *
+          this.items[controls][i][controls][itemQty].value;
       }
     }
   }
 
   onSubmit() {
-    this.chengeValueType();
+    this.calculateTotalAmount();
+
+    const invoisesObj = {
+      ...this.form.getRawValue(),
+      totalAmount: this.totalAmount,
+      status: 'Pending',
+    };
 
     this.invoiceService
-      .create(this.form.getRawValue())
+      .create(invoisesObj)
       .pipe(
         finalize(() => {
           this.form.reset();
