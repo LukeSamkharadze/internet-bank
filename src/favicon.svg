@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__svg1332" version="1.1" viewBox="0 0 50.337 45.321" height="171.291"
+   width="190.251">
+   <defs id="prefix__defs1326">
+      <style type="text/css" id="style1334">
+         .prefix__fil1 {
+            fill: #00a3e0;
+            fill-rule: nonzero
+         }
+      </style>
+   </defs>
+   <g transform="translate(180.634 -232.262)" id="prefix__layer1">
+      <g transform="translate(.5 -.5)" id="prefix__g1413">
+         <path id="prefix__path1353"
+            d="M-158.607 257.648c.19 1.929.286 2.953-1.286 4.62-1.643 1.74-5.764 4.93-9.98 7.36-1.786 1.024-4.192 2.263-6.002 2.93-1.358.476-2.477.69-3.049-.286-.357-.643-.19-1.215 0-1.715 1.477-3.978 5.693-11.409 8.456-16.244.286-.476.571-1 .857-1.5 4.24-7.313 9.861-16.268 10.98-17.721.143-.19.453-.43.715-.286.214.119.214.38.19.571 0 .024-.07.286-.095.405-1.834 7.384-1.62 14.625-.786 21.866z"
+            class="prefix__fil1" clip-rule="evenodd" fill="#00a3e0" fill-opacity="1" fill-rule="nonzero"
+            stroke-width=".024" image-rendering="optimizeQuality" shape-rendering="geometricPrecision"
+            text-rendering="geometricPrecision" />
+         <path id="prefix__path1355"
+            d="M-152.414 259.91c-1.786-.81-2.715-1.238-3.358-3.43-.691-2.286-1.382-7.455-1.382-12.314 0-2.048.12-4.763.453-6.669.262-1.405.643-2.5 1.786-2.5.715 0 1.12.452 1.477.88 2.715 3.24 7.026 10.624 9.837 15.411.286.5.571 1 .857 1.524 4.216 7.337 9.17 16.673 9.861 18.34.095.239.167.62-.095.787-.238.119-.453-.024-.596-.12a4.299 4.299 0 00-.31-.285c-5.478-5.288-11.86-8.742-18.53-11.624z"
+            class="prefix__fil1" clip-rule="evenodd" fill="#00a3e0" fill-opacity="1" fill-rule="nonzero"
+            stroke-width=".024" image-rendering="optimizeQuality" shape-rendering="geometricPrecision"
+            text-rendering="geometricPrecision" />
+         <path id="prefix__path1357"
+            d="M-157.487 264.15c1.596-1.143 2.43-1.739 4.668-1.215 2.31.572 7.122 2.549 11.361 4.978 1.763 1.024 4.05 2.477 5.526 3.716 1.096.929 1.834 1.81 1.287 2.787-.382.643-.953.762-1.501.857-4.168.715-12.719.762-18.269.81h-1.762c-8.456-.024-19.007-.405-20.817-.643-.262-.048-.62-.167-.596-.476 0-.262.214-.382.381-.453.048-.024.286-.095.405-.12 7.312-2.119 13.481-5.906 19.317-10.241z"
+            class="prefix__fil1" clip-rule="evenodd" fill="#00a3e0" fill-opacity="1" fill-rule="nonzero"
+            stroke-width=".024" image-rendering="optimizeQuality" shape-rendering="geometricPrecision"
+            text-rendering="geometricPrecision" />
+      </g>
+   </g>
+</svg>
