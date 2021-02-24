@@ -11,12 +11,13 @@ import { AccountBalancesService } from './services/account-balances.service';
   providers: [AccountBalancesService, ArrowDirectionService],
 })
 export class AccountBalancesComponent implements OnInit, AfterViewInit {
+  balance: Array<ICard | IDeposit>;
   constructor(
     public accountBalancesService: AccountBalancesService,
     public paymentsGetterService: PaymentsGetterService,
     private arrowDirectionService: ArrowDirectionService
   ) {}
-  balance: Array<ICard | IDeposit>;
+
   ngOnInit(): void {
     this.accountBalancesService.getBalances();
   }
@@ -33,7 +34,6 @@ export class AccountBalancesComponent implements OnInit, AfterViewInit {
           wholeBalance.splice(index, 0, b);
         }
         this.balance = wholeBalance;
-        console.log(this.balance);
       }
     );
   }

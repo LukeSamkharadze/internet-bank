@@ -6,7 +6,7 @@ import { PaymentsGetterService } from '../../../services/paymentsGetter.service'
 @Injectable()
 export class ArrowDirectionService {
   constructor(public paymentsGetterService: PaymentsGetterService) {}
-  determineArrow(accNum): Observable<string> {
+  determineArrow(accNum: string): Observable<string> {
     return this.paymentsGetterService.getByAccountNumber(accNum).pipe(
       map((val: BankTransfer[]) => {
         if (val) {

@@ -5,12 +5,11 @@ import { IDeposit } from '../../../interfaces/deposit.interface';
 import { AuthService } from '../../../services/auth.service';
 import { CardService } from '../../../services/card.service';
 import { DepositService } from '../../../services/deposit.service';
-import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Injectable()
 export class AccountBalancesService {
-  balances$ = new Subject();
+  balances$ = new Subject<Array<ICard | IDeposit>>();
   constructor(
     private authService: AuthService,
     private cardService: CardService,
@@ -19,7 +18,7 @@ export class AccountBalancesService {
 
   getBalances() {
     this.depositService.getAll().subscribe((deposits) => {
-      this.getCards().subscribe((cards) => {
+      this.cardService.cards$.subscribe((cards) => {
         const wholeBalances: Array<ICard | IDeposit> = [
           ...cards,
           ...deposits.filter(
@@ -29,9 +28,6 @@ export class AccountBalancesService {
         this.balances$.next(wholeBalances);
       });
     });
-  }
-  getCards() {
-    return this.cardService.cards$.pipe(map((card) => card));
   }
   determineIconPath(card: ICard): string {
     const cardType = card.cardType;
