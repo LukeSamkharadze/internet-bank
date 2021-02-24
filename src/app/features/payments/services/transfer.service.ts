@@ -6,27 +6,32 @@ import { InstantTransfer } from '../../shared/interfaces/instantTransfer.entity'
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { forkJoin, Observable, of, throwError } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { catchError, finalize, map, switchMap, tap } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
 
 @Injectable()
 export class TransferService {
-  constructor(private http: HttpClient, private cardService: CardService) {
-  }
+  constructor(private http: HttpClient, private cardService: CardService) {}
 
   currentUsersCards$ = this.cardService.cards$;
 
   bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
-    // payments limitsze checki daemateba roca damerjaven masterze.
     return this.cardService
       .getCardByCardNumber(transfer.fromAccount.cardNumber)
       .pipe(
-        tap(card => {
+        tap((card) => {
           if (card.availableAmount < transfer.amount) {
             throw new Error('not enough balance');
           }
         }),
-        switchMap(card => forkJoin([of(card), this.cardService.getCardByAccountNumber(transfer.destinationAccountNumber)])),
+        switchMap((card) =>
+          forkJoin([
+            of(card),
+            this.cardService.getCardByAccountNumber(
+              transfer.destinationAccountNumber
+            ),
+          ])
+        ),
         tap(([fromAccount, destinationAccount]) => {
           if (!destinationAccount) {
             throw new Error('such user does not exist');
@@ -37,43 +42,28 @@ export class TransferService {
         }),
         switchMap(([fromAccount, destinationAccount]) => {
           return forkJoin([
-            this.removeBalance(
-              fromAccount,
-              Number(transfer.amount),
-            ),
-            this.addBalance(
-              destinationAccount,
-              Number(transfer.amount),
-              true,
-            ),
+            this.removeBalance(fromAccount, Number(transfer.amount)),
+            this.addBalance(destinationAccount, Number(transfer.amount), true),
             of(destinationAccount),
           ]);
         }),
-        map(([rb, ab, destinationAccount]) => destinationAccount.userId),
+        map(([rb, ab, destinationAccount]) => destinationAccount.userId)
       );
   }
 
   electronicTransfer(transfer: ElectronicTransfer) {
-    // payments limitsze checki daemateba roca damerjaven masterze.
-    return new Observable((subscriber) => {
-      this.cardService
-        .getCardByCardNumber(transfer.fromAccount.cardNumber)
-        .subscribe((acc) => {
-          const fromAccount: ICard = acc[0]; // logged in user's card.
-          if (fromAccount.availableAmount < transfer.amount) {
-            subscriber.next({
-              status: 'error',
-              reason: 'not enough balance',
-            });
-            return;
+    return this.cardService
+      .getCardByCardNumber(transfer.fromAccount.cardNumber)
+      .pipe(
+        tap((card) => {
+          if (card.availableAmount < transfer.amount) {
+            throw new Error('not enough balance');
           }
-          this.removeBalance(fromAccount, transfer.amount).subscribe(() => {
-            subscriber.next({
-              status: 'success',
-            });
-          });
-        });
-    });
+        }),
+        switchMap((fromAccount) =>
+          this.removeBalance(fromAccount, Number(transfer.amount))
+        )
+      );
   }
 
   removeBalance(card: ICard, amountToRemove: number) {
