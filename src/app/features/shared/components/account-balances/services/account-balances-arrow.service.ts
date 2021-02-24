@@ -19,8 +19,15 @@ export class ArrowDirectionService {
               accNum
             ) {
               return 'la-arrow-down';
-            } else {
+            } else if (
+              val.filter((payment) => payment.id === latestPaymentId)[0]
+                .destinationAccountNumber +
+                '' ===
+              accNum
+            ) {
               return 'la-long-arrow-alt-up';
+            } else {
+              return;
             }
           }
         }

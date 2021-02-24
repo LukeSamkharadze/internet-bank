@@ -79,27 +79,14 @@
   ],
   "payments": [
     {
-      "date": "2021-02-24T10:19:41.151Z",
+      "date": "2021-02-24T11:56:12.767Z",
       "paymentType": "electronic",
-      "fromAccount": "GE32TB3333111122224444",
+      "fromAccount": "GE32TB1304200113042001",
       "destinationEmail": "nini@gmail.com",
-      "amount": 78,
+      "amount": 79,
       "currency": "USD",
       "fromUserId": "2",
-      "id": 1
-    },
-    {
-      "date": "2021-02-24T10:58:31.676Z",
-      "paymentType": "bank",
-      "fromUserId": "3",
-      "fromAccount": "GE32TB1111222233334444",
-      "destinationAccountNumber": "GE32TB3333111122224444",
-      "beneficiary": "BARRY ARMSTRONG",
-      "amount": 13,
-      "currency": "USD",
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "2",
-      "id": 2
+      "id": 3
     },
     {
       "date": "2021-02-24T11:56:12.767Z",

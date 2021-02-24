@@ -99,6 +99,9 @@
         display: flex;
         justify-content: space-between;
       }
+      .arrowSpace {
+        width: 5px;
+      }
       .card-position {
         @extend .detail-position;
         justify-content: space-between;
