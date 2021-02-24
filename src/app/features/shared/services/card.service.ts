@@ -19,8 +19,6 @@ export class CardService implements BaseHttpInterface<ICard> {
 
   public cards$ = this.store$.pipe(distinctUntilChanged());
 
-  public subj = new Subject<boolean>(); // ◄ ეს ხაზი ამოსაღებია
-
   constructor(private http: HttpClient, private auth: AuthService) {
     this.updateStore();
   }
@@ -29,12 +27,6 @@ export class CardService implements BaseHttpInterface<ICard> {
     card = this.determineIconPath(card);
 
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
-      retry(1),
-      // ▼ ▼ ▼ ამის ქვევით მოსაშლელია ▼ ▼ ▼
-      tap(() => {
-        this.subj.next(true);
-      }),
-      // ▲ ▲ ▲ ამის ზევით მოსაშლელია ▲ ▲ ▲
       tap((newCard) =>
         this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
       ),

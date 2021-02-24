@@ -1,12 +1,10 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { CardService } from '../../../features/shared/services/card.service';
 import { Router } from '@angular/router';
-import { AppRoutingModule } from '../../../app-routing.module';
 @Component({
   selector: 'app-shared-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
-  providers: [CardService],
 })
 export class LayoutComponent implements OnInit {
   public menuIsActive = false;
@@ -43,20 +41,8 @@ export class LayoutComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.cardService.subj.subscribe(() => {
-      this.cardService.getAll().subscribe((response) => {
-        this.cardArray = response.map((v) => {
-          console.log(v);
-          return v.cardNumber.toString().slice(-4);
-        });
-        this.cardTypeArray = response.map((v) => {
-          console.log(v);
-          return v.cardType;
-        });
-        this.getMainContentMinHeight();
-      });
-    });
-    this.cardService.getAll().subscribe((response) => {
+    this.cardService.cards$.subscribe((response) => {
+      this.cardArray = [];
       for (const card of response) {
         const cardNum = card.cardNumber.toString();
         this.cardArray.push(cardNum.slice(-4));

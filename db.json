@@ -172,6 +172,8 @@
     },
     {
       "email": "admin@gmail.com",
+      "language": "English",
+      "sex": "Male",
       "id": 2,
       "password": "12345678",
       "fullname": "EDMOND DANTES"
