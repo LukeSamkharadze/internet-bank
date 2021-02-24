@@ -3,10 +3,13 @@
   font-weight: $font-weight;
   color: $color;
 }
+:host {
+  width: 36%;
+  display: block;
+}
 .acc-spendings {
   width: 100%;
   min-width: 330px;
-  height: 324px;
   background-color: white;
   .spendings-title {
     padding: 21px 22px 35px;
