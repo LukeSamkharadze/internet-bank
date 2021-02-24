@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
+import { ILimits } from '../../payment-limits/payment-interfaces';
 import { AuthService } from '../../shared/services/auth.service';
+import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { UserService } from '../../shared/services/user.service';
 
 @Component({
@@ -41,7 +43,8 @@ export class RegisterComponent {
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userLimits: PaymentLimitsService
   ) {}
 
   // Uppercase user's fullname
@@ -68,6 +71,17 @@ export class RegisterComponent {
             .create(user)
             .pipe(finalize(() => this.form.reset()))
             .subscribe();
+
+          // Add user limits on DB
+
+          const limits: ILimits = {
+            bankLimit: 5000,
+            onlineLimit: 5000,
+            cashLimit: 5000,
+            id: user.id,
+          };
+
+          this.userLimits.createUserLimits(limits).subscribe();
 
           // Wait 1 sec after successful registration and redirect to 'Login'
           setTimeout(() => {

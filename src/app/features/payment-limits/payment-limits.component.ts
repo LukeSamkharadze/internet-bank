@@ -1,19 +1,11 @@
-import { CurrencyPipe, registerLocaleData } from '@angular/common';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { Observable } from 'rxjs';
-import { reduce, scan, tap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 import { ElectronicTransfer } from '../shared/interfaces/electronicTransfer.entity';
 import { AuthService } from '../shared/services/auth.service';
 import { PaymentsGetterService } from '../shared/services/paymentsGetter.service';
 import { ILimits } from './payment-interfaces';
-import { PaymentLimitsService } from './payment-limits.service';
+import { PaymentLimitsService } from '../shared/services/payment-limits.service';
 
 @Component({
   selector: 'app-payment-limits',
@@ -49,7 +41,7 @@ export class PaymentLimitsComponent implements OnInit {
   }
 
   getHTTP() {
-    this.paymentLimitService.getData(this.id).subscribe((val) => {
+    this.paymentLimitService.getById(this.id).subscribe((val) => {
       this.everyLimit = val;
 
       this.withdrawLimit.patchValue(val.cashLimit);

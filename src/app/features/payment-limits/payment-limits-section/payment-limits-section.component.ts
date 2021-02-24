@@ -17,10 +17,7 @@ import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 })
 export class PaymentLimitsSectionComponent
   implements OnInit, ControlValueAccessor {
-  constructor(
-    private element: ElementRef,
-    @Self() public controlDir: NgControl
-  ) {
+  constructor(@Self() public controlDir: NgControl) {
     this.controlDir.valueAccessor = this;
   }
 
@@ -29,8 +26,6 @@ export class PaymentLimitsSectionComponent
   inputForm = new FormControl();
 
   currency = 'USD';
-
-  // @Input() limit = 0;
 
   @Input() spending = 0;
 

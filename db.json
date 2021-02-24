@@ -59,6 +59,24 @@
       "bankLimit": 12000,
       "onlineLimit": 10000,
       "cashLimit": 8000
+    },
+    {
+      "bankLimit": 5000,
+      "onlineLimit": 5000,
+      "cashLimit": 5000,
+      "id": 4
+    },
+    {
+      "bankLimit": 5000,
+      "onlineLimit": 5000,
+      "cashLimit": 5000,
+      "id": 5
+    },
+    {
+      "bankLimit": 7000,
+      "onlineLimit": 5000,
+      "cashLimit": 11000,
+      "id": 6
     }
   ],
   "income": [
@@ -130,19 +148,6 @@
       "transferType": "Personal transfer",
       "destinationAccountUserId": "3",
       "id": 3
-    },
-    {
-      "date": "2021-02-22T19:59:38.891Z",
-      "paymentType": "bank",
-      "fromUserId": "3",
-      "fromAccount": "GE32TB1111222233334444",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "beneficiary": "BARRY ARMSTRONG",
-      "amount": 9000,
-      "currency": "USD",
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 4
     }
   ],
   "cards": [
@@ -248,6 +253,24 @@
       "email": "mafia_immortal@outlook.com",
       "password": "ssssssssss",
       "id": 3
+    },
+    {
+      "fullname": "JAVAXA JAVAXA",
+      "email": "javaxa@gmail.com",
+      "password": "Javaxa1234",
+      "id": 4
+    },
+    {
+      "fullname": "BABAXA BABAXA",
+      "email": "babaxa@gmail.com",
+      "password": "Babaxa1234",
+      "id": 5
+    },
+    {
+      "fullname": "GIO GIO",
+      "email": "gio@gmail.com",
+      "password": "Gio12345",
+      "id": 6
     }
   ],
   "deposits": [
