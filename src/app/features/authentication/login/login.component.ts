@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
+import { formAnimations } from '../../shared/animations/formAnimation';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['../authentication.component.scss', './login.component.scss'],
+  animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
 export class LoginComponent implements OnInit {
   emailPattern = this.authService.emailPattern;

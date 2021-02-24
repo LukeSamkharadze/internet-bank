@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
+import { formAnimations } from '../../shared/animations/formAnimation';
 
 @Component({
   selector: 'app-recover',
   templateUrl: './recover.component.html',
   styleUrls: ['../authentication.component.scss', './recover.component.scss'],
+  animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
 export class RecoverComponent {
   emailPattern = this.authService.emailPattern;

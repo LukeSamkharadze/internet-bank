@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { AuthService } from '../../shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
+import { formAnimations } from '../../shared/animations/formAnimation';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['../authentication.component.scss', './register.component.scss'],
+  animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
 export class RegisterComponent {
   fullnamePattern = this.authService.fullnamePattern;

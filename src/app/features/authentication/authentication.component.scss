@@ -79,6 +79,13 @@
         .input-container {
           position: relative;
 
+          .error-message {
+            color: $secondary-3;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+          }
+
           .input-tooltip {
             display: none;
             align-items: center;

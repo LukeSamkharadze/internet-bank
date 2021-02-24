@@ -16,7 +16,12 @@
           premium products
         </p>
       </div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" id="authentication-form">
+      <form
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+        id="authentication-form"
+        [@formTrigger]
+      >
         <div class="input-container">
           <!-- Imported Custom Input 1 -->
           <app-shared-input

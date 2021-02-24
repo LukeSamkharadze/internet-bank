@@ -16,7 +16,12 @@
           premium products
         </p>
       </div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" id="authentication-form">
+      <form
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+        id="authentication-form"
+        [@formTrigger]
+      >
         <div class="input-container">
           <!-- Imported Custom Input 1 -->
           <app-shared-input
@@ -26,7 +31,23 @@
             [pattern]="emailPattern"
             [placeholder]="'Enter your email'"
             [isRequired]="true"
-            >Your email</app-shared-input
+            >Your email<span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                emailFormControl.hasError('required') &&
+                emailFormControl.touched
+              "
+              >Required</span
+            >
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                emailFormControl.hasError('pattern') && emailFormControl.touched
+              "
+              >Invalid Email</span
+            ></app-shared-input
           >
           <div class="input-tooltip">
             <i class="las la-info-circle"></i>
