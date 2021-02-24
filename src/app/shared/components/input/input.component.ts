@@ -6,10 +6,13 @@ import {
   ViewChild,
   Self,
   AfterViewInit,
+  HostListener,
+  HostBinding,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormControl,
   NgControl,
   ValidatorFn,
   Validators,
@@ -23,15 +26,28 @@ import {
 export class InputComponent
   implements ControlValueAccessor, OnInit, AfterViewInit {
   defaultValue = null;
+  disabled = false;
+
   @Input() inputId = '';
   @Input() type = 'text';
   @Input() placeholder = 'Placeholder';
   @Input() isRequired = false;
   @Input() pattern: string = null;
   @Input() validated = true;
+
   @ViewChild('inputElement', { static: true }) input: ElementRef;
 
-  disabled = false;
+  @Output() focused: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @HostBinding('tabindex') tabindex = 0;
+
+  @HostListener('focusin')
+  public onFocus() {
+    this.focused.emit(true);
+
+    console.log('focus my-div');
+  }
+
   onChange = (val) => {};
   onTouched = () => {};
 

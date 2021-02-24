@@ -13,6 +13,7 @@ import { formAnimations } from '../../shared/animations/formAnimation';
 export class LoginComponent implements OnInit {
   emailPattern = this.authService.emailPattern;
   passwordPattern = this.authService.passwordPattern;
+  inputFocused = false;
 
   loginData: {
     email: string;
@@ -38,6 +39,10 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private authService: AuthService, private router: Router) {}
+
+  inputFocuse() {
+    this.inputFocused = true;
+  }
 
   ngOnInit(): void {
     this.rememberMe();

@@ -32,6 +32,8 @@
             [pattern]="emailPattern"
             [placeholder]="'Enter your email'"
             [isRequired]="true"
+            (focus)="inputFocused = true"
+            (blur)="inputFocused = false"
             >Your Email
             <span
               class="error-message"
@@ -52,7 +54,7 @@
             ></app-shared-input
           >
 
-          <div class="input-tooltip">
+          <div class="input-tooltip" *ngIf="inputFocused">
             <i class="las la-info-circle"></i>
             <span
               >Use: Letters, Numbers or Symbols (#~!$%^&*|?/-_=+)<br />Ex:

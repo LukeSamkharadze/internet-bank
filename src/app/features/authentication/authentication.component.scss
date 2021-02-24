@@ -79,6 +79,10 @@
         .input-container {
           position: relative;
 
+          // .focused-input .input-tooltip {
+          //   display: flex;
+          // }
+
           .error-message {
             color: $secondary-3;
             font-weight: bold;
@@ -87,7 +91,7 @@
           }
 
           .input-tooltip {
-            display: none;
+            display: flex;
             align-items: center;
             position: absolute;
             padding: 0 8px;
@@ -125,9 +129,9 @@
             }
           }
 
-          &:hover .input-tooltip {
-            display: flex;
-          }
+          // &:hover .input-tooltip {
+          //   display: flex;
+          // }
         }
       }
 
