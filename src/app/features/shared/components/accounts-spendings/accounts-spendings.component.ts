@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Spendings } from './spendings.model';
 
 @Component({
   selector: 'app-shared-accounts-spendings',
@@ -7,41 +8,43 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AccountsSpendingsComponent implements OnInit {
   @Input()
-  public debit = 0;
-
-  @Input()
-  public credit = 0;
-
-  @Input()
-  public cash = 0;
-
-  @Input()
-  public maxval = 0;
+  public spendings: Spendings;
 
   public axisValues = [];
-  constructor() {}
 
   ngOnInit(): void {
-    if (
-      this.maxval === 0 ||
-      this.maxval < Math.max(this.debit, this.credit, this.cash)
+    if (this.spendings.maxval === 0 || !this.spendings.maxval) {
+      this.spendings.maxval = Math.max(
+        this.spendings.debit,
+        this.spendings.credit,
+        this.spendings.cash
+      );
+    } else if (
+      this.spendings.maxval <=
+      Math.max(this.spendings.debit, this.spendings.credit, this.spendings.cash)
     ) {
-      this.maxval = Math.max(this.debit, this.credit, this.cash) * 1.1;
+      this.spendings.maxval = Math.max(
+        this.spendings.debit,
+        this.spendings.credit,
+        this.spendings.cash
+      );
     }
     this.createAxisVals();
   }
 
   createAxisVals() {
-    for (let i = 0; i <= this.maxval + 1; i += this.maxval / 6) {
-      if (Math.round(i) > 1000 && Math.round(i) % 100 === 0) {
+    const max = this.spendings.maxval;
+    const interval = max / 5;
+    for (let i = 0; i <= max; i += interval) {
+      if (Math.round(i) >= 1000 && Math.round(i) % 100 === 0) {
         this.axisValues.push(Math.round(i) / 1000 + 'k');
-      } else if (Math.round(i) > 1000 && Math.round(i) % 100 !== 0) {
+      } else if (Math.round(i) >= 1000 && Math.round(i) % 100 !== 0) {
         this.axisValues.push((Math.round(i) / 1000).toFixed(1) + 'k');
+      } else if (!Number.isInteger(i)) {
+        this.axisValues.push(i.toFixed(1));
       } else {
-        this.axisValues.push(Math.round(i));
+        this.axisValues.push(i);
       }
     }
-    console.log(this.maxval);
-    console.log(this.axisValues);
   }
 }

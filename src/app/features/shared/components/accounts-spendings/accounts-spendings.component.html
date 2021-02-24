@@ -1,10 +1,4 @@
-<div
-  class="acc-spendings"
-  [attr.debit]="debit"
-  [attr.credit]="credit"
-  [attr.cash]="cash"
-  [attr.maxval]="maxval"
->
+<div class="acc-spendings" [attr.spendings]="spendings">
   <div class="spendings-title">
     <h5>Your accounts spendings</h5>
     <i class="las la-wallet"></i>
@@ -12,26 +6,26 @@
   <div class="spendings-container">
     <div class="spendings">
       <p>Debit cards</p>
-      <p class="amount">{{ debit }} Usd</p>
+      <p class="amount">{{ spendings.debit }} Usd</p>
       <app-shared-progress-bar
-        [value]="debit"
-        [max]="maxval"
+        [value]="spendings.debit"
+        [max]="spendings.maxval"
       ></app-shared-progress-bar>
     </div>
     <div class="spendings">
       <p>Credit cards</p>
-      <p class="amount">{{ credit }} Usd</p>
+      <p class="amount">{{ spendings.credit }} Usd</p>
       <app-shared-progress-bar
-        [value]="credit"
-        [max]="maxval"
+        [value]="spendings.credit"
+        [max]="spendings.maxval"
       ></app-shared-progress-bar>
     </div>
     <div class="spendings">
       <p>Cash</p>
-      <p class="amount">{{ cash }} Usd</p>
+      <p class="amount">{{ spendings.cash }} Usd</p>
       <app-shared-progress-bar
-        [value]="cash"
-        [max]="maxval"
+        [value]="spendings.cash"
+        [max]="spendings.maxval"
       ></app-shared-progress-bar>
     </div>
   </div>
