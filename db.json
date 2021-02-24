@@ -79,83 +79,59 @@
   ],
   "payments": [
     {
-      "date": "2021-02-24T15:14:33.215Z",
-      "paymentType": "bank",
-      "fromUserId": "2",
+      "date": "2021-02-24T20:08:32.290Z",
+      "paymentType": "electronic",
       "fromAccount": "GE32TB3333111122224444",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "beneficiary": "ss",
-      "amount": 11,
+      "destinationEmail": "a@gmail.com",
+      "amount": 2000,
       "currency": "USD",
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
+      "fromUserId": "2",
       "id": 1
     },
     {
-      "date": "2021-02-24T17:13:22.469Z",
+      "date": "2021-02-24T20:10:25.636Z",
       "paymentType": "instant",
       "fromUserId": "2",
       "fromAccount": "GE32TB3333111122224444",
       "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 1,
+      "amount": 2000,
       "transferType": "Personal transfer",
       "destinationAccountUserId": "3",
       "id": 2
     },
     {
-      "date": "2021-02-24T17:13:52.349Z",
-      "paymentType": "instant",
+      "date": "2021-02-24T20:14:51.332Z",
+      "paymentType": "electronic",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationEmail": "a@gmail.com",
+      "amount": 3000,
+      "currency": "USD",
       "fromUserId": "2",
-      "fromAccount": "GE32TB4434234223333333",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 1,
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
       "id": 3
     },
     {
-      "date": "2021-02-24T17:17:18.644Z",
+      "date": "2021-02-24T20:17:13.165Z",
       "paymentType": "instant",
       "fromUserId": "2",
       "fromAccount": "GE32TB3333111122224444",
       "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 12123123,
+      "amount": 5000,
       "transferType": "Personal transfer",
       "destinationAccountUserId": "3",
       "id": 4
     },
     {
-      "date": "2021-02-24T17:17:47.372Z",
-      "paymentType": "instant",
+      "date": "2021-02-24T20:17:30.135Z",
+      "paymentType": "bank",
       "fromUserId": "2",
-      "fromAccount": "GE32TB4434234223333333",
+      "fromAccount": "GE32TB3333111122224444",
       "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 11,
+      "beneficiary": "someone",
+      "amount": 2000,
+      "currency": "USD",
       "transferType": "Personal transfer",
       "destinationAccountUserId": "3",
       "id": 5
-    },
-    {
-      "date": "2021-02-24T17:18:31.356Z",
-      "paymentType": "instant",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB4434234223333333",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 1,
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 6
-    },
-    {
-      "date": "2021-02-24T17:20:15.279Z",
-      "paymentType": "instant",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB4434234223333333",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 1,
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 7
     }
   ],
   "cards": [
@@ -166,7 +142,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 11882686.02,
+      "availableAmount": 33720,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -190,7 +166,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": -12078135,
+      "availableAmount": 28000,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -314,39 +290,17 @@
     {
       "id": 1,
       "name": "Cards balance",
-      "data": [
-        78000,
-        91000,
-        78000,
-        52000,
-        72800,
-        104000,
-        124800
-      ]
+      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
     },
     {
       "id": 2,
       "name": "Deposit (3% Rate)",
-      "data": [
-        35250,
-        38070,
-        39480,
-        40890,
-        38070,
-        49350,
-        56400
-      ]
+      "data": [35250, 38070, 39480, 40890, 38070, 49350, 56400]
     },
     {
       "id": 3,
       "name": "Pending credit",
-      "data": [
-        41300,
-        28910,
-        16520,
-        28910,
-        24800
-      ]
+      "data": [41300, 28910, 16520, 28910, 24800]
     }
   ],
   "invoices": [

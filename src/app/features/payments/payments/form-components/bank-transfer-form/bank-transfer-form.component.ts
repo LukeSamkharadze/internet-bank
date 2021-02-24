@@ -1,5 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { BankTransfer } from '../../../../shared/interfaces/bankTransfer.entity';
@@ -48,18 +53,22 @@ export class BankTransferFormComponent implements OnInit, OnDestroy {
           .bankOrInstantTransfer(transfer)
           .pipe(
             map((destinationAccountUserId: string) => {
+              alert('success');
               this.form.reset();
               return {
                 ...transfer,
                 destinationAccountUserId,
               };
             }),
-            switchMap(transfera => this.transferService.postTransactionToDb(transfera)),
-            catchError(error => {
+            switchMap((transfera) =>
+              this.transferService.postTransactionToDb(transfera)
+            ),
+            catchError((error) => {
               alert(error);
               return error;
-            }),
-          ).subscribe(),
+            })
+          )
+          .subscribe()
       );
     } else {
       this.form.markAllAsTouched();
