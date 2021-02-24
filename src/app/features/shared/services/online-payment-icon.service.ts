@@ -7,7 +7,6 @@ export class OnlinePaymentIconService {
   private onlinePayments: string[] = ['paypal', 'skrill', 'payoneer'];
 
   determineOnlinePaymentsIcon(obj: any, title: string) {
-    console.log(title);
     title = title.toLocaleLowerCase();
     return {
       ...obj,
