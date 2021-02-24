@@ -30,7 +30,7 @@ export class NewInvoiceComponent implements OnInit {
       invoiceNumber: new FormControl('', Validators.required),
       dueDate: new FormControl('', Validators.required),
       companyName: new FormControl('', Validators.required),
-      contanctEmail: new FormControl('', [
+      contactEmail: new FormControl('', [
         Validators.required,
         Validators.pattern(
           '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'
@@ -69,12 +69,14 @@ export class NewInvoiceComponent implements OnInit {
   }
 
   onSubmit() {
+    const invoiceCreateDate = new Date();
     this.calculateTotalAmount();
 
     const invoiceObj = {
       ...this.form.getRawValue(),
       totalAmount: this.totalAmount,
       status: 'Pending',
+      invoiceCreateDate: invoiceCreateDate,
     };
 
     this.invoiceService
@@ -86,6 +88,8 @@ export class NewInvoiceComponent implements OnInit {
         })
       )
       .subscribe();
+
+    this.totalAmount = 0;
   }
 
   onCencel() {
