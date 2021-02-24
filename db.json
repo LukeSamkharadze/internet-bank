@@ -77,7 +77,21 @@
       ]
     }
   ],
-  "payments": [],
+  "payments": [
+    {
+      "date": "2021-02-24T15:14:33.215Z",
+      "paymentType": "bank",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "beneficiary": "ss",
+      "amount": 11,
+      "currency": "USD",
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 1
+    }
+  ],
   "cards": [
     {
       "cardName": "VISA CARD",
@@ -86,11 +100,10 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 2000,
+      "availableAmount": 2010.78,
       "security3D": false,
       "userId": "3",
-      "id": 1,
-      "iconPath": "./assets/create-card/create-card-visa-icon.svg"
+      "id": 1
     },
     {
       "cardName": "MASTER CARD",
@@ -102,8 +115,7 @@
       "availableAmount": 25000,
       "security3D": true,
       "userId": "1",
-      "id": 2,
-      "iconPath": "./assets/create-card/mastercard.svg"
+      "id": 2
     },
     {
       "cardName": "MASTER CARD",
@@ -112,11 +124,22 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 45000,
+      "availableAmount": 44989,
       "security3D": true,
       "userId": "2",
-      "id": 3,
-      "iconPath": "./assets/create-card/mastercard.svg"
+      "id": 3
+    },
+    {
+      "cardName": "ADMIN2",
+      "accountNumber": "GE32TB4434234223333333",
+      "cardNumber": "5829389283948298",
+      "cardholder": "ADMIN ADMIN",
+      "expirationDate": "11/23",
+      "availableAmount": 10000,
+      "security3D": true,
+      "userId": "2",
+      "cardType": "MASTERCARD",
+      "id": 4
     }
   ],
   "paymentTypes": [
@@ -225,17 +248,39 @@
     {
       "id": 1,
       "name": "Cards balance",
-      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
+      "data": [
+        78000,
+        91000,
+        78000,
+        52000,
+        72800,
+        104000,
+        124800
+      ]
     },
     {
       "id": 2,
       "name": "Deposit (3% Rate)",
-      "data": [35250, 38070, 39480, 40890, 38070, 49350, 56400]
+      "data": [
+        35250,
+        38070,
+        39480,
+        40890,
+        38070,
+        49350,
+        56400
+      ]
     },
     {
       "id": 3,
       "name": "Pending credit",
-      "data": [41300, 28910, 16520, 28910, 24800]
+      "data": [
+        41300,
+        28910,
+        16520,
+        28910,
+        24800
+      ]
     }
   ],
   "invoices": [
