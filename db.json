@@ -88,7 +88,6 @@
       "fromUserId": "2",
       "id": 1
     },
-
     {
       "date": "2021-02-24T10:58:31.676Z",
       "paymentType": "bank",
@@ -101,6 +100,16 @@
       "transferType": "Personal transfer",
       "destinationAccountUserId": "2",
       "id": 2
+    },
+    {
+      "date": "2021-02-24T11:56:12.767Z",
+      "paymentType": "electronic",
+      "fromAccount": "GE32TB1304200113042001",
+      "destinationEmail": "nini@gmail.com",
+      "amount": 79,
+      "currency": "USD",
+      "fromUserId": "2",
+      "id": 3
     }
   ],
   "cards": [
@@ -142,6 +151,18 @@
       "userId": "2",
       "id": 3,
       "iconPath": "./assets/create-card/mastercard.svg"
+    },
+    {
+      "cardName": "VISA CARD",
+      "cardType": "VISA",
+      "accountNumber": "GE32TB1304200113042001",
+      "cardNumber": "1304200113042001",
+      "cardholder": "NINO KRISTESIASHVILI",
+      "expirationDate": "05/23",
+      "availableAmount": 99921,
+      "security3D": true,
+      "userId": "2",
+      "id": 4
     }
   ],
   "paymentTypes": [
