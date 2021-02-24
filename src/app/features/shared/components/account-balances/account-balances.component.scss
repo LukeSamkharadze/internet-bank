@@ -86,31 +86,32 @@
       .account-description {
         @include text-style(14px, $secondary-dark-2);
       }
+      .balance-description {
+        align-self: flex-end;
+      }
       .detail-position {
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding-left: 21px;
       }
+      .balanceStats {
+        display: flex;
+        justify-content: space-between;
+      }
       .card-position {
         @extend .detail-position;
-        width: 76px;
         justify-content: space-between;
         padding: 0;
-      }
-      .la-lock {
-        color: $primary;
-      }
-      .balance {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        div {
+        .amount {
           @include text-style(16px);
         }
         .las {
           padding-bottom: 5px;
         }
+      }
+      .la-lock {
+        color: $primary;
       }
     }
   }
