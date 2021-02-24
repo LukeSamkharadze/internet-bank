@@ -189,16 +189,13 @@
       "name": "Electronic Payments",
       "providers": [
         {
-          "name": "Paypal",
-          "iconPath": "./assets/electronic-payments/PayPal.svg"
+          "name": "Paypal"
         },
         {
-          "name": "Skrill",
-          "iconPath": "./assets/electronic-payments/Skrill_logo.svg"
+          "name": "Skrill"
         },
         {
-          "name": "Payoneer",
-          "iconPath": "./assets/electronic-payments/Payoneer_logo.svg"
+          "name": "Payoneer"
         }
       ],
       "icon": "las la-credit-card",
