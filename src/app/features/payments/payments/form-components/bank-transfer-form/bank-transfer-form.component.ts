@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { animations } from '../shared/animations';
+import { formAnimations } from '../../../../shared/animations';
 import { TransferService } from '../../../services/transfer.service';
 import { BankTransfer } from '../../../../shared/interfaces/bankTransfer.entity';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-bank-transfer-form',
   templateUrl: './bank-transfer-form.component.html',
   styleUrls: ['./bank-transfer-form.component.scss'],
-  animations: [animations.errorTrigger, animations.formTrigger],
+  animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
 export class BankTransferFormComponent implements OnInit, OnDestroy {
   title = 'Bank transfer';
