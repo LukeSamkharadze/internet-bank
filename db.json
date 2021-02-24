@@ -253,6 +253,8 @@
           "price": 150
         }
       ],
+      "totalAmount": 150,
+      "status": "Pending",
       "id": 1
     },
     {
@@ -274,6 +276,8 @@
           "price": 100
         }
       ],
+      "totalAmount": 17500,
+      "status": "Pending",
       "id": 2
     },
     {
@@ -295,6 +299,8 @@
           "price": 100
         }
       ],
+      "totalAmount": 1240,
+      "status": "Pending",
       "id": 3
     }
   ]

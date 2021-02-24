@@ -13,4 +13,6 @@ export interface Invoice {
   contanctEmail: string;
   address: string;
   items: ItemsModel[];
+  totalAmount: number;
+  status: string;
 }
