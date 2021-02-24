@@ -90,6 +90,72 @@
       "transferType": "Personal transfer",
       "destinationAccountUserId": "3",
       "id": 1
+    },
+    {
+      "date": "2021-02-24T17:13:22.469Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 1,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 2
+    },
+    {
+      "date": "2021-02-24T17:13:52.349Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB4434234223333333",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 1,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 3
+    },
+    {
+      "date": "2021-02-24T17:17:18.644Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 12123123,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 4
+    },
+    {
+      "date": "2021-02-24T17:17:47.372Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB4434234223333333",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 11,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 5
+    },
+    {
+      "date": "2021-02-24T17:18:31.356Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB4434234223333333",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 1,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 6
+    },
+    {
+      "date": "2021-02-24T17:20:15.279Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB4434234223333333",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 1,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 7
     }
   ],
   "cards": [
@@ -100,7 +166,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 2010.78,
+      "availableAmount": 11882686.02,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -124,7 +190,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 44989,
+      "availableAmount": -12078135,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -135,7 +201,7 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 10000,
+      "availableAmount": 9986,
       "security3D": true,
       "userId": "2",
       "cardType": "MASTERCARD",

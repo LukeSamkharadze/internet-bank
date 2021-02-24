@@ -1,10 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, Observable, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, EMPTY, from, Observable, Subject, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 import { ICard } from '../interfaces/card.interface';
-import { catchError, distinctUntilChanged, map, retry, tap } from 'rxjs/operators';
+import { catchError, distinctUntilChanged, map, retry, switchMap, take, tap } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
 import { AuthService } from './auth.service';
@@ -94,18 +94,26 @@ export class CardService implements BaseHttpInterface<ICard> {
     );
   }
 
-  getCardByCardNumber(cardNumber: string) {
+  getCardByCardNumber(cardNumber: string): Observable<ICard> {
     return this.http
       .get<ICard[]>(environment.BaseUrl + `cards?cardNumber=${cardNumber}`)
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        switchMap(cards => from(cards)),
+        take(1),
+        retry(1),
+        catchError(this.handleError),
+      );
   }
 
-  getCardByAccountNumber(accountNumber: string) {
+  getCardByAccountNumber(accountNumber: string): Observable<ICard> {
     return this.http
-      .get<ICard[]>(
-        environment.BaseUrl + `cards?accountNumber=${accountNumber}`
-      )
-      .pipe(retry(1), catchError(this.handleError));
+      .get<ICard[]>(environment.BaseUrl + `cards?accountNumber=${accountNumber}`)
+      .pipe(
+        switchMap(cards => from(cards)),
+        take(1),
+        retry(1),
+        catchError(this.handleError)
+      );
   }
 
   update(card: ICard): Observable<ICard> {
