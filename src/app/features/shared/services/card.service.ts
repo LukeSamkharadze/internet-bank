@@ -22,9 +22,7 @@ export class CardService implements BaseHttpInterface<ICard> {
   public subj = new Subject<boolean>(); // ◄ ეს ხაზი ამოსაღებია
 
   constructor(private http: HttpClient, private auth: AuthService) {
-    this.getAll().subscribe((cards) =>
-      this.store$.next((this.cardsArr = cards))
-    );
+    this.updateStore();
   }
 
   create(card: ICard): Observable<ICard> {
@@ -71,6 +69,12 @@ export class CardService implements BaseHttpInterface<ICard> {
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  private updateStore() {
+    this.getAll().subscribe((cards) =>
+      this.store$.next((this.cardsArr = cards))
+    );
+  }
+
   getCardByCardNumber(cardNumber: string) {
     return this.http
       .get<ICard[]>(environment.BaseUrl + `cards?cardNumber=${cardNumber}`)
@@ -88,7 +92,11 @@ export class CardService implements BaseHttpInterface<ICard> {
   update(card: ICard): Observable<ICard> {
     return this.http
       .put<ICard>(environment.BaseUrl + `cards/${card.id}`, card)
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        retry(1),
+        tap(() => this.updateStore()),
+        catchError(this.handleError)
+      );
   }
 
   getById(id: number): Observable<ICard> {
