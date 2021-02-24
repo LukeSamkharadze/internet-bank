@@ -10,21 +10,15 @@ export class ArrowDirectionService {
     return this.paymentsGetterService.getByAccountNumber(accNum).pipe(
       map((val: BankTransfer[]) => {
         if (val) {
-          const latestPaymentId = Math.max(...val.map((o) => o.id), 0);
-          if (val.filter((payment) => payment.id === latestPaymentId)[0]) {
-            if (
-              val.filter((payment) => payment.id === latestPaymentId)[0]
-                .fromAccount +
-                '' ===
-              accNum
-            ) {
+          const lastPayment = val.filter(
+            (payment) =>
+              payment.fromAccount + '' === accNum ||
+              payment.destinationAccountNumber === accNum
+          )[0];
+          if (lastPayment) {
+            if (lastPayment.fromAccount + '' === accNum) {
               return 'la-arrow-down';
-            } else if (
-              val.filter((payment) => payment.id === latestPaymentId)[0]
-                .destinationAccountNumber +
-                '' ===
-              accNum
-            ) {
+            } else if (lastPayment.destinationAccountNumber + '' === accNum) {
               return 'la-long-arrow-alt-up';
             } else {
               return;

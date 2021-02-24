@@ -79,24 +79,27 @@
   ],
   "payments": [
     {
-      "date": "2021-02-24T11:56:12.767Z",
+      "date": "2021-02-24T13:34:14.358Z",
       "paymentType": "electronic",
-      "fromAccount": "GE32TB1304200113042001",
+      "fromAccount": "GE32TB3333111122224444",
       "destinationEmail": "nini@gmail.com",
       "amount": 79,
       "currency": "USD",
       "fromUserId": "2",
-      "id": 3
+      "id": 1
     },
     {
-      "date": "2021-02-24T11:56:12.767Z",
-      "paymentType": "electronic",
-      "fromAccount": "GE32TB1304200113042001",
-      "destinationEmail": "nini@gmail.com",
-      "amount": 79,
-      "currency": "USD",
+      "date": "2021-02-24T13:34:43.051Z",
+      "paymentType": "bank",
       "fromUserId": "2",
-      "id": 3
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1304200113042001",
+      "beneficiary": "BARRY ARMSTRONG",
+      "amount": 77,
+      "currency": "USD",
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "2",
+      "id": 2
     }
   ],
   "cards": [
@@ -133,7 +136,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 44776.74,
+      "availableAmount": 44541.74,
       "security3D": true,
       "userId": "2",
       "id": 3,
@@ -146,7 +149,7 @@
       "cardNumber": "1304200113042001",
       "cardholder": "NINO KRISTESIASHVILI",
       "expirationDate": "05/23",
-      "availableAmount": 99921,
+      "availableAmount": 99996.46,
       "security3D": true,
       "userId": "2",
       "id": 4
