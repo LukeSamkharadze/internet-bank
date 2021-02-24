@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Spendings } from './spendings.model';
+import { Spendings } from '../../interfaces/spendings.interface';
 
 @Component({
   selector: 'app-shared-accounts-spendings',
