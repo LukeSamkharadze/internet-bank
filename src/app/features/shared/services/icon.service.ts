@@ -7,13 +7,13 @@ import { ICard } from '../interfaces/card.interface';
   providedIn: 'root',
 })
 export class IconService {
-  private onlinePayments: string[] = ['paypal', 'skrill', 'payoneer'];
+  private electronicPayments: string[] = ['paypal', 'skrill', 'payoneer'];
 
-  determineOnlinePaymentsIcon(obj: any, title: string) {
+  determineElectronicPaymentsIcon(obj: any, title: string) {
     title = title.toLocaleLowerCase();
     return {
       ...obj,
-      iconPath: this.onlinePayments.includes(title)
+      iconPath: this.electronicPayments.includes(title)
         ? `./assets/electronic-payments/${title}.svg`
         : undefined,
     };
@@ -28,7 +28,7 @@ export class IconService {
         };
 
       case 'electronic':
-        return this.determineOnlinePaymentsIcon(
+        return this.determineElectronicPaymentsIcon(
           transfer,
           (transfer as ElectronicPayment).paymentSystem
         );
