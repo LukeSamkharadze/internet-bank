@@ -8,7 +8,14 @@ import { ICard } from '../interfaces/card.interface';
 })
 export class IconService {
   private electronicPayments: string[] = ['paypal', 'skrill', 'payoneer'];
-  private transferTypes = ['bank', 'electronic', 'instant', 'phone', 'cash'];
+  private transferTypes = [
+    'bank',
+    'electronic',
+    'instant',
+    'phone',
+    'cash',
+    'online',
+  ];
   private cardTypes = ['mastercard', 'visa'];
 
   // obj: any, because it will work on transfer and on ```paymentType => providers -> {name: paypal}``` as well.
