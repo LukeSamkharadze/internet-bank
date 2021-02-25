@@ -87,7 +87,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       .get<ICard[]>(`${environment.BaseUrl}cards?userId=${userId}`)
       .pipe(
         map((cards) =>
-          cards.map((card) => this.iconService.determineIconPath(card))
+          cards.map((card) => this.iconService.determineCardIconPath(card))
         ),
         retry(1),
         catchError(this.handleError)

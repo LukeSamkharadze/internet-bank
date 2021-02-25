@@ -8,6 +8,8 @@ import { ICard } from '../interfaces/card.interface';
 })
 export class IconService {
   private electronicPayments: string[] = ['paypal', 'skrill', 'payoneer'];
+  private transferTypes = ['bank', 'electronic', 'instant', 'phone', 'cash'];
+  private cardTypes = ['mastercard', 'visa'];
 
   determineElectronicPaymentsIcon(obj: any, title: string) {
     title = title.toLocaleLowerCase();
@@ -20,58 +22,27 @@ export class IconService {
   }
 
   determineTransfersIcon(transfer: Transfer) {
-    switch (transfer.type) {
-      case 'bank':
-        return {
-          ...transfer,
-          iconPath: './assets/tbc.svg',
-        };
-
-      case 'electronic':
-        return this.determineElectronicPaymentsIcon(
-          transfer,
-          (transfer as ElectronicPayment).paymentSystem
-        );
-
-      case 'instant':
-        return {
-          ...transfer,
-          iconPath: './assets/instant.svg',
-        };
-
-      case 'phone':
-        return {
-          ...transfer,
-          iconPath: './assets/phone.svg',
-        };
-
-      case 'cash':
-        return {
-          ...transfer,
-          iconPath: './assets/cash.svh',
-        };
-      case 'online': // currently online transfer model is unknown, that's why icon is static.
-        return {
-          ...transfer,
-          iconPath: './assets/icon.svg',
-        };
+    if (transfer.type === 'electronic') {
+      return this.determineElectronicPaymentsIcon(
+        transfer,
+        (transfer as ElectronicPayment).paymentSystem
+      );
+    } else {
+      return {
+        ...transfer,
+        iconPath: this.transferTypes.includes(transfer.type)
+          ? `./assets/transfers/${transfer.type}.svg`
+          : undefined,
+      };
     }
   }
 
-  determineIconPath(card: ICard): ICard {
-    switch (card.cardType) {
-      case 'VISA':
-        return {
-          ...card,
-          iconPath: './assets/create-card/create-card-visa-icon.svg',
-        };
-      case 'MASTERCARD':
-        return {
-          ...card,
-          iconPath: './assets/create-card/mastercard.svg',
-        };
-      default:
-        return { ...card };
-    }
+  determineCardIconPath(card: ICard): ICard {
+    return {
+      ...card,
+      iconPath: this.cardTypes.includes(card.cardType.toLocaleLowerCase())
+        ? `./assets/create-card/${card.cardType.toLocaleLowerCase()}.svg`
+        : undefined,
+    };
   }
 }
