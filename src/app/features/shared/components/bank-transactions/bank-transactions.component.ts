@@ -66,14 +66,14 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
           this.transactionsList.push({
             id: element.id,
             title: element.title,
-            icon: element.img,
+            icon: element.iconPath,
             type: element.type,
             typeId: element.typeId,
             transactionType: element.transactionType,
+            beneficiary: element.beneficiary,
             amount: element.amount,
             date: element.date,
             status: element.status,
-
             tagColor: element.tagColor,
             cardNumber: element.cardNumber,
             fromUser: element.fromUser,

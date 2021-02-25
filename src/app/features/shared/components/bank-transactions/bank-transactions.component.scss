@@ -120,6 +120,9 @@
 
     img {
       margin-right: 1.2%;
+      height: 40px;
+      width: 150px;
+      margin: auto;
     }
   }
 
@@ -128,6 +131,7 @@
     h2 {
       display: inline-block;
       @include text-style(16px, $primary-dark);
+      margin-left: 10px;
       vertical-align: top;
       line-height: 20px;
       a {

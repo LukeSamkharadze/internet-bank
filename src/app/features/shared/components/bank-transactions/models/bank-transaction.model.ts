@@ -5,6 +5,7 @@ export interface TransactionsList {
   type: string;
   typeId: number;
   transactionType: string;
+  beneficiary: string;
   amount: string;
   date: string;
   status: string;

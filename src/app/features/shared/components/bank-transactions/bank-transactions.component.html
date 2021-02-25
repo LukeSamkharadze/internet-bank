@@ -46,7 +46,15 @@
             <app-shared-dropdown
               ngModel
               placeholder="ALL"
-              [options]="['Phone payment', 'Bank Transfer', 'Cash', 'All']"
+              [options]="[
+                'Bank',
+                'Instant',
+                'Electronic',
+                'Online',
+                'Phone',
+                'Cash',
+                'All'
+              ]"
               (ngModelChange)="typeChangeEvent($event)"
               style="width: 150px; height: 25px"
             >
