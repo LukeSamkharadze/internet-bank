@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Transfer } from '../interfaces/transfer.entity';
-import { ElectronicPayment } from '../interfaces/electronicPayment.entity';
+import { Transfer } from '../interfaces/payments/transfer.interface';
+import { ElectronicPayment } from '../interfaces/payments/electronicPayment.interface';
 import { ICard } from '../interfaces/card.interface';
 
 @Injectable({

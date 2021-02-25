@@ -1,4 +1,4 @@
-import { Transfer } from './transfer.entity';
+import { Transfer } from './transfer.interface';
 
 export interface InstantPayment extends Transfer {
   instantTransferType: string;
