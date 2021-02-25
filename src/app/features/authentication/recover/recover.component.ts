@@ -8,7 +8,11 @@ import { formAnimations } from '../../shared/animations/formAnimation';
   selector: 'app-recover',
   templateUrl: './recover.component.html',
   styleUrls: ['../authentication.component.scss', './recover.component.scss'],
-  animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
+  animations: [
+    formAnimations.errorTrigger,
+    formAnimations.formTrigger,
+    formAnimations.formTrigger2,
+  ],
 })
 export class RecoverComponent {
   emailPattern = this.authService.emailPattern;
@@ -20,9 +24,7 @@ export class RecoverComponent {
     email: new FormControl(''),
   });
 
-  get emailFormControl(): FormControl {
-    return this.form.get('email') as FormControl;
-  }
+  emailFormControl = this.form.get('email');
 
   onSubmit() {
     this.authService

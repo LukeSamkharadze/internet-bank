@@ -1,5 +1,5 @@
 <main class="grid-container">
-  <section class="authentication">
+  <section class="authentication" [@formTrigger]>
     <div class="auth-form sign-in-form minor-grid-container">
       <div>
         <p>
@@ -16,12 +16,7 @@
           premium products
         </p>
       </div>
-      <form
-        [formGroup]="form"
-        (ngSubmit)="onSubmit()"
-        id="login-form"
-        [@formTrigger]
-      >
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" id="login-form">
         <div class="input-container">
           <!-- Imported Custom Input 1 -->
 
@@ -32,8 +27,6 @@
             [pattern]="emailPattern"
             [placeholder]="'Enter your email'"
             [isRequired]="true"
-            (focus)="inputFocused = true"
-            (blur)="inputFocused = false"
             >Your Email
             <span
               class="error-message"
@@ -54,7 +47,7 @@
             ></app-shared-input
           >
 
-          <div class="input-tooltip" *ngIf="inputFocused">
+          <div class="input-tooltip">
             <i class="las la-info-circle"></i>
             <span
               >Use: Letters, Numbers or Symbols (#~!$%^&*|?/-_=+)<br />Ex:
@@ -127,5 +120,5 @@
       </div>
     </div>
   </section>
-  <section class="img-bg"></section>
+  <section class="img-bg" [@formTrigger2]></section>
 </main>

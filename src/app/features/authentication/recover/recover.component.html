@@ -1,5 +1,5 @@
 <main class="grid-container">
-  <section class="authentication">
+  <section class="authentication" [@formTrigger]>
     <div class="auth-form recover-form minor-grid-container">
       <div>
         <p>
@@ -16,12 +16,7 @@
           premium products
         </p>
       </div>
-      <form
-        [formGroup]="form"
-        (ngSubmit)="onSubmit()"
-        id="authentication-form"
-        [@formTrigger]
-      >
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" id="authentication-form">
         <div class="input-container">
           <!-- Imported Custom Input 1 -->
           <app-shared-input
@@ -71,5 +66,5 @@
       </div>
     </div>
   </section>
-  <section class="img-bg"></section>
+  <section class="img-bg" [@formTrigger2]></section>
 </main>

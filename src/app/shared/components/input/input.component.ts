@@ -6,10 +6,6 @@ import {
   ViewChild,
   Self,
   AfterViewInit,
-  HostListener,
-  HostBinding,
-  Output,
-  EventEmitter,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -26,7 +22,6 @@ import {
 export class InputComponent
   implements ControlValueAccessor, OnInit, AfterViewInit {
   defaultValue = null;
-  disabled = false;
 
   @Input() inputId = '';
   @Input() type = 'text';
@@ -37,16 +32,7 @@ export class InputComponent
 
   @ViewChild('inputElement', { static: true }) input: ElementRef;
 
-  @Output() focused: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  @HostBinding('tabindex') tabindex = 0;
-
-  @HostListener('focusin')
-  public onFocus() {
-    this.focused.emit(true);
-
-    console.log('focus my-div');
-  }
+  disabled = false;
 
   onChange = (val) => {};
   onTouched = () => {};
