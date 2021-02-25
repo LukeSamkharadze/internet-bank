@@ -24,6 +24,7 @@ import {
 
 import { BaseHttpInterface } from '@shared/shared';
 import { AuthService } from './auth.service';
+import { IconService } from './icon.service';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +38,11 @@ export class CardService implements BaseHttpInterface<ICard> {
 
   public subj = new Subject<boolean>(); // ◄ ეს ხაზი ამოსაღებია
 
-  constructor(private http: HttpClient, private auth: AuthService) {
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private iconService: IconService
+  ) {
     this.updateStore();
   }
 
@@ -76,29 +81,14 @@ export class CardService implements BaseHttpInterface<ICard> {
     }
   }
 
-  determineIconPath(card: ICard): ICard {
-    switch (card.cardType) {
-      case 'VISA':
-        return {
-          ...card,
-          iconPath: './assets/create-card/create-card-visa-icon.svg',
-        };
-      case 'MASTERCARD':
-        return {
-          ...card,
-          iconPath: './assets/create-card/mastercard.svg',
-        };
-      default:
-        return { ...card };
-    }
-  }
-
   getAll(): Observable<ICard[]> {
     const userId = this.auth.userId;
     return this.http
       .get<ICard[]>(`${environment.BaseUrl}cards?userId=${userId}`)
       .pipe(
-        map((cards) => cards.map((card) => this.determineIconPath(card))),
+        map((cards) =>
+          cards.map((card) => this.iconService.determineIconPath(card))
+        ),
         retry(1),
         catchError(this.handleError)
       );

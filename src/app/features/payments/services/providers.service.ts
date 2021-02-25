@@ -10,7 +10,7 @@ import {
   switchMap,
   toArray,
 } from 'rxjs/operators';
-import { OnlinePaymentIconService } from '../../shared/services/online-payment-icon.service';
+import { IconService } from '../../shared/services/icon.service';
 
 @Injectable()
 export class ProvidersService {
@@ -22,7 +22,7 @@ export class ProvidersService {
 
   constructor(
     private http: HttpClient,
-    private onlinePaymentIconService: OnlinePaymentIconService
+    private onlinePaymentIconService: IconService
   ) {
     this.updateStore();
   }
