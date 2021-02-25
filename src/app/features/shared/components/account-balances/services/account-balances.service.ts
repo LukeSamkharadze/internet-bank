@@ -33,13 +33,13 @@ export class AccountBalancesService {
     const cardType = card.cardType;
     switch (cardType) {
       case 'VISA':
-        return './assets/create-card/create-card-visa-icon.svg';
+        return './assets/cards/visa.svg';
 
       case 'MASTERCARD':
-        return './assets/create-card/mastercard-S.svg';
+        return './assets/cards/master-card.svg';
 
       default:
-        return './assets/account-balances/card.png';
+        return './assets/cards/cardDefault.png';
     }
   }
 }
