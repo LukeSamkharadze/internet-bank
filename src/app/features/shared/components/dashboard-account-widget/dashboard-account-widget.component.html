@@ -1,0 +1,46 @@
+<div class="widget">
+  <header>
+    <p>Accounts</p>
+    <div class="iconscontainer">
+      <i class="la-chevron-circle-left"></i>
+      <i class="la-chevron-circle-right"></i>
+    </div>
+  </header>
+  <div class="underline"></div>
+
+  <body>
+    <div class="outer-border">
+      <div class="container d-flex justify-content-center padding">
+        <div class="row">
+          <div class="col-md-9 col-sm-6">
+            <div class="progress blue">
+              <span class="progress-left">
+                <span class="progress-bar"></span>
+              </span>
+              <span class="progress-right">
+                <span class="progress-bar"></span>
+              </span>
+              <div class="progress-value">
+                <div class="circle">
+                  <p>${{ profitRound }}</p>
+                  <p class="profit">Total Profit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let card of cards">
+      <p class="card-paragraph">
+        {{ card.cardType }} Card
+        {{ getCardService.formatCardNumber(card.cardNumber) }}
+      </p>
+    </div>
+
+    <div class="download">
+      <p>Download Statement</p>
+      <i class="la-download"></i>
+    </div>
+  </body>
+</div>
