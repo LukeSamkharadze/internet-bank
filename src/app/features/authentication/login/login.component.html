@@ -1,5 +1,5 @@
 <main class="grid-container">
-  <section class="authentication">
+  <section class="authentication" [@formTrigger]>
     <div class="auth-form sign-in-form minor-grid-container">
       <div>
         <p>
@@ -19,6 +19,7 @@
       <form [formGroup]="form" (ngSubmit)="onSubmit()" id="login-form">
         <div class="input-container">
           <!-- Imported Custom Input 1 -->
+
           <app-shared-input
             [formControl]="emailFormControl"
             [inputId]="'email-input'"
@@ -26,8 +27,26 @@
             [pattern]="emailPattern"
             [placeholder]="'Enter your email'"
             [isRequired]="true"
-            >Your email</app-shared-input
+            >Your Email
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                emailFormControl.hasError('required') &&
+                emailFormControl.touched
+              "
+              >Required</span
+            >
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                emailFormControl.hasError('pattern') && emailFormControl.touched
+              "
+              >Invalid Email</span
+            ></app-shared-input
           >
+
           <div class="input-tooltip">
             <i class="las la-info-circle"></i>
             <span
@@ -39,6 +58,7 @@
         <br />
         <div class="input-container">
           <!-- Imported Custom Input 2 -->
+
           <app-shared-input
             [formControl]="passwordFormControl"
             [inputId]="'password-input'"
@@ -46,7 +66,25 @@
             [pattern]="passwordPattern"
             [placeholder]="'Enter your password'"
             [isRequired]="true"
-            >Password</app-shared-input
+            >Password
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                passwordFormControl.hasError('required') &&
+                passwordFormControl.touched
+              "
+              >Required</span
+            >
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                passwordFormControl.hasError('pattern') &&
+                passwordFormControl.touched
+              "
+              >Invalid Password</span
+            ></app-shared-input
           >
           <div class="input-tooltip">
             <i class="las la-info-circle"></i>
@@ -82,5 +120,5 @@
       </div>
     </div>
   </section>
-  <section class="img-bg"></section>
+  <section class="img-bg" [@formTrigger2]></section>
 </main>

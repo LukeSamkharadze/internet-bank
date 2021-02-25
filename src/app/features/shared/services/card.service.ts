@@ -5,6 +5,7 @@ import {
   EMPTY,
   from,
   Observable,
+  of,
   Subject,
   throwError,
 } from 'rxjs';
@@ -126,8 +127,7 @@ export class CardService implements BaseHttpInterface<ICard> {
         environment.BaseUrl + `cards?accountNumber=${accountNumber}`
       )
       .pipe(
-        switchMap((cards) => from(cards)),
-        take(1),
+        map((data) => data[0]),
         retry(1),
         catchError(this.handleError)
       );
