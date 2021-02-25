@@ -1,10 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
 import { InstantTransfer } from '../../../../shared/interfaces/instantTransfer.entity';
 import { TransferService } from '../../../services/transfer.service';
 import { Subscription } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+import { CardService } from '../../../../shared/services/card.service';
 
 @Component({
   selector: 'app-instant-transfer-form',
@@ -42,19 +48,22 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
           .bankOrInstantTransfer(transfer)
           .pipe(
             map((destinationAccountUserId: string) => {
+              alert('success');
               this.form.reset();
               return {
                 ...transfer,
                 destinationAccountUserId,
               };
             }),
-            switchMap(transfera => this.transferService.postTransactionToDb(transfera)),
-            catchError(error => {
-              console.log(error);
+            switchMap((transfera) =>
+              this.transferService.postTransactionToDb(transfera)
+            ),
+            catchError((error) => {
               alert(error);
               return error;
-            }),
-          ).subscribe(),
+            })
+          )
+          .subscribe()
       );
     } else {
       this.form.markAllAsTouched();

@@ -1,10 +1,26 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, from, Observable, Subject, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  EMPTY,
+  from,
+  Observable,
+  of,
+  Subject,
+  throwError,
+} from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 import { ICard } from '../interfaces/card.interface';
-import { catchError, distinctUntilChanged, map, retry, switchMap, take, tap } from 'rxjs/operators';
+import {
+  catchError,
+  distinctUntilChanged,
+  map,
+  retry,
+  switchMap,
+  take,
+  tap,
+} from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
 import { AuthService } from './auth.service';
@@ -36,9 +52,9 @@ export class CardService implements BaseHttpInterface<ICard> {
       }),
       // ▲ ▲ ▲ ამის ზევით მოსაშლელია ▲ ▲ ▲
       tap((newCard) =>
-        this.store$.next((this.cardsArr = [...this.cardsArr, newCard])),
+        this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
       ),
-      catchError(this.handleError),
+      catchError(this.handleError)
     );
   }
 
@@ -82,9 +98,9 @@ export class CardService implements BaseHttpInterface<ICard> {
     return this.http
       .get<ICard[]>(`${environment.BaseUrl}cards?userId=${userId}`)
       .pipe(
-        map(cards => cards.map(card => this.determineIconPath(card))),
+        map((cards) => cards.map((card) => this.determineIconPath(card))),
         retry(1),
-        catchError(this.handleError),
+        catchError(this.handleError)
       );
   }
 
@@ -98,19 +114,20 @@ export class CardService implements BaseHttpInterface<ICard> {
     return this.http
       .get<ICard[]>(environment.BaseUrl + `cards?cardNumber=${cardNumber}`)
       .pipe(
-        switchMap(cards => from(cards)),
+        switchMap((cards) => from(cards)),
         take(1),
         retry(1),
-        catchError(this.handleError),
+        catchError(this.handleError)
       );
   }
 
   getCardByAccountNumber(accountNumber: string): Observable<ICard> {
     return this.http
-      .get<ICard[]>(environment.BaseUrl + `cards?accountNumber=${accountNumber}`)
+      .get<ICard[]>(
+        environment.BaseUrl + `cards?accountNumber=${accountNumber}`
+      )
       .pipe(
-        switchMap(cards => from(cards)),
-        take(1),
+        map((data) => data[0]),
         retry(1),
         catchError(this.handleError)
       );
@@ -148,6 +165,4 @@ export class CardService implements BaseHttpInterface<ICard> {
 
     return throwError(errorMessage);
   }
-
-
 }
