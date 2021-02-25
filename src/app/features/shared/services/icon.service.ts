@@ -37,7 +37,7 @@ export class IconService {
     }
   }
 
-  determineCardIconPath(card: ICard): ICard {
+  determineCardIcon(card: ICard): ICard {
     return {
       ...card,
       iconPath: this.cardTypes.includes(card.cardType.toLocaleLowerCase())
