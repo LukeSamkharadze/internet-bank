@@ -26,18 +26,4 @@ export class ExpenseTransactionsService {
         })
       );
   }
-
-  // getIncomeTransactions() {
-  //   return this.httpClient
-  //     .get(
-  //       `${this.host}/transaction?userId=${this.authService.userId}&transactionType=Expense`
-  //     )
-  //     .pipe(
-  //       map((transactions: Array<Itransaction>) => {
-  //         return transactions.map((transaction) => {
-  //           return transaction;
-  //         });
-  //       })
-  //     );
-  // }
 }

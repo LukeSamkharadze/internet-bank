@@ -11,5 +11,5 @@ export interface TransactionsList {
   tagColor: string;
   cardNumber: number;
   fromUser: number;
-  toUser: number;
+  toUser?: number;
 }
