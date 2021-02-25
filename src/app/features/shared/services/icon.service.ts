@@ -11,14 +11,12 @@ export class IconService {
   private transferTypes = ['bank', 'electronic', 'instant', 'phone', 'cash'];
   private cardTypes = ['mastercard', 'visa'];
 
+  // obj: any, because it will work on transfer and on ```paymentType => providers -> {name: paypal}``` as well.
   determineElectronicPaymentsIcon(obj: any, title: string) {
     title = title.toLocaleLowerCase();
-    return {
-      ...obj,
-      iconPath: this.electronicPayments.includes(title)
-        ? `./assets/electronic-payments/${title}.svg`
-        : undefined,
-    };
+    return this.electronicPayments.includes(title)
+      ? { ...obj, iconPath: `./assets/electronic-payments/${title}.svg` }
+      : obj;
   }
 
   determineTransfersIcon(transfer: Transfer) {
@@ -28,21 +26,16 @@ export class IconService {
         (transfer as ElectronicPayment).paymentSystem
       );
     } else {
-      return {
-        ...transfer,
-        iconPath: this.transferTypes.includes(transfer.type)
-          ? `./assets/transfers/${transfer.type}.svg`
-          : undefined,
-      };
+      return this.transferTypes.includes(transfer.type)
+        ? { ...transfer, iconPath: `./assets/transfers/${transfer.type}.svg` }
+        : transfer;
     }
   }
 
   determineCardIcon(card: ICard): ICard {
-    return {
-      ...card,
-      iconPath: this.cardTypes.includes(card.cardType.toLocaleLowerCase())
-        ? `./assets/create-card/${card.cardType.toLocaleLowerCase()}.svg`
-        : undefined,
-    };
+    const cardType = card.cardType;
+    return this.cardTypes.includes(cardType)
+      ? { ...card, iconPath: `./assets/create-card/${cardType}.svg` }
+      : card;
   }
 }

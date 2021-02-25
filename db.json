@@ -80,7 +80,7 @@
   "cards": [
     {
       "cardName": "VISA CARD",
-      "cardType": "VISA",
+      "cardType": "visa",
       "accountNumber": "GE32TB1111222233334444",
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
@@ -92,7 +92,7 @@
     },
     {
       "cardName": "MASTER CARD",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "accountNumber": "GE32TB2222111133334444",
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
@@ -104,7 +104,7 @@
     },
     {
       "cardName": "MASTER CARD",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "accountNumber": "GE32TB3333111122224444",
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
@@ -123,7 +123,7 @@
       "availableAmount": 8950,
       "security3D": true,
       "userId": "2",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "id": 4
     }
   ],

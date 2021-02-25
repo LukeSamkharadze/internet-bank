@@ -69,12 +69,12 @@ export class CardService implements BaseHttpInterface<ICard> {
       case '4':
         return {
           ...card,
-          cardType: 'VISA',
+          cardType: 'visa',
         };
       case '5':
         return {
           ...card,
-          cardType: 'MASTERCARD',
+          cardType: 'mastercard',
         };
       default:
         return { ...card };
