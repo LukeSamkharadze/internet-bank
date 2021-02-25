@@ -79,27 +79,59 @@
   ],
   "payments": [
     {
-      "date": "2021-02-24T13:34:14.358Z",
+      "date": "2021-02-24T20:08:32.290Z",
       "paymentType": "electronic",
       "fromAccount": "GE32TB3333111122224444",
-      "destinationEmail": "nini@gmail.com",
-      "amount": 79,
+      "destinationEmail": "a@gmail.com",
+      "amount": 2000,
       "currency": "USD",
       "fromUserId": "2",
       "id": 1
     },
     {
-      "date": "2021-02-24T13:34:43.051Z",
+      "date": "2021-02-24T20:10:25.636Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 2000,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 2
+    },
+    {
+      "date": "2021-02-24T20:14:51.332Z",
+      "paymentType": "electronic",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationEmail": "a@gmail.com",
+      "amount": 3000,
+      "currency": "USD",
+      "fromUserId": "2",
+      "id": 3
+    },
+    {
+      "date": "2021-02-24T20:17:13.165Z",
+      "paymentType": "instant",
+      "fromUserId": "2",
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "amount": 5000,
+      "transferType": "Personal transfer",
+      "destinationAccountUserId": "3",
+      "id": 4
+    },
+    {
+      "date": "2021-02-24T20:17:30.135Z",
       "paymentType": "bank",
       "fromUserId": "2",
-      "fromAccount": "GE32TB3333111122224446",
-      "destinationAccountNumber": "GE32TB1304200113042001",
-      "beneficiary": "BARRY ARMSTRONG",
-      "amount": 77,
+      "fromAccount": "GE32TB3333111122224444",
+      "destinationAccountNumber": "GE32TB1111222233334444",
+      "beneficiary": "someone",
+      "amount": 2000,
       "currency": "USD",
       "transferType": "Personal transfer",
-      "destinationAccountUserId": "2",
-      "id": 2
+      "destinationAccountUserId": "3",
+      "id": 5
     }
   ],
   "cards": [
@@ -110,11 +142,10 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 2064.42,
+      "availableAmount": 33720,
       "security3D": false,
       "userId": "3",
-      "id": 1,
-      "iconPath": "./assets/create-card/create-card-visa-icon.svg"
+      "id": 1
     },
     {
       "cardName": "MASTER CARD",
@@ -126,8 +157,7 @@
       "availableAmount": 25000,
       "security3D": true,
       "userId": "1",
-      "id": 2,
-      "iconPath": "./assets/create-card/mastercard.svg"
+      "id": 2
     },
     {
       "cardName": "MASTER CARD",
@@ -136,22 +166,21 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 44541.74,
+      "availableAmount": 28000,
       "security3D": true,
       "userId": "2",
-      "id": 3,
-      "iconPath": "./assets/create-card/mastercard.svg"
+      "id": 3
     },
     {
-      "cardName": "VISA CARD",
-      "cardType": "VISA",
-      "accountNumber": "GE32TB1304200113042001",
-      "cardNumber": "1304200113042001",
-      "cardholder": "NINO KRISTESIASHVILI",
-      "expirationDate": "05/23",
-      "availableAmount": 99996.46,
+      "cardName": "ADMIN2",
+      "accountNumber": "GE32TB4434234223333333",
+      "cardNumber": "5829389283948298",
+      "cardholder": "ADMIN ADMIN",
+      "expirationDate": "11/23",
+      "availableAmount": 9986,
       "security3D": true,
       "userId": "2",
+      "cardType": "MASTERCARD",
       "id": 4
     }
   ],
@@ -160,16 +189,13 @@
       "name": "Electronic Payments",
       "providers": [
         {
-          "name": "Paypal",
-          "iconPath": "./assets/electronic-payments/PayPal.svg"
+          "name": "Paypal"
         },
         {
-          "name": "Skrill",
-          "iconPath": "./assets/electronic-payments/Skrill_logo.svg"
+          "name": "Skrill"
         },
         {
-          "name": "Payoneer",
-          "iconPath": "./assets/electronic-payments/Payoneer_logo.svg"
+          "name": "Payoneer"
         }
       ],
       "icon": "las la-credit-card",
@@ -277,61 +303,46 @@
   "invoices": [
     {
       "template": "Website design",
-      "invoiceNumber": "AS-5",
-      "dueDate": "2021-02-08",
-      "companyName": "AOT",
-      "contanctEmail": "aot.company@gmail.com",
+      "invoiceNumber": "IO-BN-124",
+      "dueDate": "2021-03-11",
+      "companyName": "Vadafone LLC",
+      "contactEmail": "vadafone@gmail.com",
       "address": "123 Main Street, Somewhere, CA 94000",
-      "items": [
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 1,
-          "price": 150
-        }
-      ],
-      "id": 1
-    },
-    {
-      "template": "Marketing Materials",
-      "invoiceNumber": "RE-12",
-      "dueDate": "2021-02-23",
-      "companyName": "OP",
-      "contanctEmail": "op.company@gmail.com",
-      "address": "333 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 10,
-          "price": 250
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 150,
-          "price": 100
-        }
-      ],
-      "id": 2
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "AS-123",
-      "dueDate": "2021-03-05",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
       "items": [
         {
           "itemDescription": "Marketing Materials",
           "itemQty": 2,
-          "price": 120
-        },
+          "price": 150
+        }
+      ],
+      "totalAmount": 300,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-02-24T18:34:49.334Z",
+      "id": 1
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-100",
+      "dueDate": "2021-03-13",
+      "companyName": "AOT LLC",
+      "contactEmail": "aot@gmail.com",
+      "address": "333 Main Street, Somewhere, CA 99000",
+      "items": [
         {
           "itemDescription": "Printing Equipment",
           "itemQty": 10,
           "price": 100
+        },
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 150,
+          "price": 100
         }
       ],
-      "id": 3
+      "totalAmount": 16000,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-02-24T18:37:01.789Z",
+      "id": 2
     }
   ]
 }

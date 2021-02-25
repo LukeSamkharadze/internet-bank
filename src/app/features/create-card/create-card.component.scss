@@ -5,6 +5,8 @@
   min-width: 400px;
   height: 716px;
   border-radius: 4px;
+  background: white;
+  margin: 28px;
 }
 
 .grid-container {
@@ -26,6 +28,16 @@
       align-items: center;
       position: relative;
       width: 100%;
+
+      .visa-card-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8fafb;
+        width: 40.7px;
+        height: 28px;
+        border-radius: 4px;
+      }
     }
 
     .add-crd-txt {
@@ -109,7 +121,7 @@
       }
 
       &:hover {
-        background: hsl(200, 27%, 96%);
+        background-color: $background-2;
       }
 
       .la-check {
@@ -138,7 +150,7 @@
         &:active {
           outline: none;
           border-radius: 3px;
-          background: hsl(200, 27%, 92%);
+          background: hsl(200, 27%, 94%);
           transition: 0.3s;
 
           &.valid {
