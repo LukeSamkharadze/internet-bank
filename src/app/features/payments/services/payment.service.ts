@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BankTransfer } from '../../shared/interfaces/bankTransfer.entity';
-import { ElectronicTransfer } from '../../shared/interfaces/electronicTransfer.entity';
-import { InstantTransfer } from '../../shared/interfaces/instantTransfer.entity';
+import { BankPayment } from '../../shared/interfaces/bankPayment.entity';
+import { ElectronicPayment } from '../../shared/interfaces/electronicPayment.entity';
+import { InstantPayment } from '../../shared/interfaces/instantPaymententity';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
-import { forkJoin, Observable, of, throwError } from 'rxjs';
-import { catchError, finalize, map, switchMap, tap } from 'rxjs/operators';
+import { forkJoin, of } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
 
 @Injectable()
-export class TransferService {
+export class PaymentService {
   constructor(private http: HttpClient, private cardService: CardService) {}
 
   currentUsersCards$ = this.cardService.cards$;
 
-  bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
+  bankTransfer(transfer: BankPayment) {
     return this.cardService
-      .getCardByCardNumber(transfer.fromAccount.cardNumber)
+      .getCardByAccountNumber(transfer.fromAccountNumber)
       .pipe(
         tap((card) => {
           if (card.availableAmount < transfer.amount) {
@@ -27,9 +27,7 @@ export class TransferService {
         switchMap((card) =>
           forkJoin([
             of(card),
-            this.cardService.getCardByAccountNumber(
-              transfer.destinationAccountNumber
-            ),
+            this.cardService.getCardByAccountNumber(transfer.toAccountNumber),
           ])
         ),
         tap(([fromAccount, destinationAccount]) => {
@@ -39,30 +37,36 @@ export class TransferService {
           if (destinationAccount.accountNumber === fromAccount.accountNumber) {
             throw new Error('Can not make payment on same account');
           }
+          transfer = {
+            ...transfer,
+            toUserId: destinationAccount.userId,
+            title: `Bank transfer to user: ${destinationAccount.userId}`,
+          };
         }),
         switchMap(([fromAccount, destinationAccount]) => {
           return forkJoin([
             this.removeBalance(fromAccount, Number(transfer.amount)),
             this.addBalance(destinationAccount, Number(transfer.amount), true),
-            of(destinationAccount),
           ]);
         }),
-        map(([rb, ab, destinationAccount]) => destinationAccount.userId)
+        switchMap(() => this.postTransactionToDb(transfer))
       );
   }
 
-  electronicTransfer(transfer: ElectronicTransfer) {
+  electronicOrInstantTransfer(transfer: ElectronicPayment | InstantPayment) {
     return this.cardService
-      .getCardByCardNumber(transfer.fromAccount.cardNumber)
+      .getCardByAccountNumber(transfer.fromAccountNumber)
       .pipe(
         tap((card) => {
           if (card.availableAmount < transfer.amount) {
             throw new Error('not enough balance');
           }
+          transfer = { ...transfer, title: 'money goin outside tbc' };
         }),
         switchMap((fromAccount) =>
           this.removeBalance(fromAccount, Number(transfer.amount))
-        )
+        ),
+        switchMap(() => this.postTransactionToDb(transfer))
       );
   }
 
@@ -78,12 +82,8 @@ export class TransferService {
   }
 
   postTransactionToDb(
-    transfer: ElectronicTransfer | BankTransfer | InstantTransfer
+    transfer: ElectronicPayment | BankPayment | InstantPayment
   ) {
-    const transferForDb = {
-      ...transfer,
-      fromAccount: transfer.fromAccount.accountNumber,
-    };
-    return this.http.post(environment.BaseUrl + 'payments', transferForDb);
+    return this.http.post(environment.BaseUrl + 'transactions', transfer);
   }
 }
