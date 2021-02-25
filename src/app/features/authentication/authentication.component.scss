@@ -79,8 +79,15 @@
         .input-container {
           position: relative;
 
+          .error-message {
+            color: $secondary-3;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+          }
+
           .input-tooltip {
-            display: none;
+            display: flex;
             align-items: center;
             position: absolute;
             padding: 0 8px;
@@ -91,6 +98,9 @@
             height: 52.63px;
             background: #292a2d;
             user-select: none;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.35s ease-in-out;
 
             &::after {
               content: '';
@@ -118,13 +128,14 @@
             }
           }
 
-          &:hover .input-tooltip {
-            display: flex;
+          &:focus-within .input-tooltip {
+            visibility: visible;
+            opacity: 1;
           }
         }
       }
 
-      // Imported buttong styling
+      // Imported button styling
       .shared-button {
         width: 100%;
         height: 46px;
