@@ -25,29 +25,36 @@ import { catchError, tap } from 'rxjs/operators';
     summaryAnimation.summaryTrigger,
   ],
 })
-export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
+export class ElectronicPaymentFormComponent implements OnDestroy {
   title = 'Online payment';
-  form: FormGroup;
+
+  form = new FormGroup({
+    fromAccount: new FormControl('', Validators.required),
+    paymentSystem: new FormControl('', Validators.required),
+    toAccountEmail: new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]),
+    amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
+    currency: new FormControl('', Validators.required),
+  });
+
+  fromAccount: AbstractControl = this.form.get('fromAccount');
+  paymentSystem: AbstractControl = this.form.get('paymentSystem');
+  toAccountEmail: AbstractControl = this.form.get('toAccountEmail');
+  amount: AbstractControl = this.form.get('amount');
+  currency: AbstractControl = this.form.get('currency');
+
   currentUsersCards = this.paymentService.currentUsersCards$;
+
   paymentSystems$ = this.providersService.getElectronicPaymentProviders();
+
   private subscriptions = new Subscription();
 
   constructor(
     private paymentService: PaymentService,
     private providersService: ProvidersService
   ) {}
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      fromAccount: new FormControl('', Validators.required),
-      paymentSystem: new FormControl('', Validators.required),
-      toAccountEmail: new FormControl('', [
-        Validators.required,
-        Validators.email,
-      ]),
-      amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
-      currency: new FormControl('', Validators.required),
-    });
-  }
 
   onSubmit() {
     if (this.form.valid) {
@@ -84,33 +91,6 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
 
   onReset() {
     this.form.reset();
-  }
-  //
-
-  // getters
-  // @ts-ignore
-  get fromAccount(): AbstractControl {
-    return this.form.get('fromAccount');
-  }
-
-  // @ts-ignore
-  get paymentSystem(): AbstractControl {
-    return this.form.get('paymentSystem');
-  }
-
-  // @ts-ignore
-  get toAccountEmail(): AbstractControl {
-    return this.form.get('toAccountEmail');
-  }
-
-  // @ts-ignore
-  get amount(): AbstractControl {
-    return this.form.get('amount');
-  }
-
-  // @ts-ignore
-  get currency(): AbstractControl {
-    return this.form.get('currency');
   }
 
   ngOnDestroy() {

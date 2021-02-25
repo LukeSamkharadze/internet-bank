@@ -17,27 +17,33 @@ import { catchError, tap } from 'rxjs/operators';
   styleUrls: ['./bank-transfer-form.component.scss'],
   animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
-export class BankTransferFormComponent implements OnInit, OnDestroy {
+export class BankTransferFormComponent implements OnDestroy {
   title = 'Bank transfer';
-  form: FormGroup;
+
+  form = new FormGroup({
+    fromAccount: new FormControl('', Validators.required),
+    toAccountNumber: new FormControl('', Validators.required),
+    beneficiary: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[a-zA-Z\\s]*$'),
+    ]),
+    amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
+    currency: new FormControl('', Validators.required),
+    bankTransferType: new FormControl('', Validators.required),
+  });
+
+  fromAccount: AbstractControl = this.form.get('fromAccount');
+  toAccountNumber: AbstractControl = this.form.get('toAccountNumber');
+  beneficiary: AbstractControl = this.form.get('beneficiary');
+  amount: AbstractControl = this.form.get('amount');
+  currency: AbstractControl = this.form.get('currency');
+  bankTransferType: AbstractControl = this.form.get('bankTransferType');
+
   currentUsersCards = this.paymentService.currentUsersCards$;
+
   private subscriptions = new Subscription();
 
   constructor(private paymentService: PaymentService) {}
-
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      fromAccount: new FormControl('', Validators.required),
-      toAccountNumber: new FormControl('', Validators.required),
-      beneficiary: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[a-zA-Z\\s]*$'),
-      ]),
-      amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
-      currency: new FormControl('', Validators.required),
-      bankTransferType: new FormControl('', Validators.required),
-    });
-  }
 
   onSubmit(): void {
     if (this.form.valid) {
@@ -72,36 +78,6 @@ export class BankTransferFormComponent implements OnInit, OnDestroy {
     } else {
       this.form.markAllAsTouched();
     }
-  }
-
-  // getters
-  // @ts-ignore
-  get fromAccount(): AbstractControl {
-    return this.form.get('fromAccount');
-  }
-  // @ts-ignore
-  get toAccountNumber(): AbstractControl {
-    return this.form.get('toAccountNumber');
-  }
-
-  // @ts-ignore
-  get beneficiary(): AbstractControl {
-    return this.form.get('beneficiary');
-  }
-
-  // @ts-ignore
-  get amount(): AbstractControl {
-    return this.form.get('amount');
-  }
-
-  // @ts-ignore
-  get currency(): AbstractControl {
-    return this.form.get('currency');
-  }
-
-  // @ts-ignore
-  get bankTransferType(): AbstractControl {
-    return this.form.get('bankTransferType');
   }
 
   ngOnDestroy() {

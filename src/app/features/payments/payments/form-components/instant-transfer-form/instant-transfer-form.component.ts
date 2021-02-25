@@ -17,21 +17,26 @@ import { catchError, tap } from 'rxjs/operators';
   styleUrls: ['./instant-transfer-form.component.scss'],
   animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
-export class InstantTransferFormComponent implements OnInit, OnDestroy {
+export class InstantTransferFormComponent implements OnDestroy {
   title = 'Instant transfer';
-  form: FormGroup;
+
+  form = new FormGroup({
+    fromAccount: new FormControl('', Validators.required),
+    toAccountNumber: new FormControl('', Validators.required),
+    amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
+    instantTransferType: new FormControl('', Validators.required),
+  });
+
+  fromAccount: AbstractControl = this.form.get('fromAccount');
+  toAccountNumber: AbstractControl = this.form.get('toAccountNumber');
+  amount: AbstractControl = this.form.get('amount');
+  instantTransferType: AbstractControl = this.form.get('instantTransferType');
+
   currentUsersCards = this.paymentService.currentUsersCards$;
+
   private subscriptions = new Subscription();
 
   constructor(private paymentService: PaymentService) {}
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      fromAccount: new FormControl('', Validators.required),
-      toAccountNumber: new FormControl('', Validators.required),
-      amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
-      instantTransferType: new FormControl('', Validators.required),
-    });
-  }
 
   onSubmit() {
     if (this.form.valid) {
@@ -64,26 +69,6 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
     } else {
       this.form.markAllAsTouched();
     }
-  }
-  // getters
-  // @ts-ignore
-  get fromAccount(): AbstractControl {
-    return this.form.get('fromAccount');
-  }
-
-  // @ts-ignore
-  get toAccountNumber(): AbstractControl {
-    return this.form.get('toAccountNumber');
-  }
-
-  // @ts-ignore
-  get amount(): AbstractControl {
-    return this.form.get('amount');
-  }
-
-  // @ts-ignore
-  get instantTransferType(): AbstractControl {
-    return this.form.get('instantTransferType');
   }
 
   ngOnDestroy() {
