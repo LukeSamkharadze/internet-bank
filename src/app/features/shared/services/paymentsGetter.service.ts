@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BankTransfer } from '../interfaces/bankTransfer.entity';
-import { InstantTransfer } from '../interfaces/instantTransfer.entity';
-import { ElectronicTransfer } from '../interfaces/electronicTransfer.entity';
+import { BankTransfer } from '../interfaces/bankPayment.entity';
+import { InstantTransfer } from '../interfaces/instantPaymententity';
+import { ElectronicTransfer } from '../interfaces/electronicPayment.entity';
 import { environment } from '../../../../environments/environment';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';

@@ -9,11 +9,11 @@ import {
   summaryAnimation,
   formAnimations,
 } from '../../../../shared/animations';
-import { TransferService } from '../../../services/transfer.service';
-import { ElectronicTransfer } from '../../../../shared/interfaces/electronicTransfer.entity';
+import { PaymentService } from '../../../services/payment.service';
+import { ElectronicPayment } from '../../../../shared/interfaces/electronicPayment.entity';
 import { ProvidersService } from '../../../services/providers.service';
-import { Subscription } from 'rxjs';
-import { catchError, switchMap, tap } from 'rxjs/operators';
+import { of, Subscription } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-electronic-payment-form',
@@ -28,19 +28,19 @@ import { catchError, switchMap, tap } from 'rxjs/operators';
 export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
   title = 'Online payment';
   form: FormGroup;
-  currentUsersCards = this.transferService.currentUsersCards$;
+  currentUsersCards = this.paymentService.currentUsersCards$;
   paymentSystems$ = this.providersService.getElectronicPaymentProviders();
   private subscriptions = new Subscription();
 
   constructor(
-    private transferService: TransferService,
+    private paymentService: PaymentService,
     private providersService: ProvidersService
   ) {}
   ngOnInit(): void {
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
       paymentSystem: new FormControl('', Validators.required),
-      destinationEmail: new FormControl('', [
+      toAccountEmail: new FormControl('', [
         Validators.required,
         Validators.email,
       ]),
@@ -51,26 +51,28 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      const transfer: ElectronicTransfer = {
+      const transfer: ElectronicPayment = {
+        title: '', // will add in actual payment method.
         date: new Date(),
-        paymentType: 'electronic',
-        ...this.form.getRawValue(),
-        fromUserId: this.fromAccount.value.userId,
+        type: 'electronic',
+        fromAccountNumber: this.fromAccount.value.accountNumber,
+        fromAccountUserId: this.fromAccount.value.userId,
+        toAccountEmail: this.toAccountEmail.value,
         paymentSystem: this.paymentSystem.value.title,
         amount: Number(this.amount.value),
+        currency: this.currency.value,
       };
       this.subscriptions.add(
-        this.transferService
-          .electronicTransfer(transfer)
+        this.paymentService
+          .electronicOrInstantTransfer(transfer)
           .pipe(
             tap(() => {
               alert('success');
               this.form.reset();
             }),
-            switchMap(() => this.transferService.postTransactionToDb(transfer)),
             catchError((error) => {
               alert(error);
-              return error;
+              return of(error);
             })
           )
           .subscribe()
@@ -97,8 +99,8 @@ export class ElectronicPaymentFormComponent implements OnInit, OnDestroy {
   }
 
   // @ts-ignore
-  get destinationEmail(): AbstractControl {
-    return this.form.get('destinationEmail');
+  get toAccountEmail(): AbstractControl {
+    return this.form.get('toAccountEmail');
   }
 
   // @ts-ignore

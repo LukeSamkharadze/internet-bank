@@ -6,11 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
-import { InstantTransfer } from '../../../../shared/interfaces/instantTransfer.entity';
-import { TransferService } from '../../../services/transfer.service';
-import { Subscription } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
-import { CardService } from '../../../../shared/services/card.service';
+import { InstantPayment } from '../../../../shared/interfaces/instantPaymententity';
+import { PaymentService } from '../../../services/payment.service';
+import { of, Subscription } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-instant-transfer-form',
@@ -21,46 +20,43 @@ import { CardService } from '../../../../shared/services/card.service';
 export class InstantTransferFormComponent implements OnInit, OnDestroy {
   title = 'Instant transfer';
   form: FormGroup;
-  currentUsersCards = this.transferService.currentUsersCards$;
+  currentUsersCards = this.paymentService.currentUsersCards$;
   private subscriptions = new Subscription();
 
-  constructor(private transferService: TransferService) {}
+  constructor(private paymentService: PaymentService) {}
   ngOnInit(): void {
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
-      destinationAccountNumber: new FormControl('', Validators.required),
+      toAccountNumber: new FormControl('', Validators.required),
       amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
-      transferType: new FormControl('', Validators.required),
+      instantTransferType: new FormControl('', Validators.required),
     });
   }
 
   onSubmit() {
     if (this.form.valid) {
-      const transfer: InstantTransfer = {
+      const transfer: InstantPayment = {
+        title: '', // will add in actual payment method.
         date: new Date(),
-        paymentType: 'instant',
-        fromUserId: this.fromAccount.value.userId,
-        ...this.form.getRawValue(),
+        type: 'instant',
+        fromAccountUserId: this.fromAccount.value.userId,
+        fromAccountNumber: this.fromAccount.value.accountNumber,
         amount: Number(this.amount.value),
+        currency: 'USD', // rasvizamt moitana cxovrebam statikuri valutebi
+        instantTransferType: this.instantTransferType.value,
+        toAccountNumber: this.toAccountNumber.value,
       };
       this.subscriptions.add(
-        this.transferService
-          .bankOrInstantTransfer(transfer)
+        this.paymentService
+          .electronicOrInstantTransfer(transfer)
           .pipe(
-            map((destinationAccountUserId: string) => {
+            tap(() => {
               alert('success');
               this.form.reset();
-              return {
-                ...transfer,
-                destinationAccountUserId,
-              };
             }),
-            switchMap((transfera) =>
-              this.transferService.postTransactionToDb(transfera)
-            ),
             catchError((error) => {
               alert(error);
-              return error;
+              return of(error);
             })
           )
           .subscribe()
@@ -76,8 +72,8 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
   }
 
   // @ts-ignore
-  get destinationAccountNumber(): AbstractControl {
-    return this.form.get('destinationAccountNumber');
+  get toAccountNumber(): AbstractControl {
+    return this.form.get('toAccountNumber');
   }
 
   // @ts-ignore
@@ -86,8 +82,8 @@ export class InstantTransferFormComponent implements OnInit, OnDestroy {
   }
 
   // @ts-ignore
-  get transferType(): AbstractControl {
-    return this.form.get('transferType');
+  get instantTransferType(): AbstractControl {
+    return this.form.get('instantTransferType');
   }
 
   ngOnDestroy() {

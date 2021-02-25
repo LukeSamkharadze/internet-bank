@@ -6,10 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
-import { TransferService } from '../../../services/transfer.service';
-import { BankTransfer } from '../../../../shared/interfaces/bankTransfer.entity';
-import { Subscription } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { PaymentService } from '../../../services/payment.service';
+import { BankPayment } from '../../../../shared/interfaces/bankPayment.entity';
+import { of, Subscription } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -20,52 +20,51 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 export class BankTransferFormComponent implements OnInit, OnDestroy {
   title = 'Bank transfer';
   form: FormGroup;
-  currentUsersCards = this.transferService.currentUsersCards$;
+  currentUsersCards = this.paymentService.currentUsersCards$;
   private subscriptions = new Subscription();
 
-  constructor(private transferService: TransferService) {}
+  constructor(private paymentService: PaymentService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
       fromAccount: new FormControl('', Validators.required),
-      destinationAccountNumber: new FormControl('', Validators.required),
+      toAccountNumber: new FormControl('', Validators.required),
       beneficiary: new FormControl('', [
         Validators.required,
         Validators.pattern('^[a-zA-Z\\s]*$'),
       ]),
       amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
       currency: new FormControl('', Validators.required),
-      transferType: new FormControl('', Validators.required),
+      bankTransferType: new FormControl('', Validators.required),
     });
   }
 
   onSubmit(): void {
     if (this.form.valid) {
-      const transfer: BankTransfer = {
+      const transfer: BankPayment = {
+        title: '', // will add in actual payment method.
+        toUserId: '', // will add in actual payment method.
         date: new Date(),
-        paymentType: 'bank',
-        fromUserId: this.fromAccount.value.userId,
-        ...this.form.getRawValue(),
+        type: 'bank',
+        fromAccountUserId: this.fromAccount.value.userId,
+        fromAccountNumber: this.fromAccount.value.accountNumber,
+        toAccountNumber: this.toAccountNumber.value,
         amount: Number(this.amount.value),
+        currency: this.currency.value as string,
+        beneficiary: this.beneficiary.value as string,
+        bankTransferType: this.bankTransferType.value as string,
       };
       this.subscriptions.add(
-        this.transferService
-          .bankOrInstantTransfer(transfer)
+        this.paymentService
+          .bankTransfer(transfer)
           .pipe(
-            map((destinationAccountUserId: string) => {
+            tap(() => {
               alert('success');
               this.form.reset();
-              return {
-                ...transfer,
-                destinationAccountUserId,
-              };
             }),
-            switchMap((transfera) =>
-              this.transferService.postTransactionToDb(transfera)
-            ),
             catchError((error) => {
               alert(error);
-              return error;
+              return of(error);
             })
           )
           .subscribe()
@@ -81,8 +80,8 @@ export class BankTransferFormComponent implements OnInit, OnDestroy {
     return this.form.get('fromAccount');
   }
   // @ts-ignore
-  get destinationAccountNumber(): AbstractControl {
-    return this.form.get('destinationAccountNumber');
+  get toAccountNumber(): AbstractControl {
+    return this.form.get('toAccountNumber');
   }
 
   // @ts-ignore
@@ -101,8 +100,8 @@ export class BankTransferFormComponent implements OnInit, OnDestroy {
   }
 
   // @ts-ignore
-  get transferType(): AbstractControl {
-    return this.form.get('transferType');
+  get bankTransferType(): AbstractControl {
+    return this.form.get('bankTransferType');
   }
 
   ngOnDestroy() {
