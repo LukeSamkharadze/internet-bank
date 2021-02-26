@@ -6,7 +6,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { UserService } from '../../../shared/services/user.service';
+import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-shared-header-profile',
   templateUrl: './header-profile.component.html',
@@ -18,7 +19,7 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
   user = {
     fullname: 'Barry Armstrong',
     email: 'mail@mail.com',
-    image: './assets/header-profile/user.png',
+    image: './assets/header-profile/default-user.png',
   };
   status = false;
 
@@ -36,6 +37,7 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
       this.user.email = user.email;
     });
   }
+
   ngAfterViewInit() {
     const dropdown = this.userDropdownMenu.nativeElement;
     document.addEventListener('click', (e: MouseEvent) => {
@@ -55,9 +57,11 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
   showDropdown() {
     this.userDropdownMenu.nativeElement.classList.toggle('show');
   }
+
   clickEvent() {
     this.status = !this.status;
   }
+
   signOut() {
     this.authService.logout();
   }
