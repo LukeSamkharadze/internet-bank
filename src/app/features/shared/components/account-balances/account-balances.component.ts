@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ICard } from '../../interfaces/card.interface';
 import { IDeposit } from '../../interfaces/deposit.interface';
+import { CardService } from '../../services/card.service';
 import { PaymentsGetterService } from '../../services/paymentsGetter.service';
 import { ArrowDirectionService } from './services/account-balances-arrow.service';
 import { AccountBalancesService } from './services/account-balances.service';
@@ -15,7 +16,8 @@ export class AccountBalancesComponent implements OnInit, AfterViewInit {
   constructor(
     public accountBalancesService: AccountBalancesService,
     public paymentsGetterService: PaymentsGetterService,
-    private arrowDirectionService: ArrowDirectionService
+    private arrowDirectionService: ArrowDirectionService,
+    private cardService: CardService
   ) {}
 
   ngOnInit(): void {
@@ -25,16 +27,24 @@ export class AccountBalancesComponent implements OnInit, AfterViewInit {
     this.accountBalancesService.balances$.subscribe(
       (wholeBalance: Array<ICard | IDeposit>) => {
         for (const i of wholeBalance) {
-          const index = wholeBalance.indexOf(i);
-          wholeBalance.splice(index, 1);
-          const b = {
-            ...i,
-            arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
-          };
+          let index;
+          let b;
+          if (this.instanceOfICard(i)) {
+            index = wholeBalance.indexOf(i);
+            wholeBalance.splice(index, 1);
+            b = {
+              ...this.cardService.determineIconPath(i),
+              arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
+            };
+          }
           wholeBalance.splice(index, 0, b);
         }
+
         this.balance = wholeBalance;
       }
     );
+  }
+  instanceOfICard(object: any): object is ICard {
+    return 'member' in object;
   }
 }
