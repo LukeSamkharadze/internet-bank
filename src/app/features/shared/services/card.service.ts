@@ -5,6 +5,7 @@ import {
   EMPTY,
   from,
   Observable,
+  of,
   Subject,
   throwError,
 } from 'rxjs';
@@ -35,8 +36,6 @@ export class CardService implements BaseHttpInterface<ICard> {
 
   public cards$ = this.store$.pipe(distinctUntilChanged());
 
-  public subj = new Subject<boolean>();
-
   constructor(
     private http: HttpClient,
     private auth: AuthService,
@@ -50,9 +49,6 @@ export class CardService implements BaseHttpInterface<ICard> {
 
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
-      tap(() => {
-        this.subj.next(true);
-      }),
       tap((newCard) =>
         this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
       ),
