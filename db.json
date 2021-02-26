@@ -115,69 +115,7 @@
       ]
     }
   ],
-  "transaction": [
-    {
-      "id": 1,
-      "title": "Vodafone account top up  ****04",
-      "type": "Electronic",
-      "beneficiary": "paypal",
-      "amount": "$4.20",
-      "date": "4 Aug 1:00 PM",
-      "currency": "USD",
-      "status": "paid",
-      "cardNumber": 5678,
-      "fromUser": 1,
-      "toUser": null,
-      "toAccountNumber": "str",
-      "fromAccountNumber": "str"
-    },
-    {
-      "id": 2,
-      "title": "Money transfer to John Doe",
-      "type": "Electronic",
-      "beneficiary": "skrill",
-      "currency": "USD",
-      "amount": "$10.480.00",
-      "date": "5 Aug 3:00 PM",
-      "status": "in progress",
-      "cardNumber": 1278,
-      "fromUser": 1,
-      "toUser": null,
-      "toAccountNumber": "str",
-      "fromAccountNumber": "str"
-    },
-    {
-      "id": 3,
-      "title": "ATM Cash withdrawal",
-      "type": "Cash",
-      "beneficiary": "payoneer",
-      "currency": "USD",
-      "amount": "$201.50",
-      "date": "6 Aug 2:15 AM",
-      "status": "paid",
-      "cardNumber": 4563,
-      "fromUser": 2,
-      "toUser": null,
-      "toAccountNumber": "str",
-      "fromAccountNumber": "str"
-    },
-    {
-      "id": 4,
-      "title": "ATM Cash withdrawal",
-      "type": "Instant",
-      "transactionType": "Internal",
-      "beneficiary": "naniko",
-      "currency": "USD",
-      "amount": "$204",
-      "date": "3 Aug 2020 2:15 AM",
-      "status": "paid",
-      "cardNumber": 4873,
-      "fromUser": 2,
-      "toUser": 3,
-      "toAccountNumber": "str",
-      "fromAccountNumber": "str"
-    }
-  ],
+
   "cards": [
     {
       "cardName": "VISA CARD",
