@@ -24,6 +24,7 @@
     margin-right: 11.3px;
 
     img {
+      border-radius: 32px;
       width: 32px;
     }
   }
@@ -50,6 +51,7 @@
   // margin-right: 20px;
   position: absolute;
   z-index: 1;
+  outline: none;
   .about {
     background-color: $background-2;
     height: 79.75px;
@@ -73,6 +75,10 @@
       color: $secondary-dark-2;
       letter-spacing: 0px;
       font-weight: 400;
+    }
+    img {
+      border-radius: 32px;
+      width: 32px;
     }
   }
 

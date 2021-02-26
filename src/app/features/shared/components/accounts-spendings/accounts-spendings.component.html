@@ -1,0 +1,37 @@
+<div class="acc-spendings" [attr.spendings]="spendings">
+  <div class="spendings-title">
+    <h5>Your accounts spendings</h5>
+    <i class="las la-wallet"></i>
+  </div>
+  <div class="spendings-container">
+    <div class="spendings">
+      <p>Debit cards</p>
+      <p class="amount">{{ spendings.debit }} Usd</p>
+      <app-shared-progress-bar
+        [value]="spendings.debit"
+        [max]="spendings.maxval"
+      ></app-shared-progress-bar>
+    </div>
+    <div class="spendings">
+      <p>Credit cards</p>
+      <p class="amount">{{ spendings.credit }} Usd</p>
+      <app-shared-progress-bar
+        [value]="spendings.credit"
+        [max]="spendings.maxval"
+      ></app-shared-progress-bar>
+    </div>
+    <div class="spendings">
+      <p>Cash</p>
+      <p class="amount">{{ spendings.cash }} Usd</p>
+      <app-shared-progress-bar
+        [value]="spendings.cash"
+        [max]="spendings.maxval"
+      ></app-shared-progress-bar>
+    </div>
+  </div>
+  <div class="value-axis">
+    <div class="values">
+      <p *ngFor="let value of axisValues">{{ value }}</p>
+    </div>
+  </div>
+</div>

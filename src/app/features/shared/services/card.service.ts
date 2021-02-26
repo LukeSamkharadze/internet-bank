@@ -48,6 +48,7 @@ export class CardService implements BaseHttpInterface<ICard> {
     card = this.determineCardType(card);
 
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
+      retry(1),
       tap((newCard) =>
         this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
       ),
