@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
       <br />
       <h3>Error 404, Page Not Found!</h3>
       <br />
-      <img src="../assets/not-found-404/nf-404.png" />
+      <img src="../assets/not-found-404/nf-404.png" width="284" height="349" />
     </div>
   </main>`,
   styles: [
@@ -28,6 +28,12 @@ import { Component } from '@angular/core';
       }
       div {
         text-align: center;
+        pointer-events: none;
+        user-select: none;
+      }
+      img {
+        width: 100%;
+        height: auto;
       }
     `,
   ],
