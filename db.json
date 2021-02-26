@@ -41,6 +41,44 @@
       "img": "https://picsum.photos/200?random=8"
     }
   ],
+  "limits": [
+    {
+      "bankLimit": 22000,
+      "onlineLimit": 10000,
+      "cashLimit": 9000,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "bankLimit": 8000,
+      "onlineLimit": 5000,
+      "cashLimit": 4000
+    },
+    {
+      "id": 3,
+      "bankLimit": 12000,
+      "onlineLimit": 10000,
+      "cashLimit": 8000
+    },
+    {
+      "bankLimit": 5000,
+      "onlineLimit": 5000,
+      "cashLimit": 5000,
+      "id": 4
+    },
+    {
+      "bankLimit": 5000,
+      "onlineLimit": 5000,
+      "cashLimit": 5000,
+      "id": 5
+    },
+    {
+      "bankLimit": 7000,
+      "onlineLimit": 5000,
+      "cashLimit": 11000,
+      "id": 6
+    }
+  ],
   "income": [
     {
       "id": 1,
@@ -186,6 +224,24 @@
       "email": "mafia_immortal@outlook.com",
       "password": "ssssssssss",
       "id": 3
+    },
+    {
+      "fullname": "JAVAXA JAVAXA",
+      "email": "javaxa@gmail.com",
+      "password": "Javaxa1234",
+      "id": 4
+    },
+    {
+      "fullname": "BABAXA BABAXA",
+      "email": "babaxa@gmail.com",
+      "password": "Babaxa1234",
+      "id": 5
+    },
+    {
+      "fullname": "GIO GIO",
+      "email": "gio@gmail.com",
+      "password": "Gio12345",
+      "id": 6
     }
   ],
   "deposits": [
