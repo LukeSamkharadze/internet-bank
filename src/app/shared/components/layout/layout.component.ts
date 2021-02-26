@@ -15,26 +15,25 @@ import { Subscription } from 'rxjs';
 })
 export class LayoutComponent implements OnInit, OnDestroy {
   public menuIsActive = false;
-  public contentTitlte = 'DASHBOARD';
+  public contentTitle = 'DASHBOARD';
   public cardArray: Array<string> = [];
   public cardTypeArray: Array<string> = [];
   public contentMainHeight;
   private subscription: Subscription;
 
-  @ViewChild('mainNav')
-  mainNav: ElementRef;
+  @ViewChild('mainNav') mainNav: ElementRef;
 
-  @ViewChild('bottomNav')
-  bottomNav: ElementRef;
+  @ViewChild('bottomNav') bottomNav: ElementRef;
 
-  @ViewChild('contentMain')
-  contentMain: ElementRef;
+  @ViewChild('contentMain') contentMain: ElementRef;
 
   constructor(private cardService: CardService, private router: Router) {}
+
   redirectToDashboard() {
-    this.contentTitlte = 'DASHBOARD';
+    this.contentTitle = 'DASHBOARD';
     this.router.navigate(['/dashboard']);
   }
+
   getMainContentMinHeight() {
     setTimeout(() => {
       if (this.cardArray.length === 0) {
@@ -48,6 +47,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
       }
     });
   }
+
   ngOnInit() {
     this.subscription = this.cardService.cards$.subscribe((response) => {
       this.cardArray = [];
@@ -59,7 +59,9 @@ export class LayoutComponent implements OnInit, OnDestroy {
       this.getMainContentMinHeight();
     });
   }
+
   ngOnDestroy() {
+    console.log('ae');
     this.subscription.unsubscribe();
   }
 }
