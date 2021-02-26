@@ -4,9 +4,10 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
+  Router,
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { AuthService } from '../../shared/services/auth.service';
 import { CardService } from '../../shared/services/card.service';
 
@@ -14,7 +15,8 @@ import { CardService } from '../../shared/services/card.service';
 export class CardDetailsGuard implements CanActivate {
   constructor(
     private cardService: CardService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   canActivate(
@@ -25,8 +27,13 @@ export class CardDetailsGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.cardService
-      .getById(Number(next.paramMap.get('id')))
-      .pipe(map((v) => v && v.userId === this.authService.userId));
+    return this.cardService.getById(Number(next.paramMap.get('id'))).pipe(
+      map((card) =>
+        card && card.userId === this.authService.userId
+          ? true
+          : this.router.parseUrl('/accounts-list')
+      ),
+      catchError(() => of(this.router.parseUrl('/accounts-list')))
+    );
   }
 }

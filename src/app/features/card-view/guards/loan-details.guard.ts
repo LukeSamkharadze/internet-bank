@@ -4,9 +4,10 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
+  Router,
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { AuthService } from '../../shared/services/auth.service';
 import { LoanService } from '../../shared/services/loan.service';
 
@@ -14,7 +15,8 @@ import { LoanService } from '../../shared/services/loan.service';
 export class LoanDetailsGuard implements CanActivate {
   constructor(
     private loanService: LoanService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   canActivate(
@@ -25,8 +27,13 @@ export class LoanDetailsGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.loanService
-      .getById(Number(next.paramMap.get('id')))
-      .pipe(map((v) => v && v.userId === this.authService.userId));
+    return this.loanService.getById(Number(next.paramMap.get('id'))).pipe(
+      map((loan) =>
+        loan && loan.userId === this.authService.userId
+          ? true
+          : this.router.parseUrl('/accounts-list')
+      ),
+      catchError(() => of(this.router.parseUrl('/accounts-list')))
+    );
   }
 }

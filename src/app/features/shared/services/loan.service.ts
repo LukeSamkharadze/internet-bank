@@ -6,18 +6,18 @@ import { retry } from 'rxjs/operators';
 import { BaseHttpInterface } from '@shared/shared';
 
 import { environment } from '../../../../environments/environment';
-import { ILoan } from '../interfaces/loan.interface';
+import { ILoan, LoanType } from '../interfaces/loan.interface';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoanService implements BaseHttpInterface<ILoan> {
-  private readonly icons = new Map<string, string>([
+  private readonly icons = new Map<LoanType, string>([
     ['Mortgage', 'lar la-building'],
     ['Consumer', 'las la-laptop'],
   ]);
-  private readonly colors = new Map<string, string>([
+  private readonly colors = new Map<LoanType, string>([
     ['Mortgage', 'green'],
     ['Consumer', 'blue'],
   ]);
@@ -45,8 +45,10 @@ export class LoanService implements BaseHttpInterface<ILoan> {
     return EMPTY;
   }
 
-  delete(): Observable<void> {
-    return EMPTY;
+  delete(id: number): Observable<void> {
+    return this.http
+      .delete<void>(`${environment.BaseUrl}loans/${id}`)
+      .pipe(retry(1));
   }
 
   determineIcon(loan: ILoan): string {

@@ -1,5 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnDestroy,
+} from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import IButton from '../models/card-view-buttons.entity';
 import ICardTemplate from '../models/card-view-card.entity';
 import IList from '../models/card-view-list.entity';
 
@@ -9,12 +15,32 @@ import IList from '../models/card-view-list.entity';
   styleUrls: ['./card-view-template.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardViewTemplateComponent {
-  @Input() list$: Observable<IList>;
-  @Input() cardInfo$: Observable<ICardTemplate>;
-  @Input() name$: Observable<string>;
-  @Input() amount$: Observable<string>;
+export class CardViewTemplateComponent implements OnDestroy {
+  @Input() list: IList;
+  @Input() cardInfo: ICardTemplate;
+  @Input() name: string;
+  @Input() amount: string;
   @Input() canBlock: boolean;
-  @Input() color$: Observable<string>;
+  @Input() color: string;
   @Input() cardColor: string;
+  @Input() buttons: IButton[];
+
+  private subscriptions: Array<Subscription> = [];
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
+
+  subscribeFunction<T>(
+    func: () => Observable<T>,
+    callBack: () => void
+  ): Subscription {
+    const subscription = func().subscribe((v) => {
+      if (typeof callBack === 'function') {
+        callBack.call(this, v);
+      }
+    });
+    this.subscriptions.push(subscription);
+    return subscription;
+  }
 }

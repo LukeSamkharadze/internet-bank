@@ -5,5 +5,7 @@ export interface ILoan extends IParent {
   loanRate: number;
   startDate: string;
   paid?: number;
-  type: 'Mortgage' | 'Consumer';
+  type: LoanType;
 }
+
+export type LoanType = 'Mortgage' | 'Consumer';

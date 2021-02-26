@@ -4,17 +4,19 @@ import { EMPTY, Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
-import { IDeposit } from '../interfaces/deposit.interface';
+import { DepositType, IDeposit } from '../interfaces/deposit.interface';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DepositService implements BaseHttpInterface<IDeposit> {
-  private readonly icons = new Map<string, string>([
+  private readonly icons = new Map<DepositType, string>([
     ['Cumulative', 'las la-lock'],
   ]);
-  private readonly colors = new Map<string, string>([['Cumulative', 'orange']]);
+  private readonly colors = new Map<DepositType, string>([
+    ['Cumulative', 'orange'],
+  ]);
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 
@@ -39,8 +41,10 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
     return EMPTY;
   }
 
-  delete(): Observable<void> {
-    return EMPTY;
+  delete(id: number): Observable<void> {
+    return this.http
+      .delete<void>(`${environment.BaseUrl}deposits/${id}`)
+      .pipe(retry(1));
   }
 
   determineIcon(deposit: IDeposit): string {

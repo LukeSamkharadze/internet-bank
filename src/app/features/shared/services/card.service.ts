@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, Subject, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
-import { ICard } from '../interfaces/card.interface';
+import { CardType, ICard } from '../interfaces/card.interface';
 import { catchError, distinctUntilChanged, retry, tap } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
@@ -13,6 +13,11 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class CardService implements BaseHttpInterface<ICard> {
+  private readonly colors = new Map<CardType, string>([
+    ['VISA', 'blue'],
+    ['MASTERCARD', 'orange'],
+  ]);
+
   private cardsArr: ICard[] = [];
 
   private store$ = new BehaviorSubject<ICard[]>(this.cardsArr);
@@ -107,8 +112,10 @@ export class CardService implements BaseHttpInterface<ICard> {
       .pipe(retry(1));
   }
 
-  delete(): Observable<void> {
-    return EMPTY;
+  delete(id: number): Observable<void> {
+    return this.http
+      .delete<void>(`${environment.BaseUrl}cards/${id}`)
+      .pipe(retry(1), catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -124,5 +131,9 @@ export class CardService implements BaseHttpInterface<ICard> {
     window.alert(errorMessage);
 
     return throwError(errorMessage);
+  }
+
+  determineColor(card: ICard): string {
+    return this.colors.get(card.cardType);
   }
 }

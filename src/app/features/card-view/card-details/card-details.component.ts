@@ -1,10 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { filter, first, map, switchMap, tap } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+import {
+  distinctUntilChanged,
+  filter,
+  map,
+  switchMap,
+  tap,
+} from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';
 import { FormatterService } from '../../shared/services/formatter.service';
+import IButton from '../models/card-view-buttons.entity';
 import ICardTemplate from '../models/card-view-card.entity';
 import IList from '../models/card-view-list.entity';
 import { ToListFormatterService } from '../services/to-list-formatter.service';
@@ -14,63 +21,101 @@ import { ToTemplateFormatterService } from '../services/to-template-formatter.se
   selector: 'app-card-details',
   templateUrl: './card-details.component.html',
   styleUrls: ['./card-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardDetailsComponent implements OnInit, OnDestroy {
+export class CardDetailsComponent implements OnInit {
   cardInfo$: Observable<ICardTemplate>;
   list$: Observable<IList>;
-  icon: string;
-  logo: string;
+  icon$: Observable<string>;
+  logo$: Observable<string>;
   name$: Observable<string>;
   amount$: Observable<string>;
-  routerSub: Subscription;
+  buttons$: Observable<IButton[]>;
+  color$: Observable<string>;
 
   constructor(
     private formatterService: FormatterService,
     private toListService: ToListFormatterService,
     private toTemplateService: ToTemplateFormatterService,
     private cardService: CardService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.routerSub = this.route.params
-      .pipe(
-        map((params) => this.loadData(Number(params.id))),
-        filter((v) => v !== null)
+    const card$ = this.route.params.pipe(
+      map((params) => Number(params.id)),
+      map((id) => {
+        if (isNaN(id)) {
+          throw new Error();
+        }
+        return this.cardService.getById(id);
+      }),
+      filter((v) => !!v),
+      switchMap((v) => v)
+    );
+    this.initializeCard(card$);
+  }
+
+  initializeCard(card$: Observable<ICard>): void {
+    this.color$ = card$.pipe(
+      map((card) => this.cardService.determineColor(card))
+    );
+    this.icon$ = card$.pipe(
+      map((card) => this.cardService.determineIconPath(card).iconPath)
+    );
+    this.logo$ = card$.pipe(
+      map((card) => this.cardService.determineIconPath(card).iconPath)
+    );
+    this.buttons$ = this.determineButtons(card$);
+    this.name$ = card$.pipe(
+      map((card) => this.formatterService.cardNumberHideMiddle(card.cardNumber))
+    );
+    this.amount$ = card$.pipe(
+      map((card) =>
+        this.formatterService.formatBalance(
+          card.balance || card.availableAmount || 0,
+          { currency: '$', toFixed: 2 }
+        )
       )
-      .subscribe((card$) => {
-        this.name$ = card$.pipe(
-          map((v) => this.formatterService.cardNumberHideMiddle(v.cardNumber))
-        );
-        this.amount$ = card$.pipe(
-          map((v) =>
-            this.formatterService.formatBalance(
-              v.balance || v.availableAmount || 0,
-              { currency: '$', toFixed: 2 }
-            )
-          )
-        );
-        this.list$ = card$.pipe(map((v) => this.toListService.cardToList(v)));
-        this.cardInfo$ = card$.pipe(
-          map((v) => this.toTemplateService.cardToTemplate(v))
-        );
-      });
+    );
+    this.list$ = card$.pipe(map((card) => this.toListService.cardToList(card)));
+    this.cardInfo$ = card$.pipe(
+      map((card) => this.toTemplateService.cardToTemplate(card))
+    );
   }
 
-  ngOnDestroy(): void {
-    this.routerSub.unsubscribe();
+  navigateToProducts() {
+    this.router.navigateByUrl('/accounts-list');
   }
 
-  loadData(id: number): Observable<ICard> | null {
-    if (isNaN(id)) {
-      return null;
-    }
-    const card$ = this.cardService.getById(id).pipe(
-      tap((v) => {
-        this.icon = this.cardService.determineIconPath(v).iconPath;
-        this.logo = this.cardService.determineIconPath(v, true).iconPath;
+  determineButtons(card$: Observable<ICard>): Observable<IButton[]> {
+    return card$.pipe(
+      map((card) => {
+        let buttons: IButton[] = [
+          {
+            text: 'DELETE',
+            function: () => this.cardService.delete(card.id),
+            callBack: this.navigateToProducts.bind(this),
+          },
+        ];
+        if (!card.blocked) {
+          buttons = buttons.concat([
+            {
+              text: 'BLOCK',
+              function: () => {
+                const newCard$ = this.cardService.update({
+                  ...card,
+                  blocked: true,
+                });
+                this.buttons$ = this.determineButtons(newCard$);
+                return newCard$;
+              },
+            },
+          ]);
+        }
+        return buttons;
       })
     );
-    return card$;
   }
 }
