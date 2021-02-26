@@ -22,8 +22,8 @@ export class CardViewTemplateComponent implements OnDestroy {
   @Input() amount: string;
   @Input() canBlock: boolean;
   @Input() color: string;
-  @Input() cardColor: string;
   @Input() buttons: IButton[];
+  @Input() background: string;
 
   private subscriptions: Array<Subscription> = [];
 

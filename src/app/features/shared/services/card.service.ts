@@ -25,14 +25,16 @@ import {
 import { BaseHttpInterface } from '@shared/shared';
 import { AuthService } from './auth.service';
 import { IconService } from './icon.service';
+import { BackgroundService } from './background.service';
+import IBgColor from '../interfaces/background-color.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardService implements BaseHttpInterface<ICard> {
-  private readonly colors = new Map<CardType, string>([
-    ['VISA', 'blue'],
-    ['MASTERCARD', 'orange'],
+  private readonly colors = new Map<CardType, IBgColor>([
+    ['visa', 'blue'],
+    ['mastercard', 'orange'],
   ]);
 
   private cardsArr: ICard[] = [];
@@ -46,7 +48,8 @@ export class CardService implements BaseHttpInterface<ICard> {
   constructor(
     private http: HttpClient,
     private auth: AuthService,
-    private iconService: IconService
+    private iconService: IconService,
+    private bgService: BackgroundService
   ) {
     this.updateStore();
   }
@@ -139,9 +142,10 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   getById(id: number): Observable<ICard> {
-    return this.http
-      .get<ICard>(`${environment.BaseUrl}cards/${id}`)
-      .pipe(retry(1));
+    return this.http.get<ICard>(`${environment.BaseUrl}cards/${id}`).pipe(
+      map((card) => this.iconService.determineCardIcon(card)),
+      retry(1)
+    );
   }
 
   delete(id: number): Observable<void> {
@@ -167,5 +171,9 @@ export class CardService implements BaseHttpInterface<ICard> {
 
   determineColor(card: ICard): string {
     return this.colors.get(card.cardType);
+  }
+
+  determineBackground(card: ICard): string {
+    return this.bgService.getBackground(this.colors.get(card.cardType));
   }
 }

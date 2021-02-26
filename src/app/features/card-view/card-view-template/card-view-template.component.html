@@ -7,12 +7,8 @@
   </div>
   <p class="amount">{{ amount }}</p>
 </div>
-<div class="card-container" *ngIf="cardColor && cardInfo">
-  <img
-    [src]="'./assets/features/card-view/' + cardColor + '.svg'"
-    alt="Card Background"
-    class="bg"
-  />
+<div class="card-container" *ngIf="background && cardInfo">
+  <img [src]="background" alt="Card Background" class="bg" />
   <div class="card">
     <div class="icon">
       <ng-content select="[logo]"></ng-content>

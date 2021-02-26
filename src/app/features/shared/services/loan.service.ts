@@ -8,6 +8,8 @@ import { BaseHttpInterface } from '@shared/shared';
 import { environment } from '../../../../environments/environment';
 import { ILoan, LoanType } from '../interfaces/loan.interface';
 import { AuthService } from './auth.service';
+import { BackgroundService } from './background.service';
+import IBgColor from '../interfaces/background-color.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -17,12 +19,16 @@ export class LoanService implements BaseHttpInterface<ILoan> {
     ['Mortgage', 'lar la-building'],
     ['Consumer', 'las la-laptop'],
   ]);
-  private readonly colors = new Map<LoanType, string>([
+  private readonly colors = new Map<LoanType, IBgColor>([
     ['Mortgage', 'green'],
     ['Consumer', 'blue'],
   ]);
 
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private bgService: BackgroundService
+  ) {}
 
   create(loan: ILoan): Observable<ILoan> {
     return EMPTY;
@@ -57,5 +63,9 @@ export class LoanService implements BaseHttpInterface<ILoan> {
 
   determineColor(loan: ILoan): string {
     return this.colors.get(loan.type);
+  }
+
+  determineBackground(loan: ILoan): string {
+    return this.bgService.getBackground(this.colors.get(loan.type));
   }
 }

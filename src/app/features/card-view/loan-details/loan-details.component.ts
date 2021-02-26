@@ -24,6 +24,7 @@ export class LoanDetailsComponent implements OnInit {
   icon$: Observable<string>;
   color$: Observable<string>;
   buttons$: Observable<IButton[]>;
+  background$: Observable<string>;
 
   constructor(
     private formatterService: FormatterService,
@@ -61,9 +62,12 @@ export class LoanDetailsComponent implements OnInit {
         })
       )
     );
+    this.background$ = loan$.pipe(
+      map((loan) => this.loanService.determineBackground(loan))
+    );
     this.list$ = loan$.pipe(map((v) => this.toListService.loanToList(v)));
     this.cardInfo$ = loan$.pipe(
-      map((v) => this.toTemplateService.loanToTemplate(v))
+      map((loan) => this.toTemplateService.loanToTemplate(loan))
     );
     this.buttons$ = loan$.pipe(
       map((loan) => [

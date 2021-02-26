@@ -31,7 +31,7 @@ export class CardDetailsComponent implements OnInit {
   name$: Observable<string>;
   amount$: Observable<string>;
   buttons$: Observable<IButton[]>;
-  color$: Observable<string>;
+  background$: Observable<string>;
 
   constructor(
     private formatterService: FormatterService,
@@ -58,15 +58,14 @@ export class CardDetailsComponent implements OnInit {
   }
 
   initializeCard(card$: Observable<ICard>): void {
-    this.color$ = card$.pipe(
-      map((card) => this.cardService.determineColor(card))
+    this.background$ = card$.pipe(
+      map((card) => this.cardService.determineBackground(card))
     );
     this.icon$ = card$.pipe(
-      map((card) => this.cardService.determineIconPath(card).iconPath)
+      map((card) => card.iconPath),
+      tap((card) => console.log(card))
     );
-    this.logo$ = card$.pipe(
-      map((card) => this.cardService.determineIconPath(card).iconPath)
-    );
+    this.logo$ = card$.pipe(map((card) => card.iconPath));
     this.buttons$ = this.determineButtons(card$);
     this.name$ = card$.pipe(
       map((card) => this.formatterService.cardNumberHideMiddle(card.cardNumber))

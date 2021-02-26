@@ -24,6 +24,7 @@ export class DepositDetailsComponent implements OnInit {
   icon$: Observable<string>;
   color$: Observable<string>;
   buttons$: Observable<IButton[]>;
+  background$: Observable<string>;
 
   constructor(
     private formatterService: FormatterService,
@@ -50,6 +51,9 @@ export class DepositDetailsComponent implements OnInit {
   }
 
   initializeDeposit(deposit$: Observable<IDeposit>): void {
+    this.background$ = deposit$.pipe(
+      map((deposit) => this.depositService.determineBackground(deposit))
+    );
     this.color$ = deposit$.pipe(
       map((deposit) => this.depositService.determineColor(deposit))
     );
