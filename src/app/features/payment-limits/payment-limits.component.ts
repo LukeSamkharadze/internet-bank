@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { tap } from 'rxjs/operators';
-import { ElectronicTransfer } from '../shared/interfaces/electronicTransfer.entity';
+// import { ElectronicTransfer } from '../shared/interfaces/electronicTransfer.entity';
 import { AuthService } from '../shared/services/auth.service';
-import { PaymentsGetterService } from '../shared/services/paymentsGetter.service';
+// import { PaymentsGetterService } from '../shared/services/paymentsGetter.service';
 import { ILimits } from './payment-interfaces';
 import { PaymentLimitsService } from '../shared/services/payment-limits.service';
+import { TransactionService } from '../shared/services/transaction.service';
+import { Transfer } from '../shared/interfaces/payments/transfer.interface';
 
 @Component({
   selector: 'app-payment-limits',
@@ -30,7 +32,7 @@ export class PaymentLimitsComponent implements OnInit {
     private auth: AuthService,
     private fb: FormBuilder,
     private paymentLimitService: PaymentLimitsService,
-    private paymentsGetterService: PaymentsGetterService
+    private transactionService: TransactionService
   ) {}
 
   ngOnInit(): void {
@@ -50,18 +52,18 @@ export class PaymentLimitsComponent implements OnInit {
     });
   }
   getOnlineSpending() {
-    this.paymentsGetterService
+    this.transactionService
       .getOnlineSpendings(this.id.toString())
-      .subscribe((data: ElectronicTransfer[]) => {
+      .subscribe((data: Transfer[]) => {
         let sum = 0;
-        data.forEach((payment: ElectronicTransfer) => {
+        data.forEach((payment: Transfer) => {
           sum += payment.amount;
         });
         this.onlineSpending = sum;
       });
   }
   getBankSpending() {
-    this.paymentsGetterService
+    this.transactionService
       .getBankSpendings(this.id.toString())
       .subscribe((data) => {
         let sum = 0;

@@ -49,17 +49,6 @@ export class RegisterComponent {
       .setValue(this.form.get('fullname').value.toUpperCase());
   }
 
-  // Add user limits on DB
-
-  // const limits: ILimits = {
-  //   bankLimit: 5000,
-  //   onlineLimit: 5000,
-  //   cashLimit: 5000,
-  //   id: user.id,
-  // };
-
-  // this.userLimits.createUserLimits(limits).subscribe();
-
   onSubmit() {
     // Check if input email is unique
     this.authService
@@ -81,6 +70,17 @@ export class RegisterComponent {
               // Logging in a User and redirecting to 'Dashboard'
               this.authService.loggingIn(user);
             });
+
+          // Add user limits on DB
+
+          const limits: ILimits = {
+            bankLimit: 5000,
+            onlineLimit: 5000,
+            cashLimit: 5000,
+            id: regUser.id,
+          };
+
+          this.userLimits.createUserLimits(limits).subscribe();
         } else {
           alert(
             `The email address '${this.emailFormControl.value}' has already been registered!\nPlease provide another email!`
