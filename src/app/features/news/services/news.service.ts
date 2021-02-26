@@ -4,7 +4,8 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { scan } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { NewsItem } from '../models/news-item.entity';
-import { NewsResponse } from '../models/news-response.entity';
+import { NewsResponse } from '../models/news-item.entity';
+import { SingleNewsArticle } from '../models/news-single-article.entity';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ export class NewsService {
   news: Observable<NewsItem[]>;
   getMoreNews: Subject<number>;
   totalNumberOfNews = 0;
-  numberOfNews = 5;
+  numberOfNews = 10;
   article: NewsItem;
 
   constructor(private http: HttpClient) {
@@ -35,5 +36,11 @@ export class NewsService {
     const apiKey = environment.NewsApi.apiKey[1];
     const url = `${environment.NewsApi.Url}/${sortBy}&language=en&pageSize=${numOfNews}&apiKey=${apiKey}`;
     return this.http.get<NewsResponse>(url);
+  }
+
+  // get data for news-article
+  getSingleArticle(): Observable<SingleNewsArticle[]> {
+    const url = `${environment.BaseUrl}news`;
+    return this.http.get<SingleNewsArticle[]>(url);
   }
 }
