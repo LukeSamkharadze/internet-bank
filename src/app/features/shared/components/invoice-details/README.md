@@ -5,7 +5,7 @@ _Us this component in your feature like this_
 ```HTML
 <app-shared-invoice-details
 	*ngIf="popDetails"
-	(close)="closePopup()"
+	(closePopup)="closePopup()"
 	[invoice]="invoiceObject">
 </app-shared-invoice-details>
 ```
@@ -17,71 +17,60 @@ close is an event that is emitted when **(x)** button is pressed on popup. close
 **invoice** is an input that should look like this
 
 ```TS
-number: string,
-title: string,
-address: {
-	address1: string,
-	address2?: string,
-	address3?: string,
-	city: string,
-	country: string,
-	mail: string
-    },
-date: string,
-due: string,
-tagColor: string, //only these colors are available: white,cyan,green,orange,pink,gray
-status: string,
-currency: string, //currency symbol, like this "$", "₾"
-items: Item[]
+  id: number;
+  template: string;
+  invoiceNumber: string;
+  dueDate: string;
+  companyName: string;
+  contactEmail: string;
+  address: string; //Better if addresses are divided by commas(","), to add them on new line
+  items: ItemsModel[];
+  totalAmount: number;
+  status: string; //Only 'Paid', 'Pending' or 'Cancelled'
+  invoiceCreateDate: string;
 ```
 
-every parameter is **_required_**. **Item** is also an interface that looks like this
+every parameter is **_required_**. **ItemsModel** is also an interface that looks like this
 
 ```TS
-desc: string,
-rate: number,
-qty: number,
+  itemDescription: string,
+  price: number,
+  itemQty: number,
 ```
 
 sample **invoiceObject**
 
 ```TS
-number: 'IO-BN-124',
-    title: 'Vodafone LLC',
-    address: {
-      address1: '44-46 Morningside Road',
-      address2: 'EH10 4BF',
-      address3: 'Department 98',
-      city: 'Edinburgh',
-      country: 'Scotland',
-      mail: 'marketing@vdfn.com'
+  id: 54,
+  template: 'website design',
+  invoiceNumber: 'IO-BN-124',
+  companyName: 'Vodafone LLC',
+  contactEmail: 'mail@mail.com',
+  address: 'Edinburgh, Scotland, Address1, Address2, Address3',
+  invoiceCreateDate: '6 Aug 2018, 2:15 AM',
+  dueDate: '16 Aug 2018',
+  status: 'Cancelled',
+  items: [
+    {
+      itemDescription: 'Sample Item 1',
+      price: 50,
+      itemQty: 150,
     },
-    date: '6 Aug 2018, 2:15 AM',
-    due: '16 Aug 2018',
-    tagColor: 'green',
-    status: 'Paid',
-    currency: '$',
-    items: [
-      {
-        desc: 'Marketing materials',
-        rate: 50,
-        qty: 150
-      },
-      {
-        desc: 'Website design',
-        rate: 350,
-        qty: 1
-      },
-      {
-        desc: 'Mobile app',
-        rate: 550,
-        qty: 2
-      },
-      {
-        desc: 'Printing equipment',
-        rate: 150,
-        qty: 10
-      }
-    ]
-  }
+    {
+      itemDescription: 'Sample Item 2',
+      price: 350,
+      itemQty: 1,
+    },
+    {
+      itemDescription: 'Sample Item 3',
+      price: 550,
+      itemQty: 2,
+    },
+    {
+      itemDescription: 'Sample Item 4',
+      price: 150,
+      itemQty: 10,
+    },
+  ],
+  totalAmount: 11495,
 ```

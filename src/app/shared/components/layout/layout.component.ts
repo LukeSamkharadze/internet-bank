@@ -1,17 +1,25 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import { CardService } from '../../../features/shared/services/card.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-shared-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, OnDestroy {
   public menuIsActive = false;
   public contentTitlte = 'DASHBOARD';
   public cardArray: Array<string> = [];
   public cardTypeArray: Array<string> = [];
   public contentMainHeight;
+  private subscription: Subscription;
 
   @ViewChild('mainNav')
   mainNav: ElementRef;
@@ -41,7 +49,7 @@ export class LayoutComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.cardService.cards$.subscribe((response) => {
+    this.subscription = this.cardService.cards$.subscribe((response) => {
       this.cardArray = [];
       for (const card of response) {
         const cardNum = card.cardNumber.toString();
@@ -50,5 +58,8 @@ export class LayoutComponent implements OnInit {
       }
       this.getMainContentMinHeight();
     });
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

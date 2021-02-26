@@ -50,7 +50,7 @@
       <ng-template #paymentSystemTemplate let-option>
         <div class="payment-system-template">
           <img [src]="option['iconPath']" />
-          <span>{{ option['title'] }}</span>
+          <span>{{ option['name'] }}</span>
         </div>
       </ng-template>
 
@@ -71,24 +71,22 @@
 
     <div class="input-wrapper" *ngIf="paymentSystem.value">
       <label class="input-label" for="el-account"
-        >{{ paymentSystem.value.title }} account
+        >{{ paymentSystem.value.name }} account
         <span
           [@errorTrigger]
-          *ngIf="
-            destinationEmail.hasError('required') && destinationEmail.touched
-          "
+          *ngIf="toAccountEmail.hasError('required') && toAccountEmail.touched"
           >Required</span
         >
         <span
           [@errorTrigger]
-          *ngIf="destinationEmail.hasError('email') && destinationEmail.touched"
+          *ngIf="toAccountEmail.hasError('email') && toAccountEmail.touched"
           >Invalid email</span
         ></label
       >
       <app-shared-input
         placeholder="Enter email account"
         inputId="el-account"
-        formControlName="destinationEmail"
+        formControlName="toAccountEmail"
         type="email"
       ></app-shared-input>
     </div>

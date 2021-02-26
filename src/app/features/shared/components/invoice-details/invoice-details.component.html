@@ -5,10 +5,10 @@
     <div class="details-left">
       <div class="invoice-num">
         <p>Invoice #</p>
-        <h5>{{ invoice.number }}</h5>
+        <h5>{{ invoice.invoiceNumber }}</h5>
         <div class="tag">
           <app-shared-tag
-            [color]="invoice.tagColor"
+            [color]="getColor()"
             *ngIf="showTag"
             (closeClicked)="closeTag()"
           >
@@ -18,23 +18,20 @@
       </div>
       <div class="invoice-addr">
         <p>To</p>
-        <h3>{{ invoice.title }}</h3>
+        <h3>{{ invoice.companyName }}</h3>
         <div class="address">
-          <p>{{ invoice.address.address3 }}</p>
-          <p>{{ invoice.address.address1 }}</p>
-          <p>{{ invoice.address.city }}</p>
-          <p>{{ invoice.address.country }}</p>
-          <p>{{ invoice.address.address2 }}</p>
-          <p>{{ invoice.address.mail }}</p>
+          <p *ngFor="let addr of getAddress()">
+            {{ addr }}
+          </p>
         </div>
       </div>
       <div class="invoice-date">
         <p>Date</p>
-        <h5>{{ invoice.date }}</h5>
+        <h5>{{ invoice.invoiceCreateDate | date: 'dd MMM yyyy, hh:mm a' }}</h5>
       </div>
       <div class="invoice-due">
         <p>Due to</p>
-        <h5>{{ invoice.due }}</h5>
+        <h5>{{ invoice.dueDate }}</h5>
       </div>
       <div class="print-receipt">
         <i class="las la-print" (click)="print()"></i>
@@ -51,29 +48,25 @@
             <p class="inv-row-total">Total</p>
           </div>
           <div class="inv-row" *ngFor="let inv of invoice.items">
-            <p class="inv-desc">{{ inv.desc }}</p>
-            <p class="inv-rate">{{ invoice.currency + inv.rate }}</p>
-            <p class="inv-qty">{{ inv.qty }}</p>
-            <p class="inv-row-total">
-              {{ invoice.currency + inv.qty * inv.rate }}
-            </p>
+            <p class="inv-desc">{{ inv.itemDescription }}</p>
+            <p class="inv-rate">${{ inv.price }}</p>
+            <p class="inv-qty">{{ inv.itemQty }}</p>
+            <p class="inv-row-total">${{ inv.itemQty * inv.price }}</p>
           </div>
         </div>
       </div>
       <div class="invoice-total">
         <div class="inv-total-row">
           <p class="title">Subtotal:</p>
-          <p class="amount">{{ invoice.currency + getSubTotal() }}</p>
+          <p class="amount">${{ getPrice().subtotal }}</p>
         </div>
         <div class="inv-total-row">
           <p class="title">Tax 10%:</p>
-          <p class="amount">{{ invoice.currency + getTax() }}</p>
+          <p class="amount">${{ getPrice().tax }}</p>
         </div>
         <div class="inv-total-row inv-total-foot">
           <p class="total-title">Total:</p>
-          <p class="total-amount">
-            {{ invoice.currency + (getSubTotal() + getTax()) }}
-          </p>
+          <p class="total-amount">${{ invoice.totalAmount }}</p>
         </div>
       </div>
     </div>

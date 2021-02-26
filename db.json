@@ -77,46 +77,54 @@
       ]
     }
   ],
-  "payments": [],
   "cards": [
     {
       "cardName": "VISA CARD",
-      "cardType": "VISA",
+      "cardType": "visa",
       "accountNumber": "GE32TB1111222233334444",
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 2000,
+      "availableAmount": 33720,
       "security3D": false,
       "userId": "3",
-      "id": 1,
-      "iconPath": "./assets/create-card/create-card-visa-icon.svg"
+      "id": 1
     },
     {
       "cardName": "MASTER CARD",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "accountNumber": "GE32TB2222111133334444",
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 25000,
+      "availableAmount": 33036,
       "security3D": true,
       "userId": "1",
-      "id": 2,
-      "iconPath": "./assets/create-card/mastercard.svg"
+      "id": 2
     },
     {
       "cardName": "MASTER CARD",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "accountNumber": "GE32TB3333111122224444",
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 45000,
+      "availableAmount": 18800,
       "security3D": true,
       "userId": "2",
-      "id": 3,
-      "iconPath": "./assets/create-card/mastercard.svg"
+      "id": 3
+    },
+    {
+      "cardName": "ADMIN2",
+      "accountNumber": "GE32TB4434234223333333",
+      "cardNumber": "5829389283948298",
+      "cardholder": "ADMIN ADMIN",
+      "expirationDate": "11/23",
+      "availableAmount": 8950,
+      "security3D": true,
+      "userId": "2",
+      "cardType": "mastercard",
+      "id": 4
     }
   ],
   "paymentTypes": [
@@ -124,16 +132,13 @@
       "name": "Electronic Payments",
       "providers": [
         {
-          "title": "Paypal",
-          "iconPath": "./assets/electronic-payments/PayPal.svg"
+          "name": "Paypal"
         },
         {
-          "title": "Skrill",
-          "iconPath": "./assets/electronic-payments/Skrill_logo.svg"
+          "name": "Skrill"
         },
         {
-          "title": "Payoneer",
-          "iconPath": "./assets/electronic-payments/Payoneer_logo.svg"
+          "name": "Payoneer"
         }
       ],
       "icon": "las la-credit-card",
@@ -143,7 +148,7 @@
       "name": "Bank Transfer",
       "providers": [
         {
-          "title": "TBC"
+          "name": "TBC"
         }
       ],
       "icon": "las la-piggy-bank",
@@ -153,10 +158,10 @@
       "name": "Instant Transfer",
       "providers": [
         {
-          "title": "Visa"
+          "name": "Visa"
         },
         {
-          "title": "Mastercard"
+          "name": "Mastercard"
         }
       ],
       "icon": "las la-cart-plus",
@@ -243,60 +248,84 @@
   "invoices": [
     {
       "template": "Website design",
-      "invoiceNumber": "AS-5",
-      "dueDate": "2021-02-08",
-      "companyName": "AOT",
-      "contanctEmail": "aot.company@gmail.com",
+      "invoiceNumber": "IO-BN-124",
+      "dueDate": "2021-03-11",
+      "companyName": "Vadafone LLC",
+      "contactEmail": "vadafone@gmail.com",
       "address": "123 Main Street, Somewhere, CA 94000",
-      "items": [
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 1,
-          "price": 150
-        }
-      ],
-      "id": 1
-    },
-    {
-      "template": "Marketing Materials",
-      "invoiceNumber": "RE-12",
-      "dueDate": "2021-02-23",
-      "companyName": "OP",
-      "contanctEmail": "op.company@gmail.com",
-      "address": "333 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 10,
-          "price": 250
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 150,
-          "price": 100
-        }
-      ],
-      "id": 2
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "AS-123",
-      "dueDate": "2021-03-05",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
       "items": [
         {
           "itemDescription": "Marketing Materials",
           "itemQty": 2,
-          "price": 120
-        },
+          "price": 150
+        }
+      ],
+      "totalAmount": 300,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-02-24T18:34:49.334Z",
+      "id": 1
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-100",
+      "dueDate": "2021-03-13",
+      "companyName": "AOT LLC",
+      "contactEmail": "aot@gmail.com",
+      "address": "333 Main Street, Somewhere, CA 99000",
+      "items": [
         {
           "itemDescription": "Printing Equipment",
           "itemQty": 10,
           "price": 100
+        },
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 150,
+          "price": 100
         }
       ],
+      "totalAmount": 16000,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-02-24T18:37:01.789Z",
+      "id": 2
+    }
+  ],
+  "transactions": [
+    {
+      "title": "Bank transfer to user: 1",
+      "toUserId": "1",
+      "date": "2021-02-25T15:43:54.034Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "toAccountNumber": "GE32TB2222111133334444",
+      "amount": 200,
+      "currency": "USD",
+      "beneficiary": "sum name",
+      "bankTransferType": "Personal transfer",
+      "id": 1
+    },
+    {
+      "title": "money goin outside tbc",
+      "date": "2021-02-25T15:44:56.811Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "lala@gmail.com",
+      "amount": 986,
+      "currency": "USD",
+      "id": 2
+    },
+    {
+      "title": "money goin outside tbc",
+      "date": "2021-02-25T15:45:19.641Z",
+      "type": "instant",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "amount": 50,
+      "currency": "USD",
+      "instantTransferType": "Personal transfer",
+      "toAccountNumber": "bg1203900001231231",
       "id": 3
     }
   ]

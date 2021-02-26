@@ -13,11 +13,11 @@ import { InvoiceService } from '../shared/services/invoice.service';
   selector: 'app-new-invoice',
   templateUrl: './new-invoice.component.html',
   styleUrls: ['./new-invoice.component.scss'],
-  providers: [InvoiceService],
 })
 export class NewInvoiceComponent implements OnInit {
   form: FormGroup;
   items: FormArray;
+  totalAmount = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +30,7 @@ export class NewInvoiceComponent implements OnInit {
       invoiceNumber: new FormControl('', Validators.required),
       dueDate: new FormControl('', Validators.required),
       companyName: new FormControl('', Validators.required),
-      contanctEmail: new FormControl('', [
+      contactEmail: new FormControl('', [
         Validators.required,
         Validators.pattern(
           '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$'
@@ -51,24 +51,36 @@ export class NewInvoiceComponent implements OnInit {
     });
   }
 
-  chengeValueType() {
+  calculateTotalAmount() {
     const controls = 'controls';
     const price = 'price';
+    const itemQty = 'itemQty';
 
     for (const i in this.items[controls]) {
       if (this.items[controls].hasOwnProperty(i)) {
         this.items[controls][i][controls][price].setValue(
           parseInt(this.items[controls][i][controls][price].value, 10)
         );
+        this.totalAmount +=
+          this.items[controls][i][controls][price].value *
+          this.items[controls][i][controls][itemQty].value;
       }
     }
   }
 
   onSubmit() {
-    this.chengeValueType();
+    const createDate = new Date();
+    this.calculateTotalAmount();
+
+    const invoiceObj = {
+      ...this.form.getRawValue(),
+      totalAmount: this.totalAmount,
+      status: 'Pending',
+      invoiceCreateDate: createDate,
+    };
 
     this.invoiceService
-      .create(this.form.getRawValue())
+      .create(invoiceObj)
       .pipe(
         finalize(() => {
           this.form.reset();
@@ -76,6 +88,8 @@ export class NewInvoiceComponent implements OnInit {
         })
       )
       .subscribe();
+
+    this.totalAmount = 0;
   }
 
   onCencel() {
