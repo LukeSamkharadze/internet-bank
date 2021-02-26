@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BankTransfer } from '../../../interfaces/bankTransfer.entity';
-import { PaymentsGetterService } from '../../../services/paymentsGetter.service';
+import { TransactionService } from '../../../services/transaction.service';
 @Injectable()
 export class ArrowDirectionService {
-  constructor(public paymentsGetterService: PaymentsGetterService) {}
+  constructor(public transactionService: TransactionService) {}
   determineArrow(accNum: string): Observable<string> {
-    return this.paymentsGetterService.getByAccountNumber(accNum).pipe(
-      map((val: BankTransfer[]) => {
+    return this.transactionService.getByAccountNumber(accNum).pipe(
+      map((val: any[]) => {
         if (val) {
-          const lastPayment = val.filter(
+          const arr = val.filter(
             (payment) =>
-              payment.fromAccount + '' === accNum ||
-              payment.destinationAccountNumber === accNum
-          )[0];
+              payment.fromAccountNumber + '' === accNum ||
+              payment.toAccountNumber === accNum
+          );
+          const lastPayment = arr[arr.length - 1];
+
           if (lastPayment) {
-            if (lastPayment.fromAccount + '' === accNum) {
+            if (lastPayment.fromAccountNumber + '' === accNum) {
               return 'la-arrow-down';
-            } else if (lastPayment.destinationAccountNumber + '' === accNum) {
+            } else if (lastPayment.toAccountNumber + '' === accNum) {
               return 'la-long-arrow-alt-up';
             } else {
               return;

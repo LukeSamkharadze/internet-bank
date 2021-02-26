@@ -4,7 +4,7 @@
     <div *ngFor="let item of balance" class="account-balance">
       <div class="account-type">
         <div *ngIf="item.cardNumber" class="logo-background">
-          <img src="item.iconPath" />
+          <img src="{{ item.iconPath }}" />
         </div>
         <div
           [ngClass]="'logo-background-deposit'"

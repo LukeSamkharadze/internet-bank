@@ -1,8 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ICard } from '../../interfaces/card.interface';
 import { IDeposit } from '../../interfaces/deposit.interface';
-import { CardService } from '../../services/card.service';
-import { PaymentsGetterService } from '../../services/paymentsGetter.service';
+
+import { IconService } from '../../services/icon.service';
+import { TransactionService } from '../../services/transaction.service';
 import { ArrowDirectionService } from './services/account-balances-arrow.service';
 import { AccountBalancesService } from './services/account-balances.service';
 @Component({
@@ -11,13 +12,14 @@ import { AccountBalancesService } from './services/account-balances.service';
   styleUrls: ['./account-balances.component.scss'],
   providers: [AccountBalancesService, ArrowDirectionService],
 })
-export class AccountBalancesComponent implements OnInit, AfterViewInit {
+export class AccountBalancesComponent
+  implements OnInit, AfterViewInit, OnDestroy {
   balance: Array<ICard | IDeposit>;
   constructor(
     public accountBalancesService: AccountBalancesService,
-    public paymentsGetterService: PaymentsGetterService,
+    public transactionService: TransactionService,
     private arrowDirectionService: ArrowDirectionService,
-    private cardService: CardService
+    private iconService: IconService
   ) {}
 
   ngOnInit(): void {
@@ -27,17 +29,14 @@ export class AccountBalancesComponent implements OnInit, AfterViewInit {
     this.accountBalancesService.balances$.subscribe(
       (wholeBalance: Array<ICard | IDeposit>) => {
         for (const i of wholeBalance) {
-          let index;
-          let b;
-          if (this.instanceOfICard(i)) {
-            index = wholeBalance.indexOf(i);
-            wholeBalance.splice(index, 1);
-            b = {
-              ...this.cardService.determineIconPath(i),
-              arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
-            };
-          }
-          wholeBalance.splice(index, 0, b);
+          const index = wholeBalance.indexOf(i);
+          wholeBalance.splice(index, 1);
+          const balance = {
+            ...i,
+            arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
+          };
+
+          wholeBalance.splice(index, 0, balance);
         }
 
         this.balance = wholeBalance;
@@ -46,5 +45,8 @@ export class AccountBalancesComponent implements OnInit, AfterViewInit {
   }
   instanceOfICard(object: any): object is ICard {
     return 'member' in object;
+  }
+  ngOnDestroy() {
+    this.accountBalancesService.balances$.unsubscribe();
   }
 }
