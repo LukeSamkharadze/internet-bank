@@ -7,4 +7,5 @@ export interface Transfer {
   fromAccountUserId: string;
   date: Date;
   currency: string;
+  iconPath?: string;
 }

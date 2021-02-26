@@ -11,6 +11,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
 import { FeaturesSharedRoutingModule } from './features-shared-routing.module';
+import { sharedPipes } from './pipes';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 
@@ -31,7 +32,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...components],
+  declarations: [...components, ...sharedPipes],
   imports: [...modules],
   exports: [...components, ...modules],
   providers: [],

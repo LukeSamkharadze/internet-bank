@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -10,7 +10,7 @@ import {
   formAnimations,
 } from '../../../../shared/animations';
 import { PaymentService } from '../../../services/payment.service';
-import { ElectronicPayment } from '../../../../shared/interfaces/electronicPayment.entity';
+import { ElectronicPayment } from '../../../../shared/interfaces/payments/electronicPayment.interface';
 import { ProvidersService } from '../../../services/providers.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';

@@ -5,7 +5,6 @@ import {
   EMPTY,
   from,
   Observable,
-  of,
   Subject,
   throwError,
 } from 'rxjs';
@@ -24,6 +23,7 @@ import {
 
 import { BaseHttpInterface } from '@shared/shared';
 import { AuthService } from './auth.service';
+import { IconService } from './icon.service';
 
 @Injectable({
   providedIn: 'root',
@@ -35,9 +35,13 @@ export class CardService implements BaseHttpInterface<ICard> {
 
   public cards$ = this.store$.pipe(distinctUntilChanged());
 
-  public subj = new Subject<boolean>(); // ◄ ეს ხაზი ამოსაღებია
+  public subj = new Subject<boolean>();
 
-  constructor(private http: HttpClient, private auth: AuthService) {
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private iconService: IconService
+  ) {
     this.updateStore();
   }
 
@@ -46,11 +50,9 @@ export class CardService implements BaseHttpInterface<ICard> {
 
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
-      // ▼ ▼ ▼ ამის ქვევით მოსაშლელია ▼ ▼ ▼
       tap(() => {
         this.subj.next(true);
       }),
-      // ▲ ▲ ▲ ამის ზევით მოსაშლელია ▲ ▲ ▲
       tap((newCard) =>
         this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
       ),
@@ -64,29 +66,12 @@ export class CardService implements BaseHttpInterface<ICard> {
       case '4':
         return {
           ...card,
-          cardType: 'VISA',
+          cardType: 'visa',
         };
       case '5':
         return {
           ...card,
-          cardType: 'MASTERCARD',
-        };
-      default:
-        return { ...card };
-    }
-  }
-
-  determineIconPath(card: ICard): ICard {
-    switch (card.cardType) {
-      case 'VISA':
-        return {
-          ...card,
-          iconPath: './assets/create-card/create-card-visa-icon.svg',
-        };
-      case 'MASTERCARD':
-        return {
-          ...card,
-          iconPath: './assets/create-card/mastercard.svg',
+          cardType: 'mastercard',
         };
       default:
         return { ...card };
@@ -98,7 +83,9 @@ export class CardService implements BaseHttpInterface<ICard> {
     return this.http
       .get<ICard[]>(`${environment.BaseUrl}cards?userId=${userId}`)
       .pipe(
-        map((cards) => cards.map((card) => this.determineIconPath(card))),
+        map((cards) =>
+          cards.map((card) => this.iconService.determineCardIcon(card))
+        ),
         retry(1),
         catchError(this.handleError)
       );

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BankPayment } from '../../shared/interfaces/bankPayment.entity';
-import { ElectronicPayment } from '../../shared/interfaces/electronicPayment.entity';
-import { InstantPayment } from '../../shared/interfaces/instantPaymententity';
+import { BankPayment } from '../../shared/interfaces/payments/bankPayment.interface';
+import { ElectronicPayment } from '../../shared/interfaces/payments/electronicPayment.interface';
+import { InstantPayment } from '../../shared/interfaces/payments/instantPayment.interface';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { forkJoin, of } from 'rxjs';
