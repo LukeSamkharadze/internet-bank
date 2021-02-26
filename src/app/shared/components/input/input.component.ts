@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 import {
   ControlValueAccessor,
-  FormControl,
   NgControl,
   ValidatorFn,
   Validators,
@@ -23,15 +22,18 @@ import {
 export class InputComponent
   implements ControlValueAccessor, OnInit, AfterViewInit {
   defaultValue = null;
+
   @Input() inputId = '';
   @Input() type = 'text';
   @Input() placeholder = 'Placeholder';
   @Input() isRequired = false;
   @Input() pattern: string = null;
   @Input() validated = true;
+
   @ViewChild('inputElement', { static: true }) input: ElementRef;
 
   disabled = false;
+
   onChange = (val) => {};
   onTouched = () => {};
 

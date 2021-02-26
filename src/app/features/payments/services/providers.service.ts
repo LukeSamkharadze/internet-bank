@@ -10,6 +10,7 @@ import {
   switchMap,
   toArray,
 } from 'rxjs/operators';
+import { IconService } from '../../shared/services/icon.service';
 
 @Injectable()
 export class ProvidersService {
@@ -19,7 +20,7 @@ export class ProvidersService {
 
   public paymentTypes$ = this.store$.pipe(distinctUntilChanged());
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private iconService: IconService) {
     this.updateStore();
   }
 
@@ -65,7 +66,18 @@ export class ProvidersService {
             return true;
           }
         }),
-        map((data: PaymentType) => data.providers)
+        map((data: PaymentType) => {
+          const providers = [];
+          data.providers.forEach((provider) => {
+            providers.push(
+              this.iconService.determineElectronicPaymentsIcon(
+                provider,
+                provider.name
+              )
+            );
+          });
+          return providers;
+        })
       );
   }
 }

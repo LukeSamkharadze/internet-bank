@@ -23,6 +23,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   updSub: Subscription;
   delSub: Subscription;
 
+  delTrue = false;
+  updTrue = false;
   userReplicate: IUser;
   form: FormGroup;
   user: IUser = {
@@ -66,6 +68,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.user = this.form.value;
       this.user.id = temp;
       this.check();
+      this.updTrue = true;
       this.updSub = this.userService.update(this.user).subscribe();
       window.alert('Updated Successfully');
       this.getUser();
@@ -91,6 +94,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
   deleteUser() {
     this.showDeleteModal = false;
+    this.delTrue = true;
     this.delSub = this.userService.delete(this.user.id).subscribe();
     window.alert('Successfully Deleted');
     this.auth.logout();
@@ -113,8 +117,12 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // this.getSub.unsubscribe();
-    // this.updSub.unsubscribe();
-    // this.delSub.unsubscribe();
+    this.getSub.unsubscribe();
+    if (this.updTrue) {
+      this.updSub.unsubscribe();
+    }
+    if (this.delTrue) {
+      this.delSub.unsubscribe();
+    }
   }
 }

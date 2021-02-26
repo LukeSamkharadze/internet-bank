@@ -10,7 +10,10 @@ export interface Invoice {
   invoiceNumber: string;
   dueDate: string;
   companyName: string;
-  contanctEmail: string;
+  contactEmail: string;
   address: string;
   items: ItemsModel[];
+  totalAmount: number;
+  status: string;
+  invoiceCreateDate: string;
 }
