@@ -77,67 +77,10 @@
       ]
     }
   ],
-  "payments": [
-    {
-      "date": "2021-02-24T20:08:32.290Z",
-      "paymentType": "electronic",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationEmail": "a@gmail.com",
-      "amount": 2000,
-      "currency": "USD",
-      "fromUserId": "2",
-      "id": 1
-    },
-    {
-      "date": "2021-02-24T20:10:25.636Z",
-      "paymentType": "instant",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 2000,
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 2
-    },
-    {
-      "date": "2021-02-24T20:14:51.332Z",
-      "paymentType": "electronic",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationEmail": "a@gmail.com",
-      "amount": 3000,
-      "currency": "USD",
-      "fromUserId": "2",
-      "id": 3
-    },
-    {
-      "date": "2021-02-24T20:17:13.165Z",
-      "paymentType": "instant",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 5000,
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 4
-    },
-    {
-      "date": "2021-02-24T20:17:30.135Z",
-      "paymentType": "bank",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "beneficiary": "someone",
-      "amount": 2000,
-      "currency": "USD",
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 5
-    }
-  ],
   "cards": [
     {
       "cardName": "VISA CARD",
-      "cardType": "VISA",
+      "cardType": "visa",
       "accountNumber": "GE32TB1111222233334444",
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
@@ -149,24 +92,24 @@
     },
     {
       "cardName": "MASTER CARD",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "accountNumber": "GE32TB2222111133334444",
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 25000,
+      "availableAmount": 33036,
       "security3D": true,
       "userId": "1",
       "id": 2
     },
     {
       "cardName": "MASTER CARD",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "accountNumber": "GE32TB3333111122224444",
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 28000,
+      "availableAmount": 18800,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -177,10 +120,10 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 9986,
+      "availableAmount": 8950,
       "security3D": true,
       "userId": "2",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "id": 4
     }
   ],
@@ -343,6 +286,45 @@
       "status": "Pending",
       "invoiceCreateDate": "2021-02-24T18:37:01.789Z",
       "id": 2
+    }
+  ],
+  "transactions": [
+    {
+      "title": "Bank transfer to user: 1",
+      "toUserId": "1",
+      "date": "2021-02-25T15:43:54.034Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "toAccountNumber": "GE32TB2222111133334444",
+      "amount": 200,
+      "currency": "USD",
+      "beneficiary": "sum name",
+      "bankTransferType": "Personal transfer",
+      "id": 1
+    },
+    {
+      "title": "money goin outside tbc",
+      "date": "2021-02-25T15:44:56.811Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "lala@gmail.com",
+      "amount": 986,
+      "currency": "USD",
+      "id": 2
+    },
+    {
+      "title": "money goin outside tbc",
+      "date": "2021-02-25T15:45:19.641Z",
+      "type": "instant",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "amount": 50,
+      "currency": "USD",
+      "instantTransferType": "Personal transfer",
+      "toAccountNumber": "bg1203900001231231",
+      "id": 3
     }
   ]
 }
