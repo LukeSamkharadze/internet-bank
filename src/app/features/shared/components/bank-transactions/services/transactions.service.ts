@@ -4,7 +4,7 @@ import { reduce, map, catchError, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
 import { Itransaction } from '../../../interfaces/bank-transactions.interface';
-import { OnlinePaymentIconService } from '../../../services/online-payment-icon.service';
+import { IconService } from '../../../services/icon.service';
 // import { constants } from 'http2';
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class TransactionsService {
   constructor(
     private httpClient: HttpClient,
     private authService: AuthService,
-    private onlinePaymentIconService: OnlinePaymentIconService
+    private iconService: IconService
   ) {}
 
   getTransactions(date: string, type: string) {
@@ -26,19 +26,19 @@ export class TransactionsService {
 
     if (date !== null && date !== undefined) {
       if (type !== null && type !== undefined) {
-        url1 = `${this.host}/transaction?fromUser=${this.authService.userId}&date_like=${date}&type=${type}`;
-        url2 = `${this.host}/transaction?toUser=${this.authService.userId}&date_like=${date}&type=${type}`;
+        url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&date_like=${date}&type=${type}`;
+        url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&date_like=${date}&type=${type}`;
       } else {
-        url1 = `${this.host}/transaction?fromUser=${this.authService.userId}&date_like=${date}`;
-        url2 = `${this.host}/transaction?toUser=${this.authService.userId}&date_like=${date}`;
+        url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&date_like=${date}`;
+        url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&date_like=${date}`;
       }
     } else {
       if (type !== null && type !== undefined) {
-        url1 = `${this.host}/transaction?fromUser=${this.authService.userId}&type=${type}`;
-        url2 = `${this.host}/transaction?toUser=${this.authService.userId}&type=${type}`;
+        url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&type=${type}`;
+        url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&type=${type}`;
       } else {
-        url1 = `${this.host}/transaction?fromUser=${this.authService.userId}`;
-        url2 = `${this.host}/transaction?toUser=${this.authService.userId}`;
+        url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}`;
+        url2 = `${this.host}/transactions?toUserId=${this.authService.userId}`;
       }
     }
 
@@ -50,12 +50,7 @@ export class TransactionsService {
             const result = new Array<Itransaction>();
 
             concatenated.forEach((element) => {
-              result.push(
-                this.onlinePaymentIconService.determineOnlinePaymentsIcon(
-                  element,
-                  element.beneficiary
-                )
-              );
+              result.push(this.iconService.determineTransfersIcon(element));
             });
 
             return result;

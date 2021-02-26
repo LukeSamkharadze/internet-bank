@@ -3,14 +3,14 @@ export interface Itransaction {
   title: string;
   iconPath: string;
   type: string;
-  typeId: number;
-  transactionType: string;
   beneficiary: string;
   amount: string;
   date: string;
   status: string;
-  tagColor: string;
-  cardNumber: number;
-  fromUser: number;
-  toUser: number;
+  fromAccountNumber: number;
+  toAccountNumber: number;
+  fromAccountUserId: number;
+  bankTransferType: string;
+  toUserId: number;
+  currency: string;
 }

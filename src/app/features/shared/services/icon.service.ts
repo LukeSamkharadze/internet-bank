@@ -26,23 +26,29 @@ export class IconService {
       : obj;
   }
 
-  determineTransfersIcon(transfer: Transfer) {
-    if (transfer.type === 'electronic') {
+  determineTransfersIcon(transfer: any) {
+    if (transfer.type.toLocaleLowerCase() === 'electronic') {
       return this.determineElectronicPaymentsIcon(
         transfer,
         (transfer as ElectronicPayment).paymentSystem
       );
     } else {
-      return this.transferTypes.includes(transfer.type)
-        ? { ...transfer, iconPath: `./assets/transfers/${transfer.type}.svg` }
+      return this.transferTypes.includes(transfer.type.toLocaleLowerCase())
+        ? {
+            ...transfer,
+            iconPath: `./assets/transfers/${transfer.type.toLocaleLowerCase()}.svg`,
+          }
         : transfer;
     }
   }
 
   determineCardIcon(card: ICard): ICard {
-    const cardType = card.cardType;
-    return this.cardTypes.includes(cardType)
-      ? { ...card, iconPath: `./assets/cards/${cardType}.svg` }
+    const cardType = card.cardType.toLocaleLowerCase();
+    return this.cardTypes.includes(cardType.toLocaleLowerCase())
+      ? {
+          ...card,
+          iconPath: `./assets/cards/${cardType.toLocaleLowerCase()}.svg`,
+        }
       : card;
   }
 }

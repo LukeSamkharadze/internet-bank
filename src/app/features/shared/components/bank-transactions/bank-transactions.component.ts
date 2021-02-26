@@ -68,16 +68,16 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
             title: element.title,
             icon: element.iconPath,
             type: element.type,
-            typeId: element.typeId,
-            transactionType: element.transactionType,
             beneficiary: element.beneficiary,
             amount: element.amount,
             date: element.date,
             status: element.status,
-            tagColor: element.tagColor,
-            cardNumber: element.cardNumber,
-            fromUser: element.fromUser,
-            toUser: element.toUser,
+            cardNumber: String(element.fromAccountNumber).slice(-4),
+            fromAccountUserId: element.fromAccountUserId,
+            toUserId: element.toUserId,
+            toAccountNumber: element.toAccountNumber,
+            bankTransferType: element.bankTransferType,
+            currency: element.currency,
           });
         });
       });
@@ -105,7 +105,11 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   }
   dateChangeEvent($event) {
     this.chosenDate =
-      $event.value.getDate() + ' ' + this.monthNames[$event.value.getMonth()];
+      $event.value.getDate() +
+      ' ' +
+      this.monthNames[$event.value.getMonth()] +
+      ' ' +
+      ($event.value.getYear() + 1900);
     this.fetchTransactions();
   }
 

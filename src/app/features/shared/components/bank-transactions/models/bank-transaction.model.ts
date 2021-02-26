@@ -3,14 +3,14 @@ export interface TransactionsList {
   title: string;
   icon: string;
   type: string;
-  typeId: number;
-  transactionType: string;
   beneficiary: string;
   amount: string;
   date: string;
   status: string;
-  tagColor: string;
-  cardNumber: number;
-  fromUser: number;
-  toUser?: number;
+  cardNumber: string;
+  toAccountNumber: number;
+  fromAccountUserId: number;
+  bankTransferType: string;
+  toUserId: number;
+  currency: string;
 }

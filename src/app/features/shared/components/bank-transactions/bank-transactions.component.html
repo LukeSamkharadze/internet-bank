@@ -79,7 +79,11 @@
         </div>
         <div class="right">
           <h1>
-            <span> - {{ transaction.amount }} </span><br />
+            <span>
+              - &nbsp; {{ transaction.amount }}&nbsp;{{
+                transaction.currency
+              }} </span
+            ><br />
             <span class="date">{{ transaction.date }}</span>
           </h1>
         </div>
