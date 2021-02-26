@@ -70,6 +70,9 @@
 }
 
 .icon::ng-deep {
+  cursor: pointer;
+  outline: none;
+
   i {
     margin: 0 auto;
   }

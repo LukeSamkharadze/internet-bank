@@ -9,6 +9,7 @@
       [info]="infoService.loanToInfo(loan)"
       [color]="getColor(loan)"
       [class.blocked]="loan.blocked"
+      [route]="'/card-view/loan/' + loan.id"
       ><i [class]="getIconClass(loan)"></i>
     </app-accounts-list-item>
   </div>

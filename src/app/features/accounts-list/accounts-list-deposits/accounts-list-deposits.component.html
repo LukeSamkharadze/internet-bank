@@ -9,6 +9,7 @@
       [info]="infoService.depositToInfo(deposit)"
       [color]="'orange'"
       [class.blocked]="deposit.blocked"
+      [route]="'/card-view/deposit/' + deposit.id"
       ><i class="las la-lock"></i
     ></app-accounts-list-item>
   </div>
