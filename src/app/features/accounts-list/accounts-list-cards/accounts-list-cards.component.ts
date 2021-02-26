@@ -5,7 +5,7 @@ import { AccountsListInfoService } from '../services/accounts-list-info.service'
 @Component({
   selector: 'app-accounts-list-cards',
   templateUrl: './accounts-list-cards.component.html',
-  styleUrls: ['./accounts-list-cards.component.scss'],
+  styleUrls: ['../styles/_item.scss'],
 })
 export class AccountsListCardsComponent {
   @Input() cards: Array<ICard> = [];

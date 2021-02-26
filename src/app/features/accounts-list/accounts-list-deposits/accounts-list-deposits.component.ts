@@ -5,7 +5,7 @@ import { AccountsListInfoService } from '../services/accounts-list-info.service'
 @Component({
   selector: 'app-accounts-list-deposits',
   templateUrl: './accounts-list-deposits.component.html',
-  styleUrls: ['./accounts-list-deposits.component.scss'],
+  styleUrls: ['../styles/_item.scss'],
 })
 export class AccountsListDepositsComponent {
   @Input() deposits: Array<IDeposit> = [];
