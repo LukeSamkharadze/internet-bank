@@ -36,7 +36,7 @@ export class IconService {
       return this.transferTypes.includes(transfer.type.toLocaleLowerCase())
         ? {
             ...transfer,
-            iconPath: `./assets/transfers/${transfer.type.toLocaleLowerCase()}.svg`,
+            iconPath: `./assets/transfers/${transfer.type.toLocaleLowerCase()}.png`,
           }
         : transfer;
     }
