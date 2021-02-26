@@ -1,60 +1,63 @@
 import {
   Component,
-  Input,
   ViewChild,
   ElementRef,
   AfterViewInit,
+  OnInit,
 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { User } from './user-interface';
-
+import { UserService } from '../../../shared/services/user.service';
 @Component({
   selector: 'app-shared-header-profile',
   templateUrl: './header-profile.component.html',
   styleUrls: ['./header-profile.component.scss'],
 })
-export class HeaderProfileComponent implements AfterViewInit {
-  @ViewChild('myDropdown') myDropdown: ElementRef;
-  @ViewChild('dropbtn') dropbtn: ElementRef;
-  user: User;
-  @Input() userName = 'Barry Armstrong';
-  @Input() userMail = 'b.armstrong@gmail.com';
-  @Input() userImage = './../../../../assets/header-profile/User.png';
-  constructor(private authService: AuthService) {
-    this.user = {
-      name: this.userName,
-      mail: this.userMail,
-      image: this.userImage,
-    };
-  }
+export class HeaderProfileComponent implements AfterViewInit, OnInit {
+  @ViewChild('userDropdownMenu') userDropdownMenu: ElementRef;
 
+  user = {
+    fullname: 'Barry Armstrong',
+    email: 'mail@mail.com',
+    image: './assets/header-profile/user.png',
+  };
+  status = false;
+
+  userId;
+
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
+
+  ngOnInit() {
+    this.userId = this.authService.userId;
+    this.userService.getById(this.userId).subscribe((user) => {
+      this.user.fullname = user.fullname;
+      this.user.email = user.email;
+    });
+  }
   ngAfterViewInit() {
-    const myDrop = this.myDropdown.nativeElement;
-    const dropb = this.dropbtn.nativeElement;
-    myDrop.addEventListener('click', (e: MouseEvent) => this.stayOnDropdown(e));
-    dropb.addEventListener('click', (e: MouseEvent) => myDrop.focus());
-    document.addEventListener('click', (e: MouseEvent) =>
-      myDrop.blur(this.hideElement(e))
-    );
+    const dropdown = this.userDropdownMenu.nativeElement;
+    document.addEventListener('click', (e: MouseEvent) => {
+      const target = e.target as HTMLDivElement;
+      if (!target.matches('.dropbtn')) {
+        if (dropdown.classList.contains('show')) {
+          dropdown.classList.remove('show');
+        }
+      }
+    });
   }
 
   stayOnDropdown(event: MouseEvent) {
     event.stopPropagation();
   }
 
-  myFunction() {
-    this.myDropdown.nativeElement.classList.toggle('show');
+  showDropdown() {
+    this.userDropdownMenu.nativeElement.classList.toggle('show');
   }
-
-  hideElement(e) {
-    if (!e.target.matches('.dropbtn')) {
-      const myDropdown = document.getElementById('myDropdown');
-      if (myDropdown.classList.contains('show')) {
-        myDropdown.classList.remove('show');
-      }
-    }
+  clickEvent() {
+    this.status = !this.status;
   }
-
   signOut() {
     this.authService.logout();
   }
