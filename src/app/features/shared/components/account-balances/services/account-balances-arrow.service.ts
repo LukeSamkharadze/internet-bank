@@ -4,7 +4,9 @@ import { map } from 'rxjs/operators';
 import { TransactionService } from '../../../services/transaction.service';
 @Injectable()
 export class ArrowDirectionService {
+  
   constructor(public transactionService: TransactionService) {}
+
   determineArrow(accNum: string): Observable<string> {
     return this.transactionService.getByAccountNumber(accNum).pipe(
       map((val: any[]) => {

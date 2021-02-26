@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ICard } from '../../interfaces/card.interface';
 import { IDeposit } from '../../interfaces/deposit.interface';
 
-import { IconService } from '../../services/icon.service';
 import { TransactionService } from '../../services/transaction.service';
 import { ArrowDirectionService } from './services/account-balances-arrow.service';
 import { AccountBalancesService } from './services/account-balances.service';
@@ -18,13 +17,13 @@ export class AccountBalancesComponent
   constructor(
     public accountBalancesService: AccountBalancesService,
     public transactionService: TransactionService,
-    private arrowDirectionService: ArrowDirectionService,
-    private iconService: IconService
+    private arrowDirectionService: ArrowDirectionService
   ) {}
 
   ngOnInit(): void {
     this.accountBalancesService.getBalances();
   }
+
   ngAfterViewInit() {
     this.accountBalancesService.balances$.subscribe(
       (wholeBalance: Array<ICard | IDeposit>) => {
@@ -43,9 +42,11 @@ export class AccountBalancesComponent
       }
     );
   }
+
   instanceOfICard(object: any): object is ICard {
     return 'member' in object;
   }
+  
   ngOnDestroy() {
     this.accountBalancesService.balances$.unsubscribe();
   }
