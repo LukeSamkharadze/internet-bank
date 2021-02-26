@@ -42,7 +42,7 @@ export class IconService {
   determineCardIcon(card: ICard): ICard {
     const cardType = card.cardType;
     return this.cardTypes.includes(cardType)
-      ? { ...card, iconPath: `./assets/create-card/${cardType}.svg` }
+      ? { ...card, iconPath: `./assets/cards/${cardType}.svg` }
       : card;
   }
 }

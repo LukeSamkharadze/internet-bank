@@ -5,7 +5,6 @@ import {
   EMPTY,
   from,
   Observable,
-  of,
   Subject,
   throwError,
 } from 'rxjs';
@@ -36,7 +35,7 @@ export class CardService implements BaseHttpInterface<ICard> {
 
   public cards$ = this.store$.pipe(distinctUntilChanged());
 
-  public subj = new Subject<boolean>(); // ◄ ეს ხაზი ამოსაღებია
+  public subj = new Subject<boolean>();
 
   constructor(
     private http: HttpClient,
@@ -51,11 +50,9 @@ export class CardService implements BaseHttpInterface<ICard> {
 
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
-      // ▼ ▼ ▼ ამის ქვევით მოსაშლელია ▼ ▼ ▼
       tap(() => {
         this.subj.next(true);
       }),
-      // ▲ ▲ ▲ ამის ზევით მოსაშლელია ▲ ▲ ▲
       tap((newCard) =>
         this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
       ),
