@@ -59,13 +59,11 @@
           <div>
             <label class="select" for="dropdown-general">question #1</label>
             <div class="dropdown-general">
-              <select>
-                <option>Placeholder</option>
-                <option>Select item 1</option>
-                <option>Select item 2</option>
-                <option>Select item 3</option>
-                <option>Select item 4</option>
-              </select>
+              <app-shared-dropdown
+                placeholder="Placeholder"
+                [options]="['Option 1', 'Option 2', 'Option 3']"
+              >
+              </app-shared-dropdown>
             </div>
           </div>
           <div>
