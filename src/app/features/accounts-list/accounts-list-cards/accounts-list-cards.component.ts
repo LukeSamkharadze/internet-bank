@@ -9,17 +9,6 @@ import { AccountsListInfoService } from '../services/accounts-list-info.service'
 })
 export class AccountsListCardsComponent {
   @Input() cards: Array<ICard> = [];
-  cardImg = new Map<string, string>([
-    ['VISA CARD', '../../../../assets/features/accounts-list/visa.svg'],
-    [
-      'MASTER CARD',
-      '../../../../assets/features/accounts-list/master-card.svg',
-    ],
-  ]);
 
   constructor(public infoService: AccountsListInfoService) {}
-
-  getSrc(card: ICard): string | null {
-    return this.cardImg.get(card.cardName) || null;
-  }
 }

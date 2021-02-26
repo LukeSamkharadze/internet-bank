@@ -20,9 +20,7 @@ export class AuthService {
     return localStorage.getItem('userId');
   }
 
-  constructor(private userService: UserService, private router: Router) {
-    // this.userService.getAll().subscribe((users) => (this.usersArr = users));
-  }
+  constructor(private userService: UserService, private router: Router) {}
 
   // Check if User exists
   loginCheck(loginData: { email: string; password: string }) {
@@ -58,6 +56,36 @@ export class AuthService {
     return this.userService
       .getAll()
       .pipe(map((src) => src.every((user) => user.email !== email)));
+  }
+
+  // Logging in a User
+  loggingIn(
+    loginData: { email: string; password: string },
+    rememberMe?: boolean
+  ) {
+    // Check if a User exist
+    this.loginCheck(loginData).subscribe((checkSuccess) => {
+      if (checkSuccess) {
+        this.login(loginData).subscribe((user) => {
+          // Add 'User Id' on localStorage
+          localStorage.setItem('userId', JSON.stringify(user.id));
+
+          // When 'Remember Me' checked add 'User Email' on localStorage
+          if (rememberMe) {
+            localStorage.setItem('userEmail', user.email);
+          }
+
+          // Wait 0.2 sec after successful login and redirect to 'Dashboard'
+          setTimeout(() => {
+            this.router.navigate(['/dashboard']);
+          }, 200);
+        });
+      } else {
+        alert(
+          'Login data is wrong, please check again your "email" and "password"!'
+        );
+      }
+    });
   }
 
   // Remove user Id from localStorage on Logout and navigate to 'Login'
