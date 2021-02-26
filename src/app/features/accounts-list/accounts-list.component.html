@@ -1,4 +1,4 @@
-<div class="charts-container" *ngIf="incomes.length">
+<div class="charts-container" *ngIf="incomes$ | async as incomes">
   <app-accounts-list-chart
     *ngFor="let income of incomes"
     [info]="{
@@ -9,14 +9,14 @@
 </div>
 
 <app-accounts-list-cards
+  *ngIf="cards$ | async as cards"
   [cards]="cards"
-  *ngIf="cards.length"
 ></app-accounts-list-cards>
 <app-accounts-list-deposits
+  *ngIf="deposits$ | async as deposits"
   [deposits]="deposits"
-  *ngIf="deposits.length"
 ></app-accounts-list-deposits>
 <app-accounts-list-loans
+  *ngIf="loans$ | async as loans"
   [loans]="loans"
-  *ngIf="loans.length"
 ></app-accounts-list-loans>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, Observable, Subject } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
@@ -10,6 +10,8 @@ import { IDeposit } from '../interfaces/deposit.interface';
   providedIn: 'root',
 })
 export class DepositService implements BaseHttpInterface<IDeposit> {
+  public update$ = new Subject<boolean>();
+
   constructor(private http: HttpClient) {}
 
   create(param: IDeposit): Observable<IDeposit> {

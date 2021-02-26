@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable } from 'rxjs';
+import { EMPTY, Observable, Subject } from 'rxjs';
 import { retry } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
@@ -12,6 +12,8 @@ import { ILoan } from '../interfaces/loan.interface';
   providedIn: 'root',
 })
 export class LoanService implements BaseHttpInterface<ILoan> {
+  public update$ = new Subject<boolean>();
+
   constructor(private http: HttpClient) {}
 
   create(card: ILoan): Observable<ILoan> {

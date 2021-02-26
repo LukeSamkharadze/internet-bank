@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
@@ -12,6 +13,7 @@ import { AccountsListChartService } from '../services/accounts-list-chart.servic
   selector: 'app-accounts-list-chart',
   templateUrl: './accounts-list-chart.component.html',
   styleUrls: ['./accounts-list-chart.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountsListChartComponent implements AfterViewInit {
   @Input() info: IItem;

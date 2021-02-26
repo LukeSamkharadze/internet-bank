@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ILoan } from '../../shared/interfaces/loan.interface';
 import { AccountsListInfoService } from '../services/accounts-list-info.service';
 
@@ -6,6 +6,7 @@ import { AccountsListInfoService } from '../services/accounts-list-info.service'
   selector: 'app-accounts-list-loans',
   templateUrl: './accounts-list-loans.component.html',
   styleUrls: ['../styles/_item.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountsListLoansComponent {
   @Input() loans: Array<ILoan> = [];

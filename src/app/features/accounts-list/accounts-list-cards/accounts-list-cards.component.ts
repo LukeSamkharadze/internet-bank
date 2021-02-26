@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { AccountsListInfoService } from '../services/accounts-list-info.service';
 
@@ -6,6 +6,7 @@ import { AccountsListInfoService } from '../services/accounts-list-info.service'
   selector: 'app-accounts-list-cards',
   templateUrl: './accounts-list-cards.component.html',
   styleUrls: ['../styles/_item.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountsListCardsComponent {
   @Input() cards: Array<ICard> = [];

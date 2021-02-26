@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { startWith, switchMap } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { IDeposit } from '../../shared/interfaces/deposit.interface';
 import { ILoan } from '../../shared/interfaces/loan.interface';
@@ -17,16 +19,25 @@ export class AccountsListInfoService {
 
   // Getter Functions
 
-  getCards() {
-    return this.cardService.getAll();
+  getCards(): Observable<ICard[]> {
+    return this.cardService.subj.pipe(
+      startWith(true),
+      switchMap(() => this.cardService.getAll())
+    );
   }
 
   getDeposits() {
-    return this.depositService.getAll();
+    return this.depositService.update$.pipe(
+      startWith(true),
+      switchMap(() => this.depositService.getAll())
+    );
   }
 
   getLoans() {
-    return this.loanService.getAll();
+    return this.loanService.update$.pipe(
+      startWith(true),
+      switchMap(() => this.loanService.getAll())
+    );
   }
 
   // Casting Functions
