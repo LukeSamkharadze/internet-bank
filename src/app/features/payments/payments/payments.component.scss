@@ -12,7 +12,8 @@
   padding: 28px;
   margin: 0 auto;
 }
-@media only screen and (max-width: 950px) {
+
+@media only screen and (max-width: 1200px) {
   .payments-wrapper {
     grid-template-columns: 1fr;
     min-width: 250px;
