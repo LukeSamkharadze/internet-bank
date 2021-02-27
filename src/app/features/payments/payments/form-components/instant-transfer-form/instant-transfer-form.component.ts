@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
-import { InstantPayment } from '../../../../shared/interfaces/instantPaymententity';
+import { InstantPayment } from '../../../../shared/interfaces/payments/instantPayment.interface';
 import { PaymentService } from '../../../services/payment.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';

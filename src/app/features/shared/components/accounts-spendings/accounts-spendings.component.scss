@@ -1,0 +1,51 @@
+@import './index.scss';
+@mixin font-style($color: $primary-dark, $font-weight) {
+  font-weight: $font-weight;
+  color: $color;
+}
+:host {
+  width: 36%;
+  display: block;
+}
+.acc-spendings {
+  width: 100%;
+  min-width: 330px;
+  background-color: white;
+  .spendings-title {
+    padding: 21px 22px 35px;
+    border-bottom: 1px solid $background-1;
+    h5 {
+      float: left;
+    }
+    i {
+      float: right;
+    }
+  }
+  .spendings-container {
+    padding: 0px 22px;
+    .spendings {
+      padding: 23.5px 1px 9px;
+      p {
+        padding-bottom: 6.3px;
+      }
+      .amount {
+        float: right;
+        margin-top: -27px;
+        @include font-style($primary-dark, 400);
+      }
+    }
+  }
+  .value-axis {
+    padding: 19.5px 1px 16px;
+    .values {
+      margin: 0px 26px 0px 22px;
+      border-top: 2px solid $background-1;
+      display: flex;
+      justify-content: space-between;
+      p {
+        padding-top: 17px;
+        @include font-style($primary-dark, 300);
+      }
+    }
+  }
+}

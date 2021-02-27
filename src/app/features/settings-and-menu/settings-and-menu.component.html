@@ -1,5 +1,7 @@
 <div class="settingsAndMenu">
-  <router-outlet></router-outlet>
+  <div class="routerContainer">
+    <router-outlet></router-outlet>
+  </div>
 
   <div class="menu">
     <div class="menuTabs">
@@ -8,10 +10,8 @@
       >
       <!-- ENTER YOUR PATHS BELOW LIKE THE UPPER ONE ^^^     -->
 
-      <a [routerLink]="['/settings/security']" routerLinkActive="active"
-        >Security</a
-      >
-      <a [routerLink]="['settings/payments']" routerLinkActive="active"
+      <a [routerLink]="['#']" routerLinkActive="active">Security</a>
+      <a [routerLink]="['/settings/limits']" routerLinkActive="active"
         >Payment limits</a
       >
       <a routerLink="#" routerLinkActive="active">Notifications</a>

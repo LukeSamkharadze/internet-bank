@@ -41,7 +41,7 @@
     "jest-junit": "^11.1.0",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.5.4",
-    "tslib": "^2.0.0",
+    "tslib": "^2.1.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -53,20 +53,20 @@
     "@ngneat/spectator": "^5.13.0",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/jest": "^26.0.10",
-    "@types/node": "^12.11.1",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^12.20.4",
     "codelyzer": "^6.0.0",
-    "husky": "^4.2.5",
+    "husky": "^4.3.8",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
-    "jest": "^26.4.1",
+    "jest": "^26.6.3",
     "json-server": "^0.16.3",
-    "prettier": "^2.1.1",
+    "prettier": "^2.2.1",
     "pretty-quick": "^3.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "~3.9.7"
+    "typescript": "^3.9.9"
   }
 }
