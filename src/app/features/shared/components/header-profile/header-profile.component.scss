@@ -84,25 +84,35 @@
 
   .profSettings {
     font-weight: 500;
-    padding-left: 23px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 156.25px;
     font-size: 12px;
-    padding-top: 10px;
-    padding-bottom: 11px;
     box-sizing: border-box;
     a {
       user-select: none;
       cursor: pointer;
       display: flex;
       text-decoration: none;
+      height: 53px;
+      padding-left: 23px;
+      &:hover {
+        background-color: $background-2;
+        border-left: 2px solid $primary;
+
+        i {
+          color: $primary;
+          margin-left: 4px;
+          transition: 0.3s ease-in-out;
+        }
+      }
     }
     i {
       margin-right: 8px;
       color: $secondary-dark-1;
       font-size: 18px;
+      transform: translate(0, 33%);
     }
     p {
       color: $primary-dark;
@@ -110,6 +120,7 @@
       letter-spacing: 0.1px;
       margin-bottom: 3px;
       font-weight: 500;
+      transform: translate(0, 30%);
     }
   }
 }
