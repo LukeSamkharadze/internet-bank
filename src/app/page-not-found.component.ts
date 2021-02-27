@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
       <br />
       <h3>Error 404, Page Not Found!</h3>
       <br />
-      <img src="../assets/not-found-404/nf-404.png" width="284" height="349" />
+      <img src="./assets/not-found-404/nf-404.png" width="284" height="349" />
     </div>
   </main>`,
   styles: [

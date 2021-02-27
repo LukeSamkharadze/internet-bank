@@ -13,7 +13,7 @@ export class NewsItemComponent {
 
   // If image url fails
   showPlacehoderImg() {
-    this.imgSrc = '../../../../assets/news-list/placeholder-img.png';
+    this.imgSrc = 'assets/news-list/placeholder-img.png';
   }
 
   // open article in a new window

@@ -1,4 +1,31 @@
-<app-features-shared-income-chart [monthRange]="1">
-</app-features-shared-income-chart>
-
-<app-features-shared-account-balances></app-features-shared-account-balances>
+<div class="dashboard-wrapper">
+  <div class="row row-1">
+    <div class="row-1-left">
+      <app-features-shared-account-balances
+        style="width: 100%; height: 100%"
+      ></app-features-shared-account-balances>
+    </div>
+    <div class="row-1-right">
+      <div class="widget">widget 1</div>
+      <div class="widget">widget 2</div>
+    </div>
+  </div>
+  <div class="row row-2">
+    <div class="row-2-left">
+      <app-features-shared-expanses
+        [chartData]="chartData"
+        style="width: 100%; height: 100%"
+      ></app-features-shared-expanses>
+    </div>
+    <div class="row-2-right">
+      <app-shared-accounts-spendings
+        [spendings]="{ debit: '20', credit: '40', cash: '60', maxval: '80' }"
+        style="width: 100%"
+      ></app-shared-accounts-spendings>
+    </div>
+  </div>
+  <div class="row row-3">
+    <app-features-shared-income-chart [monthRange]="0" style="width: 100%">
+    </app-features-shared-income-chart>
+  </div>
+</div>

@@ -5,13 +5,23 @@ import { ElectronicPayment } from '../../shared/interfaces/payments/electronicPa
 import { InstantPayment } from '../../shared/interfaces/payments/instantPayment.interface';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
-import { forkJoin, of } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { forkJoin, from, of } from 'rxjs';
+import { map, pluck, reduce, scan, switchMap, tap } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
+import { UserService } from '../../shared/services/user.service';
+import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { TransactionService } from '../../shared/services/transaction.service';
 
 @Injectable()
 export class PaymentService {
-  constructor(private http: HttpClient, private cardService: CardService) {}
+  constructor(
+    private http: HttpClient,
+    private cardService: CardService,
+    private authService: AuthService,
+    private paymentsLimitsService: PaymentLimitsService,
+    private transactionService: TransactionService
+  ) {}
 
   currentUsersCards$ = this.cardService.cards$;
 
@@ -23,6 +33,25 @@ export class PaymentService {
           if (card.availableAmount < transfer.amount) {
             throw new Error('not enough balance');
           }
+        }),
+        switchMap((card) =>
+          forkJoin([
+            of(card),
+            this.paymentsLimitsService.getById(this.authService.userId),
+            this.transactionService
+              .getBankSpendings(this.authService.userId)
+              .pipe(
+                switchMap((bankTransfers) => from(bankTransfers)),
+                pluck('amount'),
+                reduce((a, b) => a + b)
+              ),
+          ])
+        ),
+        map(([card, limits, bankSpending]) => {
+          if (bankSpending + transfer.amount > limits.bankLimit) {
+            throw new Error('exceeds limits');
+          }
+          return card;
         }),
         switchMap((card) =>
           forkJoin([
@@ -61,7 +90,26 @@ export class PaymentService {
           if (card.availableAmount < transfer.amount) {
             throw new Error('not enough balance');
           }
+        }),
+        switchMap((fromAccount) =>
+          forkJoin([
+            of(fromAccount),
+            this.paymentsLimitsService.getById(this.authService.userId),
+            this.transactionService
+              .getOnlineSpendings(this.authService.userId)
+              .pipe(
+                switchMap((onlineTransfers) => from(onlineTransfers)),
+                pluck('amount'),
+                reduce((a, b) => a + b)
+              ),
+          ])
+        ),
+        map(([fromAccount, limits, onlineSpendings]) => {
+          if (onlineSpendings + transfer.amount > limits.onlineLimit) {
+            throw new Error('exceeds limits');
+          }
           transfer = { ...transfer, title: 'money goin outside tbc' };
+          return fromAccount;
         }),
         switchMap((fromAccount) =>
           this.removeBalance(fromAccount, Number(transfer.amount))
