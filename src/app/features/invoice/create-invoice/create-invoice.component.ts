@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./create-invoice.component.scss'],
 })
 export class CreateInvoiceComponent implements OnInit {
-  //@Input() routing;
+  @Input() routing;
   constructor() {}
 
   ngOnInit(): void {}
