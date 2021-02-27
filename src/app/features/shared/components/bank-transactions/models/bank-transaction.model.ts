@@ -5,7 +5,7 @@ export interface TransactionsList {
   type: string;
   beneficiary: string;
   amount: string;
-  date: string;
+  date: Date;
   status: string;
   cardNumber: string;
   toAccountNumber: number;

@@ -1,6 +1,6 @@
 @import './index.scss';
 
-:host{
+:host {
   display: block;
   height: 100%;
 }
@@ -116,10 +116,19 @@
 
   .transaction {
     padding: 10px 23px 9px 23px;
+    .img-width {
+      width: 150px;
+      display: inline-block;
+      margin: auto;
+      .img-flex {
+        display: flex;
+        justify-content: center;
+      }
+    }
 
     img {
       height: 40px;
-      width: 80px;
+      // width: 80px;
       margin: auto;
     }
   }

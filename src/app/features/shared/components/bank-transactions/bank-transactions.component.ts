@@ -64,6 +64,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
             ...element,
             icon: element.iconPath,
             cardNumber: String(element.fromAccountNumber).slice(-4),
+            date: new Date(element.date),
           });
         });
       });
@@ -90,12 +91,14 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
     return day !== 0 && day !== 6;
   }
   dateChangeEvent($event) {
+    const month = $event.value.getMonth() + 1;
     this.chosenDate =
-      $event.value.getDate() +
-      ' ' +
-      this.monthNames[$event.value.getMonth()] +
-      ' ' +
-      ($event.value.getYear() + 1900);
+      $event.value.getYear() +
+      1900 +
+      '-' +
+      (month < 10 ? '0' + month : month) +
+      '-' +
+      $event.value.getDate();
     this.fetchTransactions();
   }
 

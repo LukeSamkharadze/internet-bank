@@ -72,13 +72,23 @@
     <div *ngFor="let transaction of transactionsList | filter: searchText">
       <div class="transaction">
         <div class="left">
-          <img src="{{ transaction.icon }}" onerror="this.onerror=null; this.src='./assets/transfers/default.png';" style="width: 50px; height: 50px"/>
+          <div class="img-width">
+            <div class="img-flex">
+              <img
+                src="{{ transaction.icon }}"
+                onerror="this.onerror=null; this.src='./assets/transfers/default.png';"
+              />
+            </div>
+          </div>
           <h2>
             <a class="title" (click)="pop(transaction.id)">
               {{ transaction.title }}
             </a>
             <br />
-            <span>{{ transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1) }}</span>
+            <span>{{
+              transaction.type.charAt(0).toUpperCase() +
+                transaction.type.slice(1)
+            }}</span>
           </h2>
         </div>
         <div class="right">
@@ -88,7 +98,9 @@
                 transaction.currency
               }} </span
             ><br />
-            <span class="date">{{ transaction.date }}</span>
+            <span class="date">{{
+              transaction.date.toString().slice(4, 15)
+            }}</span>
           </h1>
         </div>
       </div>

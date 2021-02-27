@@ -20,7 +20,7 @@ export class TransactionsService {
   getTransactions(date: string, type: string) {
     let url1 = '';
     let url2 = '';
-    if (type === 'All') {
+    if (type === 'all') {
       type = null;
     }
 
