@@ -8,7 +8,7 @@ import { ElectronicPaymentFormComponent } from './payments/form-components/elect
 import { BankTransferFormComponent } from './payments/form-components/bank-transfer-form/bank-transfer-form.component';
 import { InstantTransferFormComponent } from './payments/form-components/instant-transfer-form/instant-transfer-form.component';
 import { SharedModule } from '../../shared';
-import { TransferService } from './services/transfer.service';
+import { PaymentService } from './services/payment.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,6 @@ import { TransferService } from './services/transfer.service';
   ],
   imports: [CommonModule, PaymentsRoutingModule, SharedModule],
   exports: [PaymentsComponent],
-  providers: [ProvidersService, TransferService],
+  providers: [ProvidersService, PaymentService],
 })
 export class PaymentsModule {}
