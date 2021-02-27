@@ -9,9 +9,6 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 import { DepositDetailsComponent } from './deposit-details/deposit-details.component';
 import { LoanDetailsComponent } from './loan-details/loan-details.component';
 import { CardViewComponent } from './card-view.component';
-import { CardDetailsGuard } from './guards/card-details.guard';
-import { DepositDetailsGuard } from './guards/deposit-details.guard';
-import { LoanDetailsGuard } from './guards/loan-details.guard';
 import { FeaturesSharedModule } from '../shared/features-shared.module';
 
 @NgModule({
@@ -28,13 +25,7 @@ import { FeaturesSharedModule } from '../shared/features-shared.module';
     FeaturesSharedModule,
     CardViewRoutingModule,
   ],
-  providers: [
-    ToListFormatterService,
-    ToTemplateFormatterService,
-    CardDetailsGuard,
-    DepositDetailsGuard,
-    LoanDetailsGuard,
-  ],
+  providers: [ToListFormatterService, ToTemplateFormatterService],
   exports: [CardViewComponent],
 })
 export class CardViewModule {}
