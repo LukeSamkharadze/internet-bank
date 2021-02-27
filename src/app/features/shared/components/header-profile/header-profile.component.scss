@@ -100,9 +100,11 @@
       &:hover {
         background-color: $background-2;
         border-left: 2px solid $primary;
-        transition: 0.2s;
+
         i {
           color: $primary;
+          margin-left: 4px;
+          transition: 0.3s ease-in-out;
         }
       }
     }
@@ -118,7 +120,7 @@
       letter-spacing: 0.1px;
       margin-bottom: 3px;
       font-weight: 500;
-      transform: translate(0, 33%);
+      transform: translate(0, 30%);
     }
   }
 }
