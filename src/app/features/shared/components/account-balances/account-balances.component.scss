@@ -1,0 +1,121 @@
+@import './index.scss';
+:host {
+  display: block;
+  width: 555px;
+  min-width: 372px;
+}
+
+.available-balances {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  img:before {
+    content: ' ';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../../../../assets/cards/cardDefault.png);
+  }
+  .balances-title {
+    @include text-style(16px);
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid $outline;
+    padding: 20px 0px 18px 23px;
+  }
+  .balances-container {
+    * {
+      background-color: inherit;
+    }
+    max-height: 290px;
+    overflow-y: auto;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .la-long-arrow-alt-up {
+      color: $secondary-2;
+    }
+    .la-arrow-down {
+      color: $secondary-3;
+    }
+    .last-arrow {
+      padding-left: 9px;
+    }
+    .account-balance {
+      display: flex;
+      align-self: center;
+      justify-content: space-between;
+      border-bottom: 1px solid $outline;
+      padding: 13px 0 16px 0;
+      width: 100%;
+      &:first-child {
+        padding-top: 0px;
+      }
+      &:last-child {
+        border: 0px;
+      }
+      .logo-background {
+        width: 58.14px;
+        height: 40px;
+        background-color: $background-2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 5px;
+        border-radius: 5px;
+      }
+      .defaultIconSize {
+        width: 16px;
+        height: 16px;
+      }
+      .logo-background-deposit {
+        @extend .logo-background;
+        background-color: rgba($primary, 0.1);
+      }
+      .account-type {
+        display: flex;
+      }
+      .account-number {
+        @include text-style(16px);
+        padding-bottom: 5px;
+      }
+      .account-description {
+        @include text-style(14px, $secondary-dark-2);
+      }
+      .balance-description {
+        align-self: flex-end;
+      }
+      .detail-position {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 21px;
+      }
+      .balanceStats {
+        display: flex;
+        justify-content: space-between;
+      }
+      .arrowSpace {
+        width: 5px;
+      }
+      .card-position {
+        @extend .detail-position;
+        justify-content: space-between;
+        padding: 0;
+        .amount {
+          @include text-style(16px);
+        }
+        .las {
+          padding-bottom: 5px;
+        }
+      }
+      .la-lock {
+        color: $primary;
+      }
+    }
+  }
+}

@@ -1,5 +1,9 @@
 @import 'src/styles/index';
 
+.main-wrapper {
+  overflow-x: hidden;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 48.95833333333333% 51.04166666666667%;

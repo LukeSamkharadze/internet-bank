@@ -41,6 +41,44 @@
       "img": "https://picsum.photos/200?random=8"
     }
   ],
+  "limits": [
+    {
+      "bankLimit": 22000,
+      "onlineLimit": 10000,
+      "cashLimit": 9000,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "bankLimit": 8000,
+      "onlineLimit": 5000,
+      "cashLimit": 4000
+    },
+    {
+      "id": 3,
+      "bankLimit": 12000,
+      "onlineLimit": 10000,
+      "cashLimit": 8000
+    },
+    {
+      "bankLimit": 5000,
+      "onlineLimit": 5000,
+      "cashLimit": 5000,
+      "id": 4
+    },
+    {
+      "bankLimit": 5000,
+      "onlineLimit": 5000,
+      "cashLimit": 5000,
+      "id": 5
+    },
+    {
+      "bankLimit": 7000,
+      "onlineLimit": 5000,
+      "cashLimit": 11000,
+      "id": 6
+    }
+  ],
   "income": [
     {
       "id": 1,
@@ -77,67 +115,10 @@
       ]
     }
   ],
-  "payments": [
-    {
-      "date": "2021-02-24T20:08:32.290Z",
-      "paymentType": "electronic",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationEmail": "a@gmail.com",
-      "amount": 2000,
-      "currency": "USD",
-      "fromUserId": "2",
-      "id": 1
-    },
-    {
-      "date": "2021-02-24T20:10:25.636Z",
-      "paymentType": "instant",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 2000,
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 2
-    },
-    {
-      "date": "2021-02-24T20:14:51.332Z",
-      "paymentType": "electronic",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationEmail": "a@gmail.com",
-      "amount": 3000,
-      "currency": "USD",
-      "fromUserId": "2",
-      "id": 3
-    },
-    {
-      "date": "2021-02-24T20:17:13.165Z",
-      "paymentType": "instant",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "amount": 5000,
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 4
-    },
-    {
-      "date": "2021-02-24T20:17:30.135Z",
-      "paymentType": "bank",
-      "fromUserId": "2",
-      "fromAccount": "GE32TB3333111122224444",
-      "destinationAccountNumber": "GE32TB1111222233334444",
-      "beneficiary": "someone",
-      "amount": 2000,
-      "currency": "USD",
-      "transferType": "Personal transfer",
-      "destinationAccountUserId": "3",
-      "id": 5
-    }
-  ],
   "cards": [
     {
       "cardName": "VISA CARD",
-      "cardType": "VISA",
+      "cardType": "visa",
       "accountNumber": "GE32TB1111222233334444",
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
@@ -149,24 +130,24 @@
     },
     {
       "cardName": "MASTER CARD",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "accountNumber": "GE32TB2222111133334444",
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 25000,
+      "availableAmount": 33036,
       "security3D": true,
       "userId": "1",
       "id": 2
     },
     {
       "cardName": "MASTER CARD",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "accountNumber": "GE32TB3333111122224444",
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 28000,
+      "availableAmount": 18800,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -177,10 +158,10 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 9986,
+      "availableAmount": 8950,
       "security3D": true,
       "userId": "2",
-      "cardType": "MASTERCARD",
+      "cardType": "mastercard",
       "id": 4
     }
   ],
@@ -234,6 +215,8 @@
     },
     {
       "email": "admin@gmail.com",
+      "language": "English",
+      "sex": "Male",
       "id": 2,
       "password": "12345678",
       "fullname": "EDMOND DANTES"
@@ -243,6 +226,24 @@
       "email": "mafia_immortal@outlook.com",
       "password": "ssssssssss",
       "id": 3
+    },
+    {
+      "fullname": "JAVAXA JAVAXA",
+      "email": "javaxa@gmail.com",
+      "password": "Javaxa1234",
+      "id": 4
+    },
+    {
+      "fullname": "BABAXA BABAXA",
+      "email": "babaxa@gmail.com",
+      "password": "Babaxa1234",
+      "id": 5
+    },
+    {
+      "fullname": "GIO GIO",
+      "email": "gio@gmail.com",
+      "password": "Gio12345",
+      "id": 6
     }
   ],
   "deposits": [
@@ -343,6 +344,61 @@
       "status": "Pending",
       "invoiceCreateDate": "2021-02-24T18:37:01.789Z",
       "id": 2
+    }
+  ],
+  "transactions": [
+    {
+      "title": "Bank transfer to user: 1",
+      "toUserId": "1",
+      "date": "2021-02-25T15:43:54.034Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "toAccountNumber": "GE32TB2222111133334444",
+      "amount": 200,
+      "currency": "USD",
+      "beneficiary": "sum name",
+      "bankTransferType": "Personal transfer",
+      "id": 1
+    },
+    {
+      "title": "money goin outside tbc",
+      "date": "2021-02-25T15:44:56.811Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "lala@gmail.com",
+      "amount": 986,
+      "currency": "USD",
+      "id": 2
+    },
+    {
+      "title": "money goin outside tbc",
+      "date": "2021-02-25T15:45:19.641Z",
+      "type": "instant",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "amount": 50,
+      "currency": "USD",
+      "instantTransferType": "Personal transfer",
+      "toAccountNumber": "bg1203900001231231",
+      "id": 3
+    }
+  ],
+  "news": [
+    {
+      "imageUrl": "https://image.cnbcfm.com/api/v1/image/106835608-1612464676261PRESS-NYSE-Photo-20210204-5-jpg?v=1612464760&w=740&h=416",
+      "imgAlt": "Employees",
+      "releaseDate": "2021-02-26T03:55:10Z",
+      "title": "Rising Interest Rates May Continue To Test The Stock Market In The Week Ahead",
+      "content": "The tug-of-war between stocks and rising bond yields could set the tone for the coming week, particularly if positive economic data continues to push Treasury yields higher. Friday’s February employment report is the highlight of the week’s data and an important current look at the impact of the virus on the economy, after just 49,000 jobs were added in January. For February, economist expect to see 218,000 jobs added, and the unemployment rate should stay the same at 6.3%, according to Dow Jones. The rapid runup in interest rates this month caught investors by surprise. The benchmark 10-year yield, which influences mortgages and other loans, was at 1.46% Friday, about 15 basis points [0.15%] above the level it was at just a week earlier. After a big surge Thursday, the 10-year yield traded on both sides of 1.50%, which is the consensus view of where yields would be at the end of the year, not the beginning."
+    },
+    {
+      "imageUrl": "https://image.cnbcfm.com/api/v1/image/106846514-1614364263993-2020-12-13T151510Z_1097298982_UP1EGCD16DA4E_RTRMADP_3_MOTOR-F1-ABUDHABI.jpg?v=1614364377&w=740&h=416",
+      "imgAlt": "Formula One",
+      "releaseDate": "2021-02-26T18:09:37Z",
+      "title": "Formula One Revenues Dropped By $877 Million In 2020",
+      "content": "Formula One’s revenues took an $877 million hit last year, falling 43% as a result of the Covid-19 pandemic, owners Liberty Media reported on Friday. Revenues amounted to $1.145 billion compared to a previous $2.022 billion in a year that featured 17 races, mostly without spectators, and had highlight events such as Monaco and Singapore cancelled. The previous year had 21 races and 22 had been planned for 2020 with 23 scheduled for 2021. The previous year had 21 races and 22 had been planned for 2020 with 23 scheduled for 2021.Formula One’s primary revenues are derived mostly from race promotion fees, broadcasting deals and advertising and sponsorship. The revenues also provide a significant part of the budget for smaller teams. The new season starts in Bahrain on March 28."
     }
   ]
 }
