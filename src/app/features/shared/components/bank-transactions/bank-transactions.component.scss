@@ -2,13 +2,11 @@
 
 :host {
   display: block;
-  height: 100%;
+  min-height: 790px;
+  background-color: white;
 }
 
 .bank-transactions {
-  background-color: white;
-  height: 100%;
-
   .myDiv {
     min-height: 300px;
   }
@@ -27,6 +25,10 @@
     }
     .left-settings {
       display: inline;
+
+      img {
+        margin-bottom: -4px;
+      }
     }
     .right-settings {
       float: right;
@@ -62,15 +64,6 @@
         .mat-body-1 p,
         .mat-typography p {
           margin: 0;
-        }
-        ::ng-deep
-          .bank-transactions[_ngcontent-rvx-c106]
-          .settings[_ngcontent-rvx-c106]
-          .right-settings[_ngcontent-rvx-c106]
-          .position-left[_ngcontent-rvx-c106]
-          .mat-form-field-appearance-fill
-          .mat-form-field-infix {
-          padding: 0;
         }
         ::ng-deep .dropdown-general {
           height: 80%;
@@ -117,7 +110,7 @@
   .transaction {
     padding: 10px 23px 9px 23px;
     .img-width {
-      width: 150px;
+      width: 50px;
       display: inline-block;
       margin: auto;
       .img-flex {

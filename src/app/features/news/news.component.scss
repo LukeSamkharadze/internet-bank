@@ -5,7 +5,7 @@
 }
 
 .news-container {
-  padding: 18px;
+  padding: 28px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -13,7 +13,7 @@
   .news-left-part {
     flex: 1;
     min-width: 345px;
-    margin: 10px 14px;
+    margin-right: 14px;
     padding-right: 10px;
     background: white;
   }
@@ -27,8 +27,8 @@
 
   .news-right-part {
     flex: 1;
+    margin-left: 14px;
     padding-top: 25px;
-    margin: 10px 14px;
     background: white;
     height: fit-content;
     div {
