@@ -2,14 +2,13 @@
   <div class="security">
     <h4>security</h4>
     <div class="headers">change password</div>
-    <form [formGroup]="formChange" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formChange" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="settings-form-aligment">
         <div class="aligment-flex">
           <div class="current">
             <label class="input-label" for="input-icon-example"
               >current password</label
             >
-
             <div class="input-wrapper">
               <input
                 type="password"
@@ -52,16 +51,22 @@
           </div>
         </div>
       </div>
-
       <div class="headers">security questions</div>
       <div class="settings-form-aligment">
         <div class="aligment-flex">
           <div>
             <label class="select" for="dropdown-general">question #1</label>
             <div class="dropdown-general">
+              <ng-template #dropdownTemplate let-option>
+                {{ option.question }}
+              </ng-template>
               <app-shared-dropdown
-                placeholder="Placeholder"
-                [options]="['Option 1', 'Option 2', 'Option 3']"
+                style="width: 336px; height: 52px"
+                formControlName="dropdown"
+                placeholder="choose your question"
+                [optionTemplate]="dropdownTemplate"
+                [selectedTemplate]="dropdownTemplate"
+                [options]="questions"
               >
               </app-shared-dropdown>
             </div>
@@ -70,10 +75,11 @@
             <label class="input-label" for="input-icon-example">answer</label>
             <div class="input-wrapper">
               <input
+                formControlName="answer"
                 id="input-icon-example"
                 class="valid"
                 type="text"
-                placeholder="Placeholder"
+                placeholder=""
               />
             </div>
           </div>
