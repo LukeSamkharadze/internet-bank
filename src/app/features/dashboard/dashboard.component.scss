@@ -7,15 +7,19 @@
     grid-gap: 28px;
     grid-template-columns: 1fr 1fr;
     &.row-1 {
-      height: auto;
+      order: 2;
       .row-1-right {
         display: grid;
         grid-gap: 10px;
         grid-template-columns: repeat(2, 1fr);
       }
     }
+    &.row-2 {
+      order: 3;
+    }
     &.row-3 {
       display: grid;
+      order: 1;
       grid-template-columns: 1fr;
     }
   }
