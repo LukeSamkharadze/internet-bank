@@ -7,7 +7,7 @@ import { FormatterService } from '../../shared/services/formatter.service';
 import IList from '../models/card-view-list.interface';
 
 @Injectable()
-export class ToListFormatterService {
+export class ListFormatService {
   constructor(
     private formatterService: FormatterService,
     private dateFormatterService: DateFormatterService

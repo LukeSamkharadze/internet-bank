@@ -6,10 +6,8 @@ import { DateFormatterService } from '../../shared/services/date-formatter.servi
 import { FormatterService } from '../../shared/services/formatter.service';
 import ICardTemplate from '../models/card-view-card.interface';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ToTemplateFormatterService {
+@Injectable()
+export class TemplateFormatService {
   constructor(
     private formatterService: FormatterService,
     private dateFormatterService: DateFormatterService

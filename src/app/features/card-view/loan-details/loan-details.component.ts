@@ -9,8 +9,8 @@ import { LoanService } from '../../shared/services/loan.service';
 import IButton from '../models/card-view-buttons.interface';
 import ICardTemplate from '../models/card-view-card.interface';
 import IList from '../models/card-view-list.interface';
-import { ToListFormatterService } from '../services/to-list-formatter.service';
-import { ToTemplateFormatterService } from '../services/to-template-formatter.service';
+import { ListFormatService } from '../services/list-format.service';
+import { TemplateFormatService } from '../services/template-format.service';
 
 @Component({
   selector: 'app-loan-details',
@@ -31,8 +31,8 @@ export class LoanDetailsComponent implements OnInit {
 
   constructor(
     private formatterService: FormatterService,
-    private toListService: ToListFormatterService,
-    private toTemplateService: ToTemplateFormatterService,
+    private toListService: ListFormatService,
+    private toTemplateService: TemplateFormatService,
     private loanService: LoanService,
     private route: ActivatedRoute,
     private router: Router
