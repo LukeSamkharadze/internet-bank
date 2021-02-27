@@ -31,7 +31,7 @@ const modules = [
 @NgModule({
   declarations: [...components, ...sharedPipes],
   imports: [...modules],
-  exports: [...components, ...modules],
+  exports: [...components, ...modules, ...sharedPipes],
   providers: [],
 })
 export class FeaturesSharedModule {}

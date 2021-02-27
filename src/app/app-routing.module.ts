@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { IsLoggedInGuard } from './features/shared/guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './features/shared/guards/is-logged-out.guard';
 import { PageNotFoundComponent } from './page-not-found.component';
@@ -8,20 +7,29 @@ import { ApplicationComponent } from './features/application/application.compone
 import { BankTransactionsComponent } from './features/shared/components';
 
 const routes: Routes = [
-  // Dashboard Paths
   {
     path: '',
     component: ApplicationComponent,
     canActivate: [IsLoggedInGuard],
     children: [
       {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
+      {
         path: 'dashboard',
-        component: DashboardComponent,
+        loadChildren: () =>
+          import('./features/dashboard/dashboard.module').then(
+            (m) => m.DashboardModule
+          ),
       },
       {
         path: 'transactions',
-        loadChildren: () => import('./features/transactions/transactions.module').
-        then((m) => m.TransactionsModule)
+        loadChildren: () =>
+          import('./features/transactions/transactions.module').then(
+            (m) => m.TransactionsModule
+          ),
       },
       {
         path: 'products',
@@ -86,7 +94,11 @@ const routes: Routes = [
   },
 
   // All Other Paths
-
+  {
+    path: 'list',
+    loadChildren: () =>
+      import('./features/list/list.module').then((m) => m.ListModule),
+  },
   {
     path: '**',
     component: PageNotFoundComponent,
