@@ -4,6 +4,7 @@ import { IsLoggedInGuard } from './features/shared/guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './features/shared/guards/is-logged-out.guard';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ApplicationComponent } from './features/application/application.component';
+import { DetailsGuard } from './features/card-view/guards/details.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'dashboard',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'dashboard',
@@ -24,11 +25,26 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'transactions',
+        loadChildren: () =>
+          import('./features/transactions/transactions.module').then(
+            (m) => m.TransactionsModule
+          ),
+      },
+      {
         path: 'products',
         loadChildren: () =>
           import('./features/create-card/create-card.module').then(
             (m) => m.CreateCardModule
           ),
+      },
+      {
+        path: 'card-view',
+        loadChildren: () =>
+          import('./features/card-view/card-view.module').then(
+            (m) => m.CardViewModule
+          ),
+        canLoad: [DetailsGuard],
       },
       {
         path: 'accounts-list',
@@ -47,7 +63,6 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/list/list.module').then((m) => m.ListModule),
       },
-
       {
         path: 'settings',
         loadChildren: () =>
@@ -71,7 +86,6 @@ const routes: Routes = [
       },
     ],
   },
-  // Authentication Paths
   {
     path: '',
     canActivate: [IsLoggedOutGuard],

@@ -5,4 +5,7 @@ export interface IDeposit extends IParent {
   depositRate: number;
   startDate: string;
   accured?: number;
+  type: DepositType;
 }
+
+export type DepositType = 'Cumulative';

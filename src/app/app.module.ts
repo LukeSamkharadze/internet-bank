@@ -9,13 +9,10 @@ import { ApplicationComponent } from './features/application/application.compone
 import { FeaturesSharedModule } from '@features/shared';
 import { AppRoutingModule } from './app-routing.module';
 import 'hammerjs';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PageNotFoundComponent,
-    ApplicationComponent,
-  ],
+  declarations: [AppComponent, PageNotFoundComponent, ApplicationComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -23,6 +20,7 @@ import 'hammerjs';
     AppRoutingModule,
     CoreModule,
     FeaturesSharedModule,
+    DateInputsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

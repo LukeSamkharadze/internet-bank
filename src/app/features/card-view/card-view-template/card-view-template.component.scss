@@ -1,0 +1,218 @@
+@import './index.scss';
+
+* {
+  position: relative;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 10px 21px 18px 18px;
+  border-radius: 4px;
+  grid-row: 1/3;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+
+  ::ng-deep i {
+    margin: 0 auto;
+  }
+
+  ::ng-deep img {
+    margin: 0 auto;
+    height: 35%;
+  }
+}
+
+.title {
+  width: 100%;
+  padding-left: 6px;
+  height: 46px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+
+  border-bottom: solid 1px $background-1;
+
+  .main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon {
+    height: 28px;
+    width: 42px;
+    margin-right: 15px;
+
+    @include text-style(16px);
+
+    &.blue {
+      color: $secondary-1;
+      background-color: rgba($color: $secondary-1, $alpha: 0.1);
+    }
+
+    &.orange {
+      color: $primary;
+      background-color: rgba($color: $primary, $alpha: 0.1);
+    }
+
+    &.green {
+      color: $secondary-2;
+      background-color: rgba($color: $secondary-2, $alpha: 0.1);
+    }
+  }
+
+  .name {
+    @include text-style(15px, $primary-dark);
+    font-weight: 500;
+    letter-spacing: -0.4px;
+    height: 17px;
+  }
+
+  .amount {
+    @include text-style(14px, $secondary-dark-2);
+    top: 2px;
+    right: 2px;
+    letter-spacing: -0.01px;
+  }
+}
+
+.card-container {
+  height: 300px;
+  width: 100%;
+  margin-left: 5px;
+  margin-top: 2px;
+  padding-top: 42px;
+  padding-right: 9px;
+
+  animation-name: card-appear;
+  animation-duration: 1.5s;
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 327px;
+    height: 200px;
+  }
+
+  .bg {
+    position: absolute;
+    top: -15px;
+    left: calc(50% - 5px);
+    transform: translateX(-50%);
+  }
+
+  .icon {
+    position: absolute;
+    top: 9px;
+    left: auto;
+    right: 6px;
+    width: 48px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.15);
+    @include text-style(16px, #fafbff);
+  }
+
+  .name {
+    @include text-style(22px, white);
+    font-weight: 500;
+  }
+
+  .type {
+    @include text-style(13px, white);
+  }
+
+  .card-header {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    transform: translateY(-50%);
+
+    .name {
+      white-space: pre;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .info {
+    position: absolute;
+    left: 24px;
+    bottom: 16px;
+
+    & > * {
+      float: left;
+      margin-right: 60px;
+    }
+
+    & > *:last-child {
+      margin-right: 0;
+    }
+
+    .name {
+      font-size: 14px;
+      letter-spacing: 0.3px;
+    }
+
+    .type {
+      bottom: 3px;
+      letter-spacing: -0.2px;
+    }
+  }
+}
+
+.details {
+  li {
+    border-top: 1px solid $outline;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    margin-right: 3px;
+    margin-left: 5px;
+  }
+
+  li:first-child {
+    border: none;
+  }
+
+  .account {
+    @include text-style(14px, $secondary-dark-2);
+  }
+
+  .name {
+    @include text-style(16px);
+    margin-right: 2px;
+  }
+}
+
+.buttons {
+  padding-top: 5px;
+
+  * {
+    width: 106.5px;
+    margin-right: 14px;
+  }
+}
+
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    pointer-events: none;
+    top: 40px;
+  }
+  to {
+    opacity: 1;
+    pointer-events: all;
+    top: 0px;
+  }
+}
