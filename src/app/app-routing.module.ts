@@ -85,7 +85,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'invoice',
+        path: 'invoices',
         loadChildren: () =>
           import('./features/invoice/invoice.module').then(
             (m) => m.InvoiceModule
