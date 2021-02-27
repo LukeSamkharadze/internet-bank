@@ -18,7 +18,7 @@
     <div *ngFor="let article of newsArticles">
       <app-features-shared-news-article
         [src]="article.imageUrl"
-        [alt]="'News Article'"
+        [alt]="article.imgAlt"
         [header]="article.title"
         [articleReleaseDate]="article.releaseDate"
         class="news-article"
