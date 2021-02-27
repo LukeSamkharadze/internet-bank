@@ -12,5 +12,6 @@
       [route]="'/card-view/deposit/' + deposit.id"
       ><i class="las la-lock"></i
     ></app-accounts-list-item>
+    <p *ngIf="deposits && !deposits.length">You have no deposits</p>
   </div>
 </div>

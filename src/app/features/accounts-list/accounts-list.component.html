@@ -8,15 +8,8 @@
   ></app-accounts-list-chart>
 </div>
 
-<app-accounts-list-cards
-  *ngIf="cards$ | async as cards"
-  [cards]="cards"
-></app-accounts-list-cards>
+<app-accounts-list-cards [cards]="cards$ | async"></app-accounts-list-cards>
 <app-accounts-list-deposits
-  *ngIf="deposits$ | async as deposits"
-  [deposits]="deposits"
+  [deposits]="deposits$ | async"
 ></app-accounts-list-deposits>
-<app-accounts-list-loans
-  *ngIf="loans$ | async as loans"
-  [loans]="loans"
-></app-accounts-list-loans>
+<app-accounts-list-loans [loans]="loans$ | async"></app-accounts-list-loans>

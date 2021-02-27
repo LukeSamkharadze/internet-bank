@@ -12,5 +12,6 @@
       [route]="'/card-view/loan/' + loan.id"
       ><i [class]="getIconClass(loan)"></i>
     </app-accounts-list-item>
+    <p *ngIf="loans && !loans.length">You have no loans</p>
   </div>
 </div>
