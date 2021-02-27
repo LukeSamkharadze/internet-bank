@@ -27,15 +27,15 @@
 
   .news-right-part {
     flex: 1;
-    padding-top: 20px;
+    padding-top: 25px;
     margin: 10px 14px;
     background: white;
+    height: fit-content;
     div {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: fit-content;
-      padding-bottom: 10px;
       .news-article {
         width: 92%;
         height: fit-content;
