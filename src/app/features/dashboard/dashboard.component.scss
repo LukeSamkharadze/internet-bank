@@ -1,13 +1,13 @@
 .dashboard-wrapper {
-  margin: 28px;
+  margin: 28px 28px 28px 28px;
   display: grid;
   grid-gap: 28px;
   .row {
     display: grid;
     grid-gap: 28px;
-    grid-template-columns: 1fr 1fr;
     &.row-1 {
       order: 2;
+      grid-template-columns: 1fr 1fr;
       .row-1-right {
         display: grid;
         grid-gap: 10px;
@@ -15,6 +15,7 @@
       }
     }
     &.row-2 {
+      grid-template-columns: 1fr 1fr;
       order: 3;
     }
     &.row-3 {
@@ -26,4 +27,25 @@
 }
 .widget {
   background-color: orangered;
+}
+
+@media all and (max-width: 1100px) {
+  .dashboard-wrapper {
+    .row {
+      &.row-2 {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+@media all and (max-width: 1000px) {
+  .dashboard-wrapper {
+    .row {
+      &.row-1 {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+      }
+    }
+  }
 }
