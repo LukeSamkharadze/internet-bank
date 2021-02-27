@@ -7,7 +7,6 @@ import { AccountsSpendingsComponent } from './accounts-spendings/accounts-spendi
 import { InvoiceDetailsComponent } from './invoice-details/invoice-details.component';
 import { ExpansesComponent } from './expanses/expanses.component';
 import { DashboardAccountWidgetComponent } from './dashboard-account-widget/dashboard-account-widget.component';
-
 export * from './income-chart/income-chart.component';
 export * from './account-balances/account-balances.component';
 export * from './news-article/news-article.component';
