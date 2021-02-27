@@ -61,10 +61,7 @@ export class CardDetailsComponent implements OnInit {
     this.background$ = card$.pipe(
       map((card) => this.cardService.determineBackground(card))
     );
-    this.icon$ = card$.pipe(
-      map((card) => card.iconPath),
-      tap((card) => console.log(card))
-    );
+    this.icon$ = card$.pipe(map((card) => card.iconPath));
     this.logo$ = card$.pipe(map((card) => card.iconPath));
     this.buttons$ = this.determineButtons(card$);
     this.name$ = card$.pipe(

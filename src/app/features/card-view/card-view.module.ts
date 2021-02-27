@@ -12,6 +12,7 @@ import { CardViewComponent } from './card-view.component';
 import { CardDetailsGuard } from './guards/card-details.guard';
 import { DepositDetailsGuard } from './guards/deposit-details.guard';
 import { LoanDetailsGuard } from './guards/loan-details.guard';
+import { FeaturesSharedModule } from '../shared/features-shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,12 @@ import { LoanDetailsGuard } from './guards/loan-details.guard';
     DepositDetailsComponent,
     LoanDetailsComponent,
   ],
-  imports: [CommonModule, SharedModule, CardViewRoutingModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    FeaturesSharedModule,
+    CardViewRoutingModule,
+  ],
   providers: [
     ToListFormatterService,
     ToTemplateFormatterService,

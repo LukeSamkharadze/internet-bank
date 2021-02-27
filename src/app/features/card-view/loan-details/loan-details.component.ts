@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { filter, first, map, switchMap } from 'rxjs/operators';
+import { Expanses } from '../../shared/interfaces/expanses.interface';
 import { ILoan } from '../../shared/interfaces/loan.interface';
 import { FormatterService } from '../../shared/services/formatter.service';
 import { LoanService } from '../../shared/services/loan.service';
@@ -25,6 +26,8 @@ export class LoanDetailsComponent implements OnInit {
   color$: Observable<string>;
   buttons$: Observable<IButton[]>;
   background$: Observable<string>;
+
+  chartData$: Observable<Expanses[]>;
 
   constructor(
     private formatterService: FormatterService,
@@ -51,6 +54,28 @@ export class LoanDetailsComponent implements OnInit {
   }
 
   initializeLoan(loan$: Observable<ILoan>): void {
+    this.chartData$ = loan$.pipe(
+      map(
+        (loan) =>
+          [
+            {
+              kind: 'Amount',
+              share: loan.balance || loan.paid || 0,
+              colorString: '#FFAB2B',
+            },
+            {
+              kind: 'Interest rate',
+              share: loan.loanRate * (loan.balance || loan.paid || 0),
+              colorString: '#4D7CFE',
+            },
+            {
+              kind: 'Paid',
+              share: loan.paid || 0,
+              colorString: '#6DD230',
+            },
+          ] as Expanses[]
+      )
+    );
     this.color$ = loan$.pipe(map((v) => this.loanService.determineColor(v)));
     this.icon$ = loan$.pipe(map((v) => this.loanService.determineIcon(v)));
     this.name$ = loan$.pipe(map((v) => v.loanName));

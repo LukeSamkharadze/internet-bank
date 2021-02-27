@@ -142,9 +142,11 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   delete(id: number): Observable<void> {
-    return this.http
-      .delete<void>(`${environment.BaseUrl}cards/${id}`)
-      .pipe(retry(1), catchError(this.handleError));
+    return this.http.delete<void>(`${environment.BaseUrl}cards/${id}`).pipe(
+      retry(1),
+      tap(() => this.updateStore()),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {
