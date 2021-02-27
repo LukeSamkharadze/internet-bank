@@ -111,6 +111,10 @@
         border-left: 2px solid $primary;
       }
 
+      &:last-of-type {
+        border-radius: 0 0 5px 5px;
+      }
+
       i {
         margin-right: 8px;
         color: $secondary-dark-1;
