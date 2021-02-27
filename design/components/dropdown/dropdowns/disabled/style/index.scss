@@ -1,9 +1,0 @@
-@use "../../../../../colors&typo/palette.scss" as *;
-@use "../../../core/style/index.scss" as *;
-@use "../../select/style/index.scss" as *;
-
-.dropdown-disabled {
-  .selected {
-    background-color: $background-2;
-  }
-}

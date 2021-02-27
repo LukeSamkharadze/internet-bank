@@ -4,7 +4,7 @@
 .payment-providers {
   overflow: auto;
   background: white;
-  height: 718px;
+  height: 790px;
   border-radius: 5px;
   min-width: 220.828px;
 
@@ -47,6 +47,12 @@
     outline: none;
     width: 100%;
     padding-top: 11px;
+
+    &:last-of-type {
+      .provider {
+        border-bottom: none;
+      }
+    }
 
     &:hover {
       cursor: pointer;
@@ -93,7 +99,8 @@
     }
   }
 }
-@media only screen and (max-width: 950px) {
+
+@media only screen and (max-width: 1200px) {
   .payment-providers {
     height: auto;
   }
