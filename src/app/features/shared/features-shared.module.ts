@@ -11,9 +11,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
 import { sharedPipes } from './pipes';
 import { ChartsModule } from '@progress/kendo-angular-charts';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import 'hammerjs';
 
-// const services = [CardService];
 const modules = [
   CommonModule,
   SharedModule,
@@ -26,6 +26,7 @@ const modules = [
   RouterModule,
   ChartsModule,
   SharedModule,
+  DateInputsModule
 ];
 
 @NgModule({

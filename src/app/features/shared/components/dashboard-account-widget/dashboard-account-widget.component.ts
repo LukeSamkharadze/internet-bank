@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { ICard } from '../../../shared/interfaces/card.interface';
+import { Component, OnInit, Input } from '@angular/core';
+import { ICard } from '../../interfaces/card.interface';
 import { GetCardServiceService } from './get-card-service.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-shared-dashboard-account-widget',
@@ -10,10 +9,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./dashboard-account-widget.component.scss'],
 })
 export class DashboardAccountWidgetComponent implements OnInit {
-  incomeStream: object;
   @Input() income = 0;
   @Input() outcome = 0;
-  @Output()
   percentage: number;
   degree2: number;
   degree1: number;
@@ -23,10 +20,10 @@ export class DashboardAccountWidgetComponent implements OnInit {
   animation: string;
   cards: ICard[];
   i: number;
-  totalsum: number;
+
   constructor(public getCardService: GetCardServiceService) {}
 
-  calculateprofit() {
+  calculateProfit() {
     if (this.income > 999 && this.outcome > 999 && this.income > this.outcome) {
       this.profit = this.income - this.outcome;
       this.profitRound = (this.profit / 1000).toFixed(0) + 'K';
@@ -72,9 +69,10 @@ export class DashboardAccountWidgetComponent implements OnInit {
       }
     }
   }
+
   ngOnInit(): void {
     this.getCardService.getCards().subscribe((v) => (this.cards = v));
-    this.calculateprofit();
+    this.calculateProfit();
     this.calculateDegree();
     this.styleElement = document.createElement('style');
     this.styleElement.type = 'text/css';
