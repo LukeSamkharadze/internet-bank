@@ -20,7 +20,7 @@ import { ToTemplateFormatterService } from '../services/to-template-formatter.se
 @Component({
   selector: 'app-card-details',
   templateUrl: './card-details.component.html',
-  styleUrls: ['./card-details.component.scss'],
+  styleUrls: ['../_base.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardDetailsComponent implements OnInit {

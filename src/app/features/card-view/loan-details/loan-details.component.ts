@@ -15,7 +15,7 @@ import { ToTemplateFormatterService } from '../services/to-template-formatter.se
 @Component({
   selector: 'app-loan-details',
   templateUrl: './loan-details.component.html',
-  styleUrls: ['./loan-details.component.scss'],
+  styleUrls: ['../_base.scss'],
 })
 export class LoanDetailsComponent implements OnInit {
   cardInfo$: Observable<ICardTemplate>;
