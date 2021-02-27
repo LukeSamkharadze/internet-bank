@@ -162,7 +162,9 @@
       "security3D": true,
       "userId": "2",
       "cardType": "mastercard",
-      "id": 4
+      "id": 4,
+      "iconPath": "./assets/cards/mastercard.svg",
+      "blocked": true
     }
   ],
   "paymentTypes": [
@@ -248,7 +250,7 @@
   ],
   "deposits": [
     {
-      "id": 0,
+      "id": 1,
       "depositName": "Cumulative deposit",
       "accountNumber": "UK64CT00000000000010034567",
       "depositRate": 0.05,
@@ -257,12 +259,14 @@
       "availableAmount": 56400,
       "accuredInterest": 1640,
       "balance": 56400,
-      "accured": 640
+      "accured": 640,
+      "type": "Cumulative",
+      "userId": "2"
     }
   ],
   "loans": [
     {
-      "id": 0,
+      "id": 1,
       "loanName": "Mortgage loan",
       "accountNumber": "UK64CT00000000000010034567",
       "loanRate": 0.14,
@@ -270,10 +274,12 @@
       "expirationDate": "20.06.2022",
       "balance": 84800,
       "paid": 24800,
-      "blocked": true
+      "blocked": true,
+      "type": "Mortgage",
+      "userId": "2"
     },
     {
-      "id": 1,
+      "id": 2,
       "loanName": "Consumer loan",
       "accountNumber": "UK64CT00000000000010035931",
       "loanRate": 0.18,
@@ -281,7 +287,9 @@
       "expirationDate": "20.06.2022",
       "balance": 66400,
       "paid": 650,
-      "blocked": false
+      "blocked": false,
+      "type": "Consumer",
+      "userId": "3"
     }
   ],
   "charts": [
