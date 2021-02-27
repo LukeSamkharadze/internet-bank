@@ -8,12 +8,18 @@ import { SecretQuestion } from '../interfaces/secretQuestion.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class SecretQuestionsevise {
+export class SecretQuestionservise {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<SecretQuestion[]> {
     return this.http
       .get<SecretQuestion[]>(`${environment.BaseUrl}questions`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  create(answer: SecretQuestion): Observable<SecretQuestion> {
+    return this.http
+      .post<SecretQuestion>(`${environment.BaseUrl}answers`, answer)
       .pipe(retry(1), catchError(this.handleError));
   }
 

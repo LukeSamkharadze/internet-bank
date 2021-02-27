@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { AuthService } from '../shared/services/auth.service';
-import { SecretQuestionsevise } from '../shared/services/secretQuestion.service';
+import { SecretQuestionservise } from '../shared/services/secretQuestion.service';
 import { IUser } from '../shared/interfaces/user.interface';
 import { Observable } from 'rxjs';
 import { SecretQuestion } from '../shared/interfaces/secretQuestion.interface';
@@ -16,16 +16,17 @@ export class SettingsSecurityComponent implements OnInit {
   formChange: FormGroup;
   userid: string;
   user$: Observable<IUser>;
+  userAnswer: SecretQuestion = { id: 1, userid: 'age', answer: '' };
   user;
 
   questions: Array<SecretQuestion>;
   constructor(
     private userServise: UserService,
     private authservice: AuthService,
-    private SecretQuestionsevise: SecretQuestionsevise
+    private SecretQuestionservise: SecretQuestionservise
   ) {
     // getting secret quesions form DB
-    this.SecretQuestionsevise.getAll().subscribe((val) => {
+    this.SecretQuestionservise.getAll().subscribe((val) => {
       this.questions = val;
     });
   }
@@ -57,13 +58,19 @@ export class SettingsSecurityComponent implements OnInit {
     } else {
       alert('your current password is incorrect');
     }
-    // updating user DATA
+    // updating user  DATA
     const qId = this.formChange.get('dropdown').value.id;
     const qAnswer = this.formChange.get('answer').value;
-    this.user.answer = qAnswer;
-    this.user.secretquestionId = qId;
     this.userServise.update(this.user).subscribe();
+
+    // creating user secretquestion
+    this.userAnswer.answer = qAnswer;
+    this.userAnswer.id = qId;
+    this.userAnswer.userid = this.user.id;
+    this.SecretQuestionservise.create(this.userAnswer).subscribe();
+
     console.log(this.user);
+    console.log(this.userAnswer);
   }
 
   reset() {

@@ -1,4 +1,6 @@
 export interface SecretQuestion {
-  id: number;
-  question: string;
+  userid?: any;
+  id?: number;
+  question?: string;
+  answer?: string;
 }
