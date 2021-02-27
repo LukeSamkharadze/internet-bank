@@ -14,6 +14,11 @@ const routes: Routes = [
     canActivate: [IsLoggedInGuard],
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'dashboard',
+      },
+      {
         path: 'dashboard',
         component: DashboardComponent,
       },
