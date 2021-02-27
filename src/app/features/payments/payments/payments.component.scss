@@ -7,9 +7,10 @@
 }
 
 :host {
-  width: 90%;
+  width: 100%;
   display: block;
-  padding: 28px 0 0 28px;
+  padding: 28px;
+  margin: 0 auto;
 }
 @media only screen and (max-width: 950px) {
   .payments-wrapper {
