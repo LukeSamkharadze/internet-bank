@@ -125,7 +125,7 @@ export class AccountsListInfoService {
   formatBalance(num: number): string {
     return (
       '$' +
-      (num || num.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+      (num || num.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     );
   }
 
