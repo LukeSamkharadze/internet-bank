@@ -115,7 +115,6 @@
       ]
     }
   ],
-
   "cards": [
     {
       "cardName": "VISA CARD",
@@ -349,10 +348,10 @@
   ],
   "transactions": [
     {
-      "title": "Bank transfer to user: 1",
+      "title": "Bank transfer to friend",
       "toUserId": "1",
       "date": "3 Aug 2020 2:15 AM",
-      "type": "Bank",
+      "type": "bank",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB3333111122224444",
       "toAccountNumber": "GE32TB2222111133334444",
@@ -364,9 +363,9 @@
       "id": 1
     },
     {
-      "title": "money goin outside tbc",
+      "title": "Money going outside TBC",
       "date": "7 Aug 2020 2:15 AM",
-      "type": "Electronic",
+      "type": "electronic",
       "paymentSystem": "paypal",
       "fromAccountNumber": "GE32TB4434234223333333",
       "fromAccountUserId": "1",
@@ -377,9 +376,9 @@
       "id": 2
     },
     {
-      "title": "money goin outside tbc",
+      "title": "Money going outside TBC",
       "date": "29 Aug 2020 2:15 AM",
-      "type": "Instant",
+      "type": "instant",
       "paymentSystem": "payoneer",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB4434234223333333",

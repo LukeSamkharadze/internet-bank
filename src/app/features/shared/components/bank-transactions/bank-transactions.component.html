@@ -72,13 +72,13 @@
     <div *ngFor="let transaction of transactionsList | filter: searchText">
       <div class="transaction">
         <div class="left">
-          <img src="{{ transaction.icon }}" />
+          <img src="{{ transaction.icon }}" onerror="this.onerror=null; this.src='./assets/transfers/default.png';" style="width: 50px; height: 50px"/>
           <h2>
             <a class="title" (click)="pop(transaction.id)">
               {{ transaction.title }}
             </a>
             <br />
-            <span>{{ transaction.type }}</span>
+            <span>{{ transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1) }}</span>
           </h2>
         </div>
         <div class="right">
