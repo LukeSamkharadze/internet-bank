@@ -1,4 +1,4 @@
-export interface SingleNewsArticle {
+export interface NewsArticle {
   imageUrl: string;
   imgAlt: string;
   releaseDate: string | Date;

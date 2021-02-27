@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { catchError, map, retry } from 'rxjs/operators';
-import { NewsItem } from '../models/news-item.entity';
+import { catchError, map } from 'rxjs/operators';
+import { NewsItem } from '../models/news-item.interface';
 import { NewsService } from '../services/news.service';
 import { HttpErrorResponse } from '@angular/common/http';
 

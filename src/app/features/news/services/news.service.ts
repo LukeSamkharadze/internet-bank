@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { retry, scan } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { NewsItem } from '../models/news-item.entity';
-import { NewsResponse } from '../models/news-item.entity';
-import { SingleNewsArticle } from '../models/news-single-article.entity';
+import { NewsItem } from '../models/news-item.interface';
+import { NewsResponse } from '../models/news-item.interface';
+import { NewsArticle } from '../models/news-article.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -39,8 +39,8 @@ export class NewsService {
   }
 
   // get data for news-article
-  getSingleArticle(): Observable<SingleNewsArticle[]> {
+  getSingleArticle(): Observable<NewsArticle[]> {
     const url = `${environment.BaseUrl}news`;
-    return this.http.get<SingleNewsArticle[]>(url);
+    return this.http.get<NewsArticle[]>(url);
   }
 }

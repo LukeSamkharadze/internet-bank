@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SingleNewsArticle } from './models/news-single-article.entity';
+import { NewsArticle } from './models/news-article.interface';
 import { NewsService } from './services/news.service';
 import { map } from 'rxjs/operators';
 
@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class NewsComponent implements OnInit {
   tabNames = ['Latest News', 'Trending News', 'Most Popular'];
-  newsArticles: SingleNewsArticle[];
+  newsArticles: NewsArticle[];
 
   constructor(public newsService: NewsService) {}
 
