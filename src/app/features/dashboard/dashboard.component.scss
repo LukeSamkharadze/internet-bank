@@ -16,7 +16,7 @@
     }
     &.row-3 {
       display: grid;
-      grid-template-columns: repeat(1fr, 3);
+      grid-template-columns: 1fr;
     }
   }
 }
