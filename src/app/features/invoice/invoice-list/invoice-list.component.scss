@@ -1,4 +1,4 @@
-@import '../../../styles/index.scss';
+@import '../../../../styles/index.scss';
 .invoice-groop {
   display: flex;
   width: 100%;
@@ -281,7 +281,7 @@ ul {
 }
 :host {
   display: block;
-  width: 59%;
+  background-color: white;
 }
 
 .date-picker {

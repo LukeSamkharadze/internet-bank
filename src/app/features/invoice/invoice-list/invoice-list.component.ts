@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Invoice } from '../shared/interfaces/invoice.interface';
-import { InvoiceService } from '../shared/services/invoice.service';
+import { Invoice } from '../../shared/interfaces/invoice.interface';
+import { InvoiceService } from '../../shared/services/invoice.service';
+
 @Component({
   selector: 'app-invoice-list',
   templateUrl: './invoice-list.component.html',
@@ -27,6 +28,7 @@ export class InvoiceListComponent implements OnInit {
     this.invoiceService.getAll().subscribe((data: Array<Invoice>) => {
       this.invoices = data;
       this.allInvoices = data;
+      console.log(data);
       this.loadValues();
     });
   }

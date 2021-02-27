@@ -63,6 +63,13 @@ const routes: Routes = [
             (m) => m.NewInvoiceModule
           ),
       },
+      {
+        path: 'invoice',
+        loadChildren: () =>
+          import('./features/invoice/invoice.module').then(
+            (m) => m.InvoiceModule
+          ),
+      },
     ],
   },
   // Authentication Paths

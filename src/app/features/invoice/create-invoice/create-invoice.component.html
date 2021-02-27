@@ -1,0 +1,30 @@
+<div class="create-new-invoice">
+  <div class="new-invoice-header">
+    <p class="disable-select">New Invoice</p>
+    <i class="las la-ellipsis-h"></i>
+  </div>
+  <hr />
+  <div class="select-template">
+    <p class="disable-select">Select template</p>
+    <app-shared-dropdown
+      [options]="[
+        'Website design',
+        'MArketing Materials',
+        'Mobile App',
+        'Printing Equipment'
+      ]"
+      class="dropdown"
+    >
+    </app-shared-dropdown>
+  </div>
+  <div class="information-body">
+    <p class="disable-select">
+      Recognition can be illustrated by two individuals entering a crowded room
+      at a party. Both walk to the far side of the room
+    </p>
+  </div>
+  <div class="create-invoice-footer">
+    <i class="las la-file-alt"></i>
+    <a class="disable-select">CREATE INVOICE</a>
+  </div>
+</div>
