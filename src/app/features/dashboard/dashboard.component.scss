@@ -1,0 +1,25 @@
+.dashboard-wrapper {
+  margin: 28px;
+  display: grid;
+  grid-gap: 28px;
+  .row {
+    display: grid;
+    grid-gap: 28px;
+    grid-template-columns: 1fr 1fr;
+    &.row-1 {
+      height: auto;
+      .row-1-right {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    &.row-3 {
+      display: grid;
+      grid-template-columns: repeat(1fr, 3);
+    }
+  }
+}
+.widget {
+  background-color: orangered;
+}
