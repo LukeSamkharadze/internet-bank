@@ -350,7 +350,7 @@
     {
       "title": "Bank transfer to friend",
       "toUserId": "1",
-      "date": "3 Aug 2020 2:15 AM",
+      "date": "2021-07-24T18:34:49.334Z",
       "type": "bank",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB3333111122224444",
@@ -364,7 +364,7 @@
     },
     {
       "title": "Money going outside TBC",
-      "date": "7 Aug 2020 2:15 AM",
+      "date": "2021-05-24T18:34:49.334Z",
       "type": "electronic",
       "paymentSystem": "paypal",
       "fromAccountNumber": "GE32TB4434234223333333",
@@ -377,7 +377,7 @@
     },
     {
       "title": "Money going outside TBC",
-      "date": "29 Aug 2020 2:15 AM",
+      "date": "2021-02-24T18:34:49.334Z",
       "type": "instant",
       "paymentSystem": "payoneer",
       "fromAccountUserId": "2",
