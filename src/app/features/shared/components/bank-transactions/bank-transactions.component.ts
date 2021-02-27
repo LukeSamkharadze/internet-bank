@@ -7,7 +7,8 @@ import {
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
-import { AuthService } from './../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'app-features-shared-bank-transactions',
   templateUrl: './bank-transactions.component.html',
@@ -52,10 +53,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
     /* tslint:enable:no-string-literal */
   }
 
-  constructor(
-    private getTransactionService: TransactionsService,
-    private authService: AuthService
-  ) {}
+  constructor(private getTransactionService: TransactionsService) {}
 
   fetchTransactions() {
     this.getTransactionService
