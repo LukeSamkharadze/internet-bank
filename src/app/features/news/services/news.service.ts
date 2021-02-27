@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { scan } from 'rxjs/operators';
+import { retry, scan } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { NewsItem } from '../models/news-item.entity';
 import { NewsResponse } from '../models/news-item.entity';
@@ -35,7 +35,7 @@ export class NewsService {
         : 'everything?sortBy=popularity&q=business';
     const apiKey = environment.NewsApi.apiKey[1];
     const url = `${environment.NewsApi.Url}/${sortBy}&language=en&pageSize=${numOfNews}&apiKey=${apiKey}`;
-    return this.http.get<NewsResponse>(url);
+    return this.http.get<NewsResponse>(url).pipe(retry(2));
   }
 
   // get data for news-article

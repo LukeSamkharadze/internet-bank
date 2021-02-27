@@ -22,7 +22,6 @@ export class NewsListComponent implements OnInit {
     this.newsService
       .getNews(this.newsService.numberOfNews, this.newsCategory)
       .pipe(
-        retry(5),
         map((resp) => {
           if (resp?.status === 'ok') {
             this.news = resp?.articles;
@@ -48,7 +47,6 @@ export class NewsListComponent implements OnInit {
     this.newsService
       .getNews(this.newsService.totalNumberOfNews, this.newsCategory)
       .pipe(
-        retry(2),
         map((resp) => {
           if (resp.status === 'ok') {
             this.news = resp.articles;

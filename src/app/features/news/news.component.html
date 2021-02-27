@@ -1,5 +1,5 @@
 <div class="news-container">
-  <!--right part-->
+  <!--left part-->
   <div class="news-left-part">
     <app-shared-tabs [tabElementInput]="tabNames" style="width: 100%">
       <ng-template>
@@ -13,7 +13,7 @@
       </ng-template>
     </app-shared-tabs>
   </div>
-  <!-- left part -->
+  <!--right part -->
   <div class="news-right-part">
     <div *ngFor="let article of newsArticles">
       <app-features-shared-news-article
