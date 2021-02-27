@@ -15,7 +15,7 @@
       <ng-template #account let-option>
         <div class="account">
           <img [src]="option['iconPath']" />
-          <span class="card-number">{{ option['cardNumber'] }}</span>
+          <span class="card-number">{{ option['cardNumber'] | hideNums }}</span>
           <span class="amount"
             >{{ option['availableAmount'] | currency }}
           </span>

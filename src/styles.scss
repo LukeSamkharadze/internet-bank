@@ -4,3 +4,11 @@
 @import './styles/fonts/fonts';
 @import './styles/text-styles/text';
 @import './styles/icons/icons';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
