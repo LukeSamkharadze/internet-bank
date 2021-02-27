@@ -1,7 +1,7 @@
 <div class="list">
   <div class="header">
     <p class="name">Your Credits</p>
-    <p class="new"><i class="las la-plus-circle"></i>New deposit</p>
+    <p class="new"><i class="las la-plus-circle"></i>New credit</p>
   </div>
   <div class="items">
     <app-accounts-list-item
@@ -12,6 +12,6 @@
       [route]="'/card-view/loan/' + loan.id"
       ><i [class]="getIconClass(loan)"></i>
     </app-accounts-list-item>
-    <p *ngIf="!loans || !loans.length">You have no loans</p>
+    <p *ngIf="!loans || !loans.length">You have no credits</p>
   </div>
 </div>
