@@ -10,8 +10,8 @@
   align-items: center;
   width: 155.75px;
   height: 40px;
-  // margin-left: 120px;
   right: 0;
+
   .image {
     width: 40px;
     height: 40px;
@@ -28,12 +28,14 @@
       width: 32px;
     }
   }
+
   .name {
     letter-spacing: 0.2px;
     font-family: $roboto;
     width: 69%;
   }
 }
+
 .profileHover {
   color: $primary-dark;
   background-color: white;
@@ -48,10 +50,10 @@
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.000005),
     0 6px 20px 0 rgba(0, 0, 0, 0.05);
   border-radius: 5px;
-  // margin-right: 20px;
   position: absolute;
   z-index: 1;
   outline: none;
+
   .about {
     background-color: $background-2;
     height: 79.75px;
@@ -63,6 +65,7 @@
     letter-spacing: 0.3px;
     line-height: 20px;
     padding-top: 2px;
+
     .profileMini {
       margin-right: 15px;
       margin-left: 22px;
@@ -71,11 +74,13 @@
       float: left;
       letter-spacing: 0.3px;
     }
+
     .mail {
       color: $secondary-dark-2;
       letter-spacing: 0px;
       font-weight: 400;
     }
+
     img {
       border-radius: 32px;
       width: 32px;
@@ -90,37 +95,43 @@
     height: 156.25px;
     font-size: 12px;
     box-sizing: border-box;
+
     a {
-      user-select: none;
-      cursor: pointer;
       display: flex;
-      text-decoration: none;
       height: 53px;
       padding-left: 23px;
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      transition: 0.3s ease-in-out;
+      border-left: 0 solid transparent;
+
       &:hover {
         background-color: $background-2;
         border-left: 2px solid $primary;
-
-        i {
-          color: $primary;
-          margin-left: 4px;
-          transition: 0.3s ease-in-out;
-        }
       }
-    }
-    i {
-      margin-right: 8px;
-      color: $secondary-dark-1;
-      font-size: 18px;
-      transform: translate(0, 33%);
-    }
-    p {
-      color: $primary-dark;
-      font-size: 12px;
-      letter-spacing: 0.1px;
-      margin-bottom: 3px;
-      font-weight: 500;
-      transform: translate(0, 30%);
+
+      i {
+        margin-right: 8px;
+        color: $secondary-dark-1;
+        font-size: 18px;
+        transform: translate(0, 33%);
+        transition: 0.3s;
+      }
+
+      &:hover i {
+        color: $primary;
+        margin-left: 4px;
+      }
+
+      p {
+        color: $primary-dark;
+        font-size: 12px;
+        letter-spacing: 0.1px;
+        margin-bottom: 3px;
+        font-weight: 500;
+        transform: translate(0, 30%);
+      }
     }
   }
 }
@@ -128,6 +139,7 @@
 .show {
   display: block;
 }
+
 :host {
   position: relative;
   display: inline-block;
