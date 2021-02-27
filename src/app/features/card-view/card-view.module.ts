@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CardViewRoutingModule } from './card-view-routing.module';
 import { CardViewTemplateComponent } from './card-view-template/card-view-template.component';
-import { CommonModule } from '@angular/common';
-import { SharedModule } from '@shared/shared';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { DepositDetailsComponent } from './deposit-details/deposit-details.component';
 import { LoanDetailsComponent } from './loan-details/loan-details.component';
@@ -19,12 +17,7 @@ import { ListFormatService } from './services/list-format.service';
     DepositDetailsComponent,
     LoanDetailsComponent,
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    FeaturesSharedModule,
-    CardViewRoutingModule,
-  ],
+  imports: [FeaturesSharedModule, CardViewRoutingModule],
   providers: [ListFormatService, TemplateFormatService],
   exports: [CardViewComponent],
 })
