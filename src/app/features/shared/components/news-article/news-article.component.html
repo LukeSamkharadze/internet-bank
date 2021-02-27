@@ -1,5 +1,5 @@
 <div class="container">
-  <img [src]="src" [alt]="alt" />
+  <img [src]="src" [alt]="alt" (error)="showPlacehoderImg()" />
   <h2>{{ header }}</h2>
   <p>
     <ng-container *ngIf="dateNum">{{ dateNum }}</ng-container> {{ dateStr }}

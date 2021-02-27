@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { catchError, map, retry } from 'rxjs/operators';
-import { NewsItem } from '../models/news-item.entity';
+import { catchError, map } from 'rxjs/operators';
+import { NewsItem } from '../models/news-item.interface';
 import { NewsService } from '../services/news.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -22,7 +22,6 @@ export class NewsListComponent implements OnInit {
     this.newsService
       .getNews(this.newsService.numberOfNews, this.newsCategory)
       .pipe(
-        retry(5),
         map((resp) => {
           if (resp?.status === 'ok') {
             this.news = resp?.articles;
@@ -48,7 +47,6 @@ export class NewsListComponent implements OnInit {
     this.newsService
       .getNews(this.newsService.totalNumberOfNews, this.newsCategory)
       .pipe(
-        retry(2),
         map((resp) => {
           if (resp.status === 'ok') {
             this.news = resp.articles;
