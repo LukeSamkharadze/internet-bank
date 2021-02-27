@@ -1,5 +1,5 @@
 <main class="grid-container">
-  <section class="authentication">
+  <section class="authentication" [@formTrigger]>
     <div class="auth-form register-form minor-grid-container">
       <div>
         <p>
@@ -26,7 +26,24 @@
             [pattern]="fullnamePattern"
             [placeholder]="'Enter your full name'"
             [isRequired]="true"
-            >Full name</app-shared-input
+            >Full Name<span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                fullnameFormControl.hasError('required') &&
+                fullnameFormControl.touched
+              "
+              >Required</span
+            >
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                fullnameFormControl.hasError('pattern') &&
+                fullnameFormControl.touched
+              "
+              >Invalid Full Name</span
+            ></app-shared-input
           >
           <div class="input-tooltip">
             <i class="las la-info-circle"></i>
@@ -47,7 +64,23 @@
             [pattern]="emailPattern"
             [placeholder]="'Enter your email'"
             [isRequired]="true"
-            >Your email</app-shared-input
+            >Your email<span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                emailFormControl.hasError('required') &&
+                emailFormControl.touched
+              "
+              >Required</span
+            >
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                emailFormControl.hasError('pattern') && emailFormControl.touched
+              "
+              >Invalid Email</span
+            ></app-shared-input
           >
           <div class="input-tooltip">
             <i class="las la-info-circle"></i>
@@ -68,7 +101,24 @@
             [pattern]="passwordPattern"
             [placeholder]="'Enter your password'"
             [isRequired]="true"
-            >Password</app-shared-input
+            >Password<span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                passwordFormControl.hasError('required') &&
+                passwordFormControl.touched
+              "
+              >Required</span
+            >
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                passwordFormControl.hasError('pattern') &&
+                passwordFormControl.touched
+              "
+              >Invalid Password</span
+            ></app-shared-input
           >
           <div class="input-tooltip">
             <i class="las la-info-circle"></i>
@@ -88,7 +138,7 @@
             >I agree with terms & conditions</app-shared-checkbox
           >
         </div>
-        <!-- Imported Button   [isDisabled]="form.invalid" -->
+        <!-- Imported Button -->
         <app-shared-button
           class="shared-button"
           [isDisabled]="form.invalid"
@@ -104,5 +154,5 @@
       </div>
     </div>
   </section>
-  <section class="img-bg"></section>
+  <section class="img-bg" [@formTrigger2]></section>
 </main>

@@ -14,10 +14,7 @@
       *ngFor="let card of cards"
       [info]="infoService.cardToInfo(card)"
       [class.blocked]="card.blocked"
-      ><img
-        *ngIf="getSrc(card); else iconTemplate"
-        [src]="getSrc(card)"
-        [alt]="card.cardName"
+      ><img [src]="card.iconPath" [alt]="card.cardName"
     /></app-accounts-list-item>
   </div>
 </div>

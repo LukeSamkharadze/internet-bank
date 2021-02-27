@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Invoice } from './models/invoice.model';
+import { Invoice } from '../../interfaces/invoice.interface';
 import { sample } from './models/sample.model';
 
 @Component({
@@ -13,27 +13,37 @@ export class InvoiceDetailsComponent {
 
   @Output() closePopup = new EventEmitter();
 
-  print() {
+  print(): void {
     window.print();
   }
 
-  getSubTotal() {
-    let total = 0;
-    for (const inv of this.invoice.items) {
-      total += inv.rate * inv.qty;
+  getAddress(): string[] {
+    return this.invoice.address.split(',');
+  }
+
+  getColor(): string {
+    switch (this.invoice.status) {
+      case 'Paid':
+        return 'green';
+      case 'Pending':
+        return 'orange';
+      case 'Cancelled':
+        return 'pink';
     }
-    return total;
   }
 
-  getTax() {
-    return this.getSubTotal() / 10;
+  getPrice(): { subtotal: number; tax: number } {
+    return {
+      subtotal: this.invoice.totalAmount / 1.1,
+      tax: this.invoice.totalAmount / 11,
+    };
   }
 
-  close() {
+  close(): void {
     this.closePopup.emit();
   }
 
-  closeTag() {
+  closeTag(): void {
     this.showTag = false;
   }
 }

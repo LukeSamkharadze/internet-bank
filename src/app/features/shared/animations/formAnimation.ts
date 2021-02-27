@@ -35,4 +35,15 @@ export const formAnimations = {
       animate(300),
     ]),
   ]),
+
+  formTrigger2: trigger('formTrigger2', [
+    transition('void =>   *', [
+      style({
+        transform: 'translateX(30px)',
+        opacity: '0',
+      }),
+
+      animate(300),
+    ]),
+  ]),
 };

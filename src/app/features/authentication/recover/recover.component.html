@@ -1,5 +1,5 @@
 <main class="grid-container">
-  <section class="authentication">
+  <section class="authentication" [@formTrigger]>
     <div class="auth-form recover-form minor-grid-container">
       <div>
         <p>
@@ -26,7 +26,23 @@
             [pattern]="emailPattern"
             [placeholder]="'Enter your email'"
             [isRequired]="true"
-            >Your email</app-shared-input
+            >Your email<span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                emailFormControl.hasError('required') &&
+                emailFormControl.touched
+              "
+              >Required</span
+            >
+            <span
+              class="error-message"
+              [@errorTrigger]
+              *ngIf="
+                emailFormControl.hasError('pattern') && emailFormControl.touched
+              "
+              >Invalid Email</span
+            ></app-shared-input
           >
           <div class="input-tooltip">
             <i class="las la-info-circle"></i>
@@ -50,5 +66,5 @@
       </div>
     </div>
   </section>
-  <section class="img-bg"></section>
+  <section class="img-bg" [@formTrigger2]></section>
 </main>
