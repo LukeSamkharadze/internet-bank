@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-features-shared-bank-transactions',

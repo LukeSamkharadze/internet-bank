@@ -5,6 +5,7 @@ import { IsLoggedInGuard } from './features/shared/guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './features/shared/guards/is-logged-out.guard';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ApplicationComponent } from './features/application/application.component';
+import { BankTransactionsComponent } from './features/shared/components';
 
 const routes: Routes = [
   // Dashboard Paths
@@ -16,6 +17,11 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+      },
+      {
+        path: 'transactions',
+        loadChildren: () => import('./features/transactions/transactions.module').
+        then((m) => m.TransactionsModule)
       },
       {
         path: 'products',
@@ -41,19 +47,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/list/list.module').then((m) => m.ListModule),
       },
-
       {
         path: 'settings',
         loadChildren: () =>
           import('./features/settings-and-menu/settings-and-menu.module').then(
             (m) => m.SettingsAndMenuModule
-          ),
-      },
-      {
-        path: 'shared',
-        loadChildren: () =>
-          import('./features/shared/features-shared.module').then(
-            (m) => m.FeaturesSharedModule
           ),
       },
       {
@@ -80,11 +78,6 @@ const routes: Routes = [
       import('./features/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
-  },
-  {
-    path: 'list',
-    loadChildren: () =>
-      import('./features/list/list.module').then((m) => m.ListModule),
   },
   {
     path: '',

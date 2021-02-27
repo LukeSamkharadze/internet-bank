@@ -1,14 +1,15 @@
 @import './index.scss';
 
-.main-wrapper {
-  padding: 28px;
+:host{
+  display: block;
+  height: 100%;
 }
 
 .bank-transactions {
   background-color: white;
+  height: 100%;
 
   .myDiv {
-    overflow: auto;
     min-height: 300px;
   }
 
