@@ -17,6 +17,6 @@
       [route]="'/card-view/card/' + card.id"
       ><img [src]="card.iconPath" [alt]="card.cardName"
     /></app-accounts-list-item>
-    <p *ngIf="cards && !cards.length">You have no cards</p>
+    <p *ngIf="!cards || !cards.length">You have no cards</p>
   </div>
 </div>
