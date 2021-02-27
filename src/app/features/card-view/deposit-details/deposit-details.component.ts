@@ -5,9 +5,9 @@ import { filter, first, map, switchMap, tap } from 'rxjs/operators';
 import { IDeposit } from '../../shared/interfaces/deposit.interface';
 import { DepositService } from '../../shared/services/deposit.service';
 import { FormatterService } from '../../shared/services/formatter.service';
-import IButton from '../models/card-view-buttons.entity';
-import ICardTemplate from '../models/card-view-card.entity';
-import IList from '../models/card-view-list.entity';
+import IButton from '../models/card-view-buttons.interface';
+import ICardTemplate from '../models/card-view-card.interface';
+import IList from '../models/card-view-list.interface';
 import { ToListFormatterService } from '../services/to-list-formatter.service';
 import { ToTemplateFormatterService } from '../services/to-template-formatter.service';
 

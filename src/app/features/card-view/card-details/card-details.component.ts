@@ -11,9 +11,9 @@ import {
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';
 import { FormatterService } from '../../shared/services/formatter.service';
-import IButton from '../models/card-view-buttons.entity';
-import ICardTemplate from '../models/card-view-card.entity';
-import IList from '../models/card-view-list.entity';
+import IButton from '../models/card-view-buttons.interface';
+import ICardTemplate from '../models/card-view-card.interface';
+import IList from '../models/card-view-list.interface';
 import { ToListFormatterService } from '../services/to-list-formatter.service';
 import { ToTemplateFormatterService } from '../services/to-template-formatter.service';
 

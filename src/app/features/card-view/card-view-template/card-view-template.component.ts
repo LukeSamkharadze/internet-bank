@@ -5,9 +5,9 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import IButton from '../models/card-view-buttons.entity';
-import ICardTemplate from '../models/card-view-card.entity';
-import IList from '../models/card-view-list.entity';
+import IButton from '../models/card-view-buttons.interface';
+import ICardTemplate from '../models/card-view-card.interface';
+import IList from '../models/card-view-list.interface';
 
 @Component({
   selector: 'app-card-view-template',

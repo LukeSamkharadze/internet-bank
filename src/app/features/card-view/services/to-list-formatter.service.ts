@@ -4,7 +4,7 @@ import { IDeposit } from '../../shared/interfaces/deposit.interface';
 import { ILoan } from '../../shared/interfaces/loan.interface';
 import { DateFormatterService } from '../../shared/services/date-formatter.service';
 import { FormatterService } from '../../shared/services/formatter.service';
-import IList from '../models/card-view-list.entity';
+import IList from '../models/card-view-list.interface';
 
 @Injectable()
 export class ToListFormatterService {
