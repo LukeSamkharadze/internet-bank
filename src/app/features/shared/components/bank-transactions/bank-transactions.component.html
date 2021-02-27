@@ -2,7 +2,10 @@
   <div class="myDiv">
     <div class="settings">
       <div *ngIf="hasInput; else default" class="left-settings">
-        <img src="../../../../../assets/bank-transactions/img/Search-bar.png" />
+        <img
+          src="./assets/bank-transactions/img/Search-bar.png"
+          alt="search bar icon"
+        />
         <input
           class="form-control"
           type="text"
@@ -39,7 +42,8 @@
         <span *ngIf="show">
           <img
             class="position-left photo-2"
-            src="../../assets/bank-transactions/img/suitcase.png"
+            src="./assets/bank-transactions/img/suitcase.png"
+            alt="suitcase"
           />
           <p class="position-left text-2">TYPE:</p>
           <div class="position-left">
@@ -68,13 +72,13 @@
     <div *ngFor="let transaction of transactionsList | filter: searchText">
       <div class="transaction">
         <div class="left">
-          <img src="{{ transaction.icon }}" />
+          <img src="{{ transaction.icon }}" onerror="this.onerror=null; this.src='./assets/transfers/default.png';" style="width: 50px; height: 50px"/>
           <h2>
             <a class="title" (click)="pop(transaction.id)">
               {{ transaction.title }}
             </a>
             <br />
-            <span>{{ transaction.type }}</span>
+            <span>{{ transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1) }}</span>
           </h2>
         </div>
         <div class="right">

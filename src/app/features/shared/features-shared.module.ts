@@ -8,9 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
-import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
-import { FeaturesSharedRoutingModule } from './features-shared-routing.module';
 import { sharedPipes } from './pipes';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
@@ -26,7 +24,6 @@ const modules = [
   MatInputModule,
   MatNativeDateModule,
   RouterModule,
-  FeaturesSharedRoutingModule,
   ChartsModule,
   SharedModule,
 ];

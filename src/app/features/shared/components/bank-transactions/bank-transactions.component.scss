@@ -1,12 +1,15 @@
 @import './index.scss';
+
+:host{
+  display: block;
+  height: 100%;
+}
+
 .bank-transactions {
-  width: 95%;
-  margin: auto;
-  margin-top: 28px;
   background-color: white;
+  height: 100%;
 
   .myDiv {
-    overflow: auto;
     min-height: 300px;
   }
 
@@ -73,15 +76,11 @@
           height: 80%;
         }
         ::ng-deep .dropdown-general .selected {
-          // width: 85%;
           border: none;
         }
         ::ng-deep .mat-form-field {
           margin-top: -7px;
           width: 150px;
-        }
-        ::ng-deep .dropdown-general .selected .arrow-container {
-          color: #555c64;
         }
         .dropdown-general {
           width: 85%;
@@ -119,7 +118,6 @@
     padding: 10px 23px 9px 23px;
 
     img {
-      margin-right: 1.2%;
       height: 40px;
       width: 80px;
       margin: auto;

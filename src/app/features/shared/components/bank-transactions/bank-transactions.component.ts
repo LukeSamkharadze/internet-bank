@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
-import { AuthService } from './../../services/auth.service';
+
 @Component({
   selector: 'app-features-shared-bank-transactions',
   templateUrl: './bank-transactions.component.html',
@@ -52,10 +52,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
     /* tslint:enable:no-string-literal */
   }
 
-  constructor(
-    private getTransactionService: TransactionsService,
-    private authService: AuthService
-  ) {}
+  constructor(private getTransactionService: TransactionsService) {}
 
   fetchTransactions() {
     this.getTransactionService
@@ -64,20 +61,9 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
         this.transactionsList = [];
         data.forEach((element) => {
           this.transactionsList.push({
-            id: element.id,
-            title: element.title,
+            ...element,
             icon: element.iconPath,
-            type: element.type,
-            beneficiary: element.beneficiary,
-            amount: element.amount,
-            date: element.date,
-            status: element.status,
             cardNumber: String(element.fromAccountNumber).slice(-4),
-            fromAccountUserId: element.fromAccountUserId,
-            toUserId: element.toUserId,
-            toAccountNumber: element.toAccountNumber,
-            bankTransferType: element.bankTransferType,
-            currency: element.currency,
           });
         });
       });
@@ -114,7 +100,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   }
 
   typeChangeEvent($event) {
-    this.chosenType = $event;
+    this.chosenType = $event.toLowerCase();
     this.fetchTransactions();
   }
 }
