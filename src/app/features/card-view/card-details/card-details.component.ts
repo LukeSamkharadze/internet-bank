@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
-  distinctUntilChanged,
   filter,
   map,
   switchMap,
-  tap,
 } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';

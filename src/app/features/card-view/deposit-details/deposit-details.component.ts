@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { filter, first, map, switchMap, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { filter, map, switchMap } from 'rxjs/operators';
 import { IDeposit } from '../../shared/interfaces/deposit.interface';
 import { DepositService } from '../../shared/services/deposit.service';
 import { FormatterService } from '../../shared/services/formatter.service';

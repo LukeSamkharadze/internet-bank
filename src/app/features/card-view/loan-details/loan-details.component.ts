@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { filter, first, map, switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { filter, map, switchMap } from 'rxjs/operators';
 import { Expanses } from '../../shared/interfaces/expanses.interface';
 import { ILoan } from '../../shared/interfaces/loan.interface';
 import { FormatterService } from '../../shared/services/formatter.service';

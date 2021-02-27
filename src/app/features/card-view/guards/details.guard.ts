@@ -1,13 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
-  Router,
-  CanLoad,
-  Route,
-  UrlSegment,
-} from '@angular/router';
+import { UrlTree, Router, CanLoad, Route, UrlSegment } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { AuthService } from '../../shared/services/auth.service';
@@ -26,16 +18,19 @@ export class DetailsGuard implements CanLoad {
   ) {
     DetailsGuard.redirectUrl = this.router.parseUrl('/accounts-list');
   }
+
   canLoad(
     route: Route,
     segments: UrlSegment[]
   ): Observable<boolean | UrlTree> | UrlTree {
     const path = segments[Math.max(segments.length - 2, 0)].path;
     const id = Number(segments[Math.max(segments.length - 1, 0)].path);
-    const service = this.viewService.detemineService(path);
+    const service = this.viewService.determineService(path);
+
     if (!service) {
       return DetailsGuard.redirectUrl;
     }
+
     return service.getById(id).pipe(
       map((item) => {
         console.log(item);
