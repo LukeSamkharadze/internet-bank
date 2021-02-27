@@ -69,8 +69,7 @@
     </div>
 
     <hr class="hr-bottom" />
-    <div *ngFor="let transaction of transactionsList | filter: searchText">
-      <div class="transaction">
+    <div class="transaction" *ngFor="let transaction of transactionsList | filter: searchText">
         <div class="left">
           <div class="img-width">
             <div class="img-flex">
@@ -103,7 +102,6 @@
             }}</span>
           </h1>
         </div>
-      </div>
       <hr class="center-hr" />
     </div>
 

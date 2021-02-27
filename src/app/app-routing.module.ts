@@ -4,7 +4,6 @@ import { IsLoggedInGuard } from './features/shared/guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './features/shared/guards/is-logged-out.guard';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ApplicationComponent } from './features/application/application.component';
-import { BankTransactionsComponent } from './features/shared/components';
 import { DetailsGuard } from './features/card-view/guards/details.guard';
 
 const routes: Routes = [
@@ -87,7 +86,6 @@ const routes: Routes = [
       },
     ],
   },
-  // Authentication Paths
   {
     path: '',
     canActivate: [IsLoggedOutGuard],
@@ -96,13 +94,6 @@ const routes: Routes = [
         (m) => m.AuthenticationModule
       ),
   },
-  {
-    path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full',
-  },
-
-  // All Other Paths
   {
     path: 'list',
     loadChildren: () =>

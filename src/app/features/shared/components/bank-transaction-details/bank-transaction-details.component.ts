@@ -24,8 +24,6 @@ export class BankTransactionDetailsComponent implements OnInit {
   error: string;
   showTag = true;
 
-  constructor() {}
-
   ngOnInit() {
     if (this.transaction) {
       const fac = new FastAverageColor();

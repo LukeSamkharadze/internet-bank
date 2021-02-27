@@ -131,6 +131,10 @@
       // width: 80px;
       margin: auto;
     }
+
+    &:last-child .center-hr {
+        border: none;
+      }
   }
 
   .left {
