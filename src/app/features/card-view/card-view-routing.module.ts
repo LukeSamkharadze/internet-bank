@@ -21,6 +21,10 @@ const routes: Routes = [
     component: CardViewComponent,
     canActivate: [LoanDetailsGuard],
   },
+  {
+    path: '**',
+    redirectTo: '/accounts-list',
+  },
 ];
 
 @NgModule({
