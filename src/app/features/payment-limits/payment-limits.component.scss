@@ -1,0 +1,25 @@
+@import '../../../styles/index.scss';
+:host {
+  display: inline-block;
+  width: 100%;
+}
+form {
+  .payment-wrap {
+    background-color: white;
+    padding: 18px 0px 0px 24px;
+    .payment-box {
+      max-width: 699px;
+      margin-top: 27px;
+    }
+
+    .payment-buttons {
+      margin-top: 125px;
+      & :last-child {
+        background-color: $background-1;
+        width: 148px;
+        margin-left: 9px;
+        color: $secondary-dark-1;
+      }
+    }
+  }
+}
