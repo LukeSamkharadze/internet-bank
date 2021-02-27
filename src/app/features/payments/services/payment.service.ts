@@ -6,7 +6,7 @@ import { InstantPayment } from '../../shared/interfaces/payments/instantPayment.
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { forkJoin, from, of } from 'rxjs';
-import { map, reduce, scan, switchMap, tap } from 'rxjs/operators';
+import { map, pluck, reduce, scan, switchMap, tap } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
 import { UserService } from '../../shared/services/user.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
@@ -42,7 +42,7 @@ export class PaymentService {
               .getBankSpendings(this.authService.userId)
               .pipe(
                 switchMap((bankTransfers) => from(bankTransfers)),
-                switchMap((bankTransfer) => of(bankTransfer.amount)),
+                pluck('amount'),
                 reduce((a, b) => a + b)
               ),
           ])
@@ -99,7 +99,7 @@ export class PaymentService {
               .getOnlineSpendings(this.authService.userId)
               .pipe(
                 switchMap((onlineTransfers) => from(onlineTransfers)),
-                switchMap((onlineTransfer) => of(onlineTransfer.amount)),
+                pluck('amount'),
                 reduce((a, b) => a + b)
               ),
           ])
