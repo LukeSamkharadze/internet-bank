@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { IncomeOutcomeService } from './income-outcome.service';
 import { ICard } from '../../../shared/interfaces/card.interface';
 import { GetCardServiceService } from './get-card-service.service';
-import { CardService } from '../../../shared/services/card.service';
+import { GenerateChartService } from '../income-chart/services/chart/generate-chart.service';
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-shared-dashboard-account-widget',
   providers: [GetCardServiceService],
@@ -10,7 +12,8 @@ import { CardService } from '../../../shared/services/card.service';
   styleUrls: ['./dashboard-account-widget.component.scss'],
 })
 export class DashboardAccountWidgetComponent implements OnInit {
-  @Input() income = 0;
+  incomeStream: object;
+  income: number;
   @Input() outcome = 0;
   @Output()
   percentage: number;
@@ -21,7 +24,21 @@ export class DashboardAccountWidgetComponent implements OnInit {
   styleElement: any;
   animation: string;
   cards: ICard[];
-  constructor(public getCardService: GetCardServiceService) {}
+  i: number;
+  totalsum: number;
+  constructor(
+    public getCardService: GetCardServiceService,
+    public incomeOutcomeService: IncomeOutcomeService,
+    private generateChartService: GenerateChartService
+  ) {
+    this.generateChartService.totalIncome
+      .pipe(
+        map((sum) => {
+          this.income = sum;
+        })
+      )
+      .subscribe();
+  }
 
   calculateprofit() {
     if (this.income > 999 && this.outcome > 999 && this.income > this.outcome) {
@@ -74,6 +91,13 @@ export class DashboardAccountWidgetComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.incomeOutcomeService
+      .getAll()
+      .subscribe((i) => (this.incomeStream = i));
+    setTimeout(() => {
+      console.log(this.totalsum);
+    }, 5000);
+
     this.getCardService.getCards().subscribe((v) => (this.cards = v));
     this.calculateprofit();
     this.calculateDegree();
