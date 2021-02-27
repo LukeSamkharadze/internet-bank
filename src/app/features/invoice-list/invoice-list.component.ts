@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Invoice } from '../shared/interfaces/invoice.interface';
+import { InvoiceService } from '../shared/services/invoice.service';
 @Component({
   selector: 'app-invoice-list',
   templateUrl: './invoice-list.component.html',
@@ -8,7 +9,6 @@ import { Invoice } from '../shared/interfaces/invoice.interface';
 })
 export class InvoiceListComponent implements OnInit {
   tabNames = ['All', 'Paid', 'Pending', 'Cancelled'];
-  url = 'http://localhost:3000/invoices';
   public invoices: Array<Invoice>;
   public allInvoices = [];
   public paidInvoices: Array<Invoice>;
@@ -17,11 +17,14 @@ export class InvoiceListComponent implements OnInit {
   public popDetails: boolean;
   public item;
   public data;
-  constructor(private http: HttpClient) {}
+
+  constructor(
+    private http: HttpClient,
+    private invoiceService: InvoiceService
+  ) {}
 
   ngOnInit(): void {
-    //this.data = '2018-08';
-    this.http.get(this.url).subscribe((data: Array<Invoice>) => {
+    this.invoiceService.getAll().subscribe((data: Array<Invoice>) => {
       this.invoices = data;
       this.allInvoices = data;
       this.loadValues();

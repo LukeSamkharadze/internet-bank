@@ -16,8 +16,7 @@
 
   .invoice-list-header {
     float: left;
-    color: $primary-dark;
-    font-size: 16px;
+    @include text-style(16px);
   }
 
   .invoice-icon-container {
@@ -29,6 +28,11 @@
     align-items: center;
     text-align: center;
     justify-content: center;
+    @media screen and (max-width: 520px) {
+      width: 25px;
+      height: 25px;
+      margin-left: 0px;
+    }
 
     .invoice-icon-circle {
       width: 40px;
@@ -36,6 +40,10 @@
       background-color: $primary;
       opacity: 0.1;
       border-radius: 50%;
+      @media screen and (max-width: 520px) {
+        width: 25px;
+        height: 25px;
+      }
     }
     .icon {
       opacity: 1;
@@ -45,6 +53,9 @@
         text-align: center;
         font-size: 18px;
         color: $primary;
+        @media screen and (max-width: 520px) {
+          font-size: 10px;
+        }
       }
     }
   }
@@ -62,12 +73,38 @@
     .invoice {
       display: block;
     }
+    @media screen and (max-width: 520px) {
+      width: 70px;
+    }
   }
 
   .invoice-date-container {
     float: left;
     margin-left: 27%;
     height: 38px;
+  }
+  @media screen and (max-width: 765px) {
+    .invoice-date-container {
+      margin-left: 5%;
+    }
+  }
+  @media screen and (max-width: 565px) {
+    .invoice-date-container {
+      margin-left: 0%;
+    }
+  }
+  @media screen and (max-width: 520px) {
+    p {
+      font-size: 8px;
+    }
+    .invoice-list-header {
+      float: left;
+      @include text-style(10px);
+    }
+    .invoice-icon-circle {
+      width: 20px;
+      height: 20px;
+    }
   }
   .invoice-amount-container {
     float: left;
@@ -86,14 +123,22 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    @media screen and (max-width: 520px) {
+      width: 50px;
+      border-radius: 17px;
+      height: 25px;
+    }
 
     .invoice-status-green {
       height: 10px;
       width: 10px;
       border-radius: 50%;
-      margin-left: 0px;
       background-color: $secondary-2;
       display: inline-block;
+      @media screen and (max-width: 520px) {
+        height: 5px;
+        width: 5px;
+      }
     }
   }
 
@@ -107,14 +152,23 @@
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    justify-content: center;
+    @media screen and (max-width: 520px) {
+      width: 80px;
+      border-radius: 17px;
+      height: 25px;
+    }
 
     .invoice-status-yellow {
       height: 10px;
       width: 10px;
       border-radius: 50%;
-      margin-left: 16px;
       background-color: $primary;
       display: inline-block;
+      @media screen and (max-width: 520px) {
+        height: 5px;
+        width: 5px;
+      }
     }
   }
   .invoice-status {
@@ -133,14 +187,22 @@
     display: flex;
     align-items: center;
     box-sizing: border-box;
-
+    justify-content: center;
+    @media screen and (max-width: 520px) {
+      width: 88px;
+      border-radius: 17px;
+      height: 25px;
+    }
     .invoice-status-red {
       height: 10px;
       width: 10px;
       border-radius: 50%;
-      margin-left: 16px;
       background-color: $secondary-3;
       display: inline-block;
+      @media screen and (max-width: 520px) {
+        height: 5px;
+        width: 5px;
+      }
     }
   }
 
@@ -225,9 +287,7 @@ ul {
 .date-picker {
   label {
     display: inline-block;
-    font-family: $roboto;
-    font-size: 14px;
-    color: $secondary-dark-1;
+    @include text-style(14px, $secondary-dark-1);
     margin-right: 10px;
   }
   .las {
@@ -237,9 +297,11 @@ ul {
   }
   input {
     font-family: $roboto;
-    font-size: 12px;
-    color: $primary-dark;
+    @include text-style(12px);
     border: 0px;
     text-transform: uppercase;
+    @media screen and (max-width: 520px) {
+      @include text-style(8x);
+    }
   }
 }

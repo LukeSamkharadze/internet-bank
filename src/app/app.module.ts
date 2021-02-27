@@ -12,7 +12,6 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { ApplicationComponent } from './features/application/application.component';
 import { FeaturesSharedModule } from '@features/shared';
 import { AppRoutingModule } from './app-routing.module';
-import { InvoiceListComponent } from './features/invoice-list/invoice-list.component';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 
@@ -23,7 +22,6 @@ import 'hammerjs';
     DashboardComponent,
     PageNotFoundComponent,
     ApplicationComponent,
-    InvoiceListComponent,
   ],
   imports: [
     BrowserModule,
