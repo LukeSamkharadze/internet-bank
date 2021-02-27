@@ -14,9 +14,7 @@
       *ngFor="let card of cards"
       [info]="infoService.cardToInfo(card)"
       [class.blocked]="card.blocked"
-      ><img
-        [src]="card.iconPath"
-        [alt]="card.cardName"
+      ><img [src]="card.iconPath" [alt]="card.cardName"
     /></app-accounts-list-item>
   </div>
 </div>
