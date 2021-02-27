@@ -22,7 +22,7 @@
               </span>
               <div class="progress-value">
                 <div class="circle">
-                  <p>${{ income }}</p>
+                  <p>${{ profitRound }}</p>
                   <p class="profit">Total Profit</p>
                 </div>
               </div>
@@ -31,9 +31,9 @@
         </div>
       </div>
     </div>
-    <div *ngFor="let card of cards">
+    <div *ngFor="let card of cards | slice: 0:1">
       <p class="card-paragraph">
-        {{ card.cardType }} Card
+        {{ card.cardType.toUpperCase() }} Card
         {{ getCardService.formatCardNumber(card.cardNumber) }}
       </p>
     </div>

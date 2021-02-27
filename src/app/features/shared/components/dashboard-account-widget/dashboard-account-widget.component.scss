@@ -30,15 +30,18 @@ header {
 }
 .download {
   display: flex;
+  padding-top: 40px;
   cursor: pointer;
-
+  justify-content: space-between;
   p {
     color: #252631;
     font-size: 14px;
     font-weight: 500;
+    padding-right: 30px;
   }
   i {
     color: #ffab2b;
+    padding-left: 10px;
   }
 }
 
@@ -59,6 +62,7 @@ header {
     font-size: 32px;
     color: $primary;
     line-height: 20px;
+    padding-top: 10px;
   }
   .profit {
     padding-top: 10px;
@@ -163,4 +167,5 @@ header {
 .card-paragraph {
   font-size: 16px;
   color: #252631;
+  padding-top: 10px;
 }

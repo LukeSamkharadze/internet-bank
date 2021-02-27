@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { IncomeOutcomeService } from './income-outcome.service';
 import { ICard } from '../../../shared/interfaces/card.interface';
 import { GetCardServiceService } from './get-card-service.service';
-import { GenerateChartService } from '../income-chart/services/chart/generate-chart.service';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -13,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class DashboardAccountWidgetComponent implements OnInit {
   incomeStream: object;
-  income: number;
+  @Input() income = 0;
   @Input() outcome = 0;
   @Output()
   percentage: number;
@@ -26,19 +24,7 @@ export class DashboardAccountWidgetComponent implements OnInit {
   cards: ICard[];
   i: number;
   totalsum: number;
-  constructor(
-    public getCardService: GetCardServiceService,
-    public incomeOutcomeService: IncomeOutcomeService,
-    private generateChartService: GenerateChartService
-  ) {
-    this.generateChartService.totalIncome
-      .pipe(
-        map((sum) => {
-          this.income = sum;
-        })
-      )
-      .subscribe();
-  }
+  constructor(public getCardService: GetCardServiceService) {}
 
   calculateprofit() {
     if (this.income > 999 && this.outcome > 999 && this.income > this.outcome) {
@@ -84,20 +70,9 @@ export class DashboardAccountWidgetComponent implements OnInit {
           this.degree2.toString() +
           'deg)}}';
       }
-      console.log(this.profit);
-      console.log(this.percentage);
-      console.log(this.degree1);
-      console.log(this.degree2);
     }
   }
   ngOnInit(): void {
-    this.incomeOutcomeService
-      .getAll()
-      .subscribe((i) => (this.incomeStream = i));
-    setTimeout(() => {
-      console.log(this.totalsum);
-    }, 5000);
-
     this.getCardService.getCards().subscribe((v) => (this.cards = v));
     this.calculateprofit();
     this.calculateDegree();
