@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class AccountBalancesService {
   balances$ = new Subject<Array<ICard | IDeposit>>();
-  
+
   constructor(
     private authService: AuthService,
     private cardService: CardService,

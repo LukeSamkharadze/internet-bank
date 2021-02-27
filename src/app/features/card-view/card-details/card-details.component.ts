@@ -1,11 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import {
-  filter,
-  map,
-  switchMap,
-} from 'rxjs/operators';
+import { filter, map, switchMap } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';
 import { FormatterService } from '../../shared/services/formatter.service';

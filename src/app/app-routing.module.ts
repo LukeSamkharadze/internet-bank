@@ -15,13 +15,20 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'dashboard',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'dashboard',
         loadChildren: () =>
           import('./features/dashboard/dashboard.module').then(
             (m) => m.DashboardModule
+          ),
+      },
+      {
+        path: 'transactions',
+        loadChildren: () =>
+          import('./features/transactions/transactions.module').then(
+            (m) => m.TransactionsModule
           ),
       },
       {
@@ -56,7 +63,6 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/list/list.module').then((m) => m.ListModule),
       },
-
       {
         path: 'settings',
         loadChildren: () =>
@@ -80,7 +86,6 @@ const routes: Routes = [
       },
     ],
   },
-  // Authentication Paths
   {
     path: '',
     canActivate: [IsLoggedOutGuard],

@@ -296,39 +296,17 @@
     {
       "id": 1,
       "name": "Cards balance",
-      "data": [
-        78000,
-        91000,
-        78000,
-        52000,
-        72800,
-        104000,
-        124800
-      ]
+      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
     },
     {
       "id": 2,
       "name": "Deposit (3% Rate)",
-      "data": [
-        35250,
-        38070,
-        39480,
-        40890,
-        38070,
-        49350,
-        56400
-      ]
+      "data": [35250, 38070, 39480, 40890, 38070, 49350, 56400]
     },
     {
       "id": 3,
       "name": "Pending credit",
-      "data": [
-        41300,
-        28910,
-        16520,
-        28910,
-        24800
-      ]
+      "data": [41300, 28910, 16520, 28910, 24800]
     }
   ],
   "invoices": [
@@ -378,9 +356,9 @@
   ],
   "transactions": [
     {
-      "title": "Bank transfer to user: 1",
+      "title": "Bank transfer to friend",
       "toUserId": "1",
-      "date": "2021-02-25T15:43:54.034Z",
+      "date": "2021-07-24T18:34:49.334Z",
       "type": "bank",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB3333111122224444",
@@ -389,29 +367,34 @@
       "currency": "USD",
       "beneficiary": "sum name",
       "bankTransferType": "Personal transfer",
+      "status": "paid",
       "id": 1
     },
     {
-      "title": "money goin outside tbc",
-      "date": "2021-02-25T15:44:56.811Z",
+      "title": "Money going outside TBC",
+      "date": "2021-05-24T18:34:49.334Z",
       "type": "electronic",
+      "paymentSystem": "paypal",
       "fromAccountNumber": "GE32TB4434234223333333",
-      "fromAccountUserId": "2",
+      "fromAccountUserId": "1",
       "toAccountEmail": "lala@gmail.com",
       "amount": 986,
       "currency": "USD",
+      "status": "pending",
       "id": 2
     },
     {
-      "title": "money goin outside tbc",
-      "date": "2021-02-25T15:45:19.641Z",
+      "title": "Money going outside TBC",
+      "date": "2021-02-24T18:34:49.334Z",
       "type": "instant",
+      "paymentSystem": "payoneer",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB4434234223333333",
       "amount": 50,
       "currency": "USD",
       "instantTransferType": "Personal transfer",
       "toAccountNumber": "bg1203900001231231",
+      "status": "paid",
       "id": 3
     }
   ],
