@@ -57,6 +57,9 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
   showDropdown() {
     this.userDropdownMenu.nativeElement.classList.toggle('show');
   }
+  hideDropdown() {
+    this.userDropdownMenu.nativeElement.classList.remove('show');
+  }
 
   clickEvent() {
     this.status = !this.status;
