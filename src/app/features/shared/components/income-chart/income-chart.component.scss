@@ -84,6 +84,7 @@
 }
 .chart-container {
   position: relative;
+  overflow: auto;
   @include Flex(center, center);
   @include size(100%, 100%);
 }

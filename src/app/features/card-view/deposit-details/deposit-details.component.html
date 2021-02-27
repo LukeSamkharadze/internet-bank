@@ -1,0 +1,13 @@
+<app-card-view-template
+  [list]="list$ | async"
+  [cardInfo]="cardInfo$ | async"
+  [name]="name$ | async"
+  [amount]="amount$ | async"
+  [canBlock]="false"
+  [color]="color$ | async"
+  [buttons]="buttons$ | async"
+  [background]="background$ | async"
+>
+  <i header [class]="icon$ | async"></i>
+  <i logo [class]="icon$ | async"></i>
+</app-card-view-template>

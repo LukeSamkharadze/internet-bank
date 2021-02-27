@@ -9,7 +9,11 @@
     </div>
     <div class="details-popup-lower">
       <div class="details-popup-lower-logo">
-        <img [src]="transaction.icon" alt="Transaction Icon" />
+        <img
+          [src]="transaction.icon"
+          alt="Transaction Icon"
+          onerror="this.onerror=null; this.src='https://miro.medium.com/max/10368/1*o8tTGo3vsocTKnCUyz0wHA.jpeg';"
+        />
       </div>
       <div></div>
       <div class="details-popup-lower-heading">

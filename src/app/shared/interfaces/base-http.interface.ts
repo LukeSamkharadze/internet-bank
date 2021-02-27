@@ -9,5 +9,5 @@ export interface BaseHttpInterface<T> {
 
   update(param: T): Observable<T>;
 
-  delete(param: T): Observable<void>;
+  delete(id: number): Observable<void>;
 }
