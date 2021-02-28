@@ -65,7 +65,7 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
         fromAccountNumber: this.fromAccount.value.accountNumber,
         fromAccountUserId: this.fromAccount.value.userId,
         toAccountEmail: this.toAccountEmail.value,
-        paymentSystem: this.paymentSystem.value.title,
+        paymentSystem: this.paymentSystem.value.name,
         amount: Number(this.amount.value),
         currency: this.currency.value,
       };
