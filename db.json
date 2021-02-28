@@ -147,7 +147,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 16899,
+      "availableAmount": 16800,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -371,18 +371,6 @@
       "id": 1
     },
     {
-      "title": "electronic payment to papyal@gmail.com",
-      "date": "2021-02-28T16:41:57.450Z",
-      "type": "electronic",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "fromAccountUserId": "2",
-      "toAccountEmail": "papyal@gmail.com",
-      "amount": 78.5,
-      "currency": "USD",
-      "status": "pending",
-      "id": 2
-    },
-    {
       "title": "Instant transfer to bg012030123123",
       "date": "2021-02-28T16:42:24.870Z",
       "type": "instant",
@@ -394,6 +382,19 @@
       "toAccountNumber": "bg012030123123",
       "status": "pending",
       "id": 3
+    },
+    {
+      "title": "electronic payment to payoneer@gmail.com",
+      "date": "2021-02-28T17:46:33.490Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "payoneer@gmail.com",
+      "paymentSystem": "Payoneer",
+      "amount": 66,
+      "currency": "USD",
+      "status": "pending",
+      "id": 4
     }
   ],
   "news": [
