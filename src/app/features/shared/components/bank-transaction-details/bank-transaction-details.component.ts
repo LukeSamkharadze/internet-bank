@@ -11,11 +11,10 @@ export class BankTransactionDetailsComponent implements OnInit {
   @Input() transaction: Transaction = {
     title: 'Default Title',
     status: 'Paid',
-    tagColor: 'green',
     cardNumber: 1234,
     amount: '- $0',
     date: '2021/02/02 11:42 PM',
-    icon: 'https://miro.medium.com/max/10368/1*o8tTGo3vsocTKnCUyz0wHA.jpeg',
+    icon: './assets/transfers/default.png',
   };
   @Output() closePopup = new EventEmitter();
   @Output() sendReceipt = new EventEmitter();
@@ -23,6 +22,7 @@ export class BankTransactionDetailsComponent implements OnInit {
   opacity = '70%';
   error: string;
   showTag = true;
+  tagColor = 'orange';
 
   ngOnInit() {
     if (this.transaction) {
@@ -37,6 +37,20 @@ export class BankTransactionDetailsComponent implements OnInit {
           this.error = e;
           this.background = 'rgb(221, 32, 49)';
         });
+    }
+    this.transaction.status =
+      this.transaction.status.charAt(0).toUpperCase() +
+      this.transaction.status.substring(1);
+    switch (this.transaction.status) {
+      case 'Pending':
+        this.tagColor = 'orange';
+        break;
+      case 'Paid':
+        this.tagColor = 'green';
+        break;
+      case 'Cancelled':
+        this.tagColor = 'pink';
+        break;
     }
   }
 

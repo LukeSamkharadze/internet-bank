@@ -22,7 +22,6 @@ closePopup is an event that is emitted when **(x)** button is pressed on popup. 
 ```
 title: string,
 status: string,
-tagColor: string, //only these colors are available: white,cyan,green,orange,pink,gray
 cardNumber: number,
 amount: string,
 date: string,
