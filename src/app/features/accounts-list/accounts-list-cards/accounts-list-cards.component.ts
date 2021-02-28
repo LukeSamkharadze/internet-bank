@@ -1,5 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
+import IItem from '../models/list-item.entity';
 import { AccountsListInfoService } from '../services/accounts-list-info.service';
 
 @Component({
@@ -8,8 +16,22 @@ import { AccountsListInfoService } from '../services/accounts-list-info.service'
   styleUrls: ['../styles/_item.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccountsListCardsComponent {
-  @Input() cards: Array<ICard> = [];
+export class AccountsListCardsComponent implements OnInit {
+  @Input() cards$: Observable<ICard[]>;
+  pipedCards$: Observable<
+    (ICard | { color: string; icon: string; info: IItem })[]
+  >;
 
-  constructor(public infoService: AccountsListInfoService) {}
+  constructor(private infoService: AccountsListInfoService) {}
+
+  ngOnInit(): void {
+    this.pipedCards$ = this.cards$.pipe(
+      map((cards) =>
+        cards.map((card) => ({
+          ...card,
+          info: this.infoService.cardToInfo(card),
+        }))
+      )
+    );
+  }
 }

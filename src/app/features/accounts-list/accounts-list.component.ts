@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { concatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { ICard } from '../shared/interfaces/card.interface';
 import { IDeposit } from '../shared/interfaces/deposit.interface';
 import { ILoan } from '../shared/interfaces/loan.interface';
@@ -17,7 +18,7 @@ export class AccountsListComponent implements OnInit {
   cards$: Observable<Array<ICard>>;
   deposits$: Observable<Array<IDeposit>>;
   loans$: Observable<Array<ILoan>>;
-  incomes$: Observable<Array<IItem>>;
+  incomes$: Observable<Observable<IItem>[]>;
 
   constructor(
     public infoService: AccountsListInfoService,
@@ -28,6 +29,18 @@ export class AccountsListComponent implements OnInit {
     this.cards$ = this.infoService.getCards();
     this.deposits$ = this.infoService.getDeposits();
     this.loans$ = this.infoService.getLoans();
-    this.incomes$ = this.incomeService.getAll();
+    this.incomes$ = this.incomeService.getAll().pipe(
+      map((incomes) =>
+        incomes
+          .map(
+            (income) =>
+              ({
+                title: income.name ? income.name : 'unknown',
+                data: income.data,
+              } as IItem)
+          )
+          .map((income) => of(income))
+      )
+    );
   }
 }

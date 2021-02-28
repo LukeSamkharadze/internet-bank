@@ -7,13 +7,15 @@
   </div>
   <div class="items">
     <app-accounts-list-item
-      *ngFor="let deposit of deposits"
-      [info]="infoService.depositToInfo(deposit)"
-      [color]="'orange'"
+      *ngFor="let deposit of pipedDeposits$ | async"
+      [info]="deposit.info"
+      [color]="deposit.color"
       [class.blocked]="deposit.blocked"
       [route]="'/card-view/deposit/' + deposit.id"
-      ><i class="las la-lock"></i
+      ><i [class]="deposit.icon"></i
     ></app-accounts-list-item>
-    <p *ngIf="!deposits || !deposits.length">You have no deposits</p>
+    <p *ngIf="!deposits$ || !(deposits$ | async)?.length">
+      You have no deposits
+    </p>
   </div>
 </div>
