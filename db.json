@@ -366,7 +366,7 @@
       "amount": 20,
       "currency": "USD",
       "beneficiary": "gamarjoba batono obama",
-      "bankTransferType": "Personal transfer",
+      "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 1
     },
@@ -378,7 +378,7 @@
       "fromAccountNumber": "GE32TB3333111122224444",
       "amount": 1,
       "currency": "USD",
-      "instantTransferType": "Personal transfer",
+      "instantTransferType": "personal transfer",
       "toAccountNumber": "bg012030123123",
       "status": "pending",
       "id": 3
