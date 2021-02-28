@@ -1,13 +1,12 @@
 @import './index.scss';
 
-:host{
+:host {
   display: block;
 }
-
 .invoice-group {
   display: flex;
   width: 100%;
-  max-height: 718px;
+  max-height: 700px;
   margin-bottom: 10px;
   margin-top: 10px;
   justify-content: flex-start;
@@ -33,7 +32,7 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    @media screen and (max-width: 786px) {
+    @media screen and (max-width: 838px) {
       width: 25px;
       height: 25px;
     }
@@ -44,7 +43,7 @@
       background-color: $primary;
       opacity: 0.1;
       border-radius: 50%;
-      @media screen and (max-width: 786px) {
+      @media screen and (max-width: 838px) {
         width: 25px;
         height: 25px;
       }
@@ -57,7 +56,7 @@
         text-align: center;
         font-size: 18px;
         color: $primary;
-        @media screen and (max-width: 786px) {
+        @media screen and (max-width: 838px) {
           font-size: 10px;
         }
       }
@@ -77,7 +76,7 @@
     .invoice {
       display: block;
     }
-    @media screen and (max-width: 786px) {
+    @media screen and (max-width: 838px) {
       width: 70px;
     }
   }
@@ -87,23 +86,23 @@
     margin-left: 27%;
     height: 38px;
   }
-  @media screen and (max-width: 1170px) {
+  @media screen and (max-width: 1385px) {
     .invoice-date-container {
       margin-left: 5%;
     }
   }
-  @media screen and (max-width: 834px) {
+  @media screen and (max-width: 1165px) {
     .invoice-date-container {
       margin-left: 0;
     }
   }
-  @media screen and (max-width: 786px) {
+  @media screen and (max-width: 838px) {
     p {
-      font-size: 8px;
+      font-size: 10px;
     }
     .invoice-list-header {
       float: left;
-      @include text-style(10px);
+      @include text-style(12px);
     }
     .invoice-icon-circle {
       width: 20px;
@@ -127,7 +126,7 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    @media screen and (max-width: 786px) {
+    @media screen and (max-width: 838px) {
       width: 50px;
       border-radius: 17px;
       height: 25px;
@@ -139,7 +138,7 @@
       border-radius: 50%;
       background-color: $secondary-2;
       display: inline-block;
-      @media screen and (max-width: 786px) {
+      @media screen and (max-width: 838px) {
         height: 5px;
         width: 5px;
       }
@@ -157,7 +156,7 @@
     align-items: center;
     box-sizing: border-box;
     justify-content: center;
-    @media screen and (max-width: 786px) {
+    @media screen and (max-width: 838px) {
       width: 80px;
       border-radius: 17px;
       height: 25px;
@@ -169,7 +168,7 @@
       border-radius: 50%;
       background-color: $primary;
       display: inline-block;
-      @media screen and (max-width: 786px) {
+      @media screen and (max-width: 838px) {
         height: 5px;
         width: 5px;
       }
@@ -192,7 +191,7 @@
     align-items: center;
     box-sizing: border-box;
     justify-content: center;
-    @media screen and (max-width: 786px) {
+    @media screen and (max-width: 838px) {
       width: 88px;
       border-radius: 17px;
       height: 25px;
@@ -203,7 +202,7 @@
       border-radius: 50%;
       background-color: $secondary-3;
       display: inline-block;
-      @media screen and (max-width: 786px) {
+      @media screen and (max-width: 838px) {
         height: 5px;
         width: 5px;
       }
@@ -239,18 +238,19 @@ li:hover {
 }
 app-shared-tabs {
   width: 100%;
-  height: 718px;
 }
 .gradient {
   position: relative;
+  width: 100%;
 }
 .gradient:after {
   position: absolute;
-  width: 846px;
+  width: 100%;
   content: '';
   height: 100px;
   bottom: 0;
   right: 0;
+  left: 0;
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 1) 20%,
@@ -307,8 +307,8 @@ ul {
     border: 0;
     margin-right: 10px;
     text-transform: uppercase;
-    @media screen and (max-width: 786px) {
-      @include text-style(8x);
+    @media screen and (max-width: 838px) {
+      @include text-style(10x);
     }
   }
 }
