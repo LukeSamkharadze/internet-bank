@@ -78,13 +78,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'new-invoice',
-        loadChildren: () =>
-          import('./features/new-invoice/new-invoice.module').then(
-            (m) => m.NewInvoiceModule
-          ),
-      },
-      {
         path: 'invoices',
         loadChildren: () =>
           import('./features/invoice/invoice.module').then(

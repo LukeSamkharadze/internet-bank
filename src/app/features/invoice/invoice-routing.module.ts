@@ -7,6 +7,13 @@ const routes: Routes = [
     path: '',
     component: InvoiceComponent,
   },
+  {
+    path: 'new-invoice',
+    loadChildren: () =>
+      import('../new-invoice/new-invoice.module').then(
+        (m) => m.NewInvoiceModule
+      ),
+  },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
