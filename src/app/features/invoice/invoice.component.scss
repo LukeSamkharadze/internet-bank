@@ -16,14 +16,14 @@ app-create-invoice {
   display: inline-block;
   margin-right: 31px;
   margin-top: 28px;
-  height: fit-content;
+  height: 375px;
 }
 
 app-features-shared-income-chart {
   display: block;
   width: 262px;
-  height: 355px;
-  margin-top: 0px;
+  height: 375px;
+  margin-top: 0;
 }
 @media screen and (max-width: 1121px) {
   .grid {
