@@ -12,7 +12,7 @@
         <img
           [src]="transaction.icon"
           alt="Transaction Icon"
-          onerror="this.onerror=null; this.src='https://miro.medium.com/max/10368/1*o8tTGo3vsocTKnCUyz0wHA.jpeg';"
+          onerror="this.src='./assets/transfers/default.png'"
         />
       </div>
       <div></div>
@@ -23,7 +23,7 @@
         <app-shared-tag
           *ngIf="showTag"
           (closeClicked)="closeTag()"
-          [color]="transaction.tagColor"
+          [color]="tagColor"
         >
           {{ transaction.status }}
         </app-shared-tag>
@@ -35,9 +35,9 @@
         </div>
         <div class="details-popup-lower-transaction-amount">
           <p class="details-popup-lower-transaction-number">
-            {{ transaction.amount }}
+            ${{ transaction.amount }}
           </p>
-          <p>{{ transaction.date }}</p>
+          <p>{{ transaction.date | date: 'MMM dd yyyy hh:mm a' }}</p>
         </div>
       </div>
       <div class="details-popup-lower-receipt">
