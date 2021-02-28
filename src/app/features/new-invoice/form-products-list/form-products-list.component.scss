@@ -1,0 +1,53 @@
+@import '../style/shared.style.scss';
+
+.flex-container {
+  margin-top: 3%;
+  position: relative;
+  width: 100%;
+  i {
+    position: absolute;
+    top: 60px;
+    right: -25px;
+    color: inherit;
+    &.fa-trash-alt {
+      color: $secondary-dark-1;
+      &:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .split {
+    width: 70px;
+    top: -10px;
+  }
+}
+
+.dropdown-wrapper {
+  width: 25%;
+}
+.icon-text-wrapper {
+  width: 120px;
+  margin-top: 20px;
+  color: $secondary-dark-1;
+  cursor: pointer;
+  p {
+    float: right;
+    line-height: 17px;
+    color: inherit;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  &:hover {
+    color: $primary;
+  }
+}
+
+:host ::ng-deep app-shared-input.num-input {
+  .input-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}

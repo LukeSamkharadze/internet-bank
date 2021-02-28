@@ -8,6 +8,7 @@ export interface ICard extends IParent {
   availableAmount: number;
   security3D: boolean;
   iconPath?: string;
+  color?: string;
 }
 
-export type CardType = 'VISA' | 'MASTERCARD';
+export type CardType = 'visa' | 'mastercard';

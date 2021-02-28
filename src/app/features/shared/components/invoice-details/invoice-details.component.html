@@ -1,0 +1,74 @@
+<div class="popup-blur"></div>
+<div class="details-popup print">
+  <div class="details-container">
+    <i class="las la-times-circle close" (click)="close()"></i>
+    <div class="details-left">
+      <div class="invoice-num">
+        <p>Invoice #</p>
+        <h5>{{ invoice.invoiceNumber }}</h5>
+        <div class="tag">
+          <app-shared-tag
+            [color]="getColor()"
+            *ngIf="showTag"
+            (closeClicked)="closeTag()"
+          >
+            {{ invoice.status }}
+          </app-shared-tag>
+        </div>
+      </div>
+      <div class="invoice-addr">
+        <p>To</p>
+        <h3>{{ invoice.companyName }}</h3>
+        <div class="address">
+          <p *ngFor="let addr of getAddress()">
+            {{ addr }}
+          </p>
+        </div>
+      </div>
+      <div class="invoice-date">
+        <p>Date</p>
+        <h5>{{ invoice.invoiceCreateDate | date: 'dd MMM yyyy, hh:mm a' }}</h5>
+      </div>
+      <div class="invoice-due">
+        <p>Due to</p>
+        <h5>{{ invoice.dueDate }}</h5>
+      </div>
+      <div class="print-receipt">
+        <i class="las la-print" (click)="print()"></i>
+        <p (click)="print()">PRINT RECEIPT</p>
+      </div>
+    </div>
+    <div class="details-right">
+      <div class="inv-content-container">
+        <div class="invoice-content">
+          <div class="inv-row inv-heading">
+            <p class="inv-desc">Description</p>
+            <p class="inv-rate">Rate.</p>
+            <p class="inv-qty">Qty.</p>
+            <p class="inv-row-total">Total</p>
+          </div>
+          <div class="inv-row" *ngFor="let inv of invoice.items">
+            <p class="inv-desc">{{ inv.itemDescription }}</p>
+            <p class="inv-rate">${{ inv.price }}</p>
+            <p class="inv-qty">{{ inv.itemQty }}</p>
+            <p class="inv-row-total">${{ inv.itemQty * inv.price }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="invoice-total">
+        <div class="inv-total-row">
+          <p class="title">Subtotal:</p>
+          <p class="amount">${{ getPrice().subtotal }}</p>
+        </div>
+        <div class="inv-total-row">
+          <p class="title">Tax 10%:</p>
+          <p class="amount">${{ getPrice().tax }}</p>
+        </div>
+        <div class="inv-total-row inv-total-foot">
+          <p class="total-title">Total:</p>
+          <p class="total-amount">${{ invoice.totalAmount }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

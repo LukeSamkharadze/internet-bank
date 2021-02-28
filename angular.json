@@ -23,19 +23,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/web.config",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/web.config", "src/assets"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "src/styles.scss"
             ],
             "scripts": [],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles"
-              ]
+              "includePaths": ["src/styles"]
             }
           },
           "configurations": {
@@ -91,13 +89,12 @@
           "options": {
             "runInBand": true,
             "coverage": true,
-            "coverageReporters": [
-              "cobertura",
-              "html"
-            ],
-            "reporters": [
-              "jest-junit",
-              "default"
+            "coverageReporters": ["cobertura", "html"],
+            "reporters": ["jest-junit", "default"],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              }
             ]
           }
         },
@@ -109,9 +106,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

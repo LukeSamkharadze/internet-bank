@@ -64,6 +64,11 @@ export class NewsArticleComponent implements OnInit, OnDestroy {
     }, delay);
   }
 
+  // If image url fails
+  showPlacehoderImg() {
+    this.src = 'assets/news-list/placeholder-img.png';
+  }
+
   ngOnDestroy() {
     clearInterval(this.interval);
   }

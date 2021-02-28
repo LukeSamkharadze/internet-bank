@@ -1,0 +1,39 @@
+<div class="payment-providers">
+  <header>
+    <h5>Payment providers</h5>
+    <form class="find-provider">
+      <label for="find-provider-input"><i class="las la-search"></i></label>
+      <input
+        name="search"
+        type="text"
+        id="find-provider-input"
+        placeholder="FIND PROVIDER"
+        [formControl]="search"
+      />
+    </form>
+  </header>
+  <div class="providers-list">
+    <div
+      (click)="paymentClicked()"
+      routerLink="{{ paymentType.formPath }}"
+      routerLinkActive="selected-provider"
+      class="provider-wrapper"
+      *ngFor="let paymentType of allPaymentTypes$ | async; trackBy: trackByFn"
+    >
+      <div class="provider">
+        <div class="icon-wrapper">
+          <i *ngIf="paymentType.icon" [ngClass]="paymentType.icon"></i>
+        </div>
+        <div class="provider-details">
+          <h5>{{ paymentType.name }}</h5>
+          <p *ngFor="let provider of paymentType.providers; trackBy: trackByFn">
+            {{ provider.name
+            }}<span *ngIf="shouldAddComma(provider, paymentType.providers)"
+              >,&nbsp;
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

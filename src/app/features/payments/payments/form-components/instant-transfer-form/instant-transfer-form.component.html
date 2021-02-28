@@ -1,0 +1,113 @@
+<div class="payment">
+  <header>
+    <h5>{{ title }}</h5>
+  </header>
+  <form [formGroup]="form" [@formTrigger]>
+    <div class="input-wrapper">
+      <label class="input-label"
+        >Select account
+        <span
+          [@errorTrigger]
+          *ngIf="fromAccount.hasError('required') && fromAccount.touched"
+          >Required</span
+        >
+      </label>
+      <ng-template #account let-option>
+        <div class="account">
+          <img [src]="option['iconPath']" />
+          <span class="card-number">{{ option['cardNumber'] | hideNums }}</span>
+          <span class="amount"
+            >{{ option['availableAmount'] | currency }}
+          </span>
+        </div>
+      </ng-template>
+
+      <app-shared-dropdown
+        style="width: 100%"
+        formControlName="fromAccount"
+        placeholder="Select account"
+        [ngClass]="{
+          'invalid-dropdown': fromAccount.errors && fromAccount.touched,
+          'valid-dropdown': !fromAccount.errors
+        }"
+        [options]="currentUsersCards | async"
+        [selectedTemplate]="account"
+        [optionTemplate]="account"
+      >
+      </app-shared-dropdown>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="destination-account-number"
+        >Transfer to
+        <span
+          [@errorTrigger]
+          *ngIf="
+            toAccountNumber.hasError('required') && toAccountNumber.touched
+          "
+          >Required</span
+        ></label
+      >
+      <app-shared-input
+        inputId="destination-account-number"
+        formControlName="toAccountNumber"
+        placeholder="Enter account number"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper half-width">
+      <label class="input-label" for="amount"
+        >Amount
+        <span
+          [@errorTrigger]
+          *ngIf="amount.hasError('required') && amount.touched"
+          >Required</span
+        >
+        <span [@errorTrigger] *ngIf="amount.hasError('min') && amount.touched"
+          >Too low</span
+        ></label
+      >
+      <app-shared-input
+        inputId="amount"
+        formControlName="amount"
+        type="number"
+        placeholder="Enter amount"
+      ></app-shared-input>
+    </div>
+
+    <div class="input-wrapper half-width float-right">
+      <label class="input-label"
+        >Transfer Type
+        <span
+          [@errorTrigger]
+          *ngIf="
+            instantTransferType.hasError('required') &&
+            instantTransferType.touched
+          "
+          >Required</span
+        ></label
+      >
+      <app-shared-dropdown
+        [ngClass]="{
+          'invalid-dropdown':
+            instantTransferType.errors && instantTransferType.touched,
+          'valid-dropdown': !instantTransferType.errors
+        }"
+        placeholder="Select transfer type"
+        [options]="['Personal transfer']"
+        formControlName="instantTransferType"
+      >
+      </app-shared-dropdown>
+    </div>
+
+    <div class="footer">
+      <app-shared-button
+        [className]="{ primary: true, active: true }"
+        id="button"
+        (clicked)="onSubmit()"
+        >PAY NOW</app-shared-button
+      >
+      <span>2% Bank fee applied </span>
+    </div>
+  </form>
+</div>

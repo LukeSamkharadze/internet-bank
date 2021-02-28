@@ -1,44 +1,81 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, Subject, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  EMPTY,
+  from,
+  Observable,
+  of,
+  Subject,
+  throwError,
+} from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
-import { ICard } from '../interfaces/card.interface';
-import { catchError, retry, tap } from 'rxjs/operators';
+import { CardType, ICard } from '../interfaces/card.interface';
+import {
+  catchError,
+  distinctUntilChanged,
+  map,
+  retry,
+  switchMap,
+  take,
+  tap,
+} from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
+import { AuthService } from './auth.service';
+import { IconService } from './icon.service';
+import { BackgroundService } from './background.service';
+import IBgColor from '../interfaces/background-color.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardService implements BaseHttpInterface<ICard> {
-  constructor(private http: HttpClient) {}
-  public subj = new Subject<boolean>();
+  private readonly colors = new Map<CardType, IBgColor>([
+    ['visa', 'blue'],
+    ['mastercard', 'orange'],
+  ]);
+
+  private cardsArr: ICard[] = [];
+
+  private store$ = new BehaviorSubject<ICard[]>(this.cardsArr);
+
+  public cards$ = this.store$.pipe(distinctUntilChanged());
+
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private iconService: IconService,
+    private bgService: BackgroundService
+  ) {
+    this.updateStore();
+  }
+
   create(card: ICard): Observable<ICard> {
-    card = this.determineIconPath(card);
+    card = this.determineCardType(card);
+
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
-      tap(() => {
-        this.subj.next(true);
-      }),
+      tap((newCard) =>
+        this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
+      ),
       catchError(this.handleError)
     );
   }
 
-  determineIconPath(card: ICard): ICard {
+  determineCardType(card: ICard): ICard {
     const firstDigit = card.cardNumber[0];
     switch (firstDigit) {
       case '4':
         return {
           ...card,
-          iconPath: './assets/create-card/create-card-visa-icon.svg',
-          cardType: 'VISA',
+          cardType: 'visa',
         };
       case '5':
         return {
           ...card,
-          iconPath: './assets/create-card/mastercard.svg',
-          cardType: 'MASTERCARD',
+          cardType: 'mastercard',
         };
       default:
         return { ...card };
@@ -46,37 +83,92 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   getAll(): Observable<ICard[]> {
+    const userId = this.auth.userId;
     return this.http
-      .get<ICard[]>(`${environment.BaseUrl}cards`)
-      .pipe(retry(1), catchError(this.handleError));
+      .get<ICard[]>(`${environment.BaseUrl}cards?userId=${userId}`)
+      .pipe(
+        map((cards) =>
+          cards.map((card) => this.iconService.determineCardIcon(card))
+        ),
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
+  private updateStore() {
+    this.getAll().subscribe((cards) =>
+      this.store$.next((this.cardsArr = cards))
+    );
+  }
+
+  getCardByCardNumber(cardNumber: string): Observable<ICard> {
+    return this.http
+      .get<ICard[]>(environment.BaseUrl + `cards?cardNumber=${cardNumber}`)
+      .pipe(
+        switchMap((cards) => from(cards)),
+        take(1),
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
+  getCardByAccountNumber(accountNumber: string): Observable<ICard> {
+    return this.http
+      .get<ICard[]>(
+        environment.BaseUrl + `cards?accountNumber=${accountNumber}`
+      )
+      .pipe(
+        map((data) => data[0]),
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
+  update(card: ICard): Observable<ICard> {
+    return this.http
+      .put<ICard>(environment.BaseUrl + `cards/${card.id}`, card)
+      .pipe(
+        retry(1),
+        tap(() => this.updateStore()),
+        catchError(this.handleError)
+      );
   }
 
   getById(id: number): Observable<ICard> {
-    return EMPTY;
+    return this.http.get<ICard>(`${environment.BaseUrl}cards/${id}`).pipe(
+      map((card) => this.iconService.determineCardIcon(card)),
+      retry(1)
+    );
   }
 
-  update(): Observable<ICard> {
-    return EMPTY;
-  }
-
-  delete(): Observable<void> {
-    return EMPTY;
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.BaseUrl}cards/${id}`).pipe(
+      retry(1),
+      tap(() => this.updateStore()),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // მომხმარებლის შეცდომა
-
+      // Client Error
       errorMessage = `Error: ${error.error.message}`;
     } else {
-      // სერვერის შეცდომა
-
+      // Server Error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
 
     window.alert(errorMessage);
 
     return throwError(errorMessage);
+  }
+
+  determineColor(card: ICard): string {
+    return this.colors.get(card.cardType);
+  }
+
+  determineBackground(card: ICard): string {
+    return this.bgService.getBackground(this.colors.get(card.cardType));
   }
 }

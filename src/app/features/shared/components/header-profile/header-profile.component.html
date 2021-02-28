@@ -1,23 +1,29 @@
-<div #dropbtn class="profileBef dropbtn" (click)="myFunction()">
+<div
+  #dropbtn
+  class="profileBef dropbtn"
+  (click)="showDropdown()"
+  (click)="clickEvent()"
+  [ngClass]="status ? 'clicked' : 'notClicked'"
+>
   <div class="image dropbtn">
-    <img class="dropbtn" src="{{ userImage }}" alt="" />
+    <img class="dropbtn" src="{{ user.image }}" alt="" />
   </div>
-  <div class="name dropbtn">{{ this.user.name }}</div>
+  <div class="name dropbtn">{{ this.user.fullname | titlecase }}</div>
 </div>
 <div
-  #myDropdown
+  #userDropdownMenu
   tabindex="-1"
-  ng-blur="onBlur()"
   class="profileHover"
-  id="myDropdown"
+  id="dropdown"
+  (click)="this.stayOnDropdown($event)"
 >
   <div class="about">
     <div class="profileMini">
-      <img src="{{ userImage }}" alt="" />
+      <img src="{{ user.image }}" alt="" />
     </div>
     <div>
-      <div>{{ this.user.name }}</div>
-      <div class="mail">{{ this.user.mail }}</div>
+      <div>{{ this.user.fullname | titlecase }}</div>
+      <div class="mail">{{ this.user.email }}</div>
     </div>
   </div>
   <div class="profSettings">
@@ -25,7 +31,7 @@
       <i class="las la-user"></i>
       <p>YOUR PROFILE</p>
     </a>
-    <a routerLink="/settings">
+    <a routerLink="settings">
       <i class="las la-cog"></i>
       <p>SETTINGS</p>
     </a>
