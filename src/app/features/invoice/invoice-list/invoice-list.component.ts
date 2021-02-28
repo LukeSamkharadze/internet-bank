@@ -28,7 +28,6 @@ export class InvoiceListComponent implements OnInit {
     this.invoiceService.getAll().subscribe((data: Array<Invoice>) => {
       this.invoices = data;
       this.allInvoices = data;
-      console.log(data);
       this.loadValues();
     });
   }
