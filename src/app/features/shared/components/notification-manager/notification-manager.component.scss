@@ -1,10 +1,11 @@
-@import '../../../../../styles/index.scss';
-@import '../../../../../../design/features/header-profile-#31/index.scss';
-@import '../../../../../../node_modules/line-awesome/dist/line-awesome/css/line-awesome.min.css';
-@import '../../../../shared/components/notification/notification.component.scss';
+@import './index.scss';
 
 .feat-notifications {
   margin-left: 30%;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
 }
 
 .successful-pay {
@@ -78,6 +79,8 @@
     }
   }
   ul {
+    max-height: 390px;
+    overflow: auto;
     :not(:first-child) {
       align-items: end;
     }
@@ -87,6 +90,9 @@
       .tooltip {
         background-color: $background-2;
       }
+    }
+    :first-child:hover .tooltip {
+      background-color: $background-2;
     }
     p:hover {
       cursor: pointer;
@@ -112,8 +118,13 @@
   }
 
   .notification-footer {
+    display: flex;
     justify-content: center;
     background-color: $background-2;
+  }
+
+  .notification-footer-text:hover {
+    cursor: pointer;
   }
 
   .bell-image {
