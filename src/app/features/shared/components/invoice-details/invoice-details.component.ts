@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+} from '@angular/core';
 import { Invoice } from '../../interfaces/invoice.interface';
 import { sample } from './models/sample.model';
 
@@ -7,11 +13,21 @@ import { sample } from './models/sample.model';
   templateUrl: './invoice-details.component.html',
   styleUrls: ['./invoice-details.component.scss'],
 })
-export class InvoiceDetailsComponent {
+export class InvoiceDetailsComponent implements OnChanges {
   showTag = true;
   @Input() invoice: Invoice = sample;
-
   @Output() closePopup = new EventEmitter();
+  prices = {
+    subtotal: 0,
+    tax: 0,
+    total: 0,
+  };
+
+  ngOnChanges() {
+    this.prices.subtotal = this.invoice.totalAmount;
+    this.prices.tax = this.invoice.totalAmount / 10;
+    this.prices.total = this.prices.tax + this.prices.subtotal;
+  }
 
   print(): void {
     window.print();
@@ -32,10 +48,11 @@ export class InvoiceDetailsComponent {
     }
   }
 
-  getPrice(): { subtotal: number; tax: number } {
+  getPrice(): { subtotal: number; tax: number; total: number } {
     return {
-      subtotal: this.invoice.totalAmount / 1.1,
-      tax: this.invoice.totalAmount / 11,
+      subtotal: this.invoice.totalAmount,
+      tax: this.invoice.totalAmount / 10,
+      total: this.invoice.totalAmount + this.invoice.totalAmount / 10,
     };
   }
 
