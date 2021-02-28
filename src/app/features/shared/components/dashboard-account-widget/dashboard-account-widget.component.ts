@@ -12,8 +12,8 @@ export class DashboardAccountWidgetComponent implements OnInit {
   @Input() income = 0;
   @Input() outcome = 0;
   percentage: number;
-  degree2: number;
-  degree1: number;
+  degreeSecondHalf: number;
+  degreeFirstHalf: number;
   profit: number;
   profitRound: string;
   styleElement: any;
@@ -45,26 +45,34 @@ export class DashboardAccountWidgetComponent implements OnInit {
     if (this.profit > 0) {
       this.percentage = (this.profit / this.income) * 100;
       if (this.percentage < 50) {
-        this.degree1 = (this.percentage / 100) * 180;
+        this.degreeFirstHalf = (this.percentage / 100) * 180;
         this.animation =
-          '@keyframes loading-1 {0% {-webkit-transform: rotate(0deg);transform: rotate(0deg)}100% {-webkit-transform: rotate(180deg);transform: rotate(' +
-          this.degree1.toString() +
+          '@keyframes loading-1 {0% {-webkit-transform: rotate(0deg);' +
+          'transform: rotate(0deg)}100% {-webkit-transform: rotate(180deg);' +
+          'transform: rotate(' +
+          this.degreeFirstHalf.toString() +
           'deg)}}';
       } else if (this.percentage === 50) {
-        this.degree1 = 180;
+        this.degreeFirstHalf = 180;
         this.animation =
-          '@keyframes loading-1 {0% {-webkit-transform: rotate(0deg);transform: rotate(0deg)}100% {-webkit-transform: rotate(180deg);transform: rotate(' +
-          this.degree1.toString() +
+          '@keyframes loading-1 {0% {-webkit-transform: rotate(0deg);' +
+          'transform: rotate(0deg)}100% {-webkit-transform: rotate(180deg);' +
+          'transform: rotate(' +
+          this.degreeFirstHalf.toString() +
           'deg)}}';
       } else {
-        this.degree1 = 180;
-        this.degree2 = ((this.percentage - 50) * 360) / 100;
+        this.degreeFirstHalf = 180;
+        this.degreeSecondHalf = ((this.percentage - 50) * 360) / 100;
         this.animation =
-          '@keyframes loading-1 {0% {-webkit-transform: rotate(0deg);transform: rotate(0deg)}100% {-webkit-transform: rotate(180deg);transform: rotate(' +
-          this.degree1.toString() +
+          '@keyframes loading-1 {0% {-webkit-transform: rotate(0deg);' +
+          'transform: rotate(0deg)}100% {-webkit-transform: rotate(180deg);' +
+          'transform: rotate(' +
+          this.degreeFirstHalf.toString() +
           'deg)}}' +
-          '@keyframes loading-2 {0% {-webkit-transform: rotate(0deg);transform: rotate(0deg)}100% {-webkit-transform: rotate(180deg);transform: rotate(' +
-          this.degree2.toString() +
+          '@keyframes loading-2 {0% {-webkit-transform: rotate(0deg);' +
+          'transform: rotate(0deg)}100% {-webkit-transform: rotate(180deg);' +
+          'transform: rotate(' +
+          this.degreeSecondHalf.toString() +
           'deg)}}';
       }
     }
