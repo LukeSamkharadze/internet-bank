@@ -32,10 +32,11 @@ export class InvoiceDetailsComponent {
     }
   }
 
-  getPrice(): { subtotal: number; tax: number } {
+  getPrice(): { subtotal: number; tax: number; total: number } {
     return {
-      subtotal: this.invoice.totalAmount / 1.1,
-      tax: this.invoice.totalAmount / 11,
+      subtotal: this.invoice.totalAmount,
+      tax: this.invoice.totalAmount / 10,
+      total: this.invoice.totalAmount + this.invoice.totalAmount / 10,
     };
   }
 
