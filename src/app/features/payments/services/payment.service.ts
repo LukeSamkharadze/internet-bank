@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BankPayment } from '../../shared/interfaces/payments/bankPayment.interface';
-import { ElectronicPayment } from '../../shared/interfaces/payments/electronicPayment.interface';
-import { InstantPayment } from '../../shared/interfaces/payments/instantPayment.interface';
+import { BankTransfer } from '../../shared/interfaces/transfers/bankTransfer.interface';
+import { ElectronicTransfer } from '../../shared/interfaces/transfers/electronicTransfer.interface';
+import { InstantTransfer } from '../../shared/interfaces/transfers/instantTransfer.interface';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { forkJoin, from, of } from 'rxjs';
-import { map, pluck, reduce, scan, switchMap, tap } from 'rxjs/operators';
+import { map, pluck, reduce, switchMap, tap } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
-import { UserService } from '../../shared/services/user.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { TransactionService } from '../../shared/services/transaction.service';
@@ -25,7 +24,7 @@ export class PaymentService {
 
   currentUsersCards$ = this.cardService.cards$;
 
-  bankTransfer(transfer: BankPayment) {
+  bankTransfer(transfer: BankTransfer) {
     return this.cardService
       .getCardByAccountNumber(transfer.fromAccountNumber)
       .pipe(
@@ -82,7 +81,7 @@ export class PaymentService {
       );
   }
 
-  electronicOrInstantTransfer(transfer: ElectronicPayment | InstantPayment) {
+  electronicOrInstantTransfer(transfer: ElectronicTransfer | InstantTransfer) {
     return this.cardService
       .getCardByAccountNumber(transfer.fromAccountNumber)
       .pipe(
@@ -130,7 +129,7 @@ export class PaymentService {
   }
 
   postTransactionToDb(
-    transfer: ElectronicPayment | BankPayment | InstantPayment
+    transfer: ElectronicTransfer | BankTransfer | InstantTransfer
   ) {
     return this.http.post(environment.BaseUrl + 'transactions', transfer);
   }
