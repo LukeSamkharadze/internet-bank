@@ -28,9 +28,7 @@ export class TransferService {
         switchMap((card) =>
           forkJoin([
             of(card),
-            this.cardService.getCardByAccountNumber(
-              transfer.toAccountNumber
-            ),
+            this.cardService.getCardByAccountNumber(transfer.toAccountNumber),
           ])
         ),
         tap(([fromAccount, destinationAccount]) => {
