@@ -1,7 +1,23 @@
 app-invoice-list {
   width: 846px;
   margin: 29px;
+  grid-row: 1/3;
 }
 app-create-invoice {
-  width: 18.19%;
+  width: 262px;
+  display: inline-block;
+  margin-right: 31px;
+  margin-top: 29px;
+  height: 344px;
+}
+div {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+app-features-shared-income-chart {
+  display: block;
+  width: 262px;
+  height: 347px;
+  margin-top: 22px;
 }

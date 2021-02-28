@@ -28,7 +28,7 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 786px) {
       width: 25px;
       height: 25px;
       margin-left: 0px;
@@ -40,7 +40,7 @@
       background-color: $primary;
       opacity: 0.1;
       border-radius: 50%;
-      @media screen and (max-width: 520px) {
+      @media screen and (max-width: 786px) {
         width: 25px;
         height: 25px;
       }
@@ -53,7 +53,7 @@
         text-align: center;
         font-size: 18px;
         color: $primary;
-        @media screen and (max-width: 520px) {
+        @media screen and (max-width: 786px) {
           font-size: 10px;
         }
       }
@@ -73,7 +73,7 @@
     .invoice {
       display: block;
     }
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 786px) {
       width: 70px;
     }
   }
@@ -83,17 +83,17 @@
     margin-left: 27%;
     height: 38px;
   }
-  @media screen and (max-width: 765px) {
+  @media screen and (max-width: 1170px) {
     .invoice-date-container {
       margin-left: 5%;
     }
   }
-  @media screen and (max-width: 565px) {
+  @media screen and (max-width: 834px) {
     .invoice-date-container {
       margin-left: 0%;
     }
   }
-  @media screen and (max-width: 520px) {
+  @media screen and (max-width: 786px) {
     p {
       font-size: 8px;
     }
@@ -123,7 +123,7 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 786px) {
       width: 50px;
       border-radius: 17px;
       height: 25px;
@@ -135,7 +135,7 @@
       border-radius: 50%;
       background-color: $secondary-2;
       display: inline-block;
-      @media screen and (max-width: 520px) {
+      @media screen and (max-width: 786px) {
         height: 5px;
         width: 5px;
       }
@@ -153,7 +153,7 @@
     align-items: center;
     box-sizing: border-box;
     justify-content: center;
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 786px) {
       width: 80px;
       border-radius: 17px;
       height: 25px;
@@ -165,7 +165,7 @@
       border-radius: 50%;
       background-color: $primary;
       display: inline-block;
-      @media screen and (max-width: 520px) {
+      @media screen and (max-width: 786px) {
         height: 5px;
         width: 5px;
       }
@@ -188,7 +188,7 @@
     align-items: center;
     box-sizing: border-box;
     justify-content: center;
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 786px) {
       width: 88px;
       border-radius: 17px;
       height: 25px;
@@ -199,7 +199,7 @@
       border-radius: 50%;
       background-color: $secondary-3;
       display: inline-block;
-      @media screen and (max-width: 520px) {
+      @media screen and (max-width: 786px) {
         height: 5px;
         width: 5px;
       }
@@ -208,6 +208,7 @@
 
   .invoice-more-icon {
     margin-left: auto;
+    margin-right: 10px;
     height: 38px;
     display: flex;
     align-items: center;
@@ -241,10 +242,11 @@ app-shared-tabs {
 }
 .gradient:after {
   position: absolute;
-  width: 100%;
+  width: 846px;
   content: '';
   height: 100px;
   bottom: 0px;
+  right: 0px;
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 1) 20%,
@@ -299,8 +301,9 @@ ul {
     font-family: $roboto;
     @include text-style(12px);
     border: 0px;
+    margin-right: 10px;
     text-transform: uppercase;
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 786px) {
       @include text-style(8x);
     }
   }

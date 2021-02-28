@@ -1,0 +1,71 @@
+@import '../../../../styles/index.scss';
+.create-new-invoice {
+  width: 100%;
+}
+:host {
+  display: inline-block;
+  width: 260px;
+  background-color: white;
+}
+.new-invoice-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    padding: 23px;
+    display: inline-block;
+    float: left;
+    @include text-style(16px);
+  }
+  i {
+    cursor: pointer;
+    float: right;
+    padding-right: 23px;
+  }
+}
+hr {
+  width: 100%;
+  color: #e8ecef;
+  opacity: 0.1;
+}
+
+.select-template {
+  width: 100%;
+  padding: 23px;
+  p {
+    @include text-style(14px);
+  }
+}
+app-shared-dropdown {
+  width: 100%;
+  height: 52px;
+}
+.information-body {
+  width: 100%;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-bottom: 23px;
+  p {
+    @include text-style(16px);
+    font-weight: 300;
+  }
+}
+.create-invoice-footer {
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-bottom: 23px;
+  display: flex;
+  align-items: center;
+  a {
+    display: inline-block;
+    @include text-style(12px);
+    font-weight: 500;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  i {
+    font-size: 18px;
+    color: $primary;
+  }
+}
