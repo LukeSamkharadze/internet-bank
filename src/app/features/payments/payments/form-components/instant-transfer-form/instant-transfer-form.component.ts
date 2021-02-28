@@ -53,7 +53,7 @@ export class InstantTransferFormComponent implements OnDestroy {
       };
       this.subscriptions.add(
         this.paymentService
-          .electronicOrInstantTransfer(transfer)
+          .instantTransfer(transfer)
           .pipe(
             tap(() => {
               alert('success');
