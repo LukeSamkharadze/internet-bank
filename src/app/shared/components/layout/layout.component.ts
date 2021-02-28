@@ -1,34 +1,39 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import { CardService } from '../../../features/shared/services/card.service';
 import { Router } from '@angular/router';
-import { AppRoutingModule } from '../../../app-routing.module';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-shared-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
-  providers: [CardService],
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, OnDestroy {
   public menuIsActive = false;
-  public contentTitlte = 'DASHBOARD';
+  public contentTitle = 'DASHBOARD';
   public cardArray: Array<string> = [];
   public cardTypeArray: Array<string> = [];
   public contentMainHeight;
+  private subscription: Subscription;
 
-  @ViewChild('mainNav')
-  mainNav: ElementRef;
+  @ViewChild('mainNav') mainNav: ElementRef;
 
-  @ViewChild('bottomNav')
-  bottomNav: ElementRef;
+  @ViewChild('bottomNav') bottomNav: ElementRef;
 
-  @ViewChild('contentMain')
-  contentMain: ElementRef;
+  @ViewChild('contentMain') contentMain: ElementRef;
 
   constructor(private cardService: CardService, private router: Router) {}
+
   redirectToDashboard() {
-    this.contentTitlte = 'DASHBOARD';
+    this.contentTitle = 'DASHBOARD';
     this.router.navigate(['/dashboard']);
   }
+
   getMainContentMinHeight() {
     setTimeout(() => {
       if (this.cardArray.length === 0) {
@@ -42,21 +47,10 @@ export class LayoutComponent implements OnInit {
       }
     });
   }
+
   ngOnInit() {
-    this.cardService.subj.subscribe(() => {
-      this.cardService.getAll().subscribe((response) => {
-        this.cardArray = response.map((v) => {
-          console.log(v);
-          return v.cardNumber.toString().slice(-4);
-        });
-        this.cardTypeArray = response.map((v) => {
-          console.log(v);
-          return v.cardType;
-        });
-        this.getMainContentMinHeight();
-      });
-    });
-    this.cardService.getAll().subscribe((response) => {
+    this.subscription = this.cardService.cards$.subscribe((response) => {
+      this.cardArray = [];
       for (const card of response) {
         const cardNum = card.cardNumber.toString();
         this.cardArray.push(cardNum.slice(-4));
@@ -64,5 +58,10 @@ export class LayoutComponent implements OnInit {
       }
       this.getMainContentMinHeight();
     });
+  }
+
+  ngOnDestroy() {
+    console.log('ae');
+    this.subscription.unsubscribe();
   }
 }

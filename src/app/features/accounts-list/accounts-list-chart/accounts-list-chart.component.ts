@@ -33,7 +33,7 @@ export class AccountsListChartComponent implements AfterViewInit {
   getAmount(): string {
     return this.info.data[this.info.data.length - 1]
       .toString()
-      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, '.');
+      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
   }
 
   getArrowClass(): string {

@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup">
+  <div class="payment-wrap">
+    <h5>Payment limits</h5>
+    <div class="payment-box">
+      <app-payment-limits-section
+        formControlName="limitWithdraw"
+        [currentName]="'limitWithdraw'"
+        [title]="'Cash withdrawals'"
+        [spending]="1"
+        (shChange)="onChange($event)"
+      ></app-payment-limits-section>
+
+      <app-payment-limits-section
+        formControlName="limitBank"
+        [currentName]="'limitBank'"
+        [title]="'Bank transactions'"
+        [spending]="bankSpending"
+        (shChange)="onChange($event)"
+      >
+      </app-payment-limits-section>
+      <app-payment-limits-section
+        formControlName="limitOnline"
+        [currentName]="'limitOnline'"
+        [title]="'Online payments'"
+        [spending]="onlineSpending"
+        (shChange)="onChange($event)"
+      >
+      </app-payment-limits-section>
+
+      <div class="payment-buttons primary buttons">
+        <app-shared-button
+          [className]="{ primary: true, active: true }"
+          style="width: 170px; height: 50px"
+          (clicked)="onUpdate($event)"
+          >UPDATE SETTINGS</app-shared-button
+        >
+        <app-shared-button
+          [className]="{ primary: true, active: false }"
+          style="width: 148px; height: 50px"
+          (clicked)="onCancel($event)"
+          >Cancel</app-shared-button
+        >
+      </div>
+    </div>
+  </div>
+</form>

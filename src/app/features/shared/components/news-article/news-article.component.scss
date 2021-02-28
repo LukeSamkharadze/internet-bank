@@ -2,8 +2,9 @@
 
 .container {
   max-height: 806px;
+  min-height: 500px;
   width: 100%;
-  min-width: 570px;
+  min-width: 300px;
 
   > :not(:first-child) {
     padding: 0 16px;
@@ -12,6 +13,7 @@
   img {
     width: 100%;
     height: 311px;
+    object-fit: cover;
     overflow: hidden;
   }
 

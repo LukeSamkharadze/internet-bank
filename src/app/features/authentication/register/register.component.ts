@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
+import { ILimits } from '../../payment-limits/payment-interfaces';
 import { AuthService } from '../../shared/services/auth.service';
+import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { UserService } from '../../shared/services/user.service';
 import { formAnimations } from '../../shared/animations/formAnimation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +37,9 @@ export class RegisterComponent {
 
   constructor(
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
+    private userLimits: PaymentLimitsService
   ) {}
 
   // Uppercase user's fullname
@@ -65,6 +70,17 @@ export class RegisterComponent {
               // Logging in a User and redirecting to 'Dashboard'
               this.authService.loggingIn(user);
             });
+
+          // Add user limits on DB
+
+          const limits: ILimits = {
+            bankLimit: 5000,
+            onlineLimit: 5000,
+            cashLimit: 5000,
+            id: regUser.id,
+          };
+
+          this.userLimits.createUserLimits(limits).subscribe();
         } else {
           alert(
             `The email address '${this.emailFormControl.value}' has already been registered!\nPlease provide another email!`
