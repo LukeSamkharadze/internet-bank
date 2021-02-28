@@ -5,7 +5,9 @@ import { ICard } from '../../shared/interfaces/card.interface';
 import { IDeposit } from '../../shared/interfaces/deposit.interface';
 import { ILoan } from '../../shared/interfaces/loan.interface';
 import { CardService } from '../../shared/services/card.service';
+import { DateFormatterService } from '../../shared/services/date-formatter.service';
 import { DepositService } from '../../shared/services/deposit.service';
+import { FormatterService } from '../../shared/services/formatter.service';
 import { LoanService } from '../../shared/services/loan.service';
 import IItem from '../models/list-item.entity';
 
@@ -14,13 +16,15 @@ export class AccountsListInfoService {
   constructor(
     private cardService: CardService,
     private depositService: DepositService,
-    private loanService: LoanService
+    private loanService: LoanService,
+    private formatService: FormatterService,
+    private dateService: DateFormatterService
   ) {}
 
   // Getter Functions
 
   getCards(): Observable<ICard[]> {
-    return this.cardService.subj.pipe(
+    return this.cardService.cards$.pipe(
       startWith(true),
       switchMap(() => this.cardService.getAll())
     );
@@ -45,6 +49,9 @@ export class AccountsListInfoService {
   depositToInfo(deposit: IDeposit): IItem {
     const accured = deposit.accured || 0;
     const balance = deposit.balance || 0;
+    const [day, month, year] = deposit.expirationDate
+      .split('.')
+      .map((v) => Number(v));
     return [
       {
         title: 'Name',
@@ -52,19 +59,22 @@ export class AccountsListInfoService {
       },
       {
         title: 'Balance',
-        value: this.formatBalance(balance),
+        value: this.formatService.formatBalance(balance, { currency: '$' }),
       },
       {
         title: 'Accured',
-        value: this.formatBalance(accured),
+        value: this.formatService.formatBalance(accured, { currency: '$' }),
       },
       {
         title: 'Rate',
-        value: this.formatPercent(deposit.depositRate),
+        value: this.formatService.formatBalance(
+          Math.round(deposit.depositRate * 100),
+          { currency: '%', toRight: true }
+        ),
       },
       {
         title: 'End date',
-        value: this.formatDate(deposit.expirationDate),
+        value: this.dateService.formatDate('mmm yyyy', year, month, day),
       },
     ];
   }
@@ -75,15 +85,17 @@ export class AccountsListInfoService {
     return [
       {
         title: 'Card number',
-        value: this.formatCardNumber(card.cardNumber.toString()),
+        value: this.formatService.cardNumberHideMiddle(card.cardNumber),
       },
       {
         title: 'Balance',
-        value: this.formatBalance(balance),
+        value: this.formatService.formatBalance(balance, { currency: '$' }),
       },
       {
         title: 'Blocked amount',
-        value: this.formatBalance(balance - available),
+        value: this.formatService.formatBalance(balance - available, {
+          currency: '$',
+        }),
       },
       {
         title: 'Valid',
@@ -106,69 +118,23 @@ export class AccountsListInfoService {
       },
       {
         title: 'Amount',
-        value: this.formatBalance(amount),
+        value: this.formatService.formatBalance(amount, { currency: '$' }),
       },
       {
         title: 'Paid amount',
-        value: this.formatBalance(paid),
+        value: this.formatService.formatBalance(paid, { currency: '$' }),
       },
       {
         title: 'Rate',
-        value: this.formatPercent(loan.loanRate),
+        value: this.formatService.formatBalance(
+          Math.round(loan.loanRate * 100),
+          { currency: '%', toRight: true }
+        ),
       },
       {
         title: 'Status',
         value: loan.blocked ? 'Paid' : 'Active',
       },
     ];
-  }
-
-  // Helper Functions
-
-  formatCardNumber(strnum: string): string {
-    return (
-      strnum.substr(0, 4) +
-      Array(3).fill(' ').join(Array(5).join('*')) +
-      strnum.substr(-4, 4)
-    );
-  }
-
-  formatBalance(num: number): string {
-    return (
-      '$' +
-      (num || num.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    );
-  }
-
-  formatDate(strdate: string): string {
-    const monthNames = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    const expiration = new Date(
-      `${strdate.substr(3, 2)}.${strdate.substr(0, 2)}. ${strdate.substr(
-        -4,
-        4
-      )}`
-    );
-
-    return `${monthNames[expiration.getMonth()].substr(
-      0,
-      3
-    )} ${expiration.getFullYear()}`;
-  }
-
-  formatPercent(num: number): string {
-    return Math.round(num * 100) + '%';
   }
 }

@@ -1,7 +1,9 @@
 <div class="list">
   <div class="header">
     <p class="name">Open Deposit</p>
-    <p class="new"><i class="las la-plus-circle"></i>New deposit</p>
+    <p [routerLink]="'create-deposit'" class="new">
+      <i class="las la-plus-circle"></i>New deposit
+    </p>
   </div>
   <div class="items">
     <app-accounts-list-item

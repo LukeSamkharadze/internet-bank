@@ -1,7 +1,9 @@
 <div class="list">
   <div class="header">
     <p class="name">Your Credits</p>
-    <p class="new"><i class="las la-plus-circle"></i>New credit</p>
+    <p [routerLink]="'create-loan'" class="new">
+      <i class="las la-plus-circle"></i>New credit
+    </p>
   </div>
   <div class="items">
     <app-accounts-list-item
