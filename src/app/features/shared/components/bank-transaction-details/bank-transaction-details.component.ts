@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Transaction } from './models/transaction.model';
-import FastAverageColor from 'fast-average-color'; // npm install fast-average-color
+import { Itransaction } from '../../interfaces/bank-transactions.interface';
+import { sample } from './models/sample.model';
+import FastAverageColor from 'fast-average-color';
 
 @Component({
   selector: 'app-shared-bank-transaction-details',
@@ -8,14 +9,7 @@ import FastAverageColor from 'fast-average-color'; // npm install fast-average-c
   styleUrls: ['./bank-transaction-details.component.scss'],
 })
 export class BankTransactionDetailsComponent implements OnInit {
-  @Input() transaction: Transaction = {
-    title: 'Default Title',
-    status: 'Paid',
-    cardNumber: 1234,
-    amount: '- $0',
-    date: '2021/02/02 11:42 PM',
-    icon: './assets/transfers/default.png',
-  };
+  @Input() transaction: Itransaction = sample;
   @Output() closePopup = new EventEmitter();
   @Output() sendReceipt = new EventEmitter();
   background = '#fff';
@@ -23,12 +17,13 @@ export class BankTransactionDetailsComponent implements OnInit {
   error: string;
   showTag = true;
   tagColor = 'orange';
+  accNum = this.transaction.fromAccountNumber.toString();
 
   ngOnInit() {
     if (this.transaction) {
       const fac = new FastAverageColor();
       fac
-        .getColorAsync(this.transaction.icon)
+        .getColorAsync(this.transaction.iconPath)
         .then((data) => {
           this.background = data.hex;
           this.opacity = '100%';
@@ -63,7 +58,7 @@ export class BankTransactionDetailsComponent implements OnInit {
     this.showTag = false;
   }
 
-  receipt(object: Transaction) {
+  receipt(object: Itransaction) {
     this.sendReceipt.emit(object);
   }
 }

@@ -10,7 +10,7 @@
     <div class="details-popup-lower">
       <div class="details-popup-lower-logo">
         <img
-          [src]="transaction.icon"
+          [src]="transaction.iconPath"
           alt="Transaction Icon"
           onerror="this.src='./assets/transfers/default.png'"
         />
@@ -30,7 +30,7 @@
       </div>
       <div class="details-popup-lower-transaction">
         <div class="details-popup-lower-transaction-account">
-          <h5>xxxx {{ transaction.cardNumber }}</h5>
+          <h5>xxxx {{ accNum.substring(12) }}</h5>
           <p>Payment account</p>
         </div>
         <div class="details-popup-lower-transaction-amount">
