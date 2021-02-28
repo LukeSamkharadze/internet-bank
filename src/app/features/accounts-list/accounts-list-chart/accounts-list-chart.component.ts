@@ -15,9 +15,8 @@ import { AccountsListChartService } from '../services/accounts-list-chart.servic
 })
 export class AccountsListChartComponent implements AfterViewInit {
   @Input() info: IItem;
-  @ViewChild('chart', { static: true }) chartCanvas: ElementRef<
-    HTMLCanvasElement
-  >;
+  @ViewChild('chart', { static: true })
+  chartCanvas: ElementRef<HTMLCanvasElement>;
 
   constructor(public chartService: AccountsListChartService) {}
 

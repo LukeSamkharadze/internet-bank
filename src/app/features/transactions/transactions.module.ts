@@ -4,10 +4,7 @@ import { TransactionsRoutingModule } from './transactions-routing.module';
 import { TransactionsComponent } from './transactions.component';
 
 @NgModule({
-  imports: [
-    FeaturesSharedModule,
-    TransactionsRoutingModule
-  ],
-  declarations: [TransactionsComponent]
+  imports: [FeaturesSharedModule, TransactionsRoutingModule],
+  declarations: [TransactionsComponent],
 })
-export class TransactionsModule { }
+export class TransactionsModule {}
