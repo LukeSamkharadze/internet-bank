@@ -45,7 +45,7 @@ export class FormatterService {
       (toFixed ? balance.toFixed(toFixed) : balance) || balance.toFixed(2)
     )
       .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     return toRight ? formattedBalance + currency : currency + formattedBalance;
   }
 

@@ -70,11 +70,16 @@
 }
 
 .icon::ng-deep {
+  cursor: pointer;
+  outline: none;
+
   i {
     margin: 0 auto;
   }
 
   img {
     margin: 0 auto;
+    width: 60%;
+    height: 40%;
   }
 }
