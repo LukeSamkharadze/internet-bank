@@ -6,7 +6,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { CardService } from '../../../features/shared/services/card.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-shared-layout',
@@ -47,8 +47,20 @@ export class LayoutComponent implements OnInit, OnDestroy {
       }
     });
   }
-
+  getContentTitle() {
+    if (this.router.url.split('/')[1].toUpperCase() === 'ACCOUNTS-LIST') {
+      this.contentTitle = 'PRODUCTS';
+    } else {
+      this.contentTitle = this.router.url.split('/')[1].toUpperCase();
+    }
+  }
   ngOnInit() {
+    this.router.events.subscribe((response) => {
+      if (response instanceof NavigationEnd) {
+        this.getContentTitle();
+      }
+    });
+    this.getContentTitle();
     this.subscription = this.cardService.cards$.subscribe((response) => {
       this.cardArray = [];
       for (const card of response) {
@@ -61,7 +73,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('ae');
     this.subscription.unsubscribe();
   }
 }
