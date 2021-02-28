@@ -3,14 +3,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { CardService } from '../shared/services/card.service';
 import { AuthService } from '../shared/services/auth.service';
+import { fadeInOut } from '../shared/animations';
 
 @Component({
   selector: 'app-features-create-card',
   templateUrl: './create-card.component.html',
   styleUrls: ['./create-card.component.scss'],
+  animations: [fadeInOut],
 })
 export class CreateCardComponent implements OnInit {
   form: FormGroup;
+  cardType: '' | 'Mastercard' | 'Visa card';
+  cardIconUrl = '';
+
+  // Determine card icon based on card type
+  determineCard() {
+    const firstNum = this.formCtrlVal('cardNumber')[0];
+    switch (firstNum) {
+      case '4':
+        return (
+          (this.cardType = 'Visa card'),
+          (this.cardIconUrl = `./assets/cards/visa.svg`)
+        );
+      case '5':
+        return (
+          (this.cardType = 'Mastercard'),
+          (this.cardIconUrl = `./assets/cards/mastercard.svg`)
+        );
+      default:
+        return (this.cardIconUrl = ''), (this.cardType = '');
+    }
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -18,10 +41,13 @@ export class CreateCardComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  makeInputUpperCase(input: string) {
-    this.form
-      .get(`${input}`)
-      .setValue(this.form.get(`${input}`).value.toUpperCase());
+  // Get formControl value
+  formCtrlVal(name: string) {
+    return this.form.get(name).value;
+  }
+
+  makeInputUpperCase(formCtrl: string) {
+    this.form.get(formCtrl).setValue(this.formCtrlVal(formCtrl).toUpperCase());
   }
 
   makeInputTransforms() {
@@ -32,7 +58,7 @@ export class CreateCardComponent implements OnInit {
     // Concat 'GE32TB' to the Account Number
     this.form
       .get('accountNumber')
-      .setValue('GE32TB' + this.form.get('accountNumber').value);
+      .setValue('GE32TB' + this.formCtrlVal('accountNumber'));
   }
 
   // Adding Card on Server using Service
