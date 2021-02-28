@@ -7,9 +7,11 @@ import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
   selector: 'app-payment-providers',
   templateUrl: './payment-providers.component.html',
   styleUrls: ['./payment-providers.component.scss'],
+  providers: [ProvidersService],
 })
 export class PaymentProvidersComponent implements OnInit {
-  public allPaymentTypes$ = this.providerService.getPaymentTypes();
+  public allPaymentTypes$ = this.providerService.paymentTypes$;
+
   search = new FormControl('');
   constructor(private providerService: ProvidersService) {}
 
@@ -21,7 +23,7 @@ export class PaymentProvidersComponent implements OnInit {
   }
 
   onSearch(userFilter: string = ''): void {
-    this.allPaymentTypes$ = this.providerService.getPaymentTypes(userFilter);
+    this.providerService.onSearch(userFilter);
   }
 
   ngOnInit() {
@@ -39,5 +41,9 @@ export class PaymentProvidersComponent implements OnInit {
       this.search.setValue('', { emitEvent: false });
       this.onSearch();
     }
+  }
+
+  trackByFn(index, item) {
+    return item.name;
   }
 }

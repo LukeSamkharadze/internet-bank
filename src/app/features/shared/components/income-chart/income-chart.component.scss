@@ -57,7 +57,7 @@
   @include Flex(space-between, flex-start);
   @include size(100%, 100%);
   .right-legend {
-    width: 30%;
+    width: 100px;
     padding: 10px 0px;
     background-color: $background-2;
     border-radius: 18px;
@@ -84,6 +84,7 @@
 }
 .chart-container {
   position: relative;
+  overflow: auto;
   @include Flex(center, center);
   @include size(100%, 100%);
 }

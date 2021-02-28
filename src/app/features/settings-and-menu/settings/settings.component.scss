@@ -1,0 +1,88 @@
+@import 'src/styles/index';
+.generalSettings {
+  max-width: 877px;
+  width: 100%;
+  padding-top: 18px;
+
+  .settingsInfo {
+    width: 100%;
+
+    .userInfo {
+      padding-top: 30px;
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 24px;
+        grid-row-gap: 22px;
+        width: 703px;
+        .dropdownContainer {
+          .dropdown-general {
+            color: $primary-dark;
+            width: 339px;
+            .selected {
+              margin-top: 10px;
+            }
+          }
+        }
+        .validation {
+          padding-top: 5px;
+          small {
+            font-size: 10px;
+            color: red;
+          }
+        }
+
+        .lastName {
+          grid-column: 2/2;
+        }
+
+        .buttons {
+          display: flex;
+          padding: 40px 0px 20px 0px;
+          app-shared-button {
+            margin-right: 15px;
+          }
+        }
+        .cancel {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .generalInfo {
+      margin-bottom: 25px;
+      font-size: 16px;
+      color: $primary-dark;
+      font-weight: 400;
+    }
+    .userProfile {
+      width: 703px;
+      border: 1px solid $outline;
+      display: flex;
+      align-items: center;
+      border-radius: 7px;
+      padding: 27px 0px 27px 26px;
+      overflow-y: auto;
+      .profilePic {
+        width: 67px;
+        height: 67px;
+        background-color: $outline;
+        border-radius: 50%;
+        padding: 3px 5px;
+      }
+
+      p {
+        font-size: 18px;
+        font-weight: 400;
+        color: $primary-dark;
+        margin-left: 19px;
+        margin-top: -5px;
+      }
+    }
+  }
+}

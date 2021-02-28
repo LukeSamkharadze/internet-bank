@@ -10,7 +10,7 @@
       <div class="main-nav" #mainNav>
         <a
           class="main-nav-item"
-          (click)="contentTitlte = 'DASHBOARD'"
+          (click)="contentTitle = 'DASHBOARD'"
           [routerLink]="'dashboard'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -21,7 +21,8 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitlte = 'TRANSACTIONS'"
+          (click)="contentTitle = 'TRANSACTIONS'"
+          [routerLink]="'transactions'"
           [routerLinkActive]="['nav-item-active']"
         >
           <div class="main-nav-icon">
@@ -31,7 +32,7 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitlte = 'PRODUCTS'"
+          (click)="contentTitle = 'PRODUCTS'"
           [routerLink]="'accounts-list'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -42,7 +43,7 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitlte = 'PAYMENTS'"
+          (click)="contentTitle = 'PAYMENTS'"
           [routerLink]="'payments'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -53,7 +54,7 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitlte = 'NEWS'"
+          (click)="contentTitle = 'NEWS'"
           [routerLink]="'news'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -64,7 +65,7 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitlte = 'INVOICES'"
+          (click)="contentTitle = 'INVOICES'"
           [routerLinkActive]="['nav-item-active']"
         >
           <div class="main-nav-icon">
@@ -122,7 +123,7 @@
           <div class="burger-menu-line"></div>
           <div class="burger-menu-line"></div>
         </div>
-        <h3 class="content-dashboard-title">{{ contentTitlte }}</h3>
+        <h3 class="content-dashboard-title">{{ contentTitle }}</h3>
       </div>
       <div class="test" style="padding-right: 50px">
         <ng-content select="[header-profile]"></ng-content>
@@ -138,7 +139,7 @@
       </div>
     </div>
     <div class="footer">
-      <div class="footer-text">© 2019 TBC Banking - All Rights Reserved.</div>
+      <div class="footer-text">© 2021 TBC Banking - All Rights Reserved.</div>
     </div>
   </div>
 </main>

@@ -1,11 +1,30 @@
-<app-shared-tabs [tabElementInput]="tabNames" style="width: 100%">
-  <ng-template>
-    <app-news-list [newsCategory]="'Latest News'"></app-news-list>
-  </ng-template>
-  <ng-template>
-    <app-news-list [newsCategory]="'Trending News'"></app-news-list>
-  </ng-template>
-  <ng-template>
-    <app-news-list [newsCategory]="'Most Popular'"></app-news-list>
-  </ng-template>
-</app-shared-tabs>
+<div class="news-container">
+  <!--left part-->
+  <div class="news-left-part">
+    <app-shared-tabs [tabElementInput]="tabNames" style="width: 100%">
+      <ng-template>
+        <app-news-list [newsCategory]="'Latest News'"></app-news-list>
+      </ng-template>
+      <ng-template>
+        <app-news-list [newsCategory]="'Trending News'"></app-news-list>
+      </ng-template>
+      <ng-template>
+        <app-news-list [newsCategory]="'Most Popular'"></app-news-list>
+      </ng-template>
+    </app-shared-tabs>
+  </div>
+  <!--right part -->
+  <div class="news-right-part">
+    <div *ngFor="let article of newsArticles">
+      <app-features-shared-news-article
+        [src]="article.imageUrl"
+        [alt]="article.imgAlt"
+        [header]="article.title"
+        [articleReleaseDate]="article.releaseDate"
+        class="news-article"
+      >
+        <p>{{ article.content }}</p>
+      </app-features-shared-news-article>
+    </div>
+  </div>
+</div>

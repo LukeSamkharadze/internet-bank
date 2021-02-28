@@ -1,0 +1,20 @@
+<div class="settingsAndMenu">
+  <div class="routerContainer">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="menu">
+    <div class="menuTabs">
+      <a [routerLink]="['/settings/general']" routerLinkActive="active"
+        >General information</a
+      >
+      <!-- ENTER YOUR PATHS BELOW LIKE THE UPPER ONE ^^^     -->
+
+      <a [routerLink]="['#']" routerLinkActive="active">Security</a>
+      <a [routerLink]="['/settings/limits']" routerLinkActive="active"
+        >Payment limits</a
+      >
+      <a routerLink="#" routerLinkActive="active">Notifications</a>
+    </div>
+  </div>
+</div>

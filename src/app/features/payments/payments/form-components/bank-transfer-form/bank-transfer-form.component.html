@@ -15,7 +15,7 @@
       <ng-template #account let-option>
         <div class="account">
           <img [src]="option['iconPath']" />
-          <span>{{ option['cardNumber'] }}</span>
+          <span>{{ option['cardNumber'] | hideNums }}</span>
           <span class="amount"
             >{{ option['availableAmount'] | currency }}
           </span>
@@ -42,15 +42,14 @@
         <span
           [@errorTrigger]
           *ngIf="
-            destinationAccountNumber.hasError('required') &&
-            destinationAccountNumber.touched
+            toAccountNumber.hasError('required') && toAccountNumber.touched
           "
           >Required</span
         ></label
       >
       <app-shared-input
         inputId="destination-account-number"
-        formControlName="destinationAccountNumber"
+        formControlName="toAccountNumber"
         placeholder="Enter account number"
       ></app-shared-input>
     </div>
@@ -123,18 +122,21 @@
         >Transfer type
         <span
           [@errorTrigger]
-          *ngIf="transferType.hasError('required') && transferType.touched"
+          *ngIf="
+            bankTransferType.hasError('required') && bankTransferType.touched
+          "
           >Required</span
         ></label
       >
       <app-shared-dropdown
         [ngClass]="{
-          'invalid-dropdown': transferType.errors && transferType.touched,
-          'valid-dropdown': !transferType.errors
+          'invalid-dropdown':
+            bankTransferType.errors && bankTransferType.touched,
+          'valid-dropdown': !bankTransferType.errors
         }"
         placeholder="Select transfer type"
         [options]="['Personal transfer']"
-        formControlName="transferType"
+        formControlName="bankTransferType"
       >
       </app-shared-dropdown>
     </div>

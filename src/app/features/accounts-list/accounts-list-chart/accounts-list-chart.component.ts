@@ -15,9 +15,8 @@ import { AccountsListChartService } from '../services/accounts-list-chart.servic
 })
 export class AccountsListChartComponent implements AfterViewInit {
   @Input() info: IItem;
-  @ViewChild('chart', { static: true }) chartCanvas: ElementRef<
-    HTMLCanvasElement
-  >;
+  @ViewChild('chart', { static: true })
+  chartCanvas: ElementRef<HTMLCanvasElement>;
 
   constructor(public chartService: AccountsListChartService) {}
 
@@ -31,7 +30,7 @@ export class AccountsListChartComponent implements AfterViewInit {
   getAmount(): string {
     return this.info.data[this.info.data.length - 1]
       .toString()
-      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, '.');
+      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
   }
 
   getArrowClass(): string {
