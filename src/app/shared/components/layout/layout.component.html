@@ -69,7 +69,10 @@
           class="accounts-inner"
           *ngFor="let cardNumber of cardArray; let i = index"
         >
-          <a class="accounts-item">
+          <a
+            class="accounts-item"
+            [routerLink]="['/card-view/card/', cardIdArray[i]]"
+          >
             <div class="accounts-icon">
               <div class="accounts-icon-wrapper">
                 <i
