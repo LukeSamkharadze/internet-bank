@@ -306,6 +306,7 @@ ul {
     border: 0;
     margin-right: 10px;
     text-transform: uppercase;
+    outline: none;
     @media screen and (max-width: 838px) {
       @include text-style(10x);
     }
