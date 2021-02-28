@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BankTransfer } from '../../shared/interfaces/bankTransfer.entity';
-import { ElectronicTransfer } from '../../shared/interfaces/electronicTransfer.entity';
-import { InstantTransfer } from '../../shared/interfaces/instantTransfer.entity';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
-import { forkJoin, Observable, of, throwError } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
+import { BankTransfer } from '../../shared/interfaces/transfers/bankTransfer.interface';
+import { InstantTransfer } from '../../shared/interfaces/transfers/instantTransfer.interface';
+import { ElectronicTransfer } from '../../shared/interfaces/transfers/electronicTransfer.interface';
 
 @Injectable()
 export class TransferService {
@@ -18,7 +18,7 @@ export class TransferService {
   bankOrInstantTransfer(transfer: BankTransfer | InstantTransfer) {
     // payments limitsze checki daemateba roca damerjaven masterze.
     return this.cardService
-      .getCardByCardNumber(transfer.fromAccount.cardNumber)
+      .getCardByCardNumber(transfer.fromAccountNumber)
       .pipe(
         tap((card) => {
           if (card.availableAmount < transfer.amount) {
@@ -29,7 +29,7 @@ export class TransferService {
           forkJoin([
             of(card),
             this.cardService.getCardByAccountNumber(
-              transfer.destinationAccountNumber
+              transfer.toAccountNumber
             ),
           ])
         ),
@@ -53,10 +53,10 @@ export class TransferService {
   }
 
   electronicTransfer(transfer: ElectronicTransfer) {
-    // payments limitsze checki daemateba roca damerjaven masterze.
+    // transfers limitsze checki daemateba roca damerjaven masterze.
     return new Observable((subscriber) => {
       this.cardService
-        .getCardByCardNumber(transfer.fromAccount.cardNumber)
+        .getCardByCardNumber(transfer.fromAccountNumber)
         .subscribe((acc) => {
           const fromAccount: ICard = acc[0]; // logged in user's card.
           if (fromAccount.availableAmount < transfer.amount) {
@@ -91,8 +91,8 @@ export class TransferService {
   ) {
     const transferForDb = {
       ...transfer,
-      fromAccount: transfer.fromAccount.accountNumber,
+      fromAccount: transfer.fromAccountNumber,
     };
-    return this.http.post(environment.BaseUrl + 'payments', transferForDb);
+    return this.http.post(environment.BaseUrl + 'transfers', transferForDb);
   }
 }

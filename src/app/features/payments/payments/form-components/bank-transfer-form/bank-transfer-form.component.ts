@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
 import { PaymentService } from '../../../services/payment.service';
-import { BankPayment } from '../../../../shared/interfaces/payments/bankPayment.interface';
+import { BankTransfer } from '../../../../shared/interfaces/transfers/bankTransfer.interface';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -47,7 +47,7 @@ export class BankTransferFormComponent implements OnDestroy {
 
   onSubmit(): void {
     if (this.form.valid) {
-      const transfer: BankPayment = {
+      const transfer: BankTransfer = {
         title: '', // will add in actual payment method.
         toUserId: '', // will add in actual payment method.
         date: new Date(),

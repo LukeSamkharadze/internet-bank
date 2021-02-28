@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { tap } from 'rxjs/operators';
-// import { ElectronicTransfer } from '../shared/interfaces/electronicTransfer.entity';
 import { AuthService } from '../shared/services/auth.service';
-// import { PaymentsGetterService } from '../shared/services/paymentsGetter.service';
 import { ILimits } from './payment-interfaces';
 import { PaymentLimitsService } from '../shared/services/payment-limits.service';
 import { TransactionService } from '../shared/services/transaction.service';
-import { Transfer } from '../shared/interfaces/payments/transfer.interface';
+import { Transfer } from '../shared/interfaces/transfers/transfer.interface';
 
 @Component({
   selector: 'app-payment-limits',
