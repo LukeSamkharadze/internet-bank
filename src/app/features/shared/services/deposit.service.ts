@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable, Subject } from 'rxjs';
-import { retry } from 'rxjs/operators';
+import { retry, take, tap } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import IBgColor from '../interfaces/background-color.interface';
@@ -13,13 +13,13 @@ import { BackgroundService } from './background.service';
   providedIn: 'root',
 })
 export class DepositService implements BaseHttpInterface<IDeposit> {
-  public update$ = new Subject<boolean>();
+  public update$ = new Subject<IDeposit[]>();
 
   constructor(
     private http: HttpClient,
     private auth: AuthService,
     private bgService: BackgroundService
-    ) {}
+  ) {}
   private readonly BACKGROUND_DIRECTORY = './assets/cards/backgrounds/';
   private readonly icons = new Map<DepositType, string>([
     ['Cumulative', 'las la-lock'],
@@ -27,6 +27,12 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
   private readonly colors = new Map<DepositType, IBgColor>([
     ['Cumulative', 'orange'],
   ]);
+
+  updateStore(): void {
+    this.getAll()
+      .pipe(take(1))
+      .subscribe((deposits) => this.update$.next(deposits));
+  }
 
   create(param: IDeposit): Observable<IDeposit> {
     return EMPTY;
@@ -50,9 +56,10 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
   }
 
   delete(id: number): Observable<void> {
-    return this.http
-      .delete<void>(`${environment.BaseUrl}deposits/${id}`)
-      .pipe(retry(1));
+    return this.http.delete<void>(`${environment.BaseUrl}deposits/${id}`).pipe(
+      retry(1),
+      tap(() => this.updateStore())
+    );
   }
 
   determineIcon(deposit: IDeposit): string {
