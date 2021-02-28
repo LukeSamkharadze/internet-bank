@@ -71,7 +71,7 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
       };
       this.subscriptions.add(
         this.paymentService
-          .electronicOrInstantTransfer(transfer)
+          .electronicTransfer(transfer)
           .pipe(
             tap(() => {
               alert('success');
