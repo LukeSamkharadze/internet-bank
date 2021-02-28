@@ -390,7 +390,7 @@
       "fromAccountNumber": "GE32TB3333111122224444",
       "fromAccountUserId": "2",
       "toAccountEmail": "payoneer@gmail.com",
-      "paymentSystem": "Payoneer",
+      "paymentSystem": "paypal",
       "amount": 66,
       "currency": "USD",
       "status": "pending",
