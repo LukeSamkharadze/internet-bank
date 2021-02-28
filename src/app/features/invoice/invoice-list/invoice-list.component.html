@@ -17,7 +17,7 @@
       <ul>
         <li *ngFor="let item of allInvoices">
           <div class="one-line-invoice">
-            <div class="invoice-groop">
+            <div class='invoice-group'>
               <div class="invoice-icon-container">
                 <div class="invoice-icon-circle"></div>
                 <div class="icon"><i class="las la-file-alt"></i></div>
@@ -69,7 +69,6 @@
               <div
                 class="invoice-more-icon"
                 (click)="popUp(item)"
-                (ngModel)="(item)"
               >
                 <i class="las la-ellipsis-h"></i>
               </div>
@@ -85,7 +84,7 @@
       <ul>
         <li *ngFor="let item of paidInvoices">
           <div class="one-line-invoice">
-            <div class="invoice-groop">
+            <div class='invoice-group'>
               <div class="invoice-icon-container">
                 <div class="invoice-icon-circle"></div>
                 <div class="icon"><i class="las la-file-alt"></i></div>
@@ -136,7 +135,7 @@
       <ul>
         <li *ngFor="let item of pendingInvoices">
           <div class="one-line-invoice">
-            <div class="invoice-groop">
+            <div class='invoice-group'>
               <div class="invoice-icon-container">
                 <div class="invoice-icon-circle"></div>
                 <div class="icon"><i class="las la-file-alt"></i></div>
@@ -187,7 +186,7 @@
       <ul>
         <li *ngFor="let item of cancelledInvoices">
           <div class="one-line-invoice">
-            <div class="invoice-groop">
+            <div class='invoice-group'>
               <div class="invoice-icon-container">
                 <div class="invoice-icon-circle"></div>
                 <div class="icon"><i class="las la-file-alt"></i></div>

@@ -1,5 +1,10 @@
-@import '../../../../styles/index.scss';
-.invoice-groop {
+@import './index.scss';
+
+:host{
+  display: block;
+}
+
+.invoice-group {
   display: flex;
   width: 100%;
   max-height: 718px;
@@ -31,7 +36,6 @@
     @media screen and (max-width: 786px) {
       width: 25px;
       height: 25px;
-      margin-left: 0px;
     }
 
     .invoice-icon-circle {
@@ -90,7 +94,7 @@
   }
   @media screen and (max-width: 834px) {
     .invoice-date-container {
-      margin-left: 0%;
+      margin-left: 0;
     }
   }
   @media screen and (max-width: 786px) {
@@ -245,8 +249,8 @@ app-shared-tabs {
   width: 846px;
   content: '';
   height: 100px;
-  bottom: 0px;
-  right: 0px;
+  bottom: 0;
+  right: 0;
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 1) 20%,
@@ -300,7 +304,7 @@ ul {
   input {
     font-family: $roboto;
     @include text-style(12px);
-    border: 0px;
+    border: 0;
     margin-right: 10px;
     text-transform: uppercase;
     @media screen and (max-width: 786px) {
