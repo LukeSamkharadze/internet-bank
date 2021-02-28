@@ -78,10 +78,10 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'new-invoice',
+        path: 'invoices',
         loadChildren: () =>
-          import('./features/new-invoice/new-invoice.module').then(
-            (m) => m.NewInvoiceModule
+          import('./features/invoice/invoice.module').then(
+            (m) => m.InvoiceModule
           ),
       },
     ],
