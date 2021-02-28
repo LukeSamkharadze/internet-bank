@@ -28,8 +28,8 @@ const routes: Routes = [
         path: 'sign-out',
         redirectTo: '/login',
         pathMatch: 'full',
-      }
-    ]
+      },
+    ],
   },
 ];
 

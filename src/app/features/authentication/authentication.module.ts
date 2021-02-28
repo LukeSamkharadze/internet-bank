@@ -7,7 +7,12 @@ import { FeaturesSharedModule } from '@features/shared';
 import { AuthenticationComponent } from './authentication.component';
 
 @NgModule({
-  declarations: [AuthenticationComponent, LoginComponent, RegisterComponent, RecoverComponent],
+  declarations: [
+    AuthenticationComponent,
+    LoginComponent,
+    RegisterComponent,
+    RecoverComponent,
+  ],
   imports: [AuthenticationRoutingModule, FeaturesSharedModule],
   providers: [],
 })

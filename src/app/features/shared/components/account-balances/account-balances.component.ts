@@ -46,7 +46,7 @@ export class AccountBalancesComponent
   instanceOfICard(object: any): object is ICard {
     return 'member' in object;
   }
-  
+
   ngOnDestroy() {
     this.accountBalancesService.balances$.unsubscribe();
   }

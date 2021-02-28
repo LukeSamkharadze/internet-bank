@@ -51,6 +51,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
   getContentTitle() {
     if (this.router.url.split('/')[1].toUpperCase() === 'ACCOUNTS-LIST') {
       this.contentTitle = 'PRODUCTS';
+    } else if (this.router.url.split('/')[1].toUpperCase() === 'CARD-VIEW') {
+      this.contentTitle = 'CARD DETAILS';
     } else {
       this.contentTitle = this.router.url.split('/')[1].toUpperCase();
     }

@@ -18,7 +18,11 @@
           </div>
           <div class="main-nav-title">DASHBOARD</div>
         </a>
-        <a class="main-nav-item" [routerLinkActive]="['nav-item-active']">
+        <a
+          class="main-nav-item"
+          [routerLink]="'transactions'"
+          [routerLinkActive]="['nav-item-active']"
+        >
           <div class="main-nav-icon">
             <i class="las la-redo"></i>
           </div>
@@ -71,6 +75,7 @@
         >
           <a
             class="accounts-item"
+            [routerLinkActive]="['account-item-active']"
             [routerLink]="['/card-view/card/', cardIdArray[i]]"
           >
             <div class="accounts-icon">
