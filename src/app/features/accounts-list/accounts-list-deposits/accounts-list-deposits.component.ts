@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { IDeposit } from '../../shared/interfaces/deposit.interface';
 import { DepositService } from '../../shared/services/deposit.service';
-import IItem from '../models/list-item.entity';
+import IItem from '../models/list-item.interface';
 import { AccountsListInfoService } from '../services/accounts-list-info.service';
 
 @Component({

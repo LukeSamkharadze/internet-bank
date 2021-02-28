@@ -7,7 +7,7 @@ import {
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
-import IItem from '../models/list-item.entity';
+import IItem from '../models/list-item.interface';
 import { AccountsListInfoService } from '../services/accounts-list-info.service';
 
 @Component({

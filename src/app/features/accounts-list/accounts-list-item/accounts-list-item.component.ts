@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import IItem from '../models/list-item.entity';
+import IItem from '../models/list-item.interface';
 
 @Component({
   selector: 'app-accounts-list-item',

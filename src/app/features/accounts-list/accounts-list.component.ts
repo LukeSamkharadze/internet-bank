@@ -4,7 +4,7 @@ import { concatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { ICard } from '../shared/interfaces/card.interface';
 import { IDeposit } from '../shared/interfaces/deposit.interface';
 import { ILoan } from '../shared/interfaces/loan.interface';
-import IItem from './models/chart-item.entity';
+import IItem from './models/chart-item.interface';
 import { AccountsListIncomeService } from './services/accounts-list-income.service';
 import { AccountsListInfoService } from './services/accounts-list-info.service';
 

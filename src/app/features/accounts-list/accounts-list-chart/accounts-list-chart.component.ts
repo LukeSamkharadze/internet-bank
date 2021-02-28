@@ -11,7 +11,7 @@ import {
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FormatterService } from '../../shared/services/formatter.service';
-import IItem from '../models/chart-item.entity';
+import IItem from '../models/chart-item.interface';
 import { AccountsListChartService } from '../services/accounts-list-chart.service';
 
 @Component({

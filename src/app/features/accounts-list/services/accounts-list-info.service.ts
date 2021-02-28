@@ -9,7 +9,7 @@ import { DateFormatterService } from '../../shared/services/date-formatter.servi
 import { DepositService } from '../../shared/services/deposit.service';
 import { FormatterService } from '../../shared/services/formatter.service';
 import { LoanService } from '../../shared/services/loan.service';
-import IItem from '../models/list-item.entity';
+import IItem from '../models/list-item.interface';
 
 @Injectable()
 export class AccountsListInfoService {
