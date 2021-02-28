@@ -5,19 +5,23 @@
 }
 
 .news-container {
-  padding: 18px;
+  padding: 28px;
+  gap: 28px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 
   .news-left-part {
     flex: 1;
-    min-width: 345px;
-    margin: 10px 14px;
+    min-width: 450px;
     padding-right: 10px;
     background: white;
   }
   @media screen and (max-width: 1055px) {
+    .news-container {
+      flex-direction: column;
+    }
+
     .news-left-part {
       height: 100vh;
       min-height: 600px;
@@ -28,9 +32,10 @@
   .news-right-part {
     flex: 1;
     padding-top: 25px;
-    margin: 10px 14px;
     background: white;
     height: fit-content;
+    min-width: 450px;
+
     div {
       display: flex;
       flex-direction: column;

@@ -1,6 +1,6 @@
 import { Transfer } from './transfer.interface';
 
-export interface InstantPayment extends Transfer {
+export interface InstantTransfer extends Transfer {
   instantTransferType: string;
   toAccountNumber: string;
 }

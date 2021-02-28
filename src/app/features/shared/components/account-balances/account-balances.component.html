@@ -28,7 +28,9 @@
       </div>
       <div class="balanceStats">
         <div class="card-position">
-          <div class="amount">${{ item.availableAmount }}</div>
+          <div class="amount">
+            {{ item.availableAmount | currency: 'USD':'symbol':'1.0-0' }}
+          </div>
           <div class="account-description balance-description">Balance</div>
         </div>
         <div class="arrowSpace">
