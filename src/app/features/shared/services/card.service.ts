@@ -95,7 +95,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       );
   }
 
-  private updateStore() {
+  updateStore() {
     this.getAll().subscribe((cards) =>
       this.store$.next((this.cardsArr = cards))
     );

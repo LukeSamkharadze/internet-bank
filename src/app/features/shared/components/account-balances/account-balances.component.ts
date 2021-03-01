@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ICard } from '../../interfaces/card.interface';
 import { IDeposit } from '../../interfaces/deposit.interface';
 
@@ -14,6 +15,8 @@ import { AccountBalancesService } from './services/account-balances.service';
 export class AccountBalancesComponent
   implements OnInit, AfterViewInit, OnDestroy {
   balance: Array<ICard | IDeposit>;
+  private subscription: Subscription;
+
   constructor(
     public accountBalancesService: AccountBalancesService,
     public transactionService: TransactionService,
@@ -25,7 +28,7 @@ export class AccountBalancesComponent
   }
 
   ngAfterViewInit() {
-    this.accountBalancesService.balances$.subscribe(
+    this.subscription = this.accountBalancesService.balances$.subscribe(
       (wholeBalance: Array<ICard | IDeposit>) => {
         for (const i of wholeBalance) {
           const index = wholeBalance.indexOf(i);
@@ -48,6 +51,6 @@ export class AccountBalancesComponent
   }
 
   ngOnDestroy() {
-    this.accountBalancesService.balances$.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
