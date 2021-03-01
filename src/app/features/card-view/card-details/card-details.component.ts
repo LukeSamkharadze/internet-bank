@@ -81,31 +81,28 @@ export class CardDetailsComponent implements OnInit {
 
   determineButtons(card$: Observable<ICard>): Observable<IButton[]> {
     return card$.pipe(
-      map((card) => {
-        let buttons: IButton[] = [
-          {
-            text: 'DELETE',
-            function: () => this.cardService.delete(card.id),
-            callBack: this.navigateToProducts.bind(this),
-          },
-        ];
-        if (!card.blocked) {
-          buttons = buttons.concat([
-            {
-              text: 'BLOCK',
-              function: () => {
-                const newCard$ = this.cardService.update({
-                  ...card,
-                  blocked: true,
-                });
-                this.buttons$ = this.determineButtons(newCard$);
-                return newCard$;
-              },
-            },
-          ]);
-        }
-        return buttons;
-      })
+      map((card) => [
+        {
+          text: 'DELETE',
+          function: () => this.cardService.delete(card.id),
+          callBack: this.navigateToProducts.bind(this),
+        },
+        this.getBlockButton(card),
+      ])
     );
+  }
+
+  getBlockButton(card: ICard): IButton {
+    return {
+      text: card.blocked ? 'UNBLOCK' : 'BLOCK',
+      function: () => {
+        const newCard$ = this.cardService.update({
+          ...card,
+          blocked: !card.blocked,
+        });
+        this.buttons$ = this.determineButtons(newCard$);
+        return newCard$;
+      },
+    };
   }
 }
