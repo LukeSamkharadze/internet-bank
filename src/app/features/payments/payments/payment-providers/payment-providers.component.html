@@ -27,7 +27,7 @@
         <div class="provider-details">
           <h5>{{ paymentType.name }}</h5>
           <p *ngFor="let provider of paymentType.providers; trackBy: trackByFn">
-            {{ provider.name
+            {{ provider.name | titlecase
             }}<span *ngIf="shouldAddComma(provider, paymentType.providers)"
               >,&nbsp;
             </span>

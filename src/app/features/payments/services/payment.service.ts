@@ -21,123 +21,137 @@ export class PaymentService {
     private paymentsLimitsService: PaymentLimitsService,
     private transactionService: TransactionService
   ) {}
-
   currentUsersCards$ = this.cardService.cards$;
 
   bankTransfer(transfer: BankTransfer) {
-    return this.cardService
-      .getCardByAccountNumber(transfer.fromAccountNumber)
-      .pipe(
-        tap((card) => {
-          if (card.availableAmount < transfer.amount) {
-            throw new Error('not enough balance');
-          }
-        }),
-        switchMap((card) =>
-          forkJoin([
-            of(card),
-            this.paymentsLimitsService.getById(this.authService.userId),
-            this.transactionService
-              .getBankSpendings(this.authService.userId)
-              .pipe(
-                map((bankTransfers) =>
-                  bankTransfers.reduce((acc, curr) => acc + curr.amount, 0)
-                )
-              ),
-          ])
-        ),
-        map(([card, limits, bankSpending]) => {
-          if (bankSpending + transfer.amount > limits.bankLimit) {
-            throw new Error('exceeds limits');
-          }
-          return card;
-        }),
-        switchMap((card) =>
-          forkJoin([
-            of(card),
-            this.cardService.getCardByAccountNumber(transfer.toAccountNumber),
-          ])
-        ),
-        tap(([fromAccount, destinationAccount]) => {
-          if (!destinationAccount) {
-            throw new Error('such user does not exist');
-          }
-          if (destinationAccount.accountNumber === fromAccount.accountNumber) {
-            throw new Error('Can not make payment on same account');
-          }
-          transfer = {
-            ...transfer,
-            toUserId: destinationAccount.userId,
-            title: `Bank transfer to user: ${destinationAccount.userId}`,
-          };
-        }),
-        switchMap(([fromAccount, destinationAccount]) => {
-          return forkJoin([
-            this.removeBalance(fromAccount, Number(transfer.amount)),
-            this.addBalance(destinationAccount, Number(transfer.amount), true),
-          ]);
-        }),
-        switchMap(() => this.postTransactionToDb(transfer))
-      );
+    return this.getCardAndValidateBalance(
+      transfer.fromAccountNumber,
+      transfer.amount
+    ).pipe(
+      switchMap((card) =>
+        forkJoin([of(card), this.checkBankPaymentsLimits(transfer.amount)])
+      ),
+      map(([card]) => {
+        return card;
+      }),
+      switchMap((card) =>
+        forkJoin([
+          of(card),
+          this.cardService.getCardByAccountNumber(transfer.toAccountNumber),
+        ])
+      ),
+      tap(([fromAccount, destinationAccount]) => {
+        if (!destinationAccount) {
+          throw new Error('such user does not exist');
+        }
+        if (destinationAccount.accountNumber === fromAccount.accountNumber) {
+          throw new Error('Can not make payment on same account');
+        }
+        transfer = {
+          ...transfer,
+          toUserId: destinationAccount.userId,
+          title: `Bank transfer to user: ${destinationAccount.userId}`,
+        };
+      }),
+      switchMap(([fromAccount, destinationAccount]) => {
+        return forkJoin([
+          this.removeBalance(fromAccount, Number(transfer.amount)),
+          this.addBalance(destinationAccount, Number(transfer.amount), true),
+        ]);
+      }),
+      switchMap(() => this.postTransactionToDb(transfer))
+    );
   }
 
   instantTransfer(transfer: InstantTransfer) {
-    return this.cardService
-      .getCardByAccountNumber(transfer.fromAccountNumber)
-      .pipe(
-        tap((card) => {
-          if (card.availableAmount < transfer.amount) {
-            throw new Error('not enough balance');
-          }
-          transfer = {
-            ...transfer,
-            title: `Instant transfer to ${transfer.toAccountNumber}`,
-          };
-        }),
-        switchMap((fromAccount) =>
-          this.removeBalance(fromAccount, Number(transfer.amount))
-        ),
-        switchMap(() => this.postTransactionToDb(transfer))
-      );
+    return this.getCardAndValidateBalance(
+      transfer.fromAccountNumber,
+      transfer.amount
+    ).pipe(
+      tap(() => {
+        transfer = {
+          ...transfer,
+          title: `Instant transfer to ${transfer.toAccountNumber}`,
+        };
+      }),
+      switchMap((fromAccount) =>
+        this.removeBalance(fromAccount, Number(transfer.amount))
+      ),
+      switchMap(() => this.postTransactionToDb(transfer))
+    );
   }
 
   electronicTransfer(transfer: ElectronicTransfer) {
-    return this.cardService
-      .getCardByAccountNumber(transfer.fromAccountNumber)
-      .pipe(
-        tap((card) => {
-          if (card.availableAmount < transfer.amount) {
-            throw new Error('not enough balance');
-          }
-        }),
-        switchMap((fromAccount) =>
-          forkJoin([
-            of(fromAccount),
-            this.paymentsLimitsService.getById(this.authService.userId),
-            this.transactionService
-              .getOnlineSpendings(this.authService.userId)
-              .pipe(
-                map((bankTransfers) =>
-                  bankTransfers.reduce((acc, curr) => acc + curr.amount, 0)
-                )
-              ),
-          ])
+    return this.getCardAndValidateBalance(
+      transfer.fromAccountNumber,
+      transfer.amount
+    ).pipe(
+      switchMap((fromAccount) =>
+        forkJoin([
+          of(fromAccount),
+          this.checkElectronicPaymentsLimits(transfer.amount),
+        ])
+      ),
+      map(([fromAccount]) => {
+        transfer = {
+          ...transfer,
+          title: `electronic payment to ${transfer.toAccountEmail}`,
+        };
+        return fromAccount;
+      }),
+      switchMap((fromAccount) =>
+        this.removeBalance(fromAccount, Number(transfer.amount))
+      ),
+      switchMap(() => this.postTransactionToDb(transfer))
+    );
+  }
+
+  getCardAndValidateBalance(accountNumber: string, amount: number) {
+    return this.cardService.getCardByAccountNumber(accountNumber).pipe(
+      tap((card) => {
+        if (card.availableAmount < amount) {
+          throw new Error('not enough balance');
+        }
+      })
+    );
+  }
+
+  checkBankPaymentsLimits(amount) {
+    return forkJoin([
+      this.paymentsLimitsService.getById(this.authService.userId),
+      this.transactionService
+        .getBankSpendings(this.authService.userId)
+        .pipe(
+          map((bankTransfers) =>
+            bankTransfers.reduce((acc, curr) => acc + curr.amount, 0)
+          )
         ),
-        map(([fromAccount, limits, onlineSpendings]) => {
-          if (onlineSpendings + transfer.amount > limits.onlineLimit) {
-            throw new Error('exceeds limits');
-          }
-          transfer = {
-            ...transfer,
-            title: `electronic payment to ${transfer.toAccountEmail}`,
-          };
-          return fromAccount;
-        }),
-        switchMap((fromAccount) =>
-          this.removeBalance(fromAccount, Number(transfer.amount))
+    ]).pipe(
+      tap(([limits, bankSpending]) => {
+        if (bankSpending + amount > limits.bankLimit) {
+          throw new Error('exceeds limits');
+        }
+      })
+    );
+  }
+
+  checkElectronicPaymentsLimits(amount) {
+    return forkJoin([
+      this.paymentsLimitsService.getById(this.authService.userId),
+      this.transactionService
+        .getOnlineSpendings(this.authService.userId)
+        .pipe(
+          map((onlineTransfers) =>
+            onlineTransfers.reduce((acc, curr) => acc + curr.amount, 0)
+          )
         ),
-        switchMap(() => this.postTransactionToDb(transfer))
-      );
+    ]).pipe(
+      tap(([limits, onlineSpendings]) => {
+        if (onlineSpendings + amount > limits.onlineLimit) {
+          throw new Error('exceeds limits');
+        }
+      })
+    );
   }
 
   removeBalance(card: ICard, amountToRemove: number) {
