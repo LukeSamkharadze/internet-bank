@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../shared/services/user.service';
+import { UserService } from '../shared/services/user.service'
 import { AuthService } from '../shared/services/auth.service';
 import { SecretQuestionservise } from '../shared/services/secretQuestion.service';
 import { IUser } from '../shared/interfaces/user.interface';
@@ -16,8 +16,16 @@ export class SettingsSecurityComponent implements OnInit {
   formChange: FormGroup;
   userid: string;
   user$: Observable<IUser>;
-  userAnswer: SecretQuestion = { questionId: 1, userId: 'age', answer: '' };
-  userOldAnswer: SecretQuestion = { questionId: 1, userId: 'age', answer: '' };
+  userAnswer: SecretQuestion = {
+    questionId: 1,
+    userId: 'age',
+    answer: '',
+  };
+  userOldAnswer: SecretQuestion = {
+    questionId: 1,
+    userId: 'age',
+    answer: '',
+  };
 
   userQusetions;
   user;
@@ -66,6 +74,7 @@ export class SettingsSecurityComponent implements OnInit {
       } else {
         alert('your current password is incorrect');
       }
+
       // updating user  DATA
 
       this.userServise.update(this.user).subscribe();
@@ -77,16 +86,13 @@ export class SettingsSecurityComponent implements OnInit {
         const qId = this.formChange.get('dropdown').value.questionId;
         const qAnswer = this.formChange.get('answer').value;
 
-        //fetching DB answers
+        // fetching DB answers
         this.userOldAnswer = await this.SecretQuestionservise.getAnswerByQuestionId(
           this.userid,
           qId
         ).toPromise();
 
-        console.log('db', this.questions);
-        console.log('old', this.userOldAnswer);
-
-        //setting form DATA
+        // setting form DATA
 
         this.userAnswer.answer = qAnswer;
         this.userAnswer.questionId = qId;
@@ -94,9 +100,9 @@ export class SettingsSecurityComponent implements OnInit {
 
         if (this.userOldAnswer) {
           this.userAnswer.id = this.userOldAnswer.id;
-          console.log('s', this.userOldAnswer);
 
-          console.log(this.userAnswer);
+
+
           this.SecretQuestionservise.update(this.userAnswer).toPromise();
         } else {
           this.userAnswer.id = null;
@@ -106,8 +112,7 @@ export class SettingsSecurityComponent implements OnInit {
       })();
     }
 
-    console.log(this.user);
-    console.log(this.userAnswer);
+
   }
 
   reset() {
