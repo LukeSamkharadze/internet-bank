@@ -1,7 +1,7 @@
 :host {
   display: block;
   max-width: 100%;
-  min-width: 344px;
+  min-width: 506px;
 }
 
 .news-container {
@@ -22,7 +22,7 @@
       flex-direction: column;
     }
 
-    .news-left-part {
+    .news-list {
       height: 100vh;
       min-height: 600px;
       overflow-y: scroll;
