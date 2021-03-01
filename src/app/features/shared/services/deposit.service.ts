@@ -22,7 +22,7 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
   ) {}
   private readonly BACKGROUND_DIRECTORY = './assets/cards/backgrounds/';
   private readonly icons = new Map<DepositType, string>([
-    ['Cumulative', 'las la-lock'],
+    ['Cumulative', 'las la-piggy-bank'],
   ]);
   private readonly colors = new Map<DepositType, IBgColor>([
     ['Cumulative', 'orange'],
