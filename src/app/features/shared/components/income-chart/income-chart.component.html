@@ -14,11 +14,11 @@
   <div class="chart-legend">
     <div class="left-legend">
       <h2>{{ totalsum | currency: 'USD':'symbol':'1.0-0' }}</h2>
-      <p>Total Income</p>
+      <p>{{ chartLegend }}</p>
     </div>
     <div class="right-legend">
       <div class="legend-circle" [style.background-color]="color"></div>
-      <p>Income</p>
+      <p>{{ headerLegend }}</p>
     </div>
   </div>
   <div class="chart-container">

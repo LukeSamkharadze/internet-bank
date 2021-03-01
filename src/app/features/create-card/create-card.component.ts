@@ -3,25 +3,56 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { CardService } from '../shared/services/card.service';
 import { AuthService } from '../shared/services/auth.service';
+import { TypeSwitcherService } from './services/type-switcher.service';
+import { fadeInOut } from '../shared/animations';
 
 @Component({
   selector: 'app-features-create-card',
   templateUrl: './create-card.component.html',
   styleUrls: ['./create-card.component.scss'],
+  animations: [fadeInOut],
 })
 export class CreateCardComponent implements OnInit {
   form: FormGroup;
+  cardType: string;
+  cardIconUrl: string;
+  cardBgUrl: string;
+  color: string;
+  showNotification = false;
 
   constructor(
     private fb: FormBuilder,
     private cardService: CardService,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private typeSwitcher: TypeSwitcherService
+  ) {
+    this.typeSwitcher.cardType$.subscribe((cardType) => {
+      this.cardType = cardType;
+    });
+    this.typeSwitcher.cardIconUrl$.subscribe((cardIconUrl) => {
+      this.cardIconUrl = cardIconUrl;
+    });
+    this.typeSwitcher.cardBgUrl$.subscribe((cardBgUrl) => {
+      this.cardBgUrl = cardBgUrl;
+    });
+    this.typeSwitcher.color$.subscribe((color) => {
+      this.color = color;
+    });
+  }
 
-  makeInputUpperCase(input: string) {
-    this.form
-      .get(`${input}`)
-      .setValue(this.form.get(`${input}`).value.toUpperCase());
+  // Get formControl value
+  formCtrlVal(name: string) {
+    return this.form.get(name).value;
+  }
+
+  // Determine 'Card Bg, Icon & Color' based on 'Card Type' on creation
+  determineCard() {
+    const firstNum = this.formCtrlVal('cardNumber')[0];
+    this.typeSwitcher.checkInput(firstNum);
+  }
+
+  makeInputUpperCase(formCtrl: string) {
+    this.form.get(formCtrl).setValue(this.formCtrlVal(formCtrl).toUpperCase());
   }
 
   makeInputTransforms() {
@@ -32,7 +63,21 @@ export class CreateCardComponent implements OnInit {
     // Concat 'GE32TB' to the Account Number
     this.form
       .get('accountNumber')
-      .setValue('GE32TB' + this.form.get('accountNumber').value);
+      .setValue('GE32TB' + this.formCtrlVal('accountNumber'));
+  }
+
+  showCardNotification(show?: boolean) {
+    // If '(X) Button' clicked hide 'Success Notification'
+    if (show === false) {
+      this.showNotification = false;
+    } else {
+      // Show 'Success Notification' if card is added
+      this.showNotification = true;
+      // Hide 'Success Notification' after 2 sec
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 2000);
+    }
   }
 
   // Adding Card on Server using Service
@@ -50,12 +95,15 @@ export class CreateCardComponent implements OnInit {
       this.cardService
         .create(card)
         .pipe(finalize(() => this.form.reset({ security3D: true })))
-        .subscribe();
+        .subscribe(() => {
+          this.showCardNotification();
+          this.typeSwitcher.checkInput();
+        });
     }
   }
 
-  // Card Form and its validation
   ngOnInit(): void {
+    // Card Form and its validation
     this.form = this.fb.group({
       // Must be typed: Card Name (only letters and numbers are allowed)
       cardName: [
