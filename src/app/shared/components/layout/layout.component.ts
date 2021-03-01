@@ -66,6 +66,9 @@ export class LayoutComponent implements OnInit, OnDestroy {
     this.getContentTitle();
     this.subscription = this.cardService.cards$.subscribe((response) => {
       this.cardArray = [];
+      this.cardTypeArray = [];
+      this.cardIdArray = [];
+
       for (const card of response) {
         const cardNum = card.cardNumber.toString();
         this.cardIdArray.push(card.id);
