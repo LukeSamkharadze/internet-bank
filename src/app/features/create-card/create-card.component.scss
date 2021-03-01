@@ -15,8 +15,8 @@
 }
 
 .create-card-container,
-.placeholder {
-  min-width: 400px;
+.section-placeholder {
+  min-width: 455px;
   height: 716px;
   border-radius: 4px;
   background: white;
@@ -91,18 +91,18 @@
       margin: 0 auto;
       width: 327px;
       height: 200px;
-      animation-name: card-appear;
+      animation-name: placeholder-appearing;
       animation-timing-function: ease;
       animation-duration: 1.5s;
 
-      .card-bg {
+      .card-placeholder-bg {
         position: absolute;
         top: -58px;
         left: 50%;
         transform: translateX(-50%);
       }
 
-      .crd-placeholder-txt {
+      .card-placeholder-txt {
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -145,11 +145,11 @@
     }
   }
 
-  @keyframes card-appear {
+  @keyframes placeholder-appearing {
     from {
       opacity: 0;
       pointer-events: none;
-      top: 140px;
+      top: 50px;
     }
     to {
       opacity: 1;

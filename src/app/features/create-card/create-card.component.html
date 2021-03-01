@@ -21,12 +21,12 @@
     <div class="gritem-2">
       <div class="card-placeholder">
         <img
-          class="card-bg"
+          class="card-placeholder-bg"
           src="{{ cardBgUrl }}"
           alt="card placeholder"
           [@fadeInOut]="cardBgUrl"
         />
-        <div class="crd-placeholder-txt text-center">
+        <div class="card-placeholder-txt text-center">
           <i [class]="'las la-plus-circle ' + color"></i>
           <div>
             <h4 [@fadeInOut]="cardType">
@@ -200,7 +200,5 @@
       </form>
     </div>
   </section>
-  <section>
-    <div class="placeholder"></div>
-  </section>
+  <section class="section-placeholder"></section>
 </main>
