@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Transfer } from '../interfaces/payments/transfer.interface';
-import { ElectronicPayment } from '../interfaces/payments/electronicPayment.interface';
+import { ElectronicTransfer } from '../interfaces/transfers/electronicTransfer.interface';
 import { ICard } from '../interfaces/card.interface';
 
 @Injectable({
@@ -26,23 +25,29 @@ export class IconService {
       : obj;
   }
 
-  determineTransfersIcon(transfer: Transfer) {
-    if (transfer.type === 'electronic') {
+  determineTransfersIcon(transfer: any) {
+    if (transfer.type.toLocaleLowerCase() === 'electronic') {
       return this.determineElectronicPaymentsIcon(
         transfer,
-        (transfer as ElectronicPayment).paymentSystem
+        (transfer as ElectronicTransfer).paymentSystem
       );
     } else {
-      return this.transferTypes.includes(transfer.type)
-        ? { ...transfer, iconPath: `./assets/transfers/${transfer.type}.svg` }
+      return this.transferTypes.includes(transfer.type.toLocaleLowerCase())
+        ? {
+            ...transfer,
+            iconPath: `./assets/transfers/${transfer.type.toLocaleLowerCase()}.png`,
+          }
         : transfer;
     }
   }
 
   determineCardIcon(card: ICard): ICard {
-    const cardType = card.cardType;
-    return this.cardTypes.includes(cardType)
-      ? { ...card, iconPath: `./assets/cards/${cardType}.svg` }
+    const cardType = card.cardType.toLocaleLowerCase();
+    return this.cardTypes.includes(cardType.toLocaleLowerCase())
+      ? {
+          ...card,
+          iconPath: `./assets/cards/${cardType.toLocaleLowerCase()}.svg`,
+        }
       : card;
   }
 }

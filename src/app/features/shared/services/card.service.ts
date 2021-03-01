@@ -1,17 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  EMPTY,
-  from,
-  Observable,
-  of,
-  Subject,
-  throwError,
-} from 'rxjs';
+import { BehaviorSubject, from, Observable, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
-import { ICard } from '../interfaces/card.interface';
+import { CardType, ICard } from '../interfaces/card.interface';
 import {
   catchError,
   distinctUntilChanged,
@@ -25,11 +17,18 @@ import {
 import { BaseHttpInterface } from '@shared/shared';
 import { AuthService } from './auth.service';
 import { IconService } from './icon.service';
+import { BackgroundService } from './background.service';
+import IBgColor from '../interfaces/background-color.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardService implements BaseHttpInterface<ICard> {
+  private readonly colors = new Map<CardType, IBgColor>([
+    ['visa', 'blue'],
+    ['mastercard', 'orange'],
+  ]);
+
   private cardsArr: ICard[] = [];
 
   private store$ = new BehaviorSubject<ICard[]>(this.cardsArr);
@@ -39,7 +38,8 @@ export class CardService implements BaseHttpInterface<ICard> {
   constructor(
     private http: HttpClient,
     private auth: AuthService,
-    private iconService: IconService
+    private iconService: IconService,
+    private bgService: BackgroundService
   ) {
     this.updateStore();
   }
@@ -87,7 +87,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       );
   }
 
-  private updateStore() {
+  updateStore() {
     this.getAll().subscribe((cards) =>
       this.store$.next((this.cardsArr = cards))
     );
@@ -127,11 +127,18 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   getById(id: number): Observable<ICard> {
-    return EMPTY;
+    return this.http.get<ICard>(`${environment.BaseUrl}cards/${id}`).pipe(
+      map((card) => this.iconService.determineCardIcon(card)),
+      retry(1)
+    );
   }
 
-  delete(): Observable<void> {
-    return EMPTY;
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.BaseUrl}cards/${id}`).pipe(
+      retry(1),
+      tap(() => this.updateStore()),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -147,5 +154,13 @@ export class CardService implements BaseHttpInterface<ICard> {
     window.alert(errorMessage);
 
     return throwError(errorMessage);
+  }
+
+  determineColor(card: ICard): string {
+    return this.colors.get(card.cardType);
+  }
+
+  determineBackground(card: ICard): string {
+    return this.bgService.getBackground(this.colors.get(card.cardType));
   }
 }

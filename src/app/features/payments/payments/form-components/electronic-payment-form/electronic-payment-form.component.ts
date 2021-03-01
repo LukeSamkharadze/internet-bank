@@ -10,7 +10,7 @@ import {
   formAnimations,
 } from '../../../../shared/animations';
 import { PaymentService } from '../../../services/payment.service';
-import { ElectronicPayment } from '../../../../shared/interfaces/payments/electronicPayment.interface';
+import { ElectronicTransfer } from '../../../../shared/interfaces/transfers/electronicTransfer.interface';
 import { ProvidersService } from '../../../services/providers.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -58,20 +58,20 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      const transfer: ElectronicPayment = {
+      const transfer: ElectronicTransfer = {
         title: '', // will add in actual payment method.
         date: new Date(),
         type: 'electronic',
         fromAccountNumber: this.fromAccount.value.accountNumber,
         fromAccountUserId: this.fromAccount.value.userId,
         toAccountEmail: this.toAccountEmail.value,
-        paymentSystem: this.paymentSystem.value.title,
+        paymentSystem: this.paymentSystem.value.name,
         amount: Number(this.amount.value),
         currency: this.currency.value,
       };
       this.subscriptions.add(
         this.paymentService
-          .electronicOrInstantTransfer(transfer)
+          .electronicTransfer(transfer)
           .pipe(
             tap(() => {
               alert('success');

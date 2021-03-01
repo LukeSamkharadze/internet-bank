@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Expanses } from '../shared/interfaces/expanses.interface';
+import { Spendings } from '../shared/interfaces/spendings.interface';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   chartData: Expanses[] = [
     {
       kind: 'Grocery',
@@ -19,7 +20,7 @@ export class DashboardComponent implements OnInit {
       colorString: '#D28715',
     },
     {
-      kind: 'Home Renta;',
+      kind: 'Home Rent',
       share: 1000,
       colorString: '#D28775',
     },
@@ -29,7 +30,11 @@ export class DashboardComponent implements OnInit {
       colorString: '#D28760',
     },
   ];
-  constructor() {}
 
-  ngOnInit(): void {}
+  spendings: Spendings = {
+    debit: 20,
+    credit: 40,
+    cash: 60,
+    maxval: 80,
+  };
 }

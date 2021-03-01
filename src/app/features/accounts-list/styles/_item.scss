@@ -20,6 +20,8 @@
     font-weight: 500;
     cursor: pointer;
 
+    outline: none;
+
     position: relative;
     bottom: 2px;
 
@@ -40,5 +42,13 @@
 
   & > *:not(:last-child) {
     border-bottom: 1px solid $outline;
+  }
+
+  p {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    @include text-style(16px, $secondary-dark-2);
+    font-weight: 300;
   }
 }

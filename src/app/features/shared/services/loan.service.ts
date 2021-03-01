@@ -1,36 +1,79 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable } from 'rxjs';
-import { retry } from 'rxjs/operators';
+import { EMPTY, Observable, Subject } from 'rxjs';
+import { retry, take, tap } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
 
 import { environment } from '../../../../environments/environment';
-import { ILoan } from '../interfaces/loan.interface';
+import { ILoan, LoanType } from '../interfaces/loan.interface';
+import { AuthService } from './auth.service';
+import { BackgroundService } from './background.service';
+import IBgColor from '../interfaces/background-color.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoanService implements BaseHttpInterface<ILoan> {
-  constructor(private http: HttpClient) {}
+  public update$ = new Subject<ILoan[]>();
 
-  create(card: ILoan): Observable<ILoan> {
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private bgService: BackgroundService
+  ) {}
+  private readonly icons = new Map<LoanType, string>([
+    ['Mortgage', 'lar la-building'],
+    ['Consumer', 'las la-laptop'],
+  ]);
+  private readonly colors = new Map<LoanType, IBgColor>([
+    ['Mortgage', 'green'],
+    ['Consumer', 'blue'],
+  ]);
+
+  updateStore(): void {
+    this.getAll()
+      .pipe(take(1))
+      .subscribe((loans) => this.update$.next(loans));
+  }
+
+  create(loan: ILoan): Observable<ILoan> {
     return EMPTY;
   }
 
   getAll(): Observable<ILoan[]> {
-    return this.http.get<ILoan[]>(`${environment.BaseUrl}loans`).pipe(retry(1));
+    const userId = this.auth.userId;
+    return this.http
+      .get<ILoan[]>(`${environment.BaseUrl}loans?userId=${userId}`)
+      .pipe(retry(1));
   }
 
   getById(id: number): Observable<ILoan> {
-    return EMPTY;
+    return this.http
+      .get<ILoan>(`${environment.BaseUrl}loans/${id}`)
+      .pipe(retry(1));
   }
 
   update(): Observable<ILoan> {
     return EMPTY;
   }
 
-  delete(): Observable<void> {
-    return EMPTY;
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.BaseUrl}loans/${id}`).pipe(
+      retry(1),
+      tap(() => this.updateStore())
+    );
+  }
+
+  determineIcon(loan: ILoan): string {
+    return this.icons.get(loan.type);
+  }
+
+  determineColor(loan: ILoan): string {
+    return this.colors.get(loan.type);
+  }
+
+  determineBackground(loan: ILoan): string {
+    return this.bgService.getBackground(this.colors.get(loan.type));
   }
 }

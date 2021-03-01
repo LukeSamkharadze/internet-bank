@@ -6,7 +6,9 @@
   <div class="spendings-container">
     <div class="spendings">
       <p>Debit cards</p>
-      <p class="amount">{{ spendings.debit }} Usd</p>
+      <p class="amount">
+        {{ spendings.debit | currency: 'USD':'symbol':'1.0-0' }}
+      </p>
       <app-shared-progress-bar
         [value]="spendings.debit"
         [max]="spendings.maxval"
@@ -14,7 +16,9 @@
     </div>
     <div class="spendings">
       <p>Credit cards</p>
-      <p class="amount">{{ spendings.credit }} Usd</p>
+      <p class="amount">
+        {{ spendings.credit | currency: 'USD':'symbol':'1.0-0' }}
+      </p>
       <app-shared-progress-bar
         [value]="spendings.credit"
         [max]="spendings.maxval"
@@ -22,7 +26,9 @@
     </div>
     <div class="spendings">
       <p>Cash</p>
-      <p class="amount">{{ spendings.cash }} Usd</p>
+      <p class="amount">
+        {{ spendings.cash | currency: 'USD':'symbol':'1.0-0' }}
+      </p>
       <app-shared-progress-bar
         [value]="spendings.cash"
         [max]="spendings.maxval"

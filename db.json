@@ -157,7 +157,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 33720,
+      "availableAmount": 35065.05,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -169,7 +169,7 @@
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 33036,
+      "availableAmount": 27692.96,
       "security3D": true,
       "userId": "1",
       "id": 2
@@ -181,7 +181,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 18800,
+      "availableAmount": 14877,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -192,11 +192,13 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 8950,
+      "availableAmount": 8900,
       "security3D": true,
       "userId": "2",
       "cardType": "mastercard",
-      "id": 4
+      "id": 4,
+      "iconPath": "./assets/cards/mastercard.svg",
+      "blocked": true
     }
   ],
   "paymentTypes": [
@@ -204,13 +206,13 @@
       "name": "Electronic Payments",
       "providers": [
         {
-          "name": "Paypal"
+          "name": "paypal"
         },
         {
-          "name": "Skrill"
+          "name": "skrill"
         },
         {
-          "name": "Payoneer"
+          "name": "payoneer"
         }
       ],
       "icon": "las la-credit-card",
@@ -220,7 +222,7 @@
       "name": "Bank Transfer",
       "providers": [
         {
-          "name": "TBC"
+          "name": "tbc"
         }
       ],
       "icon": "las la-piggy-bank",
@@ -230,10 +232,10 @@
       "name": "Instant Transfer",
       "providers": [
         {
-          "name": "Visa"
+          "name": "visa"
         },
         {
-          "name": "Mastercard"
+          "name": "mastercard"
         }
       ],
       "icon": "las la-cart-plus",
@@ -279,7 +281,7 @@
   ],
   "deposits": [
     {
-      "id": 0,
+      "id": 1,
       "depositName": "Cumulative deposit",
       "accountNumber": "UK64CT00000000000010034567",
       "depositRate": 0.05,
@@ -288,12 +290,14 @@
       "availableAmount": 56400,
       "accuredInterest": 1640,
       "balance": 56400,
-      "accured": 640
+      "accured": 640,
+      "type": "Cumulative",
+      "userId": "2"
     }
   ],
   "loans": [
     {
-      "id": 0,
+      "id": 1,
       "loanName": "Mortgage loan",
       "accountNumber": "UK64CT00000000000010034567",
       "loanRate": 0.14,
@@ -301,10 +305,12 @@
       "expirationDate": "20.06.2022",
       "balance": 84800,
       "paid": 24800,
-      "blocked": true
+      "blocked": true,
+      "type": "Mortgage",
+      "userId": "2"
     },
     {
-      "id": 1,
+      "id": 2,
       "loanName": "Consumer loan",
       "accountNumber": "UK64CT00000000000010035931",
       "loanRate": 0.18,
@@ -312,7 +318,9 @@
       "expirationDate": "20.06.2022",
       "balance": 66400,
       "paid": 650,
-      "blocked": false
+      "blocked": false,
+      "type": "Consumer",
+      "userId": "3"
     }
   ],
   "charts": [
@@ -375,45 +383,279 @@
       "status": "Pending",
       "invoiceCreateDate": "2021-02-24T18:37:01.789Z",
       "id": 2
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-124",
+      "dueDate": "2018-08-16",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 120
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 100
+        }
+      ],
+      "totalAmount": 1240,
+      "status": "Paid",
+      "id": 3
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-127",
+      "dueDate": "2018-08-03",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 1,
+          "price": 384.2
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 50
+        }
+      ],
+      "totalAmount": 894.2,
+      "status": "Paid",
+      "id": 4
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-167",
+      "dueDate": "2018-11-10",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 1,
+          "price": 904
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 600
+        }
+      ],
+      "totalAmount": 6904,
+      "status": "Paid",
+      "id": 5
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-172",
+      "dueDate": "2018-05-16",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 4,
+          "price": 100
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 300
+        }
+      ],
+      "totalAmount": 3400,
+      "status": "Pending",
+      "id": 6
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-178",
+      "dueDate": "2018-03-04",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 40
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 4,
+          "price": 100
+        }
+      ],
+      "totalAmount": 480,
+      "status": "Pending",
+      "id": 7
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-196",
+      "dueDate": "2018-03-08",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 2,
+          "price": 120
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 870
+        }
+      ],
+      "totalAmount": 8940,
+      "status": "Pending",
+      "id": 8
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-215",
+      "dueDate": "2018-10-17",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 4,
+          "price": 1985
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 10,
+          "price": 100
+        }
+      ],
+      "totalAmount": 8940,
+      "status": "Cancelled",
+      "id": 9
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-230",
+      "dueDate": "2018-09-22",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 5,
+          "price": 20
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 6,
+          "price": 4
+        }
+      ],
+      "totalAmount": 124,
+      "status": "Paid",
+      "id": 10
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-237",
+      "dueDate": "2018-10-27",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 1,
+          "price": 509
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 5,
+          "price": 11
+        }
+      ],
+      "totalAmount": 564,
+      "status": "Paid",
+      "id": 11
+    },
+    {
+      "template": "Mobile App",
+      "invoiceNumber": "IO-BN-242",
+      "dueDate": "2018-04-11",
+      "companyName": "OOB",
+      "contanctEmail": "oobcompany@gmail.com",
+      "address": "133 Main Street, Somewhere, CA 91999",
+      "items": [
+        {
+          "itemDescription": "Marketing Materials",
+          "itemQty": 1,
+          "price": 3
+        },
+        {
+          "itemDescription": "Printing Equipment",
+          "itemQty": 1,
+          "price": 1.2
+        }
+      ],
+      "totalAmount": 4.2,
+      "status": "Paid",
+      "id": 12
     }
   ],
   "transactions": [
     {
-      "title": "Bank transfer to user: 1",
-      "toUserId": "1",
-      "date": "2021-02-25T15:43:54.034Z",
+      "title": "Bank transfer to user: 3",
+      "toUserId": "3",
+      "date": "2021-02-28T16:39:38.183Z",
       "type": "bank",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB3333111122224444",
-      "toAccountNumber": "GE32TB2222111133334444",
-      "amount": 200,
+      "toAccountNumber": "GE32TB1111222233334444",
+      "amount": 20,
       "currency": "USD",
-      "beneficiary": "sum name",
-      "bankTransferType": "Personal transfer",
+      "beneficiary": "gamarjoba batono obama",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
       "id": 1
     },
     {
-      "title": "money goin outside tbc",
-      "date": "2021-02-25T15:44:56.811Z",
-      "type": "electronic",
-      "fromAccountNumber": "GE32TB4434234223333333",
-      "fromAccountUserId": "2",
-      "toAccountEmail": "lala@gmail.com",
-      "amount": 986,
-      "currency": "USD",
-      "id": 2
-    },
-    {
-      "title": "money goin outside tbc",
-      "date": "2021-02-25T15:45:19.641Z",
+      "title": "Instant transfer to bg012030123123",
+      "date": "2021-02-28T16:42:24.870Z",
       "type": "instant",
       "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB4434234223333333",
-      "amount": 50,
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "amount": 1,
       "currency": "USD",
-      "instantTransferType": "Personal transfer",
-      "toAccountNumber": "bg1203900001231231",
+      "instantTransferType": "personal transfer",
+      "toAccountNumber": "bg012030123123",
+      "status": "pending",
       "id": 3
+    },
+    {
+      "title": "electronic payment to hg@gmail.com",
+      "date": "2021-03-01T05:25:00.082Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB2222111133334444",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "hg@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 5345,
+      "currency": "USD",
+      "status": "pending",
+      "id": 4
     }
   ],
   "news": [
