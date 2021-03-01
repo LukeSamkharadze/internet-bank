@@ -48,7 +48,7 @@ export class InstantTransferFormComponent implements OnDestroy {
         fromAccountNumber: this.fromAccount.value.accountNumber,
         amount: Number(this.amount.value),
         currency: 'USD', // rasvizamt moitana cxovrebam statikuri valutebi
-        instantTransferType: this.instantTransferType.value,
+        instantTransferType: this.instantTransferType.value.toLowerCase(),
         toAccountNumber: this.toAccountNumber.value,
       };
       this.subscriptions.add(
