@@ -1,24 +1,28 @@
 :host {
   display: block;
   max-width: 100%;
-  min-width: 344px;
+  min-width: 506px;
 }
 
 .news-container {
   padding: 28px;
+  gap: 28px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 
   .news-left-part {
     flex: 1;
-    min-width: 345px;
-    margin-right: 14px;
+    min-width: 450px;
     padding-right: 10px;
     background: white;
   }
   @media screen and (max-width: 1055px) {
-    .news-left-part {
+    .news-container {
+      flex-direction: column;
+    }
+
+    .news-list {
       height: 100vh;
       min-height: 600px;
       overflow-y: scroll;
@@ -27,10 +31,11 @@
 
   .news-right-part {
     flex: 1;
-    margin-left: 14px;
     padding-top: 25px;
     background: white;
     height: fit-content;
+    min-width: 450px;
+
     div {
       display: flex;
       flex-direction: column;

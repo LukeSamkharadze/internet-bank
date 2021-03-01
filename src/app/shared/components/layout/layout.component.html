@@ -10,7 +10,6 @@
       <div class="main-nav" #mainNav>
         <a
           class="main-nav-item"
-          (click)="contentTitle = 'DASHBOARD'"
           [routerLink]="'dashboard'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -21,7 +20,6 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitle = 'TRANSACTIONS'"
           [routerLink]="'transactions'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -32,7 +30,6 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitle = 'PRODUCTS'"
           [routerLink]="'accounts-list'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -43,7 +40,6 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitle = 'PAYMENTS'"
           [routerLink]="'payments'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -54,7 +50,6 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitle = 'NEWS'"
           [routerLink]="'news'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -65,7 +60,7 @@
         </a>
         <a
           class="main-nav-item"
-          (click)="contentTitle = 'INVOICES'"
+          [routerLink]="'invoices'"
           [routerLinkActive]="['nav-item-active']"
         >
           <div class="main-nav-icon">
@@ -82,7 +77,11 @@
           class="accounts-inner"
           *ngFor="let cardNumber of cardArray; let i = index"
         >
-          <a class="accounts-item">
+          <a
+            class="accounts-item"
+            [routerLinkActive]="['account-item-active']"
+            [routerLink]="['/card-view/card/', cardIdArray[i]]"
+          >
             <div class="accounts-icon">
               <div class="accounts-icon-wrapper">
                 <i

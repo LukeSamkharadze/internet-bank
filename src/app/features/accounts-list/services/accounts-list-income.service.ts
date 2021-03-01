@@ -3,15 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import IItem from '../models/chart-item.entity';
+import IChartItem from '../models/chart-server-item.interface';
 
 @Injectable()
 export class AccountsListIncomeService {
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<IItem[]> {
+  getAll(): Observable<IChartItem[]> {
     return this.http
-      .get<IItem[]>(`${environment.BaseUrl}charts`)
+      .get<IChartItem[]>(`${environment.BaseUrl}charts`)
       .pipe(retry(1));
   }
 }

@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BankPayment } from '../../shared/interfaces/payments/bankPayment.interface';
-import { ElectronicPayment } from '../../shared/interfaces/payments/electronicPayment.interface';
-import { InstantPayment } from '../../shared/interfaces/payments/instantPayment.interface';
+import { BankTransfer } from '../../shared/interfaces/transfers/bankTransfer.interface';
+import { ElectronicTransfer } from '../../shared/interfaces/transfers/electronicTransfer.interface';
+import { InstantTransfer } from '../../shared/interfaces/transfers/instantTransfer.interface';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
-import { forkJoin, from, of } from 'rxjs';
-import { map, pluck, reduce, scan, switchMap, tap } from 'rxjs/operators';
+import { forkJoin, of } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { CardService } from '../../shared/services/card.service';
-import { UserService } from '../../shared/services/user.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { TransactionService } from '../../shared/services/transaction.service';
@@ -25,7 +24,7 @@ export class PaymentService {
 
   currentUsersCards$ = this.cardService.cards$;
 
-  bankTransfer(transfer: BankPayment) {
+  bankTransfer(transfer: BankTransfer) {
     return this.cardService
       .getCardByAccountNumber(transfer.fromAccountNumber)
       .pipe(
@@ -41,9 +40,9 @@ export class PaymentService {
             this.transactionService
               .getBankSpendings(this.authService.userId)
               .pipe(
-                switchMap((bankTransfers) => from(bankTransfers)),
-                pluck('amount'),
-                reduce((a, b) => a + b)
+                map((bankTransfers) =>
+                  bankTransfers.reduce((acc, curr) => acc + curr.amount, 0)
+                )
               ),
           ])
         ),
@@ -82,7 +81,27 @@ export class PaymentService {
       );
   }
 
-  electronicOrInstantTransfer(transfer: ElectronicPayment | InstantPayment) {
+  instantTransfer(transfer: InstantTransfer) {
+    return this.cardService
+      .getCardByAccountNumber(transfer.fromAccountNumber)
+      .pipe(
+        tap((card) => {
+          if (card.availableAmount < transfer.amount) {
+            throw new Error('not enough balance');
+          }
+          transfer = {
+            ...transfer,
+            title: `Instant transfer to ${transfer.toAccountNumber}`,
+          };
+        }),
+        switchMap((fromAccount) =>
+          this.removeBalance(fromAccount, Number(transfer.amount))
+        ),
+        switchMap(() => this.postTransactionToDb(transfer))
+      );
+  }
+
+  electronicTransfer(transfer: ElectronicTransfer) {
     return this.cardService
       .getCardByAccountNumber(transfer.fromAccountNumber)
       .pipe(
@@ -98,9 +117,9 @@ export class PaymentService {
             this.transactionService
               .getOnlineSpendings(this.authService.userId)
               .pipe(
-                switchMap((onlineTransfers) => from(onlineTransfers)),
-                pluck('amount'),
-                reduce((a, b) => a + b)
+                map((bankTransfers) =>
+                  bankTransfers.reduce((acc, curr) => acc + curr.amount, 0)
+                )
               ),
           ])
         ),
@@ -108,7 +127,10 @@ export class PaymentService {
           if (onlineSpendings + transfer.amount > limits.onlineLimit) {
             throw new Error('exceeds limits');
           }
-          transfer = { ...transfer, title: 'money goin outside tbc' };
+          transfer = {
+            ...transfer,
+            title: `electronic payment to ${transfer.toAccountEmail}`,
+          };
           return fromAccount;
         }),
         switchMap((fromAccount) =>
@@ -130,8 +152,11 @@ export class PaymentService {
   }
 
   postTransactionToDb(
-    transfer: ElectronicPayment | BankPayment | InstantPayment
+    transfer: ElectronicTransfer | BankTransfer | InstantTransfer
   ) {
-    return this.http.post(environment.BaseUrl + 'transactions', transfer);
+    return this.http.post(environment.BaseUrl + 'transactions', {
+      ...transfer,
+      status: 'pending',
+    });
   }
 }

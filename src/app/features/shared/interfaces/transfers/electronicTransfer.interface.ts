@@ -1,6 +1,6 @@
 import { Transfer } from './transfer.interface';
 
-export interface ElectronicPayment extends Transfer {
+export interface ElectronicTransfer extends Transfer {
   paymentSystem: string;
   toAccountEmail: string;
 }

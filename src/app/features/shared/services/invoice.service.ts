@@ -19,7 +19,9 @@ export class InvoiceService implements BaseHttpInterface<Invoice> {
   }
 
   getAll(): Observable<Invoice[]> {
-    return EMPTY;
+    return this.http
+      .get<Invoice[]>(`${environment.BaseUrl}invoices`)
+      .pipe(retry(1), catchError(this.handleError));
   }
 
   getById(): Observable<Invoice> {
