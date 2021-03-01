@@ -123,7 +123,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 33791.05,
+      "availableAmount": 35065.05,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -147,7 +147,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 16800,
+      "availableAmount": 14877,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -172,13 +172,13 @@
       "name": "Electronic Payments",
       "providers": [
         {
-          "name": "Paypal"
+          "name": "paypal"
         },
         {
-          "name": "Skrill"
+          "name": "skrill"
         },
         {
-          "name": "Payoneer"
+          "name": "payoneer"
         }
       ],
       "icon": "las la-credit-card",
@@ -188,7 +188,7 @@
       "name": "Bank Transfer",
       "providers": [
         {
-          "name": "TBC"
+          "name": "tbc"
         }
       ],
       "icon": "las la-piggy-bank",
@@ -198,10 +198,10 @@
       "name": "Instant Transfer",
       "providers": [
         {
-          "name": "Visa"
+          "name": "visa"
         },
         {
-          "name": "Mastercard"
+          "name": "mastercard"
         }
       ],
       "icon": "las la-cart-plus",
@@ -382,19 +382,6 @@
       "toAccountNumber": "bg012030123123",
       "status": "pending",
       "id": 3
-    },
-    {
-      "title": "electronic payment to payoneer@gmail.com",
-      "date": "2021-02-28T17:46:33.490Z",
-      "type": "electronic",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "fromAccountUserId": "2",
-      "toAccountEmail": "payoneer@gmail.com",
-      "paymentSystem": "paypal",
-      "amount": 66,
-      "currency": "USD",
-      "status": "pending",
-      "id": 4
     }
   ],
   "news": [
