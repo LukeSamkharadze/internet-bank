@@ -9,11 +9,11 @@
 <div
   tabindex="0"
   class="dropdown-general"
-  [class.dropdown-disabled]="disabled"
+  [class.dropdown-disabled]="hasDisabledStyle"
   (click)="dropdownClicked()"
   (blur)="isOptionsOpened = false; onTouched()"
 >
-  <div class="selected" [class.placeholder]="isPlaceholderOn || disabled">
+  <div class="selected" [class.placeholder]="isPlaceholderOn || hasDisabledStyle">
     <div class="content">
       <ng-container
         [ngTemplateOutlet]="

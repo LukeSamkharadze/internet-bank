@@ -36,6 +36,8 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
   isPlaceholderOn = true;
   disabled = false;
 
+  get hasDisabledStyle() { return this.disabled || !this.options?.length; }
+
   onChange = (value: any) => {};
   onTouched = () => {};
 
@@ -44,12 +46,10 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
       this.isPlaceholderOn = !Boolean(this.value);
       this.onChange(this.value);
     }
-
-    this.disabled = this.disabled || !this.options?.length;
   }
 
   dropdownClicked() {
-    if (!this.disabled) {
+    if (!this.hasDisabledStyle) {
       this.isOptionsOpened = !this.isOptionsOpened;
     }
   }
