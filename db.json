@@ -135,7 +135,7 @@
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 33037.96,
+      "availableAmount": 27692.96,
       "security3D": true,
       "userId": "1",
       "id": 2
@@ -372,7 +372,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 1240.0,
+      "totalAmount": 1240,
       "status": "Paid",
       "id": 3
     },
@@ -418,7 +418,7 @@
           "price": 600
         }
       ],
-      "totalAmount": 6904.0,
+      "totalAmount": 6904,
       "status": "Paid",
       "id": 5
     },
@@ -441,7 +441,7 @@
           "price": 300
         }
       ],
-      "totalAmount": 3400.0,
+      "totalAmount": 3400,
       "status": "Pending",
       "id": 6
     },
@@ -464,7 +464,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 480.0,
+      "totalAmount": 480,
       "status": "Pending",
       "id": 7
     },
@@ -487,7 +487,7 @@
           "price": 870
         }
       ],
-      "totalAmount": 8940.0,
+      "totalAmount": 8940,
       "status": "Pending",
       "id": 8
     },
@@ -510,7 +510,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 8940.0,
+      "totalAmount": 8940,
       "status": "Cancelled",
       "id": 9
     },
@@ -533,7 +533,7 @@
           "price": 4
         }
       ],
-      "totalAmount": 124.0,
+      "totalAmount": 124,
       "status": "Paid",
       "id": 10
     },
@@ -556,7 +556,7 @@
           "price": 11
         }
       ],
-      "totalAmount": 564.0,
+      "totalAmount": 564,
       "status": "Paid",
       "id": 11
     },
@@ -612,6 +612,19 @@
       "toAccountNumber": "bg012030123123",
       "status": "pending",
       "id": 3
+    },
+    {
+      "title": "electronic payment to hg@gmail.com",
+      "date": "2021-03-01T05:25:00.082Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB2222111133334444",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "hg@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 5345,
+      "currency": "USD",
+      "status": "pending",
+      "id": 4
     }
   ],
   "news": [
