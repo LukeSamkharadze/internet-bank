@@ -1,15 +1,29 @@
 @import 'src/styles/index';
 
+:host {
+  width: 100%;
+  display: block;
+  padding: 28px;
+  margin: 0 auto;
+}
+
 .main-container {
-  max-width: 555px;
-  min-width: 400px;
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 28px;
+}
+
+.create-card-container,
+.section-placeholder {
+  min-width: 455px;
   height: 716px;
   border-radius: 4px;
   background: white;
-  margin: 28px;
 }
 
-.grid-container {
+.create-card-container {
   display: grid;
   grid-template-rows: 8% 42.5% auto;
 
@@ -29,7 +43,7 @@
       position: relative;
       width: 100%;
 
-      .visa-card-container {
+      .card-container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,6 +51,12 @@
         width: 40.7px;
         height: 28px;
         border-radius: 4px;
+        transition: 1.3s ease-in-out;
+
+        .fa-credit-card {
+          color: $secondary-dark-1;
+          transition: 1.3s ease-in-out;
+        }
       }
     }
 
@@ -69,28 +89,44 @@
 
     .card-placeholder {
       position: relative;
+      margin: 0 auto;
+      width: 327px;
+      height: 200px;
+      animation-name: placeholder-appearing;
+      animation-timing-function: ease;
+      animation-duration: 1.5s;
 
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
+      .card-placeholder-bg {
+        position: absolute;
+        top: -58px;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
-      .crd-placeholder-txt {
+      .card-placeholder-txt {
         position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 130px;
+        width: 70%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
         .la-plus-circle {
           position: relative;
-          color: $primary;
           top: 5px;
           font-size: 75px;
+          color: $primary;
+
+          &.visa-cl {
+            color: #293688;
+          }
+
+          &.master-cl {
+            color: #e69310;
+          }
         }
 
         h4 {
@@ -100,8 +136,26 @@
 
         p {
           font-size: 13px;
+
+          &.master-cl,
+          &.visa-cl {
+            color: darkgray;
+          }
         }
       }
+    }
+  }
+
+  @keyframes placeholder-appearing {
+    from {
+      opacity: 0;
+      pointer-events: none;
+      top: 50px;
+    }
+    to {
+      opacity: 1;
+      pointer-events: all;
+      top: 0px;
     }
   }
 
@@ -239,6 +293,39 @@
       position: relative;
       left: 10px;
       top: 9px;
+    }
+  }
+}
+
+.notification-container {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+@media only screen and (max-width: 1250px) {
+  .main-container {
+    grid-template-columns: 1fr;
+    min-width: 250px;
+    padding-bottom: 28px;
+  }
+
+  .create-card-container {
+    .gritem-3 {
+      .li {
+        .pop-up {
+          bottom: 115%;
+          left: unset;
+          right: 50%;
+
+          &::after {
+            top: 100%;
+            right: 15px;
+            margin-top: 0;
+            border-color: black transparent transparent transparent;
+          }
+        }
+      }
     }
   }
 }

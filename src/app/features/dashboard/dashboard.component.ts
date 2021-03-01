@@ -20,7 +20,7 @@ export class DashboardComponent {
       colorString: '#D28715',
     },
     {
-      kind: 'Home Renta;',
+      kind: 'Home Rent',
       share: 1000,
       colorString: '#D28775',
     },
