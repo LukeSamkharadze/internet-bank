@@ -1,15 +1,18 @@
 @import './index.scss';
 
+$left-bottom-padding: 18px;
+
 * {
   position: relative;
 }
 
 :host {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
   background-color: white;
-  padding: 10px 21px 18px 18px;
+  padding: 10px 21px $left-bottom-padding $left-bottom-padding;
   border-radius: 4px;
   grid-row: 1/3;
 }
@@ -196,7 +199,9 @@
 }
 
 .buttons {
-  padding-top: 5px;
+  position: absolute;
+  bottom: $left-bottom-padding;
+  left: $left-bottom-padding;
 
   * {
     width: 106.5px;
