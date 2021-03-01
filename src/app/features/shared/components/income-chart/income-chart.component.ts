@@ -23,6 +23,8 @@ export class IncomeChartComponent implements OnInit, AfterViewInit {
   @Output()
   public isClicked = new EventEmitter<MouseEvent>();
   @Input() monthRange = 0;
+  @Input() chartLegend = 'Income';
+  @Input() headerLegend = 'Total Income';
   @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
   gradientFill: any;
