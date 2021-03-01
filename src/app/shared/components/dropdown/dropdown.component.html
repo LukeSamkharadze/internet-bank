@@ -1,8 +1,4 @@
-<ng-template #defaultSelected let-option>
-  {{ option }}
-</ng-template>
-
-<ng-template #defaultOption let-option>
+<ng-template #defaultTemplate let-option>
   {{ option }}
 </ng-template>
 
@@ -22,8 +18,8 @@
       <ng-container
         [ngTemplateOutlet]="
           isPlaceholderOn
-            ? placeholderTemplate || defaultSelected
-            : selectedTemplate || defaultSelected
+            ? placeholderTemplate || defaultTemplate
+            : selectedTemplate || defaultTemplate
         "
         [ngTemplateOutletContext]="{
           $implicit: isPlaceholderOn ? placeholder : value
@@ -46,12 +42,10 @@
       (click)="optionClicked(option)"
     >
       <ng-container
-        [ngTemplateOutlet]="optionTemplate || defaultOption"
+        [ngTemplateOutlet]="optionTemplate || defaultTemplate"
         [ngTemplateOutletContext]="{ $implicit: option }"
       >
       </ng-container>
     </div>
   </div>
-
-  <!-- <ng-content *ngIf="isOptionsOpened" select=".options"> </ng-content> -->
 </div>
