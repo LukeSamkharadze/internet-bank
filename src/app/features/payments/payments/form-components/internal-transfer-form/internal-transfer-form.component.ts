@@ -13,11 +13,11 @@ import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-instant-transfer-form',
-  templateUrl: './instant-transfer-form.component.html',
-  styleUrls: ['./instant-transfer-form.component.scss'],
+  templateUrl: './internal-transfer-form.component.html',
+  styleUrls: ['./internal-transfer-form.component.scss'],
   animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
-export class InstantTransferFormComponent implements OnDestroy {
+export class InternalTransferFormComponent implements OnDestroy {
   title = 'Internal transfer';
 
   form = new FormGroup({
