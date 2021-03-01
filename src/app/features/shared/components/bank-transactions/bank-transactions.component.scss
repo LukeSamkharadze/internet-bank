@@ -116,18 +116,19 @@
       .img-flex {
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        height: 40px;
       }
     }
 
     img {
-      height: 40px;
-      // width: 80px;
+      width: 45px;
       margin: auto;
     }
 
     &:last-child .center-hr {
-        border: none;
-      }
+      border: none;
+    }
   }
 
   .left {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from '../shared/services/card.service';
 
 @Component({
   selector: 'app-application',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./application.component.scss'],
 })
 export class ApplicationComponent implements OnInit {
-  constructor() {}
+  constructor(private cardService: CardService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cardService.updateStore();
+  }
 }

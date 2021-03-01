@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Chart } from 'chart.js';
-import IFilledArray from '../models/filled-array.entity';
+import IFilledArray from '../models/filled-array.interface';
 
 @Injectable()
 export class AccountsListChartService {

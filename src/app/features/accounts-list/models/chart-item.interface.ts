@@ -1,4 +1,4 @@
-import IFilledArray from './filled-array.entity';
+import IFilledArray from './filled-array.interface';
 
 export default interface IItem {
   title: string;

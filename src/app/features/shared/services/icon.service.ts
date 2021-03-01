@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Transfer } from '../interfaces/payments/transfer.interface';
-import { ElectronicPayment } from '../interfaces/payments/electronicPayment.interface';
+import { ElectronicTransfer } from '../interfaces/transfers/electronicTransfer.interface';
 import { ICard } from '../interfaces/card.interface';
 
 @Injectable({
@@ -11,7 +10,7 @@ export class IconService {
   private transferTypes = [
     'bank',
     'electronic',
-    'instant',
+    'internal',
     'phone',
     'cash',
     'online',
@@ -30,7 +29,7 @@ export class IconService {
     if (transfer.type.toLocaleLowerCase() === 'electronic') {
       return this.determineElectronicPaymentsIcon(
         transfer,
-        (transfer as ElectronicPayment).paymentSystem
+        (transfer as ElectronicTransfer).paymentSystem
       );
     } else {
       return this.transferTypes.includes(transfer.type.toLocaleLowerCase())
