@@ -45,7 +45,7 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
       this.onChange(this.value);
     }
 
-    this.disabled = this.disabled || !this.options.length;
+    this.disabled = this.disabled || !this.options?.length;
   }
 
   dropdownClicked() {
