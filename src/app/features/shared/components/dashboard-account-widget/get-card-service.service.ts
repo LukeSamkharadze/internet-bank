@@ -12,11 +12,4 @@ export class GetCardServiceService {
   formatCardNumber(strnum: string): string {
     return Array(2).fill(' ').join(Array(5).join('*')) + strnum.substr(-4, 4);
   }
-  cardToInfo(card: ICard) {
-    return [
-      {
-        value: this.formatCardNumber(card.cardNumber.toString()),
-      },
-    ];
-  }
 }

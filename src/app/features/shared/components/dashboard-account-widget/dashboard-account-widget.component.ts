@@ -20,7 +20,8 @@ export class DashboardAccountWidgetComponent implements OnInit {
   animation: string;
   cards: ICard[];
   i: number;
-
+  largest = 0;
+  card: ICard;
   constructor(public getCardService: GetCardServiceService) {}
 
   calculateProfit() {
@@ -77,9 +78,30 @@ export class DashboardAccountWidgetComponent implements OnInit {
       }
     }
   }
-
+  activeCard() {
+    this.getCardService.getCards().subscribe((v) => {
+      this.cards = v;
+      if (this.cards.length > 1) {
+        for (this.i = 0; this.i < this.cards.length; this.i++) {
+          if (
+            this.cards[this.i].availableAmount >
+            this.cards[this.i + 1].availableAmount
+          ) {
+            this.card = this.cards[this.i];
+            return this.card;
+          } else {
+            this.card = this.cards[0];
+            return this.card;
+          }
+        }
+      } else {
+        this.card = this.cards[0];
+        return this.card;
+      }
+    });
+  }
   ngOnInit(): void {
-    this.getCardService.getCards().subscribe((v) => (this.cards = v));
+    this.activeCard();
     this.calculateProfit();
     this.calculateDegree();
     this.styleElement = document.createElement('style');

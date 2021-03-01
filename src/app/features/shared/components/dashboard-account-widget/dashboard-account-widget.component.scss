@@ -1,7 +1,4 @@
 @import 'index.scss';
-:host {
-  display: inline-block;
-}
 .flex-container-column {
   display: flex;
   align-items: center;
@@ -20,32 +17,34 @@
 header {
   height: 56px;
   display: flex;
+  justify-content: space-between;
+  padding: 15px;
   p {
     font-size: 16px;
-    padding-top: 25px;
-    padding-left: 15px;
+
     color: $primary-dark;
   }
   .iconscontainer {
     position: relative;
-    margin-left: 65%;
-    margin-top: 25px;
   }
 }
 .download {
   display: flex;
+  flex-direction: row;
   padding-top: 50px;
   cursor: pointer;
+  width: 100%;
   justify-content: space-between;
+  padding: 15px;
+  padding-top: 30px;
   p {
     color: #252631;
     font-size: 14px;
     font-weight: 500;
-    padding-right: 30px;
   }
   i {
+    position: relative;
     color: #ffab2b;
-    padding-left: 30px;
   }
 }
 
