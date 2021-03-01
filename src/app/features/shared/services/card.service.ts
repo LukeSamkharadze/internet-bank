@@ -125,8 +125,11 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   update(card: ICard): Observable<ICard> {
+    const updateCard = { ...card };
+    delete updateCard.color;
+    delete updateCard.iconPath;
     return this.http
-      .put<ICard>(environment.BaseUrl + `cards/${card.id}`, card)
+      .put<ICard>(environment.BaseUrl + `cards/${updateCard.id}`, updateCard)
       .pipe(
         retry(1),
         tap(() => this.updateStore()),
