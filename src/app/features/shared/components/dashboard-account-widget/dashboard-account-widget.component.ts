@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ICard } from '../../interfaces/card.interface';
+import { CalculateProfitService } from './calculate-profit.service';
 import { GetCardServiceService } from './get-card-service.service';
+import { IncomeType } from './incomeType';
 
 @Component({
   selector: 'app-shared-dashboard-account-widget',
@@ -9,8 +11,8 @@ import { GetCardServiceService } from './get-card-service.service';
   styleUrls: ['./dashboard-account-widget.component.scss'],
 })
 export class DashboardAccountWidgetComponent implements OnInit {
-  @Input() income = 0;
-  @Input() outcome = 0;
+  income = 0;
+  outcome = 0;
   percentage: number;
   degreeSecondHalf: number;
   degreeFirstHalf: number;
@@ -22,16 +24,18 @@ export class DashboardAccountWidgetComponent implements OnInit {
   i: number;
   largest = 0;
   card: ICard;
-  constructor(public getCardService: GetCardServiceService) {}
+  incomeOutcome: IncomeType[];
+  constructor(
+    public getCardService: GetCardServiceService,
+    public calculateProfit: CalculateProfitService
+  ) {}
 
-  calculateProfit() {
+  calculateProfitRound() {
     if (this.income > 999 && this.outcome > 999 && this.income > this.outcome) {
       this.profit = this.income - this.outcome;
       this.profitRound = (this.profit / 1000).toFixed(0) + 'K';
-      console.log(this.profitRound);
     } else if (this.income < this.outcome) {
       this.profitRound = '0';
-      console.log(this.profitRound);
     } else if (
       this.income < 999 &&
       this.outcome < 999 &&
@@ -41,7 +45,25 @@ export class DashboardAccountWidgetComponent implements OnInit {
       this.profitRound = this.profit.toString();
     }
   }
-
+  getIncome() {
+    this.calculateProfit.getAll().subscribe((resp) => {
+      this.incomeOutcome = resp;
+      const incomeArray = this.incomeOutcome[0].data;
+      const outcomeArray = this.incomeOutcome[1].data;
+      for (this.i = 0; this.i < incomeArray.length; this.i++) {
+        this.income = this.income + incomeArray[this.i];
+      }
+      for (this.i = 0; this.i < incomeArray.length; this.i++) {
+        this.outcome = this.outcome + outcomeArray[this.i];
+      }
+      this.calculateProfitRound();
+      this.calculateDegree();
+      this.styleElement = document.createElement('style');
+      this.styleElement.type = 'text/css';
+      this.styleElement.textContent = this.animation;
+      document.head.appendChild(this.styleElement);
+    });
+  }
   calculateDegree() {
     if (this.profit > 0) {
       this.percentage = (this.profit / this.income) * 100;
@@ -101,12 +123,7 @@ export class DashboardAccountWidgetComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.getIncome();
     this.activeCard();
-    this.calculateProfit();
-    this.calculateDegree();
-    this.styleElement = document.createElement('style');
-    this.styleElement.type = 'text/css';
-    this.styleElement.textContent = this.animation;
-    document.head.appendChild(this.styleElement);
   }
 }

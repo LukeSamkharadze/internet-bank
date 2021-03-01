@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ICard } from '../../../shared/interfaces/card.interface';
 import { CardService } from '../../../shared/services/card.service';
 
 @Injectable()
