@@ -1,38 +1,36 @@
 {
   "questions": [
     {
-      "id": 1,
+      "questionId": 1,
       "question": "your pet name"
     },
     {
-      "id": 2,
+      "questionId": 2,
       "question": "your chilhood nickname"
     },
     {
-      "id": 3,
+      "questionId": 3,
       "question": "favorite car model"
     }
   ],
   "answers": [
     {
-      "id": 1,
-      "userid": 2,
-      "answer": "1"
+      "questionId": 1,
+      "userId": 1,
+      "answer": "12212",
+      "id": 1
     },
     {
-      "userid": 2,
-      "answer": "",
+      "questionId": 2,
+      "userId": 1,
+      "answer": "1221212",
       "id": 2
     },
     {
-      "userid": 2,
-      "answer": "",
+      "questionId": 3,
+      "userId": 1,
+      "answer": "12212121",
       "id": 3
-    },
-    {
-      "userid": 2,
-      "answer": "",
-      "id": 4
     }
   ],
   "items": [
@@ -250,13 +248,9 @@
       "password": "12345678"
     },
     {
-      "email": "admin@gmail.com",
-      "language": "English",
-      "sex": "Male",
-      "id": 2,
-      "password": "123456789",
-      "fullname": "EDMOND DANTES",
-      "answer": ""
+      "userId": 2,
+      "answer": "spike",
+      "id": 2
     },
     {
       "fullname": "VITO CORLEONE",

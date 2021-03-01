@@ -8,5 +8,4 @@ export interface IUser {
   phone?: number;
   language?: string;
   sex?: string;
-  secretQuestion?: object[];
 }

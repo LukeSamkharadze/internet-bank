@@ -16,7 +16,10 @@ export class SettingsSecurityComponent implements OnInit {
   formChange: FormGroup;
   userid: string;
   user$: Observable<IUser>;
-  userAnswer: SecretQuestion = { id: 1, userid: 'age', answer: '' };
+  userAnswer: SecretQuestion = { questionId: 1, userId: 'age', answer: '' };
+  userOldAnswer: SecretQuestion = { questionId: 1, userId: 'age', answer: '' };
+
+  userQusetions;
   user;
 
   questions: Array<SecretQuestion>;
@@ -41,7 +44,7 @@ export class SettingsSecurityComponent implements OnInit {
         Validators.minLength(7),
         Validators.pattern(/^[a-zA-Z0-9]+$/),
       ]),
-      dropdown: new FormControl(''),
+      dropdown: new FormControl('', [Validators.minLength(1)]),
       answer: new FormControl(''),
     });
     // getting user data from DB
@@ -53,21 +56,55 @@ export class SettingsSecurityComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.user.password === this.formChange.get('curentPass').value) {
-      this.user.password = this.formChange.get('newPass').value;
-    } else {
-      alert('your current password is incorrect');
-    }
-    // updating user  DATA
-    const qId = this.formChange.get('dropdown').value.id;
-    const qAnswer = this.formChange.get('answer').value;
-    this.userServise.update(this.user).subscribe();
+    // password check
+    if (this.formChange.get('newPass').value === '') {
+      if (
+        this.user.password === this.formChange.get('curentPass').value &&
+        this.formChange.get('newPass').value !== ''
+      ) {
+        this.user.password = this.formChange.get('newPass').value;
+      } else {
+        alert('your current password is incorrect');
+      }
+      // updating user  DATA
 
-    // creating user secretquestion
-    this.userAnswer.answer = qAnswer;
-    this.userAnswer.id = qId;
-    this.userAnswer.userid = this.user.id;
-    this.SecretQuestionservise.create(this.userAnswer).subscribe();
+      this.userServise.update(this.user).subscribe();
+    } else {
+      // secret question
+
+      (async () => {
+        // fetching value from form
+        const qId = this.formChange.get('dropdown').value.questionId;
+        const qAnswer = this.formChange.get('answer').value;
+
+        //fetching DB answers
+        this.userOldAnswer = await this.SecretQuestionservise.getAnswerByQuestionId(
+          this.userid,
+          qId
+        ).toPromise();
+
+        console.log('db', this.questions);
+        console.log('old', this.userOldAnswer);
+
+        //setting form DATA
+
+        this.userAnswer.answer = qAnswer;
+        this.userAnswer.questionId = qId;
+        this.userAnswer.userId = this.user.id;
+
+        if (this.userOldAnswer) {
+          this.userAnswer.id = this.userOldAnswer.id;
+          console.log('s', this.userOldAnswer);
+
+          console.log(this.userAnswer);
+          this.SecretQuestionservise.update(this.userAnswer).toPromise();
+        } else {
+          this.userAnswer.id = null;
+
+          this.SecretQuestionservise.create(this.userAnswer).toPromise();
+        }
+      })();
+    }
 
     console.log(this.user);
     console.log(this.userAnswer);
