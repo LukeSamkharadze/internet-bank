@@ -21,18 +21,18 @@
     <div class="gritem-2">
       <div class="card-placeholder">
         <img
-          src="./assets/cards/create/card-bg.svg"
+          class="card-bg"
+          src="{{ cardBgUrl }}"
           alt="card placeholder"
-          height="200"
-          width="327.586"
+          [@fadeInOut]="cardBgUrl"
         />
         <div class="crd-placeholder-txt text-center">
-          <i class="las la-plus-circle"></i>
+          <i [class]="'las la-plus-circle ' + color"></i>
           <div>
             <h4 [@fadeInOut]="cardType">
               Add new {{ cardType ? cardType : 'card' }}
             </h4>
-            <p>Start process</p>
+            <p [class]="color">Start process</p>
           </div>
         </div>
       </div>

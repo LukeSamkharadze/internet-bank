@@ -13,27 +13,10 @@ import { fadeInOut } from '../shared/animations';
 })
 export class CreateCardComponent implements OnInit {
   form: FormGroup;
-  cardType: '' | 'Mastercard' | 'Visa card';
+  cardType: '' | 'Mastercard' | 'Visa card' = '';
   cardIconUrl = '';
-
-  // Determine card icon based on card type
-  determineCard() {
-    const firstNum = this.formCtrlVal('cardNumber')[0];
-    switch (firstNum) {
-      case '4':
-        return (
-          (this.cardType = 'Visa card'),
-          (this.cardIconUrl = `./assets/cards/visa.svg`)
-        );
-      case '5':
-        return (
-          (this.cardType = 'Mastercard'),
-          (this.cardIconUrl = `./assets/cards/mastercard.svg`)
-        );
-      default:
-        return (this.cardIconUrl = ''), (this.cardType = '');
-    }
-  }
+  cardBgUrl = './assets/cards/backgrounds/light-orange.svg';
+  color = '';
 
   constructor(
     private fb: FormBuilder,
@@ -44,6 +27,34 @@ export class CreateCardComponent implements OnInit {
   // Get formControl value
   formCtrlVal(name: string) {
     return this.form.get(name).value;
+  }
+
+  // Determine 'Card Bg, Icon & Color' based on 'Card Type' on creation
+  determineCard() {
+    const firstNum = this.formCtrlVal('cardNumber')[0];
+    switch (firstNum) {
+      case '4':
+        return (
+          (this.cardType = 'Visa card'),
+          (this.cardIconUrl = `./assets/cards/visa.svg`),
+          (this.cardBgUrl = `./assets/cards/backgrounds/blue.svg`),
+          (this.color = 'visa-cl')
+        );
+      case '5':
+        return (
+          (this.cardType = 'Mastercard'),
+          (this.cardIconUrl = `./assets/cards/mastercard.svg`),
+          (this.cardBgUrl = `./assets/cards/backgrounds/orange.svg`),
+          (this.color = 'master-cl')
+        );
+      default:
+        return (
+          (this.cardIconUrl = ''),
+          (this.cardType = ''),
+          (this.cardBgUrl = './assets/cards/backgrounds/light-orange.svg'),
+          (this.color = '')
+        );
+    }
   }
 
   makeInputUpperCase(formCtrl: string) {

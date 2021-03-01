@@ -88,16 +88,18 @@
 
     .card-placeholder {
       position: relative;
+      margin: 0 auto;
+      width: 327px;
+      height: 200px;
+      animation-name: card-appear;
+      animation-timing-function: ease;
+      animation-duration: 1.5s;
 
-      .card-animation {
-        background: palegoldenrod;
-        transition: 1.3s ease-in-out;
-      }
-
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
+      .card-bg {
+        position: absolute;
+        top: -58px;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .crd-placeholder-txt {
@@ -113,9 +115,17 @@
 
         .la-plus-circle {
           position: relative;
-          color: $primary;
           top: 5px;
           font-size: 75px;
+          color: $primary;
+
+          &.visa-cl {
+            color: #293688;
+          }
+
+          &.master-cl {
+            color: #e69310;
+          }
         }
 
         h4 {
@@ -125,8 +135,26 @@
 
         p {
           font-size: 13px;
+
+          &.master-cl,
+          &.visa-cl {
+            color: darkgray;
+          }
         }
       }
+    }
+  }
+
+  @keyframes card-appear {
+    from {
+      opacity: 0;
+      pointer-events: none;
+      top: 140px;
+    }
+    to {
+      opacity: 1;
+      pointer-events: all;
+      top: 0px;
     }
   }
 
