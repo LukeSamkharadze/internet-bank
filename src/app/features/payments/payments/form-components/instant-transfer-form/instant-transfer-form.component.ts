@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
-import { InstantTransfer } from '../../../../shared/interfaces/transfers/instantTransfer.interface';
+import { InternalTransfer } from '../../../../shared/interfaces/transfers/internalTransfer.interface';
 import { PaymentService } from '../../../services/payment.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -18,7 +18,7 @@ import { catchError, tap } from 'rxjs/operators';
   animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
 export class InstantTransferFormComponent implements OnDestroy {
-  title = 'Instant transfer';
+  title = 'Internal transfer';
 
   form = new FormGroup({
     fromAccount: new FormControl('', Validators.required),
@@ -40,10 +40,10 @@ export class InstantTransferFormComponent implements OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      const transfer: InstantTransfer = {
+      const transfer: InternalTransfer = {
         title: '', // will add in actual payment method.
         date: new Date(),
-        type: 'instant',
+        type: 'internal',
         fromAccountUserId: this.fromAccount.value.userId,
         fromAccountNumber: this.fromAccount.value.accountNumber,
         amount: Number(this.amount.value),

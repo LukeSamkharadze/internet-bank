@@ -60,8 +60,17 @@ export class TransactionService {
 
   // returns bank spendings of user.
   getBankSpendings(userId: string): Observable<Transfer[]> {
-    return this.http.get<Transfer[]>(
+    const bankTransfers = this.http.get<Transfer[]>(
       environment.BaseUrl + `transactions?fromAccountUserId=${userId}&type=bank`
+    );
+
+    const internalTransfers = this.http.get<Transfer[]>(
+      environment.BaseUrl +
+        `transactions?fromAccountUserId=${userId}&type=instant`
+    );
+
+    return forkJoin([bankTransfers, internalTransfers]).pipe(
+      map((results) => [...results[0], ...results[1]])
     );
   }
 
