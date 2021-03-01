@@ -62,8 +62,6 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
         data.forEach((element) => {
           this.transactionsList.push({
             ...element,
-            icon: element.iconPath,
-            cardNumber: String(element.fromAccountNumber).slice(-4),
             date: new Date(element.date),
           });
         });
