@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { CardService } from '../shared/services/card.service';
 import { AuthService } from '../shared/services/auth.service';
+import { TypeSwitcherService } from './services/type-switcher.service';
 import { fadeInOut } from '../shared/animations';
 
 @Component({
@@ -13,16 +14,31 @@ import { fadeInOut } from '../shared/animations';
 })
 export class CreateCardComponent implements OnInit {
   form: FormGroup;
-  cardType: '' | 'Mastercard' | 'Visa card' = '';
-  cardIconUrl = '';
-  cardBgUrl = './assets/cards/backgrounds/light-orange.svg';
-  color = '';
+  cardType: string;
+  cardIconUrl: string;
+  cardBgUrl: string;
+  color: string;
+  showNotification = false;
 
   constructor(
     private fb: FormBuilder,
     private cardService: CardService,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private typeSwitcher: TypeSwitcherService
+  ) {
+    this.typeSwitcher.cardType$.subscribe((cardType) => {
+      this.cardType = cardType;
+    });
+    this.typeSwitcher.cardIconUrl$.subscribe((cardIconUrl) => {
+      this.cardIconUrl = cardIconUrl;
+    });
+    this.typeSwitcher.cardBgUrl$.subscribe((cardBgUrl) => {
+      this.cardBgUrl = cardBgUrl;
+    });
+    this.typeSwitcher.color$.subscribe((color) => {
+      this.color = color;
+    });
+  }
 
   // Get formControl value
   formCtrlVal(name: string) {
@@ -32,29 +48,7 @@ export class CreateCardComponent implements OnInit {
   // Determine 'Card Bg, Icon & Color' based on 'Card Type' on creation
   determineCard() {
     const firstNum = this.formCtrlVal('cardNumber')[0];
-    switch (firstNum) {
-      case '4':
-        return (
-          (this.cardType = 'Visa card'),
-          (this.cardIconUrl = `./assets/cards/visa.svg`),
-          (this.cardBgUrl = `./assets/cards/backgrounds/blue.svg`),
-          (this.color = 'visa-cl')
-        );
-      case '5':
-        return (
-          (this.cardType = 'Mastercard'),
-          (this.cardIconUrl = `./assets/cards/mastercard.svg`),
-          (this.cardBgUrl = `./assets/cards/backgrounds/orange.svg`),
-          (this.color = 'master-cl')
-        );
-      default:
-        return (
-          (this.cardIconUrl = ''),
-          (this.cardType = ''),
-          (this.cardBgUrl = './assets/cards/backgrounds/light-orange.svg'),
-          (this.color = '')
-        );
-    }
+    this.typeSwitcher.checkInput(firstNum);
   }
 
   makeInputUpperCase(formCtrl: string) {
@@ -72,6 +66,20 @@ export class CreateCardComponent implements OnInit {
       .setValue('GE32TB' + this.formCtrlVal('accountNumber'));
   }
 
+  showCardNotification(show?: boolean) {
+    // If '(X) Button' clicked hide 'Success Notification'
+    if (show === false) {
+      this.showNotification = false;
+    } else {
+      // Show 'Success Notification' if card is added
+      this.showNotification = true;
+      // Hide 'Success Notification' after 2 sec
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 2000);
+    }
+  }
+
   // Adding Card on Server using Service
   onSubmit() {
     if (this.form.valid) {
@@ -87,12 +95,15 @@ export class CreateCardComponent implements OnInit {
       this.cardService
         .create(card)
         .pipe(finalize(() => this.form.reset({ security3D: true })))
-        .subscribe();
+        .subscribe(() => {
+          this.showCardNotification();
+          this.typeSwitcher.checkInput();
+        });
     }
   }
 
-  // Card Form and its validation
   ngOnInit(): void {
+    // Card Form and its validation
     this.form = this.fb.group({
       // Must be typed: Card Name (only letters and numbers are allowed)
       cardName: [
