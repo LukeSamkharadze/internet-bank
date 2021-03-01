@@ -65,6 +65,7 @@ $trans-bg-color: #ffffff;
       position: absolute;
       left: 50%;
       transform: translate(-50%, -50%);
+      background: white;
       top: -1px;
       img {
         position: absolute;
@@ -72,6 +73,7 @@ $trans-bg-color: #ffffff;
         left: 50%;
         transform: translate(-50%, -50%);
         max-height: 62px;
+        width: 55px;
       }
     }
     .details-popup-lower-heading {

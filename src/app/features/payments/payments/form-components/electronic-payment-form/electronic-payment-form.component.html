@@ -50,7 +50,7 @@
       <ng-template #paymentSystemTemplate let-option>
         <div class="payment-system-template">
           <img [src]="option['iconPath']" />
-          <span>{{ option['name'] }}</span>
+          <span>{{ option['name'] | titlecase }}</span>
         </div>
       </ng-template>
 

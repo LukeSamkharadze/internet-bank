@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable } from 'rxjs';
-import { retry } from 'rxjs/operators';
+import { EMPTY, Observable, Subject } from 'rxjs';
+import { retry, take, tap } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
 
@@ -15,6 +15,13 @@ import IBgColor from '../interfaces/background-color.interface';
   providedIn: 'root',
 })
 export class LoanService implements BaseHttpInterface<ILoan> {
+  public update$ = new Subject<ILoan[]>();
+
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private bgService: BackgroundService
+  ) {}
   private readonly icons = new Map<LoanType, string>([
     ['Mortgage', 'lar la-building'],
     ['Consumer', 'las la-laptop'],
@@ -24,11 +31,11 @@ export class LoanService implements BaseHttpInterface<ILoan> {
     ['Consumer', 'blue'],
   ]);
 
-  constructor(
-    private http: HttpClient,
-    private auth: AuthService,
-    private bgService: BackgroundService
-  ) {}
+  updateStore(): void {
+    this.getAll()
+      .pipe(take(1))
+      .subscribe((loans) => this.update$.next(loans));
+  }
 
   create(loan: ILoan): Observable<ILoan> {
     return EMPTY;
@@ -52,9 +59,10 @@ export class LoanService implements BaseHttpInterface<ILoan> {
   }
 
   delete(id: number): Observable<void> {
-    return this.http
-      .delete<void>(`${environment.BaseUrl}loans/${id}`)
-      .pipe(retry(1));
+    return this.http.delete<void>(`${environment.BaseUrl}loans/${id}`).pipe(
+      retry(1),
+      tap(() => this.updateStore())
+    );
   }
 
   determineIcon(loan: ILoan): string {

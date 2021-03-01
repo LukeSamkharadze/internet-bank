@@ -18,6 +18,6 @@ import { ListFormatService } from './services/list-format.service';
     LoanDetailsComponent,
   ],
   imports: [FeaturesSharedModule, CardViewRoutingModule],
-  providers: [ListFormatService, TemplateFormatService]
+  providers: [ListFormatService, TemplateFormatService],
 })
 export class CardViewModule {}

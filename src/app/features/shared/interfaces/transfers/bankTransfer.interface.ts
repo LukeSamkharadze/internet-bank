@@ -1,6 +1,6 @@
 import { Transfer } from './transfer.interface';
 
-export interface BankPayment extends Transfer {
+export interface BankTransfer extends Transfer {
   toAccountNumber: string;
   toUserId: string;
   beneficiary: string;

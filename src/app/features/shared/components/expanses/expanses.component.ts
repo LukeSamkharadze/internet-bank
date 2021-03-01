@@ -1,10 +1,13 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { SeriesHighlight } from '@progress/kendo-angular-charts';
@@ -15,7 +18,7 @@ import { Expanses } from '../../interfaces/expanses.interface';
   templateUrl: './expanses.component.html',
   styleUrls: ['./expanses.component.scss'],
 })
-export class ExpansesComponent implements OnInit {
+export class ExpansesComponent implements OnInit, OnChanges {
   @Input() chartData: Expanses[] = [];
   @Input() header = `Expanses categories`;
   @Output()
@@ -26,19 +29,32 @@ export class ExpansesComponent implements OnInit {
     color: '#4D7CFE',
     opacity: 1,
   };
+  public showChart = true;
 
   ngOnInit(): void {
-    if (this.chartData.length !== 0) {
+    this.checkChart();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.checkChart();
+  }
+
+  checkChart() {
+    if (Array.isArray(this.chartData) && this.chartData.length !== 0) {
       let sum = 0;
       this.chartData.map((item) => {
-        if (!item.colorString) {
-          const red = Math.floor(Math.random() * 255);
-          const green = Math.floor(Math.random() * 255);
-          const blue = Math.floor(Math.random() * 255);
-          const color = `rgb(${red},${green},${blue})`;
-          Object.assign(item, { colorString: color });
+        if (item.hasOwnProperty('kind') && item.hasOwnProperty('share')) {
+          if (!item.colorString) {
+            const red = Math.floor(Math.random() * 255);
+            const green = Math.floor(Math.random() * 255);
+            const blue = Math.floor(Math.random() * 255);
+            const color = `rgb(${red},${green},${blue})`;
+            Object.assign(item, { colorString: color });
+          }
+          sum += item.share;
+        } else {
+          this.showChart = false;
         }
-        sum += item.share;
       });
       this.chartData.map((item) => {
         Object.assign(item, {
@@ -46,12 +62,14 @@ export class ExpansesComponent implements OnInit {
         });
       });
     } else {
-      confirm('No Chart Data !');
+      this.showChart = false;
     }
   }
+
   labelContent(e: any): string {
     return e.category;
   }
+
   handleClick(event: MouseEvent) {
     this.isClicked.emit(event);
   }
