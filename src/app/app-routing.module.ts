@@ -32,13 +32,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'products',
-        loadChildren: () =>
-          import('./features/create-card/create-card.module').then(
-            (m) => m.CreateCardModule
-          ),
-      },
-      {
         path: 'card-view',
         loadChildren: () =>
           import('./features/card-view/card-view.module').then(

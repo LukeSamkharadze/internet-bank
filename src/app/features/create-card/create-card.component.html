@@ -1,185 +1,214 @@
-<section class="main-container grid-container">
-  <div class="gritem-1">
-    <div class="crd-header">
-      <div class="visa-card-container">
-        <img src="./assets/cards/visa.svg" alt="visa card mini logo" />
-      </div>
-
-      <p class="add-crd-txt">Add new card</p>
-      <p class="crd-money">
-        {{ (amount.value ? amount.value : 0) | currency }}
-      </p>
-    </div>
-  </div>
-  <div class="gritem-2">
-    <div class="card-placeholder">
-      <img
-        src="./assets/cards/create/card-bg.svg"
-        alt="card placeholder"
-        height="200"
-        width="327.586"
-      />
-      <div class="crd-placeholder-txt text-center">
-        <i class="las la-plus-circle"></i>
-        <div>
-          <h4>Add new card</h4>
-          <p>Start process</p>
+<main class="main-container">
+  <section class="create-card-container">
+    <div class="gritem-1">
+      <div class="crd-header">
+        <div class="card-container">
+          <i *ngIf="!cardIconUrl" class="fas fa-credit-card"></i>
+          <img
+            *ngIf="cardIconUrl"
+            src="{{ cardIconUrl }}"
+            alt="card mini logo color"
+          />
         </div>
+        <p class="add-crd-txt" [@fadeInOut]="cardType">
+          Add new {{ cardType ? cardType : 'card' }}
+        </p>
+        <p class="crd-money" [@fadeInOut]="amount.value">
+          {{ (amount.value ? amount.value : 0) | currency }}
+        </p>
       </div>
     </div>
-  </div>
-  <div class="gritem-3">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="li">
-        <label for="cardName"
-          >Card name
-          <i class="las la-check" *ngIf="form.controls.cardName.valid"></i
-        ></label>
+    <div class="gritem-2">
+      <div class="card-placeholder">
+        <img
+          class="card-placeholder-bg"
+          src="{{ cardBgUrl }}"
+          alt="card placeholder"
+          [@fadeInOut]="cardBgUrl"
+        />
+        <div class="card-placeholder-txt text-center">
+          <i [class]="'las la-plus-circle ' + color"></i>
+          <div>
+            <h4 [@fadeInOut]="cardType">
+              Add new {{ cardType ? cardType : 'card' }}
+            </h4>
+            <p [class]="color">Start process</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gritem-3">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="li">
+          <label for="cardName"
+            >Card name
+            <i class="las la-check" *ngIf="form.controls.cardName.valid"></i
+          ></label>
 
-        <input
-          formControlName="cardName"
-          #cardName
-          type="text"
-          id="cardName"
-          [ngClass]="{
-            valid: form.controls.cardName.valid,
-            invalid: form.controls.cardName.invalid && cardName.value
-          }"
-          placeholder="Please add your card name"
-        />
-        <div class="pop-up">
-          <i class="las la-info-circle"></i>
-          <span>Type: Letters and numbers</span>
+          <input
+            formControlName="cardName"
+            #cardName
+            type="text"
+            id="cardName"
+            [ngClass]="{
+              valid: form.controls.cardName.valid,
+              invalid: form.controls.cardName.invalid && cardName.value
+            }"
+            placeholder="Please add your card name"
+          />
+          <div class="pop-up">
+            <i class="las la-info-circle"></i>
+            <span>Type: Letters and numbers</span>
+          </div>
         </div>
-      </div>
-      <div class="li">
-        <label for="accountNumber"
-          >Account number
-          <i class="las la-check" *ngIf="form.controls.accountNumber.valid"></i
-        ></label>
-        <input
-          formControlName="accountNumber"
-          #accountNumber
-          type="text"
-          id="accountNumber"
-          maxlength="16"
-          [ngClass]="{
-            valid: form.controls.accountNumber.valid,
-            invalid: form.controls.accountNumber.invalid && accountNumber.value
-          }"
-          placeholder="Please add your account number"
-        />
-        <div class="pop-up">
-          <i class="las la-info-circle"></i>
-          <span>Type: 16 numbers excluding 'GE32TB'</span>
+        <div class="li">
+          <label for="accountNumber"
+            >Account number
+            <i
+              class="las la-check"
+              *ngIf="form.controls.accountNumber.valid"
+            ></i
+          ></label>
+          <input
+            formControlName="accountNumber"
+            #accountNumber
+            type="text"
+            id="accountNumber"
+            maxlength="16"
+            [ngClass]="{
+              valid: form.controls.accountNumber.valid,
+              invalid:
+                form.controls.accountNumber.invalid && accountNumber.value
+            }"
+            placeholder="Please add your account number"
+          />
+          <div class="pop-up">
+            <i class="las la-info-circle"></i>
+            <span>Type: 16 numbers excluding 'GE32TB'</span>
+          </div>
         </div>
-      </div>
-      <div class="li">
-        <label for="cardNumber"
-          >Card number
-          <i class="las la-check" *ngIf="form.controls.cardNumber.valid"></i
-        ></label>
-        <input
-          formControlName="cardNumber"
-          #cardNumber
-          type="text"
-          id="cardNumber"
-          maxlength="16"
-          [ngClass]="{
-            valid: form.controls.cardNumber.valid,
-            invalid: form.controls.cardNumber.invalid && cardNumber.value
-          }"
-          placeholder="Please add your card number"
-        />
-        <div class="pop-up">
-          <i class="las la-info-circle"></i>
-          <span>Type: 16 numbers</span>
+        <div class="li">
+          <label for="cardNumber"
+            >Card number
+            <i class="las la-check" *ngIf="form.controls.cardNumber.valid"></i
+          ></label>
+          <input
+            formControlName="cardNumber"
+            #cardNumber
+            (input)="determineCard()"
+            type="text"
+            id="cardNumber"
+            maxlength="16"
+            [ngClass]="{
+              valid: form.controls.cardNumber.valid,
+              invalid: form.controls.cardNumber.invalid && cardNumber.value
+            }"
+            placeholder="Please add your card number"
+          />
+          <div class="pop-up">
+            <i class="las la-info-circle"></i>
+            <span>Type: 16 numbers</span>
+          </div>
         </div>
-      </div>
-      <div class="li">
-        <label for="cardholder"
-          >Cardholder
-          <i class="las la-check" *ngIf="form.controls.cardholder.valid"></i
-        ></label>
-        <input
-          formControlName="cardholder"
-          #cardholder
-          type="text"
-          id="cardholder"
-          [ngClass]="{
-            valid: form.controls.cardholder.valid,
-            invalid: form.controls.cardholder.invalid && cardholder.value
-          }"
-          placeholder="Please add your name"
-        />
-        <div class="pop-up">
-          <i class="las la-info-circle"></i>
-          <span>Type: Only letters</span>
+        <div class="li">
+          <label for="cardholder"
+            >Cardholder
+            <i class="las la-check" *ngIf="form.controls.cardholder.valid"></i
+          ></label>
+          <input
+            formControlName="cardholder"
+            #cardholder
+            type="text"
+            id="cardholder"
+            [ngClass]="{
+              valid: form.controls.cardholder.valid,
+              invalid: form.controls.cardholder.invalid && cardholder.value
+            }"
+            placeholder="Please add your name"
+          />
+          <div class="pop-up">
+            <i class="las la-info-circle"></i>
+            <span>Type: Only letters</span>
+          </div>
         </div>
-      </div>
-      <div class="li">
-        <label for="expirationDate"
-          >Expiration date
-          <i class="las la-check" *ngIf="form.controls.expirationDate.valid"></i
-        ></label>
-        <input
-          formControlName="expirationDate"
-          #expirationDate
-          type="text"
-          id="expirationDate"
-          [ngClass]="{
-            valid: form.controls.expirationDate.valid,
-            invalid:
-              form.controls.expirationDate.invalid && expirationDate.value
-          }"
-          placeholder="Please add your card number expiration date"
-        />
-        <div class="pop-up">
-          <i class="las la-info-circle"></i>
-          <span>Type: Date format 'MM/YY'</span>
+        <div class="li">
+          <label for="expirationDate"
+            >Expiration date
+            <i
+              class="las la-check"
+              *ngIf="form.controls.expirationDate.valid"
+            ></i
+          ></label>
+          <input
+            formControlName="expirationDate"
+            #expirationDate
+            type="text"
+            id="expirationDate"
+            [ngClass]="{
+              valid: form.controls.expirationDate.valid,
+              invalid:
+                form.controls.expirationDate.invalid && expirationDate.value
+            }"
+            placeholder="Please add your card number expiration date"
+          />
+          <div class="pop-up">
+            <i class="las la-info-circle"></i>
+            <span>Type: Date format 'MM/YY'</span>
+          </div>
         </div>
-      </div>
-      <div class="li">
-        <label for="availableAmount"
-          >Available amount
-          <i
-            class="las la-check"
-            *ngIf="form.controls.availableAmount.valid"
-          ></i
-        ></label>
-        <input
-          formControlName="availableAmount"
-          #amount
-          type="number"
-          id="availableAmount"
-          [ngClass]="{
-            valid: form.controls.availableAmount.valid,
-            invalid: form.controls.availableAmount.invalid && amount.value
-          }"
-          placeholder="Please add your available amount"
-        />
-        <div class="pop-up">
-          <i class="las la-info-circle"></i>
-          <span>Type: Only positive numbers</span>
+        <div class="li">
+          <label for="availableAmount"
+            >Available amount
+            <i
+              class="las la-check"
+              *ngIf="form.controls.availableAmount.valid"
+            ></i
+          ></label>
+          <input
+            formControlName="availableAmount"
+            #amount
+            type="number"
+            id="availableAmount"
+            [ngClass]="{
+              valid: form.controls.availableAmount.valid,
+              invalid: form.controls.availableAmount.invalid && amount.value
+            }"
+            placeholder="Please add your available amount"
+          />
+          <div class="pop-up">
+            <i class="las la-info-circle"></i>
+            <span>Type: Only positive numbers</span>
+          </div>
         </div>
-      </div>
-      <div class="li">
-        <!-- Imported toggle below -->
-        <label for="security3D">3D Security</label>
-        <app-shared-toggle
-          toggleId="security3D"
-          formControlName="security3D"
-          [checked]="form.controls.security3D.value"
-          [textBefore]="true"
-        ></app-shared-toggle>
-      </div>
-      <!-- Imported button below -->
-      <app-shared-button
-        class="shared-button"
-        [className]="'primary active'"
-        [isDisabled]="form.invalid"
-        >Add Card</app-shared-button
-      >
-    </form>
-  </div>
-</section>
+        <div class="li">
+          <!-- Imported toggle below -->
+          <label for="security3D">3D Security</label>
+          <app-shared-toggle
+            toggleId="security3D"
+            formControlName="security3D"
+            [checked]="form.controls.security3D.value"
+            [textBefore]="true"
+          ></app-shared-toggle>
+        </div>
+        <!-- Imported button below -->
+        <app-shared-button
+          class="shared-button"
+          [className]="'primary active'"
+          [isDisabled]="form.invalid"
+          >Add Card</app-shared-button
+        >
+      </form>
+    </div>
+  </section>
+  <section class="section-placeholder"></section>
+  <section class="notification-container">
+    <!-- Imported notification -->
+    <app-shared-notification
+      *ngIf="showNotification"
+      (closePopup)="showCardNotification(false)"
+      [color]="'green'"
+      [@fadeInOut]="cardType"
+      >Success! New {{ cardType ? cardType : 'card' }} has been added!
+    </app-shared-notification>
+  </section>
+</main>

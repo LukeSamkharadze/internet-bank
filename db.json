@@ -123,7 +123,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 33791.05,
+      "availableAmount": 35210.09000000001,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -135,7 +135,7 @@
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 33037.96,
+      "availableAmount": 37937.96,
       "security3D": true,
       "userId": "1",
       "id": 2
@@ -147,7 +147,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 16800,
+      "availableAmount": 8979,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -158,7 +158,7 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 8900,
+      "availableAmount": 9052.039999999999,
       "security3D": true,
       "userId": "2",
       "cardType": "mastercard",
@@ -172,13 +172,13 @@
       "name": "Electronic Payments",
       "providers": [
         {
-          "name": "Paypal"
+          "name": "paypal"
         },
         {
-          "name": "Skrill"
+          "name": "skrill"
         },
         {
-          "name": "Payoneer"
+          "name": "payoneer"
         }
       ],
       "icon": "las la-credit-card",
@@ -188,23 +188,23 @@
       "name": "Bank Transfer",
       "providers": [
         {
-          "name": "TBC"
+          "name": "any bank"
         }
       ],
-      "icon": "las la-piggy-bank",
+      "icon": "las la-university",
       "formPath": "bank-transfer"
     },
     {
       "name": "Instant Transfer",
       "providers": [
         {
-          "name": "Visa"
+          "name": "visa"
         },
         {
-          "name": "Mastercard"
+          "name": "mastercard"
         }
       ],
-      "icon": "las la-cart-plus",
+      "icon": "las la-exchange-alt",
       "formPath": "instant-transfer"
     }
   ],
@@ -372,7 +372,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 1240.0,
+      "totalAmount": 1240,
       "status": "Paid",
       "id": 3
     },
@@ -418,7 +418,7 @@
           "price": 600
         }
       ],
-      "totalAmount": 6904.0,
+      "totalAmount": 6904,
       "status": "Paid",
       "id": 5
     },
@@ -441,7 +441,7 @@
           "price": 300
         }
       ],
-      "totalAmount": 3400.0,
+      "totalAmount": 3400,
       "status": "Pending",
       "id": 6
     },
@@ -464,7 +464,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 480.0,
+      "totalAmount": 480,
       "status": "Pending",
       "id": 7
     },
@@ -487,7 +487,7 @@
           "price": 870
         }
       ],
-      "totalAmount": 8940.0,
+      "totalAmount": 8940,
       "status": "Pending",
       "id": 8
     },
@@ -510,7 +510,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 8940.0,
+      "totalAmount": 8940,
       "status": "Cancelled",
       "id": 9
     },
@@ -533,7 +533,7 @@
           "price": 4
         }
       ],
-      "totalAmount": 124.0,
+      "totalAmount": 124,
       "status": "Paid",
       "id": 10
     },
@@ -556,7 +556,7 @@
           "price": 11
         }
       ],
-      "totalAmount": 564.0,
+      "totalAmount": 564,
       "status": "Paid",
       "id": 11
     },
@@ -586,45 +586,60 @@
   ],
   "transactions": [
     {
-      "title": "Bank transfer to user: 3",
-      "toUserId": "3",
-      "date": "2021-02-28T16:39:38.183Z",
-      "type": "bank",
+      "title": "electronic payment to paypal@gmail.com",
+      "date": "2021-03-01T19:23:09.134Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB4434234223333333",
       "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "toAccountNumber": "GE32TB1111222233334444",
-      "amount": 20,
+      "toAccountEmail": "paypal@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 39,
       "currency": "USD",
-      "beneficiary": "gamarjoba batono obama",
-      "bankTransferType": "personal transfer",
       "status": "pending",
-      "id": 1
+      "id": 2
     },
     {
-      "title": "Instant transfer to bg012030123123",
-      "date": "2021-02-28T16:42:24.870Z",
-      "type": "instant",
+      "title": "Internal Bank transfer to user: VITO CORLEONE",
+      "toUserId": "3",
+      "date": "2021-03-01T19:24:01.807Z",
+      "type": "bank",
       "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "amount": 1,
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "toAccountNumber": "GE32TB1111222233334444",
+      "amount": 50,
       "currency": "USD",
-      "instantTransferType": "personal transfer",
-      "toAccountNumber": "bg012030123123",
+      "beneficiary": "VITO CORLEONE",
+      "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 3
     },
     {
-      "title": "electronic payment to payoneer@gmail.com",
-      "date": "2021-02-28T17:46:33.490Z",
-      "type": "electronic",
-      "fromAccountNumber": "GE32TB3333111122224444",
+      "title": "External Bank transfer to beneficiary: GIORGI BOG USER",
+      "toUserId": "",
+      "date": "2021-03-01T19:24:47.170Z",
+      "type": "bank",
       "fromAccountUserId": "2",
-      "toAccountEmail": "payoneer@gmail.com",
-      "paymentSystem": "paypal",
-      "amount": 66,
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "toAccountNumber": "BOG9912300000041241",
+      "amount": 300,
       "currency": "USD",
+      "beneficiary": "GIORGI BOG USER",
+      "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 4
+    },
+    {
+      "title": "Internal Bank transfer to account GE32TB4434234223333333",
+      "date": "2021-03-01T19:24:58.856Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "amount": 134,
+      "currency": "USD",
+      "instantTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB4434234223333333",
+      "status": "pending",
+      "id": 5
     }
   ],
   "news": [
