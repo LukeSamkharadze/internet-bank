@@ -34,6 +34,7 @@ export class NotificationsService {
       description: 'I have been questioned many people',
     },
   ];
+  appearance: boolean;
 
   getNotification() {
     return this.notifications;
@@ -41,9 +42,21 @@ export class NotificationsService {
 
   addNotification(icon: string, name: string, description: string) {
     this.notifications.push({
-      icon: icon,
-      name: name,
-      description: description,
+      icon,
+      name,
+      description,
     });
+  }
+
+  successfulPay(appearance) {
+    if (appearance) {
+      this.appearance = true;
+    } else {
+      this.appearance = false;
+    }
+  }
+
+  successfulPayStatus() {
+    return this.appearance;
   }
 }

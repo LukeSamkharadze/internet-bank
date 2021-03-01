@@ -78,29 +78,25 @@
       padding-right: 35px;
     }
   }
+
   ul {
     max-height: 390px;
     overflow: auto;
-    :not(:first-child) {
-      align-items: end;
-    }
     :not(:last-child):hover {
       background-color: $background-2;
       cursor: pointer;
-      .tooltip {
-        background-color: $background-2;
-      }
-    }
-    :first-child:hover .tooltip {
-      background-color: $background-2;
     }
     p:hover {
       cursor: pointer;
     }
   }
 
-  li:nth-of-type(1) > div > .notification-header {
-    padding-top: 20px;
+  .notification-text {
+    padding-top: 15px;
+  }
+
+  li:nth-of-type(1):hover ~ #tooltip {
+    background-color: $background-2;
   }
 
   .notification-header {

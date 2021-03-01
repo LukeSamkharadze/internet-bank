@@ -27,17 +27,17 @@
 
       <!-- bell notifications -->
       <div class="bell-notifications" *ngIf="bellNotifications">
-        <ul>
+        <ul id="list">
           <li *ngFor="let notification of notifications">
             <img src="{{ notification.icon }}" alt="" class="bell-image" />
-            <div>
+            <div class="notification-text">
               <p class="notification-header">{{ notification.name }}</p>
               <p class="notification-bottom">
                 {{ notification.description }}
               </p>
             </div>
           </li>
-          <div class="tooltip"></div>
+          <div class="tooltip" id="tooltip"></div>
         </ul>
         <div class="notification-footer">
           <p class="notification-footer-text">ALL NOTIFICATIONS</p>

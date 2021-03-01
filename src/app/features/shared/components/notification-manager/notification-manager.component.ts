@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { NotificationsService } from '../../services/notifications.service';
 
 @Component({
@@ -6,12 +6,12 @@ import { NotificationsService } from '../../services/notifications.service';
   templateUrl: './notification-manager.component.html',
   styleUrls: ['./notification-manager.component.scss'],
 })
-export class NotificationManagerComponent implements OnInit {
-  appearance: boolean = true;
+export class NotificationManagerComponent implements OnInit, OnChanges {
+  appearance = true;
   @Input() successfulPay: boolean;
   @Input() bellAppearance: boolean;
-  @Input() newNotification: boolean = true;
-  bellNotifications: boolean = false;
+  @Input() newNotification = true;
+  bellNotifications = false;
   notifications: Array<object>;
 
   constructor(private notificationsService: NotificationsService) {}
@@ -28,10 +28,9 @@ export class NotificationManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.notifications = this.notificationsService.getNotification();
-    this.notificationsService.addNotification(
-      '../../../assets/feat-notifications/notification-icon-1.svg',
-      'Advertise Advertise Advertise',
-      'How many free autoresponders have'
-    );
+  }
+
+  ngOnChanges(): void {
+    this.successfulPay = this.notificationsService.successfulPayStatus();
   }
 }
