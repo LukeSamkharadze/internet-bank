@@ -1,4 +1,5 @@
 How to use component :
+DAta : `chartLegend` and `headerLegend` and `monthRange`
 
 1. By default, month range is from `January` to `December`;
    <app-features-shared-income-chart></app-features-shared-income-chart>
