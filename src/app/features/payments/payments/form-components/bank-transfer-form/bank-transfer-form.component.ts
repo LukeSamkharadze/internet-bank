@@ -56,9 +56,9 @@ export class BankTransferFormComponent implements OnDestroy {
         fromAccountNumber: this.fromAccount.value.accountNumber,
         toAccountNumber: this.toAccountNumber.value,
         amount: Number(this.amount.value),
-        currency: this.currency.value as string,
-        beneficiary: this.beneficiary.value as string,
-        bankTransferType: this.bankTransferType.value as string,
+        currency: this.currency.value,
+        beneficiary: this.beneficiary.value,
+        bankTransferType: this.bankTransferType.value.toLowerCase(),
       };
       this.subscriptions.add(
         this.paymentService
