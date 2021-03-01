@@ -1,7 +1,6 @@
 @import './index.scss';
 
 .container {
-  max-height: 806px;
   min-height: 500px;
   width: 100%;
   min-width: 300px;
@@ -52,7 +51,6 @@
   }
 
   .scroll {
-    max-height: 300px;
     width: 100%;
     position: relative;
     overflow: auto;
@@ -66,7 +64,7 @@
   }
   .article {
     padding-top: 20px;
-    padding-bottom: 65px;
+    padding-bottom: 30px;
     width: 100%;
   }
 }

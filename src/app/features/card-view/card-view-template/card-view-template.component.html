@@ -1,0 +1,41 @@
+<div class="title">
+  <div class="main">
+    <div [class]="'icon ' + color">
+      <ng-content select="[header]"></ng-content>
+    </div>
+    <p class="name">{{ name }}</p>
+  </div>
+  <p class="amount">{{ amount }}</p>
+</div>
+<div class="card-container" *ngIf="background && cardInfo">
+  <img [src]="background" alt="Card Background" class="bg" />
+  <div class="card">
+    <div class="icon">
+      <ng-content select="[logo]"></ng-content>
+    </div>
+    <div class="card-header">
+      <p class="name">{{ cardInfo[0].value }}</p>
+      <p class="type">{{ cardInfo[0].title }}</p>
+    </div>
+    <div class="info">
+      <div *ngFor="let info of cardInfo[1]">
+        <p class="name">{{ info.value }}</p>
+        <p class="type">{{ info.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="details" *ngIf="list">
+  <li *ngFor="let item of list">
+    <div class="account">{{ item.title }}</div>
+    <div class="name">{{ item.value }}</div>
+  </li>
+</ul>
+<div class="primary buttons">
+  <app-shared-button
+    [className]="{ primary: true, resting: true }"
+    *ngFor="let button of buttons"
+    (click)="subscribeFunction(button.function, button.callBack)"
+    >{{ button.text }}</app-shared-button
+  >
+</div>

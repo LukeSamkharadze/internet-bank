@@ -1,0 +1,118 @@
+<section class="bank-transactions">
+  <div class="myDiv">
+    <div class="settings">
+      <div *ngIf="hasInput; else default" class="left-settings">
+        <img
+          src="./assets/bank-transactions/img/Search-bar.png"
+          alt="search bar icon"
+        />
+        <input
+          class="form-control"
+          type="text"
+          name="search"
+          [(ngModel)]="searchText"
+          autocomplete="off"
+          placeholder="TYPE TO SEARCH"
+        />
+      </div>
+
+      <ng-template #default>
+        <span class="mainTitle">
+          <ng-content></ng-content>
+        </span>
+      </ng-template>
+
+      <div class="right-settings">
+        <p class="position-left text-1"></p>
+        <div class="position-left">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Choose a Date:</mat-label>
+            <input
+              matInput
+              [matDatepickerFilter]="myFilter"
+              [matDatepicker]="picker"
+              (dateChange)="dateChangeEvent($event)"
+            />
+            <mat-datepicker-toggle matSuffix [for]="picker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <span *ngIf="show">
+          <img
+            class="position-left photo-2"
+            src="./assets/bank-transactions/img/suitcase.png"
+            alt="suitcase"
+          />
+          <p class="position-left text-2">TYPE:</p>
+          <div class="position-left">
+            <app-shared-dropdown
+              ngModel
+              placeholder="ALL"
+              [options]="[
+                'Bank',
+                'Instant',
+                'Electronic',
+                'Online',
+                'Phone',
+                'Cash',
+                'All'
+              ]"
+              (ngModelChange)="typeChangeEvent($event)"
+              style="width: 150px; height: 25px"
+            >
+            </app-shared-dropdown>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <hr class="hr-bottom" />
+    <div
+      class="transaction"
+      *ngFor="let transaction of transactionsList | filter: searchText"
+    >
+      <div class="left">
+        <div class="img-width">
+          <div class="img-flex">
+            <img
+              src="{{ transaction.icon }}"
+              onerror="this.onerror=null; this.src='./assets/transfers/default.png';"
+            />
+          </div>
+        </div>
+        <h2>
+          <a class="title" (click)="pop(transaction.id)">
+            {{ transaction.title }}
+          </a>
+          <br />
+          <span>{{
+            transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1)
+          }}</span>
+        </h2>
+      </div>
+      <div class="right">
+        <h1>
+          <span>
+            - &nbsp; {{ transaction.amount }}&nbsp;{{
+              transaction.currency
+            }} </span
+          ><br />
+          <span class="date">{{
+            transaction.date.toString().slice(4, 15)
+          }}</span>
+        </h1>
+      </div>
+      <hr class="center-hr" />
+    </div>
+
+    <app-shared-bank-transaction-details
+      *ngIf="popDetails"
+      (closePopup)="closePopup()"
+      (sendReceipt)="sendReceipt()"
+      [transaction]="transactionObject"
+    >
+    </app-shared-bank-transaction-details>
+  </div>
+</section>

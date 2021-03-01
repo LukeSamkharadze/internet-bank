@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
-import { InstantPayment } from '../../../../shared/interfaces/payments/instantPayment.interface';
+import { InstantTransfer } from '../../../../shared/interfaces/transfers/instantTransfer.interface';
 import { PaymentService } from '../../../services/payment.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -40,7 +40,7 @@ export class InstantTransferFormComponent implements OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      const transfer: InstantPayment = {
+      const transfer: InstantTransfer = {
         title: '', // will add in actual payment method.
         date: new Date(),
         type: 'instant',
@@ -53,7 +53,7 @@ export class InstantTransferFormComponent implements OnDestroy {
       };
       this.subscriptions.add(
         this.paymentService
-          .electronicOrInstantTransfer(transfer)
+          .instantTransfer(transfer)
           .pipe(
             tap(() => {
               alert('success');
