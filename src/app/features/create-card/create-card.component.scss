@@ -15,17 +15,16 @@
   grid-gap: 28px;
 }
 
-.create-card-container,
-.section-placeholder {
+.create-card-container {
   min-width: 455px;
-  height: 716px;
+  min-height: 746px;
   border-radius: 4px;
   background: white;
 }
 
 .create-card-container {
   display: grid;
-  grid-template-rows: 8% 42.5% auto;
+  grid-template-rows: 56px 42.5% auto;
 
   [class|='gritem'] {
     padding: 0 24px;
@@ -288,19 +287,25 @@
     }
 
     .shared-button {
+      position: relative;
       width: 206px;
       height: 46px;
-      position: relative;
       left: 10px;
-      top: 9px;
+      top: 20px;
     }
   }
 }
 
+.transactions-container {
+  // height: 716px;
+  // border-radius: 4px;
+  background: red;
+}
+
 .notification-container {
-  position: absolute;
-  top: -15px;
-  right: -15px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
 @media only screen and (max-width: 1250px) {

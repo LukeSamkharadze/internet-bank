@@ -200,7 +200,11 @@
       </form>
     </div>
   </section>
-  <section class="section-placeholder"></section>
+  <section class="transactions-container">
+    <app-features-shared-bank-transactions [input]="'false'">
+      Latest Transactions
+    </app-features-shared-bank-transactions>
+  </section>
   <section class="notification-container">
     <!-- Imported notification -->
     <app-shared-notification
