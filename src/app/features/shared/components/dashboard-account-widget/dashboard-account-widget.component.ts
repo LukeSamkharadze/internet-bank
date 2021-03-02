@@ -128,7 +128,7 @@ export class DashboardAccountWidgetComponent implements OnInit {
       this.i = 0;
       this.showActive = true;
       this.hideActive = false;
-      this.shownCard = this.cards.reduce(function (prev, current) {
+      this.shownCard = this.cards.reduce((prev, current) => {
         return prev.availableAmount > current.availableAmount ? prev : current;
       });
       if (this.cards.length > 1) {
