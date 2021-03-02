@@ -27,8 +27,6 @@ export class DashboardAccountWidgetComponent implements OnInit {
   largest = 0;
   card: ICard;
   incomeOutcome: IncomeType[];
-  showActive: boolean;
-  hideActive: boolean;
   constructor(
     public getCardService: GetCardServiceService,
     public calculateProfit: CalculateProfitService
@@ -106,8 +104,6 @@ export class DashboardAccountWidgetComponent implements OnInit {
   }
   switchRight() {
     this.getCardService.getCards().subscribe((v) => {
-      this.hideActive = true;
-      this.showActive = false;
       if (this.i < v.length - 1) {
         this.i++;
       } else {
@@ -116,8 +112,6 @@ export class DashboardAccountWidgetComponent implements OnInit {
     });
   }
   switchLeft() {
-    this.showActive = false;
-    this.hideActive = true;
     if (this.i > 0) {
       this.i--;
     }
@@ -125,12 +119,10 @@ export class DashboardAccountWidgetComponent implements OnInit {
   activeCard() {
     this.getCardService.getCards().subscribe((v) => {
       this.cards = v;
-      this.i = 0;
-      this.showActive = true;
-      this.hideActive = false;
       this.shownCard = this.cards.reduce((prev, current) => {
         return prev.availableAmount > current.availableAmount ? prev : current;
       });
+      this.i = this.cards.indexOf(this.shownCard);
       if (this.cards.length > 1) {
         this.showIcons = true;
       }
