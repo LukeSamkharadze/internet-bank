@@ -10,7 +10,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { SeriesHighlight } from '@progress/kendo-angular-charts';
-import { Observable } from 'rxjs';
 import { Expanses } from '../../interfaces/expanses.interface';
 
 @Component({
