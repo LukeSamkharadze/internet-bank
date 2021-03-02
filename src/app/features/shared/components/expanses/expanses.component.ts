@@ -41,7 +41,7 @@ export class ExpansesComponent implements OnInit, OnChanges {
   checkChart() {
     if (Array.isArray(this.chartData) && this.chartData.length !== 0) {
       let sum = 0;
-      this.chartData.map((item) => {
+      for (const item of this.chartData) {
         if (item.hasOwnProperty('kind') && item.hasOwnProperty('share')) {
           if (!item.colorString) {
             const red = Math.floor(Math.random() * 255);
@@ -51,15 +51,19 @@ export class ExpansesComponent implements OnInit, OnChanges {
             Object.assign(item, { colorString: color });
           }
           sum += item.share;
+          this.showChart = true;
         } else {
           this.showChart = false;
+          break;
         }
-      });
-      this.chartData.map((item) => {
-        Object.assign(item, {
-          percent: Math.round((item.share / sum) * 100) + '%',
+      }
+      if (this.showChart) {
+        this.chartData.map((item) => {
+          Object.assign(item, {
+            percent: Math.round((item.share / sum) * 100) + '%',
+          });
         });
-      });
+      }
     } else {
       this.showChart = false;
     }
