@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -7,9 +7,17 @@ import {
 } from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
 import { PaymentService } from '../../../services/payment.service';
-import { BankPayment } from '../../../../shared/interfaces/payments/bankPayment.interface';
+import { BankTransfer } from '../../../../shared/interfaces/transfers/bankTransfer.interface';
 import { of, Subscription } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import {
+  catchError,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap,
+  tap,
+} from 'rxjs/operators';
+import { CardService } from '../../../../shared/services/card.service';
+import { UserService } from '../../../../shared/services/user.service';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -17,7 +25,7 @@ import { catchError, tap } from 'rxjs/operators';
   styleUrls: ['./bank-transfer-form.component.scss'],
   animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
-export class BankTransferFormComponent implements OnDestroy {
+export class BankTransferFormComponent implements OnDestroy, OnInit {
   title = 'Bank transfer';
 
   form = new FormGroup({
@@ -43,11 +51,15 @@ export class BankTransferFormComponent implements OnDestroy {
 
   private subscriptions = new Subscription();
 
-  constructor(private paymentService: PaymentService) {}
+  constructor(
+    private paymentService: PaymentService,
+    private cardService: CardService,
+    private userService: UserService
+  ) {}
 
   onSubmit(): void {
     if (this.form.valid) {
-      const transfer: BankPayment = {
+      const transfer: BankTransfer = {
         title: '', // will add in actual payment method.
         toUserId: '', // will add in actual payment method.
         date: new Date(),
@@ -56,9 +68,9 @@ export class BankTransferFormComponent implements OnDestroy {
         fromAccountNumber: this.fromAccount.value.accountNumber,
         toAccountNumber: this.toAccountNumber.value,
         amount: Number(this.amount.value),
-        currency: this.currency.value as string,
-        beneficiary: this.beneficiary.value as string,
-        bankTransferType: this.bankTransferType.value as string,
+        currency: this.currency.value,
+        beneficiary: this.beneficiary.value,
+        bankTransferType: this.bankTransferType.value.toLowerCase(),
       };
       this.subscriptions.add(
         this.paymentService
@@ -78,6 +90,29 @@ export class BankTransferFormComponent implements OnDestroy {
     } else {
       this.form.markAllAsTouched();
     }
+  }
+
+  ngOnInit() {
+    this.toAccountNumber.valueChanges
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap((val) => this.cardService.getCardByAccountNumber(val)),
+        switchMap((card) => {
+          if (card) {
+            return this.userService.getById(card?.userId);
+          } else {
+            this.beneficiary.setValue('');
+            return of(null);
+          }
+        }),
+        tap((user) => {
+          if (user) {
+            this.beneficiary.setValue(user.fullname);
+          }
+        })
+      )
+      .subscribe();
   }
 
   ngOnDestroy() {

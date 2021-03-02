@@ -11,7 +11,7 @@
           *ngIf="!item.cardNumber"
           class="logo-background"
         >
-          <i class="las la-lock"></i>
+          <i class="las la-piggy-bank"></i>
         </div>
         <div class="detail-position">
           <div class="account-number" *ngIf="item.cardNumber">
@@ -28,7 +28,9 @@
       </div>
       <div class="balanceStats">
         <div class="card-position">
-          <div class="amount">${{ item.availableAmount }}</div>
+          <div class="amount">
+            {{ item.totalAmount }}
+          </div>
           <div class="account-description balance-description">Balance</div>
         </div>
         <div class="arrowSpace">

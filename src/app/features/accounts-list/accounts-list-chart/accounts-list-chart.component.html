@@ -1,12 +1,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="./chart.js"></script>
 
-<div [class]="'container ' + getColorClass()">
+<div [class]="'container ' + (color$ | async)">
   <div class="info">
     <p class="amount">
-      ${{ getAmount() }}<sup><i [class]="getArrowClass()"></i></sup>
+      {{ amount$ | async }}<sup><i [class]="arrow$ | async"></i></sup>
     </p>
-    <p class="title">{{ info.title }}</p>
+    <p class="title">{{ (info$ | async).title }}</p>
   </div>
   <div class="chart">
     <canvas #chart></canvas>

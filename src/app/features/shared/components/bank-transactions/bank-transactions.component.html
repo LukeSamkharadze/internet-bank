@@ -69,39 +69,41 @@
     </div>
 
     <hr class="hr-bottom" />
-    <div class="transaction" *ngFor="let transaction of transactionsList | filter: searchText">
-        <div class="left">
-          <div class="img-width">
-            <div class="img-flex">
-              <img
-                src="{{ transaction.icon }}"
-                onerror="this.onerror=null; this.src='./assets/transfers/default.png';"
-              />
-            </div>
+    <div
+      class="transaction"
+      *ngFor="let transaction of transactionsList | filter: searchText"
+    >
+      <div class="left">
+        <div class="img-width">
+          <div class="img-flex">
+            <img
+              src="{{ transaction.iconPath }}"
+              onerror="this.onerror=null; this.src='./assets/transfers/default.png';"
+            />
           </div>
-          <h2>
-            <a class="title" (click)="pop(transaction.id)">
-              {{ transaction.title }}
-            </a>
-            <br />
-            <span>{{
-              transaction.type.charAt(0).toUpperCase() +
-                transaction.type.slice(1)
-            }}</span>
-          </h2>
         </div>
-        <div class="right">
-          <h1>
-            <span>
-              - &nbsp; {{ transaction.amount }}&nbsp;{{
-                transaction.currency
-              }} </span
-            ><br />
-            <span class="date">{{
-              transaction.date.toString().slice(4, 15)
-            }}</span>
-          </h1>
-        </div>
+        <h2>
+          <a class="title" (click)="pop(transaction.id)">
+            {{ transaction.title }}
+          </a>
+          <br />
+          <span>{{
+            transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1)
+          }}</span>
+        </h2>
+      </div>
+      <div class="right">
+        <h1>
+          <span>
+            - &nbsp; {{ transaction.amount }}&nbsp;{{
+              transaction.currency
+            }} </span
+          ><br />
+          <span class="date">{{
+            transaction.date.toString().slice(4, 15)
+          }}</span>
+        </h1>
+      </div>
       <hr class="center-hr" />
     </div>
 

@@ -4,7 +4,6 @@ import {
   ControlValueAccessor,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
-  Validators,
 } from '@angular/forms';
 let counter = 0;
 @Component({

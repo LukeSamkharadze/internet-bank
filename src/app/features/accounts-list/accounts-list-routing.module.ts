@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountsListComponent } from './accounts-list.component';
-import { CreateCardComponent } from '../create-card/create-card.component';
 
 const routes: Routes = [
   {
@@ -11,7 +10,10 @@ const routes: Routes = [
   },
   {
     path: 'create-card',
-    component: CreateCardComponent,
+    loadChildren: () =>
+      import('../create-card/create-card.module').then(
+        (m) => m.CreateCardModule
+      ),
   },
 ];
 

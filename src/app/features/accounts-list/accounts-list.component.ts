@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ICard } from '../shared/interfaces/card.interface';
 import { IDeposit } from '../shared/interfaces/deposit.interface';
 import { ILoan } from '../shared/interfaces/loan.interface';
-import IItem from './models/chart-item.entity';
+import IItem from './models/chart-item.interface';
 import { AccountsListIncomeService } from './services/accounts-list-income.service';
 import { AccountsListInfoService } from './services/accounts-list-info.service';
 
@@ -10,12 +12,13 @@ import { AccountsListInfoService } from './services/accounts-list-info.service';
   selector: 'app-accounts-list',
   templateUrl: './accounts-list.component.html',
   styleUrls: ['./accounts-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountsListComponent implements OnInit {
-  cards: Array<ICard> = [];
-  deposits: Array<IDeposit> = [];
-  loans: Array<ILoan> = [];
-  incomes: Array<IItem> = [];
+  cards$: Observable<Array<ICard>>;
+  deposits$: Observable<Array<IDeposit>>;
+  loans$: Observable<Array<ILoan>>;
+  incomes$: Observable<Observable<IItem>[]>;
 
   constructor(
     public infoService: AccountsListInfoService,
@@ -23,9 +26,21 @@ export class AccountsListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.infoService.getCards().subscribe((v) => (this.cards = v));
-    this.infoService.getDeposits().subscribe((v) => (this.deposits = v));
-    this.infoService.getLoans().subscribe((v) => (this.loans = v));
-    this.incomeService.getAll().subscribe((v) => (this.incomes = v));
+    this.cards$ = this.infoService.getCards();
+    this.deposits$ = this.infoService.getDeposits();
+    this.loans$ = this.infoService.getLoans();
+    this.incomes$ = this.incomeService.getAll().pipe(
+      map((incomes) =>
+        incomes
+          .map(
+            (income) =>
+              ({
+                title: income.name ? income.name : 'unknown',
+                data: income.data,
+              } as IItem)
+          )
+          .map((income) => of(income))
+      )
+    );
   }
 }

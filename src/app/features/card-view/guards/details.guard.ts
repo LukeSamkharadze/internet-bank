@@ -33,7 +33,6 @@ export class DetailsGuard implements CanLoad {
 
     return service.getById(id).pipe(
       map((item) => {
-        console.log(item);
         if (item && item.userId === this.authService.userId) {
           return true;
         }

@@ -48,14 +48,12 @@ a {
     visibility: hidden;
     opacity: 0;
   }
-
-  .accounts-item {
-    .span-hidden {
-      font-size: 14px;
-      visibility: visible;
-      opacity: 1;
+  .account-item-active {
+    .accounts-icon {
+      padding-left: 7px;
     }
-
+  }
+  .accounts-item {
     &:hover .accounts-icon {
       padding-left: 7px;
     }
@@ -304,6 +302,14 @@ a {
   }
 }
 
+.account-item-active {
+  .accounts-icon {
+    padding-left: 35px;
+  }
+  background-color: $background-2;
+  border-left: 2px solid $primary;
+}
+
 .content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -383,120 +389,4 @@ a {
       background-color: #778ca2;
     }
   }
-}
-
-.profile-bef {
-  margin-right: 34px;
-  user-select: none;
-  cursor: pointer;
-  font-size: 14px;
-  color: $primary-dark;
-  display: flex;
-  align-items: center;
-  width: 155.75px;
-  height: 40px;
-
-  .image {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 2px solid $primary;
-    margin-right: 11.3px;
-
-    img {
-      width: 32px;
-    }
-  }
-
-  .name {
-    letter-spacing: 0.2px;
-    font-family: $roboto;
-    width: 69%;
-  }
-}
-
-.profile-hover {
-  color: $primary-dark;
-  background-color: white;
-  font-weight: 500;
-  width: 286px;
-  height: 237px;
-  margin-bottom: 1px;
-  display: none;
-  position: absolute;
-  clear: both;
-  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.000005),
-    0 6px 20px 0 rgba(0, 0, 0, 0.05);
-  right: 0%;
-  top: 70px;
-  float: right;
-  border-radius: 5px;
-  margin-right: 20px;
-
-  .about {
-    background-color: $background-2;
-    height: 79.75px;
-    font-family: $rubik;
-    align-items: center;
-    font-size: 14px;
-    display: flex;
-    letter-spacing: 0.3px;
-    line-height: 20px;
-    padding-top: 2px;
-
-    .profile-mini {
-      margin-right: 15px;
-      margin-left: 22px;
-      height: 36px;
-      width: 36px;
-      float: left;
-      letter-spacing: 0.3px;
-    }
-
-    .gmail {
-      color: $secondary-dark-2;
-      letter-spacing: 0px;
-      font-weight: 400;
-    }
-  }
-
-  .prof-settings {
-    font-weight: 500;
-    padding-left: 23px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 156.25px;
-    font-size: 12px;
-    padding-top: 10px;
-    padding-bottom: 11px;
-    box-sizing: border-box;
-
-    div {
-      user-select: none;
-      cursor: pointer;
-      display: flex;
-    }
-
-    i {
-      margin-right: 8px;
-      color: $secondary-dark-1;
-      font-size: 18px;
-    }
-
-    p {
-      color: $primary-dark;
-      font-size: 12px;
-      letter-spacing: 0.1px;
-      margin-bottom: 3px;
-      font-weight: 500;
-    }
-  }
-}
-
-.show {
-  display: block;
 }

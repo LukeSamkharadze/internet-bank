@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ICard } from '../../interfaces/card.interface';
 import { IDeposit } from '../../interfaces/deposit.interface';
+import { FormatterService } from '../../services/formatter.service';
 
 import { TransactionService } from '../../services/transaction.service';
 import { ArrowDirectionService } from './services/account-balances-arrow.service';
@@ -14,10 +16,13 @@ import { AccountBalancesService } from './services/account-balances.service';
 export class AccountBalancesComponent
   implements OnInit, AfterViewInit, OnDestroy {
   balance: Array<ICard | IDeposit>;
+  private subscription: Subscription;
+
   constructor(
     public accountBalancesService: AccountBalancesService,
     public transactionService: TransactionService,
-    private arrowDirectionService: ArrowDirectionService
+    private arrowDirectionService: ArrowDirectionService,
+    private formatterService: FormatterService
   ) {}
 
   ngOnInit(): void {
@@ -25,13 +30,19 @@ export class AccountBalancesComponent
   }
 
   ngAfterViewInit() {
-    this.accountBalancesService.balances$.subscribe(
-      (wholeBalance: Array<ICard | IDeposit>) => {
+    this.subscription = this.accountBalancesService.balances$.subscribe(
+      (wholeBalance: any[]) => {
         for (const i of wholeBalance) {
           const index = wholeBalance.indexOf(i);
           wholeBalance.splice(index, 1);
           const balance = {
             ...i,
+            totalAmount: this.formatterService.formatBalance(
+              i.availableAmount,
+              {
+                currency: '$',
+              }
+            ),
             arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
           };
 
@@ -43,11 +54,7 @@ export class AccountBalancesComponent
     );
   }
 
-  instanceOfICard(object: any): object is ICard {
-    return 'member' in object;
-  }
-
   ngOnDestroy() {
-    this.accountBalancesService.balances$.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

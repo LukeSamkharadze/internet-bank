@@ -1,13 +1,10 @@
 import {
   Component,
-  ContentChild,
   ContentChildren,
-  forwardRef,
   Input,
   OnInit,
   TemplateRef,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-shared-tabs',

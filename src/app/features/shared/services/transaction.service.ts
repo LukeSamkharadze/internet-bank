@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Transfer } from '../interfaces/payments/transfer.interface';
+import { Transfer } from '../interfaces/transfers/transfer.interface';
 
 @Injectable({
   providedIn: 'root',

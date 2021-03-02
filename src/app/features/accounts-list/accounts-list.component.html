@@ -1,22 +1,12 @@
-<div class="charts-container" *ngIf="incomes.length">
+<div class="charts-container" *ngIf="incomes$ | async as incomes">
   <app-accounts-list-chart
-    *ngFor="let income of incomes"
-    [info]="{
-      title: income.name ? income.name : 'unknown',
-      data: income.data
-    }"
+    *ngFor="let income$ of incomes"
+    [info$]="income$"
   ></app-accounts-list-chart>
 </div>
 
-<app-accounts-list-cards
-  [cards]="cards"
-  *ngIf="cards.length"
-></app-accounts-list-cards>
+<app-accounts-list-cards [cards$]="cards$"></app-accounts-list-cards>
 <app-accounts-list-deposits
-  [deposits]="deposits"
-  *ngIf="deposits.length"
+  [deposits$]="deposits$"
 ></app-accounts-list-deposits>
-<app-accounts-list-loans
-  [loans]="loans"
-  *ngIf="loans.length"
-></app-accounts-list-loans>
+<app-accounts-list-loans [loans$]="loans$"></app-accounts-list-loans>
