@@ -6,31 +6,31 @@ import {
   Validators,
 } from '@angular/forms';
 import { formAnimations } from '../../../../shared/animations';
-import { InstantTransfer } from '../../../../shared/interfaces/transfers/instantTransfer.interface';
+import { InternalTransfer } from '../../../../shared/interfaces/transfers/internalTransfer.interface';
 import { PaymentService } from '../../../services/payment.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-instant-transfer-form',
-  templateUrl: './instant-transfer-form.component.html',
-  styleUrls: ['./instant-transfer-form.component.scss'],
+  templateUrl: './internal-transfer-form.component.html',
+  styleUrls: ['./internal-transfer-form.component.scss'],
   animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
-export class InstantTransferFormComponent implements OnDestroy {
-  title = 'Instant transfer';
+export class InternalTransferFormComponent implements OnDestroy {
+  title = 'Internal transfer';
 
   form = new FormGroup({
     fromAccount: new FormControl('', Validators.required),
     toAccountNumber: new FormControl('', Validators.required),
     amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
-    instantTransferType: new FormControl('', Validators.required),
+    internalTransferType: new FormControl('', Validators.required),
   });
 
   fromAccount: AbstractControl = this.form.get('fromAccount');
   toAccountNumber: AbstractControl = this.form.get('toAccountNumber');
   amount: AbstractControl = this.form.get('amount');
-  instantTransferType: AbstractControl = this.form.get('instantTransferType');
+  internalTransferType: AbstractControl = this.form.get('internalTransferType');
 
   currentUsersCards = this.paymentService.currentUsersCards$;
 
@@ -40,20 +40,20 @@ export class InstantTransferFormComponent implements OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
-      const transfer: InstantTransfer = {
+      const transfer: InternalTransfer = {
         title: '', // will add in actual payment method.
         date: new Date(),
-        type: 'instant',
+        type: 'internal',
         fromAccountUserId: this.fromAccount.value.userId,
         fromAccountNumber: this.fromAccount.value.accountNumber,
         amount: Number(this.amount.value),
         currency: 'USD', // rasvizamt moitana cxovrebam statikuri valutebi
-        instantTransferType: this.instantTransferType.value.toLowerCase(),
+        internalTransferType: this.internalTransferType.value.toLowerCase(),
         toAccountNumber: this.toAccountNumber.value,
       };
       this.subscriptions.add(
         this.paymentService
-          .instantTransfer(transfer)
+          .internalTransfer(transfer)
           .pipe(
             tap(() => {
               alert('success');

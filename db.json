@@ -123,7 +123,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 35065.05,
+      "availableAmount": 35210.09000000001,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -135,7 +135,7 @@
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 27692.96,
+      "availableAmount": 37937.96,
       "security3D": true,
       "userId": "1",
       "id": 2
@@ -147,7 +147,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 14877,
+      "availableAmount": 10000,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -158,7 +158,7 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 8900,
+      "availableAmount": 17851.46,
       "security3D": true,
       "userId": "2",
       "cardType": "mastercard",
@@ -188,14 +188,14 @@
       "name": "Bank Transfer",
       "providers": [
         {
-          "name": "tbc"
+          "name": "any bank"
         }
       ],
-      "icon": "las la-piggy-bank",
+      "icon": "las la-university",
       "formPath": "bank-transfer"
     },
     {
-      "name": "Instant Transfer",
+      "name": "Internal Transfer",
       "providers": [
         {
           "name": "visa"
@@ -204,8 +204,8 @@
           "name": "mastercard"
         }
       ],
-      "icon": "las la-cart-plus",
-      "formPath": "instant-transfer"
+      "icon": "las la-exchange-alt",
+      "formPath": "internal-transfer"
     }
   ],
   "users": [
@@ -586,45 +586,60 @@
   ],
   "transactions": [
     {
-      "title": "Bank transfer to user: 3",
-      "toUserId": "3",
-      "date": "2021-02-28T16:39:38.183Z",
-      "type": "bank",
+      "title": "electronic payment to paypal@gmail.com",
+      "date": "2021-03-01T19:23:09.134Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB4434234223333333",
       "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "toAccountNumber": "GE32TB1111222233334444",
-      "amount": 20,
+      "toAccountEmail": "paypal@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 39,
       "currency": "USD",
-      "beneficiary": "gamarjoba batono obama",
-      "bankTransferType": "personal transfer",
       "status": "pending",
-      "id": 1
+      "id": 2
     },
     {
-      "title": "Instant transfer to bg012030123123",
-      "date": "2021-02-28T16:42:24.870Z",
-      "type": "instant",
+      "title": "Internal Bank transfer to user: VITO CORLEONE",
+      "toUserId": "3",
+      "date": "2021-03-01T19:24:01.807Z",
+      "type": "bank",
       "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "amount": 1,
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "toAccountNumber": "GE32TB1111222233334444",
+      "amount": 50,
       "currency": "USD",
-      "instantTransferType": "personal transfer",
-      "toAccountNumber": "bg012030123123",
+      "beneficiary": "VITO CORLEONE",
+      "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 3
     },
     {
-      "title": "electronic payment to hg@gmail.com",
-      "date": "2021-03-01T05:25:00.082Z",
-      "type": "electronic",
-      "fromAccountNumber": "GE32TB2222111133334444",
-      "fromAccountUserId": "1",
-      "toAccountEmail": "hg@gmail.com",
-      "paymentSystem": "paypal",
-      "amount": 5345,
+      "title": "External Bank transfer to beneficiary: GIORGI BOG USER",
+      "toUserId": "",
+      "date": "2021-03-01T19:24:47.170Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "toAccountNumber": "BOG9912300000041241",
+      "amount": 300,
       "currency": "USD",
+      "beneficiary": "GIORGI BOG USER",
+      "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 4
+    },
+    {
+      "title": "Internal Bank transfer to account GE32TB4434234223333333",
+      "date": "2021-03-01T19:24:58.856Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "amount": 134,
+      "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB4434234223333333",
+      "status": "pending",
+      "id": 5
     }
   ],
   "news": [
