@@ -26,6 +26,7 @@ header {
   }
   .iconscontainer {
     position: relative;
+    cursor: pointer;
   }
 }
 .download {
@@ -53,8 +54,8 @@ header {
   left: 4px;
   position: relative;
   border-radius: 50%;
-  width: 136px;
-  height: 136px;
+  width: 138px;
+  height: 138px;
   background-color: #fffbf4;
   display: flex;
   justify-content: center;
