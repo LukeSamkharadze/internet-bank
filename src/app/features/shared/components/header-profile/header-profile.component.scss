@@ -156,7 +156,7 @@
 @-webkit-keyframes slide-down {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(20%);
+    -webkit-transform: translateX(10%);
   }
   100% {
     opacity: 1;
@@ -171,7 +171,7 @@
   }
   100% {
     opacity: 0;
-    -webkit-transform: translateX(20%);
+    -webkit-transform: translateX(10%);
   }
 }
 
