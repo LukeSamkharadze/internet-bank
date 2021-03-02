@@ -1,58 +1,58 @@
-@import '../../../../shared/components/button/button.component.scss';
-@import '../../../../shared/components/toggle/toggle.component.scss';
-@import '../../../../../styles/index.scss';
+@import './index.scss';
 
 .container {
   width: 876.3px;
   height: 720px;
   padding: 18px 153.3px 24px 24px;
   box-sizing: border-box;
-}
 
-.notification {
-  width: 698px;
-  height: 86px;
-  box-sizing: border-box;
-  border-bottom: 1px solid $outline;
-  position: relative;
-  &.notif-1 {
-    margin-top: 11.2px;
-  }
-  &.notif-4 {
-    border-bottom: none;
-  }
-}
-.title {
-  padding-top: 23px;
-  color: $primary-dark;
-  font-weight: 500;
-  width: 500px;
-}
-.description {
-  padding-top: 2px;
-  width: 500px;
-}
-.toggle-container {
-  width: 40px;
-  position: absolute;
-  right: 0px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.primary {
-  margin-top: 258px;
+  .notification {
+    max-width: 1140px;
+    min-width: 690px;
+    width: 100vw;
+    box-sizing: border-box;
+    border-bottom: 1px solid $outline;
+    position: relative;
+    &.notif-1 {
+      margin-top: 11.2px;
+    }
+    &.notif-4 {
+      border-bottom: none;
+    }
 
-  .active {
-    width: 206px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    line-height: 2px;
+    .title {
+      padding-top: 23px;
+      color: $primary-dark;
+      font-weight: 500;
+      width: 500px;
+    }
+    .description {
+      padding-top: 2px;
+      width: 500px;
+    }
   }
-  .resting {
-    width: 148px;
-    margin-left: 8px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    line-height: 2px;
+  .toggle-container {
+    width: 40px;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .primary {
+    margin-top: 258px;
+
+    .active {
+      width: 206px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      line-height: 2px;
+    }
+    .resting {
+      width: 148px;
+      margin-left: 8px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      line-height: 2px;
+    }
   }
 }
