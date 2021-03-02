@@ -1,9 +1,13 @@
 <div class="widget">
   <header>
     <p>Accounts</p>
-    <div class="iconscontainer">
-      <i class="las la-chevron-circle-left"></i>
-      <i class="las la-chevron-circle-right"></i>
+    <div class="iconscontainer" *ngIf="showIcons">
+      <div (click)="switchLeft()">
+        <i class="las la-chevron-circle-left"></i>
+      </div>
+      <div (click)="switchRight()">
+        <i class="las la-chevron-circle-right"></i>
+      </div>
     </div>
   </header>
   <div class="underline"></div>
@@ -31,10 +35,14 @@
         </div>
       </div>
     </div>
-    <div *ngFor="let card1 of cards | slice: 0:1">
-      <p class="card-paragraph">
-        {{ card.cardType.toUpperCase() }} Card
-        {{ getCardService.formatCardNumber(card.cardNumber) }}
+    <div *ngFor="let card of cards | slice: 0:1">
+      <p class="card-paragraph" *ngIf="hideActive">
+        {{ cards[this.i].cardType.toUpperCase() }} Card
+        {{ getCardService.formatCardNumber(cards[this.i].cardNumber) }}
+      </p>
+      <p class="card-paragraph" *ngIf="showActive">
+        {{ shownCard.cardType.toUpperCase() }} Card
+        {{ getCardService.formatCardNumber(shownCard.cardNumber) }}
       </p>
     </div>
 

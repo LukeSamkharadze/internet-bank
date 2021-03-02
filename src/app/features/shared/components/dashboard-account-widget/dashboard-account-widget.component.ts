@@ -17,14 +17,18 @@ export class DashboardAccountWidgetComponent implements OnInit {
   degreeSecondHalf: number;
   degreeFirstHalf: number;
   profit: number;
+  showIcons: boolean;
   profitRound: string;
   styleElement: any;
   animation: string;
   cards: ICard[];
   i: number;
+  shownCard: ICard;
   largest = 0;
   card: ICard;
   incomeOutcome: IncomeType[];
+  showActive: boolean;
+  hideActive: boolean;
   constructor(
     public getCardService: GetCardServiceService,
     public calculateProfit: CalculateProfitService
@@ -100,25 +104,35 @@ export class DashboardAccountWidgetComponent implements OnInit {
       }
     }
   }
+  switchRight() {
+    this.getCardService.getCards().subscribe((v) => {
+      this.hideActive = true;
+      this.showActive = false;
+      if (this.i < v.length - 1) {
+        this.i++;
+      } else {
+        this.i = 0;
+      }
+    });
+  }
+  switchLeft() {
+    this.showActive = false;
+    this.hideActive = true;
+    if (this.i > 0) {
+      this.i--;
+    }
+  }
   activeCard() {
     this.getCardService.getCards().subscribe((v) => {
       this.cards = v;
+      this.i = 0;
+      this.showActive = true;
+      this.hideActive = false;
+      this.shownCard = this.cards.reduce(function (prev, current) {
+        return prev.availableAmount > current.availableAmount ? prev : current;
+      });
       if (this.cards.length > 1) {
-        for (this.i = 0; this.i < this.cards.length; this.i++) {
-          if (
-            this.cards[this.i].availableAmount >
-            this.cards[this.i + 1].availableAmount
-          ) {
-            this.card = this.cards[this.i];
-            return this.card;
-          } else {
-            this.card = this.cards[0];
-            return this.card;
-          }
-        }
-      } else {
-        this.card = this.cards[0];
-        return this.card;
+        this.showIcons = true;
       }
     });
   }
