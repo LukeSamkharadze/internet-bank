@@ -197,7 +197,26 @@
         padding: 3px 5px;
         text-align: right;
         background: none;
-        border: none;
+        border-radius: 3px;
+        transition: 0.3s;
+
+        &:-webkit-autofill {
+          -webkit-text-fill-color: $secondary-dark-2;
+          -webkit-background-clip: text;
+          -webkit-box-shadow: 0 0 0 30px hsla(0, 0%, 100%, 0) inset !important;
+          transition: 0.3s;
+        }
+
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          &.valid {
+            -webkit-box-shadow: 0 0 0 30px hsl(120, 60%, 90%) inset !important;
+          }
+        }
+
+        &.invalid {
+          -webkit-box-shadow: 0 0 0 30px hsl(0, 80%, 90%) inset !important;
+        }
 
         &:focus,
         &:active {
