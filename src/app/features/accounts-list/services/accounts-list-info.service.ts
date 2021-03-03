@@ -14,37 +14,9 @@ import IItem from '../models/list-item.interface';
 @Injectable()
 export class AccountsListInfoService {
   constructor(
-    private cardService: CardService,
-    private depositService: DepositService,
-    private loanService: LoanService,
     private formatService: FormatterService,
     private dateService: DateFormatterService
   ) {}
-
-  // Getter Functions
-
-  getCards(): Observable<ICard[]> {
-    return this.cardService.cards$.pipe(
-      startWith(true),
-      switchMap(() => this.cardService.getAll())
-    );
-  }
-
-  getDeposits() {
-    return this.depositService.update$.pipe(
-      startWith(true),
-      switchMap(() => this.depositService.getAll())
-    );
-  }
-
-  getLoans() {
-    return this.loanService.update$.pipe(
-      startWith(true),
-      switchMap(() => this.loanService.getAll())
-    );
-  }
-
-  // Casting Functions
 
   depositToInfo(deposit: IDeposit): IItem {
     const accured = deposit.accured || 0;

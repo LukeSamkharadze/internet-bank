@@ -6,7 +6,7 @@
     <p class="amount">
       {{ amount$ | async }}<sup><i [class]="arrow$ | async"></i></sup>
     </p>
-    <p class="title">{{ (info$ | async).title }}</p>
+    <p class="title">{{ title$ | async }}</p>
   </div>
   <div class="chart">
     <canvas #chart></canvas>
