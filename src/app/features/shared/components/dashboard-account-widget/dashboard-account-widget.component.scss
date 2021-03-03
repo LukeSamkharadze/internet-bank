@@ -1,4 +1,9 @@
 @import 'index.scss';
+:host {
+  display: block;
+  width: 262px;
+  height: 341px;
+}
 .flex-container-column {
   display: flex;
   align-items: center;
