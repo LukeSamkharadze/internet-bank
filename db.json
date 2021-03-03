@@ -165,6 +165,18 @@
       "id": 4,
       "iconPath": "./assets/cards/mastercard.svg",
       "blocked": true
+    },
+    {
+      "cardName": "41414214",
+      "accountNumber": "GE32TB4124141441414141",
+      "cardNumber": "4123456789123456",
+      "cardholder": "ME",
+      "expirationDate": "02/25",
+      "availableAmount": 50000,
+      "security3D": true,
+      "userId": "2",
+      "cardType": "visa",
+      "id": 5
     }
   ],
   "paymentTypes": [
@@ -307,6 +319,32 @@
       "id": 3,
       "name": "Pending credit",
       "data": [41300, 28910, 16520, 28910, 24800]
+    }
+  ],
+  "cardCharts": [
+    {
+      "id": 1,
+      "userId": 2,
+      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "data": [390, 455, 380, 780, 800, 500, 1000]
+    }
+  ],
+  "depositCharts": [
+    {
+      "id": 3,
+      "userId": 2,
+      "data": [3525, 3807, 3948, 4089, 3807, 4935, 5640]
+    }
+  ],
+  "loanCharts": [
+    {
+      "id": 4,
+      "userId": 2,
+      "data": [4130, 2891, 1652, 2891, 2480]
     }
   ],
   "invoices": [

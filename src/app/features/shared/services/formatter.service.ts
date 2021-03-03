@@ -41,6 +41,7 @@ export class FormatterService {
     options: { currency?: string; toRight?: boolean; toFixed?: number } = {}
   ): string {
     const { currency = '', toRight = false, toFixed = 0 } = options;
+    balance = +balance.toFixed(2);
     const balanceSides = (
       (toFixed ? balance.toFixed(toFixed) : balance) || balance.toFixed(2)
     )
