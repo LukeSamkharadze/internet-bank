@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BankTransfer } from '../../shared/interfaces/transfers/bankTransfer.interface';
 import { ElectronicTransfer } from '../../shared/interfaces/transfers/electronicTransfer.interface';
-import { InternalTransfer } from '../../shared/interfaces/transfers/internalTransfer.interface';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { forkJoin, of } from 'rxjs';
@@ -11,6 +10,7 @@ import { CardService } from '../../shared/services/card.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { TransactionService } from '../../shared/services/transaction.service';
+import { InternalTransfer } from '../../shared/interfaces/transfers/internalTransfer.interface';
 
 @Injectable()
 export class PaymentService {
@@ -76,17 +76,11 @@ export class PaymentService {
     );
   }
 
-  instantTransfer(transfer: InternalTransfer) {
+  internalTransfer(transfer: InternalTransfer) {
     return this.getCardAndValidateBalance(
       transfer.fromAccountNumber,
       transfer.amount
     ).pipe(
-      switchMap((card) =>
-        forkJoin([of(card), this.checkBankPaymentsLimits(transfer.amount)])
-      ),
-      map(([card]) => {
-        return card;
-      }),
       switchMap((card) =>
         forkJoin([
           of(card),

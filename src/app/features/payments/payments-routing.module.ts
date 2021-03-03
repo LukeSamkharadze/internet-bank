@@ -19,7 +19,7 @@ const routes: Routes = [
         component: BankTransferFormComponent,
       },
       {
-        path: 'instant-transfer',
+        path: 'internal-transfer',
         component: InternalTransferFormComponent,
       },
       {

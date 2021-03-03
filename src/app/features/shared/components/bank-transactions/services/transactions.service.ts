@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { reduce, map, catchError, mergeMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 import { AuthService } from '../../../services/auth.service';
 import { Itransaction } from '../../../interfaces/bank-transactions.interface';
 import { IconService } from '../../../services/icon.service';
-// import { constants } from 'http2';
 @Injectable({
   providedIn: 'root',
 })
