@@ -4,6 +4,9 @@ import { map } from 'rxjs/operators';
 import { ICard } from '../shared/interfaces/card.interface';
 import { IDeposit } from '../shared/interfaces/deposit.interface';
 import { ILoan } from '../shared/interfaces/loan.interface';
+import { CardService } from '../shared/services/card.service';
+import { DepositService } from '../shared/services/deposit.service';
+import { LoanService } from '../shared/services/loan.service';
 import IItem from './models/chart-item.interface';
 import { AccountsListIncomeService } from './services/accounts-list-income.service';
 import { AccountsListInfoService } from './services/accounts-list-info.service';
@@ -24,14 +27,16 @@ export class AccountsListComponent implements OnInit {
   private readonly MAX_COLUMNS_CHARTS = 3;
 
   constructor(
-    public infoService: AccountsListInfoService,
-    private incomeService: AccountsListIncomeService
+    private incomeService: AccountsListIncomeService,
+    private cardService: CardService,
+    private depositService: DepositService,
+    private loanService: LoanService
   ) {}
 
   ngOnInit(): void {
-    this.cards$ = this.infoService.getCards();
-    this.deposits$ = this.infoService.getDeposits();
-    this.loans$ = this.infoService.getLoans();
+    this.cards$ = this.cardService.cards$;
+    this.deposits$ = this.depositService.deposits$;
+    this.loans$ = this.loanService.loans$;
 
     this.incomes$ = combineLatest([
       this.incomeService.generateCardsChart(this.cards$),

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, Subject } from 'rxjs';
-import { map, retry, take, tap } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, Observable, Subject } from 'rxjs';
+import { distinctUntilChanged, map, retry, take, tap } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
 
@@ -15,13 +15,6 @@ import IBgColor from '../interfaces/background-color.interface';
   providedIn: 'root',
 })
 export class LoanService implements BaseHttpInterface<ILoan> {
-  public update$ = new Subject<ILoan[]>();
-
-  constructor(
-    private http: HttpClient,
-    private auth: AuthService,
-    private bgService: BackgroundService
-  ) {}
   private readonly icons = new Map<LoanType, string>([
     ['Mortgage', 'lar la-building'],
     ['Consumer', 'las la-laptop'],
@@ -31,10 +24,21 @@ export class LoanService implements BaseHttpInterface<ILoan> {
     ['Consumer', 'blue'],
   ]);
 
+  private store$ = new BehaviorSubject<ILoan[]>([]);
+  loans$ = this.store$.pipe(distinctUntilChanged());
+
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private bgService: BackgroundService
+  ) {
+    this.updateStore();
+  }
+
   updateStore(): void {
     this.getAll()
       .pipe(take(1))
-      .subscribe((loans) => this.update$.next(loans));
+      .subscribe((loans) => this.store$.next(loans));
   }
 
   create(loan: ILoan): Observable<ILoan> {
