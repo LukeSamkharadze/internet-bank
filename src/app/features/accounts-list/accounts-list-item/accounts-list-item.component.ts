@@ -10,5 +10,4 @@ import IItem from '../models/list-item.interface';
 export class AccountsListItemComponent {
   @Input() info: IItem;
   @Input() color = '';
-  @Input() route = '';
 }
