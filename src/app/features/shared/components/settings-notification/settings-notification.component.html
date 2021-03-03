@@ -1,6 +1,6 @@
 <div class="container">
   <h5>Notifications</h5>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form">
     <div class="notification notif-1">
       <div class="toggle-container">
         <app-shared-toggle
@@ -57,6 +57,7 @@
         [className]="{ primary: true, active: true }"
         style="width: 206px; height: 50px"
         [isDisabled]="false"
+        (click)="onSubmit()"
         >UPDATE SETTINGS</app-shared-button
       >
 

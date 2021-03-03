@@ -11,12 +11,6 @@ import { map } from 'rxjs/operators';
 })
 export class SettingsNotificationComponent implements OnInit {
   form: FormGroup;
-  default = {
-    productUpdates: false,
-    offerUpdates: false,
-    comments: true,
-    notifications: true,
-  };
   userId = parseInt(this.auth.userId, 10);
   constructor(
     private notificationsService: NotificationsService,

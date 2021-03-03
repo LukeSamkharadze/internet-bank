@@ -1,7 +1,6 @@
 @import './index.scss';
 
 .container {
-  // width: 876.3px;
   max-width: 1140px;
   min-width: 690px;
   width: 100%;
@@ -44,18 +43,5 @@
   .buttons-container {
     position: absolute;
     bottom: 0;
-    // .active {
-    //   width: 206px;
-    //   font-weight: 500;
-    //   letter-spacing: 0.5px;
-    //   line-height: 2px;
-    // }
-    // .resting {
-    //   width: 148px;
-    //   margin-left: 8px;
-    //   font-weight: 500;
-    //   letter-spacing: 0.5px;
-    //   line-height: 2px;
-    // }
   }
 }
