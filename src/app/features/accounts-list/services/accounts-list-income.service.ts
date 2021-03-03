@@ -25,7 +25,7 @@ export class AccountsListIncomeService {
     private formatService: FormatterService
   ) {}
 
-  getForUser(type: IChartType): Observable<IChartItem> {
+  getForUser(type: IChartType): Observable<IChartItem | null> {
     return this.http
       .get<IChartItem[]>(
         environment.BaseUrl +
@@ -34,6 +34,7 @@ export class AccountsListIncomeService {
       )
       .pipe(
         retry(1),
+        map((charts) => (charts.length ? charts : [null])),
         switchMap((charts) => charts),
         first()
       );
@@ -53,7 +54,7 @@ export class AccountsListIncomeService {
       this.getForUser('card'),
     ]).pipe(
       map(([balance, chart]) =>
-        balance
+        balance && chart
           ? ({
               title: 'Cards balance',
               value: balance,
@@ -76,7 +77,7 @@ export class AccountsListIncomeService {
       this.getForUser('deposit'),
     ]).pipe(
       map(([deposit, chart]) =>
-        deposit
+        deposit && chart
           ? ({
               title: `Deposit (${this.formatService.formatBalance(
                 Math.floor(deposit.depositRate * 100),
@@ -105,7 +106,7 @@ export class AccountsListIncomeService {
       this.getForUser('loan'),
     ]).pipe(
       map(([balance, chart]) =>
-        balance
+        balance && chart
           ? ({
               title: 'Pending credit',
               value: balance,
