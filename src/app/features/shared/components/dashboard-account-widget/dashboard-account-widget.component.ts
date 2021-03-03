@@ -6,7 +6,7 @@ import { IncomeType } from './incomeType';
 
 @Component({
   selector: 'app-shared-dashboard-account-widget',
-  providers: [GetCardServiceService],
+  providers: [GetCardServiceService, CalculateProfitService],
   templateUrl: './dashboard-account-widget.component.html',
   styleUrls: ['./dashboard-account-widget.component.scss'],
 })
