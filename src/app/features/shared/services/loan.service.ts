@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable, Subject } from 'rxjs';
-import { retry, take, tap } from 'rxjs/operators';
+import { map, retry, take, tap } from 'rxjs/operators';
 
 import { BaseHttpInterface } from '@shared/shared';
 
@@ -45,13 +45,31 @@ export class LoanService implements BaseHttpInterface<ILoan> {
     const userId = this.auth.userId;
     return this.http
       .get<ILoan[]>(`${environment.BaseUrl}loans?userId=${userId}`)
-      .pipe(retry(1));
+      .pipe(
+        retry(1),
+        map((loans) =>
+          loans.map(
+            (loan) =>
+              ({
+                ...loan,
+                blocked: this.isPaid(loan),
+              } as ILoan)
+          )
+        )
+      );
   }
 
   getById(id: number): Observable<ILoan> {
-    return this.http
-      .get<ILoan>(`${environment.BaseUrl}loans/${id}`)
-      .pipe(retry(1));
+    return this.http.get<ILoan>(`${environment.BaseUrl}loans/${id}`).pipe(
+      retry(1),
+      map(
+        (loan) =>
+          ({
+            ...loan,
+            blocked: this.isPaid(loan),
+          } as ILoan)
+      )
+    );
   }
 
   update(): Observable<ILoan> {
@@ -63,6 +81,12 @@ export class LoanService implements BaseHttpInterface<ILoan> {
       retry(1),
       tap(() => this.updateStore())
     );
+  }
+
+  isPaid(loan: ILoan): boolean {
+    const paid = loan.paid || 0;
+    const amount = loan.balance || paid;
+    return amount <= paid;
   }
 
   determineIcon(loan: ILoan): string {
