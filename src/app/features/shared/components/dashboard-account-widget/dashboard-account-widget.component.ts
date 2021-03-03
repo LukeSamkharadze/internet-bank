@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ICard } from '../../interfaces/card.interface';
 import { CalculateProfitService } from './calculate-profit.service';
 import { GetCardServiceService } from './get-card-service.service';
-import { IncomeType } from './incomeType';
+import { Income } from './income';
 
 @Component({
   selector: 'app-shared-dashboard-account-widget',
@@ -26,7 +26,7 @@ export class DashboardAccountWidgetComponent implements OnInit {
   shownCard: ICard;
   largest = 0;
   card: ICard;
-  incomeOutcome: IncomeType[];
+  incomeOutcome: Income[];
   constructor(
     public getCardService: GetCardServiceService,
     public calculateProfit: CalculateProfitService
