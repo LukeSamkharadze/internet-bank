@@ -10,6 +10,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AuthService } from '../../shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
 import { IUser } from '../../shared/interfaces/user.interface';
+import { SocketIoService } from '../../shared/services/socket-io.service';
 
 @Component({
   selector: 'app-settings',
@@ -40,7 +41,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private auth: AuthService
+    private auth: AuthService,
+    private socketIo: SocketIoService
   ) {
     this.getUser();
   }
@@ -70,7 +72,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.check();
       this.updTrue = true;
       this.updSub = this.userService.update(this.user).subscribe();
+      this.socketIo.emit('profile', this.auth.userId);
       window.alert('Updated Successfully');
+
       this.getUser();
     }
   }

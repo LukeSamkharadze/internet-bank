@@ -203,7 +203,8 @@ export class PaymentService {
   postTransactionToDb(
     transfer: ElectronicTransfer | BankTransfer | InternalTransfer
   ) {
-    this.socketIo.emit('transaction', null);
+    this.socketIo.emit('transaction', transfer);
+    this.socketIo.emit('expanses', transfer);
     return this.http.post(environment.BaseUrl + 'transactions', {
       ...transfer,
       status: 'pending',

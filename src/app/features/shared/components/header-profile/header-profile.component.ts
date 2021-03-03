@@ -4,16 +4,22 @@ import {
   ElementRef,
   AfterViewInit,
   OnInit,
+  OnDestroy,
 } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
+import { SocketIoService } from '../../services/socket-io.service';
+import { takeUntil, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-shared-header-profile',
   templateUrl: './header-profile.component.html',
   styleUrls: ['./header-profile.component.scss'],
 })
-export class HeaderProfileComponent implements AfterViewInit, OnInit {
+export class HeaderProfileComponent
+  implements AfterViewInit, OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   @ViewChild('userDropdownMenu') userDropdownMenu: ElementRef;
 
   user = {
@@ -27,17 +33,30 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private socketIo: SocketIoService
   ) {}
 
   ngOnInit() {
     this.userId = this.authService.userId;
+    this.loadUser();
+    this.socketIo
+      .listen('profile')
+      .pipe(
+        takeUntil(this.unsubscriber),
+        tap(() => {
+          this.loadUser();
+        })
+      )
+      .subscribe();
+  }
+
+  loadUser() {
     this.userService.getById(this.userId).subscribe((user) => {
       this.user.fullname = user.fullname;
       this.user.email = user.email;
     });
   }
-
   ngAfterViewInit() {
     const dropdown = this.userDropdownMenu.nativeElement;
     document.addEventListener('click', (e: MouseEvent) => {
@@ -64,5 +83,9 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
 
   signOut() {
     this.authService.logout();
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber.next();
   }
 }

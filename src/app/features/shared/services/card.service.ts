@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, from, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, from, Observable, Subject, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 import { CardType, ICard } from '../interfaces/card.interface';
@@ -19,6 +19,7 @@ import { AuthService } from './auth.service';
 import { IconService } from './icon.service';
 import { BackgroundService } from './background.service';
 import IBgColor from '../interfaces/background-color.interface';
+import { SocketIoService } from './socket-io.service';
 
 @Injectable({
   providedIn: 'root',
@@ -39,9 +40,14 @@ export class CardService implements BaseHttpInterface<ICard> {
     private http: HttpClient,
     private auth: AuthService,
     private iconService: IconService,
-    private bgService: BackgroundService
+    private bgService: BackgroundService,
+    private socketIo: SocketIoService
   ) {
     this.updateStore();
+    this.socketIo
+      .listen('transaction')
+      .pipe(tap(() => this.updateStore()))
+      .subscribe();
   }
 
   create(card: ICard): Observable<ICard> {

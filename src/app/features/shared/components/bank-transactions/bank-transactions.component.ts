@@ -2,6 +2,7 @@ import {
   Component,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
@@ -16,7 +17,7 @@ import { takeUntil, tap } from 'rxjs/operators';
   templateUrl: './bank-transactions.component.html',
   styleUrls: ['./bank-transactions.component.scss'],
 })
-export class BankTransactionsComponent implements OnInit, OnChanges {
+export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
   unsubscriber = new Subject();
   @Input() input;
   hasInput = true;
@@ -118,5 +119,9 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   typeChangeEvent($event) {
     this.chosenType = $event.toLowerCase();
     this.fetchTransactions();
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber.next();
   }
 }

@@ -123,7 +123,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 35210.09000000001,
+      "availableAmount": 39029.11000000001,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -147,7 +147,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 10000,
+      "availableAmount": 5000,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -158,12 +158,11 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 17851.4674578,
+      "availableAmount": 17872.047457800003,
       "security3D": true,
       "userId": "2",
       "cardType": "mastercard",
       "id": 4,
-      "iconPath": "./assets/cards/mastercard.svg",
       "blocked": true
     },
     {
