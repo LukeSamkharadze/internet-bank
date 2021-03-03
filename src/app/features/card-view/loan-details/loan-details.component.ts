@@ -66,7 +66,7 @@ export class LoanDetailsComponent implements OnInit {
             {
               kind: 'Interest rate',
               share: loan.loanRate * (loan.balance || loan.paid || 0),
-              colorString: '#4D7CFE',
+              colorString: '#FE4D97',
             },
             {
               kind: 'Paid',

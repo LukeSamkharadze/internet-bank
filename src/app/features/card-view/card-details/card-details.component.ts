@@ -95,7 +95,6 @@ export class CardDetailsComponent implements OnInit {
   }
 
   getBlockButton(card: ICard): IButton {
-    console.log(card);
     return {
       text: card.blocked ? 'UNBLOCK' : 'BLOCK',
       function: () => {
