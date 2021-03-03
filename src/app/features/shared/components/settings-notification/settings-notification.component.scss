@@ -9,7 +9,7 @@
   .notification {
     max-width: 1140px;
     min-width: 690px;
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     border-bottom: 1px solid $outline;
     position: relative;
@@ -38,9 +38,9 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  .primary {
-    margin-top: 258px;
-
+  .buttons-container {
+    position: absolute;
+    bottom: 0;
     .active {
       width: 206px;
       font-weight: 500;

@@ -657,5 +657,49 @@
       "title": "Formula One Revenues Dropped By $877 Million In 2020",
       "content": "Formula One’s revenues took an $877 million hit last year, falling 43% as a result of the Covid-19 pandemic, owners Liberty Media reported on Friday. Revenues amounted to $1.145 billion compared to a previous $2.022 billion in a year that featured 17 races, mostly without spectators, and had highlight events such as Monaco and Singapore cancelled. The previous year had 21 races and 22 had been planned for 2020 with 23 scheduled for 2021. The previous year had 21 races and 22 had been planned for 2020 with 23 scheduled for 2021.Formula One’s primary revenues are derived mostly from race promotion fees, broadcasting deals and advertising and sponsorship. The revenues also provide a significant part of the budget for smaller teams. The new season starts in Bahrain on March 28."
     }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true
+    },
+    {
+      "id": 2,
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true
+    },
+    {
+      "id": 3,
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true
+    },
+    {
+      "id": 4,
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true
+    },
+    {
+      "id": 5,
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true
+    },
+    {
+      "id": 6,
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true
+    }
   ]
 }
