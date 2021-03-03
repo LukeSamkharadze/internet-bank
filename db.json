@@ -661,13 +661,7 @@
   "notifications": [
     {
       "id": 1,
-      "productUpdates": false,
-      "offerUpdates": false,
-      "comments": true,
-      "notifications": true
-    },
-    {
-      "id": 2,
+      "userId": 1,
       "productUpdates": false,
       "offerUpdates": false,
       "comments": true,
@@ -675,29 +669,9 @@
     },
     {
       "id": 3,
-      "productUpdates": false,
-      "offerUpdates": false,
-      "comments": true,
-      "notifications": true
-    },
-    {
-      "id": 4,
-      "productUpdates": false,
-      "offerUpdates": false,
-      "comments": true,
-      "notifications": true
-    },
-    {
-      "id": 5,
-      "productUpdates": false,
-      "offerUpdates": false,
-      "comments": true,
-      "notifications": true
-    },
-    {
-      "id": 6,
-      "productUpdates": false,
-      "offerUpdates": false,
+      "userId": 2,
+      "productUpdates": true,
+      "offerUpdates": true,
       "comments": true,
       "notifications": true
     }
