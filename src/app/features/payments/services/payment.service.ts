@@ -11,6 +11,7 @@ import { PaymentLimitsService } from '../../shared/services/payment-limits.servi
 import { AuthService } from '../../shared/services/auth.service';
 import { TransactionService } from '../../shared/services/transaction.service';
 import { InternalTransfer } from '../../shared/interfaces/transfers/internalTransfer.interface';
+import { SocketIoService } from '../../shared/services/socket-io.service';
 
 @Injectable()
 export class PaymentService {
@@ -19,7 +20,8 @@ export class PaymentService {
     private cardService: CardService,
     private authService: AuthService,
     private paymentsLimitsService: PaymentLimitsService,
-    private transactionService: TransactionService
+    private transactionService: TransactionService,
+    private socketIo: SocketIoService
   ) {}
   currentUsersCards$ = this.cardService.cards$;
 
@@ -201,6 +203,7 @@ export class PaymentService {
   postTransactionToDb(
     transfer: ElectronicTransfer | BankTransfer | InternalTransfer
   ) {
+    this.socketIo.emit('transaction', null);
     return this.http.post(environment.BaseUrl + 'transactions', {
       ...transfer,
       status: 'pending',

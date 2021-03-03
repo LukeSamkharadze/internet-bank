@@ -7,6 +7,9 @@ import {
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
+import { SocketIoService } from '../../services/socket-io.service';
+import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-features-shared-bank-transactions',
@@ -14,6 +17,7 @@ import { TransactionsList } from './models/bank-transaction.model';
   styleUrls: ['./bank-transactions.component.scss'],
 })
 export class BankTransactionsComponent implements OnInit, OnChanges {
+  unsubscriber = new Subject();
   @Input() input;
   hasInput = true;
   show = true;
@@ -52,7 +56,10 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
     /* tslint:enable:no-string-literal */
   }
 
-  constructor(private getTransactionService: TransactionsService) {}
+  constructor(
+    private getTransactionService: TransactionsService,
+    private socketIo: SocketIoService
+  ) {}
 
   fetchTransactions() {
     this.getTransactionService
@@ -70,6 +77,13 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.fetchTransactions();
+    this.socketIo
+      .listen('transaction')
+      .pipe(
+        takeUntil(this.unsubscriber),
+        tap(() => this.fetchTransactions())
+      )
+      .subscribe();
   }
 
   pop(id: number) {
