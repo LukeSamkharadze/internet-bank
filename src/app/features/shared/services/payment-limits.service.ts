@@ -21,4 +21,7 @@ export class PaymentLimitsService {
   createUserLimits(limits: ILimits) {
     return this.http.post<ILimits>(`${environment.BaseUrl}limits`, limits);
   }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.BaseUrl}limits/${id}`);
+  }
 }

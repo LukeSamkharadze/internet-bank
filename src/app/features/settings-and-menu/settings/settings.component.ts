@@ -10,6 +10,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AuthService } from '../../shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
 import { IUser } from '../../shared/interfaces/user.interface';
+import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 
 @Component({
   selector: 'app-settings',
@@ -22,6 +23,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   getSub: Subscription;
   updSub: Subscription;
   delSub: Subscription;
+  limSub: Subscription;
 
   delTrue = false;
   updTrue = false;
@@ -40,7 +42,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private auth: AuthService
+    private auth: AuthService,
+    private limitService: PaymentLimitsService
   ) {
     this.getUser();
   }
@@ -96,6 +99,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.showDeleteModal = false;
     this.delTrue = true;
     this.delSub = this.userService.delete(this.user.id).subscribe();
+    this.limSub = this.limitService.delete(this.user.id).subscribe();
     window.alert('Successfully Deleted');
     this.auth.logout();
   }
@@ -123,6 +127,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
     }
     if (this.delTrue) {
       this.delSub.unsubscribe();
+    }
+    if (this.limSub) {
+      this.limSub.unsubscribe();
     }
   }
 }
