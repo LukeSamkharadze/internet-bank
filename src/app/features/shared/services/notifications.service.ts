@@ -11,16 +11,24 @@ export class NotificationsService {
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<INotifications[]> {
-    return this.http.get<INotifications[]>(`${environment.BaseUrl}notifications`).pipe(
-      map((users)=>{
-        return users;
-      })
-    )
+    return this.http
+      .get<INotifications[]>(`${environment.BaseUrl}notifications`)
+      .pipe(
+        map((users) => {
+          return users;
+        })
+      );
   }
-  updateNotifs(id: number, notifications: INotifications): Observable<any> {
-    return this.http.put<any>(`
-      ${environment.BaseUrl}notifications/${id}`,
-      notifications
-    );
+  updateNotifs(id: number, notifications: INotifications) {
+    this.http
+      .put(`${environment.BaseUrl}notifications/${id}`, notifications)
+      .subscribe(
+        (next) => {
+          alert('Settings Updated');
+        },
+        (error) => {
+          alert(error.message);
+        }
+      );
   }
 }

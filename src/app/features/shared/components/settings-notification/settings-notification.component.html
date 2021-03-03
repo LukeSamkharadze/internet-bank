@@ -53,8 +53,18 @@
       </p>
     </div>
     <div class="buttons-container">
-      <app-shared-button [className]="{ primary: true, active: true }"
+      <app-shared-button
+        [className]="{ primary: true, active: true }"
+        style="width: 206px; height: 50px"
+        [isDisabled]="false"
         >UPDATE SETTINGS</app-shared-button
+      >
+
+      <app-shared-button
+        [className]="{ primary: true, resting: true }"
+        style="width: 148px; height: 46px; margin-left: 12px"
+        (clicked)="reset()"
+        >RESET</app-shared-button
       >
     </div>
   </form>

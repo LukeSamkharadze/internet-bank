@@ -668,12 +668,44 @@
       "notifications": true
     },
     {
-      "id": 3,
-      "userId": 2,
       "productUpdates": true,
-      "offerUpdates": true,
+      "offerUpdates": false,
+      "comments": false,
+      "notifications": true,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
       "comments": true,
-      "notifications": true
+      "notifications": true,
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 4,
+      "id": 4
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 5,
+      "id": 5
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 6,
+      "id": 6
     }
   ]
 }

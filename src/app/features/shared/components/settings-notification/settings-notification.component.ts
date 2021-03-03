@@ -17,7 +17,7 @@ export class SettingsNotificationComponent implements OnInit {
     comments: true,
     notifications: true,
   };
-  id = parseInt(this.auth.userId, 10);
+  userId = parseInt(this.auth.userId, 10);
   constructor(
     private notificationsService: NotificationsService,
     private auth: AuthService
@@ -31,28 +31,59 @@ export class SettingsNotificationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.notificationsService
+      .getUsers()
+      .pipe(
+        map((users) => {
+          for (const user of users) {
+            if (this.userId === user.userId) {
+              this.form.patchValue({
+                productUpdates: user.productUpdates,
+                offerUpdates: user.offerUpdates,
+                comments: user.comments,
+                notifications: user.notifications,
+              });
+              break;
+            }
+          }
+        })
+      )
+      .subscribe();
+  }
+  onSubmit() {
+    const notifs: INotifications = this.form.value;
+    this.notificationsService
+      .getUsers()
+      .pipe(
+        map((users) => {
+          for (const user of users) {
+            if (this.userId === user.userId) {
+              this.notificationsService.updateNotifs(
+                user.id,
+                Object.assign(notifs, { userId: this.userId })
+              );
+              break;
+            }
+          }
+        })
+      )
+      .subscribe();
+  }
+  reset() {
     this.notificationsService.getUsers().pipe(
-      map((users)=>{
-        for(const user of users){
-          if(this.id === user.userId){
+      map((users) => {
+        for (const user of users) {
+          if (this.userId === user.userId) {
             this.form.patchValue({
               productUpdates: user.productUpdates,
               offerUpdates: user.offerUpdates,
               comments: user.comments,
-              notifications: user.notifications
+              notifications: user.notifications,
             });
             break;
           }
         }
       })
-    ).subscribe()
-  }
-  onSubmit() {
-    const notifs: INotifications = this.form.value;
-
-    this.notificationsService.updateNotifs(this.id, notifs).subscribe(
-      (data) => console.log('success!', data),
-      (error) => console.error('Error!', error)
     );
   }
 }
