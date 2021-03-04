@@ -18,12 +18,22 @@
           <i class="las la-piggy-bank"></i>
         </div>
         <div class="detail-position">
-          <div class="account-number" *ngIf="item.cardNumber">
-            {{ item.cardNumber | hideNums }}
-          </div>
-          <div class="account-number" *ngIf="!item.cardNumber">
-            Cumulative Deposit
-          </div>
+          <ng-container *ngIf="screenWidth > 720">
+            <div class="account-number" *ngIf="item.cardNumber">
+              {{ item.cardNumber | hideNums }}
+            </div>
+            <div class="account-number" *ngIf="!item.cardNumber">
+              Cumulative Deposit
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="screenWidth < 720">
+            <div class="account-number" *ngIf="item.cardNumber">
+              {{ item.cardNumber | hideNumsMobile }}
+            </div>
+            <div class="account-number" *ngIf="!item.cardNumber">Deposit</div>
+          </ng-container>
+
           <div class="account-description" *ngIf="item.cardNumber">
             Card Number
           </div>

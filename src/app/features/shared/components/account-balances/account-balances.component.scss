@@ -87,6 +87,7 @@
       .account-number {
         @include text-style(16px);
         padding-bottom: 5px;
+        word-wrap: break-word;
       }
       .account-description {
         @include text-style(14px, $secondary-dark-2);
