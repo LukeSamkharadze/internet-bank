@@ -1,0 +1,47 @@
+@import './index.scss';
+
+.container {
+  max-width: 1140px;
+  min-width: 690px;
+  width: 100%;
+  height: 700px;
+  padding: 18px 153.3px 24px 24px;
+  box-sizing: border-box;
+  position: relative;
+  .notification {
+    max-width: 1140px;
+    min-width: 690px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid $outline;
+    position: relative;
+    &.notif-1 {
+      margin-top: 11.2px;
+    }
+    &.notif-4 {
+      border-bottom: none;
+    }
+
+    .title {
+      padding-top: 23px;
+      color: $primary-dark;
+      font-weight: 500;
+      width: 500px;
+    }
+    .description {
+      padding-top: 2px;
+      width: 500px;
+    }
+  }
+  .toggle-container {
+    width: 40px;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .buttons-container {
+    position: absolute;
+    bottom: 0;
+  }
+}

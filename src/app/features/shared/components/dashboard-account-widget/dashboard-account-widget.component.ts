@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ICard } from '../../interfaces/card.interface';
 import { CalculateProfitService } from './calculate-profit.service';
 import { GetCardServiceService } from './get-card-service.service';
-import { IncomeType } from './incomeType';
+import { Income } from './income';
 
 @Component({
   selector: 'app-shared-dashboard-account-widget',
-  providers: [GetCardServiceService],
+  providers: [GetCardServiceService, CalculateProfitService],
   templateUrl: './dashboard-account-widget.component.html',
   styleUrls: ['./dashboard-account-widget.component.scss'],
 })
@@ -17,14 +17,16 @@ export class DashboardAccountWidgetComponent implements OnInit {
   degreeSecondHalf: number;
   degreeFirstHalf: number;
   profit: number;
+  showIcons: boolean;
   profitRound: string;
   styleElement: any;
   animation: string;
   cards: ICard[];
   i: number;
+  shownCard: ICard;
   largest = 0;
   card: ICard;
-  incomeOutcome: IncomeType[];
+  incomeOutcome: Income[];
   constructor(
     public getCardService: GetCardServiceService,
     public calculateProfit: CalculateProfitService
@@ -35,7 +37,7 @@ export class DashboardAccountWidgetComponent implements OnInit {
       this.profit = this.income - this.outcome;
       this.profitRound = (this.profit / 1000).toFixed(0) + 'K';
     } else if (this.income < this.outcome) {
-      this.profitRound = '0';
+      this.profitRound = '0K';
     } else if (
       this.income < 999 &&
       this.outcome < 999 &&
@@ -100,25 +102,33 @@ export class DashboardAccountWidgetComponent implements OnInit {
       }
     }
   }
+  switchRight() {
+    this.getCardService.getCards().subscribe((v) => {
+      if (this.i < v.length - 1) {
+        this.i++;
+      } else {
+        this.i = 0;
+      }
+    });
+  }
+  switchLeft() {
+    if (this.i > 0) {
+      this.i--;
+    }
+  }
   activeCard() {
     this.getCardService.getCards().subscribe((v) => {
       this.cards = v;
-      if (this.cards.length > 1) {
-        for (this.i = 0; this.i < this.cards.length; this.i++) {
-          if (
-            this.cards[this.i].availableAmount >
-            this.cards[this.i + 1].availableAmount
-          ) {
-            this.card = this.cards[this.i];
-            return this.card;
-          } else {
-            this.card = this.cards[0];
-            return this.card;
-          }
+      if (this.cards.length > 0) {
+        this.shownCard = this.cards.reduce((prev, current) => {
+          return prev.availableAmount > current.availableAmount
+            ? prev
+            : current;
+        });
+        this.i = this.cards.indexOf(this.shownCard);
+        if (this.cards.length > 1) {
+          this.showIcons = true;
         }
-      } else {
-        this.card = this.cards[0];
-        return this.card;
       }
     });
   }

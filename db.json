@@ -1,4 +1,38 @@
 {
+  "questions": [
+    {
+      "questionId": 1,
+      "question": "your pet name"
+    },
+    {
+      "questionId": 2,
+      "question": "your chilhood nickname"
+    },
+    {
+      "questionId": 3,
+      "question": "favorite car model"
+    }
+  ],
+  "answers": [
+    {
+      "questionId": 1,
+      "userId": 1,
+      "answer": "12212",
+      "id": 1
+    },
+    {
+      "questionId": 2,
+      "userId": 1,
+      "answer": "1221212",
+      "id": 2
+    },
+    {
+      "questionId": 3,
+      "userId": 1,
+      "answer": "12212121",
+      "id": 3
+    }
+  ],
   "items": [
     {
       "id": 1,
@@ -228,12 +262,9 @@
       "password": "12345678"
     },
     {
-      "email": "admin@gmail.com",
-      "language": "English",
-      "sex": "Male",
-      "id": 2,
-      "password": "12345678",
-      "fullname": "EDMOND DANTES"
+      "userId": 2,
+      "answer": "spike",
+      "id": 2
     },
     {
       "fullname": "VITO CORLEONE",
@@ -694,6 +725,56 @@
       "releaseDate": "2021-02-26T18:09:37Z",
       "title": "Formula One Revenues Dropped By $877 Million In 2020",
       "content": "Formula One’s revenues took an $877 million hit last year, falling 43% as a result of the Covid-19 pandemic, owners Liberty Media reported on Friday. Revenues amounted to $1.145 billion compared to a previous $2.022 billion in a year that featured 17 races, mostly without spectators, and had highlight events such as Monaco and Singapore cancelled. The previous year had 21 races and 22 had been planned for 2020 with 23 scheduled for 2021. The previous year had 21 races and 22 had been planned for 2020 with 23 scheduled for 2021.Formula One’s primary revenues are derived mostly from race promotion fees, broadcasting deals and advertising and sponsorship. The revenues also provide a significant part of the budget for smaller teams. The new season starts in Bahrain on March 28."
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 1,
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true
+    },
+    {
+      "productUpdates": true,
+      "offerUpdates": false,
+      "comments": false,
+      "notifications": true,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 4,
+      "id": 4
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 5,
+      "id": 5
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 6,
+      "id": 6
     }
   ]
 }
