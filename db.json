@@ -1,4 +1,38 @@
 {
+  "questions": [
+    {
+      "questionId": 1,
+      "question": "your pet name"
+    },
+    {
+      "questionId": 2,
+      "question": "your chilhood nickname"
+    },
+    {
+      "questionId": 3,
+      "question": "favorite car model"
+    }
+  ],
+  "answers": [
+    {
+      "questionId": 1,
+      "userId": 1,
+      "answer": "12212",
+      "id": 1
+    },
+    {
+      "questionId": 2,
+      "userId": 1,
+      "answer": "1221212",
+      "id": 2
+    },
+    {
+      "questionId": 3,
+      "userId": 1,
+      "answer": "12212121",
+      "id": 3
+    }
+  ],
   "items": [
     {
       "id": 1,
@@ -228,12 +262,9 @@
       "password": "12345678"
     },
     {
-      "email": "admin@gmail.com",
-      "language": "English",
-      "sex": "Male",
-      "id": 2,
-      "password": "12345678",
-      "fullname": "EDMOND DANTES"
+      "userId": 2,
+      "answer": "spike",
+      "id": 2
     },
     {
       "fullname": "VITO CORLEONE",
