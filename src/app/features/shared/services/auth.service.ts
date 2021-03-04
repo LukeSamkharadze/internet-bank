@@ -98,6 +98,8 @@ export class AuthService {
   // Remove user Id from localStorage on Logout and navigate to 'Login'
   logout() {
     localStorage.removeItem('userId');
+    this.socketIo.disconnect();
+    this.socketIo.init();
     this.router.navigate(['/login']);
   }
 }

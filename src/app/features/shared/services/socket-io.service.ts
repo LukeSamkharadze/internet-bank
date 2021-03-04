@@ -10,7 +10,7 @@ export class SocketIoService {
   readonly url: string = 'http://localhost:3001/';
   constructor() {
     // init the socket.
-    this.socket = io(this.url);
+    this.init();
   }
 
   listen(eventName: string): Observable<any> {
@@ -23,5 +23,13 @@ export class SocketIoService {
 
   emit(eventName: string, data: any): void {
     this.socket.emit(eventName, data);
+  }
+
+  disconnect(): void {
+    this.socket.disconnect();
+  }
+
+  init(): void {
+    this.socket = io(this.url);
   }
 }
