@@ -262,9 +262,12 @@
       "password": "12345678902"
     },
     {
-      "userId": 2,
-      "answer": "spike",
-      "id": 2
+      "email": "admin@gmail.com",
+      "language": "English",
+      "sex": "Male",
+      "id": 2,
+      "password": "12345678",
+      "fullname": "EDMOND DANTES"
     },
     {
       "fullname": "VITO CORLEONE",
