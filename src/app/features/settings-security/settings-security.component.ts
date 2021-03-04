@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { AuthService } from '../shared/services/auth.service';
-import { SecretQuestionservise } from '../shared/services/secretQuestion.service';
+import { SecretQuestionservice } from '../shared/services/secretQuestion.service';
 import { IUser } from '../shared/interfaces/user.interface';
 import { Observable } from 'rxjs';
 import { SecretQuestion } from '../shared/interfaces/secretQuestion.interface';
@@ -34,10 +34,10 @@ export class SettingsSecurityComponent implements OnInit {
   constructor(
     private userServise: UserService,
     private authservice: AuthService,
-    private secretQuestionservise: SecretQuestionservise
+    private secretQuestionservice: SecretQuestionservice
   ) {
     // getting secret quesions form DB
-    this.secretQuestionservise.getAll().subscribe((val) => {
+    this.secretQuestionservice.getAll().subscribe((val) => {
       this.questions = val;
     });
   }
@@ -78,7 +78,7 @@ export class SettingsSecurityComponent implements OnInit {
           const qAnswer = this.formChange.get('answer').value;
 
           // fetching DB answers
-          this.userOldAnswer = await this.secretQuestionservise
+          this.userOldAnswer = await this.secretQuestionservice
             .getAnswerByQuestionId(this.userid, qId)
             .toPromise();
 
@@ -91,11 +91,11 @@ export class SettingsSecurityComponent implements OnInit {
           if (this.userOldAnswer) {
             this.userAnswer.id = this.userOldAnswer.id;
 
-            this.secretQuestionservise.update(this.userAnswer).toPromise();
+            this.secretQuestionservice.update(this.userAnswer).toPromise();
           } else {
             this.userAnswer.id = null;
 
-            this.secretQuestionservise.create(this.userAnswer).toPromise();
+            this.secretQuestionservice.create(this.userAnswer).toPromise();
           }
         })();
       } else {
@@ -114,7 +114,7 @@ export class SettingsSecurityComponent implements OnInit {
         const qAnswer = this.formChange.get('answer').value;
 
         // fetching DB answers
-        this.userOldAnswer = await this.secretQuestionservise
+        this.userOldAnswer = await this.secretQuestionservice
           .getAnswerByQuestionId(this.userid, qId)
           .toPromise();
 
@@ -127,11 +127,11 @@ export class SettingsSecurityComponent implements OnInit {
         if (this.userOldAnswer) {
           this.userAnswer.id = this.userOldAnswer.id;
 
-          this.secretQuestionservise.update(this.userAnswer).toPromise();
+          this.secretQuestionservice.update(this.userAnswer).toPromise();
         } else {
           this.userAnswer.id = null;
 
-          this.secretQuestionservise.create(this.userAnswer).toPromise();
+          this.secretQuestionservice.create(this.userAnswer).toPromise();
         }
       })();
     }

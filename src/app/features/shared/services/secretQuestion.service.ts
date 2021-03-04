@@ -8,7 +8,7 @@ import { SecretQuestion } from '../interfaces/secretQuestion.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class SecretQuestionservise {
+export class SecretQuestionservice {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<SecretQuestion[]> {
