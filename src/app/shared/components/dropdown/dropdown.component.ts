@@ -1,11 +1,4 @@
 import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import {
   Component,
   Input,
   TemplateRef,
@@ -30,20 +23,22 @@ import { optionsAnimation } from './animations/options';
   animations: [optionsAnimation],
 })
 export class DropdownComponent implements ControlValueAccessor, OnChanges {
-  @Input() value: any;
-  @Input() placeholder: any;
-  @Input() options: any[] = [];
-
   @Input() placeholderTemplate: TemplateRef<any>;
   @Input() selectedTemplate: TemplateRef<any>;
   @Input() optionTemplate: TemplateRef<any>;
   @Input() arrowTemplate: TemplateRef<any>;
 
+  @Input() placeholder = '';
+  @Input() options = [];
+  @Input() value = '';
+
   isOptionsOpened = false;
   isPlaceholderOn = true;
   disabled = false;
 
-  onChange = (_: any) => {};
+  get hasDisabledStyle() { return this.disabled || !this.options?.length; }
+
+  onChange = (value: any) => {};
   onTouched = () => {};
 
   ngOnChanges(changes: SimpleChanges) {
@@ -54,7 +49,7 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
   }
 
   dropdownClicked() {
-    if (!this.disabled) {
+    if (!this.hasDisabledStyle) {
       this.isOptionsOpened = !this.isOptionsOpened;
     }
   }

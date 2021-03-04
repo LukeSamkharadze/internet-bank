@@ -15,17 +15,16 @@
   grid-gap: 28px;
 }
 
-.create-card-container,
-.section-placeholder {
+.create-card-container {
   min-width: 455px;
-  height: 716px;
+  min-height: 746px;
   border-radius: 4px;
   background: white;
 }
 
 .create-card-container {
   display: grid;
-  grid-template-rows: 8% 42.5% auto;
+  grid-template-rows: 56px 42.5% auto;
 
   [class|='gritem'] {
     padding: 0 24px;
@@ -120,11 +119,11 @@
           font-size: 75px;
           color: $primary;
 
-          &.visa-cl {
+          &.blue {
             color: #293688;
           }
 
-          &.master-cl {
+          &.orange {
             color: #e69310;
           }
         }
@@ -198,7 +197,26 @@
         padding: 3px 5px;
         text-align: right;
         background: none;
-        border: none;
+        border-radius: 3px;
+        transition: 0.3s;
+
+        &:-webkit-autofill {
+          -webkit-text-fill-color: $secondary-dark-2;
+          -webkit-background-clip: text;
+          -webkit-box-shadow: 0 0 0 30px hsla(0, 0%, 100%, 0) inset !important;
+          transition: 0.3s;
+        }
+
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          &.valid {
+            -webkit-box-shadow: 0 0 0 30px hsl(120, 60%, 90%) inset !important;
+          }
+        }
+
+        &.invalid {
+          -webkit-box-shadow: 0 0 0 30px hsl(0, 80%, 90%) inset !important;
+        }
 
         &:focus,
         &:active {
@@ -288,19 +306,25 @@
     }
 
     .shared-button {
+      position: relative;
       width: 206px;
       height: 46px;
-      position: relative;
       left: 10px;
-      top: 9px;
+      top: 20px;
     }
   }
 }
 
+.transactions-container {
+  // height: 716px;
+  // border-radius: 4px;
+  background: red;
+}
+
 .notification-container {
-  position: absolute;
-  top: -15px;
-  right: -15px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
 @media only screen and (max-width: 1250px) {

@@ -24,13 +24,13 @@ export class InternalTransferFormComponent implements OnDestroy {
     fromAccount: new FormControl('', Validators.required),
     toAccountNumber: new FormControl('', Validators.required),
     amount: new FormControl('', [Validators.required, Validators.min(0.1)]),
-    instantTransferType: new FormControl('', Validators.required),
+    internalTransferType: new FormControl('', Validators.required),
   });
 
   fromAccount: AbstractControl = this.form.get('fromAccount');
   toAccountNumber: AbstractControl = this.form.get('toAccountNumber');
   amount: AbstractControl = this.form.get('amount');
-  instantTransferType: AbstractControl = this.form.get('instantTransferType');
+  internalTransferType: AbstractControl = this.form.get('internalTransferType');
 
   currentUsersCards = this.paymentService.currentUsersCards$;
 
@@ -48,12 +48,12 @@ export class InternalTransferFormComponent implements OnDestroy {
         fromAccountNumber: this.fromAccount.value.accountNumber,
         amount: Number(this.amount.value),
         currency: 'USD', // rasvizamt moitana cxovrebam statikuri valutebi
-        instantTransferType: this.instantTransferType.value.toLowerCase(),
+        internalTransferType: this.internalTransferType.value.toLowerCase(),
         toAccountNumber: this.toAccountNumber.value,
       };
       this.subscriptions.add(
         this.paymentService
-          .instantTransfer(transfer)
+          .internalTransfer(transfer)
           .pipe(
             tap(() => {
               alert('success');
