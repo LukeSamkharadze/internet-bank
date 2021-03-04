@@ -15,21 +15,19 @@
   ],
   "answers": [
     {
-      "questionId": 1,
+      "questionId": 3,
       "userId": 1,
-      "answer": "new test1",
+      "answer": "",
       "id": 1
     },
     {
-      "questionId": 2,
       "userId": 1,
-      "answer": "1221212",
+      "answer": "1212",
       "id": 2
     },
     {
-      "questionId": 3,
       "userId": 1,
-      "answer": "12212121",
+      "answer": "123",
       "id": 3
     }
   ],
