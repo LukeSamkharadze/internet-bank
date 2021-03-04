@@ -26,7 +26,7 @@ const modules = [
   RouterModule,
   ChartsModule,
   SharedModule,
-  DateInputsModule
+  DateInputsModule,
 ];
 
 @NgModule({

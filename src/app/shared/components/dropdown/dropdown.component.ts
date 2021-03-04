@@ -36,7 +36,9 @@ export class DropdownComponent implements ControlValueAccessor, OnChanges {
   isPlaceholderOn = true;
   disabled = false;
 
-  get hasDisabledStyle() { return this.disabled || !this.options?.length; }
+  get hasDisabledStyle() {
+    return this.disabled || !this.options?.length;
+  }
 
   onChange = (value: any) => {};
   onTouched = () => {};
