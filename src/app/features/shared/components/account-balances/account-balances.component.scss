@@ -52,8 +52,15 @@
       border-bottom: 1px solid $outline;
       padding: 13px 0 16px 0;
       width: 100%;
+      &:hover {
+        outline: none;
+        border-radius: 10px;
+        background-color: $background-2;
+        box-shadow: 0 0 5px $secondary-dark-2;
+        cursor: pointer;
+      }
       &:first-child {
-        padding-top: 0px;
+        padding-top: 5px;
       }
       &:last-child {
         border: 0px;
@@ -100,7 +107,7 @@
         justify-content: space-between;
       }
       .arrowSpace {
-        width: 5px;
+        width: 16px;
       }
       .card-position {
         @extend .detail-position;
