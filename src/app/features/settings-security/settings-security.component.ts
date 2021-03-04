@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../shared/services/user.service'
+import { UserService } from '../shared/services/user.service';
 import { AuthService } from '../shared/services/auth.service';
 import { SecretQuestionservise } from '../shared/services/secretQuestion.service';
 import { IUser } from '../shared/interfaces/user.interface';
@@ -101,8 +101,6 @@ export class SettingsSecurityComponent implements OnInit {
         if (this.userOldAnswer) {
           this.userAnswer.id = this.userOldAnswer.id;
 
-
-
           this.SecretQuestionservise.update(this.userAnswer).toPromise();
         } else {
           this.userAnswer.id = null;
@@ -111,8 +109,6 @@ export class SettingsSecurityComponent implements OnInit {
         }
       })();
     }
-
-
   }
 
   reset() {
