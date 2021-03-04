@@ -66,7 +66,6 @@
     border-radius: 18px;
     @include Flex(center, center);
     p {
-      width: 50%;
       font-size: 14px;
       font-family: $rubik;
       color: $primary-dark;

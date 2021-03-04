@@ -9,7 +9,7 @@ export class GenerateChartService {
   incomeColor: BehaviorSubject<string> = new BehaviorSubject(`unset`);
   totalIncome: BehaviorSubject<number> = new BehaviorSubject(0);
   constructor() {}
-  generateChart(ctx, monthRange, dataservice) {
+  generateChart(ctx, monthRange, displayLabel, dataservice) {
     const dataset: {}[] = [];
     let months: string[] = [
       'Jan',
@@ -25,10 +25,18 @@ export class GenerateChartService {
       'Nov',
       'Dec',
     ];
-    if (monthRange === 2) {
-      months = months.slice(6, 12);
-    } else if (monthRange === 1) {
-      months = months.slice(0, 6);
+    if (displayLabel) {
+      if (monthRange === 2) {
+        months = months.slice(6, 12);
+      } else if (monthRange === 1) {
+        months = months.slice(0, 6);
+      }
+    } else {
+      if (monthRange === 2 || monthRange === 1) {
+        months = ['', '', '', '', '', ''];
+      } else {
+        months = ['', '', '', '', '', '', '', '', '', '', '', ''];
+      }
     }
     let sum = 0;
     for (let i = 0; i < dataservice.length; i++) {
