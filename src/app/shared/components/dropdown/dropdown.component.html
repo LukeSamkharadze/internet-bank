@@ -13,7 +13,10 @@
   (click)="dropdownClicked()"
   (blur)="isOptionsOpened = false; onTouched()"
 >
-  <div class="selected" [class.placeholder]="isPlaceholderOn || hasDisabledStyle">
+  <div
+    class="selected"
+    [class.placeholder]="isPlaceholderOn || hasDisabledStyle"
+  >
     <div class="content">
       <ng-container
         [ngTemplateOutlet]="
