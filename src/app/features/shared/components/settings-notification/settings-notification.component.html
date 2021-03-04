@@ -1,0 +1,72 @@
+<div class="container">
+  <h5>Notifications</h5>
+  <form [formGroup]="form">
+    <div class="notification notif-1">
+      <div class="toggle-container">
+        <app-shared-toggle
+          toggleId="productUpdates"
+          formControlName="productUpdates"
+          [checked]="form.controls.productUpdates.value"
+          [textBefore]="true"
+        ></app-shared-toggle>
+      </div>
+      <p class="title">Product updates</p>
+      <p class="description">Stair Lifts Feel The Freedom Of Your Home</p>
+    </div>
+
+    <div class="notification notif-2">
+      <div class="toggle-container">
+        <app-shared-toggle
+          toggleId="offerUpdates"
+          formControlName="offerUpdates"
+          [checked]="form.controls.offerUpdates.value"
+          [textBefore]="true"
+        ></app-shared-toggle>
+      </div>
+      <p class="title">Offer updates</p>
+      <p class="description">A Right Media Mix Can Make The Difference</p>
+    </div>
+    <div class="notification notif-3">
+      <div class="toggle-container">
+        <app-shared-toggle
+          toggleId="comments"
+          formControlName="comments"
+          [checked]="form.controls.comments.value"
+          [textBefore]="true"
+        ></app-shared-toggle>
+      </div>
+      <p class="title">Comments</p>
+      <p class="description">Advertising Relationships Vs Business Decisions</p>
+    </div>
+    <div class="notification notif-4">
+      <div class="toggle-container">
+        <app-shared-toggle
+          toggleId="notifications"
+          formControlName="notifications"
+          [checked]="form.controls.notifications.value"
+          [textBefore]="true"
+        ></app-shared-toggle>
+      </div>
+      <p class="title">Notifications</p>
+      <p class="description">
+        Creating Remarkable Poster Prints Through 4 Color Poster Printing
+      </p>
+    </div>
+    <div class="buttons-container">
+      <app-shared-button
+        [className]="{ primary: true, active: true }"
+        style="width: 206px; height: 50px"
+        [isDisabled]="false"
+        (click)="onSubmit()"
+        >UPDATE SETTINGS</app-shared-button
+      >
+
+      <app-shared-button
+        [className]="{ primary: true, resting: true }"
+        style="width: 148px; height: 46px; margin-left: 12px"
+        (clicked)="reset()"
+        >RESET</app-shared-button
+      >
+    </div>
+  </form>
+</div>

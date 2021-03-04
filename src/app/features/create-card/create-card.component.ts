@@ -47,23 +47,11 @@ export class CreateCardComponent implements OnInit {
 
   // Determine 'Card Bg, Icon & Color' based on 'Card Type' on creation
   determineCard() {
-    const firstNum = this.formCtrlVal('cardNumber')[0];
-    this.typeSwitcher.checkInput(firstNum);
+    this.typeSwitcher.checkInput(this.form.getRawValue());
   }
 
   makeInputUpperCase(formCtrl: string) {
-    this.form.get(formCtrl).setValue(this.formCtrlVal(formCtrl).toUpperCase());
-  }
-
-  makeInputTransforms() {
-    // Transform to uppercase Card's and Cardholder's names
-    this.makeInputUpperCase('cardName');
-    this.makeInputUpperCase('cardholder');
-
-    // Concat 'GE32TB' to the Account Number
-    this.form
-      .get('accountNumber')
-      .setValue('GE32TB' + this.formCtrlVal('accountNumber'));
+    return this.formCtrlVal(formCtrl).toUpperCase();
   }
 
   showCardNotification(show?: boolean) {
@@ -83,12 +71,15 @@ export class CreateCardComponent implements OnInit {
   // Adding Card on Server using Service
   onSubmit() {
     if (this.form.valid) {
-      this.makeInputTransforms();
-
-      // Adding current 'User Id' to card
       const card = {
         ...this.form.getRawValue(),
+        // Adding current 'User Id' to card
         userId: this.authService.userId,
+        // Transform to uppercase Card's and Cardholder's names
+        cardName: this.makeInputUpperCase('cardName'),
+        cardholder: this.makeInputUpperCase('cardholder'),
+        // Concat 'GE32TB' to the Account Number
+        accountNumber: 'GE32TB' + this.formCtrlVal('accountNumber'),
       };
 
       // Card addition Service
@@ -97,7 +88,7 @@ export class CreateCardComponent implements OnInit {
         .pipe(finalize(() => this.form.reset({ security3D: true })))
         .subscribe(() => {
           this.showCardNotification();
-          this.typeSwitcher.checkInput();
+          this.typeSwitcher.assignDefault();
         });
     }
   }

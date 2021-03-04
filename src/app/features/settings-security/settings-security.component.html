@@ -2,30 +2,30 @@
   <div class="security">
     <h4>security</h4>
     <div class="headers">change password</div>
-    <form [formGroup]="formChange" (ngSubmit)="onSubmit()">
+    <form [formGroup]="formChange">
       <div class="settings-form-aligment">
         <div class="aligment-flex">
           <div class="current">
-            <label class="input-label" for="input-icon-example"
+            <label class="input-label" for="input-icon-exampleee"
               >current password</label
             >
-
             <div class="input-wrapper">
-              <input
-                type="password"
-                id="input-icon-example"
-                class="valid"
+              <app-shared-input
+                id="input-icon-exampleee"
+                placeholder=" "
                 formControlName="curentPass"
-              />
-              <i class="las la-eye"></i>
-              <div
+                type="password"
+              >
+                <!-- <i class="las la-eye"></i> -->
+              </app-shared-input>
+              <!-- <div
                 *ngIf="
                   !formChange.get('curentPass').valid &&
                   formChange.get('curentPass').touched
                 "
               >
                 invalid password
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="new">
@@ -33,13 +33,15 @@
               >new password</label
             >
             <div class="input-wrapper">
-              <input
+              <app-shared-input
+                placeholder=" "
                 type="password"
                 id="input-icon-example"
                 class="valid"
                 formControlName="newPass"
-              />
-              <i class="las la-lock"></i>
+              >
+                <!-- <i class="las la-lock"></i> -->
+              </app-shared-input>
               <div
                 *ngIf="
                   !formChange.get('newPass').valid &&
@@ -52,38 +54,57 @@
           </div>
         </div>
       </div>
-
       <div class="headers">security questions</div>
       <div class="settings-form-aligment">
         <div class="aligment-flex">
           <div>
             <label class="select" for="dropdown-general">question #1</label>
             <div class="dropdown-general">
-              <select>
-                <option>Placeholder</option>
-                <option>Select item 1</option>
-                <option>Select item 2</option>
-                <option>Select item 3</option>
-                <option>Select item 4</option>
-              </select>
+              <ng-template #dropdownTemplate let-option>
+                {{ option.question }}
+              </ng-template>
+              <app-shared-dropdown
+                style="width: 336px; height: 52px"
+                formControlName="dropdown"
+                placeholder="choose your question"
+                [optionTemplate]="dropdownTemplate"
+                [selectedTemplate]="dropdownTemplate"
+                [options]="questions"
+              >
+              </app-shared-dropdown>
             </div>
           </div>
           <div>
             <label class="input-label" for="input-icon-example">answer</label>
-            <div class="input-wrapper">
-              <input
+            <div id="in" class="input-wrapper">
+              <app-shared-input
+                style="width: 336px; height: 52px"
+                formControlName="answer"
                 id="input-icon-example"
                 class="valid"
                 type="text"
-                placeholder="Placeholder"
-              />
+                placeholder=""
+              >
+              </app-shared-input>
             </div>
           </div>
         </div>
       </div>
       <div id="btn" class="primary buttons">
-        <button class="active btn" type="submit">UPDATE SETTINGS</button>
-        <button class="resting btn" (click)="reset()">RESET</button>
+        <app-shared-button
+          [className]="{ primary: true, active: true }"
+          style="width: 206px; height: 46px"
+          [isDisabled]="false"
+          (click)="onSubmit()"
+          >UPDATE SETTINGS</app-shared-button
+        >
+
+        <app-shared-button
+          [className]="{ primary: true, resting: true }"
+          style="width: 148px; height: 46px; margin-left: 12px"
+          (clicked)="reset()"
+          >resting</app-shared-button
+        >
         <div></div>
       </div>
     </form>
