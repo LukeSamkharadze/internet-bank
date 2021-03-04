@@ -74,7 +74,6 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
           .electronicTransfer(transfer)
           .pipe(
             tap(() => {
-              alert('success');
               this.form.reset();
             }),
             catchError((error) => {

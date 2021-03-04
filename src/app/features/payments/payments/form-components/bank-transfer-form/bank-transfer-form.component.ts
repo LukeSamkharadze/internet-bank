@@ -18,6 +18,7 @@ import {
 } from 'rxjs/operators';
 import { CardService } from '../../../../shared/services/card.service';
 import { UserService } from '../../../../shared/services/user.service';
+import { SocketIoService } from '../../../../shared/services/socket-io.service';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -77,7 +78,6 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
           .bankTransfer(transfer)
           .pipe(
             tap(() => {
-              alert('success');
               this.form.reset();
             }),
             catchError((error) => {

@@ -72,9 +72,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.check();
       this.updTrue = true;
       this.updSub = this.userService.update(this.user).subscribe();
-      this.socketIo.emit('profile', this.auth.userId);
       window.alert('Updated Successfully');
-
+      this.socketIo.emit('profile', this.auth.userId);
       this.getUser();
     }
   }

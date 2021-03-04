@@ -56,7 +56,6 @@ export class InternalTransferFormComponent implements OnDestroy {
           .internalTransfer(transfer)
           .pipe(
             tap(() => {
-              alert('success');
               this.form.reset();
             }),
             catchError((error) => {
