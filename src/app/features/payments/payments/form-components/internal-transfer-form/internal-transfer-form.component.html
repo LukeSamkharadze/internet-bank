@@ -81,8 +81,8 @@
         <span
           [@errorTrigger]
           *ngIf="
-            instantTransferType.hasError('required') &&
-            instantTransferType.touched
+            internalTransferType.hasError('required') &&
+            internalTransferType.touched
           "
           >Required</span
         ></label
@@ -90,12 +90,12 @@
       <app-shared-dropdown
         [ngClass]="{
           'invalid-dropdown':
-            instantTransferType.errors && instantTransferType.touched,
-          'valid-dropdown': !instantTransferType.errors
+            internalTransferType.errors && internalTransferType.touched,
+          'valid-dropdown': !internalTransferType.errors
         }"
         placeholder="Select transfer type"
         [options]="['Personal transfer']"
-        formControlName="instantTransferType"
+        formControlName="internalTransferType"
       >
       </app-shared-dropdown>
     </div>

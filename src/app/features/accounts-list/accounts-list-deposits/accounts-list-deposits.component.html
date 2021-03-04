@@ -1,9 +1,6 @@
 <div class="list">
   <div class="header">
     <p class="name">Open Deposit</p>
-    <p [routerLink]="'create-deposit'" class="new">
-      <i class="las la-plus-circle"></i>New deposit
-    </p>
   </div>
   <div class="items">
     <app-accounts-list-item
@@ -11,7 +8,7 @@
       [info]="deposit.info"
       [color]="deposit.color"
       [class.blocked]="deposit.blocked"
-      [route]="'/card-view/deposit/' + deposit.id"
+      [routerLink]="['/card-view/deposit/' + deposit.id]"
       ><i [class]="deposit.icon"></i
     ></app-accounts-list-item>
     <p *ngIf="!deposits$ || !(deposits$ | async)?.length">

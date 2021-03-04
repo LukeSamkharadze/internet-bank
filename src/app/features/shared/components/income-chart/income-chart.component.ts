@@ -25,6 +25,8 @@ export class IncomeChartComponent implements OnInit, AfterViewInit {
   @Input() monthRange = 0;
   @Input() chartLegend = 'Income';
   @Input() headerLegend = 'Total Income';
+  @Input() title = 'Monthly';
+  @Input() displayLabel = true;
   @ViewChild('canvas', { static: true }) canvas: ElementRef<HTMLCanvasElement>;
   private ctx: CanvasRenderingContext2D;
   gradientFill: any;
@@ -84,6 +86,7 @@ export class IncomeChartComponent implements OnInit, AfterViewInit {
           this.myChart = this.generateChartService.generateChart(
             this.ctx,
             this.monthRange,
+            this.displayLabel,
             this.data
           );
         })

@@ -71,6 +71,7 @@ export class SettingsSecurityComponent implements OnInit {
         this.formChange.get('newPass').value !== ''
       ) {
         this.user.password = this.formChange.get('newPass').value;
+
         (async () => {
           // fetching value from form
           const qId = this.formChange.get('dropdown').value.questionId;

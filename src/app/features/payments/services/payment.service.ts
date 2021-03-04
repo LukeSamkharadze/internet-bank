@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BankTransfer } from '../../shared/interfaces/transfers/bankTransfer.interface';
 import { ElectronicTransfer } from '../../shared/interfaces/transfers/electronicTransfer.interface';
-import { InstantTransfer } from '../../shared/interfaces/transfers/instantTransfer.interface';
 import { environment } from '../../../../environments/environment.prod';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { forkJoin, of } from 'rxjs';
@@ -11,6 +10,7 @@ import { CardService } from '../../shared/services/card.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { TransactionService } from '../../shared/services/transaction.service';
+import { InternalTransfer } from '../../shared/interfaces/transfers/internalTransfer.interface';
 
 @Injectable()
 export class PaymentService {
@@ -41,16 +41,67 @@ export class PaymentService {
         ])
       ),
       tap(([fromAccount, destinationAccount]) => {
-        if (!destinationAccount) {
-          throw new Error('such user does not exist');
+        if (destinationAccount) {
+          if (destinationAccount.accountNumber === fromAccount.accountNumber) {
+            throw new Error('Can not make payment on same account');
+          }
+          if (destinationAccount.userId === fromAccount.userId) {
+            throw new Error(
+              'Provided account number belong to you, use internal payment'
+            );
+          }
+          transfer = {
+            ...transfer,
+            toUserId: destinationAccount.userId,
+            title: `Internal Bank transfer to user: ${transfer.beneficiary}`,
+          };
+        } else {
+          transfer = {
+            ...transfer,
+            title: `External Bank transfer to beneficiary: ${transfer.beneficiary}`,
+          };
         }
+      }),
+      switchMap(([fromAccount, destinationAccount]) => {
+        if (destinationAccount) {
+          return forkJoin([
+            this.removeBalance(fromAccount, Number(transfer.amount)),
+            this.addBalance(destinationAccount, Number(transfer.amount), true),
+          ]);
+        } else {
+          return this.removeBalance(fromAccount, Number(transfer.amount));
+        }
+      }),
+      switchMap(() => this.postTransactionToDb(transfer))
+    );
+  }
+
+  internalTransfer(transfer: InternalTransfer) {
+    return this.getCardAndValidateBalance(
+      transfer.fromAccountNumber,
+      transfer.amount
+    ).pipe(
+      switchMap((card) =>
+        forkJoin([
+          of(card),
+          this.cardService.getCardByAccountNumber(transfer.toAccountNumber),
+        ])
+      ),
+      tap(([fromAccount, destinationAccount]) => {
+        if (!destinationAccount) {
+          throw new Error('Provided account does not exist');
+        }
+
         if (destinationAccount.accountNumber === fromAccount.accountNumber) {
           throw new Error('Can not make payment on same account');
         }
+
+        if (destinationAccount.userId !== fromAccount.userId) {
+          throw new Error('Provided account number does not belong to you');
+        }
         transfer = {
           ...transfer,
-          toUserId: destinationAccount.userId,
-          title: `Bank transfer to user: ${destinationAccount.userId}`,
+          title: `Internal Bank transfer to account ${destinationAccount.accountNumber}`,
         };
       }),
       switchMap(([fromAccount, destinationAccount]) => {
@@ -59,24 +110,6 @@ export class PaymentService {
           this.addBalance(destinationAccount, Number(transfer.amount), true),
         ]);
       }),
-      switchMap(() => this.postTransactionToDb(transfer))
-    );
-  }
-
-  instantTransfer(transfer: InstantTransfer) {
-    return this.getCardAndValidateBalance(
-      transfer.fromAccountNumber,
-      transfer.amount
-    ).pipe(
-      tap(() => {
-        transfer = {
-          ...transfer,
-          title: `Instant transfer to ${transfer.toAccountNumber}`,
-        };
-      }),
-      switchMap((fromAccount) =>
-        this.removeBalance(fromAccount, Number(transfer.amount))
-      ),
       switchMap(() => this.postTransactionToDb(transfer))
     );
   }
@@ -166,7 +199,7 @@ export class PaymentService {
   }
 
   postTransactionToDb(
-    transfer: ElectronicTransfer | BankTransfer | InstantTransfer
+    transfer: ElectronicTransfer | BankTransfer | InternalTransfer
   ) {
     return this.http.post(environment.BaseUrl + 'transactions', {
       ...transfer,
