@@ -41,11 +41,14 @@ export class FormatterService {
     options: { currency?: string; toRight?: boolean; toFixed?: number } = {}
   ): string {
     const { currency = '', toRight = false, toFixed = 0 } = options;
-    const formattedBalance = (
+    balance = +balance.toFixed(2);
+    const balanceSides = (
       (toFixed ? balance.toFixed(toFixed) : balance) || balance.toFixed(2)
     )
       .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      .split('.');
+    balanceSides[0] = balanceSides[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const formattedBalance = balanceSides.join('.');
     return toRight ? formattedBalance + currency : currency + formattedBalance;
   }
 

@@ -1,13 +1,14 @@
 export interface TransactionsList {
   id: number;
   title: string;
-  icon: string;
+  iconPath: string;
   type: string;
   beneficiary: string;
   amount: string;
   date: Date;
   status: string;
-  cardNumber: string;
+
+  fromAccountNumber: number;
   toAccountNumber: number;
   fromAccountUserId: number;
   bankTransferType: string;

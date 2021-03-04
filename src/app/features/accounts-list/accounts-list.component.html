@@ -1,4 +1,10 @@
-<div class="charts-container" *ngIf="incomes$ | async as incomes">
+<div
+  class="charts-container"
+  *ngIf="incomes$ | async as incomes"
+  [ngStyle]="{
+    gridTemplateColumns: 'repeat(' + (incomeColumns$ | async) + ', 1fr)'
+  }"
+>
   <app-accounts-list-chart
     *ngFor="let income$ of incomes"
     [info$]="income$"

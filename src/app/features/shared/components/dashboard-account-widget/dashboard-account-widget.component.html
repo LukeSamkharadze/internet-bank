@@ -1,0 +1,50 @@
+<div class="widget">
+  <header>
+    <p>Accounts</p>
+    <div class="iconscontainer" *ngIf="showIcons">
+      <div (click)="switchLeft()">
+        <i class="las la-chevron-circle-left"></i>
+      </div>
+      <div (click)="switchRight()">
+        <i class="las la-chevron-circle-right"></i>
+      </div>
+    </div>
+  </header>
+  <div class="underline"></div>
+
+  <div class="flex-container-column">
+    <div class="outer-border">
+      <div class="container d-flex justify-content-center padding">
+        <div class="row">
+          <div class="col-md-9 col-sm-6">
+            <div class="progress blue">
+              <span class="progress-left">
+                <span class="progress-bar"></span>
+              </span>
+              <span class="progress-right">
+                <span class="progress-bar"></span>
+              </span>
+              <div class="progress-value">
+                <div class="circle">
+                  <p>${{ profitRound }}</p>
+                  <p class="profit">Total Profit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let card of cards | slice: 0:1">
+      <p class="card-paragraph">
+        {{ cards[this.i].cardType.toUpperCase() }} Card
+        {{ getCardService.formatCardNumber(cards[this.i].cardNumber) }}
+      </p>
+    </div>
+
+    <div class="download">
+      <p>Download Statement</p>
+      <i class="las la-download"></i>
+    </div>
+  </div>
+</div>

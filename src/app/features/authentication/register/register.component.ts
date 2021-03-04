@@ -72,7 +72,6 @@ export class RegisterComponent {
             });
 
           // Add user limits on DB
-
           const limits: ILimits = {
             bankLimit: 5000,
             onlineLimit: 5000,

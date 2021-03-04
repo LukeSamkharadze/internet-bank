@@ -1,17 +1,30 @@
 @import 'src/styles/index';
 
-.main-container {
-  max-width: 555px;
-  min-width: 400px;
-  height: 716px;
-  border-radius: 4px;
-  background: white;
-  margin: 28px;
+:host {
+  width: 100%;
+  display: block;
+  padding: 28px;
+  margin: 0 auto;
 }
 
-.grid-container {
+.main-container {
+  position: relative;
+  width: 100%;
   display: grid;
-  grid-template-rows: 8% 42.5% auto;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 28px;
+}
+
+.create-card-container {
+  min-width: 455px;
+  min-height: 746px;
+  border-radius: 4px;
+  background: white;
+}
+
+.create-card-container {
+  display: grid;
+  grid-template-rows: 56px 42.5% auto;
 
   [class|='gritem'] {
     padding: 0 24px;
@@ -29,7 +42,7 @@
       position: relative;
       width: 100%;
 
-      .visa-card-container {
+      .card-container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,6 +50,12 @@
         width: 40.7px;
         height: 28px;
         border-radius: 4px;
+        transition: 1.3s ease-in-out;
+
+        .fa-credit-card {
+          color: $secondary-dark-1;
+          transition: 1.3s ease-in-out;
+        }
       }
     }
 
@@ -69,28 +88,44 @@
 
     .card-placeholder {
       position: relative;
+      margin: 0 auto;
+      width: 327px;
+      height: 200px;
+      animation-name: placeholder-appearing;
+      animation-timing-function: ease;
+      animation-duration: 1.5s;
 
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
+      .card-placeholder-bg {
+        position: absolute;
+        top: -58px;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
-      .crd-placeholder-txt {
+      .card-placeholder-txt {
         position: absolute;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 130px;
+        width: 70%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
         .la-plus-circle {
           position: relative;
-          color: $primary;
           top: 5px;
           font-size: 75px;
+          color: $primary;
+
+          &.blue {
+            color: #293688;
+          }
+
+          &.orange {
+            color: #e69310;
+          }
         }
 
         h4 {
@@ -100,8 +135,26 @@
 
         p {
           font-size: 13px;
+
+          &.master-cl,
+          &.visa-cl {
+            color: darkgray;
+          }
         }
       }
+    }
+  }
+
+  @keyframes placeholder-appearing {
+    from {
+      opacity: 0;
+      pointer-events: none;
+      top: 50px;
+    }
+    to {
+      opacity: 1;
+      pointer-events: all;
+      top: 0px;
     }
   }
 
@@ -144,7 +197,26 @@
         padding: 3px 5px;
         text-align: right;
         background: none;
-        border: none;
+        border-radius: 3px;
+        transition: 0.3s;
+
+        &:-webkit-autofill {
+          -webkit-text-fill-color: $secondary-dark-2;
+          -webkit-background-clip: text;
+          -webkit-box-shadow: 0 0 0 30px hsla(0, 0%, 100%, 0) inset !important;
+          transition: 0.3s;
+        }
+
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          &.valid {
+            -webkit-box-shadow: 0 0 0 30px hsl(120, 60%, 90%) inset !important;
+          }
+        }
+
+        &.invalid {
+          -webkit-box-shadow: 0 0 0 30px hsl(0, 80%, 90%) inset !important;
+        }
 
         &:focus,
         &:active {
@@ -234,11 +306,50 @@
     }
 
     .shared-button {
+      position: relative;
       width: 206px;
       height: 46px;
-      position: relative;
       left: 10px;
-      top: 9px;
+      top: 20px;
+    }
+  }
+}
+
+.transactions-container {
+  // height: 716px;
+  // border-radius: 4px;
+  background: red;
+}
+
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+@media only screen and (max-width: 1250px) {
+  .main-container {
+    grid-template-columns: 1fr;
+    min-width: 250px;
+    padding-bottom: 28px;
+  }
+
+  .create-card-container {
+    .gritem-3 {
+      .li {
+        .pop-up {
+          bottom: 115%;
+          left: unset;
+          right: 50%;
+
+          &::after {
+            top: 100%;
+            right: 15px;
+            margin-top: 0;
+            border-color: black transparent transparent transparent;
+          }
+        }
+      }
     }
   }
 }
