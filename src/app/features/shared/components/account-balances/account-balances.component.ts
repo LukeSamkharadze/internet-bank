@@ -45,6 +45,9 @@ export class AccountBalancesComponent
             ),
             arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
           };
+          balance.cardNumber
+            ? (balance.type = 'card')
+            : (balance.type = 'deposit');
 
           wholeBalance.splice(index, 0, balance);
         }
