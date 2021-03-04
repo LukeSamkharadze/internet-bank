@@ -18,12 +18,7 @@
           <i class="las la-piggy-bank"></i>
         </div>
         <div class="detail-position">
-          <ng-container
-            *ngIf="
-              (screenWidth > 720 || screenWidth == 720) &&
-              accountBalances.offsetWidth > 421
-            "
-          >
+          <ng-container *ngIf="accountBalances.offsetWidth > 421">
             <div class="account-number" *ngIf="item.cardNumber">
               {{ item.cardNumber | hideNums }}
             </div>
@@ -34,7 +29,6 @@
 
           <ng-container
             *ngIf="
-              screenWidth < 720 ||
               accountBalances.offsetWidth < 421 ||
               accountBalances.offsetWidth == 421
             "
