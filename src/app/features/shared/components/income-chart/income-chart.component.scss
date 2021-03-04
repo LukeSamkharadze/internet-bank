@@ -9,10 +9,12 @@
   justify-content: $justify;
   align-items: $align;
 }
+
 :host {
   @include size(360px, 406px);
   display: block;
 }
+
 .monthly-chart {
   position: relative;
   display: grid;
@@ -22,6 +24,7 @@
   border-radius: 5px;
   @include size(100%, 100%);
 }
+
 .title {
   padding: 0px 10px;
   @include Flex(space-between, center);
@@ -52,6 +55,7 @@
     }
   }
 }
+
 .chart-legend {
   padding: 8px 10px;
   @include Flex(space-between, flex-start);
@@ -63,6 +67,7 @@
     border-radius: 18px;
     @include Flex(center, center);
     p {
+      width: 50%;
       font-size: 14px;
       font-family: $rubik;
       color: $primary-dark;
@@ -82,12 +87,14 @@
     }
   }
 }
+
 .chart-container {
   position: relative;
   overflow: auto;
   @include Flex(center, center);
   @include size(100%, 100%);
 }
+
 #myChart {
   @include size(100px, 100px);
 }
