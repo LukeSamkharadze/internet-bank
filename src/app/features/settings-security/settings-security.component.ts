@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../shared/services/user.service'
+import { UserService } from '../shared/services/user.service';
 import { AuthService } from '../shared/services/auth.service';
 import { SecretQuestionservise } from '../shared/services/secretQuestion.service';
 import { IUser } from '../shared/interfaces/user.interface';
@@ -34,10 +34,10 @@ export class SettingsSecurityComponent implements OnInit {
   constructor(
     private userServise: UserService,
     private authservice: AuthService,
-    private SecretQuestionservise: SecretQuestionservise
+    private secretQuestionservise: SecretQuestionservise
   ) {
     // getting secret quesions form DB
-    this.SecretQuestionservise.getAll().subscribe((val) => {
+    this.secretQuestionservise.getAll().subscribe((val) => {
       this.questions = val;
     });
   }
@@ -65,12 +65,38 @@ export class SettingsSecurityComponent implements OnInit {
 
   onSubmit() {
     // password check
-    if (this.formChange.get('newPass').value === '') {
+    if (this.formChange.get('newPass').value !== '') {
       if (
         this.user.password === this.formChange.get('curentPass').value &&
         this.formChange.get('newPass').value !== ''
       ) {
         this.user.password = this.formChange.get('newPass').value;
+        (async () => {
+          // fetching value from form
+          const qId = this.formChange.get('dropdown').value.questionId;
+          const qAnswer = this.formChange.get('answer').value;
+
+          // fetching DB answers
+          this.userOldAnswer = await this.secretQuestionservise
+            .getAnswerByQuestionId(this.userid, qId)
+            .toPromise();
+
+          // setting form DATA
+
+          this.userAnswer.answer = qAnswer;
+          this.userAnswer.questionId = qId;
+          this.userAnswer.userId = this.user.id;
+
+          if (this.userOldAnswer) {
+            this.userAnswer.id = this.userOldAnswer.id;
+
+            this.secretQuestionservise.update(this.userAnswer).toPromise();
+          } else {
+            this.userAnswer.id = null;
+
+            this.secretQuestionservise.create(this.userAnswer).toPromise();
+          }
+        })();
       } else {
         alert('your current password is incorrect');
       }
@@ -87,10 +113,9 @@ export class SettingsSecurityComponent implements OnInit {
         const qAnswer = this.formChange.get('answer').value;
 
         // fetching DB answers
-        this.userOldAnswer = await this.SecretQuestionservise.getAnswerByQuestionId(
-          this.userid,
-          qId
-        ).toPromise();
+        this.userOldAnswer = await this.secretQuestionservise
+          .getAnswerByQuestionId(this.userid, qId)
+          .toPromise();
 
         // setting form DATA
 
@@ -101,18 +126,14 @@ export class SettingsSecurityComponent implements OnInit {
         if (this.userOldAnswer) {
           this.userAnswer.id = this.userOldAnswer.id;
 
-
-
-          this.SecretQuestionservise.update(this.userAnswer).toPromise();
+          this.secretQuestionservise.update(this.userAnswer).toPromise();
         } else {
           this.userAnswer.id = null;
 
-          this.SecretQuestionservise.create(this.userAnswer).toPromise();
+          this.secretQuestionservise.create(this.userAnswer).toPromise();
         }
       })();
     }
-
-
   }
 
   reset() {
