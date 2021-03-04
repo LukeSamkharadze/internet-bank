@@ -30,23 +30,28 @@ export class AccountBalancesComponent
   }
 
   ngAfterViewInit() {
-    this.accountBalancesService.balances$.subscribe((wholeBalance: any[]) => {
-      for (const i of wholeBalance) {
-        const index = wholeBalance.indexOf(i);
-        wholeBalance.splice(index, 1);
-        const balance = {
-          ...i,
-          totalAmount: this.formatterService.formatBalance(i.availableAmount, {
-            currency: '$',
-          }),
-          arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
-        };
+    this.subscription = this.accountBalancesService.balances$.subscribe(
+      (wholeBalance: any[]) => {
+        for (const i of wholeBalance) {
+          const index = wholeBalance.indexOf(i);
+          wholeBalance.splice(index, 1);
+          const balance = {
+            ...i,
+            totalAmount: this.formatterService.formatBalance(
+              i.availableAmount,
+              {
+                currency: '$',
+              }
+            ),
+            arrow: this.arrowDirectionService.determineArrow(i.accountNumber),
+          };
 
-        wholeBalance.splice(index, 0, balance);
+          wholeBalance.splice(index, 0, balance);
+        }
+
+        this.balance = wholeBalance;
       }
-
-      this.balance = wholeBalance;
-    });
+    );
   }
 
   ngOnDestroy() {
