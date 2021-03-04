@@ -37,7 +37,7 @@ export class DashboardAccountWidgetComponent implements OnInit {
       this.profit = this.income - this.outcome;
       this.profitRound = (this.profit / 1000).toFixed(0) + 'K';
     } else if (this.income < this.outcome) {
-      this.profitRound = '0';
+      this.profitRound = '0K';
     } else if (
       this.income < 999 &&
       this.outcome < 999 &&
@@ -119,12 +119,16 @@ export class DashboardAccountWidgetComponent implements OnInit {
   activeCard() {
     this.getCardService.getCards().subscribe((v) => {
       this.cards = v;
-      this.shownCard = this.cards.reduce((prev, current) => {
-        return prev.availableAmount > current.availableAmount ? prev : current;
-      });
-      this.i = this.cards.indexOf(this.shownCard);
-      if (this.cards.length > 1) {
-        this.showIcons = true;
+      if (this.cards.length > 0) {
+        this.shownCard = this.cards.reduce((prev, current) => {
+          return prev.availableAmount > current.availableAmount
+            ? prev
+            : current;
+        });
+        this.i = this.cards.indexOf(this.shownCard);
+        if (this.cards.length > 1) {
+          this.showIcons = true;
+        }
       }
     });
   }
