@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { merge, Observable } from 'rxjs';
+import { combineLatest, merge, Observable, Subject } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';
@@ -82,31 +82,41 @@ export class CardDetailsComponent implements OnInit {
   }
 
   determineButtons(card$: Observable<ICard>): Observable<IButton[]> {
-    return card$.pipe(
-      map((card) => [
-        {
-          text: 'DELETE',
-          function: () => this.cardService.delete(card.id),
-          callBack: this.navigateToProducts.bind(this),
-        },
-        this.getBlockButton(card),
-      ])
-    );
+    return combineLatest([
+      this.getDeleteButton(card$),
+      this.getBlockButton(card$),
+    ]);
   }
 
-  getBlockButton(card: ICard): IButton {
-    return {
-      text: card.blocked ? 'UNBLOCK' : 'BLOCK',
-      function: () => {
-        const newCard$ = this.cardService.update({
-          ...card,
-          blocked: !card.blocked,
-        });
-        this.buttons$ = this.determineButtons(
-          merge(newCard$, this.paramsCard$)
-        );
-        return newCard$;
-      },
-    };
+  getBlockButton(card$: Observable<ICard>): Observable<IButton> {
+    const updatedCard$ = new Subject<ICard>();
+    const blockButton$: Observable<IButton> = merge(card$, updatedCard$).pipe(
+      map(
+        (card) =>
+          ({
+            text: card.blocked ? 'UNBLOCK' : 'BLOCK',
+            function: () => {
+              const newCard$ = this.cardService.update({
+                ...card,
+                blocked: !card.blocked,
+              });
+              newCard$.subscribe((newCard) => updatedCard$.next(newCard));
+              return newCard$;
+            },
+          } as IButton)
+      )
+    );
+
+    return blockButton$;
+  }
+
+  getDeleteButton(card$: Observable<ICard>): Observable<IButton> {
+    return card$.pipe(
+      map((card) => ({
+        text: 'DELETE',
+        function: () => this.cardService.delete(card.id),
+        callBack: this.navigateToProducts.bind(this),
+      }))
+    );
   }
 }
