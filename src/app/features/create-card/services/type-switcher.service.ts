@@ -36,12 +36,10 @@ export class TypeSwitcherService {
   }
 
   assignDefault() {
-    this.cardType$.next(''),
-      this.cardIconUrl$.next(''),
-      this.cardBgUrl$.next(
-        this.backgroundService.getBackground('light-orange')
-      ),
-      this.color$.next('');
+    this.cardType$.next('');
+    this.cardIconUrl$.next('');
+    this.cardBgUrl$.next(this.backgroundService.getBackground('light-orange'));
+    this.color$.next('');
   }
 
   // Uppercase 'cardType' first letter, if 'visa' add " card" string at the end
