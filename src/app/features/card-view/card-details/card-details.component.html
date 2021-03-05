@@ -6,7 +6,7 @@
   [canBlock]="true"
   [buttons]="buttons$ | async"
   [background]="background$ | async"
-  [ngClass]="{ 'not-select': (canSelect$ | async) !== true }"
+  [ngClass]="{ 'disable-select': (canSelect$ | async) !== true }"
 >
   <img header [src]="icon$ | async" alt="Icon" />
   <img logo [src]="logo$ | async" alt="Logo" />
