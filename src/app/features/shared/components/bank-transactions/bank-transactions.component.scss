@@ -3,15 +3,17 @@
 :host {
   display: block;
   min-height: 790px;
+  border-radius: 4px;
   background-color: white;
 }
 
 .bank-transactions {
+  min-width: 455px;
+
   .myDiv {
     min-height: 300px;
   }
 
-  min-width: 700px;
   .settings {
     padding: 19.12px 23px;
 
@@ -108,54 +110,55 @@
   }
 
   .transaction {
-    padding: 10px 23px 9px 23px;
-    .img-width {
-      width: 50px;
-      display: inline-block;
-      margin: auto;
-      .img-flex {
+    padding: 10px 0 9px 0;
+    margin: 0 23px;
+    border-bottom: 1px solid $outline;
+
+    .left {
+      width: 75%;
+      display: inline-flex;
+      justify-content: flex-start;
+
+      .img-wrapper {
+        min-width: 50px;
+        width: 50px;
         display: flex;
         justify-content: center;
-        flex-direction: column;
-        height: 40px;
+        align-items: center;
+
+        img {
+          width: 45px;
+        }
+      }
+
+      h2 {
+        display: inline-block;
+        @include text-style(16px, $primary-dark);
+        margin-left: 10px;
+        vertical-align: top;
+        line-height: 20px;
+        a {
+          font-size: 16px;
+        }
+        span {
+          @include text-style(14px, $secondary-dark-2);
+        }
       }
     }
 
-    img {
-      width: 45px;
-      margin: auto;
+    .right {
+      float: right;
+      padding-bottom: 9px;
+      span {
+        float: right;
+      }
+      .green-font {
+        color: $secondary-2;
+      }
     }
 
     &:last-child .center-hr {
       border: none;
-    }
-  }
-
-  .left {
-    display: inline;
-    h2 {
-      display: inline-block;
-      @include text-style(16px, $primary-dark);
-      margin-left: 10px;
-      vertical-align: top;
-      line-height: 20px;
-      a {
-        font-size: 16px;
-      }
-      span {
-        @include text-style(14px, $secondary-dark-2);
-      }
-    }
-  }
-
-  .right {
-    float: right;
-    padding-bottom: 9px;
-    span {
-      float: right;
-    }
-    .green-font {
-      color: $secondary-2;
     }
   }
 
@@ -185,7 +188,6 @@
   }
 
   .hr-bottom {
-    margin-bottom: 9px;
     border-top: 1px solid #e8ecef;
   }
   .title {
