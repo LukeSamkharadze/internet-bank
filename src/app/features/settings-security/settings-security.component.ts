@@ -32,7 +32,7 @@ export class SettingsSecurityComponent implements OnInit {
   questions: Array<SecretQuestion>;
   constructor(
     private userServise: UserService,
-    private authservice: AuthService,
+    private authService: AuthService,
     private secretQuestionservice: SecretQuestionService
   ) {
     // getting secret quesions form DB
@@ -55,7 +55,7 @@ export class SettingsSecurityComponent implements OnInit {
       answer: new FormControl('', [Validators.minLength(1)]),
     });
     // getting user data from DB
-    this.userid = this.authservice.userId;
+    this.userid = this.authService.userId;
     this.user$ = this.userServise.getById(this.userid);
     this.user$.subscribe((value) => {
       this.user = value;
