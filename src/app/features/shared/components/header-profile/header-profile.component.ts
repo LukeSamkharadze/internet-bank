@@ -18,8 +18,8 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
   @ViewChild('dropbtn') dropbtn: ElementRef;
 
   user = {
-    fullname: '?',
-    email: 'mail@mail.com',
+    fullname: '',
+    email: '',
     image: './assets/header-profile/default-user.png',
   };
   status = false;
@@ -97,7 +97,10 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
   clickEvent() {
     this.status = !this.status;
   }
-
+  clickDropdown() {
+    this.clickEvent();
+    this.showDropdown();
+  }
   signOut() {
     this.authService.logout();
   }
