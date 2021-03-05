@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { Expanses } from '../../shared/interfaces/expanses.interface';
 import { ILoan } from '../../shared/interfaces/loan.interface';
 import { FormatterService } from '../../shared/services/formatter.service';
@@ -26,6 +26,7 @@ export class LoanDetailsComponent implements OnInit {
   color$: Observable<string>;
   buttons$: Observable<IButton[]>;
   background$: Observable<string>;
+  canSelect$: BehaviorSubject<boolean>;
 
   chartData$: Observable<Expanses[]>;
 
@@ -39,6 +40,7 @@ export class LoanDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.canSelect$ = new BehaviorSubject(false);
     const loan$ = this.route.params.pipe(
       map((params) => Number(params.id)),
       map((id) => {
@@ -66,7 +68,7 @@ export class LoanDetailsComponent implements OnInit {
             {
               kind: 'Interest rate',
               share: loan.loanRate * (loan.balance || loan.paid || 0),
-              colorString: '#4D7CFE',
+              colorString: '#FE4D97',
             },
             {
               kind: 'Paid',
@@ -92,7 +94,8 @@ export class LoanDetailsComponent implements OnInit {
     );
     this.list$ = loan$.pipe(map((v) => this.toListService.loanToList(v)));
     this.cardInfo$ = loan$.pipe(
-      map((loan) => this.toTemplateService.loanToTemplate(loan))
+      map((loan) => this.toTemplateService.loanToTemplate(loan)),
+      tap(() => setTimeout(() => this.canSelect$.next(true), 500))
     );
     this.buttons$ = loan$.pipe(
       map((loan) => [

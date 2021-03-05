@@ -26,9 +26,9 @@ export class TypeSwitcherService {
       const cardType = this.transformCardType(card.cardType);
       // Visa or Mastercard values
       this.cardType$.next(cardType);
-      this.cardIconUrl$.next(this.iconService.determineCardIcon(card).iconPath),
-        this.cardBgUrl$.next(this.cardService.determineBackground(card)),
-        this.color$.next(this.cardService.determineColor(card));
+      this.cardIconUrl$.next(this.iconService.determineCardIcon(card).iconPath);
+      this.cardBgUrl$.next(this.cardService.determineBackground(card));
+      this.color$.next(this.cardService.determineColor(card));
     } else {
       // Default value
       this.assignDefault();
@@ -36,12 +36,10 @@ export class TypeSwitcherService {
   }
 
   assignDefault() {
-    this.cardType$.next(''),
-      this.cardIconUrl$.next(''),
-      this.cardBgUrl$.next(
-        this.backgroundService.getBackground('light-orange')
-      ),
-      this.color$.next('');
+    this.cardType$.next('');
+    this.cardIconUrl$.next('');
+    this.cardBgUrl$.next(this.backgroundService.getBackground('light-orange'));
+    this.color$.next('');
   }
 
   // Uppercase 'cardType' first letter, if 'visa' add " card" string at the end

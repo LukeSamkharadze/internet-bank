@@ -21,14 +21,15 @@ export class HeaderProfileComponent
   implements AfterViewInit, OnInit, OnDestroy {
   private unsubscriber = new Subject();
   @ViewChild('userDropdownMenu') userDropdownMenu: ElementRef;
+  @ViewChild('dropbtn') dropbtn: ElementRef;
 
   user = {
-    fullname: 'Barry Armstrong',
-    email: 'mail@mail.com',
+    fullname: '',
+    email: '',
     image: './assets/header-profile/default-user.png',
   };
   status = false;
-
+  click = 0;
   userId;
 
   constructor(
@@ -63,7 +64,28 @@ export class HeaderProfileComponent
       const target = e.target as HTMLDivElement;
       if (!target.matches('.dropbtn')) {
         if (dropdown.classList.contains('show')) {
-          dropdown.classList.remove('show');
+          setTimeout(() => {
+            dropdown.classList.remove('show');
+          }, 209);
+          setTimeout(() => {
+            dropdown.classList.toggle('hide');
+          }, 300);
+          dropdown.classList.toggle('visuallyHidden');
+          this.clickEvent();
+          this.click = 0;
+        }
+      }
+      if (target.matches('.dropbtn')) {
+        this.click++;
+        if (this.click === 2) {
+          setTimeout(() => {
+            dropdown.classList.remove('show');
+          }, 209);
+          setTimeout(() => {
+            dropdown.classList.toggle('hide');
+          }, 300);
+          dropdown.classList.toggle('visuallyHidden');
+          this.click = 0;
         }
       }
     });
@@ -75,12 +97,29 @@ export class HeaderProfileComponent
 
   showDropdown() {
     this.userDropdownMenu.nativeElement.classList.toggle('show');
+    this.userDropdownMenu.nativeElement.classList.remove('hide');
+    this.userDropdownMenu.nativeElement.classList.remove('visuallyHidden');
+  }
+
+  hideDropdown() {
+    setTimeout(() => {
+      this.userDropdownMenu.nativeElement.classList.remove('show');
+    }, 209);
+    setTimeout(() => {
+      this.userDropdownMenu.nativeElement.classList.toggle('hide');
+    }, 300);
+    this.userDropdownMenu.nativeElement.classList.toggle('visuallyHidden');
+    this.clickEvent();
+    this.click = 0;
   }
 
   clickEvent() {
     this.status = !this.status;
   }
-
+  clickDropdown() {
+    this.clickEvent();
+    this.showDropdown();
+  }
   signOut() {
     this.authService.logout();
   }

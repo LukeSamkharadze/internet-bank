@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { IncomeType } from './incomeType';
+import { Income } from './income';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +11,8 @@ import { IncomeType } from './incomeType';
 export class CalculateProfitService {
   private URL = environment.BaseUrl;
   constructor(private http: HttpClient) {}
-  getAll(): Observable<IncomeType[]> {
-    return this.http.get<IncomeType[]>(this.URL + 'income').pipe(
+  getAll(): Observable<Income[]> {
+    return this.http.get<Income[]>(this.URL + 'income').pipe(
       map((value) => {
         return value;
       })

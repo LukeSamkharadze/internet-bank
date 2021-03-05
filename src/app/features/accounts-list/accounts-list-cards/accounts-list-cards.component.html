@@ -13,6 +13,7 @@
     <app-accounts-list-item
       *ngFor="let card of pipedCards$ | async"
       [info]="card.info"
+      class="disable-select"
       [class.blocked]="card.blocked"
       [routerLink]="['/card-view/card/' + card.id]"
       ><img [src]="card.iconPath" [alt]="card.cardName"

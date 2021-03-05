@@ -61,13 +61,11 @@
   @include Flex(space-between, flex-start);
   @include size(100%, 100%);
   .right-legend {
-    width: 100px;
-    padding: 10px 0px;
+    padding: 10px;
     background-color: $background-2;
     border-radius: 18px;
     @include Flex(center, center);
     p {
-      width: 50%;
       font-size: 14px;
       font-family: $rubik;
       color: $primary-dark;

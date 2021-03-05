@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, EMPTY, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import { catchError, retry } from 'rxjs/operators';
