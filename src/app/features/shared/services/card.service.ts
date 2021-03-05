@@ -53,7 +53,12 @@ export class CardService implements BaseHttpInterface<ICard> {
       .listen('new-card')
       .pipe(
         tap((card) =>
-          this.store$.next((this.cardsArr = [...this.cardsArr, card]))
+          this.store$.next(
+            (this.cardsArr = [
+              ...this.cardsArr,
+              this.iconService.determineCardIcon(card),
+            ])
+          )
         )
       )
       .subscribe();
