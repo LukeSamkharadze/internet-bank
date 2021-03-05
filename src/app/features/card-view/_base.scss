@@ -8,6 +8,14 @@
   gap: 30px;
 }
 
+.not-select {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+}
+
 app-features-shared-bank-transactions {
   width: 100%;
   height: 100%;

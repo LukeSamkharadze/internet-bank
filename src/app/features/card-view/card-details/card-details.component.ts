@@ -1,7 +1,13 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest, merge, Observable, Subject } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import {
+  BehaviorSubject,
+  combineLatest,
+  merge,
+  Observable,
+  Subject,
+} from 'rxjs';
+import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';
 import { FormatterService } from '../../shared/services/formatter.service';
@@ -26,6 +32,7 @@ export class CardDetailsComponent implements OnInit {
   amount$: Observable<string>;
   buttons$: Observable<IButton[]>;
   background$: Observable<string>;
+  canSelect$: BehaviorSubject<boolean>;
 
   private paramsCard$: Observable<ICard>;
 
@@ -39,6 +46,7 @@ export class CardDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.canSelect$ = new BehaviorSubject(false);
     this.paramsCard$ = this.route.params.pipe(
       map((params) => Number(params.id)),
       map((id) => {
@@ -73,7 +81,8 @@ export class CardDetailsComponent implements OnInit {
     );
     this.list$ = card$.pipe(map((card) => this.toListService.cardToList(card)));
     this.cardInfo$ = card$.pipe(
-      map((card) => this.toTemplateService.cardToTemplate(card))
+      map((card) => this.toTemplateService.cardToTemplate(card)),
+      tap(() => setInterval(() => this.canSelect$.next(true), 500))
     );
   }
 

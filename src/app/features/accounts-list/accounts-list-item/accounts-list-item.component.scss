@@ -6,6 +6,12 @@
   padding-right: 7px;
   grid-template-columns: 58px 329fr 188fr 268fr 89fr 113px;
 
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+
   & > * {
     padding: 16px 0;
     padding-left: 23px;

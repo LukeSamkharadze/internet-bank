@@ -7,6 +7,7 @@
   [color]="color$ | async"
   [background]="background$ | async"
   [buttons]="buttons$ | async"
+  [ngClass]="{ 'not-select': (canSelect$ | async) !== true }"
 >
   <i header [class]="icon$ | async"></i>
   <i logo [class]="icon$ | async"></i>
