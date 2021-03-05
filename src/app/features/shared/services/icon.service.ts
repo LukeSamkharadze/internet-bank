@@ -42,12 +42,14 @@ export class IconService {
   }
 
   determineCardIcon(card: ICard): ICard {
-    const cardType = card.cardType.toLocaleLowerCase();
-    return this.cardTypes.includes(cardType.toLocaleLowerCase())
-      ? {
-          ...card,
-          iconPath: `./assets/cards/${cardType.toLocaleLowerCase()}.svg`,
-        }
-      : card;
+    return {
+      ...card,
+      iconPath: `./assets/cards/${
+        card.cardType &&
+        this.cardTypes.includes(card.cardType.toLocaleLowerCase())
+          ? card.cardType.toLocaleLowerCase()
+          : 'default'
+      }.svg`,
+    };
   }
 }
