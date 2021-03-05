@@ -175,6 +175,10 @@
     }
   }
 }
+.print {
+  position: fixed;
+  z-index: 99;
+}
 @media print {
   .popup-blur {
     background-color: white;
