@@ -76,7 +76,7 @@ export class DepositDetailsComponent implements OnInit {
     );
     this.cardInfo$ = deposit$.pipe(
       map((deposit) => this.toTemplateService.depositToTemplate(deposit)),
-      tap(() => setInterval(() => this.canSelect$.next(false), 500))
+      tap(() => setTimeout(() => this.canSelect$.next(true), 500))
     );
     this.buttons$ = deposit$.pipe(
       map((deposit) => [

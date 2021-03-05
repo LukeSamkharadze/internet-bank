@@ -95,7 +95,7 @@ export class LoanDetailsComponent implements OnInit {
     this.list$ = loan$.pipe(map((v) => this.toListService.loanToList(v)));
     this.cardInfo$ = loan$.pipe(
       map((loan) => this.toTemplateService.loanToTemplate(loan)),
-      tap(() => setInterval(() => this.canSelect$.next(true), 500))
+      tap(() => setTimeout(() => this.canSelect$.next(true), 500))
     );
     this.buttons$ = loan$.pipe(
       map((loan) => [

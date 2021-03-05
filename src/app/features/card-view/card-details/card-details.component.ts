@@ -82,7 +82,7 @@ export class CardDetailsComponent implements OnInit {
     this.list$ = card$.pipe(map((card) => this.toListService.cardToList(card)));
     this.cardInfo$ = card$.pipe(
       map((card) => this.toTemplateService.cardToTemplate(card)),
-      tap(() => setInterval(() => this.canSelect$.next(true), 500))
+      tap(() => setTimeout(() => this.canSelect$.next(true), 500))
     );
   }
 
