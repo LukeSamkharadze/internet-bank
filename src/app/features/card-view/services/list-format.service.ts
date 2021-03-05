@@ -29,7 +29,7 @@ export class ListFormatService {
       },
       {
         title: 'Card number',
-        value: this.formatterService.cardNumberHideMiddle(card.cardNumber),
+        value: this.formatterService.formatCardNumber(card.cardNumber),
       },
       {
         title: 'Cardholder',
