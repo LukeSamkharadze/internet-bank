@@ -60,6 +60,14 @@ io.on('connection', (socket) => {
     });
   });
 
+  // handling new card.
+  socket.on('new-card', ({ userId, newCard }) => {
+    const user = activeUserIds.find((usr) => usr.userId === userId);
+    user.socketIds.forEach((socketId) => {
+      io.to(socketId).emit('new-card', newCard);
+    });
+  });
+
   // handling when socket/user disconnects.
   socket.on('disconnect', () => {
     for (let user of activeUserIds) {

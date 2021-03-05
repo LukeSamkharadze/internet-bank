@@ -48,16 +48,24 @@ export class CardService implements BaseHttpInterface<ICard> {
       .listen('transaction')
       .pipe(tap(() => this.updateStore()))
       .subscribe();
+
+    this.socketIo
+      .listen('new-card')
+      .pipe(
+        tap((card) =>
+          this.store$.next((this.cardsArr = [...this.cardsArr, card]))
+        )
+      )
+      .subscribe();
   }
 
   create(card: ICard): Observable<ICard> {
     card = this.determineCardType(card);
-
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
-      tap((newCard) =>
-        this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
-      ),
+      tap((newCard) => {
+        this.socketIo.emit('new-card', { userId: this.auth.userId, newCard });
+      }),
       catchError(this.handleError)
     );
   }
