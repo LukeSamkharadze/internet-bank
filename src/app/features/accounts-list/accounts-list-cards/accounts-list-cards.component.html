@@ -14,7 +14,7 @@
       *ngFor="let card of pipedCards$ | async"
       [info]="card.info"
       [class.blocked]="card.blocked"
-      [route]="'/card-view/card/' + card.id"
+      [routerLink]="['/card-view/card/' + card.id]"
       ><img [src]="card.iconPath" [alt]="card.cardName"
     /></app-accounts-list-item>
     <p *ngIf="!cards$ || !(cards$ | async)?.length">You have no cards</p>

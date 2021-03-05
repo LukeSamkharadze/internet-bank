@@ -2,7 +2,7 @@
   <div class="title">
     <div class="title-info">
       <div class="info-title1">
-        <h3>Monthly</h3>
+        <h3>{{ title }}</h3>
       </div>
       <div class="dots" (click)="handleClick($event)">
         <div class="dot"></div>
@@ -14,11 +14,11 @@
   <div class="chart-legend">
     <div class="left-legend">
       <h2>{{ totalsum | currency: 'USD':'symbol':'1.0-0' }}</h2>
-      <p>Total Income</p>
+      <p>{{ chartLegend }}</p>
     </div>
     <div class="right-legend">
       <div class="legend-circle" [style.background-color]="color"></div>
-      <p>Income</p>
+      <p>{{ headerLegend }}</p>
     </div>
   </div>
   <div class="chart-container">

@@ -62,8 +62,6 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
         data.forEach((element) => {
           this.transactionsList.push({
             ...element,
-            icon: element.iconPath,
-            cardNumber: String(element.fromAccountNumber).slice(-4),
             date: new Date(element.date),
           });
         });
@@ -85,20 +83,21 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
 
   sendReceipt() {}
 
-  myFilter(d: Date): boolean {
-    const day = d.getDay();
+  myFilter(d: Date): number {
+    const day = d.getDay() + 1;
     // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
+    return day;
   }
   dateChangeEvent($event) {
     const month = $event.value.getMonth() + 1;
+    const date = $event.value.getDate();
     this.chosenDate =
       $event.value.getYear() +
       1900 +
       '-' +
       (month < 10 ? '0' + month : month) +
       '-' +
-      $event.value.getDate();
+      (date < 10 ? '0' + date : date);
     this.fetchTransactions();
   }
 

@@ -1,4 +1,38 @@
 {
+  "questions": [
+    {
+      "questionId": 1,
+      "question": "your pet name"
+    },
+    {
+      "questionId": 2,
+      "question": "your chilhood nickname"
+    },
+    {
+      "questionId": 3,
+      "question": "favorite car model"
+    }
+  ],
+  "answers": [
+    {
+      "questionId": 1,
+      "userId": 1,
+      "answer": "12212",
+      "id": 1
+    },
+    {
+      "questionId": 2,
+      "userId": 1,
+      "answer": "1221212",
+      "id": 2
+    },
+    {
+      "questionId": 3,
+      "userId": 1,
+      "answer": "12212121",
+      "id": 3
+    }
+  ],
   "items": [
     {
       "id": 1,
@@ -123,7 +157,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 35065.05,
+      "availableAmount": 35210.09000000001,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -135,7 +169,7 @@
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 33037.96,
+      "availableAmount": 37937.96,
       "security3D": true,
       "userId": "1",
       "id": 2
@@ -147,7 +181,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 14877,
+      "availableAmount": 10000,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -158,13 +192,25 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 8900,
+      "availableAmount": 17851.4674578,
       "security3D": true,
       "userId": "2",
       "cardType": "mastercard",
       "id": 4,
       "iconPath": "./assets/cards/mastercard.svg",
       "blocked": true
+    },
+    {
+      "cardName": "41414214",
+      "accountNumber": "GE32TB4124141441414141",
+      "cardNumber": "4123456789123456",
+      "cardholder": "ME",
+      "expirationDate": "02/25",
+      "availableAmount": 50000,
+      "security3D": true,
+      "userId": "2",
+      "cardType": "visa",
+      "id": 5
     }
   ],
   "paymentTypes": [
@@ -188,14 +234,14 @@
       "name": "Bank Transfer",
       "providers": [
         {
-          "name": "tbc"
+          "name": "any bank"
         }
       ],
-      "icon": "las la-piggy-bank",
+      "icon": "las la-university",
       "formPath": "bank-transfer"
     },
     {
-      "name": "Instant Transfer",
+      "name": "Internal Transfer",
       "providers": [
         {
           "name": "visa"
@@ -204,8 +250,8 @@
           "name": "mastercard"
         }
       ],
-      "icon": "las la-cart-plus",
-      "formPath": "instant-transfer"
+      "icon": "las la-exchange-alt",
+      "formPath": "internal-transfer"
     }
   ],
   "users": [
@@ -216,12 +262,10 @@
       "password": "12345678"
     },
     {
+      "fullname": "EDMOND DANTES",
       "email": "admin@gmail.com",
-      "language": "English",
-      "sex": "Male",
-      "id": 2,
       "password": "12345678",
-      "fullname": "EDMOND DANTES"
+      "id": 2
     },
     {
       "fullname": "VITO CORLEONE",
@@ -309,6 +353,32 @@
       "data": [41300, 28910, 16520, 28910, 24800]
     }
   ],
+  "cardCharts": [
+    {
+      "id": 1,
+      "userId": 2,
+      "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "data": [390, 455, 380, 780, 800, 500, 1000]
+    }
+  ],
+  "depositCharts": [
+    {
+      "id": 3,
+      "userId": 2,
+      "data": [3525, 3807, 3948, 4089, 3807, 4935, 5640]
+    }
+  ],
+  "loanCharts": [
+    {
+      "id": 4,
+      "userId": 2,
+      "data": [4130, 2891, 1652, 2891, 2480]
+    }
+  ],
   "invoices": [
     {
       "template": "Website design",
@@ -372,7 +442,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 1240.0,
+      "totalAmount": 1240,
       "status": "Paid",
       "id": 3
     },
@@ -418,7 +488,7 @@
           "price": 600
         }
       ],
-      "totalAmount": 6904.0,
+      "totalAmount": 6904,
       "status": "Paid",
       "id": 5
     },
@@ -441,7 +511,7 @@
           "price": 300
         }
       ],
-      "totalAmount": 3400.0,
+      "totalAmount": 3400,
       "status": "Pending",
       "id": 6
     },
@@ -464,7 +534,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 480.0,
+      "totalAmount": 480,
       "status": "Pending",
       "id": 7
     },
@@ -487,7 +557,7 @@
           "price": 870
         }
       ],
-      "totalAmount": 8940.0,
+      "totalAmount": 8940,
       "status": "Pending",
       "id": 8
     },
@@ -510,7 +580,7 @@
           "price": 100
         }
       ],
-      "totalAmount": 8940.0,
+      "totalAmount": 8940,
       "status": "Cancelled",
       "id": 9
     },
@@ -533,7 +603,7 @@
           "price": 4
         }
       ],
-      "totalAmount": 124.0,
+      "totalAmount": 124,
       "status": "Paid",
       "id": 10
     },
@@ -556,7 +626,7 @@
           "price": 11
         }
       ],
-      "totalAmount": 564.0,
+      "totalAmount": 564,
       "status": "Paid",
       "id": 11
     },
@@ -586,32 +656,60 @@
   ],
   "transactions": [
     {
-      "title": "Bank transfer to user: 3",
+      "title": "electronic payment to paypal@gmail.com",
+      "date": "2021-03-01T19:23:09.134Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "paypal@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 39,
+      "currency": "USD",
+      "status": "pending",
+      "id": 2
+    },
+    {
+      "title": "Internal Bank transfer to user: VITO CORLEONE",
       "toUserId": "3",
-      "date": "2021-02-28T16:39:38.183Z",
+      "date": "2021-03-01T19:24:01.807Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB4434234223333333",
+      "toAccountNumber": "GE32TB1111222233334444",
+      "amount": 50,
+      "currency": "USD",
+      "beneficiary": "VITO CORLEONE",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 3
+    },
+    {
+      "title": "External Bank transfer to beneficiary: GIORGI BOG USER",
+      "toUserId": "",
+      "date": "2021-03-01T19:24:47.170Z",
       "type": "bank",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB3333111122224444",
-      "toAccountNumber": "GE32TB1111222233334444",
-      "amount": 20,
+      "toAccountNumber": "BOG9912300000041241",
+      "amount": 300,
       "currency": "USD",
-      "beneficiary": "gamarjoba batono obama",
+      "beneficiary": "GIORGI BOG USER",
       "bankTransferType": "personal transfer",
       "status": "pending",
-      "id": 1
+      "id": 4
     },
     {
-      "title": "Instant transfer to bg012030123123",
-      "date": "2021-02-28T16:42:24.870Z",
-      "type": "instant",
+      "title": "Internal Bank transfer to account GE32TB4434234223333333",
+      "date": "2021-03-01T19:24:58.856Z",
+      "type": "internal",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB3333111122224444",
-      "amount": 1,
+      "amount": 134,
       "currency": "USD",
-      "instantTransferType": "personal transfer",
-      "toAccountNumber": "bg012030123123",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB4434234223333333",
       "status": "pending",
-      "id": 3
+      "id": 5
     }
   ],
   "news": [
@@ -628,6 +726,56 @@
       "releaseDate": "2021-02-26T18:09:37Z",
       "title": "Formula One Revenues Dropped By $877 Million In 2020",
       "content": "Formula One’s revenues took an $877 million hit last year, falling 43% as a result of the Covid-19 pandemic, owners Liberty Media reported on Friday. Revenues amounted to $1.145 billion compared to a previous $2.022 billion in a year that featured 17 races, mostly without spectators, and had highlight events such as Monaco and Singapore cancelled. The previous year had 21 races and 22 had been planned for 2020 with 23 scheduled for 2021. The previous year had 21 races and 22 had been planned for 2020 with 23 scheduled for 2021.Formula One’s primary revenues are derived mostly from race promotion fees, broadcasting deals and advertising and sponsorship. The revenues also provide a significant part of the budget for smaller teams. The new season starts in Bahrain on March 28."
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 1,
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true
+    },
+    {
+      "productUpdates": true,
+      "offerUpdates": false,
+      "comments": false,
+      "notifications": true,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 4,
+      "id": 4
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 5,
+      "id": 5
+    },
+    {
+      "productUpdates": false,
+      "offerUpdates": false,
+      "comments": true,
+      "notifications": true,
+      "userId": 6,
+      "id": 6
     }
   ]
 }

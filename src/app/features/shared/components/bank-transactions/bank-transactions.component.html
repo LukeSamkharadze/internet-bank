@@ -69,18 +69,17 @@
     </div>
 
     <hr class="hr-bottom" />
+
     <div
       class="transaction"
       *ngFor="let transaction of transactionsList | filter: searchText"
     >
       <div class="left">
-        <div class="img-width">
-          <div class="img-flex">
-            <img
-              src="{{ transaction.icon }}"
-              onerror="this.onerror=null; this.src='./assets/transfers/default.png';"
-            />
-          </div>
+        <div class="img-wrapper">
+          <img
+            src="{{ transaction.iconPath }}"
+            onerror="this.onerror=null; this.src='./assets/transfers/default.png';"
+          />
         </div>
         <h2>
           <a class="title" (click)="pop(transaction.id)">
@@ -104,7 +103,6 @@
           }}</span>
         </h1>
       </div>
-      <hr class="center-hr" />
     </div>
 
     <app-shared-bank-transaction-details

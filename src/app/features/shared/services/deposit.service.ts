@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable, Subject } from 'rxjs';
-import { retry, take, tap } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
+import { distinctUntilChanged, retry, take, tap } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import IBgColor from '../interfaces/background-color.interface';
@@ -13,25 +13,29 @@ import { BackgroundService } from './background.service';
   providedIn: 'root',
 })
 export class DepositService implements BaseHttpInterface<IDeposit> {
-  public update$ = new Subject<IDeposit[]>();
-
-  constructor(
-    private http: HttpClient,
-    private auth: AuthService,
-    private bgService: BackgroundService
-  ) {}
   private readonly BACKGROUND_DIRECTORY = './assets/cards/backgrounds/';
   private readonly icons = new Map<DepositType, string>([
-    ['Cumulative', 'las la-lock'],
+    ['Cumulative', 'las la-piggy-bank'],
   ]);
   private readonly colors = new Map<DepositType, IBgColor>([
     ['Cumulative', 'orange'],
   ]);
 
+  private store$ = new BehaviorSubject<IDeposit[]>([]);
+  deposits$ = this.store$.pipe(distinctUntilChanged());
+
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private bgService: BackgroundService
+  ) {
+    this.updateStore();
+  }
+
   updateStore(): void {
     this.getAll()
       .pipe(take(1))
-      .subscribe((deposits) => this.update$.next(deposits));
+      .subscribe((deposits) => this.store$.next(deposits));
   }
 
   create(param: IDeposit): Observable<IDeposit> {

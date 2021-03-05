@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { merge, Observable } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';
@@ -27,6 +27,8 @@ export class CardDetailsComponent implements OnInit {
   buttons$: Observable<IButton[]>;
   background$: Observable<string>;
 
+  private paramsCard$: Observable<ICard>;
+
   constructor(
     private formatterService: FormatterService,
     private toListService: ListFormatService,
@@ -37,7 +39,7 @@ export class CardDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const card$ = this.route.params.pipe(
+    this.paramsCard$ = this.route.params.pipe(
       map((params) => Number(params.id)),
       map((id) => {
         if (isNaN(id)) {
@@ -45,10 +47,10 @@ export class CardDetailsComponent implements OnInit {
         }
         return this.cardService.getById(id);
       }),
-      filter((v) => !!v),
+      filter((card$) => !!card$),
       switchMap((v) => v)
     );
-    this.initializeCard(card$);
+    this.initializeCard(this.paramsCard$);
   }
 
   initializeCard(card$: Observable<ICard>): void {
@@ -81,31 +83,31 @@ export class CardDetailsComponent implements OnInit {
 
   determineButtons(card$: Observable<ICard>): Observable<IButton[]> {
     return card$.pipe(
-      map((card) => {
-        let buttons: IButton[] = [
-          {
-            text: 'DELETE',
-            function: () => this.cardService.delete(card.id),
-            callBack: this.navigateToProducts.bind(this),
-          },
-        ];
-        if (!card.blocked) {
-          buttons = buttons.concat([
-            {
-              text: 'BLOCK',
-              function: () => {
-                const newCard$ = this.cardService.update({
-                  ...card,
-                  blocked: true,
-                });
-                this.buttons$ = this.determineButtons(newCard$);
-                return newCard$;
-              },
-            },
-          ]);
-        }
-        return buttons;
-      })
+      map((card) => [
+        {
+          text: 'DELETE',
+          function: () => this.cardService.delete(card.id),
+          callBack: this.navigateToProducts.bind(this),
+        },
+        this.getBlockButton(card),
+      ])
     );
+  }
+
+  getBlockButton(card: ICard): IButton {
+    console.log(card);
+    return {
+      text: card.blocked ? 'UNBLOCK' : 'BLOCK',
+      function: () => {
+        const newCard$ = this.cardService.update({
+          ...card,
+          blocked: !card.blocked,
+        });
+        this.buttons$ = this.determineButtons(
+          merge(newCard$, this.paramsCard$)
+        );
+        return newCard$;
+      },
+    };
   }
 }

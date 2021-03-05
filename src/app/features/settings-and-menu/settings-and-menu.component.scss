@@ -30,34 +30,27 @@
     .menuTabs {
       padding-top: 26px;
 
-      padding-left: 18px;
       p:nth-child(1) {
         color: $primary-dark;
       }
 
       a {
+        padding-left: 16.5px;
+        border-left: 2px solid transparent;
+        margin-left: -1px;
         display: block;
         cursor: pointer;
-        margin-bottom: 21px;
+        margin-bottom: 15px;
         font-weight: 500;
         font-family: 'Roboto', sans-serif;
         font-size: 14px;
         text-decoration: none;
         color: $secondary-dark-1;
-        &::before {
-          content: '';
-          height: 17px;
-          width: 1.9px;
-          background-color: black;
-          display: none;
-          transform: translateX(-19px);
-        }
+        line-height: 17px;
 
         &.active {
           color: $primary-dark;
-          &::before {
-            display: inline-block;
-          }
+          border-left: 2px solid black;
         }
         &:hover {
           color: $primary-dark;

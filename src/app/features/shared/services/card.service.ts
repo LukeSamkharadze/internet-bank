@@ -1,14 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  BehaviorSubject,
-  EMPTY,
-  from,
-  Observable,
-  of,
-  Subject,
-  throwError,
-} from 'rxjs';
+import { BehaviorSubject, from, Observable, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 import { CardType, ICard } from '../interfaces/card.interface';
@@ -95,7 +87,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       );
   }
 
-  private updateStore() {
+  updateStore() {
     this.getAll().subscribe((cards) =>
       this.store$.next((this.cardsArr = cards))
     );
@@ -125,8 +117,11 @@ export class CardService implements BaseHttpInterface<ICard> {
   }
 
   update(card: ICard): Observable<ICard> {
+    const updateCard = { ...card };
+    delete updateCard.color;
+    delete updateCard.iconPath;
     return this.http
-      .put<ICard>(environment.BaseUrl + `cards/${card.id}`, card)
+      .put<ICard>(environment.BaseUrl + `cards/${updateCard.id}`, updateCard)
       .pipe(
         retry(1),
         tap(() => this.updateStore()),

@@ -10,7 +10,7 @@ export class IconService {
   private transferTypes = [
     'bank',
     'electronic',
-    'instant',
+    'internal',
     'phone',
     'cash',
     'online',

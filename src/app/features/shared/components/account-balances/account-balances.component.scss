@@ -11,7 +11,11 @@
   width: 100%;
   border-radius: 5px;
   background-color: #fff;
-  img:before {
+  .balanceIcon {
+    max-width: 38px;
+    max-height: 15px;
+  }
+  .balanceIcon:before {
     content: ' ';
     display: block;
     width: 20px;
@@ -32,7 +36,7 @@
     }
     max-height: 290px;
     overflow-y: auto;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -50,10 +54,15 @@
       align-self: center;
       justify-content: space-between;
       border-bottom: 1px solid $outline;
-      padding: 13px 0 16px 0;
+      padding: 13px 0 13px 0;
       width: 100%;
-      &:first-child {
-        padding-top: 0px;
+      outline: none;
+      &:hover {
+        outline: none;
+        border-radius: 10px;
+        background-color: $background-2;
+        box-shadow: 0 0 5px $secondary-dark-2;
+        cursor: pointer;
       }
       &:last-child {
         border: 0px;
@@ -82,6 +91,7 @@
       .account-number {
         @include text-style(16px);
         padding-bottom: 5px;
+        word-wrap: break-word;
       }
       .account-description {
         @include text-style(14px, $secondary-dark-2);
@@ -100,7 +110,7 @@
         justify-content: space-between;
       }
       .arrowSpace {
-        width: 5px;
+        width: 16px;
       }
       .card-position {
         @extend .detail-position;
@@ -110,11 +120,13 @@
           @include text-style(16px);
         }
         .las {
+          background: transparent;
           padding-bottom: 5px;
         }
       }
-      .la-lock {
+      .la-piggy-bank {
         color: $primary;
+        background-color: transparent;
       }
     }
   }
