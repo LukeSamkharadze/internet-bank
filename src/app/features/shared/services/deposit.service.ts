@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable } from 'rxjs';
 import { distinctUntilChanged, retry, take, tap } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
