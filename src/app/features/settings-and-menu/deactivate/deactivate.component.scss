@@ -9,16 +9,17 @@
   background: rgba(0, 0, 0, 0.3);
 }
 .container {
-  position: absolute;
-  top: 40%;
-  left: 40%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 200px;
-  background-color: crimson;
+  width: 350px;
+  height: 220px;
+  padding: 20px;
+  background-color: #ffab2b;
   display: flex;
   flex-direction: column;
-  border-radius: 6px;
+  border-radius: 7px;
 
   h2 {
     font-size: 30px;

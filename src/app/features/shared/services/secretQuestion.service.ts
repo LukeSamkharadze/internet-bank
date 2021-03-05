@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, EMPTY, throwError, from } from 'rxjs';
+import { Observable, throwError, from } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { catchError, retry, switchMap, take } from 'rxjs/operators';
 import { SecretQuestion } from '../interfaces/secretQuestion.interface';
