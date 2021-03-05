@@ -33,10 +33,10 @@ export class SettingsSecurityComponent implements OnInit {
   constructor(
     private userServise: UserService,
     private authService: AuthService,
-    private secretQuestionservice: SecretQuestionService
+    private secretQuestionService: SecretQuestionService
   ) {
     // getting secret quesions form DB
-    this.secretQuestionservice.getAll().subscribe((val) => {
+    this.secretQuestionService.getAll().subscribe((val) => {
       this.questions = val;
     });
   }
@@ -78,7 +78,7 @@ export class SettingsSecurityComponent implements OnInit {
       }
 
       // fetching DB answers
-      this.userOldAnswer = await this.secretQuestionservice
+      this.userOldAnswer = await this.secretQuestionService
         .getAnswerByQuestionId(this.userid, qId)
         .toPromise();
       console.log(this.userOldAnswer);
@@ -86,13 +86,13 @@ export class SettingsSecurityComponent implements OnInit {
       // setting form DATA
       if (this.userOldAnswer) {
         this.userOldAnswer.answer = qAnswer;
-        this.secretQuestionservice.update(this.userOldAnswer).toPromise();
+        this.secretQuestionService.update(this.userOldAnswer).toPromise();
       } else {
         this.userAnswer.id = null;
         this.userAnswer.answer = qAnswer;
         this.userAnswer.questionId = qId;
         this.userAnswer.userId = this.user.id;
-        this.secretQuestionservice.create(this.userAnswer).toPromise();
+        this.secretQuestionService.create(this.userAnswer).toPromise();
       }
     })();
   }
