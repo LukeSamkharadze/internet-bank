@@ -36,12 +36,26 @@
 }
 
 .items {
-  padding: 1px 24px;
-  background-color: white;
-  border-radius: 4px;
+  $radius: 10px;
 
-  & > *:not(:last-child) {
-    border-bottom: 1px solid $outline;
+  background-color: white;
+  border-radius: $radius;
+
+  & > * {
+    padding: 0 24px;
+    outline: none;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $outline;
+    }
+
+    &:hover:not(p) {
+      border-radius: $radius;
+      background-color: $background-2;
+      box-shadow: 0 0 7px $secondary-dark-2;
+
+      cursor: pointer;
+    }
   }
 
   p {

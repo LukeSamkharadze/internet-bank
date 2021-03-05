@@ -29,17 +29,15 @@ hr {
   color: #e8ecef;
   opacity: 0.1;
 }
-
-.select-template {
+.invoice-image {
   width: 100%;
-  padding: 23px;
-  p {
-    @include text-style(14px);
-  }
+  height: 50px;
 }
-app-shared-dropdown {
+img {
   width: 100%;
-  height: 52px;
+  padding-left: 23px;
+  padding-right: 23px;
+  height: 138px;
 }
 .information-body {
   width: 100%;
@@ -63,6 +61,7 @@ app-shared-dropdown {
     font-weight: 500;
     margin-left: 10px;
     cursor: pointer;
+    text-decoration: none;
   }
   i {
     font-size: 18px;

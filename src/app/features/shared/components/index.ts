@@ -9,14 +9,18 @@ import { InvoiceDetailsComponent } from './invoice-details/invoice-details.compo
 import { ExpansesComponent } from './expanses/expanses.component';
 import { NotificationManagerComponent } from './notification-manager/notification-manager.component';
 
+import { DashboardAccountWidgetComponent } from './dashboard-account-widget/dashboard-account-widget.component';
+import { SettingsNotificationComponent } from './settings-notification/settings-notification.component';
 export * from './income-chart/income-chart.component';
 export * from './account-balances/account-balances.component';
 export * from './news-article/news-article.component';
 export * from './header-profile/header-profile.component';
 export * from './bank-transactions/bank-transactions.component';
 export * from './invoice-details/invoice-details.component';
+export * from './dashboard-account-widget/dashboard-account-widget.component';
 export * from './accounts-spendings/accounts-spendings.component';
 export * from './notification-manager/notification-manager.component';
+export * from './settings-notification/settings-notification.component';
 
 export const components = [
   IncomeChartComponent,
@@ -29,4 +33,6 @@ export const components = [
   InvoiceDetailsComponent,
   ExpansesComponent,
   NotificationManagerComponent,
+  DashboardAccountWidgetComponent,
+  SettingsNotificationComponent,
 ];

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardViewComponent } from './card-view.component';
-import { DetailsGuard } from './guards/details.guard';
 
 const routes: Routes = [
   {

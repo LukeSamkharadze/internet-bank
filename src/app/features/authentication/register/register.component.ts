@@ -6,7 +6,6 @@ import { AuthService } from '../../shared/services/auth.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { UserService } from '../../shared/services/user.service';
 import { formAnimations } from '../../shared/animations/formAnimation';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -38,7 +37,6 @@ export class RegisterComponent {
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private router: Router,
     private userLimits: PaymentLimitsService
   ) {}
 
@@ -72,7 +70,6 @@ export class RegisterComponent {
             });
 
           // Add user limits on DB
-
           const limits: ILimits = {
             bankLimit: 5000,
             onlineLimit: 5000,

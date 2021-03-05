@@ -351,6 +351,19 @@ a {
 
   .content-main-inner {
     min-height: calc(100vh - 130px);
+
+    &::ng-deep > * {
+      animation: ease-in appear 0.4s;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 
   .footer {

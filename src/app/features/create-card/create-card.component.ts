@@ -3,59 +3,98 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { CardService } from '../shared/services/card.service';
 import { AuthService } from '../shared/services/auth.service';
+import { TypeSwitcherService } from './services/type-switcher.service';
+import { fadeInOut } from '../shared/animations';
 
 @Component({
   selector: 'app-features-create-card',
   templateUrl: './create-card.component.html',
   styleUrls: ['./create-card.component.scss'],
+  animations: [fadeInOut],
 })
 export class CreateCardComponent implements OnInit {
   form: FormGroup;
+  cardType: string;
+  cardIconUrl: string;
+  cardBgUrl: string;
+  color: string;
+  showNotification = false;
 
   constructor(
     private fb: FormBuilder,
     private cardService: CardService,
-    private authService: AuthService
-  ) {}
-
-  makeInputUpperCase(input: string) {
-    this.form
-      .get(`${input}`)
-      .setValue(this.form.get(`${input}`).value.toUpperCase());
+    private authService: AuthService,
+    private typeSwitcher: TypeSwitcherService
+  ) {
+    this.typeSwitcher.cardType$.subscribe((cardType) => {
+      this.cardType = cardType;
+    });
+    this.typeSwitcher.cardIconUrl$.subscribe((cardIconUrl) => {
+      this.cardIconUrl = cardIconUrl;
+    });
+    this.typeSwitcher.cardBgUrl$.subscribe((cardBgUrl) => {
+      this.cardBgUrl = cardBgUrl;
+    });
+    this.typeSwitcher.color$.subscribe((color) => {
+      this.color = color;
+    });
   }
 
-  makeInputTransforms() {
-    // Transform to uppercase Card's and Cardholder's names
-    this.makeInputUpperCase('cardName');
-    this.makeInputUpperCase('cardholder');
+  // Get formControl value
+  formCtrlVal(name: string) {
+    return this.form.get(name).value;
+  }
 
-    // Concat 'GE32TB' to the Account Number
-    this.form
-      .get('accountNumber')
-      .setValue('GE32TB' + this.form.get('accountNumber').value);
+  // Determine 'Card Bg, Icon & Color' based on 'Card Type' on creation
+  determineCard() {
+    this.typeSwitcher.checkInput(this.form.getRawValue());
+  }
+
+  makeInputUpperCase(formCtrl: string) {
+    return this.formCtrlVal(formCtrl).toUpperCase();
+  }
+
+  showCardNotification(show?: boolean) {
+    // If '(X) Button' clicked hide 'Success Notification'
+    if (show === false) {
+      this.showNotification = false;
+    } else {
+      // Show 'Success Notification' if card is added
+      this.showNotification = true;
+      // Hide 'Success Notification' after 2 sec
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 2000);
+    }
   }
 
   // Adding Card on Server using Service
   onSubmit() {
     if (this.form.valid) {
-      this.makeInputTransforms();
-
-      // Adding current 'User Id' to card
       const card = {
         ...this.form.getRawValue(),
+        // Adding current 'User Id' to card
         userId: this.authService.userId,
+        // Transform to uppercase Card's and Cardholder's names
+        cardName: this.makeInputUpperCase('cardName'),
+        cardholder: this.makeInputUpperCase('cardholder'),
+        // Concat 'GE32TB' to the Account Number
+        accountNumber: 'GE32TB' + this.formCtrlVal('accountNumber'),
       };
 
       // Card addition Service
       this.cardService
         .create(card)
         .pipe(finalize(() => this.form.reset({ security3D: true })))
-        .subscribe();
+        .subscribe(() => {
+          this.showCardNotification();
+          this.typeSwitcher.assignDefault();
+        });
     }
   }
 
-  // Card Form and its validation
   ngOnInit(): void {
+    // Card Form and its validation
     this.form = this.fb.group({
       // Must be typed: Card Name (only letters and numbers are allowed)
       cardName: [

@@ -29,6 +29,7 @@ export class AccountsListChartComponent
   amount$: Observable<string>;
   arrow$: Observable<string>;
   color$: Observable<string>;
+  title$: Observable<string>;
 
   subscription: Subscription;
 
@@ -38,14 +39,15 @@ export class AccountsListChartComponent
   ) {}
 
   ngOnInit(): void {
-    const data$ = this.info$.pipe(map((info) => info.data));
-    this.amount$ = data$.pipe(
-      map((data) =>
-        this.formatService.formatBalance(data[data.length - 1], {
+    this.amount$ = this.info$.pipe(
+      map((info) =>
+        this.formatService.formatBalance(info.value, {
           currency: '$',
         })
       )
     );
+    this.title$ = this.info$.pipe(map((info) => info.title));
+    const data$ = this.info$.pipe(map((info) => info.data));
     this.arrow$ = data$.pipe(
       map((data) =>
         this.chartService.isRed(data)
