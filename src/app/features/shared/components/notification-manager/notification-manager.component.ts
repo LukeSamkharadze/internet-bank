@@ -1,5 +1,12 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { NotificationsService } from '../../services/notifications.service';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
+import { NotificationsManagerService } from '../../services/notifications-manager.service';
 
 @Component({
   selector: 'app-notification-manager',
@@ -7,14 +14,24 @@ import { NotificationsService } from '../../services/notifications.service';
   styleUrls: ['./notification-manager.component.scss'],
 })
 export class NotificationManagerComponent implements OnInit, OnChanges {
-  appearance = true;
-  @Input() successfulPay: boolean;
   @Input() bellAppearance: boolean;
-  @Input() newNotification = true;
+  appearance = true;
+  successfulPay: boolean;
+  newNotification = true;
   bellNotifications = false;
   notifications: Array<object>;
 
-  constructor(private notificationsService: NotificationsService) {}
+  constructor(
+    private notificationsService: NotificationsManagerService,
+    private eref: ElementRef
+  ) {}
+
+  @HostListener('document:click', ['$event'])
+  onClick(event) {
+    if (!this.eref.nativeElement.contains(event.target)) {
+      this.bellNotifications = false;
+    }
+  }
 
   bellMethod() {
     this.bellNotifications = !this.bellNotifications;
@@ -28,6 +45,7 @@ export class NotificationManagerComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.notifications = this.notificationsService.getNotification();
+    this.newNotification = this.notificationsService.newNotification;
   }
 
   ngOnChanges(): void {

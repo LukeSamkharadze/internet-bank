@@ -2,6 +2,8 @@
 
 .feat-notifications {
   margin-left: 30%;
+  width: 100px;
+  height: 100px;
 }
 
 ::-webkit-scrollbar {
@@ -139,11 +141,6 @@
   }
 }
 
-#bell-notifications.bell-notifications {
-  display: block;
-  z-index: 2;
-}
-
 .bell-notifications-icon {
   position: relative;
   .la-bell {
@@ -169,21 +166,5 @@
     position: relative;
     width: 22px;
     margin-right: 20px;
-  }
-}
-
-.profileBef {
-  width: auto;
-}
-
-.line2 {
-  z-index: -1;
-}
-
-.feature31 {
-  .payment {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
   }
 }

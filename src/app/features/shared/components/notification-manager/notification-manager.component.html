@@ -20,7 +20,11 @@
   <br /><br />
 
   <!-- bell notifications-icon -->
-  <div class="bell-notifications-icon" *ngIf="bellAppearance">
+  <div
+    class="bell-notifications-icon"
+    *ngIf="bellAppearance"
+    id="bell-notifications-icon"
+  >
     <div class="bell" (click)="bellMethod()">
       <i class="las la-bell"></i>
       <div class="dot" *ngIf="newNotification"></div>
