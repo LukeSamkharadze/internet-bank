@@ -91,7 +91,7 @@ export class PaymentService {
     ).pipe(
       tap((card) => {
         if (card.blocked) {
-          throw new Error('Can not make payment to blocked card!');
+          throw new Error('Your card is blocked!');
         }
       }),
       switchMap((card) =>
@@ -102,7 +102,7 @@ export class PaymentService {
       ),
       tap(([fromAccount, destinationAccount]) => {
         if (!destinationAccount) {
-          throw new Error('Can not make payment to blocked card!');
+          throw new Error('Such account does not exist!');
         }
         if (destinationAccount.blocked) {
           throw new Error('Can not make payment to blocked card!');
