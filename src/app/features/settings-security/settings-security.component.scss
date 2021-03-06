@@ -87,3 +87,30 @@ i {
   position: absolute;
   top: 50px;
 }
+
+app-shared-toggle {
+  position: relative;
+  right: -650px;
+  top: 70px;
+}
+
+#plus {
+  font-weight: bolder;
+  font-size: 40px;
+  width: 40px;
+  color: orange;
+  cursor: pointer;
+  position: relative;
+  top: 50px;
+  left: 590px;
+}
+#minus {
+  font-weight: bolder;
+  font-size: 40px;
+  width: 40px;
+  color: orange;
+  cursor: pointer;
+  position: relative;
+  top: 50px;
+  left: 600px;
+}

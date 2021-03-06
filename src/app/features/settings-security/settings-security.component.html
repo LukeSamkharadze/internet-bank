@@ -1,6 +1,7 @@
 <div class="security-settings-wrapper">
   <div class="security">
     <h4>security</h4>
+
     <div class="headers">change password</div>
     <form [formGroup]="formChange">
       <div class="settings-form-aligment">
@@ -16,19 +17,10 @@
                 formControlName="curentPass"
                 type="password"
               >
-                <!-- <i class="las la-eye"></i> -->
               </app-shared-input>
-              <!-- <div
-                *ngIf="
-                  !formChange.get('curentPass').valid &&
-                  formChange.get('curentPass').touched
-                "
-              >
-                invalid password
-              </div> -->
             </div>
           </div>
-          <div class="new">
+          <div *ngIf="formChange.controls.toggle.value === false" class="new">
             <label class="input-label" for="input-icon-example"
               >new password</label
             >
@@ -40,7 +32,6 @@
                 class="valid"
                 formControlName="newPass"
               >
-                <!-- <i class="las la-lock"></i> -->
               </app-shared-input>
               <div
                 *ngIf="
@@ -54,8 +45,25 @@
           </div>
         </div>
       </div>
-      <div class="headers">security questions</div>
-      <div class="settings-form-aligment">
+      <div>
+        <app-shared-toggle
+          matTooltip="toggle if you want to add secret questions"
+          formControlName="toggle"
+          toggleId="toggle"
+          [checked]="formChange.controls.toggle.value"
+          [textBefore]="false"
+        >
+        </app-shared-toggle>
+      </div>
+      <div *ngIf="formChange.controls.toggle.value === true" class="headers">
+        security questions
+      </div>
+      <!-- <span  *ngIf="formChange.controls.toggle.value===true" ><i  id="plus" class="las la-plus-circle"></i></span>
+      <span *ngIf="formChange.controls.toggle.value===true"   ><i id="minus" class="las la-minus-circle"></i></span> -->
+      <div
+        *ngIf="formChange.controls.toggle.value === true"
+        class="settings-form-aligment"
+      >
         <div class="aligment-flex">
           <div>
             <label class="select" for="dropdown-general">question #1</label>
@@ -76,6 +84,7 @@
           </div>
           <div>
             <label class="input-label" for="input-icon-example">answer</label>
+
             <div id="in" class="input-wrapper">
               <app-shared-input
                 style="width: 336px; height: 52px"
