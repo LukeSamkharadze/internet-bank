@@ -13,14 +13,14 @@
     <div class="details-popup-lower">
       <div class="details-popup-lower-logo">
         <img
-          [src]="object.iconPath"
+          [src]="transaction.iconPath"
           alt="Transaction Icon"
           onerror="this.onerror=null; this.src='./assets/transfers/default.png'"
         />
       </div>
       <div></div>
       <div class="details-popup-lower-heading">
-        <h3>{{ object.title }}</h3>
+        <h3>{{ transaction.title }}</h3>
       </div>
       <div class="details-popup-lower-tag">
         <app-shared-tag
@@ -28,7 +28,7 @@
           (closeClicked)="closeTag()"
           [color]="tagColor"
         >
-          {{ object.status }}
+          {{ transaction.status }}
         </app-shared-tag>
       </div>
       <div class="details-popup-lower-transaction">
@@ -38,9 +38,9 @@
         </div>
         <div class="details-popup-lower-transaction-amount">
           <p class="details-popup-lower-transaction-number">
-            ${{ object.amount }}
+            ${{ transaction.amount }}
           </p>
-          <p>{{ object.date | date: 'MMM dd yyyy hh:mm a' }}</p>
+          <p>{{ transaction.date | date: 'MMM dd yyyy hh:mm a' }}</p>
         </div>
       </div>
       <div class="details-popup-lower-receipt">

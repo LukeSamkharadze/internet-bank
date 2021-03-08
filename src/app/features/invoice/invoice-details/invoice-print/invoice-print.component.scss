@@ -27,6 +27,10 @@
     flex-direction: column;
     position: relative;
     background-color: rgba(255, 171, 43, 0.05);
+    padding: 10px;
+  }
+  .right {
+    padding: 0;
   }
   .tag {
     padding-top: 20px;
@@ -91,8 +95,5 @@
         font-weight: bold;
       }
     }
-  }
-  .left .right {
-    padding: 0;
   }
 }
