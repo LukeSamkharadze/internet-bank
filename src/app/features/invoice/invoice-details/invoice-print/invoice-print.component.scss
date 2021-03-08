@@ -79,7 +79,7 @@
   }
   .inv-total {
     margin: auto;
-    width: 20%;
+    width: 50%;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -87,6 +87,8 @@
       color: $primary-dark;
     }
     .inv-total-row {
+      display: flex;
+      flex-direction: column;
       p {
         display: inline-block;
       }
