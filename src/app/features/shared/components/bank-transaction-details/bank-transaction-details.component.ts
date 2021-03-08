@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { Itransaction } from '../../interfaces/bank-transactions.interface';
 import { sample } from './models/sample.model';
 import FastAverageColor from 'fast-average-color';
@@ -19,6 +26,8 @@ export class BankTransactionDetailsComponent implements OnInit {
   tagColor = 'orange';
   accNum = this.transaction.fromAccountNumber.toString();
 
+  constructor(private ref: ChangeDetectorRef) {}
+
   ngOnInit() {
     if (this.transaction) {
       const fac = new FastAverageColor();
@@ -27,6 +36,7 @@ export class BankTransactionDetailsComponent implements OnInit {
         .then((data) => {
           this.background = data.hex;
           this.opacity = '100%';
+          this.ref.markForCheck();
         })
         .catch((e) => {
           this.error = e;
