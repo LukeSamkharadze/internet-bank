@@ -61,10 +61,10 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
         if (this.click === 2) {
           setTimeout(() => {
             dropdown.classList.remove('show');
-          }, 160);
+          }, 120);
           setTimeout(() => {
             dropdown.classList.toggle('hide');
-          }, 160);
+          }, 120);
           dropdown.classList.toggle('visuallyHidden');
           this.click = 0;
         }
