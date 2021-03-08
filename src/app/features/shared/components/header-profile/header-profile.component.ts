@@ -50,7 +50,7 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
           }, 209);
           setTimeout(() => {
             dropdown.classList.toggle('hide');
-          }, 300);
+          }, 200);
           dropdown.classList.toggle('visuallyHidden');
           this.clickEvent();
           this.click = 0;
@@ -64,7 +64,7 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
           }, 209);
           setTimeout(() => {
             dropdown.classList.toggle('hide');
-          }, 300);
+          }, 200);
           dropdown.classList.toggle('visuallyHidden');
           this.click = 0;
         }
@@ -88,7 +88,7 @@ export class HeaderProfileComponent implements AfterViewInit, OnInit {
     }, 209);
     setTimeout(() => {
       this.userDropdownMenu.nativeElement.classList.toggle('hide');
-    }, 300);
+    }, 200);
     this.userDropdownMenu.nativeElement.classList.toggle('visuallyHidden');
     this.clickEvent();
     this.click = 0;
