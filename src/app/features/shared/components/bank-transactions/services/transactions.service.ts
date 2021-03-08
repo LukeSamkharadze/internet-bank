@@ -51,6 +51,12 @@ export class TransactionsService {
               result.push(this.iconService.determineTransfersIcon(element));
             });
 
+            result.forEach((element) => {
+              if (String(element.toUserId) !== this.authService.userId) {
+                element.amount = `-${element.amount}`;
+              }
+            });
+
             return result;
           })
         );
