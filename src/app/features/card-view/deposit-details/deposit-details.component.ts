@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { IDeposit } from '../../shared/interfaces/deposit.interface';
 import { DepositService } from '../../shared/services/deposit.service';
 import { FormatterService } from '../../shared/services/formatter.service';
@@ -25,6 +25,7 @@ export class DepositDetailsComponent implements OnInit {
   color$: Observable<string>;
   buttons$: Observable<IButton[]>;
   background$: Observable<string>;
+  canSelect$: BehaviorSubject<boolean>;
 
   constructor(
     private formatterService: FormatterService,
@@ -36,6 +37,7 @@ export class DepositDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.canSelect$ = new BehaviorSubject(false);
     const deposit$ = this.route.params.pipe(
       map((params) => Number(params.id)),
       map((id) => {
@@ -73,7 +75,8 @@ export class DepositDetailsComponent implements OnInit {
       map((deposit) => this.toListService.depositToList(deposit))
     );
     this.cardInfo$ = deposit$.pipe(
-      map((deposit) => this.toTemplateService.depositToTemplate(deposit))
+      map((deposit) => this.toTemplateService.depositToTemplate(deposit)),
+      tap(() => setTimeout(() => this.canSelect$.next(true), 500))
     );
     this.buttons$ = deposit$.pipe(
       map((deposit) => [
