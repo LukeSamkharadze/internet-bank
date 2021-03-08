@@ -17,7 +17,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./bank-transaction-details.component.scss'],
 })
 export class BankTransactionDetailsComponent implements OnChanges {
-  object: BehaviorSubject<Itransaction> = new BehaviorSubject(sample);
+  object: Itransaction = sample;
   @Input() transaction: Itransaction;
   @Output() closePopup = new EventEmitter();
   @Output() sendReceipt = new EventEmitter();
@@ -28,16 +28,13 @@ export class BankTransactionDetailsComponent implements OnChanges {
   tagColor = 'orange';
   accNum: string;
 
-  constructor(private ref: ChangeDetectorRef) {}
-
   ngOnChanges() {
-    console.log('aeeeeeeeeeeee');
-    if (this.object.value !== this.transaction) {
-      this.object.next(this.transaction);
+    if (this.object !== this.transaction) {
+      this.object = this.transaction;
       this.accNum = this.transaction.fromAccountNumber.toString().substring(12);
       const fac = new FastAverageColor();
       fac
-        .getColorAsync(this.transaction.iconPath)
+        .getColorAsync(this.object.iconPath)
         .then((data) => {
           this.background.next(data.hex);
           this.opacity.next('100%');
@@ -46,10 +43,10 @@ export class BankTransactionDetailsComponent implements OnChanges {
           this.error = e;
           this.background.next('rgb(221, 32, 49)');
         });
-      this.transaction.status =
-        this.transaction.status.charAt(0).toUpperCase() +
-        this.transaction.status.substring(1);
-      switch (this.transaction.status) {
+      this.object.status =
+        this.object.status.charAt(0).toUpperCase() +
+        this.object.status.substring(1);
+      switch (this.object.status) {
         case 'Pending':
           this.tagColor = 'orange';
           break;

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-features-shared-bank-transactions',
@@ -20,7 +21,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   transactionsList: Array<TransactionsList> = [];
   searchText;
   popDetails = false;
-  transactionObject = {};
+  transactionObject = new BehaviorSubject({});
   monthNames = [
     'Jan',
     'Feb',
@@ -73,13 +74,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   }
 
   pop(id: number) {
-    const test = this.transactionsList.find((x) => x.id === id);
-    const test2 = this.transactionsList.find((x) => x.id === id + 1);
-    this.transactionObject = test;
-    setTimeout(() => {
-      this.transactionObject = test2;
-      console.log('input changed');
-    }, 1000);
+    this.transactionObject.next(this.transactionsList.find((x) => x.id === id));
     this.popDetails = true;
   }
 
