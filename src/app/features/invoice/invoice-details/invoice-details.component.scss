@@ -175,35 +175,3 @@
     }
   }
 }
-@media print {
-  .popup-blur {
-    background-color: white;
-  }
-  .details-popup {
-    position: fixed;
-    left: 50%;
-    top: 33.3%;
-    transform: translate(-50%, -50%);
-    .details-container {
-      height: 420mm;
-      width: 280mm;
-      .details-right {
-        .inv-content-container {
-          padding-top: 150px;
-          max-height: auto;
-          overflow-y: visible;
-        }
-        .invoice-total {
-          position: fixed;
-          right: 2mm;
-          bottom: 0;
-          margin: 0;
-        }
-      }
-    }
-  }
-  i,
-  .print-receipt {
-    visibility: hidden;
-  }
-}

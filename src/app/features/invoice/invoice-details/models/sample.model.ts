@@ -1,4 +1,4 @@
-import { Invoice } from '../../../interfaces/invoice.interface';
+import { Invoice } from '../../../shared/interfaces/invoice.interface';
 
 export const sample: Invoice = {
   id: 54,
