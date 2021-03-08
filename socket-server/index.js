@@ -68,6 +68,14 @@ io.on('connection', (socket) => {
     });
   });
 
+  // handling new invoice.
+  socket.on('invoice', ({ userId }) => {
+    const user = activeUserIds.find((usr) => usr.userId === userId);
+    user.socketIds.forEach((socketId) => {
+      io.to(socketId).emit('invoice', null);
+    });
+  });
+
   // handling when socket/user disconnects.
   socket.on('disconnect', () => {
     for (let user of activeUserIds) {

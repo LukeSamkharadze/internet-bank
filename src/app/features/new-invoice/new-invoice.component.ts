@@ -85,6 +85,7 @@ export class NewInvoiceComponent implements OnInit {
         finalize(() => {
           this.form.reset();
           window.alert('add new invoice successfully');
+          this.invoiceService.emitToSocket();
         })
       )
       .subscribe();
