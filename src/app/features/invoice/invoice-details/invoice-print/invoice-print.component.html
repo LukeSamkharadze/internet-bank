@@ -1,0 +1,58 @@
+<div class="print" *ngIf="invoice">
+  <div class="left">
+    <div class="inv-num">
+      <p>Invoice #:</p>
+      <h5>{{ invoice.invoiceNumber }}</h5>
+      <div class="tag">
+        <app-shared-tag [color]="color">
+          {{ invoice.status }}
+        </app-shared-tag>
+      </div>
+    </div>
+    <div class="address">
+      <h5>To:</h5>
+      <h3>{{ invoice.companyName }}</h3>
+      <p *ngFor="let address of getAddress()">{{ address }}</p>
+      <p>{{ invoice.contactEmail }}</p>
+    </div>
+    <div class="date">
+      <p>Date:</p>
+      <h5>{{ invoice.invoiceCreateDate | date: 'dd MMM yyyy, hh:mm a' }}</h5>
+    </div>
+    <div class="due-date">
+      <p>Due:</p>
+      <h5>{{ invoice.dueDate }}</h5>
+    </div>
+  </div>
+  <div class="right">
+    <div class="table-container">
+      <div class="tab-row tab-heading">
+        <p class="inv-desc">Description</p>
+        <p class="inv-rate">Rate.</p>
+        <p class="inv-qty">Qty.</p>
+        <p class="inv-row-total">Total</p>
+      </div>
+      <div class="tab-row" *ngFor="let inv of invoice.items">
+        <p class="inv-desc">{{ inv.itemDescription }}</p>
+        <p class="inv-rate">${{ inv.price }}</p>
+        <p class="inv-qty">{{ inv.itemQty }}</p>
+        <p class="inv-row-total">${{ inv.itemQty * inv.price }}</p>
+      </div>
+    </div>
+    <div class="inv-total">
+      <div class="inv-total-row">
+        <p class="title">Subtotal:</p>
+        <p class="amount">${{ prices.subtotal }}</p>
+      </div>
+      <div class="inv-total-row">
+        <p class="title">Tax 10%:</p>
+        <p class="amount">${{ prices.tax }}</p>
+      </div>
+      <div class="inv-total-row inv-total-foot">
+        <p class="total-title">Total:</p>
+        <p class="total-amount">${{ prices.total }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p *ngIf="!invoice">Invoice Wasn't Provided</p>

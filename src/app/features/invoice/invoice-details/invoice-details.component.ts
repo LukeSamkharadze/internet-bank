@@ -5,11 +5,12 @@ import {
   OnChanges,
   Output,
 } from '@angular/core';
-import { Invoice } from '../../interfaces/invoice.interface';
+import { Router } from '@angular/router';
+import { Invoice } from '../../shared/interfaces/invoice.interface';
 import { sample } from './models/sample.model';
 
 @Component({
-  selector: 'app-shared-invoice-details',
+  selector: 'app-invoice-details',
   templateUrl: './invoice-details.component.html',
   styleUrls: ['./invoice-details.component.scss'],
 })
@@ -23,6 +24,8 @@ export class InvoiceDetailsComponent implements OnChanges {
     total: 0,
   };
 
+  constructor(private router: Router) {}
+
   ngOnChanges() {
     this.prices.subtotal = this.invoice.totalAmount;
     this.prices.tax = this.invoice.totalAmount / 10;
@@ -30,7 +33,13 @@ export class InvoiceDetailsComponent implements OnChanges {
   }
 
   print(): void {
-    window.print();
+    this.router.navigate(['/invoices/print'], {
+      state: {
+        data: this.invoice,
+        color: this.getColor(),
+        prices: this.getPrice(),
+      },
+    });
   }
 
   getAddress(): string[] {
