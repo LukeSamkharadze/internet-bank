@@ -3,7 +3,10 @@
   <div class="details-container">
     <div
       class="details-popup-upper"
-      [ngStyle]="{ 'background-color': background, opacity: opacity }"
+      [ngStyle]="{
+        'background-color': background | async,
+        opacity: opacity | async
+      }"
     >
       <i class="las la-times-circle" (click)="closeModal()"></i>
     </div>

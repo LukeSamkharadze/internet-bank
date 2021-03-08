@@ -9,6 +9,7 @@ import {
 import { Itransaction } from '../../interfaces/bank-transactions.interface';
 import { sample } from './models/sample.model';
 import FastAverageColor from 'fast-average-color';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-shared-bank-transaction-details',
@@ -19,8 +20,8 @@ export class BankTransactionDetailsComponent implements OnInit {
   @Input() transaction: Itransaction = sample;
   @Output() closePopup = new EventEmitter();
   @Output() sendReceipt = new EventEmitter();
-  background = '#fff';
-  opacity = '70%';
+  background = new BehaviorSubject('#fff');
+  opacity = new BehaviorSubject('70%');
   error: string;
   showTag = true;
   tagColor = 'orange';
@@ -34,13 +35,12 @@ export class BankTransactionDetailsComponent implements OnInit {
       fac
         .getColorAsync(this.transaction.iconPath)
         .then((data) => {
-          this.background = data.hex;
-          this.opacity = '100%';
-          this.ref.markForCheck();
+          this.background.next(data.hex);
+          this.opacity.next('100%');
         })
         .catch((e) => {
           this.error = e;
-          this.background = 'rgb(221, 32, 49)';
+          this.background.next('rgb(221, 32, 49)');
         });
     }
     this.transaction.status =
