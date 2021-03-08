@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Invoice } from 'src/app/features/shared/interfaces/invoice.interface';
 
 @Component({
@@ -11,12 +12,19 @@ export class InvoicePrintComponent implements OnInit {
   color: string;
   prices: { subtotal: number; tax: number; total: number };
 
+  constructor(private route: Router) {}
+
   ngOnInit(): void {
     if (history.state.data) {
       this.invoice = history.state.data;
       this.color = history.state.color;
       this.prices = history.state.prices;
-      setTimeout(window.print, 1500);
+      setTimeout(() => {
+        window.print();
+        this.route.navigate(['/invoices']);
+      }, 1500);
+    } else {
+      this.route.navigate(['/invoices']);
     }
   }
 
