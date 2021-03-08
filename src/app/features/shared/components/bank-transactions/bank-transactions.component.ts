@@ -73,7 +73,13 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   }
 
   pop(id: number) {
-    this.transactionObject = this.transactionsList.find((x) => x.id === id);
+    const test = this.transactionsList.find((x) => x.id === id);
+    const test2 = this.transactionsList.find((x) => x.id === id + 1);
+    this.transactionObject = test;
+    setTimeout(() => {
+      this.transactionObject = test2;
+      console.log('input changed');
+    }, 1000);
     this.popDetails = true;
   }
 

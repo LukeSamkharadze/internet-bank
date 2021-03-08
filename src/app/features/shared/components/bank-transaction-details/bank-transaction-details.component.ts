@@ -1,9 +1,9 @@
 import {
   Component,
   Input,
-  OnInit,
   Output,
   EventEmitter,
+  OnChanges,
   ChangeDetectorRef,
 } from '@angular/core';
 import { Itransaction } from '../../interfaces/bank-transactions.interface';
@@ -16,8 +16,9 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './bank-transaction-details.component.html',
   styleUrls: ['./bank-transaction-details.component.scss'],
 })
-export class BankTransactionDetailsComponent implements OnInit {
-  @Input() transaction: Itransaction = sample;
+export class BankTransactionDetailsComponent implements OnChanges {
+  object: BehaviorSubject<Itransaction> = new BehaviorSubject(sample);
+  @Input() transaction: Itransaction;
   @Output() closePopup = new EventEmitter();
   @Output() sendReceipt = new EventEmitter();
   background = new BehaviorSubject('#fff');
@@ -25,12 +26,15 @@ export class BankTransactionDetailsComponent implements OnInit {
   error: string;
   showTag = true;
   tagColor = 'orange';
-  accNum = this.transaction.fromAccountNumber.toString();
+  accNum: string;
 
   constructor(private ref: ChangeDetectorRef) {}
 
-  ngOnInit() {
-    if (this.transaction) {
+  ngOnChanges() {
+    console.log('aeeeeeeeeeeee');
+    if (this.object.value !== this.transaction) {
+      this.object.next(this.transaction);
+      this.accNum = this.transaction.fromAccountNumber.toString().substring(12);
       const fac = new FastAverageColor();
       fac
         .getColorAsync(this.transaction.iconPath)
@@ -42,20 +46,20 @@ export class BankTransactionDetailsComponent implements OnInit {
           this.error = e;
           this.background.next('rgb(221, 32, 49)');
         });
-    }
-    this.transaction.status =
-      this.transaction.status.charAt(0).toUpperCase() +
-      this.transaction.status.substring(1);
-    switch (this.transaction.status) {
-      case 'Pending':
-        this.tagColor = 'orange';
-        break;
-      case 'Paid':
-        this.tagColor = 'green';
-        break;
-      case 'Cancelled':
-        this.tagColor = 'pink';
-        break;
+      this.transaction.status =
+        this.transaction.status.charAt(0).toUpperCase() +
+        this.transaction.status.substring(1);
+      switch (this.transaction.status) {
+        case 'Pending':
+          this.tagColor = 'orange';
+          break;
+        case 'Paid':
+          this.tagColor = 'green';
+          break;
+        case 'Cancelled':
+          this.tagColor = 'pink';
+          break;
+      }
     }
   }
 
