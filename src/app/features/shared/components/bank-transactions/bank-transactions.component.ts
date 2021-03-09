@@ -13,7 +13,7 @@ import { TransactionsList } from './models/bank-transaction.model';
   templateUrl: './bank-transactions.component.html',
   styleUrls: ['./bank-transactions.component.scss'],
 })
-export class BankTransactionsComponent implements OnInit, OnChanges {
+export class BankTransactionsComponent implements OnInit {
   @Input() input;
   hasInput = true;
   show = true;
@@ -21,42 +21,14 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   searchText;
   popDetails = false;
   transactionObject = {};
-  monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
   chosenDate = null;
   chosenType = null;
-
-  // if feature tag has an '[input]' property, make hasInput=false. Thus, searchtab will not be displayed.
-  ngOnChanges(changes: SimpleChanges) {
-    /* tslint:disable:no-string-literal */
-    if (changes.hasOwnProperty('input')) {
-      if (changes['input'].isFirstChange()) {
-        // AKA initialization by angular
-        this.hasInput = false;
-        this.show = false;
-        return this.hasInput;
-      }
-    }
-    /* tslint:enable:no-string-literal */
-  }
 
   constructor(private getTransactionService: TransactionsService) {}
 
   fetchTransactions() {
     this.getTransactionService
-      .getTransactions(this.chosenDate, this.chosenType)
+      .getTransactions(this.chosenDate, this.chosenType, this.input)
       .subscribe((data) => {
         this.transactionsList = [];
         data.forEach((element) => {
@@ -70,6 +42,10 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.fetchTransactions();
+    if (this.input) {
+      this.hasInput = false;
+      this.show = false;
+    }
   }
 
   pop(id: number) {
