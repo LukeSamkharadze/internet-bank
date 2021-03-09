@@ -106,7 +106,7 @@
       *ngIf="popDetails"
       (closePopup)="closePopup()"
       (sendReceipt)="sendReceipt()"
-      [transaction]="transactionObject"
+      [transaction]="transactionObject | async"
     >
     </app-shared-bank-transaction-details>
   </div>
