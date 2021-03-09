@@ -20,8 +20,8 @@ export class TransactionsService {
     let url2 = '';
 
     if (accountNumber) {
-      url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&fromAccountNumber=${accountNumber}`;
-      url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&toAccountNumber=${accountNumber}`;
+      url1 = `${this.host}/transactions?fromAccountNumber=${accountNumber}`;
+      url2 = `${this.host}/transactions?toAccountNumber=${accountNumber}`;
     } else {
       if (type === 'all') {
         type = null;
