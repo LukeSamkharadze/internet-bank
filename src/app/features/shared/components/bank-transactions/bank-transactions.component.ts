@@ -14,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './bank-transactions.component.html',
   styleUrls: ['./bank-transactions.component.scss'],
 })
-export class BankTransactionsComponent implements OnInit {
+export class BankTransactionsComponent implements OnInit, OnChanges {
   @Input() input;
   hasInput = true;
   show = true;
@@ -44,9 +44,18 @@ export class BankTransactionsComponent implements OnInit {
 
   ngOnInit() {
     this.fetchTransactions();
-    if (this.input) {
-      this.hasInput = false;
-      this.show = false;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if ('input' in changes) {
+      if (this.input) {
+        this.hasInput = false;
+        this.show = false;
+        this.fetchTransactions();
+      } else {
+        this.hasInput = true;
+        this.show = true;
+      }
     }
   }
 
