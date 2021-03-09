@@ -18,6 +18,7 @@ export class NewInvoiceComponent implements OnInit {
   form: FormGroup;
   items: FormArray;
   totalAmount = 0;
+  isSubmited = false;
 
   constructor(
     private fb: FormBuilder,
@@ -69,6 +70,8 @@ export class NewInvoiceComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isSubmited = true;
+    this.form.markAllAsTouched();
     if (this.form.valid) {
       const createDate = new Date();
       this.calculateTotalAmount();
@@ -91,10 +94,12 @@ export class NewInvoiceComponent implements OnInit {
         .subscribe();
 
       this.totalAmount = 0;
+      this.isSubmited = false;
     }
   }
 
   onCencel() {
     this.form.reset();
+    this.isSubmited = false;
   }
 }

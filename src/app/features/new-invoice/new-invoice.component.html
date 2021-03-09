@@ -13,7 +13,10 @@
 
       <p class="form-split item"><span>Products list</span></p>
 
-      <app-form-products-list [form]="form"></app-form-products-list>
+      <app-form-products-list
+        [submited]="isSubmited"
+        [form]="form"
+      ></app-form-products-list>
     </form>
   </div>
 
@@ -23,7 +26,6 @@
       <app-shared-button
         [className]="{ primary: true, active: true }"
         style="width: 150px; height: 49px"
-        [isDisabled]="!form.valid"
         (click)="onSubmit()"
         >send invoice
       </app-shared-button>
