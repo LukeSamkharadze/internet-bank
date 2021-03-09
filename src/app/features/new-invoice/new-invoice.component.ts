@@ -69,27 +69,29 @@ export class NewInvoiceComponent implements OnInit {
   }
 
   onSubmit() {
-    const createDate = new Date();
-    this.calculateTotalAmount();
+    if (this.form.valid) {
+      const createDate = new Date();
+      this.calculateTotalAmount();
 
-    const invoiceObj = {
-      ...this.form.getRawValue(),
-      totalAmount: this.totalAmount,
-      status: 'Pending',
-      invoiceCreateDate: createDate,
-    };
+      const invoiceObj = {
+        ...this.form.getRawValue(),
+        totalAmount: this.totalAmount,
+        status: 'Pending',
+        invoiceCreateDate: createDate,
+      };
 
-    this.invoiceService
-      .create(invoiceObj)
-      .pipe(
-        finalize(() => {
-          this.form.reset();
-          window.alert('add new invoice successfully');
-        })
-      )
-      .subscribe();
+      this.invoiceService
+        .create(invoiceObj)
+        .pipe(
+          finalize(() => {
+            this.form.reset();
+            window.alert('add new invoice successfully');
+          })
+        )
+        .subscribe();
 
-    this.totalAmount = 0;
+      this.totalAmount = 0;
+    }
   }
 
   onCencel() {
