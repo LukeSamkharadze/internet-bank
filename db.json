@@ -167,7 +167,7 @@
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 37937.96,
+      "availableAmount": 36900.96,
       "security3D": true,
       "userId": "1",
       "id": 2
@@ -179,7 +179,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 10000,
+      "availableAmount": 5000,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -710,6 +710,47 @@
       "toAccountNumber": "GE32TB4434234223333333",
       "status": "pending",
       "id": 5
+    },
+    {
+      "title": "electronic payment to hg@gmail.com",
+      "date": "2021-03-08T19:20:29.210Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB2222111133334444",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "hg@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 5525,
+      "currency": "USD",
+      "status": "pending",
+      "id": 6
+    },
+    {
+      "title": "electronic payment to hg@gmail.com",
+      "date": "2021-03-08T19:38:36.633Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB2222111133334444",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "hg@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 412,
+      "currency": "USD",
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "title": "Internal Bank transfer to user: SANCHO PANZA",
+      "toUserId": "1",
+      "date": "2021-03-08T19:47:28.005Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "toAccountNumber": "GE32TB2222111133334444",
+      "amount": 5000,
+      "currency": "USD",
+      "beneficiary": "SANCHO PANZA",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 8
     }
   ],
   "news": [
