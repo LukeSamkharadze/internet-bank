@@ -11,6 +11,7 @@ import { TransactionsList } from './models/bank-transaction.model';
 import { SocketIoService } from '../../services/socket-io.service';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-features-shared-bank-transactions',
@@ -25,7 +26,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
   transactionsList: Array<TransactionsList> = [];
   searchText;
   popDetails = false;
-  transactionObject = {};
+  transactionObject = new BehaviorSubject({});
   monthNames = [
     'Jan',
     'Feb',
@@ -88,7 +89,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   pop(id: number) {
-    this.transactionObject = this.transactionsList.find((x) => x.id === id);
+    this.transactionObject.next(this.transactionsList.find((x) => x.id === id));
     this.popDetails = true;
   }
 

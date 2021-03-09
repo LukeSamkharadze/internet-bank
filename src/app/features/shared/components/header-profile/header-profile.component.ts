@@ -66,10 +66,10 @@ export class HeaderProfileComponent
         if (dropdown.classList.contains('show')) {
           setTimeout(() => {
             dropdown.classList.remove('show');
-          }, 209);
+          }, 120);
           setTimeout(() => {
             dropdown.classList.toggle('hide');
-          }, 300);
+          }, 120);
           dropdown.classList.toggle('visuallyHidden');
           this.clickEvent();
           this.click = 0;
@@ -80,10 +80,10 @@ export class HeaderProfileComponent
         if (this.click === 2) {
           setTimeout(() => {
             dropdown.classList.remove('show');
-          }, 209);
+          }, 120);
           setTimeout(() => {
             dropdown.classList.toggle('hide');
-          }, 300);
+          }, 120);
           dropdown.classList.toggle('visuallyHidden');
           this.click = 0;
         }
@@ -104,10 +104,10 @@ export class HeaderProfileComponent
   hideDropdown() {
     setTimeout(() => {
       this.userDropdownMenu.nativeElement.classList.remove('show');
-    }, 209);
+    }, 120);
     setTimeout(() => {
       this.userDropdownMenu.nativeElement.classList.toggle('hide');
-    }, 300);
+    }, 120);
     this.userDropdownMenu.nativeElement.classList.toggle('visuallyHidden');
     this.clickEvent();
     this.click = 0;
