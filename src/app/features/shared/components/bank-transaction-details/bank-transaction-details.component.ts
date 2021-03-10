@@ -20,24 +20,23 @@ export class BankTransactionDetailsComponent implements OnChanges {
   @Output() closePopup = new EventEmitter();
   @Output() sendReceipt = new EventEmitter();
   background = new BehaviorSubject('#fff');
-  opacity = new BehaviorSubject('70%');
   error: string;
   showTag = true;
   tagColor = 'orange';
   accNum: string;
+  amount = '$';
 
   ngOnChanges() {
-    this.accNum = this.transaction.fromAccountNumber.toString().substring(12);
+    this.accNum = this.transaction.fromAccountNumber.toString().substring(18);
     const fac = new FastAverageColor();
     fac
       .getColorAsync(this.transaction.iconPath)
       .then((data) => {
         this.background.next(data.hex);
-        this.opacity.next('100%');
       })
       .catch((e) => {
         this.error = e;
-        this.background.next('rgb(221, 32, 49)');
+        this.background.next('#00adee');
       });
     this.transaction.status =
       this.transaction.status.charAt(0).toUpperCase() +
@@ -52,6 +51,12 @@ export class BankTransactionDetailsComponent implements OnChanges {
       case 'Cancelled':
         this.tagColor = 'pink';
         break;
+    }
+    // amount sometimes contains '-' so it will show as $-7 without this
+    if (this.transaction.amount[0] === '-') {
+      this.amount = '-' + '$' + this.transaction.amount.substring(1);
+    } else {
+      this.amount += this.transaction.amount;
     }
   }
 
