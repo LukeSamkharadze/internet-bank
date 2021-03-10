@@ -43,7 +43,7 @@ $notif-width: 555px;
 }
 
 .orange {
-  @include notif-style($primary);
+  @include notif-style($orange);
 }
 .blue {
   @include notif-style($secondary-1);

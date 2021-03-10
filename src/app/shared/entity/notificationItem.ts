@@ -1,28 +1,22 @@
+export type NotificationStatus = 'success' | 'failure' | 'info';
+
 export class NotificationItem {
+  private static notificationCounter = 0;
+  private static colors = new Map<NotificationStatus, string>([
+    ['failure', 'orange'],
+    ['success', 'green'],
+    ['info', 'pink'],
+  ]);
+
   id: number;
-  text: string;
-  status: NotificationStatus;
-  timing: number;
-  color: string;
+  color: string = 'white';
 
-  constructor(text: string, status: NotificationStatus, timing: number) {
-    this.text = text;
-    this.status = status;
-    this.timing = timing;
-    this.id = Math.random();
-
-    switch (status) {
-      case 'failure':
-        this.color = 'orange';
-        break;
-      case 'success':
-        this.color = 'green';
-        break;
-      case 'info':
-        this.color = 'blue';
-        break;
-    }
+  constructor(
+    public text: string,
+    public status: NotificationStatus = 'info',
+    public timing: number = 5000
+  ) {
+    this.id = NotificationItem.notificationCounter++;
+    this.color = NotificationItem.colors.get(status) || this.color;
   }
 }
-
-export type NotificationStatus = 'success' | 'failure' | 'info';
