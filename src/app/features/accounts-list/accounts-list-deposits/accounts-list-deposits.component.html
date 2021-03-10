@@ -7,6 +7,7 @@
       *ngFor="let deposit of pipedDeposits$ | async"
       [info]="deposit.info"
       [color]="deposit.color"
+      class="disable-select"
       [class.blocked]="deposit.blocked"
       [routerLink]="['/card-view/deposit/' + deposit.id]"
       ><i [class]="deposit.icon"></i

@@ -8,6 +8,6 @@ export class BackgroundService {
   private readonly BACKGROUND_DIRECTORY = './assets/cards/backgrounds/';
 
   getBackground(color: IBgColor): string {
-    return this.BACKGROUND_DIRECTORY + color + '.svg';
+    return this.BACKGROUND_DIRECTORY + (color || 'orange') + '.svg';
   }
 }

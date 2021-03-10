@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-features-shared-bank-transactions',
@@ -20,43 +21,16 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   transactionsList: Array<TransactionsList> = [];
   searchText;
   popDetails = false;
-  transactionObject = {};
-  monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
+  transactionObject = new BehaviorSubject({});
+
   chosenDate = null;
   chosenType = null;
-
-  // if feature tag has an '[input]' property, make hasInput=false. Thus, searchtab will not be displayed.
-  ngOnChanges(changes: SimpleChanges) {
-    /* tslint:disable:no-string-literal */
-    if (changes.hasOwnProperty('input')) {
-      if (changes['input'].isFirstChange()) {
-        // AKA initialization by angular
-        this.hasInput = false;
-        this.show = false;
-        return this.hasInput;
-      }
-    }
-    /* tslint:enable:no-string-literal */
-  }
 
   constructor(private getTransactionService: TransactionsService) {}
 
   fetchTransactions() {
     this.getTransactionService
-      .getTransactions(this.chosenDate, this.chosenType)
+      .getTransactions(this.chosenDate, this.chosenType, this.input)
       .subscribe((data) => {
         this.transactionsList = [];
         data.forEach((element) => {
@@ -72,8 +46,21 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
     this.fetchTransactions();
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if ('input' in changes) {
+      if (this.input) {
+        this.hasInput = false;
+        this.show = false;
+        this.fetchTransactions();
+      } else {
+        this.hasInput = true;
+        this.show = true;
+      }
+    }
+  }
+
   pop(id: number) {
-    this.transactionObject = this.transactionsList.find((x) => x.id === id);
+    this.transactionObject.next(this.transactionsList.find((x) => x.id === id));
     this.popDetails = true;
   }
 

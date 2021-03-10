@@ -3,7 +3,10 @@
   <div class="details-container">
     <div
       class="details-popup-upper"
-      [ngStyle]="{ 'background-color': background, opacity: opacity }"
+      [ngStyle]="{
+        'background-color': background | async,
+        opacity: opacity | async
+      }"
     >
       <i class="las la-times-circle" (click)="closeModal()"></i>
     </div>
@@ -30,7 +33,7 @@
       </div>
       <div class="details-popup-lower-transaction">
         <div class="details-popup-lower-transaction-account">
-          <h5>xxxx {{ accNum.substring(12) }}</h5>
+          <h5>xxxx {{ accNum }}</h5>
           <p>Payment account</p>
         </div>
         <div class="details-popup-lower-transaction-amount">

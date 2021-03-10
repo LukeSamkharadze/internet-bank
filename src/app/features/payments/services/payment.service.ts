@@ -28,6 +28,11 @@ export class PaymentService {
       transfer.fromAccountNumber,
       transfer.amount
     ).pipe(
+      tap((card) => {
+        if (card.blocked) {
+          throw new Error('Your card is blocked!');
+        }
+      }),
       switchMap((card) =>
         forkJoin([of(card), this.checkBankPaymentsLimits(transfer.amount)])
       ),
@@ -42,6 +47,9 @@ export class PaymentService {
       ),
       tap(([fromAccount, destinationAccount]) => {
         if (destinationAccount) {
+          if (destinationAccount.blocked) {
+            throw new Error('Can not make payment to blocked card!');
+          }
           if (destinationAccount.accountNumber === fromAccount.accountNumber) {
             throw new Error('Can not make payment on same account');
           }
@@ -81,6 +89,11 @@ export class PaymentService {
       transfer.fromAccountNumber,
       transfer.amount
     ).pipe(
+      tap((card) => {
+        if (card.blocked) {
+          throw new Error('Your card is blocked!');
+        }
+      }),
       switchMap((card) =>
         forkJoin([
           of(card),
@@ -89,9 +102,11 @@ export class PaymentService {
       ),
       tap(([fromAccount, destinationAccount]) => {
         if (!destinationAccount) {
-          throw new Error('Provided account does not exist');
+          throw new Error('Such account does not exist!');
         }
-
+        if (destinationAccount.blocked) {
+          throw new Error('Can not make payment to blocked card!');
+        }
         if (destinationAccount.accountNumber === fromAccount.accountNumber) {
           throw new Error('Can not make payment on same account');
         }
@@ -119,6 +134,11 @@ export class PaymentService {
       transfer.fromAccountNumber,
       transfer.amount
     ).pipe(
+      tap((card) => {
+        if (card.blocked) {
+          throw new Error('Your card is blocked!');
+        }
+      }),
       switchMap((fromAccount) =>
         forkJoin([
           of(fromAccount),

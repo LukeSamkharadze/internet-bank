@@ -15,28 +15,39 @@ export class TransactionsService {
     private iconService: IconService
   ) {}
 
-  getTransactions(date: string, type: string) {
+  getTransactions(date: string, type: string, accountNumber: string) {
     let url1 = '';
     let url2 = '';
-    if (type === 'all') {
-      type = null;
-    }
 
-    if (date !== null && date !== undefined) {
-      if (type !== null && type !== undefined) {
-        url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&date_like=${date}&type=${type}`;
-        url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&date_like=${date}&type=${type}`;
+    if (accountNumber) {
+      if (date) {
+        url1 = `${this.host}/transactions?fromAccountNumber=${accountNumber}&date_like=${date}`;
+        url2 = `${this.host}/transactions?toAccountNumber=${accountNumber}&date_like=${date}`;
       } else {
-        url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&date_like=${date}`;
-        url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&date_like=${date}`;
+        url1 = `${this.host}/transactions?fromAccountNumber=${accountNumber}`;
+        url2 = `${this.host}/transactions?toAccountNumber=${accountNumber}`;
       }
     } else {
-      if (type !== null && type !== undefined) {
-        url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&type=${type}`;
-        url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&type=${type}`;
+      if (type === 'all') {
+        type = null;
+      }
+
+      if (date !== null && date !== undefined) {
+        if (type !== null && type !== undefined) {
+          url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&date_like=${date}&type=${type}`;
+          url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&date_like=${date}&type=${type}`;
+        } else {
+          url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&date_like=${date}`;
+          url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&date_like=${date}`;
+        }
       } else {
-        url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}`;
-        url2 = `${this.host}/transactions?toUserId=${this.authService.userId}`;
+        if (type !== null && type !== undefined) {
+          url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}&type=${type}`;
+          url2 = `${this.host}/transactions?toUserId=${this.authService.userId}&type=${type}`;
+        } else {
+          url1 = `${this.host}/transactions?fromAccountUserId=${this.authService.userId}`;
+          url2 = `${this.host}/transactions?toUserId=${this.authService.userId}`;
+        }
       }
     }
 
@@ -49,6 +60,12 @@ export class TransactionsService {
 
             concatenated.forEach((element) => {
               result.push(this.iconService.determineTransfersIcon(element));
+            });
+
+            result.forEach((element) => {
+              if (String(element.toUserId) !== this.authService.userId) {
+                element.amount = `-${element.amount}`;
+              }
             });
 
             return result;
