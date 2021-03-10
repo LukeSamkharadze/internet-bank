@@ -18,9 +18,7 @@ export class GlobalNotificationService {
       .pipe(
         tap((transfer: Transfer) => {
           const notification = new NotificationItem(
-            'Received payment!',
-            'success',
-            3000
+            `You received ${transfer.amount} USD!`
           );
           this.notificationService.add(notification, true);
         })

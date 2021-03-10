@@ -19,8 +19,8 @@ import {
 import { CardService } from '../../../../shared/services/card.service';
 import { UserService } from '../../../../shared/services/user.service';
 import { Router } from '@angular/router';
-import { NotificationsManagerService } from '../../../../../shared/services/notifications-manager.service';
 import { NotificationItem } from '../../../../../shared/entity/notificationItem';
+import { NotificationsManagerService } from '../../../../../shared/services/notifications-manager.service';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -86,13 +86,16 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
               this.form.reset();
               const notification = new NotificationItem(
                 'Succesfull payment!',
-                'success',
-                3000
+                'success'
               );
               this.notificationService.add(notification);
             }),
             catchError((error) => {
-              alert(error);
+              const notification = new NotificationItem(
+                error.message,
+                'failure'
+              );
+              this.notificationService.add(notification);
               return of(error);
             })
           )
@@ -120,6 +123,7 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
         tap((user) => {
           if (user) {
             this.beneficiary.setValue(user.fullname);
+            this.beneficiary.markAsTouched();
           }
         })
       )

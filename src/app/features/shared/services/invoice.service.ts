@@ -60,7 +60,7 @@ export class InvoiceService implements BaseHttpInterface<Invoice> {
     }
 
     this.notificationsManagerService.add(
-      new NotificationItem(errorMessage, 'failure', 3000)
+      new NotificationItem(errorMessage, 'failure')
     );
 
     return throwError(errorMessage);
