@@ -118,7 +118,7 @@ export class PaymentService {
         }
         transfer = {
           ...transfer,
-          title: `Internal Bank transfer to account ${destinationAccount.accountNumber}`,
+          title: `Transfer to my account ${destinationAccount.accountNumber}`,
         };
       }),
       switchMap(([fromAccount, destinationAccount]) => {

@@ -14,6 +14,7 @@ import { ElectronicTransfer } from '../../../../shared/interfaces/transfers/elec
 import { ProvidersService } from '../../../services/providers.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-electronic-payment-form',
@@ -53,7 +54,8 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
 
   constructor(
     private paymentService: PaymentService,
-    private providersService: ProvidersService
+    private providersService: ProvidersService,
+    private router: Router
   ) {}
 
   onSubmit() {
@@ -74,6 +76,7 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
           .electronicTransfer(transfer)
           .pipe(
             tap(() => {
+              this.router.navigate(['/payments']);
               this.form.reset();
             }),
             catchError((error) => {
