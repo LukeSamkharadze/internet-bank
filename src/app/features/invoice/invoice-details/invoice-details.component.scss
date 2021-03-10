@@ -41,7 +41,7 @@
       cursor: pointer;
     }
     .details-left {
-      background-color: rgba(255, 171, 43, 0.05);
+      background-color: $primary-lighter;
       width: 100%;
       position: relative;
       padding: 24px 30px 20px 25px;
@@ -65,7 +65,7 @@
           word-break: break-all;
         }
         p:not(:last-child) {
-          border-bottom: 1px solid rgba(255, 171, 43, 0.25);
+          border-bottom: 1px solid $primary;
           padding: 1px 0px 1px 0px;
         }
       }
