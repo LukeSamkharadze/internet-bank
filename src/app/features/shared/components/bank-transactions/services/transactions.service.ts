@@ -20,8 +20,13 @@ export class TransactionsService {
     let url2 = '';
 
     if (accountNumber) {
-      url1 = `${this.host}/transactions?fromAccountNumber=${accountNumber}`;
-      url2 = `${this.host}/transactions?toAccountNumber=${accountNumber}`;
+      if (date) {
+        url1 = `${this.host}/transactions?fromAccountNumber=${accountNumber}&date_like=${date}`;
+        url2 = `${this.host}/transactions?toAccountNumber=${accountNumber}&date_like=${date}`;
+      } else {
+        url1 = `${this.host}/transactions?fromAccountNumber=${accountNumber}`;
+        url2 = `${this.host}/transactions?toAccountNumber=${accountNumber}`;
+      }
     } else {
       if (type === 'all') {
         type = null;
