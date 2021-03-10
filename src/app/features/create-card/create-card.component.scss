@@ -4,20 +4,12 @@
   width: 100%;
   display: block;
   padding: 28px;
-  margin: 0 auto;
 }
 
 .main-container {
-  position: relative;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 28px;
-}
-
-.create-card-container {
-  min-width: 455px;
-  min-height: 746px;
+  max-width: 670px;
+  min-width: 400px;
+  height: 706px;
   border-radius: 4px;
   background: white;
 }
@@ -322,12 +314,6 @@
 }
 
 @media only screen and (max-width: 1250px) {
-  .main-container {
-    grid-template-columns: 1fr;
-    min-width: 250px;
-    padding-bottom: 28px;
-  }
-
   .create-card-container {
     .gritem-3 {
       .li {
