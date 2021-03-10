@@ -10,33 +10,13 @@
       <div class="main-nav" #mainNav>
         <a
           class="main-nav-item"
-          [routerLink]="'dashboard'"
-          [routerLinkActive]="['nav-item-active']"
-        >
-          <div class="main-nav-icon">
-            <i class="las la-clock"></i>
-          </div>
-          <div class="main-nav-title">DASHBOARD</div>
-        </a>
-        <a
-          class="main-nav-item"
-          [routerLink]="'transactions'"
-          [routerLinkActive]="['nav-item-active']"
-        >
-          <div class="main-nav-icon">
-            <i class="las la-redo"></i>
-          </div>
-          <div class="main-nav-title">TRANSACTIONS</div>
-        </a>
-        <a
-          class="main-nav-item"
           [routerLink]="'accounts-list'"
           [routerLinkActive]="['nav-item-active']"
         >
           <div class="main-nav-icon">
             <i class="las la-briefcase"></i>
           </div>
-          <div class="main-nav-title">PRODUCTS</div>
+          <div class="main-nav-title">MY PRODUCTS</div>
         </a>
         <a
           class="main-nav-item"
@@ -50,6 +30,36 @@
         </a>
         <a
           class="main-nav-item"
+          [routerLink]="'transactions'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-redo"></i>
+          </div>
+          <div class="main-nav-title">TRANSACTIONS</div>
+        </a>
+        <a
+          class="main-nav-item"
+          [routerLink]="'dashboard'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-clock"></i>
+          </div>
+          <div class="main-nav-title">MY MONEY</div>
+        </a>
+        <a
+          class="main-nav-item"
+          [routerLink]="'invoices'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-puzzle-piece"></i>
+          </div>
+          <div class="main-nav-title">INVOICES</div>
+        </a>
+        <a
+          class="main-nav-item"
           [routerLink]="'news'"
           [routerLinkActive]="['nav-item-active']"
         >
@@ -58,19 +68,11 @@
           </div>
           <div class="main-nav-title">NEWS</div>
         </a>
-        <a class="main-nav-item"
-           [routerLink]="'invoices'"
-           [routerLinkActive]="['nav-item-active']">
-          <div class="main-nav-icon">
-            <i class="las la-puzzle-piece"></i>
-          </div>
-          <div class="main-nav-title">INVOICES</div>
-        </a>
       </div>
     </div>
     <div class="bottom-nav" #bottomNav>
       <div class="accounts">
-        <h3 class="accounts-main-title">Accounts</h3>
+        <h3 class="accounts-main-title">Cards</h3>
         <div
           class="accounts-inner"
           *ngFor="let cardNumber of cardArray; let i = index"
