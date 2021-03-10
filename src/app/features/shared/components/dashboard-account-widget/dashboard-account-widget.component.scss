@@ -51,7 +51,7 @@ header {
   }
   i {
     position: relative;
-    color: #ffab2b;
+    color: #00adee;
   }
 }
 
@@ -67,7 +67,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid #ffd08a;
+  border: 1px solid #00adee;
   p {
     font-size: 32px;
     color: $primary;
@@ -115,7 +115,7 @@ header {
 }
 .outer-border {
   border-radius: 50%;
-  border: 1px solid #ffd08a;
+  border: 1px solid #00adee;
   margin-top: 25px;
 }
 .progress .progress-bar {
