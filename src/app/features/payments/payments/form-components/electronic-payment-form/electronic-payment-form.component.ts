@@ -89,7 +89,12 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
               this.notificationService.add(notification);
             }),
             catchError((error) => {
-              alert(error);
+              const notification = new NotificationItem(
+                error.message,
+                'failure',
+                3000
+              );
+              this.notificationService.add(notification);
               return of(error);
             })
           )

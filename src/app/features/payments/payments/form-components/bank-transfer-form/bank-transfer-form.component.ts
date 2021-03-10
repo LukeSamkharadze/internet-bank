@@ -19,8 +19,8 @@ import {
 import { CardService } from '../../../../shared/services/card.service';
 import { UserService } from '../../../../shared/services/user.service';
 import { Router } from '@angular/router';
-import { NotificationsManagerService } from '../../../../../shared/services/notifications-manager.service';
 import { NotificationItem } from '../../../../../shared/entity/notificationItem';
+import { NotificationsManagerService } from '../../../../../shared/services/notifications-manager.service';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -92,7 +92,12 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
               this.notificationService.add(notification);
             }),
             catchError((error) => {
-              alert(error);
+              const notification = new NotificationItem(
+                error.message,
+                'failure',
+                3000
+              );
+              this.notificationService.add(notification);
               return of(error);
             })
           )
