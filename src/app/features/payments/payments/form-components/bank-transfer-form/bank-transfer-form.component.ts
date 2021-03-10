@@ -19,6 +19,8 @@ import {
 import { CardService } from '../../../../shared/services/card.service';
 import { UserService } from '../../../../shared/services/user.service';
 import { Router } from '@angular/router';
+import { NotificationsManagerService } from '../../../../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -56,7 +58,8 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
     private paymentService: PaymentService,
     private cardService: CardService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationsManagerService
   ) {}
 
   onSubmit(): void {
@@ -81,6 +84,12 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
             tap(() => {
               this.router.navigate(['/payments']);
               this.form.reset();
+              const notification = new NotificationItem(
+                'Succesfull payment!',
+                'success',
+                3000
+              );
+              this.notificationService.add(notification);
             }),
             catchError((error) => {
               alert(error);
