@@ -11,6 +11,8 @@ import { PaymentService } from '../../../services/payment.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { NotificationItem } from '../../../../../shared/entity/notificationItem';
+import { NotificationsManagerService } from '../../../../../shared/services/notifications-manager.service';
 
 @Component({
   selector: 'app-instant-transfer-form',
@@ -37,7 +39,11 @@ export class InternalTransferFormComponent implements OnDestroy {
 
   private subscriptions = new Subscription();
 
-  constructor(private paymentService: PaymentService, private router: Router) {}
+  constructor(
+    private paymentService: PaymentService,
+    private router: Router,
+    private notificationService: NotificationsManagerService
+  ) {}
 
   onSubmit() {
     if (this.form.valid) {
@@ -59,6 +65,12 @@ export class InternalTransferFormComponent implements OnDestroy {
             tap(() => {
               this.router.navigate(['/payments']);
               this.form.reset();
+              const notification = new NotificationItem(
+                'Succesfull payment!',
+                'success',
+                3000
+              );
+              this.notificationService.add(notification);
             }),
             catchError((error) => {
               alert(error);

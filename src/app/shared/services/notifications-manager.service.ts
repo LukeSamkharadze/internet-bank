@@ -10,8 +10,6 @@ export class NotificationsManagerService {
   private $notifications = new BehaviorSubject<NotificationItem[]>([]);
   notifications$ = this.$notifications.asObservable();
 
-  constructor() {}
-
   add(notification: NotificationItem, save: boolean = false) {
     this.$notifications.next([...this.$notifications.value, notification]);
 
