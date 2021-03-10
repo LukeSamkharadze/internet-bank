@@ -11,7 +11,11 @@
   width: 100%;
   border-radius: 5px;
   background-color: #fff;
-  img:before {
+  .balanceIcon {
+    max-width: 38px;
+    max-height: 15px;
+  }
+  .balanceIcon:before {
     content: ' ';
     display: block;
     width: 20px;
@@ -116,6 +120,7 @@
           @include text-style(16px);
         }
         .las {
+          background: transparent;
           padding-bottom: 5px;
         }
       }

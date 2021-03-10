@@ -47,8 +47,7 @@ export class AuthService {
 
   // Check if User is logged in
   userIsLoggedIn(): boolean {
-    const uid = localStorage.getItem('userId');
-    return uid ? true : false;
+    return this.userId ? true : false;
   }
 
   // Check if email is already registered
