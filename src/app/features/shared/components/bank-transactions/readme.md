@@ -10,7 +10,7 @@
 
 ```
 
-**_B) if you want to hide SearchBar and Type Dropdown, also give ACCOUNT NUMBER as an input you should give an input property to a tag. (lets give the following title: "Latest Transactions") and hide all above mentioned P.S. If you want to show all transactions and not type filter, you have to `[input]="''"` _**
+**_B) if you want to hide SearchBar and Type Dropdown, also give ACCOUNT NUMBER as an input you should give an input property to a tag. (lets give the following title: "Latest Transactions") and hide all above mentioned P.S. If you want to show all transactions and not type filter, you have to `[input]="''"`_**
 
 ```
   <app-features-shared-bank-transactions
@@ -20,4 +20,6 @@
 
 ```
 
-**_C) if you need to get Debit/Credit Transactions go to features/shared/services_**
+**_C) if you want transactions list to be empty, `[intput]` has to be `null` (e.g. `[input]="null"`)_**
+
+**_D) if you need to get Debit/Credit Transactions go to features/shared/services_**

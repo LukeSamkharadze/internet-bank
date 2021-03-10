@@ -37,6 +37,9 @@ export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
   ) {}
 
   fetchTransactions() {
+    if (this.input === null) {
+      return;
+    }
     this.transactionsList$ = this.getTransactionService
       .getTransactions(
         this.chosenDate,
@@ -49,7 +52,8 @@ export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
             ...element,
             date: new Date(element.date),
           }))
-        )
+        ),
+        tap((v) => console.log(v))
       );
   }
 
