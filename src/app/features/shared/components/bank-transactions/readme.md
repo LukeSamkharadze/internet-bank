@@ -10,7 +10,7 @@
 
 ```
 
-**_B) if you want to hide SearchBar and Type Dropdown, also give ACCOUNT NUMBER as an input you should give an input property to a tag. (lets give the following title: "Latest Transactions") and hide all above mentioned _**
+**_B) if you want to hide SearchBar and Type Dropdown, also give ACCOUNT NUMBER as an input you should give an input property to a tag. (lets give the following title: "Latest Transactions") and hide all above mentioned P.S. If you want to show all transactions and not type filter, you have to `[input]="''"` _**
 
 ```
   <app-features-shared-bank-transactions

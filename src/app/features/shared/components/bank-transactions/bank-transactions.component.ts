@@ -32,7 +32,11 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
 
   fetchTransactions() {
     this.transactionsList$ = this.getTransactionService
-      .getTransactions(this.chosenDate, this.chosenType, this.input)
+      .getTransactions(
+        this.chosenDate,
+        this.chosenType,
+        this.input || undefined
+      )
       .pipe(
         map((data) =>
           data.map((element) => ({
@@ -49,7 +53,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if ('input' in changes) {
-      if (this.input) {
+      if (this.input || this.input === '') {
         this.hasInput = false;
         this.show = false;
         this.fetchTransactions();
