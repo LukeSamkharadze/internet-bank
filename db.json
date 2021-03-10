@@ -190,12 +190,11 @@
       "cardNumber": "5829389283948298",
       "cardholder": "ADMIN ADMIN",
       "expirationDate": "11/23",
-      "availableAmount": 17851.4674578,
+      "availableAmount": 17872.047457800003,
       "security3D": true,
       "userId": "2",
       "cardType": "mastercard",
       "id": 4,
-      "iconPath": "./assets/cards/mastercard.svg",
       "blocked": true
     },
     {

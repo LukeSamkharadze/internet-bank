@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   BehaviorSubject,
@@ -7,7 +13,7 @@ import {
   Observable,
   Subject,
 } from 'rxjs';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';
 import { FormatterService } from '../../shared/services/formatter.service';
@@ -16,6 +22,7 @@ import ICardTemplate from '../models/card-view-card.interface';
 import IList from '../models/card-view-list.interface';
 import { ListFormatService } from '../services/list-format.service';
 import { TemplateFormatService } from '../services/template-format.service';
+import { SocketIoService } from '../../shared/services/socket-io.service';
 
 @Component({
   selector: 'app-card-details',
@@ -23,7 +30,8 @@ import { TemplateFormatService } from '../services/template-format.service';
   styleUrls: ['../_base.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardDetailsComponent implements OnInit {
+export class CardDetailsComponent implements OnInit, OnDestroy {
+  private unscubscriber = new Subject();
   cardInfo$: Observable<ICardTemplate>;
   list$: Observable<IList>;
   icon$: Observable<string>;
@@ -42,7 +50,9 @@ export class CardDetailsComponent implements OnInit {
     private toTemplateService: TemplateFormatService,
     private cardService: CardService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private socketIo: SocketIoService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -59,6 +69,17 @@ export class CardDetailsComponent implements OnInit {
       switchMap((v) => v)
     );
     this.initializeCard(this.paramsCard$);
+
+    this.socketIo
+      .listen('transaction')
+      .pipe(
+        takeUntil(this.unscubscriber),
+        tap(() => {
+          this.initializeCard(this.paramsCard$);
+          this.changeDetectorRef.detectChanges();
+        })
+      )
+      .subscribe();
   }
 
   initializeCard(card$: Observable<ICard>): void {
@@ -127,5 +148,9 @@ export class CardDetailsComponent implements OnInit {
         callBack: this.navigateToProducts.bind(this),
       }))
     );
+  }
+
+  ngOnDestroy() {
+    this.unscubscriber.next();
   }
 }

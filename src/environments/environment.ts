@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   BaseUrl: 'http://localhost:3000/',
+  socketUrl: 'http://localhost:3001/',
   NewsApi: {
     Url: 'https://newsapi.org/v2/',
     apiKey: [
