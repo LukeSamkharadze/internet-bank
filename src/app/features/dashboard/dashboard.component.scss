@@ -6,7 +6,7 @@
     display: grid;
     grid-gap: 28px;
     &.row-1 {
-      order: 2;
+      order: 3;
       grid-template-columns: 2fr 1fr;
       .row-1-right {
         display: grid;
@@ -16,7 +16,7 @@
     }
     &.row-2 {
       grid-template-columns: 1fr 1fr;
-      order: 3;
+      order: 2;
     }
     &.row-3 {
       display: grid;
