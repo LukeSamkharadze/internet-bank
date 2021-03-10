@@ -84,7 +84,6 @@ export class AuthService {
           }, 200);
         });
       } else {
-        // console.log(55);
         this.notificationService.add(
           new NotificationItem(
             'Login data is wrong, please check again your "email" and "password"!',
