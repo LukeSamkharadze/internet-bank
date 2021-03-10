@@ -7,38 +7,22 @@
       <div class="settings-form-aligment">
         <div class="aligment-flex">
           <div class="current">
-            <label class="input-label" for="input-icon-exampleee"
-              >current password</label
-            >
+            <label class="input-label" for="input-icon-exampleee">current password</label>
             <div class="input-wrapper">
-              <app-shared-input
-                id="input-icon-exampleee"
-                placeholder=" "
-                formControlName="curentPass"
-                type="password"
-              >
+              <app-shared-input id="input-icon-exampleee" placeholder=" " formControlName="curentPass" type="password">
               </app-shared-input>
             </div>
           </div>
           <div *ngIf="formChange.controls.toggle.value === false" class="new">
-            <label class="input-label" for="input-icon-example"
-              >new password</label
-            >
+            <label class="input-label" for="input-icon-example">new password</label>
             <div class="input-wrapper">
-              <app-shared-input
-                placeholder=" "
-                type="password"
-                id="input-icon-example"
-                class="valid"
-                formControlName="newPass"
-              >
+              <app-shared-input placeholder=" " type="password" id="input-icon-example" class="valid"
+                formControlName="newPass">
               </app-shared-input>
-              <div
-                *ngIf="
+              <div *ngIf="
                   !formChange.get('newPass').valid &&
                   formChange.get('newPass').touched
-                "
-              >
+                ">
                 invalid password
               </div>
             </div>
@@ -46,39 +30,29 @@
         </div>
       </div>
       <div>
-        <app-shared-toggle
-          matTooltip="toggle if you want to add secret questions"
-          formControlName="toggle"
-          toggleId="toggle"
-          [checked]="formChange.controls.toggle.value"
-          [textBefore]="false"
-        >
-        </app-shared-toggle>
+        <div class="toggle-wrapper">
+          <label class="disable-select" for="adasd">Change security questions</label>
+          <app-shared-toggle toggleId="adasd" matTooltip="Change security questions" formControlName="toggle"
+            [checked]="formChange.controls.toggle.value" [textBefore]="true">
+          </app-shared-toggle>
+        </div>
       </div>
       <div *ngIf="formChange.controls.toggle.value === true" class="headers">
         security questions
       </div>
       <!-- <span  *ngIf="formChange.controls.toggle.value===true" ><i  id="plus" class="las la-plus-circle"></i></span>
       <span *ngIf="formChange.controls.toggle.value===true"   ><i id="minus" class="las la-minus-circle"></i></span> -->
-      <div
-        *ngIf="formChange.controls.toggle.value === true"
-        class="settings-form-aligment"
-      >
+      <div *ngIf="formChange.controls.toggle.value === true" class="settings-form-aligment">
         <div class="aligment-flex">
           <div>
-            <label class="select" for="dropdown-general">question #1</label>
+            <label class="select" for="dropdown-general">question</label>
             <div class="dropdown-general">
               <ng-template #dropdownTemplate let-option>
                 {{ option.question }}
               </ng-template>
-              <app-shared-dropdown
-                style="width: 336px; height: 52px"
-                formControlName="dropdown"
-                placeholder="choose your question"
-                [optionTemplate]="dropdownTemplate"
-                [selectedTemplate]="dropdownTemplate"
-                [options]="questions"
-              >
+              <app-shared-dropdown style="width: 336px; height: 52px" formControlName="dropdown"
+                placeholder="choose your question" [optionTemplate]="dropdownTemplate"
+                [selectedTemplate]="dropdownTemplate" [options]="questions">
               </app-shared-dropdown>
             </div>
           </div>
@@ -86,34 +60,19 @@
             <label class="input-label" for="input-icon-example">answer</label>
 
             <div id="in" class="input-wrapper">
-              <app-shared-input
-                style="width: 336px; height: 52px"
-                formControlName="answer"
-                id="input-icon-example"
-                class="valid"
-                type="text"
-                placeholder=""
-              >
+              <app-shared-input style="width: 336px; height: 52px" formControlName="answer" id="input-icon-example"
+                class="valid" type="text" placeholder="">
               </app-shared-input>
             </div>
           </div>
         </div>
       </div>
       <div id="btn" class="primary buttons">
-        <app-shared-button
-          [className]="{ primary: true, active: true }"
-          style="width: 206px; height: 46px"
-          [isDisabled]="false"
-          (click)="onSubmit()"
-          >UPDATE SETTINGS</app-shared-button
-        >
+        <app-shared-button [className]="{ primary: true, active: true }" style="width: 206px; height: 46px"
+          [isDisabled]="false" (click)="onSubmit()">UPDATE SETTINGS</app-shared-button>
 
-        <app-shared-button
-          [className]="{ primary: true, resting: true }"
-          style="width: 148px; height: 46px; margin-left: 12px"
-          (clicked)="reset()"
-          >Reset</app-shared-button
-        >
+        <app-shared-button [className]="{ primary: true, resting: true }"
+          style="width: 148px; height: 46px; margin-left: 12px" (clicked)="reset()">Reset</app-shared-button>
         <div></div>
       </div>
     </form>

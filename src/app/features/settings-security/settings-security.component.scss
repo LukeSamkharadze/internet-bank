@@ -9,9 +9,7 @@
   display: flex;
 
   .security {
-    max-width: 1140px;
     min-width: 690px;
-    width: 100vw;
   }
   .aligment-flex {
     display: flex;
@@ -88,10 +86,15 @@ i {
   top: 50px;
 }
 
-app-shared-toggle {
+.toggle-wrapper {
   position: relative;
-  right: -650px;
-  top: 70px;
+  top: 25px;
+
+  label {
+    display: inline-block;
+    position: relative;
+    top: -5px;
+  }
 }
 
 #plus {
