@@ -12,8 +12,7 @@ import { TitleBlinkerService } from './title-blinker.service';
 export class GlobalNotificationService {
   constructor(
     private socketIo: SocketIoService,
-    private notificationService: NotificationsManagerService,
-    private titleBlinker: TitleBlinkerService
+    private notificationService: NotificationsManagerService
   ) {
     this.socketIo
       .listen('income')
@@ -25,7 +24,6 @@ export class GlobalNotificationService {
             3000
           );
           this.notificationService.add(notification, true);
-          this.titleBlinker.blink('New notification!');
         })
       )
       .subscribe();
