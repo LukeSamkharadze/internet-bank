@@ -125,6 +125,7 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
         tap((user) => {
           if (user) {
             this.beneficiary.setValue(user.fullname);
+            this.beneficiary.markAsTouched();
           }
         })
       )
