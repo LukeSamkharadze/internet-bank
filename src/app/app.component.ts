@@ -12,8 +12,7 @@ export class AppComponent {
   title = 'angular-project';
   constructor(
     private authService: AuthService,
-    private socketIo: SocketIoService,
-    private globalNotificationService: GlobalNotificationService
+    private socketIo: SocketIoService
   ) {
     if (this.authService.userId) {
       this.socketIo.emit('user_connected', this.authService.userId);

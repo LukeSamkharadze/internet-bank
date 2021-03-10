@@ -67,7 +67,9 @@ io.on('connection', (socket) => {
   socket.on('new-card', ({ userId, newCard }) => {
     const user = activeUserIds.find((usr) => usr.userId === userId);
     user.socketIds.forEach((socketId) => {
-      io.to(socketId).emit('new-card', newCard);
+      if (socketId !== socket.id) {
+        io.to(socketId).emit('new-card', newCard);
+      }
     });
   });
 
