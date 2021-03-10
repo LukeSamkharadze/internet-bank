@@ -24,7 +24,6 @@ export class BankTransactionDetailsComponent implements OnChanges {
   showTag = true;
   tagColor = 'orange';
   accNum: string;
-  isNegative = false;
   amount = '$';
 
   ngOnChanges() {
@@ -55,7 +54,6 @@ export class BankTransactionDetailsComponent implements OnChanges {
     }
     // amount sometimes contains '-' so it will show as $-7 without this
     if (this.transaction.amount[0] === '-') {
-      this.isNegative = true;
       this.amount = '-' + '$' + this.transaction.amount.substring(1);
     } else {
       this.amount += this.transaction.amount;
