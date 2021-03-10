@@ -7,7 +7,8 @@ import {
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-features-shared-bank-transactions',
@@ -18,10 +19,11 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   @Input() input;
   hasInput = true;
   show = true;
-  transactionsList: Array<TransactionsList> = [];
+  // transactionsList: Array<TransactionsList> = [];
+  transactionsList$: Observable<TransactionsList[]>;
   searchText;
   popDetails = false;
-  transactionObject = new BehaviorSubject({});
+  transactionObject$: Observable<TransactionsList>;
 
   chosenDate = null;
   chosenType = null;
@@ -29,17 +31,16 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   constructor(private getTransactionService: TransactionsService) {}
 
   fetchTransactions() {
-    this.getTransactionService
+    this.transactionsList$ = this.getTransactionService
       .getTransactions(this.chosenDate, this.chosenType, this.input)
-      .subscribe((data) => {
-        this.transactionsList = [];
-        data.forEach((element) => {
-          this.transactionsList.push({
+      .pipe(
+        map((data) =>
+          data.map((element) => ({
             ...element,
             date: new Date(element.date),
-          });
-        });
-      });
+          }))
+        )
+      );
   }
 
   ngOnInit() {
@@ -60,7 +61,9 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   }
 
   pop(id: number) {
-    this.transactionObject.next(this.transactionsList.find((x) => x.id === id));
+    this.transactionObject$ = this.transactionsList$.pipe(
+      map((data) => data.find((x) => x.id === id))
+    );
     this.popDetails = true;
   }
 

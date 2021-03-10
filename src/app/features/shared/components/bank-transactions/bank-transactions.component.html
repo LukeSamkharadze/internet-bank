@@ -72,7 +72,7 @@
 
     <div
       class="transaction"
-      *ngFor="let transaction of transactionsList | filter: searchText"
+      *ngFor="let transaction of transactionsList$ | async | filter: searchText"
     >
       <div class="left">
         <div class="img-wrapper">
@@ -103,10 +103,10 @@
     </div>
 
     <app-shared-bank-transaction-details
-      *ngIf="popDetails"
+      *ngIf="popDetails && (transactionObject$ | async) as transactionObject"
       (closePopup)="closePopup()"
       (sendReceipt)="sendReceipt()"
-      [transaction]="transactionObject | async"
+      [transaction]="transactionObject"
     >
     </app-shared-bank-transaction-details>
   </div>

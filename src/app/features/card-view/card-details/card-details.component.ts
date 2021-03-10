@@ -33,6 +33,7 @@ export class CardDetailsComponent implements OnInit {
   buttons$: Observable<IButton[]>;
   background$: Observable<string>;
   canSelect$: BehaviorSubject<boolean>;
+  accountNumber$: Observable<string>;
 
   private paramsCard$: Observable<ICard>;
 
@@ -62,6 +63,10 @@ export class CardDetailsComponent implements OnInit {
   }
 
   initializeCard(card$: Observable<ICard>): void {
+    this.accountNumber$ = card$.pipe(
+      map((card) => card.accountNumber),
+      tap((num) => console.log(num))
+    );
     this.background$ = card$.pipe(
       map((card) => this.cardService.determineBackground(card))
     );
