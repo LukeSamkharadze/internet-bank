@@ -72,7 +72,7 @@
       width: 39px;
       height: 39px;
       border-radius: 50%;
-      background: #fff3df;
+      background: $primary-light;
       @include flex;
       color: $primary;
       font-size: 20px;
@@ -92,7 +92,7 @@
   }
 
   .selected-provider {
-    background: #fffbf4;
+    background: $primary-lighter;
 
     .provider {
       border-color: transparent;
