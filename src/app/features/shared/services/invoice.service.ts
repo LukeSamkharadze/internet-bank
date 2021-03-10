@@ -5,17 +5,27 @@ import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import { Invoice } from '../interfaces/invoice.interface';
+import { SocketIoService } from './socket-io.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InvoiceService implements BaseHttpInterface<Invoice> {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private socketIo: SocketIoService,
+    private authService: AuthService
+  ) {}
 
   create(invoice: Invoice): Observable<Invoice> {
     return this.http
       .post<Invoice>(`${environment.BaseUrl}invoices`, invoice)
       .pipe(retry(1), catchError(this.handleError));
+  }
+
+  emitToSocket() {
+    this.socketIo.emit('invoice', { userId: this.authService.userId });
   }
 
   getAll(): Observable<Invoice[]> {

@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { sharedPipes } from './pipes';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import 'hammerjs';
 
 const modules = [
@@ -27,6 +28,7 @@ const modules = [
   ChartsModule,
   SharedModule,
   DateInputsModule,
+  MatTooltipModule,
 ];
 
 @NgModule({

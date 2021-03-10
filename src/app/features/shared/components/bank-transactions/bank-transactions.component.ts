@@ -2,20 +2,23 @@ import {
   Component,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { SocketIoService } from '../../services/socket-io.service';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil, tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-features-shared-bank-transactions',
   templateUrl: './bank-transactions.component.html',
   styleUrls: ['./bank-transactions.component.scss'],
 })
-export class BankTransactionsComponent implements OnInit, OnChanges {
+export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
+  unsubscriber = new Subject();
   @Input() input;
   hasInput = true;
   show = true;
@@ -28,7 +31,10 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   chosenDate = null;
   chosenType = null;
 
-  constructor(private getTransactionService: TransactionsService) {}
+  constructor(
+    private getTransactionService: TransactionsService,
+    private socketIo: SocketIoService
+  ) {}
 
   fetchTransactions() {
     this.transactionsList$ = this.getTransactionService
@@ -49,6 +55,13 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.fetchTransactions();
+    this.socketIo
+      .listen('transaction')
+      .pipe(
+        takeUntil(this.unsubscriber),
+        tap(() => this.fetchTransactions())
+      )
+      .subscribe();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -98,5 +111,9 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   typeChangeEvent($event) {
     this.chosenType = $event.toLowerCase();
     this.fetchTransactions();
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber.next();
   }
 }

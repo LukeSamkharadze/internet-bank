@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 import { UserService } from '../shared/services/user.service';
 import { AuthService } from '../shared/services/auth.service';
 import { SecretQuestionService } from '../shared/services/secretQuestion.service';
@@ -45,14 +45,19 @@ export class SettingsSecurityComponent implements OnInit {
     this.formChange = new FormGroup({
       curentPass: new FormControl('', [
         Validators.minLength(7),
+        Validators.required,
         Validators.pattern(/^[a-zA-Z0-9]+$/),
       ]),
       newPass: new FormControl('', [
         Validators.minLength(7),
+        Validators.required,
         Validators.pattern(/^[a-zA-Z0-9]+$/),
       ]),
+
       dropdown: new FormControl(''),
       answer: new FormControl('', [Validators.minLength(1)]),
+
+      toggle: new FormControl(false),
     });
     // getting user data from DB
     this.userid = this.authService.userId;
@@ -100,11 +105,11 @@ export class SettingsSecurityComponent implements OnInit {
   onSubmit() {
     // password check
     if (this.user.password === this.formChange.get('curentPass').value) {
-      if (this.formChange.get('newPass').value !== '') {
+      if (this.formChange.get('toggle').value === false) {
         this.user.password = this.formChange.get('newPass').value;
+      } else if (this.formChange.get('toggle').value === true) {
+        this.updateQuestion();
       }
-      this.updateQuestion();
-
       // updating user  DATA
       this.userServise.update(this.user).subscribe();
     } else {

@@ -22,11 +22,6 @@ const routes: Routes = [
         path: 'internal-transfer',
         component: InternalTransferFormComponent,
       },
-      {
-        path: '',
-        redirectTo: 'electronic-payment',
-        pathMatch: 'full',
-      },
     ],
   },
 ];

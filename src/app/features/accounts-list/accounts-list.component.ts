@@ -1,6 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { combineLatest, Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
+import { combineLatest, Observable, of, Subject } from 'rxjs';
+import { map, takeUntil, tap } from 'rxjs/operators';
 import { ICard } from '../shared/interfaces/card.interface';
 import { IDeposit } from '../shared/interfaces/deposit.interface';
 import { ILoan } from '../shared/interfaces/loan.interface';
@@ -10,6 +15,7 @@ import { LoanService } from '../shared/services/loan.service';
 import IItem from './models/chart-item.interface';
 import { AccountsListIncomeService } from './services/accounts-list-income.service';
 import { AccountsListInfoService } from './services/accounts-list-info.service';
+import { SocketIoService } from '../shared/services/socket-io.service';
 
 @Component({
   selector: 'app-accounts-list',
@@ -17,7 +23,8 @@ import { AccountsListInfoService } from './services/accounts-list-info.service';
   styleUrls: ['./accounts-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccountsListComponent implements OnInit {
+export class AccountsListComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   cards$: Observable<Array<ICard>>;
   deposits$: Observable<Array<IDeposit>>;
   loans$: Observable<Array<ILoan>>;
@@ -30,7 +37,8 @@ export class AccountsListComponent implements OnInit {
     private incomeService: AccountsListIncomeService,
     private cardService: CardService,
     private depositService: DepositService,
-    private loanService: LoanService
+    private loanService: LoanService,
+    private socketIo: SocketIoService
   ) {}
 
   ngOnInit(): void {
@@ -48,5 +56,19 @@ export class AccountsListComponent implements OnInit {
       map((incomes) => incomes.length),
       map((length) => Math.min(length, this.MAX_COLUMNS_CHARTS))
     );
+
+    this.socketIo
+      .listen('transaction')
+      .pipe(
+        takeUntil(this.unsubscriber),
+        tap(() => {
+          this.cards$ = this.cardService.cards$;
+        })
+      )
+      .subscribe();
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber.next();
   }
 }
