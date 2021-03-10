@@ -48,11 +48,19 @@
           >Required</span
         ></label
       >
-      <app-shared-input
-        inputId="destination-account-number"
+      <app-shared-dropdown
+        style="width: 100%"
         formControlName="toAccountNumber"
-        placeholder="Enter account number"
-      ></app-shared-input>
+        placeholder="Select account"
+        [ngClass]="{
+          'invalid-dropdown': toAccountNumber.errors && toAccountNumber.touched,
+          'valid-dropdown': !toAccountNumber.errors
+        }"
+        [options]="currentUsersCards | async"
+        [selectedTemplate]="account"
+        [optionTemplate]="account"
+      >
+      </app-shared-dropdown>
     </div>
 
     <div class="input-wrapper half-width">
