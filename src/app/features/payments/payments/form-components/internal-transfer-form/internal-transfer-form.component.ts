@@ -65,7 +65,6 @@ export class InternalTransferFormComponent implements OnDestroy {
             tap(() => {
               this.router.navigate(['/payments']);
               this.form.reset();
-              // @ts-ignore
               const notification = new NotificationItem(
                 'Succesfull payment!',
                 'success',
