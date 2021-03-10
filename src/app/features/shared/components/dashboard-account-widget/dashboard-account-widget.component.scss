@@ -51,6 +51,9 @@ header {
     color: #252631;
     font-size: 14px;
     font-weight: 500;
+    &:hover {
+      color: $primary;
+    }
   }
   i {
     position: relative;
