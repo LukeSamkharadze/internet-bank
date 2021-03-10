@@ -4,7 +4,6 @@ import { tap } from 'rxjs/operators';
 import { Transfer } from '../../features/shared/interfaces/transfers/transfer.interface';
 import { NotificationItem } from '../entity/notificationItem';
 import { NotificationsManagerService } from './notifications-manager.service';
-import { TitleBlinkerService } from './title-blinker.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,9 +18,7 @@ export class GlobalNotificationService {
       .pipe(
         tap((transfer: Transfer) => {
           const notification = new NotificationItem(
-            `You received ${transfer.amount} USD!`,
-            'info',
-            3000
+            `You received ${transfer.amount} USD!`
           );
           this.notificationService.add(notification, true);
         })

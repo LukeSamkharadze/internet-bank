@@ -90,7 +90,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.unsubscriber))
         .subscribe();
       this.notificationsManagerService.add(
-        new NotificationItem('Operation Succeeded', 'success', 3000)
+        new NotificationItem('Operation Succeeded', 'success')
       );
       this.socketIo.emit('profile', this.auth.userId);
       this.getUser();

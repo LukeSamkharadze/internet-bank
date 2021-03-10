@@ -67,16 +67,14 @@ export class InternalTransferFormComponent implements OnDestroy {
               this.form.reset();
               const notification = new NotificationItem(
                 'Succesfull payment!',
-                'success',
-                3000
+                'success'
               );
               this.notificationService.add(notification);
             }),
             catchError((error) => {
               const notification = new NotificationItem(
                 error.message,
-                'failure',
-                3000
+                'failure'
               );
               this.notificationService.add(notification);
               return of(error);
