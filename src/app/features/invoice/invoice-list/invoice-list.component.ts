@@ -1,14 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Invoice } from '../../shared/interfaces/invoice.interface';
 import { InvoiceService } from '../../shared/services/invoice.service';
+import { SocketIoService } from '../../shared/services/socket-io.service';
+import { takeUntil, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-invoice-list',
   templateUrl: './invoice-list.component.html',
   styleUrls: ['./invoice-list.component.scss'],
 })
-export class InvoiceListComponent implements OnInit {
+export class InvoiceListComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   tabNames = ['All', 'Paid', 'Pending', 'Cancelled'];
   public invoices: Array<Invoice>;
   public allInvoices = [];
@@ -21,10 +25,22 @@ export class InvoiceListComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private invoiceService: InvoiceService
+    private invoiceService: InvoiceService,
+    private socketIo: SocketIoService
   ) {}
 
   ngOnInit(): void {
+    this.loadInvoices();
+    this.socketIo
+      .listen('invoice')
+      .pipe(
+        takeUntil(this.unsubscriber),
+        tap(() => this.loadInvoices())
+      )
+      .subscribe();
+  }
+
+  loadInvoices() {
     this.invoiceService.getAll().subscribe((data: Array<Invoice>) => {
       this.invoices = data;
       this.allInvoices = data;
@@ -55,5 +71,9 @@ export class InvoiceListComponent implements OnInit {
       (item) => item.dueDate.slice(0, 7) === this.data
     );
     this.loadValues();
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber.next();
   }
 }

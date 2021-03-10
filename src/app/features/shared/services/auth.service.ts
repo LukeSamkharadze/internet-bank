@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
 import { IUser } from '../interfaces/user.interface';
 import { UserService } from './user.service';
+import { SocketIoService } from './socket-io.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,11 @@ export class AuthService {
     return localStorage.getItem('userId');
   }
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private socketIo: SocketIoService
+  ) {}
 
   // Check if User exists
   loginCheck(loginData: { email: string; password: string }) {
@@ -68,6 +73,8 @@ export class AuthService {
         this.login(loginData).subscribe((user) => {
           // Add 'User Id' on localStorage
           localStorage.setItem('userId', JSON.stringify(user.id));
+          // Emit to socket
+          this.socketIo.emit('user_connected', JSON.stringify(user.id));
 
           // When 'Remember Me' checked add 'User Email' on localStorage
           if (rememberMe) {
@@ -90,6 +97,8 @@ export class AuthService {
   // Remove user Id from localStorage on Logout and navigate to 'Login'
   logout() {
     localStorage.removeItem('userId');
+    this.socketIo.disconnect();
+    this.socketIo.init();
     this.router.navigate(['/login']);
   }
 }
