@@ -27,17 +27,20 @@ io.on('connection', (socket) => {
   });
 
   // managing transaction events.
-  socket.on('transaction', ({ fromAccountUserId, toUserId }) => {
+  socket.on('transaction', (transfer) => {
     const fromUser = activeUserIds.find(
-      (user) => user.userId === fromAccountUserId
+      (user) => user.userId === transfer.fromAccountUserId
     );
     fromUser.socketIds.forEach((socketId) => {
       io.to(socketId).emit('transaction', null);
     });
-    if (toUserId && toUserId !== fromAccountUserId) {
-      const toUser = activeUserIds.find((user) => user.userId === toUserId);
+    if (transfer.toUserId && transfer.toUserId !== transfer.fromAccountUserId) {
+      const toUser = activeUserIds.find(
+        (user) => user.userId === transfer.toUserId
+      );
       toUser.socketIds.forEach((socketId) => {
         io.to(socketId).emit('transaction', null);
+        io.to(socketId).emit('income', transfer);
       });
     }
   });
