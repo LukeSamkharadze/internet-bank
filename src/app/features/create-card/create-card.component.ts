@@ -55,13 +55,13 @@ export class CreateCardComponent implements OnInit {
   }
 
   showCardNotification(show?: boolean) {
-    // If '(X) Button' clicked hide 'Success Notification'
+    // If '(X) Button' clicked hide 'Success NotificationItem'
     if (show === false) {
       this.showNotification = false;
     } else {
-      // Show 'Success Notification' if card is added
+      // Show 'Success NotificationItem' if card is added
       this.showNotification = true;
-      // Hide 'Success Notification' after 2 sec
+      // Hide 'Success NotificationItem' after 2 sec
       setTimeout(() => {
         this.showNotification = false;
       }, 2000);
