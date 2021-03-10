@@ -10,6 +10,7 @@ import { InternalTransfer } from '../../../../shared/interfaces/transfers/intern
 import { PaymentService } from '../../../services/payment.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-instant-transfer-form',
@@ -18,7 +19,7 @@ import { catchError, tap } from 'rxjs/operators';
   animations: [formAnimations.errorTrigger, formAnimations.formTrigger],
 })
 export class InternalTransferFormComponent implements OnDestroy {
-  title = 'Internal transfer';
+  title = 'Transfer to my account';
 
   form = new FormGroup({
     fromAccount: new FormControl('', Validators.required),
@@ -36,7 +37,7 @@ export class InternalTransferFormComponent implements OnDestroy {
 
   private subscriptions = new Subscription();
 
-  constructor(private paymentService: PaymentService) {}
+  constructor(private paymentService: PaymentService, private router: Router) {}
 
   onSubmit() {
     if (this.form.valid) {
@@ -49,13 +50,14 @@ export class InternalTransferFormComponent implements OnDestroy {
         amount: Number(this.amount.value),
         currency: 'USD', // rasvizamt moitana cxovrebam statikuri valutebi
         internalTransferType: this.internalTransferType.value.toLowerCase(),
-        toAccountNumber: this.toAccountNumber.value,
+        toAccountNumber: this.toAccountNumber.value.accountNumber,
       };
       this.subscriptions.add(
         this.paymentService
           .internalTransfer(transfer)
           .pipe(
             tap(() => {
+              this.router.navigate(['/payments']);
               this.form.reset();
             }),
             catchError((error) => {

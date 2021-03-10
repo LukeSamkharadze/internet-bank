@@ -18,7 +18,7 @@ import {
 } from 'rxjs/operators';
 import { CardService } from '../../../../shared/services/card.service';
 import { UserService } from '../../../../shared/services/user.service';
-import { SocketIoService } from '../../../../shared/services/socket-io.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bank-transfer-form',
@@ -55,7 +55,8 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
   constructor(
     private paymentService: PaymentService,
     private cardService: CardService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   onSubmit(): void {
@@ -78,6 +79,7 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
           .bankTransfer(transfer)
           .pipe(
             tap(() => {
+              this.router.navigate(['/payments']);
               this.form.reset();
             }),
             catchError((error) => {

@@ -12,22 +12,22 @@ export class DashboardComponent {
     {
       kind: 'Grocery',
       share: 2000,
-      colorString: '#FFAB2B',
+      colorString: '#3ce65e',
     },
     {
       kind: 'Health & Wellness',
       share: 1000,
-      colorString: '#D28715',
+      colorString: '#ffdc7d',
     },
     {
       kind: 'Home Rent',
       share: 1000,
-      colorString: '#D28775',
+      colorString: '#f29857',
     },
     {
       kind: 'Transportation',
       share: 1000,
-      colorString: '#D28760',
+      colorString: '#ed413b',
     },
   ];
 

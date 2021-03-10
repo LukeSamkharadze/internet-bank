@@ -31,8 +31,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
   constructor(private cardService: CardService, private router: Router) {}
 
   redirectToDashboard() {
-    this.contentTitle = 'DASHBOARD';
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/']);
   }
 
   getMainContentMinHeight() {

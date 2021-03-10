@@ -2,9 +2,10 @@
 $notif-width: 555px;
 
 :host {
-  display: inline-block;
+  display: block;
   width: $notif-width;
 }
+
 .notification {
   width: 100%;
   min-height: 64px;
