@@ -27,36 +27,9 @@ export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
   searchText;
   popDetails = false;
   transactionObject = new BehaviorSubject({});
-  monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
+
   chosenDate = null;
   chosenType = null;
-
-  // if feature tag has an '[input]' property, make hasInput=false. Thus, searchtab will not be displayed.
-  ngOnChanges(changes: SimpleChanges) {
-    /* tslint:disable:no-string-literal */
-    if (changes.hasOwnProperty('input')) {
-      if (changes['input'].isFirstChange()) {
-        // AKA initialization by angular
-        this.hasInput = false;
-        this.show = false;
-        return this.hasInput;
-      }
-    }
-    /* tslint:enable:no-string-literal */
-  }
 
   constructor(
     private getTransactionService: TransactionsService,
@@ -65,7 +38,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
 
   fetchTransactions() {
     this.getTransactionService
-      .getTransactions(this.chosenDate, this.chosenType)
+      .getTransactions(this.chosenDate, this.chosenType, this.input)
       .subscribe((data) => {
         this.transactionsList = [];
         data.forEach((element) => {
@@ -86,6 +59,19 @@ export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
         tap(() => this.fetchTransactions())
       )
       .subscribe();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if ('input' in changes) {
+      if (this.input) {
+        this.hasInput = false;
+        this.show = false;
+        this.fetchTransactions();
+      } else {
+        this.hasInput = true;
+        this.show = true;
+      }
+    }
   }
 
   pop(id: number) {

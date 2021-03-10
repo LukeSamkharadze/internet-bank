@@ -15,6 +15,7 @@ import * as itemQtyOptions from '../dropdown-options/item-qty-dropdown';
 })
 export class FormProductsListComponent {
   @Input() form: FormGroup;
+  @Input() submited: boolean;
 
   itemQtyOptions = itemQtyOptions.itemQtyOptions;
   items: FormArray;
@@ -24,6 +25,9 @@ export class FormProductsListComponent {
   addItem(): void {
     this.items = this.form.get('items') as FormArray;
     this.items.push(this.createItem());
+    if (this.submited) {
+      this.form.markAllAsTouched();
+    }
   }
 
   createItem(): FormGroup {
