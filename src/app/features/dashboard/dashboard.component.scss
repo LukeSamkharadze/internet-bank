@@ -7,11 +7,11 @@
     grid-gap: 28px;
     &.row-1 {
       order: 2;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       .row-1-right {
         display: grid;
         grid-gap: 10px;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
     }
     &.row-2 {
