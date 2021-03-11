@@ -4,6 +4,7 @@ import { IsLoggedInGuard } from './features/shared/guards/is-logged-in.guard';
 import { IsLoggedOutGuard } from './features/shared/guards/is-logged-out.guard';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ApplicationComponent } from './features/application/application.component';
+import { DetailsGuard } from './features/card-view/guards/details.guard';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
           import('./features/card-view/card-view.module').then(
             (m) => m.CardViewModule
           ),
+        canActivateChild: [DetailsGuard],
       },
       {
         path: 'accounts-list',
