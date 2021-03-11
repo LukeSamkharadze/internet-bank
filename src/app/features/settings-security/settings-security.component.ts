@@ -127,7 +127,7 @@ export class SettingsSecurityComponent implements OnInit {
     } else {
       // secret question
       this.notificationsManagerService.add(
-        new NotificationItem('your old password is incorrect', 'success')
+        new NotificationItem('your old password is incorrect', 'failure')
       );
     }
   }
