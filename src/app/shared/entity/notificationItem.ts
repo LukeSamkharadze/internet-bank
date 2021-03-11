@@ -9,7 +9,7 @@ export class NotificationItem {
   ]);
 
   id: number;
-  color: string = 'white';
+  color = 'white';
 
   constructor(
     public text: string,

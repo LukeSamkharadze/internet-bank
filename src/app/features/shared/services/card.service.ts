@@ -52,14 +52,14 @@ export class CardService implements BaseHttpInterface<ICard> {
     this.socketIo
       .listen('new-card')
       .pipe(
-        tap((card) =>
+        tap((card) => {
           this.store$.next(
             (this.cardsArr = [
               ...this.cardsArr,
               this.iconService.determineCardIcon(card),
             ])
-          )
-        )
+          );
+        })
       )
       .subscribe();
   }
