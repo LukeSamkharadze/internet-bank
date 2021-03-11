@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { IDeposit } from '../../shared/interfaces/deposit.interface';
+import { Expanses } from '../../shared/interfaces/expanses.interface';
 import { DepositService } from '../../shared/services/deposit.service';
 import { FormatterService } from '../../shared/services/formatter.service';
 import IButton from '../models/card-view-buttons.interface';
@@ -26,6 +27,8 @@ export class DepositDetailsComponent implements OnInit {
   buttons$: Observable<IButton[]>;
   background$: Observable<string>;
   canSelect$: BehaviorSubject<boolean>;
+
+  chartData$: Observable<Expanses[]>;
 
   constructor(
     private formatterService: FormatterService,
@@ -53,6 +56,29 @@ export class DepositDetailsComponent implements OnInit {
   }
 
   initializeDeposit(deposit$: Observable<IDeposit>): void {
+    this.chartData$ = deposit$.pipe(
+      map(
+        (deposit) =>
+          [
+            {
+              kind: 'Available',
+              share: deposit.balance || 0,
+              colorString: '#FFAB2B',
+            },
+            {
+              kind: 'Interest rate',
+              share:
+                deposit.depositRate * (deposit.balance || deposit.accured || 0),
+              colorString: '#FE4D97',
+            },
+            {
+              kind: 'Accured',
+              share: deposit.accured || 0,
+              colorString: '#6DD230',
+            },
+          ] as Expanses[]
+      )
+    );
     this.background$ = deposit$.pipe(
       map((deposit) => this.depositService.determineBackground(deposit))
     );
