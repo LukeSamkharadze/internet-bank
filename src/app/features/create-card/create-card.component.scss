@@ -112,11 +112,11 @@
           color: $primary;
 
           &.blue {
-            color: #293688;
+            color: $blue-dark;
           }
 
           &.orange {
-            color: #e69310;
+            color: $orange-dark;
           }
         }
 
@@ -128,8 +128,8 @@
         p {
           font-size: 13px;
 
-          &.master-cl,
-          &.visa-cl {
+          &.blue,
+          &.orange {
             color: darkgray;
           }
         }
@@ -305,12 +305,6 @@
       top: 20px;
     }
   }
-}
-
-.notification-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
 }
 
 @media only screen and (max-width: 1250px) {

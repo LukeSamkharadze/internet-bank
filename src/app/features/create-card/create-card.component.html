@@ -200,14 +200,4 @@
       </form>
     </div>
   </section>
-  <section class="notification-container">
-    <!-- Imported notification -->
-    <app-shared-notification
-      *ngIf="showNotification"
-      (closePopup)="showCardNotification(false)"
-      [color]="'green'"
-      [@fadeInOut]="cardType"
-      >Success! New card has been added!
-    </app-shared-notification>
-  </section>
 </main>
