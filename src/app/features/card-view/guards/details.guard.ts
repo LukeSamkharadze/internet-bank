@@ -38,7 +38,7 @@ export class DetailsGuard implements CanActivateChild {
 
     return service.getById(id).pipe(
       map((item) => {
-        if (item && item.userId === this.authService.userId) {
+        if (item && Number(item.userId) === Number(this.authService.userId)) {
           return true;
         }
         return DetailsGuard.redirectUrl;
