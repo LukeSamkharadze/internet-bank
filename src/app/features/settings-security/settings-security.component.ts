@@ -6,6 +6,8 @@ import { SecretQuestionService } from '../shared/services/secretQuestion.service
 import { IUser } from '../shared/interfaces/user.interface';
 import { Observable } from 'rxjs';
 import { SecretQuestion } from '../shared/interfaces/secretQuestion.interface';
+import { NotificationsManagerService } from 'src/app/shared/services/notifications-manager.service';
+import { NotificationItem } from '../../shared/entity/notificationItem';
 @Component({
   selector: 'app-settings-security',
   templateUrl: './settings-security.component.html',
@@ -31,6 +33,7 @@ export class SettingsSecurityComponent implements OnInit {
 
   questions: Array<SecretQuestion>;
   constructor(
+    private notificationsManagerService: NotificationsManagerService,
     private userServise: UserService,
     private authService: AuthService,
     private secretQuestionService: SecretQuestionService
@@ -107,14 +110,25 @@ export class SettingsSecurityComponent implements OnInit {
     if (this.user.password === this.formChange.get('curentPass').value) {
       if (this.formChange.get('toggle').value === false) {
         this.user.password = this.formChange.get('newPass').value;
+        this.notificationsManagerService.add(
+          new NotificationItem('your password updated successfully', 'success')
+        );
       } else if (this.formChange.get('toggle').value === true) {
         this.updateQuestion();
+        this.notificationsManagerService.add(
+          new NotificationItem(
+            'your secret question updated successfully',
+            'success'
+          )
+        );
       }
       // updating user  DATA
       this.userServise.update(this.user).subscribe();
     } else {
       // secret question
-      alert('your current password is incorrect');
+      this.notificationsManagerService.add(
+        new NotificationItem('your old password is incorrect', 'success')
+      );
     }
   }
 
