@@ -86,7 +86,7 @@ export class AuthService {
       } else {
         this.notificationService.add(
           new NotificationItem(
-            'Login data is wrong, please check again your "email" and "password"!',
+            'The email or password is incorrect',
             'failure',
             5000
           )

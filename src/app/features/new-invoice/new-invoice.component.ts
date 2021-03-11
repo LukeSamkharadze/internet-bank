@@ -8,6 +8,9 @@ import {
 } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 import { InvoiceService } from '../shared/services/invoice.service';
+import { AuthService } from '../shared/services/auth.service';
+import { NotificationsManagerService } from '../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-new-invoice',
@@ -22,7 +25,9 @@ export class NewInvoiceComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private invoiceService: InvoiceService
+    private invoiceService: InvoiceService,
+    private auth: AuthService,
+    private notificationsManagerService: NotificationsManagerService
   ) {}
 
   ngOnInit(): void {
@@ -81,6 +86,7 @@ export class NewInvoiceComponent implements OnInit {
         totalAmount: this.totalAmount,
         status: 'Pending',
         invoiceCreateDate: createDate,
+        userID: this.auth.userId,
       };
 
       this.invoiceService
@@ -88,7 +94,9 @@ export class NewInvoiceComponent implements OnInit {
         .pipe(
           finalize(() => {
             this.form.reset();
-            window.alert('add new invoice successfully');
+            this.notificationsManagerService.add(
+              new NotificationItem('add new invoice successfully', 'success')
+            );
             this.invoiceService.emitToSocket();
           })
         )

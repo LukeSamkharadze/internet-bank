@@ -16,4 +16,5 @@ export interface Invoice {
   totalAmount: number;
   status: string;
   invoiceCreateDate: string;
+  userID: string;
 }
