@@ -5,12 +5,17 @@ import { environment } from '../../../../environments/environment';
 import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
 import { catchError, retry } from 'rxjs/operators';
 import { IUser } from '../interfaces/user.interface';
+import { NotificationsManagerService } from '../../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService implements BaseHttpInterface<IUser> {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private notificationService: NotificationsManagerService
+  ) {}
 
   create(user: IUser): Observable<IUser> {
     return this.http
@@ -52,7 +57,9 @@ export class UserService implements BaseHttpInterface<IUser> {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
 
-    window.alert(errorMessage);
+    this.notificationService.add(
+      new NotificationItem(errorMessage, 'failure', 3000)
+    );
 
     return throwError(errorMessage);
   }

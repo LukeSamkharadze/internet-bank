@@ -9,3 +9,5 @@ export interface IUser {
   language?: string;
   sex?: string;
 }
+
+export type ILoginData = Pick<IUser, 'email' | 'password'>;

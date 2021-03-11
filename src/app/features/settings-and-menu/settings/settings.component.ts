@@ -13,6 +13,8 @@ import { IUser } from '../../shared/interfaces/user.interface';
 import { SocketIoService } from '../../shared/services/socket-io.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { takeUntil, tap } from 'rxjs/operators';
+import { NotificationsManagerService } from '../../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-settings',
@@ -43,7 +45,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private auth: AuthService,
     private socketIo: SocketIoService,
-    private limitService: PaymentLimitsService
+    private limitService: PaymentLimitsService,
+    private notificationsManagerService: NotificationsManagerService
   ) {
     this.getUser();
 
@@ -86,11 +89,14 @@ export class SettingsComponent implements OnInit, OnDestroy {
         .update(this.user)
         .pipe(takeUntil(this.unsubscriber))
         .subscribe();
-      window.alert('Updated Successfully');
+      this.notificationsManagerService.add(
+        new NotificationItem('Operation Succeeded', 'success')
+      );
       this.socketIo.emit('profile', this.auth.userId);
       this.getUser();
     }
   }
+
   reset() {
     this.form.reset(this.userReplicate);
   }
@@ -112,6 +118,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
         this.userReplicate = this.form.value;
       });
   }
+
   deleteUser() {
     this.showDeleteModal = false;
     this.delTrue = true;
@@ -126,6 +133,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
     window.alert('Successfully Deleted');
     this.auth.logout();
   }
+
   check() {
     this.user.password = this.passwordSave;
     this.user.fullname =

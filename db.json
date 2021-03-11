@@ -109,6 +109,12 @@
       "onlineLimit": 5000,
       "cashLimit": 11000,
       "id": 6
+    },
+    {
+      "bankLimit": 5000,
+      "onlineLimit": 5000,
+      "cashLimit": 5000,
+      "id": 7
     }
   ],
   "income": [
@@ -155,7 +161,7 @@
       "cardNumber": "4111222233331234",
       "cardholder": "BARRY ARMSTRONG",
       "expirationDate": "10/24",
-      "availableAmount": 35700.09000000001,
+      "availableAmount": 35970.570000000014,
       "security3D": false,
       "userId": "3",
       "id": 1
@@ -179,7 +185,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 7509,
+      "availableAmount": 7500,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -203,11 +209,35 @@
       "cardNumber": "4123456789123456",
       "cardholder": "ME",
       "expirationDate": "02/25",
-      "availableAmount": 46110,
+      "availableAmount": 45842.82,
       "security3D": true,
       "userId": "2",
       "cardType": "visa",
       "id": 5
+    },
+    {
+      "cardName": "TSO",
+      "accountNumber": "GE32TB2323242423423423",
+      "cardNumber": "4535353553545332",
+      "cardholder": "TSOTNE CHIKVOANI",
+      "expirationDate": "07/21",
+      "availableAmount": 20000,
+      "security3D": true,
+      "userId": "2",
+      "cardType": "visa",
+      "id": 6
+    },
+    {
+      "cardName": "DFDSFS",
+      "accountNumber": "GE32TB4434234223333333",
+      "cardNumber": "4536456356523652",
+      "cardholder": "TSOTNE CHIKVOANI",
+      "expirationDate": "07/22",
+      "availableAmount": 222,
+      "security3D": true,
+      "userId": "2",
+      "cardType": "visa",
+      "id": 7
     }
   ],
   "paymentTypes": [
@@ -263,8 +293,8 @@
       "language": "English",
       "sex": "Male",
       "id": 2,
-      "password": "12345678",
-      "fullname": "EDMOND DANTES"
+      "password": "Aa123456",
+      "fullname": "TBC BOOTCAMP"
     },
     {
       "fullname": "VITO CORLEONE",
@@ -289,6 +319,12 @@
       "email": "gio@gmail.com",
       "password": "Gio12345",
       "id": 6
+    },
+    {
+      "fullname": "TSOTNE CHIKOVANI",
+      "email": "tschikovani@tbcbank.com.ge",
+      "password": "12345678",
+      "id": 7
     }
   ],
   "deposits": [
@@ -651,6 +687,25 @@
       "totalAmount": 4.2,
       "status": "Paid",
       "id": 12
+    },
+    {
+      "template": "Website design",
+      "invoiceNumber": "234234",
+      "dueDate": "2333-03-23",
+      "companyName": "sfsfd",
+      "contactEmail": "ts@gmail.com",
+      "address": "ristj@nisogi.com",
+      "items": [
+        {
+          "itemDescription": "234",
+          "itemQty": 1,
+          "price": 2434
+        }
+      ],
+      "totalAmount": 2434,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-03-10T16:49:12.666Z",
+      "id": 13
     }
   ],
   "transactions": [
@@ -709,6 +764,62 @@
       "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 4
+    },
+    {
+      "title": "Transfer to my account GE32TB4124141441414141",
+      "date": "2021-03-10T14:58:01.202Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "amount": 2,
+      "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB4124141441414141",
+      "status": "pending",
+      "id": 5
+    },
+    {
+      "title": "Transfer to my account GE32TB4124141441414141",
+      "date": "2021-03-10T16:41:09.682Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "amount": 7,
+      "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB4124141441414141",
+      "status": "pending",
+      "id": 6
+    },
+    {
+      "title": "Internal Bank transfer to user: VITO CORLEONE",
+      "toUserId": "3",
+      "date": "2021-03-10T17:53:05.668Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB4124141441414141",
+      "toAccountNumber": "GE32TB1111222233334444",
+      "amount": 12,
+      "currency": "USD",
+      "beneficiary": "VITO CORLEONE",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "title": "Internal Bank transfer to user: VITO CORLEONE",
+      "toUserId": "3",
+      "date": "2021-03-10T17:54:28.586Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB4124141441414141",
+      "toAccountNumber": "GE32TB1111222233334444",
+      "amount": 32,
+      "currency": "USD",
+      "beneficiary": "VITO CORLEONE",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 8
     }
   ],
   "news": [

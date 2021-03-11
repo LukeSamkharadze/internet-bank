@@ -2,9 +2,10 @@
 $notif-width: 555px;
 
 :host {
-  display: inline-block;
+  display: block;
   width: $notif-width;
 }
+
 .notification {
   width: 100%;
   min-height: 64px;
@@ -42,7 +43,7 @@ $notif-width: 555px;
 }
 
 .orange {
-  @include notif-style($primary);
+  @include notif-style($orange);
 }
 .blue {
   @include notif-style($secondary-1);

@@ -11,6 +11,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { ToggleComponent } from './toggle/toggle.component';
 import { TagComponent } from './tag/tag.component';
 import { RadioComponent } from './radio/radio.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 export * from './dropdown/dropdown.component';
 export * from './pagination/pagination.component';
@@ -42,4 +43,5 @@ export const components = [
   NotificationComponent,
   ToggleComponent,
   RadioComponent,
+  NotificationsComponent,
 ];
