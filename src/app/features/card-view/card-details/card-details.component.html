@@ -11,9 +11,6 @@
   <img header [src]="icon$ | async" alt="Icon" />
   <img logo [src]="logo$ | async" alt="Logo" />
 </app-card-view-template>
-<app-features-shared-bank-transactions
-  style="grid-row: 1/3"
-  [input]="accountNumber$ | async"
->
+<app-features-shared-bank-transactions [input]="accountNumber$ | async">
   Latest Transactions
 </app-features-shared-bank-transactions>
