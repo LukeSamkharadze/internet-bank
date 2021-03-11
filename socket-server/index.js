@@ -25,7 +25,6 @@ function logout(socket) {
           (usr) => usr.userId !== user.userId
         );
       }
-      q;
       return;
     }
   }
