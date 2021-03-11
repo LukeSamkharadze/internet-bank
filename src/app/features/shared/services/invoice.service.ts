@@ -34,8 +34,9 @@ export class InvoiceService implements BaseHttpInterface<Invoice> {
   }
 
   getAll(): Observable<Invoice[]> {
+    const userId = this.authService.userId;
     return this.http
-      .get<Invoice[]>(`${environment.BaseUrl}invoices`)
+      .get<Invoice[]>(`${environment.BaseUrl}invoices?userID=${userId}`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
