@@ -22,6 +22,10 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
   public popDetails: boolean;
   public item;
   public data;
+  public noInvoices = false;
+  public noPaid = false;
+  public noPending = false;
+  public noCancelled = false;
 
   constructor(
     private http: HttpClient,
@@ -45,6 +49,7 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
       this.invoices = data;
       this.allInvoices = data;
       this.loadValues();
+      this.noInvoices = data.length === 0 ? true : false;
     });
   }
   popUp(item: any) {
@@ -58,13 +63,17 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
     this.paidInvoices = this.allInvoices.filter(
       (item) => item.status === 'Paid'
     );
+    this.noPaid = this.paidInvoices.length === 0 ? true : false;
 
     this.pendingInvoices = this.allInvoices.filter(
       (item) => item.status === 'Pending'
     );
+    this.noPending = this.pendingInvoices.length === 0 ? true : false;
+
     this.cancelledInvoices = this.allInvoices.filter(
       (item) => item.status === 'Cancelled'
     );
+    this.noCancelled = this.cancelledInvoices.length === 0 ? true : false;
   }
   dataChange() {
     this.allInvoices = this.invoices.filter(

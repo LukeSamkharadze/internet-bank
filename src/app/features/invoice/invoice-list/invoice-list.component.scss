@@ -269,8 +269,8 @@ ul {
   width: 100%;
   height: 700px;
   overflow: scroll;
-  -ms-overflow-style: none; 
-  scrollbar-width: none;  
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 ul::-webkit-scrollbar {
   display: none;
@@ -302,4 +302,15 @@ ul::-webkit-scrollbar {
       @include text-style(10x);
     }
   }
+}
+.noInvoices {
+  width: 400px;
+  font-size: 32px;
+  color: $secondary-dark-2;
+  text-align: center;
+  font-weight: 300;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, 0%);
 }

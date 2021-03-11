@@ -13,6 +13,7 @@
     />
   </div>
   <ng-template>
+    <div *ngIf="noInvoices" class="noInvoices">No Invoices To Show</div>
     <div class="content gradient">
       <ul>
         <li *ngFor="let item of allInvoices">
@@ -77,6 +78,7 @@
     </div>
   </ng-template>
   <ng-template>
+    <div *ngIf="noPaid" class="noInvoices">No Invoices To Show</div>
     <div div class="content gradient">
       <ul>
         <li *ngFor="let item of paidInvoices">
@@ -128,6 +130,7 @@
     </div>
   </ng-template>
   <ng-template>
+    <div *ngIf="noPending" class="noInvoices">No Invoices To Show</div>
     <div div class="content gradient">
       <ul>
         <li *ngFor="let item of pendingInvoices">
@@ -179,6 +182,7 @@
     </div>
   </ng-template>
   <ng-template>
+    <div *ngIf="noCancelled" class="noInvoices">No Invoices To Show</div>
     <div div class="content gradient">
       <ul>
         <li *ngFor="let item of cancelledInvoices">
