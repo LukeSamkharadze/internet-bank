@@ -450,6 +450,116 @@
       "invoiceCreateDate": "2021-03-11T15:14:12.898Z",
       "userID": "1",
       "id": 5
+    },
+    {
+      "template": "Website design",
+      "invoiceNumber": "IO-BN-006",
+      "dueDate": "2021-03-19",
+      "companyName": "Caucasus University",
+      "contactEmail": "contact@cu.edu.ge",
+      "address": "Tbilisi, Georgia, 1 P.Saakadze St",
+      "items": [
+        {
+          "itemDescription": "Tuition",
+          "itemQty": 1,
+          "price": 4000
+        }
+      ],
+      "totalAmount": 4000,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-03-11T16:07:36.570Z",
+      "userID": "2",
+      "id": 6
+    },
+    {
+      "template": "Website design",
+      "invoiceNumber": "IO-BN-007",
+      "dueDate": "2022-03-11",
+      "companyName": "Caucasus University",
+      "contactEmail": "contact@cu.edu.ge",
+      "address": "Tbilisi, Georgia, 1 P.saakadze St.",
+      "items": [
+        {
+          "itemDescription": "Tuition",
+          "itemQty": 1,
+          "price": 4000
+        }
+      ],
+      "totalAmount": 4000,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-03-11T16:08:31.903Z",
+      "userID": "2",
+      "id": 7
+    },
+    {
+      "template": "Website design",
+      "invoiceNumber": "IO-BN-008",
+      "dueDate": "2023-03-11",
+      "companyName": "Caucasus University",
+      "contactEmail": "contact@cu.edu.ge",
+      "address": "Tbilisi, Georgia, 1 P.saakadze St.",
+      "items": [
+        {
+          "itemDescription": "Tuition",
+          "itemQty": 1,
+          "price": 4000
+        }
+      ],
+      "totalAmount": 4000,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-03-11T16:09:14.301Z",
+      "userID": "2",
+      "id": 8
+    },
+    {
+      "template": "Printing Equipment",
+      "invoiceNumber": "IO-BN-009",
+      "dueDate": "2021-03-13",
+      "companyName": "PCShop",
+      "contactEmail": "info@pcshop.ge",
+      "address": "Tbilisi, Georgia, 16a Vazha-Pshavela Avenue",
+      "items": [
+        {
+          "itemDescription": "Keyboard",
+          "itemQty": 1,
+          "price": 50
+        },
+        {
+          "itemDescription": "Mouse",
+          "itemQty": 1,
+          "price": 20
+        },
+        {
+          "itemDescription": "Monitor",
+          "itemQty": 1,
+          "price": 300
+        }
+      ],
+      "totalAmount": 370,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-03-11T16:10:37.907Z",
+      "userID": "2",
+      "id": 9
+    },
+    {
+      "template": "Website design",
+      "invoiceNumber": "IO-BN-010",
+      "dueDate": "2021-03-12",
+      "companyName": "Aversi",
+      "contactEmail": "info@aversi.ge",
+      "address": "Tbilisi, Georgia, 7 Dolidze st.",
+      "items": [
+        {
+          "itemDescription": "Medicine",
+          "itemQty": 10,
+          "price": 5
+        }
+      ],
+      "totalAmount": 50,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-03-11T16:18:04.901Z",
+      "userID": "2",
+      "id": 10
     }
   ],
   "transactions": [
