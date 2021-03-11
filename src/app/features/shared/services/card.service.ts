@@ -69,12 +69,6 @@ export class CardService implements BaseHttpInterface<ICard> {
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
       tap((newCard) => {
-        this.store$.next(
-          (this.cardsArr = [
-            ...this.cardsArr,
-            this.iconService.determineCardIcon(newCard),
-          ])
-        );
         this.socketIo.emit('new-card', { userId: this.auth.userId, newCard });
       }),
       catchError(this.handleError)

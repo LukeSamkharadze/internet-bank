@@ -14,6 +14,23 @@ app.get('/', (req, res) => {
 // interface of logged in user: {userId: string, socketIds: Array<string>}
 let activeUserIds = [];
 
+function logout(socket) {
+  for (let user of activeUserIds) {
+    if (user.socketIds.includes(socket.id)) {
+      user.socketIds = user.socketIds.filter(
+        (socketId) => socketId !== socket.id
+      );
+      if (!user.socketIds.length) {
+        activeUserIds = activeUserIds.filter(
+          (usr) => usr.userId !== user.userId
+        );
+      }
+      q;
+      return;
+    }
+  }
+}
+
 io.on('connection', (socket) => {
   // managing storing users with userId and socket Ids.
   socket.on('user_connected', (userId) => {
@@ -67,9 +84,7 @@ io.on('connection', (socket) => {
   socket.on('new-card', ({ userId, newCard }) => {
     const user = activeUserIds.find((usr) => usr.userId === userId);
     user.socketIds.forEach((socketId) => {
-      if (socketId !== socket.id) {
-        io.to(socketId).emit('new-card', newCard);
-      }
+      io.to(socketId).emit('new-card', newCard);
     });
   });
 
@@ -83,19 +98,11 @@ io.on('connection', (socket) => {
 
   // handling when socket/user disconnects.
   socket.on('disconnect', () => {
-    for (let user of activeUserIds) {
-      if (user.socketIds.includes(socket.id)) {
-        user.socketIds = user.socketIds.filter(
-          (socketId) => socketId !== socket.id
-        );
-        if (!user.socketIds.length) {
-          activeUserIds = activeUserIds.filter(
-            (usr) => usr.userId !== user.userId
-          );
-        }
-        return;
-      }
-    }
+    logout(socket);
+  });
+
+  socket.on('logout', () => {
+    logout(socket);
   });
 });
 
