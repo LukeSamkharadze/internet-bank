@@ -11,6 +11,11 @@ const routes: Routes = [
     component: PaymentsComponent,
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'electronic-payment',
+      },
+      {
         path: 'electronic-payment',
         component: ElectronicPaymentFormComponent,
       },

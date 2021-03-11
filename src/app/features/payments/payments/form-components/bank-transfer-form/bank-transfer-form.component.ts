@@ -82,7 +82,6 @@ export class BankTransferFormComponent implements OnDestroy, OnInit {
           .bankTransfer(transfer)
           .pipe(
             tap(() => {
-              this.router.navigate(['/payments']);
               this.form.reset();
               const notification = new NotificationItem(
                 'Succesfull payment!',

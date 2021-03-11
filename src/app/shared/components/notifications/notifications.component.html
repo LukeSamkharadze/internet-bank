@@ -1,6 +1,4 @@
-<ng-container *ngIf="notifications$ | async as notifications">
-  <app-shared-notification class="item" @slideInOut *ngFor="let notification of notifications"
-    [color]="notification.color" (closePopup)="closeNotification(notification.id)">
-    {{ notification.text }}
-  </app-shared-notification>
-</ng-container>
+<app-shared-notification class="item" @slideInOut *ngFor="let notification of notifications$ | async"
+  [color]="notification.color" (closePopup)="closeNotification(notification.id)">
+  {{ notification.text }}
+</app-shared-notification>
