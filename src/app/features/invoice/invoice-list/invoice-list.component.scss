@@ -246,7 +246,7 @@ app-shared-tabs {
   position: absolute;
   width: 100%;
   content: '';
-  height: 50px;
+  height: 100px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -261,12 +261,19 @@ app-shared-tabs {
   width: 100%;
 }
 ul:last-child {
-  padding-bottom: 10px;
+  padding-bottom: 65px;
 }
 ul {
   padding: 0;
   position: relative;
   width: 100%;
+  height: 700px;
+  overflow: scroll;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}
+ul::-webkit-scrollbar {
+  display: none;
 }
 :host {
   display: block;
