@@ -13,24 +13,7 @@
       "question": "favorite car model"
     }
   ],
-  "answers": [
-    {
-      "questionId": 3,
-      "userId": 1,
-      "answer": "",
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "answer": "1212",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "answer": "123",
-      "id": 3
-    }
-  ],
+  "answers": [],
   "items": [
     {
       "id": 1,
@@ -75,7 +58,7 @@
   ],
   "limits": [
     {
-      "bankLimit": 22000,
+      "bankLimit": 100000,
       "onlineLimit": 10000,
       "cashLimit": 9000,
       "id": 1
@@ -85,36 +68,6 @@
       "bankLimit": 8000,
       "onlineLimit": 5000,
       "cashLimit": 4000
-    },
-    {
-      "id": 3,
-      "bankLimit": 12000,
-      "onlineLimit": 10000,
-      "cashLimit": 8000
-    },
-    {
-      "bankLimit": 5000,
-      "onlineLimit": 5000,
-      "cashLimit": 5000,
-      "id": 4
-    },
-    {
-      "bankLimit": 5000,
-      "onlineLimit": 5000,
-      "cashLimit": 5000,
-      "id": 5
-    },
-    {
-      "bankLimit": 7000,
-      "onlineLimit": 5000,
-      "cashLimit": 11000,
-      "id": 6
-    },
-    {
-      "bankLimit": 5000,
-      "onlineLimit": 5000,
-      "cashLimit": 5000,
-      "id": 7
     }
   ],
   "income": [
@@ -155,89 +108,66 @@
   ],
   "cards": [
     {
-      "cardName": "VISA CARD",
+      "cardName": "MY CARD",
+      "accountNumber": "GE32TB0000000063159412",
+      "cardNumber": "4390657277538692",
+      "cardholder": "JOHN LENNON",
+      "expirationDate": "12/28",
+      "availableAmount": 34435,
+      "security3D": true,
+      "userId": "2",
       "cardType": "visa",
-      "accountNumber": "GE32TB1111222233334444",
-      "cardNumber": "4111222233331234",
-      "cardholder": "BARRY ARMSTRONG",
-      "expirationDate": "10/24",
-      "availableAmount": 35970.570000000014,
-      "security3D": false,
-      "userId": "3",
       "id": 1
     },
     {
-      "cardName": "MASTER CARD",
-      "cardType": "mastercard",
-      "accountNumber": "GE32TB2222111133334444",
-      "cardNumber": "5222111133338040",
+      "cardName": "STUDENT CARD",
+      "accountNumber": "GE32TB0000000086145623",
+      "cardNumber": "5142005142864183",
       "cardholder": "JOHN LENNON",
-      "expirationDate": "04/30",
-      "availableAmount": 36900.96,
+      "expirationDate": "07/24",
+      "availableAmount": 430.52000000000004,
       "security3D": true,
-      "userId": "1",
+      "userId": "2",
+      "cardType": "mastercard",
       "id": 2
     },
     {
-      "cardName": "MASTER CARD",
-      "cardType": "mastercard",
-      "accountNumber": "GE32TB3333111122224444",
-      "cardNumber": "5333111122220097",
-      "cardholder": "TILL LINDEMANN",
-      "expirationDate": "11/26",
-      "availableAmount": 7500,
+      "cardName": "WORK CARD",
+      "accountNumber": "GE32TB0000000096714452",
+      "cardNumber": "4590126318566747",
+      "cardholder": "MAMUKA KHAZARADZE",
+      "expirationDate": "04/31",
+      "availableAmount": 81757.54,
       "security3D": true,
-      "userId": "2",
+      "userId": "1",
+      "cardType": "visa",
       "id": 3
     },
     {
-      "cardName": "ADMIN2",
-      "accountNumber": "GE32TB4434234223333333",
-      "cardNumber": "5829389283948298",
-      "cardholder": "ADMIN ADMIN",
-      "expirationDate": "11/23",
-      "availableAmount": 17872.047457800003,
+      "cardName": "SAVINGS CARD",
+      "accountNumber": "GE32TB0000006478126422",
+      "cardNumber": "5312553168410072",
+      "cardholder": "MAMUKA KHAZARADZE",
+      "expirationDate": "12/35",
+      "availableAmount": 104660,
       "security3D": true,
-      "userId": "2",
+      "userId": "1",
       "cardType": "mastercard",
       "id": 4,
+      "blocked": false
+    },
+    {
+      "cardName": "WORK CARD 2",
+      "accountNumber": "GE32TB0000038586715531",
+      "cardNumber": "4390164424836321",
+      "cardholder": "MAMUKA KHAZARADZE",
+      "expirationDate": "02/22",
+      "availableAmount": 562,
+      "security3D": true,
+      "userId": "1",
+      "cardType": "visa",
+      "id": 5,
       "blocked": true
-    },
-    {
-      "cardName": "41414214",
-      "accountNumber": "GE32TB4124141441414141",
-      "cardNumber": "4123456789123456",
-      "cardholder": "ME",
-      "expirationDate": "02/25",
-      "availableAmount": 45842.82,
-      "security3D": true,
-      "userId": "2",
-      "cardType": "visa",
-      "id": 5
-    },
-    {
-      "cardName": "TSO",
-      "accountNumber": "GE32TB2323242423423423",
-      "cardNumber": "4535353553545332",
-      "cardholder": "TSOTNE CHIKVOANI",
-      "expirationDate": "07/21",
-      "availableAmount": 20000,
-      "security3D": true,
-      "userId": "2",
-      "cardType": "visa",
-      "id": 6
-    },
-    {
-      "cardName": "DFDSFS",
-      "accountNumber": "GE32TB4434234223333333",
-      "cardNumber": "4536456356523652",
-      "cardholder": "TSOTNE CHIKVOANI",
-      "expirationDate": "07/22",
-      "availableAmount": 222,
-      "security3D": true,
-      "userId": "2",
-      "cardType": "visa",
-      "id": 7
     }
   ],
   "paymentTypes": [
@@ -283,48 +213,20 @@
   ],
   "users": [
     {
-      "email": "sanchito_p@gmail.com",
-      "id": 1,
-      "fullname": "SANCHO PANZA",
-      "password": "12345678"
-    },
-    {
       "email": "admin@gmail.com",
       "language": "English",
       "sex": "Male",
+      "id": 1,
+      "password": "Aa123456",
+      "fullname": "MAMUKA KHAZARADZE"
+    },
+    {
+      "email": "bankuser@gmail.com",
+      "language": "English",
+      "sex": "Other",
       "id": 2,
       "password": "Aa123456",
-      "fullname": "TBC BOOTCAMP"
-    },
-    {
-      "fullname": "VITO CORLEONE",
-      "email": "mafia_immortal@outlook.com",
-      "password": "ssssssssss",
-      "id": 3
-    },
-    {
-      "fullname": "JAVAXA JAVAXA",
-      "email": "javaxa@gmail.com",
-      "password": "Javaxa1234",
-      "id": 4
-    },
-    {
-      "fullname": "BABAXA BABAXA",
-      "email": "babaxa@gmail.com",
-      "password": "Babaxa1234",
-      "id": 5
-    },
-    {
-      "fullname": "GIO GIO",
-      "email": "gio@gmail.com",
-      "password": "Gio12345",
-      "id": 6
-    },
-    {
-      "fullname": "TSOTNE CHIKOVANI",
-      "email": "tschikovani@tbcbank.com.ge",
-      "password": "12345678",
-      "id": 7
+      "fullname": "BANK USER"
     }
   ],
   "deposits": [
@@ -332,6 +234,20 @@
       "id": 1,
       "depositName": "Cumulative deposit",
       "accountNumber": "UK64CT00000000000010034567",
+      "depositRate": 0.05,
+      "startDate": "20.06.2018",
+      "expirationDate": "20.06.2022",
+      "availableAmount": 56400,
+      "accuredInterest": 1640,
+      "balance": 56400,
+      "accured": 640,
+      "type": "Cumulative",
+      "userId": "1"
+    },
+    {
+      "id": 1,
+      "depositName": "Cumulative deposit",
+      "accountNumber": "UK64CT00000000000010065132",
       "depositRate": 0.05,
       "startDate": "20.06.2018",
       "expirationDate": "20.06.2022",
@@ -355,11 +271,11 @@
       "paid": 24800,
       "blocked": true,
       "type": "Mortgage",
-      "userId": "2"
+      "userId": "1"
     },
     {
       "id": 2,
-      "loanName": "Consumer loan",
+      "loanName": "Student Loan",
       "accountNumber": "UK64CT00000000000010035931",
       "loanRate": 0.18,
       "startDate": "20.06.2018",
@@ -368,7 +284,7 @@
       "paid": 650,
       "blocked": false,
       "type": "Consumer",
-      "userId": "3"
+      "userId": "2"
     }
   ],
   "charts": [
@@ -391,516 +307,393 @@
   "cardCharts": [
     {
       "id": 1,
-      "userId": 2,
+      "userId": 1,
       "data": [78000, 91000, 78000, 52000, 72800, 104000, 124800]
     },
     {
       "id": 2,
-      "userId": 3,
+      "userId": 2,
       "data": [390, 455, 380, 780, 800, 500, 1000]
     }
   ],
   "depositCharts": [
     {
       "id": 3,
-      "userId": 2,
+      "userId": 1,
       "data": [3525, 3807, 3948, 4089, 3807, 4935, 5640]
     }
   ],
   "loanCharts": [
     {
       "id": 4,
-      "userId": 2,
+      "userId": 1,
       "data": [4130, 2891, 1652, 2891, 2480]
     }
   ],
   "invoices": [
     {
-      "template": "Website design",
-      "invoiceNumber": "IO-BN-124",
-      "dueDate": "2021-03-11",
-      "companyName": "Vadafone LLC",
-      "contactEmail": "vadafone@gmail.com",
-      "address": "123 Main Street, Somewhere, CA 94000",
+      "template": "Marketing Materials",
+      "invoiceNumber": "IO-BN-001",
+      "dueDate": "2021-03-15",
+      "companyName": "TBC BANK",
+      "contactEmail": "contact@tbcbank.ge",
+      "address": "Tbilisi, Georgia, 7 Marjanishvli St",
       "items": [
         {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 2,
-          "price": 150
-        }
-      ],
-      "totalAmount": 300,
-      "status": "Pending",
-      "invoiceCreateDate": "2021-02-24T18:34:49.334Z",
-      "id": 1,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-100",
-      "dueDate": "2021-03-13",
-      "companyName": "AOT LLC",
-      "contactEmail": "aot@gmail.com",
-      "address": "333 Main Street, Somewhere, CA 99000",
-      "items": [
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 10,
-          "price": 100
-        },
-        {
-          "itemDescription": "Marketing Materials",
+          "itemDescription": "Papers",
           "itemQty": 150,
-          "price": 100
+          "price": 5
         }
       ],
-      "totalAmount": 16000,
-      "status": "Pending",
-      "invoiceCreateDate": "2021-02-24T18:37:01.789Z",
-      "id": 2,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-124",
-      "dueDate": "2018-08-16",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 2,
-          "price": 120
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 10,
-          "price": 100
-        }
-      ],
-      "totalAmount": 1240,
+      "totalAmount": 750,
       "status": "Paid",
-      "id": 3,
-      "userID": "2"
+      "invoiceCreateDate": "2021-03-11T14:42:29.976Z",
+      "userID": "1",
+      "id": 1
     },
     {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-127",
-      "dueDate": "2018-08-03",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
+      "template": "Website design",
+      "invoiceNumber": "IO-BN-002",
+      "dueDate": "2022-02-02",
+      "companyName": "TBC BANK",
+      "contactEmail": "contact@tbcbank.ge",
+      "address": "Tbilisi, Georgia, 7 Marjanishvli St",
       "items": [
         {
-          "itemDescription": "Marketing Materials",
+          "itemDescription": "Website Template",
           "itemQty": 1,
-          "price": 384.2
+          "price": 5000
         },
         {
-          "itemDescription": "Printing Equipment",
+          "itemDescription": "Domain",
+          "itemQty": 1,
+          "price": 300
+        },
+        {
+          "itemDescription": "Hosting",
+          "itemQty": 1,
+          "price": 800
+        }
+      ],
+      "totalAmount": 6100,
+      "status": "Paid",
+      "invoiceCreateDate": "2021-03-11T14:45:48.364Z",
+      "userID": "1",
+      "id": 2
+    },
+    {
+      "template": "Printing Equipment",
+      "invoiceNumber": "IO-BN-003",
+      "dueDate": "2021-03-13",
+      "companyName": "TBC BANK",
+      "contactEmail": "contact@tbcbank.ge",
+      "address": "Tbilisi, Georgia, 7 Marjanishvili St",
+      "items": [
+        {
+          "itemDescription": "Printer Cartridge",
+          "itemQty": 150,
+          "price": 50
+        },
+        {
+          "itemDescription": "Printing Papers",
+          "itemQty": 10,
+          "price": 20
+        }
+      ],
+      "totalAmount": 7700,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-03-11T14:48:47.497Z",
+      "userID": "1",
+      "id": 3
+    },
+    {
+      "template": "Marketing Materials",
+      "invoiceNumber": "IO-BN-004",
+      "dueDate": "2021-03-21",
+      "companyName": "Rustavi 2",
+      "contactEmail": "tv@rustavi2.ge",
+      "address": "Tbilisi, Georgia, 5 Sandro Euli st.",
+      "items": [
+        {
+          "itemDescription": "Advertisement",
+          "itemQty": 1,
+          "price": 15000
+        }
+      ],
+      "totalAmount": 15000,
+      "status": "Pending",
+      "invoiceCreateDate": "2021-03-11T14:56:03.424Z",
+      "userID": "1",
+      "id": 4
+    },
+    {
+      "template": "Printing Equipment",
+      "invoiceNumber": "IO-BN-005",
+      "dueDate": "2021-03-16",
+      "companyName": "Alta",
+      "contactEmail": "contact@alta.ge",
+      "address": "Tbilisi, Georgia, 104 Beliashvili St",
+      "items": [
+        {
+          "itemDescription": "Office Computer",
+          "itemQty": 10,
+          "price": 300
+        },
+        {
+          "itemDescription": "Monitor",
           "itemQty": 10,
           "price": 50
         }
       ],
-      "totalAmount": 894.2,
-      "status": "Paid",
-      "id": 4,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-167",
-      "dueDate": "2018-11-10",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 1,
-          "price": 904
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 10,
-          "price": 600
-        }
-      ],
-      "totalAmount": 6904,
-      "status": "Paid",
-      "id": 5,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-172",
-      "dueDate": "2018-05-16",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 4,
-          "price": 100
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 10,
-          "price": 300
-        }
-      ],
-      "totalAmount": 3400,
+      "totalAmount": 3500,
       "status": "Pending",
-      "id": 6,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-178",
-      "dueDate": "2018-03-04",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 2,
-          "price": 40
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 4,
-          "price": 100
-        }
-      ],
-      "totalAmount": 480,
-      "status": "Pending",
-      "id": 7,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-196",
-      "dueDate": "2018-03-08",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 2,
-          "price": 120
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 10,
-          "price": 870
-        }
-      ],
-      "totalAmount": 8940,
-      "status": "Pending",
-      "id": 8,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-215",
-      "dueDate": "2018-10-17",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 4,
-          "price": 1985
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 10,
-          "price": 100
-        }
-      ],
-      "totalAmount": 8940,
-      "status": "Cancelled",
-      "id": 9,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-230",
-      "dueDate": "2018-09-22",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 5,
-          "price": 20
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 6,
-          "price": 4
-        }
-      ],
-      "totalAmount": 124,
-      "status": "Paid",
-      "id": 10,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-237",
-      "dueDate": "2018-10-27",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 1,
-          "price": 509
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 5,
-          "price": 11
-        }
-      ],
-      "totalAmount": 564,
-      "status": "Paid",
-      "id": 11,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-242",
-      "dueDate": "2018-04-11",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 1,
-          "price": 3
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 1,
-          "price": 1.2
-        }
-      ],
-      "totalAmount": 4.2,
-      "status": "Paid",
-      "id": 12,
-      "userID": "2"
-    },
-    {
-      "template": "Website design",
-      "invoiceNumber": "234234",
-      "dueDate": "2333-03-23",
-      "companyName": "sfsfd",
-      "contactEmail": "ts@gmail.com",
-      "address": "ristj@nisogi.com",
-      "items": [
-        {
-          "itemDescription": "234",
-          "itemQty": 1,
-          "price": 2434
-        }
-      ],
-      "totalAmount": 2434,
-      "status": "Pending",
-      "invoiceCreateDate": "2021-03-10T16:49:12.666Z",
-      "id": 13,
-      "userID": "2"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-237",
-      "dueDate": "2018-10-27",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 1,
-          "price": 509
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 5,
-          "price": 11
-        }
-      ],
-      "totalAmount": 564,
-      "status": "Paid",
-      "id": 14,
-      "userID": "1"
-    },
-    {
-      "template": "Mobile App",
-      "invoiceNumber": "IO-BN-242",
-      "dueDate": "2018-04-11",
-      "companyName": "OOB",
-      "contanctEmail": "oobcompany@gmail.com",
-      "address": "133 Main Street, Somewhere, CA 91999",
-      "items": [
-        {
-          "itemDescription": "Marketing Materials",
-          "itemQty": 1,
-          "price": 3
-        },
-        {
-          "itemDescription": "Printing Equipment",
-          "itemQty": 1,
-          "price": 1.2
-        }
-      ],
-      "totalAmount": 4.2,
-      "status": "Paid",
-      "id": 15,
-      "userID": "1"
-    },
-    {
-      "template": "Website design",
-      "invoiceNumber": "234234",
-      "dueDate": "2333-03-23",
-      "companyName": "sfsfd",
-      "contactEmail": "ts@gmail.com",
-      "address": "ristj@nisogi.com",
-      "items": [
-        {
-          "itemDescription": "234",
-          "itemQty": 1,
-          "price": 2434
-        }
-      ],
-      "totalAmount": 2434,
-      "status": "Pending",
-      "invoiceCreateDate": "2021-03-10T16:49:12.666Z",
-      "id": 16,
-      "userID": "1"
+      "invoiceCreateDate": "2021-03-11T15:14:12.898Z",
+      "userID": "1",
+      "id": 5
     }
   ],
   "transactions": [
     {
-      "title": "electronic payment to someone@gmail.com",
-      "date": "2021-03-10T09:47:22.582Z",
-      "type": "electronic",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "fromAccountUserId": "2",
-      "toAccountEmail": "someone@gmail.com",
-      "paymentSystem": "paypal",
-      "amount": 250,
+      "title": "Transfer to my account GE32TB0000006478126422",
+      "date": "2021-03-11T14:14:07.699Z",
+      "type": "internal",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "amount": 1000,
       "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB0000006478126422",
       "status": "pending",
       "id": 1
     },
     {
-      "title": "Internal Bank transfer to user: VITO CORLEONE",
-      "toUserId": "3",
-      "date": "2021-03-10T09:47:49.832Z",
-      "type": "bank",
-      "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "toAccountNumber": "GE32TB1111222233334444",
-      "amount": 500,
+      "title": "Transfer to my account GE32TB0000006478126422",
+      "date": "2021-03-11T14:14:17.193Z",
+      "type": "internal",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "amount": 1000,
       "currency": "USD",
-      "beneficiary": "VITO CORLEONE",
-      "bankTransferType": "personal transfer",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB0000006478126422",
       "status": "pending",
       "id": 2
     },
     {
-      "title": "Transfer to my account GE32TB3333111122224444",
-      "date": "2021-03-10T09:47:57.440Z",
+      "title": "Transfer to my account GE32TB0000006478126422",
+      "date": "2021-03-11T14:14:25.055Z",
       "type": "internal",
-      "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB4124141441414141",
-      "amount": 6000,
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "amount": 1000,
       "currency": "USD",
       "internalTransferType": "personal transfer",
-      "toAccountNumber": "GE32TB3333111122224444",
+      "toAccountNumber": "GE32TB0000006478126422",
       "status": "pending",
       "id": 3
     },
     {
-      "title": "External Bank transfer to beneficiary: Bog user giorgi",
-      "toUserId": "",
-      "date": "2021-03-10T09:48:24.202Z",
-      "type": "bank",
-      "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB4124141441414141",
-      "toAccountNumber": "GE32TB44342342233335555",
-      "amount": 240,
+      "title": "Transfer to my account GE32TB0000006478126422",
+      "date": "2021-03-11T14:14:31.423Z",
+      "type": "internal",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "amount": 500,
       "currency": "USD",
-      "beneficiary": "Bog user giorgi",
-      "bankTransferType": "personal transfer",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB0000006478126422",
       "status": "pending",
       "id": 4
     },
     {
-      "title": "Transfer to my account GE32TB4124141441414141",
-      "date": "2021-03-10T14:58:01.202Z",
-      "type": "internal",
-      "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "amount": 2,
+      "title": "Internal Bank transfer to user: BANK USER",
+      "toUserId": "2",
+      "date": "2021-03-11T14:18:23.043Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 35,
       "currency": "USD",
-      "internalTransferType": "personal transfer",
-      "toAccountNumber": "GE32TB4124141441414141",
+      "beneficiary": "BANK USER",
+      "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 5
     },
     {
-      "title": "Transfer to my account GE32TB4124141441414141",
-      "date": "2021-03-10T16:41:09.682Z",
-      "type": "internal",
-      "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB3333111122224444",
-      "amount": 7,
+      "title": "electronic payment to m.khazaradze@tbc.ge",
+      "date": "2021-03-11T14:23:22.561Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "m.khazaradze@tbc.ge",
+      "paymentSystem": "paypal",
+      "amount": 5000,
       "currency": "USD",
-      "internalTransferType": "personal transfer",
-      "toAccountNumber": "GE32TB4124141441414141",
       "status": "pending",
       "id": 6
     },
     {
-      "title": "Internal Bank transfer to user: VITO CORLEONE",
-      "toUserId": "3",
-      "date": "2021-03-10T17:53:05.668Z",
-      "type": "bank",
-      "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB4124141441414141",
-      "toAccountNumber": "GE32TB1111222233334444",
-      "amount": 12,
+      "title": "electronic payment to ts.chikovani@gmail.com",
+      "date": "2021-03-11T14:24:20.830Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "ts.chikovani@gmail.com",
+      "paymentSystem": "skrill",
+      "amount": 300,
       "currency": "USD",
-      "beneficiary": "VITO CORLEONE",
-      "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 7
     },
     {
-      "title": "Internal Bank transfer to user: VITO CORLEONE",
-      "toUserId": "3",
-      "date": "2021-03-10T17:54:28.586Z",
-      "type": "bank",
-      "fromAccountUserId": "2",
-      "fromAccountNumber": "GE32TB4124141441414141",
-      "toAccountNumber": "GE32TB1111222233334444",
-      "amount": 32,
+      "title": "electronic payment to marketing@tbc.ge",
+      "date": "2021-03-11T14:26:21.563Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "marketing@tbc.ge",
+      "paymentSystem": "payoneer",
+      "amount": 4000,
       "currency": "USD",
-      "beneficiary": "VITO CORLEONE",
-      "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 8
+    },
+    {
+      "title": "External Bank transfer to beneficiary: Levan Gakharia",
+      "toUserId": "",
+      "date": "2021-03-11T14:37:10.366Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB000000548792",
+      "amount": 40,
+      "currency": "USD",
+      "beneficiary": "Levan Gakharia",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 9
+    },
+    {
+      "title": "External Bank transfer to beneficiary: Tesla ",
+      "toUserId": "",
+      "date": "2021-03-11T14:38:43.925Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000006478126422",
+      "toAccountNumber": "GE32BG000000006969",
+      "amount": 85000,
+      "currency": "USD",
+      "beneficiary": "Tesla ",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 10
+    },
+    {
+      "title": "electronic payment to buycrypto@binance.com",
+      "date": "2021-03-11T14:39:16.840Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "buycrypto@binance.com",
+      "paymentSystem": "paypal",
+      "amount": 500,
+      "currency": "USD",
+      "status": "pending",
+      "id": 11
+    },
+    {
+      "title": "Transfer to my account GE32TB0000000086145623",
+      "date": "2021-03-11T15:16:51.781Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "amount": 10,
+      "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "status": "pending",
+      "id": 12
+    },
+    {
+      "title": "Transfer to my account GE32TB0000000086145623",
+      "date": "2021-03-11T15:17:00.446Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "amount": 20,
+      "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "status": "pending",
+      "id": 13
+    },
+    {
+      "title": "Transfer to my account GE32TB0000000086145623",
+      "date": "2021-03-11T15:17:05.552Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "amount": 15,
+      "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "status": "pending",
+      "id": 14
+    },
+    {
+      "title": "External Bank transfer to beneficiary: Mariam Mezhlumiani",
+      "toUserId": "",
+      "date": "2021-03-11T15:29:42.508Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "toAccountNumber": "GE32TB000025329435521",
+      "amount": 20,
+      "currency": "USD",
+      "beneficiary": "Mariam Mezhlumiani",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 15
+    },
+    {
+      "title": "electronic payment to bankuser@gmail.com",
+      "date": "2021-03-11T15:30:19.535Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "bankuser@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 150,
+      "currency": "USD",
+      "status": "pending",
+      "id": 16
+    },
+    {
+      "title": "electronic payment to bankuser@gmail.com",
+      "date": "2021-03-11T15:32:12.497Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "bankuser@gmail.com",
+      "paymentSystem": "payoneer",
+      "amount": 50,
+      "currency": "USD",
+      "status": "pending",
+      "id": 17
+    },
+    {
+      "title": "electronic payment to buycrypto@coinbase.com",
+      "date": "2021-03-11T15:32:38.999Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "buycrypto@coinbase.com",
+      "paymentSystem": "skrill",
+      "amount": 300,
+      "currency": "USD",
+      "status": "pending",
+      "id": 18
     }
   ],
   "news": [
@@ -935,38 +728,6 @@
       "notifications": true,
       "userId": 2,
       "id": 2
-    },
-    {
-      "productUpdates": false,
-      "offerUpdates": false,
-      "comments": true,
-      "notifications": true,
-      "userId": 3,
-      "id": 3
-    },
-    {
-      "productUpdates": false,
-      "offerUpdates": false,
-      "comments": true,
-      "notifications": true,
-      "userId": 4,
-      "id": 4
-    },
-    {
-      "productUpdates": false,
-      "offerUpdates": false,
-      "comments": true,
-      "notifications": true,
-      "userId": 5,
-      "id": 5
-    },
-    {
-      "productUpdates": false,
-      "offerUpdates": false,
-      "comments": true,
-      "notifications": true,
-      "userId": 6,
-      "id": 6
     }
   ]
 }
