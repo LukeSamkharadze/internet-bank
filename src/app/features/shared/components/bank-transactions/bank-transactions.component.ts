@@ -52,8 +52,7 @@ export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
             ...element,
             date: new Date(element.date),
           }))
-        ),
-        tap((v) => console.log(v))
+        )
       );
   }
 

@@ -84,10 +84,7 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
   }
 
   initializeCard(card$: Observable<ICard>): void {
-    this.accountNumber$ = card$.pipe(
-      map((card) => card.accountNumber),
-      tap((num) => console.log(num))
-    );
+    this.accountNumber$ = card$.pipe(map((card) => card.accountNumber));
     this.background$ = card$.pipe(
       map((card) => this.cardService.determineBackground(card))
     );
