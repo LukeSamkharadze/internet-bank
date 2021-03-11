@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, tap } from 'rxjs/operators';
-import { IUser } from '../interfaces/user.interface';
+import { map } from 'rxjs/operators';
+import { ILoginData } from '../interfaces/user.interface';
 import { UserService } from './user.service';
 import { SocketIoService } from './socket-io.service';
-
+import { NotificationsManagerService } from 'src/app/shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,9 +14,8 @@ export class AuthService {
   fullnamePattern = /^[^\s]+( [^\s]+)+$/;
   // Email requirements: any valid email patern 'x@x.xx'.
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  // Password requirements: min 8 characters, numbers or symbols. Max 50 characters, numbers or symbols.
+  // Password requirements: min 8, max 50 characters, numbers or symbols.
   passwordPattern = /^[A-Za-z\d#$@!%&*?]{8,50}$/;
-  user: IUser;
 
   get userId() {
     return localStorage.getItem('userId');
@@ -24,11 +24,12 @@ export class AuthService {
   constructor(
     private userService: UserService,
     private router: Router,
-    private socketIo: SocketIoService
+    private socketIo: SocketIoService,
+    private notificationService: NotificationsManagerService
   ) {}
 
   // Check if User exists
-  loginCheck(loginData: { email: string; password: string }) {
+  loginCheck(loginData: ILoginData) {
     return this.userService
       .getAll()
       .pipe(
@@ -43,11 +44,10 @@ export class AuthService {
   }
 
   // Retrieve registered user from DB
-  login(loginData: { email: string; password: string }) {
-    return this.userService.getAll().pipe(
-      map((objs) => objs.find((obj) => obj.email === loginData.email)),
-      tap((data) => (this.user = data))
-    );
+  login(loginData: ILoginData) {
+    return this.userService
+      .getAll()
+      .pipe(map((objs) => objs.find((obj) => obj.email === loginData.email)));
   }
 
   // Check if User is logged in
@@ -63,10 +63,7 @@ export class AuthService {
   }
 
   // Logging in a User
-  loggingIn(
-    loginData: { email: string; password: string },
-    rememberMe?: boolean
-  ) {
+  loggingIn(loginData: ILoginData, rememberMe?: boolean) {
     // Check if a User exist
     this.loginCheck(loginData).subscribe((checkSuccess) => {
       if (checkSuccess) {
@@ -87,8 +84,12 @@ export class AuthService {
           }, 200);
         });
       } else {
-        alert(
-          'Login data is wrong, please check again your "email" and "password"!'
+        this.notificationService.add(
+          new NotificationItem(
+            'Login data is wrong, please check again your "email" and "password"!',
+            'failure',
+            5000
+          )
         );
       }
     });

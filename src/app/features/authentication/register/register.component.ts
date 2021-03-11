@@ -6,6 +6,8 @@ import { AuthService } from '../../shared/services/auth.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
 import { UserService } from '../../shared/services/user.service';
 import { formAnimations } from '../../shared/animations/formAnimation';
+import { NotificationsManagerService } from '../../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-register',
@@ -37,7 +39,8 @@ export class RegisterComponent {
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private userLimits: PaymentLimitsService
+    private userLimits: PaymentLimitsService,
+    private notificationService: NotificationsManagerService
   ) {}
 
   // Uppercase user's fullname
@@ -79,8 +82,12 @@ export class RegisterComponent {
 
           this.userLimits.createUserLimits(limits).subscribe();
         } else {
-          alert(
-            `The email address '${this.emailFormControl.value}' has already been registered!\nPlease provide another email!`
+          this.notificationService.add(
+            new NotificationItem(
+              `The email address '${this.emailFormControl.value}' has already been registered!\nPlease provide another email!`,
+              'failure',
+              6000
+            )
           );
         }
       });

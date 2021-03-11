@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { formAnimations } from '../../shared/animations/formAnimation';
+import { ILoginData } from '../../shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-login',
@@ -17,10 +18,7 @@ export class LoginComponent implements OnInit {
   emailPattern = this.authService.emailPattern;
   passwordPattern = this.authService.passwordPattern;
 
-  loginData: {
-    email: string;
-    password: string;
-  };
+  loginData: ILoginData;
 
   form: FormGroup = new FormGroup({
     email: new FormControl(''),
