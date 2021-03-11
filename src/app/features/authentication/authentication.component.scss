@@ -195,6 +195,25 @@
       .minor-grid-container {
         left: unset;
       }
+
+      .auth-form {
+        form {
+          .input-container {
+            .input-tooltip {
+              bottom: unset;
+              left: unset;
+
+              position: fixed;
+              top: 107px;
+              right: 20px;
+
+              &::after {
+                all: unset;
+              }
+            }
+          }
+        }
+      }
     }
 
     .img-bg {
