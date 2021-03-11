@@ -87,6 +87,14 @@ io.on('connection', (socket) => {
     });
   });
 
+  // handling card deletion/state.
+  socket.on('card', (userId) => {
+    const user = activeUserIds.find((usr) => usr.userId === userId);
+    user.socketIds.forEach((socketId) => {
+      io.to(socketId).emit('card', null);
+    });
+  });
+
   // handling new invoice.
   socket.on('invoice', ({ userId }) => {
     const user = activeUserIds.find((usr) => usr.userId === userId);

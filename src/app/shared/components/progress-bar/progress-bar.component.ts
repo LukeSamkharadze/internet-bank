@@ -12,6 +12,9 @@ export class ProgressBarComponent implements OnInit, OnChanges {
   @Input()
   public max = 100;
 
+  @Input()
+  public ascending = true;
+
   private colorRed = [255, 0, 0];
   private colorRedOrange = [255, 160, 122];
   private colorOrange = [255, 165, 0];
@@ -48,63 +51,124 @@ export class ProgressBarComponent implements OnInit, OnChanges {
     const coefficient = this.value / this.max;
     let color;
     color = 'black';
-    if (coefficient < this.firstBreakP) {
-      color = this.pickHex(
-        this.colorRed,
-        this.colorRedOrange,
-        1 - coefficient / this.firstBreakP
-      );
-    } else if (
-      coefficient >= this.firstBreakP &&
-      coefficient < this.secondBreakP
-    ) {
-      color = this.pickHex(
-        this.pickHex(
+    if (this.ascending) {
+      if (coefficient < this.firstBreakP) {
+        color = this.pickHex(
+          this.colorRed,
           this.colorRedOrange,
-          this.colorOrange,
+          1 - coefficient / this.firstBreakP
+        );
+      } else if (
+        coefficient >= this.firstBreakP &&
+        coefficient < this.secondBreakP
+      ) {
+        color = this.pickHex(
+          this.pickHex(
+            this.colorRedOrange,
+            this.colorOrange,
+            1 -
+              (coefficient - this.firstBreakP) /
+                (this.secondBreakP - this.firstBreakP)
+          ),
+          this.pickHex(
+            this.colorOrange,
+            this.colorLightBlue,
+            1 - coefficient / this.secondBreakP
+          ),
           1 -
             (coefficient - this.firstBreakP) /
               (this.secondBreakP - this.firstBreakP)
-        ),
-        this.pickHex(
-          this.colorOrange,
-          this.colorLightBlue,
-          1 - coefficient / this.secondBreakP
-        ),
-        1 -
-          (coefficient - this.firstBreakP) /
-            (this.secondBreakP - this.firstBreakP)
-      );
-    } else if (
-      coefficient >= this.secondBreakP &&
-      coefficient < this.thirdBreakP
-    ) {
-      color = this.pickHex(
-        this.pickHex(
-          this.colorLightBlue,
-          this.colorBlue,
+        );
+      } else if (
+        coefficient >= this.secondBreakP &&
+        coefficient < this.thirdBreakP
+      ) {
+        color = this.pickHex(
+          this.pickHex(
+            this.colorLightBlue,
+            this.colorBlue,
+            1 -
+              (coefficient - this.secondBreakP) /
+                (this.thirdBreakP - this.secondBreakP)
+          ),
+          this.pickHex(
+            this.colorBlue,
+            this.colorLightGreen,
+            1 -
+              (coefficient - this.secondBreakP) /
+                (this.thirdBreakP - this.secondBreakP)
+          ),
           1 -
             (coefficient - this.secondBreakP) /
               (this.thirdBreakP - this.secondBreakP)
-        ),
-        this.pickHex(
-          this.colorBlue,
+        );
+      } else {
+        color = this.pickHex(
           this.colorLightGreen,
+          this.colorGreen,
+          1 - (coefficient - this.thirdBreakP) / (1 - this.thirdBreakP)
+        );
+      }
+    } else {
+      if (coefficient < this.firstBreakP) {
+        color = this.pickHex(
+          this.colorGreen,
+          this.colorLightGreen,
+          1 - coefficient / this.firstBreakP
+        );
+      } else if (
+        coefficient >= this.firstBreakP &&
+        coefficient < this.secondBreakP
+      ) {
+        color = this.pickHex(
+          this.pickHex(
+            this.colorLightGreen,
+            this.colorBlue,
+            1 - coefficient / this.secondBreakP
+          ),
+          this.pickHex(
+            this.colorBlue,
+            this.colorLightBlue,
+            1 -
+              (coefficient - this.firstBreakP) /
+                (this.secondBreakP - this.firstBreakP)
+          ),
+          1 -
+            (coefficient - this.firstBreakP) /
+              (this.secondBreakP - this.firstBreakP)
+        );
+      } else if (
+        coefficient >= this.secondBreakP &&
+        coefficient < this.thirdBreakP
+      ) {
+        color = this.pickHex(
+          this.pickHex(
+            this.colorLightBlue,
+            this.colorOrange,
+            1 -
+              (coefficient - this.secondBreakP) /
+                (this.thirdBreakP - this.secondBreakP)
+          ),
+          this.pickHex(
+            this.colorOrange,
+            this.colorRedOrange,
+            1 -
+              (coefficient - this.secondBreakP) /
+                (this.thirdBreakP - this.secondBreakP)
+          ),
           1 -
             (coefficient - this.secondBreakP) /
               (this.thirdBreakP - this.secondBreakP)
-        ),
-        1 -
-          (coefficient - this.secondBreakP) /
-            (this.thirdBreakP - this.secondBreakP)
-      );
-    } else {
-      color = this.pickHex(
-        this.colorLightGreen,
-        this.colorGreen,
-        1 - (coefficient - this.thirdBreakP) / (1 - this.thirdBreakP)
-      );
+        );
+      } else {
+        color = this.pickHex(
+          this.colorRedOrange,
+          this.colorRed,
+          1 - (coefficient - this.thirdBreakP) / (1 - this.thirdBreakP)
+        );
+      }
     }
+
     color = 'rgb(' + color.toString() + ')';
     return color;
   }

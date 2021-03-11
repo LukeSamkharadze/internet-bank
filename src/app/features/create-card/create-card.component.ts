@@ -5,6 +5,8 @@ import { CardService } from '../shared/services/card.service';
 import { AuthService } from '../shared/services/auth.service';
 import { TypeSwitcherService } from './services/type-switcher.service';
 import { fadeInOut } from '../shared/animations';
+import { NotificationsManagerService } from '../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-features-create-card',
@@ -18,13 +20,13 @@ export class CreateCardComponent implements OnInit {
   cardIconUrl: string;
   cardBgUrl: string;
   color: string;
-  showNotification = false;
 
   constructor(
     private fb: FormBuilder,
     private cardService: CardService,
     private authService: AuthService,
-    private typeSwitcher: TypeSwitcherService
+    private typeSwitcher: TypeSwitcherService,
+    private notificationService: NotificationsManagerService
   ) {
     this.typeSwitcher.cardType$.subscribe((cardType) => {
       this.cardType = cardType;
@@ -54,20 +56,6 @@ export class CreateCardComponent implements OnInit {
     return this.formCtrlVal(formCtrl).toUpperCase();
   }
 
-  showCardNotification(show?: boolean) {
-    // If '(X) Button' clicked hide 'Success NotificationItem'
-    if (show === false) {
-      this.showNotification = false;
-    } else {
-      // Show 'Success NotificationItem' if card is added
-      this.showNotification = true;
-      // Hide 'Success NotificationItem' after 2 sec
-      setTimeout(() => {
-        this.showNotification = false;
-      }, 2000);
-    }
-  }
-
   // Adding Card on Server using Service
   onSubmit() {
     if (this.form.valid) {
@@ -87,7 +75,9 @@ export class CreateCardComponent implements OnInit {
         .create(card)
         .pipe(finalize(() => this.form.reset({ security3D: true })))
         .subscribe(() => {
-          this.showCardNotification();
+          this.notificationService.add(
+            new NotificationItem('Success! New card has been added!', 'success')
+          );
           this.typeSwitcher.assignDefault();
         });
     }

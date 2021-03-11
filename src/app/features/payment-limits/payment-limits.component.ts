@@ -8,6 +8,8 @@ import { Transfer } from '../shared/interfaces/transfers/transfer.interface';
 import { SocketIoService } from '../shared/services/socket-io.service';
 import { takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { NotificationsManagerService } from '../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-payment-limits',
@@ -34,7 +36,8 @@ export class PaymentLimitsComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private paymentLimitService: PaymentLimitsService,
     private transactionService: TransactionService,
-    private socketIo: SocketIoService
+    private socketIo: SocketIoService,
+    private alertService: NotificationsManagerService
   ) {}
 
   ngOnInit(): void {
@@ -121,7 +124,10 @@ export class PaymentLimitsComponent implements OnInit, OnDestroy {
       this.withdrawLimit.value < 1 ||
       this.bankLimit.value < this.bankSpending
     ) {
-      alert('Limiti naklebi ver iqneba');
+      this.alertService.add(
+        new NotificationItem('Limiti naklebi ver iqneba', 'failure', 2000),
+        false
+      );
       return;
     }
 

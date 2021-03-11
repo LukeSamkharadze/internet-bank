@@ -95,7 +95,7 @@ export class NewInvoiceComponent implements OnInit {
           finalize(() => {
             this.form.reset();
             this.notificationsManagerService.add(
-              new NotificationItem('add new invoice successfully', 'success')
+              new NotificationItem('New invoice added successfully', 'success')
             );
             this.invoiceService.emitToSocket();
           })
