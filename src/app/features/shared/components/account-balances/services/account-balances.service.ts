@@ -5,11 +5,11 @@ import { IDeposit } from '../../../interfaces/deposit.interface';
 import { AuthService } from '../../../services/auth.service';
 import { CardService } from '../../../services/card.service';
 import { DepositService } from '../../../services/deposit.service';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable()
 export class AccountBalancesService {
-  balances$ = new Subject<Array<ICard | IDeposit>>();
+  balances$ = new BehaviorSubject<Array<ICard | IDeposit>>(null);
 
   constructor(
     private authService: AuthService,
@@ -20,6 +20,7 @@ export class AccountBalancesService {
   getBalances() {
     this.depositService.deposits$.subscribe((deposits) => {
       this.cardService.cards$.subscribe((cards) => {
+        console.log(deposits);
         const wholeBalances: Array<ICard | IDeposit> = [
           ...cards,
           ...deposits.filter(
