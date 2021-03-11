@@ -12,8 +12,16 @@ import {
   merge,
   Observable,
   Subject,
+  throwError,
 } from 'rxjs';
-import { filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import {
+  catchError,
+  filter,
+  map,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import { ICard } from '../../shared/interfaces/card.interface';
 import { CardService } from '../../shared/services/card.service';
 import { FormatterService } from '../../shared/services/formatter.service';
@@ -23,6 +31,8 @@ import IList from '../models/card-view-list.interface';
 import { ListFormatService } from '../services/list-format.service';
 import { TemplateFormatService } from '../services/template-format.service';
 import { SocketIoService } from '../../shared/services/socket-io.service';
+import { NotificationsManagerService } from 'src/app/shared/services/notifications-manager.service';
+import { NotificationItem } from 'src/app/shared/entity/notificationItem';
 
 @Component({
   selector: 'app-card-details',
@@ -53,7 +63,8 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private socketIo: SocketIoService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private notificationsService: NotificationsManagerService
   ) {}
 
   ngOnInit(): void {
@@ -132,7 +143,28 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
                 ...card,
                 blocked: !card.blocked,
               });
-              newCard$.subscribe((newCard) => updatedCard$.next(newCard));
+              newCard$.subscribe(
+                (newCard) => {
+                  this.notificationsService.add(
+                    new NotificationItem(
+                      `Your card was successfully ${
+                        card.blocked ? 'unblocked' : 'blocked'
+                      }`,
+                      'success'
+                    )
+                  );
+                  updatedCard$.next(newCard);
+                },
+                () =>
+                  this.notificationsService.add(
+                    new NotificationItem(
+                      `Your card wasn't ${
+                        card.blocked ? 'unblocked' : 'blocked'
+                      }. Please try again!`,
+                      'failure'
+                    )
+                  )
+              );
               return newCard$;
             },
           } as IButton)
@@ -146,8 +178,27 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
     return card$.pipe(
       map((card) => ({
         text: 'DELETE',
-        function: () => this.cardService.delete(card.id),
-        callBack: this.navigateToProducts.bind(this),
+        function: () =>
+          this.cardService.delete(card.id).pipe(
+            catchError((err) => {
+              this.notificationsService.add(
+                new NotificationItem(
+                  'Your card wasn`t deleted. Please try again!',
+                  'failure'
+                )
+              );
+              return throwError(err);
+            })
+          ),
+        callBack: function callback() {
+          this.notificationsService.add(
+            new NotificationItem(
+              'Your card was successfully deleted',
+              'success'
+            )
+          );
+          this.navigateToProducts();
+        }.bind(this),
       }))
     );
   }
