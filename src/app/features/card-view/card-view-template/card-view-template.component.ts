@@ -8,6 +8,8 @@ import { Observable, Subscription } from 'rxjs';
 import IButton from '../models/card-view-buttons.interface';
 import ICardTemplate from '../models/card-view-card.interface';
 import IList from '../models/card-view-list.interface';
+import { NotificationsManagerService } from '../../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-card-view-template',
@@ -25,12 +27,18 @@ export class CardViewTemplateComponent implements OnDestroy {
   @Input() buttons: IButton[];
   @Input() background: string;
 
+  constructor(private notificationService: NotificationsManagerService) {}
+
   private subscriptions: Array<Subscription> = [];
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
-
+  notify(msg: string) {
+    const message = msg + ' copied!';
+    const notification = new NotificationItem(message, 'info', 1500);
+    this.notificationService.add(notification);
+  }
   subscribeFunction<T>(
     func: () => Observable<T>,
     callBack: () => void
