@@ -31,7 +31,6 @@ export class NewInvoiceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.auth.userId); // remove
     this.form = this.fb.group({
       template: new FormControl('', Validators.required),
       invoiceNumber: new FormControl('', Validators.required),
