@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { UrlTree, Router, CanLoad, Route, UrlSegment } from '@angular/router';
+import {
+  UrlTree,
+  Router,
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { AuthService } from '../../shared/services/auth.service';
@@ -8,7 +14,7 @@ import { ViewIdentifierService } from '../services/view-identifier.service';
 @Injectable({
   providedIn: 'root',
 })
-export class DetailsGuard implements CanLoad {
+export class DetailsGuard implements CanActivate {
   static redirectUrl: UrlTree;
 
   constructor(
@@ -19,12 +25,12 @@ export class DetailsGuard implements CanLoad {
     DetailsGuard.redirectUrl = this.router.parseUrl('/accounts-list');
   }
 
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | UrlTree {
-    const path = segments[Math.max(segments.length - 2, 0)].path;
-    const id = Number(segments[Math.max(segments.length - 1, 0)].path);
+    const path = route.url[Math.max(route.url.length - 2, 0)].path;
+    const id = Number(route.params.id);
     const service = this.viewService.determineService(path);
 
     if (!service) {
