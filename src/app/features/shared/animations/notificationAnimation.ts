@@ -10,7 +10,12 @@ export const slideInOut = trigger('slideInOut', [
   transition(':leave', [
     animate(
       '500ms cubic-bezier(.16,.52,0,1.14)',
-      style({ transform: 'translateX(200px)', opacity: '0' })
+      style({
+        transform: 'translateX(200px)',
+        height: 0,
+        'margin-bottom': '0px',
+        opacity: '0',
+      })
     ),
   ]),
 ]);

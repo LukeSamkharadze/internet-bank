@@ -3,8 +3,8 @@ export type NotificationStatus = 'success' | 'failure' | 'info';
 export class NotificationItem {
   private static notificationCounter = 0;
   private static colors = new Map<NotificationStatus, string>([
-    ['failure', 'orange'],
-    ['success', 'green'],
+    ['failure', 'red'],
+    ['success', 'blue'],
     ['info', 'white'],
   ]);
 
