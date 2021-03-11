@@ -62,6 +62,15 @@ export class CardService implements BaseHttpInterface<ICard> {
         })
       )
       .subscribe();
+
+    this.socketIo
+      .listen('card')
+      .pipe(
+        tap(() => {
+          this.updateStore();
+        })
+      )
+      .subscribe();
   }
 
   create(card: ICard): Observable<ICard> {
@@ -143,7 +152,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       .put<ICard>(environment.BaseUrl + `cards/${updateCard.id}`, updateCard)
       .pipe(
         retry(1),
-        tap(() => this.updateStore()),
+        tap(() => this.socketIo.emit('card', this.auth.userId)),
         catchError(this.handleError)
       );
   }
@@ -158,7 +167,7 @@ export class CardService implements BaseHttpInterface<ICard> {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.BaseUrl}cards/${id}`).pipe(
       retry(1),
-      tap(() => this.updateStore()),
+      tap(() => this.socketIo.emit('card', this.auth.userId)),
       catchError(this.handleError)
     );
   }
