@@ -70,35 +70,41 @@
 
     <hr class="hr-bottom" />
 
-    <div
-      class="transaction"
-      *ngFor="let transaction of transactionsList$ | async | filter: searchText"
-    >
-      <div class="left">
-        <div class="img-wrapper">
-          <img
-            src="{{ transaction.iconPath }}"
-            onerror="this.onerror=null; this.src='./assets/transfers/default.png';"
-          />
+    <div class="transactions-container">
+      <div
+        class="transaction"
+        *ngFor="
+          let transaction of transactionsList$ | async | filter: searchText
+        "
+      >
+        <div class="left">
+          <div class="img-wrapper">
+            <img
+              src="{{ transaction.iconPath }}"
+              onerror="this.onerror=null; this.src='./assets/transfers/default.png';"
+            />
+          </div>
+          <h2>
+            <a class="title" (click)="pop(transaction.id)">
+              {{ transaction.title }}
+            </a>
+            <br />
+            <span>{{
+              transaction.type.charAt(0).toUpperCase() +
+                transaction.type.slice(1)
+            }}</span>
+          </h2>
         </div>
-        <h2>
-          <a class="title" (click)="pop(transaction.id)">
-            {{ transaction.title }}
-          </a>
-          <br />
-          <span>{{
-            transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1)
-          }}</span>
-        </h2>
-      </div>
-      <div class="right">
-        <h1>
-          <span> {{ transaction.amount }}&nbsp;{{ transaction.currency }} </span
-          ><br />
-          <span class="date">{{
-            transaction.date.toString().slice(4, 15)
-          }}</span>
-        </h1>
+        <div class="right">
+          <h1>
+            <span>
+              {{ transaction.amount }}&nbsp;{{ transaction.currency }} </span
+            ><br />
+            <span class="date">{{
+              transaction.date.toString().slice(4, 15)
+            }}</span>
+          </h1>
+        </div>
       </div>
     </div>
 
