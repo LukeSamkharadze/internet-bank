@@ -38,7 +38,7 @@ export class ListFormatService {
       {
         title: 'Expiration date',
         value: this.dateFormatterService.formatDate(
-          'dd.mm.yyyy',
+          'mm.yyyy',
           expYear,
           expMonth
         ),

@@ -26,7 +26,11 @@
   </div>
 </div>
 <ul class="details" *ngIf="list">
-  <li *ngFor="let item of list">
+  <li
+    *ngFor="let item of list"
+    [appClipBoard]="item.value"
+    (copied)="notify(item.title)"
+  >
     <div class="account">{{ item.title }}</div>
     <div class="name">{{ item.value }}</div>
   </li>

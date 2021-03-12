@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
+import { NotificationItem } from 'src/app/shared/entity/notificationItem';
+import { NotificationsManagerService } from 'src/app/shared/services/notifications-manager.service';
 import { IDeposit } from '../../shared/interfaces/deposit.interface';
+import { Expanses } from '../../shared/interfaces/expanses.interface';
 import { DepositService } from '../../shared/services/deposit.service';
 import { FormatterService } from '../../shared/services/formatter.service';
 import IButton from '../models/card-view-buttons.interface';
@@ -27,13 +30,16 @@ export class DepositDetailsComponent implements OnInit {
   background$: Observable<string>;
   canSelect$: BehaviorSubject<boolean>;
 
+  chartData$: Observable<Expanses[]>;
+
   constructor(
     private formatterService: FormatterService,
     private toListService: ListFormatService,
     private toTemplateService: TemplateFormatService,
     private depositService: DepositService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationsManagerService
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +59,29 @@ export class DepositDetailsComponent implements OnInit {
   }
 
   initializeDeposit(deposit$: Observable<IDeposit>): void {
+    this.chartData$ = deposit$.pipe(
+      map(
+        (deposit) =>
+          [
+            {
+              kind: 'Available',
+              share: deposit.balance || 0,
+              colorString: '#FFAB2B',
+            },
+            {
+              kind: 'Interest rate',
+              share:
+                deposit.depositRate * (deposit.balance || deposit.accured || 0),
+              colorString: '#FE4D97',
+            },
+            {
+              kind: 'Accured',
+              share: deposit.accured || 0,
+              colorString: '#6DD230',
+            },
+          ] as Expanses[]
+      )
+    );
     this.background$ = deposit$.pipe(
       map((deposit) => this.depositService.determineBackground(deposit))
     );
@@ -82,8 +111,27 @@ export class DepositDetailsComponent implements OnInit {
       map((deposit) => [
         {
           text: 'DELETE',
-          function: () => this.depositService.delete(deposit.id),
-          callBack: this.navigateToProducts.bind(this),
+          function: () =>
+            this.depositService.delete(deposit.id).pipe(
+              catchError((err) => {
+                this.notificationsService.add(
+                  new NotificationItem(
+                    'Your deposit wasn`t deleted. Please try again!',
+                    'failure'
+                  )
+                );
+                return throwError(err);
+              })
+            ),
+          callBack: function callback() {
+            this.notificationsService.add(
+              new NotificationItem(
+                'Your deposit was successfully deleted',
+                'success'
+              )
+            );
+            this.navigateToProducts();
+          }.bind(this),
         },
       ])
     );
