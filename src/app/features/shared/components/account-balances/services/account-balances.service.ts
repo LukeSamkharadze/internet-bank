@@ -20,7 +20,6 @@ export class AccountBalancesService {
   getBalances() {
     this.depositService.deposits$.subscribe((deposits) => {
       this.cardService.cards$.subscribe((cards) => {
-        console.log(deposits);
         const wholeBalances: Array<ICard | IDeposit> = [
           ...cards,
           ...deposits.filter(
