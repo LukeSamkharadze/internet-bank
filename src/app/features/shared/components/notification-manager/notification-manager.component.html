@@ -31,13 +31,10 @@
       <div class="bell-notifications" *ngIf="bellNotifications">
         <div class="tooltip" id="tooltip"></div>
         <ul id="list">
-          <li *ngFor="let notification of notifications[0].notifications">
+          <li *ngFor="let notification of notifications">
             <img src="{{ notification.icon }}" alt="" class="bell-image" />
             <div class="notification-text">
-              <p class="notification-header">{{ notification.name }}</p>
-              <p class="notification-bottom">
-                {{ notification.description }}
-              </p>
+              <p class="notification-header">{{ notification.title }}</p>
             </div>
           </li>
         </ul>

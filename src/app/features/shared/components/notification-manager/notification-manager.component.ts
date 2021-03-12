@@ -6,27 +6,29 @@ import {
   ElementRef,
   HostListener,
 } from '@angular/core';
-import { NotificationsManagerService } from '../../services/notifications-manager.service';
+import { NotificationManagerService } from '../../services/notification-manager.service';
 import { AuthService } from '../../services/auth.service';
 import { map } from 'rxjs/operators';
 import { NotificationManager } from '../../interfaces/notificationsManager.interface';
+import { NotificationsManagerService } from 'src/app/shared/services/notifications-manager.service';
 
 @Component({
   selector: 'app-notification-manager',
   templateUrl: './notification-manager.component.html',
   styleUrls: ['./notification-manager.component.scss'],
 })
-export class NotificationManagerComponent implements OnInit, OnChanges {
+export class NotificationManagerComponent implements OnInit {
   @Input() bellAppearance = true;
   appearance = true;
   successfulPay: boolean;
-  newNotification = true;
+  newNotification = false;
   bellNotifications = false;
   notifications: Array<NotificationManager> = [];
   userId = parseInt(this.auth.userId, 10);
 
   constructor(
-    private notificationsService: NotificationsManagerService,
+    private notificationsService: NotificationManagerService,
+    private notification: NotificationsManagerService,
     private eref: ElementRef,
     private auth: AuthService
   ) {}
@@ -65,9 +67,5 @@ export class NotificationManagerComponent implements OnInit, OnChanges {
         })
       )
       .subscribe();
-  }
-
-  ngOnChanges(): void {
-    this.successfulPay = this.notificationsService.successfulPayStatus();
   }
 }
