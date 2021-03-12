@@ -13,6 +13,7 @@ import { finalize, map } from 'rxjs/operators';
 import { IncomeDataType } from './services/data/dataType';
 import { GenerateChartService } from './services/chart/generate-chart.service';
 import { IncomeDataService } from './services/data/income-data.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-features-shared-income-chart',
@@ -37,7 +38,8 @@ export class IncomeChartComponent implements OnInit, AfterViewInit {
   totalsum: number;
   constructor(
     private generateChartService: GenerateChartService,
-    private incomeDataService: IncomeDataService
+    private incomeDataService: IncomeDataService,
+    private authService: AuthService
   ) {
     this.generateChartService.incomeColor
       .pipe(
@@ -79,7 +81,11 @@ export class IncomeChartComponent implements OnInit, AfterViewInit {
           if (!value[0]) {
             alert('No Data');
           } else {
-            this.data = value;
+            for (const user of value) {
+              if (user.userId === Number(this.authService.userId)) {
+                this.data = [user];
+              }
+            }
           }
         }),
         finalize(() => {
