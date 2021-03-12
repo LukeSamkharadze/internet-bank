@@ -24,16 +24,14 @@
   </div>
   <!--right part -->
   <div class="news-right-part">
-    <div
-      *ngFor="let article of newsArticles"
-      [@listAnimation]="newsArticles.length"
-    >
+    <div *ngFor="let article of newsArticles">
       <app-features-shared-news-article
         [src]="article.imageUrl"
         [alt]="article.imgAlt"
         [header]="article.title"
         [articleReleaseDate]="article.releaseDate"
         class="news-article"
+        @listAnimation
       >
         <p>{{ article.content }}</p>
       </app-features-shared-news-article>

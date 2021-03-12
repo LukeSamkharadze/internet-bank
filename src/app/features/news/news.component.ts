@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewsArticle } from './models/news-article.interface';
 import { NewsService } from './services/news.service';
 import { map } from 'rxjs/operators';
-import { listAnimation } from '../shared/animations/listAnimation';
+import { listAnimation } from '../shared/animations/newsAnimation';
 
 @Component({
   selector: 'app-news',
