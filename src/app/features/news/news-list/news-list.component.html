@@ -1,4 +1,4 @@
-<div class="news-list-container">
+<div class="news-list-container" [@listAnimation]="news.length">
   <app-news-item
     *ngFor="let article of news"
     [imgSrc]="article.urlToImage"
