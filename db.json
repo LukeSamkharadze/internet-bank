@@ -577,7 +577,7 @@
   "transactions": [
     {
       "title": "Transfer to my account GE32TB0000006478126422",
-      "date": "2021-03-11T14:14:07.699Z",
+      "date": "2021-03-9T14:14:07.699Z",
       "type": "internal",
       "fromAccountUserId": "1",
       "fromAccountNumber": "GE32TB0000000096714452",
@@ -590,7 +590,7 @@
     },
     {
       "title": "Transfer to my account GE32TB0000006478126422",
-      "date": "2021-03-11T14:14:17.193Z",
+      "date": "2021-02-11T14:14:17.193Z",
       "type": "internal",
       "fromAccountUserId": "1",
       "fromAccountNumber": "GE32TB0000000096714452",
@@ -766,7 +766,7 @@
     {
       "title": "External Bank transfer to beneficiary: Mariam Mezhlumiani",
       "toUserId": "",
-      "date": "2021-03-11T15:29:42.508Z",
+      "date": "2021-02-11T15:29:42.508Z",
       "type": "bank",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB0000000063159412",
@@ -1024,6 +1024,14 @@
       "notifications": true,
       "userId": 2,
       "id": 2
+    }
+  ],
+  "bell-notifications": [
+    {
+      "title": "You received 12 USD!",
+      "icon": "./assets/transfers/bank.png",
+      "userId": 2,
+      "id": 1
     }
   ]
 }

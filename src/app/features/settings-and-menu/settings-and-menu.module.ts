@@ -12,7 +12,7 @@ import { SettingsSecurityComponent } from '../settings-security/settings-securit
     SettingsAndMenuComponent,
     SettingsComponent,
     DeactivateComponent,
-    SettingsSecurityComponent
+    SettingsSecurityComponent,
   ],
   imports: [FeaturesSharedModule, SettingsAndMenuRouting, PaymentLimitsModule],
   exports: [SettingsAndMenuComponent],

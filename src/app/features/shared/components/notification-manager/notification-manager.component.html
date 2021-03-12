@@ -1,0 +1,53 @@
+<div class="feat-notifications">
+  <!-- successful pay -->
+  <app-shared-notification
+    *ngIf="appearance && successfulPay"
+    [color]="'green'"
+    (closePopup)="closePopup()"
+  >
+    Success payment
+  </app-shared-notification>
+
+  <!-- unsuccessful pay -->
+  <app-shared-notification
+    *ngIf="appearance && !successfulPay && successfulPay != undefined"
+    [color]="'orange'"
+    (closePopup)="closePopup()"
+  >
+    We have some issue with your card. Please contact with us
+  </app-shared-notification>
+
+  <!-- bell notifications-icon -->
+  <div
+    class="bell-notifications-icon"
+    *ngIf="bellAppearance"
+    id="bell-notifications-icon"
+  >
+    <div class="bell" (click)="bellMethod()" id="bell">
+      <i class="las la-bell"></i>
+      <div class="dot" *ngIf="newNotification"></div>
+
+      <!-- bell notifications -->
+    </div>
+    <div class="bell-notifications" *ngIf="bellNotifications" id="notifs">
+      <div class="tooltip" id="tooltip"></div>
+      <ul id="list">
+        <li *ngFor="let notification of notifications">
+          <img src="{{ notification.icon }}" alt="" class="bell-image" />
+          <div class="notification-text">
+            <p class="notification-header">{{ notification.title }}</p>
+            <i
+              class="las la-times-circle"
+              (click)="deleteNotif(notification.id)"
+            ></i>
+          </div>
+        </li>
+      </ul>
+      <div class="notification-footer">
+        <p class="notification-footer-text" (click)="allNoti()">
+          ALL NOTIFICATIONS
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
