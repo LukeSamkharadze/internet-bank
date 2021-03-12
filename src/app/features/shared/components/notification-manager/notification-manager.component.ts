@@ -27,7 +27,7 @@ export class NotificationManagerComponent implements OnInit, OnDestroy {
   newNotification = false;
   bellNotifications = false;
   notifications: Array<NotificationManager> = [];
-  userId = parseInt(this.auth.userId, 10);
+  userId = this.auth.userId;
 
   constructor(
     public notificationsService: NotificationManagerService,

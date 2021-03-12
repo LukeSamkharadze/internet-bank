@@ -17,7 +17,7 @@ export class NotificationsManagerService {
     private notifManager: NotificationManagerService
   ) {}
 
-  add(notification: NotificationItem, icon?: string) {
+  add(notification: NotificationItem, icon?: string, userId?: string) {
     this.$notifications.next([...this.$notifications.value, notification]);
 
     timer(notification.timing)
@@ -29,6 +29,7 @@ export class NotificationsManagerService {
         .addNotification({
           title: notification.text,
           icon: `${icon}`,
+          userId,
         })
         .subscribe();
       this.titleBlinker.blink('New notification!');
