@@ -30,9 +30,8 @@ export class NotificationManagerComponent implements OnInit, OnDestroy {
   userId = parseInt(this.auth.userId, 10);
 
   constructor(
-    private notificationsService: NotificationManagerService,
+    public notificationsService: NotificationManagerService,
     private notification: NotificationsManagerService,
-    private eref: ElementRef,
     private auth: AuthService
   ) {
     this.notificationsService.notificationAdded
@@ -40,21 +39,21 @@ export class NotificationManagerComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
-  @HostListener('document:click', ['$event'])
-  onClick(event) {
-    if (!this.eref.nativeElement.contains(event.target)) {
-      this.bellNotifications = false;
-    }
-  }
-
   bellMethod() {
     this.bellNotifications = !this.bellNotifications;
-    this.newNotification = false;
-    return this.bellNotifications;
+    if (this.newNotification) {
+      this.newNotification = false;
+    }
   }
 
   closePopup() {
     this.appearance = false;
+  }
+
+  deleteNotif(id: number) {
+    this.notificationsService.deleteNotif(id).subscribe((e) => {
+      this.loadNotifications();
+    });
   }
 
   allNoti() {
@@ -62,10 +61,25 @@ export class NotificationManagerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.loadNotifications();
+    document.addEventListener('click', (e: MouseEvent) => {
+      if (this.bellNotifications) {
+        const notifs = document.getElementById('notifs');
+        const target = e.target as HTMLDivElement;
+        const bell = document.getElementById('bell');
+        if (!notifs.contains(target) && !bell.contains(target)) {
+          this.bellMethod();
+        }
+      }
+    });
+    this.loadNotifications(false);
   }
 
-  loadNotifications(): void {
+  loadNotifications(bell = true): void {
+    if (bell) {
+      if (!this.bellNotifications) {
+        this.newNotification = true;
+      }
+    }
     this.notifications = [];
     this.notificationsService
       .getNotificationDb()
@@ -76,6 +90,7 @@ export class NotificationManagerComponent implements OnInit, OnDestroy {
               this.notifications.push(user);
             }
           }
+          this.notifications.reverse();
         })
       )
       .subscribe();

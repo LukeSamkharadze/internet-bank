@@ -52,6 +52,10 @@ export class NotificationManagerService {
       );
   }
 
+  deleteNotif(id: number) {
+    return this.http.delete(`${environment.BaseUrl}bell-notifications/${id}`);
+  }
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

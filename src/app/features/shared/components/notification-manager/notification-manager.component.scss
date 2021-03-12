@@ -65,29 +65,38 @@
 
 .bell-notifications {
   ul {
-    overflow-y: auto;
+    overflow-y: hidden;
   }
   position: absolute;
   display: block;
   z-index: 1;
   background-color: white;
   top: 32px;
-  right: -21px;
+  right: 0px;
   width: 341px;
   box-shadow: 0px 0px 10px -5px rgba(112, 112, 112, 1);
   user-select: none;
   li {
     display: flex;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: relative;
     .notification-bottom {
       letter-spacing: -0.01px;
       padding-bottom: 22px;
       padding-right: 35px;
     }
+    i {
+      position: absolute;
+      right: 5px;
+      top: 15px;
+      color: rgba(112, 112, 112, 1);
+    }
   }
 
   ul {
     max-height: 390px;
-    :not(:last-child):hover {
+    li:hover {
       background-color: $background-2;
       cursor: pointer;
     }
@@ -103,9 +112,6 @@
   #tooltip {
     z-index: -1;
   }
-  // li:nth-of-type(1):hover ~ #tooltip {
-  //   background-color: $background-2;
-  // }
 
   .notification-header {
     padding-right: 35px;

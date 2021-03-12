@@ -115,7 +115,7 @@
       "cardNumber": "4390657277538692",
       "cardholder": "JOHN LENNON",
       "expirationDate": "12/28",
-      "availableAmount": 34435,
+      "availableAmount": 34323.76,
       "security3D": true,
       "userId": "2",
       "cardType": "visa",
@@ -139,7 +139,7 @@
       "cardNumber": "4590126318566747",
       "cardholder": "MAMUKA KHAZARADZE",
       "expirationDate": "04/31",
-      "availableAmount": 81757.54,
+      "availableAmount": 81745.54,
       "security3D": true,
       "userId": "1",
       "cardType": "visa",
@@ -220,7 +220,7 @@
       "sex": "Male",
       "id": 1,
       "password": "Aa123456",
-      "fullname": "MAMUKA KHAZARADZE"
+      "fullname": "BANK ADMIN"
     },
     {
       "email": "bankuser@gmail.com",
@@ -577,7 +577,7 @@
   "transactions": [
     {
       "title": "Transfer to my account GE32TB0000006478126422",
-      "date": "2021-03-11T14:14:07.699Z",
+      "date": "2021-03-9T14:14:07.699Z",
       "type": "internal",
       "fromAccountUserId": "1",
       "fromAccountNumber": "GE32TB0000000096714452",
@@ -590,7 +590,7 @@
     },
     {
       "title": "Transfer to my account GE32TB0000006478126422",
-      "date": "2021-03-11T14:14:17.193Z",
+      "date": "2021-02-11T14:14:17.193Z",
       "type": "internal",
       "fromAccountUserId": "1",
       "fromAccountNumber": "GE32TB0000000096714452",
@@ -766,7 +766,7 @@
     {
       "title": "External Bank transfer to beneficiary: Mariam Mezhlumiani",
       "toUserId": "",
-      "date": "2021-03-11T15:29:42.508Z",
+      "date": "2021-02-11T15:29:42.508Z",
       "type": "bank",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB0000000063159412",
@@ -816,6 +816,36 @@
       "currency": "USD",
       "status": "pending",
       "id": 18
+    },
+    {
+      "title": "External Bank transfer to beneficiary: Test Test",
+      "toUserId": "",
+      "date": "2021-03-12T11:56:37.006Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "toAccountNumber": "GE32TB000025329435521",
+      "amount": 123,
+      "currency": "USD",
+      "beneficiary": "Test Test",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 19
+    },
+    {
+      "title": "Internal Bank transfer to user: BANK USER",
+      "toUserId": "2",
+      "date": "2021-03-12T11:57:46.570Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000063159412",
+      "amount": 12,
+      "currency": "USD",
+      "beneficiary": "BANK USER",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 20
     }
   ],
   "news": [
@@ -854,58 +884,10 @@
   ],
   "bell-notifications": [
     {
-      "id": 0,
-      "userId": 2,
-      "title": "test",
-      "icon": "./assets/transfers/bank.png"
-    },
-    {
-      "title": "testnotif",
+      "title": "You received 12 USD!",
       "icon": "./assets/transfers/bank.png",
       "userId": 2,
       "id": 1
-    },
-    {
-      "title": "testnotif",
-      "icon": "./assets/transfers/bank.png",
-      "userId": 2,
-      "id": 2
-    },
-    {
-      "title": "es daenateba",
-      "icon": "./assets/transfers/bank.png",
-      "userId": 2,
-      "id": 3
-    },
-    {
-      "title": "es daenateba",
-      "icon": "./assets/transfers/bank.png",
-      "userId": 2,
-      "id": 4
-    },
-    {
-      "title": "testKLE",
-      "icon": "./assets/transfers/bank.png",
-      "userId": 2,
-      "id": 5
-    },
-    {
-      "title": "es daenateba",
-      "icon": "./assets/transfers/bank.png",
-      "userId": 2,
-      "id": 6
-    },
-    {
-      "title": "testKLE",
-      "icon": "./assets/transfers/bank.png",
-      "userId": 2,
-      "id": 7
-    },
-    {
-      "title": "es daenateba",
-      "icon": "./assets/transfers/bank.png",
-      "userId": 2,
-      "id": 8
     }
   ]
 }
