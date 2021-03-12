@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { INotifications } from '../interfaces/notifications.interface';
 import { map } from 'rxjs/operators';
+import { AlertService } from '@core/alerts/alert.service';
 @Injectable({
   providedIn: 'root',
 })
 export class NotificationsService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private alertService: AlertService) {}
 
   getUsers(): Observable<INotifications[]> {
     return this.http
@@ -24,10 +25,10 @@ export class NotificationsService {
       .put(`${environment.BaseUrl}notifications/${id}`, notifications)
       .subscribe(
         (next) => {
-          alert('Settings Updated');
+          this.alertService.showSuccess('Settings Updated');
         },
         (error) => {
-          alert(error.message);
+          this.alertService.showError(error.message);
         }
       );
   }

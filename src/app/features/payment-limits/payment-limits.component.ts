@@ -10,6 +10,7 @@ import { takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { NotificationsManagerService } from '../../shared/services/notifications-manager.service';
 import { NotificationItem } from '../../shared/entity/notificationItem';
+import { AlertService } from '@core/alerts/alert.service';
 
 @Component({
   selector: 'app-payment-limits',
@@ -37,7 +38,7 @@ export class PaymentLimitsComponent implements OnInit, OnDestroy {
     private paymentLimitService: PaymentLimitsService,
     private transactionService: TransactionService,
     private socketIo: SocketIoService,
-    private alertService: NotificationsManagerService
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -124,9 +125,7 @@ export class PaymentLimitsComponent implements OnInit, OnDestroy {
       this.withdrawLimit.value < 1 ||
       this.bankLimit.value < this.bankSpending
     ) {
-      this.alertService.add(
-        new NotificationItem('Limiti naklebi ver iqneba', 'failure', 2000)
-      );
+      this.alertService.showError('Incorrect Limit');
       return;
     }
 
@@ -139,6 +138,8 @@ export class PaymentLimitsComponent implements OnInit, OnDestroy {
     this.everyLimit.onlineLimit = this.onlineLimit.value;
     this.everyLimit.bankLimit = this.bankLimit.value;
     this.everyLimit.cashLimit = this.withdrawLimit.value;
+
+    this.alertService.showSuccess('Settings Updated');
   }
 
   ngOnDestroy() {

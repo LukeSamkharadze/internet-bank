@@ -1,15 +1,20 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError, from } from 'rxjs';
+import { from, Observable, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { catchError, retry, switchMap, take } from 'rxjs/operators';
 import { SecretQuestion } from '../interfaces/secretQuestion.interface';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
+import { NotificationsManagerService } from '../../../shared/services/notifications-manager.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SecretQuestionService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private notificationsManagerService: NotificationsManagerService
+  ) {}
 
   getAll(): Observable<SecretQuestion[]> {
     return this.http
@@ -64,7 +69,9 @@ export class SecretQuestionService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
 
-    window.alert(errorMessage);
+    this.notificationsManagerService.add(
+      new NotificationItem(errorMessage, 'failure', 3000)
+    );
 
     return throwError(errorMessage);
   }
