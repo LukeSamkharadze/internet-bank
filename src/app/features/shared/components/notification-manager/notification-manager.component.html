@@ -29,6 +29,7 @@
 
       <!-- bell notifications -->
       <div class="bell-notifications" *ngIf="bellNotifications">
+        <div class="tooltip" id="tooltip"></div>
         <ul id="list">
           <li *ngFor="let notification of notifications">
             <img src="{{ notification.icon }}" alt="" class="bell-image" />
@@ -36,7 +37,6 @@
               <p class="notification-header">{{ notification.title }}</p>
             </div>
           </li>
-          <div class="tooltip" id="tooltip"></div>
         </ul>
         <div class="notification-footer">
           <p class="notification-footer-text" (click)="allNoti()">
