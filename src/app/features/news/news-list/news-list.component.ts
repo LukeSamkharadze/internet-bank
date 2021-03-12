@@ -3,13 +3,13 @@ import { catchError, map } from 'rxjs/operators';
 import { NewsItem } from '../models/news-item.interface';
 import { NewsService } from '../services/news.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { listAnimation } from '../../shared/animations/newsAnimation';
+import { fadeAnimation } from '../../shared/animations/newsAnimation';
 
 @Component({
   selector: 'app-news-list',
   templateUrl: './news-list.component.html',
   styleUrls: ['./news-list.component.scss'],
-  animations: [listAnimation],
+  animations: [fadeAnimation],
 })
 export class NewsListComponent implements OnInit {
   @Input() newsCategory = 'Latest News';
