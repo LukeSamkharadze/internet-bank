@@ -20,6 +20,8 @@ import { IconService } from './icon.service';
 import { BackgroundService } from './background.service';
 import IBgColor from '../interfaces/background-color.interface';
 import { SocketIoService } from './socket-io.service';
+import { NotificationsManagerService } from '../../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
 
 @Injectable({
   providedIn: 'root',
@@ -41,7 +43,8 @@ export class CardService implements BaseHttpInterface<ICard> {
     private auth: AuthService,
     private iconService: IconService,
     private bgService: BackgroundService,
-    private socketIo: SocketIoService
+    private socketIo: SocketIoService,
+    private notificationService: NotificationsManagerService
   ) {
     this.updateStore();
     this.socketIo
@@ -182,7 +185,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
 
-    window.alert(errorMessage);
+    this.notificationService.add(new NotificationItem(errorMessage, 'failure'));
 
     return throwError(errorMessage);
   }

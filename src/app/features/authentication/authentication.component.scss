@@ -201,6 +201,34 @@
         form {
           .input-container {
             .input-tooltip {
+              height: unset;
+              padding: 5px;
+              width: min-content;
+              min-width: 195px;
+              bottom: -3.5px;
+            }
+          }
+        }
+      }
+    }
+
+    .img-bg {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    min-width: unset;
+
+    .authentication {
+      .auth-form {
+        form {
+          .input-container {
+            .input-tooltip {
+              width: unset;
               bottom: unset;
               left: unset;
 
@@ -215,10 +243,6 @@
           }
         }
       }
-    }
-
-    .img-bg {
-      display: none;
     }
   }
 }
