@@ -7,7 +7,7 @@
 }
 
 .main-container {
-  max-width: calc(50% - 14px);
+  width: calc(50% - 14px);
   min-width: 400px;
   height: 724px;
   border-radius: 4px;
@@ -16,6 +16,7 @@
 
 .create-card-container {
   display: grid;
+  height: 100%;
   grid-template-rows: 56px 295px auto;
 
   [class|='gritem'] {
@@ -249,8 +250,8 @@
         position: absolute;
         padding: 0 8px;
         border-radius: 3px;
-        bottom: 0;
-        left: 103%;
+        bottom: 115%;
+        right: 50%;
         width: fit-content;
         height: 40px;
         background: #292a2d;
@@ -262,12 +263,12 @@
         &::after {
           content: '';
           position: absolute;
-          top: 50%;
-          right: 100%;
-          margin-top: -8px;
+          top: 100%;
+          right: 15px;
+          margin-top: 0;
           border-width: 8px;
           border-style: solid;
-          border-color: transparent #292a2d transparent transparent;
+          border-color: black transparent transparent transparent;
         }
 
         .la-info-circle {
@@ -307,23 +308,8 @@
   }
 }
 
-@media only screen and (max-width: 1250px) {
-  .create-card-container {
-    .gritem-3 {
-      .li {
-        .pop-up {
-          bottom: 115%;
-          left: unset;
-          right: 50%;
-
-          &::after {
-            top: 100%;
-            right: 15px;
-            margin-top: 0;
-            border-color: black transparent transparent transparent;
-          }
-        }
-      }
-    }
+@media only screen and (max-width: 1400px) {
+  .main-container {
+    width: 100%;
   }
 }
