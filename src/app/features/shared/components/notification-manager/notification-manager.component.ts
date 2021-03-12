@@ -23,15 +23,6 @@ export class NotificationManagerComponent implements OnInit, OnChanges {
   newNotification = true;
   bellNotifications = false;
   notifications: Array<NotificationManager> = [];
-  test: NotificationManager = {
-    notifications: [
-      {
-        icon: '../assets/feat-notifications/notification-icon-5.svg',
-        name: 'socool',
-        description: 'dduee',
-      },
-    ],
-  };
   userId = parseInt(this.auth.userId, 10);
 
   constructor(
