@@ -1,8 +1,9 @@
-<div class="news-list-container" [@listAnimation]="news.length">
+<div class="news-list-container">
   <app-news-item
     *ngFor="let article of news"
     [imgSrc]="article.urlToImage"
     [articleUrl]="article.url"
+    @fadeAnimation
   >
     <span articleTitle>{{ article.title }}</span>
     <span articleDate>{{ article.publishedAt | dateAgo }}</span>

@@ -31,6 +31,14 @@ export class IconService {
         transfer,
         (transfer as ElectronicTransfer).paymentSystem
       );
+    } else if (transfer.type.toLocaleLowerCase() === 'bank') {
+      const iconPath = transfer.toUserId
+        ? './assets/transfers/internal.svg'
+        : './assets/transfers/external.svg';
+      return {
+        ...transfer,
+        iconPath: `${iconPath}`,
+      };
     } else {
       return this.transferTypes.includes(transfer.type.toLocaleLowerCase())
         ? {

@@ -1,0 +1,183 @@
+@import './index.scss';
+
+:host {
+  position: relative;
+  display: inline-block;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+.successful-pay {
+  display: flex;
+  align-items: center;
+  margin-top: 93px;
+  margin-right: 19px;
+  justify-content: space-between;
+  width: fit-content;
+  height: 64px;
+  background-color: $secondary-2;
+
+  .payment-text {
+    font-family: $rubik;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  span {
+    display: flex;
+  }
+}
+
+.las {
+  color: #fafbff;
+}
+
+.la-bell {
+  font-size: 22px;
+  margin-right: 13px;
+  margin-left: 18px;
+}
+
+.la-times-circle {
+  font-size: 18px;
+  margin-right: 14px;
+  margin-left: 6.5rem;
+}
+
+.la-times-circle:hover {
+  cursor: pointer;
+}
+
+.unsuccessful-pay {
+  @extend .successful-pay;
+  background-color: $primary;
+  min-width: 35rem;
+  margin-top: 12px;
+  margin-right: 16px;
+
+  .la-times-circle {
+    margin-left: 20px;
+  }
+}
+
+.bell-notifications {
+  ul {
+    overflow-y: hidden;
+  }
+  position: absolute;
+  display: block;
+  z-index: 1;
+  background-color: white;
+  top: 32px;
+  right: 0px;
+  width: 341px;
+  box-shadow: 0px 0px 10px -5px rgba(112, 112, 112, 1);
+  user-select: none;
+  li {
+    display: flex;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: relative;
+    .notification-bottom {
+      letter-spacing: -0.01px;
+      padding-bottom: 22px;
+      padding-right: 35px;
+    }
+    i {
+      position: absolute;
+      right: 5px;
+      top: 15px;
+      color: rgba(112, 112, 112, 1);
+    }
+  }
+
+  ul {
+    max-height: 390px;
+    li:hover {
+      background-color: $background-2;
+      cursor: pointer;
+    }
+    p:hover {
+      cursor: pointer;
+    }
+  }
+
+  .notification-text {
+    padding-top: 15px;
+  }
+
+  #tooltip {
+    z-index: -1;
+  }
+
+  .notification-header {
+    padding-right: 35px;
+    font-family: $rubik;
+    font-size: 14px;
+    color: $dark-secondary-3;
+    font-weight: 400;
+  }
+
+  .notification-footer-text {
+    font-weight: 500;
+    color: $primary;
+    padding: 15px 0;
+  }
+
+  .notification-footer {
+    display: flex;
+    justify-content: center;
+    background-color: $background-2;
+  }
+
+  .notification-footer-text:hover {
+    cursor: pointer;
+  }
+
+  .bell-image {
+    padding-right: 15px;
+    padding-left: 20px;
+  }
+
+  .tooltip {
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    position: absolute;
+    right: 22px;
+    top: -4px;
+    transform: rotate(50deg);
+  }
+}
+
+.bell-notifications-icon {
+  position: relative;
+  .la-bell {
+    color: $secondary-dark-1;
+    margin: 0;
+  }
+  .la-bell:hover {
+    color: $primary;
+    cursor: pointer;
+  }
+  .dot {
+    position: absolute;
+    top: 0.5px;
+    right: 1.5px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: $secondary-3;
+  }
+
+  .bell {
+    position: relative;
+    top: -5px;
+    width: 22px;
+    margin-right: 20px;
+  }
+}
