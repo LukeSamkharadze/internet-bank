@@ -53,8 +53,6 @@ export class NotificationManagerComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.newNotification = this.notificationsService.newNotification;
-
     this.notificationsService
       .getNotificationDb()
       .pipe(
