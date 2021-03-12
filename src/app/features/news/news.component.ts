@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { NewsArticle } from './models/news-article.interface';
 import { NewsService } from './services/news.service';
 import { map } from 'rxjs/operators';
+import { listAnimation } from '../shared/animations/listAnimation';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss'],
+  animations: [listAnimation],
 })
 export class NewsComponent implements OnInit {
   tabNames = ['Latest News', 'Trending News', 'Most Popular'];

@@ -33,4 +33,5 @@ export const sample: Invoice = {
     },
   ],
   totalAmount: 11495,
+  userID: '2',
 };

@@ -1,0 +1,4 @@
+<app-shared-notification class="item" @slideInOut *ngFor="let notification of notifications$ | async"
+  [color]="notification.color" (closePopup)="closeNotification(notification.id)">
+  {{ notification.text }}
+</app-shared-notification>

@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'accounts-list',
         pathMatch: 'full',
       },
       {
@@ -37,7 +37,7 @@ const routes: Routes = [
           import('./features/card-view/card-view.module').then(
             (m) => m.CardViewModule
           ),
-        canLoad: [DetailsGuard],
+        canActivateChild: [DetailsGuard],
       },
       {
         path: 'accounts-list',

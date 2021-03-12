@@ -6,11 +6,15 @@ import {
   FormControl,
 } from '@angular/forms';
 
-import { Observable, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { AuthService } from '../../shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
 import { IUser } from '../../shared/interfaces/user.interface';
+import { SocketIoService } from '../../shared/services/socket-io.service';
 import { PaymentLimitsService } from '../../shared/services/payment-limits.service';
+import { takeUntil, tap } from 'rxjs/operators';
+import { NotificationsManagerService } from '../../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-settings',
@@ -18,12 +22,9 @@ import { PaymentLimitsService } from '../../shared/services/payment-limits.servi
   styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   showDeleteModal = false;
   passwordSave: string;
-  getSub: Subscription;
-  updSub: Subscription;
-  delSub: Subscription;
-  limSub: Subscription;
 
   delTrue = false;
   updTrue = false;
@@ -43,9 +44,21 @@ export class SettingsComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private userService: UserService,
     private auth: AuthService,
-    private limitService: PaymentLimitsService
+    private socketIo: SocketIoService,
+    private limitService: PaymentLimitsService,
+    private notificationsManagerService: NotificationsManagerService
   ) {
     this.getUser();
+
+    this.socketIo
+      .listen('profile')
+      .pipe(
+        takeUntil(this.unsubscriber),
+        tap(() => {
+          this.getUser();
+        })
+      )
+      .subscribe();
   }
 
   ngOnInit(): void {
@@ -72,37 +85,56 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.user.id = temp;
       this.check();
       this.updTrue = true;
-      this.updSub = this.userService.update(this.user).subscribe();
-      window.alert('Updated Successfully');
-      this.getUser();
+      this.userService
+        .update(this.user)
+        .pipe(
+          takeUntil(this.unsubscriber),
+          tap(() => this.socketIo.emit('profile', this.auth.userId))
+        )
+        .subscribe();
+      this.notificationsManagerService.add(
+        new NotificationItem('Operation Succeeded', 'success')
+      );
     }
   }
+
   reset() {
     this.form.reset(this.userReplicate);
   }
 
   getUser() {
-    this.getSub = this.userService.getById(this.user.id).subscribe((value) => {
-      this.user = value;
-      this.passwordSave = this.user.password;
-      const split = this.user.fullname.split(' ');
+    this.userService
+      .getById(this.user.id)
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((value) => {
+        this.user = value;
+        this.passwordSave = this.user.password;
+        const split = this.user.fullname.split(' ');
 
-      this.form.patchValue({
-        ...this.user,
-        firstName: split[0],
-        lastName: split[1],
+        this.form.patchValue({
+          ...this.user,
+          firstName: split[0],
+          lastName: split[1],
+        });
+        this.userReplicate = this.form.value;
       });
-      this.userReplicate = this.form.value;
-    });
   }
+
   deleteUser() {
     this.showDeleteModal = false;
     this.delTrue = true;
-    this.delSub = this.userService.delete(this.user.id).subscribe();
-    this.limSub = this.limitService.delete(this.user.id).subscribe();
+    this.userService
+      .delete(this.user.id)
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe();
+    this.limitService
+      .delete(this.user.id)
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe();
     window.alert('Successfully Deleted');
     this.auth.logout();
   }
+
   check() {
     this.user.password = this.passwordSave;
     this.user.fullname =
@@ -121,15 +153,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.getSub.unsubscribe();
-    if (this.updTrue) {
-      this.updSub.unsubscribe();
-    }
-    if (this.delTrue) {
-      this.delSub.unsubscribe();
-    }
-    if (this.limSub) {
-      this.limSub.unsubscribe();
-    }
+    this.unsubscriber.next();
   }
 }

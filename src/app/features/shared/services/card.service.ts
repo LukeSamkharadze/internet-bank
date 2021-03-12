@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, from, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, from, Observable, Subject, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
 import { CardType, ICard } from '../interfaces/card.interface';
@@ -19,6 +19,7 @@ import { AuthService } from './auth.service';
 import { IconService } from './icon.service';
 import { BackgroundService } from './background.service';
 import IBgColor from '../interfaces/background-color.interface';
+import { SocketIoService } from './socket-io.service';
 
 @Injectable({
   providedIn: 'root',
@@ -39,19 +40,46 @@ export class CardService implements BaseHttpInterface<ICard> {
     private http: HttpClient,
     private auth: AuthService,
     private iconService: IconService,
-    private bgService: BackgroundService
+    private bgService: BackgroundService,
+    private socketIo: SocketIoService
   ) {
     this.updateStore();
+    this.socketIo
+      .listen('transaction')
+      .pipe(tap(() => this.updateStore()))
+      .subscribe();
+
+    this.socketIo
+      .listen('new-card')
+      .pipe(
+        tap((card) => {
+          this.store$.next(
+            (this.cardsArr = [
+              ...this.cardsArr,
+              this.iconService.determineCardIcon(card),
+            ])
+          );
+        })
+      )
+      .subscribe();
+
+    this.socketIo
+      .listen('card')
+      .pipe(
+        tap(() => {
+          this.updateStore();
+        })
+      )
+      .subscribe();
   }
 
   create(card: ICard): Observable<ICard> {
     card = this.determineCardType(card);
-
     return this.http.post<ICard>(`${environment.BaseUrl}cards`, card).pipe(
       retry(1),
-      tap((newCard) =>
-        this.store$.next((this.cardsArr = [...this.cardsArr, newCard]))
-      ),
+      tap((newCard) => {
+        this.socketIo.emit('new-card', { userId: this.auth.userId, newCard });
+      }),
       catchError(this.handleError)
     );
   }
@@ -124,7 +152,7 @@ export class CardService implements BaseHttpInterface<ICard> {
       .put<ICard>(environment.BaseUrl + `cards/${updateCard.id}`, updateCard)
       .pipe(
         retry(1),
-        tap(() => this.updateStore()),
+        tap(() => this.socketIo.emit('card', this.auth.userId)),
         catchError(this.handleError)
       );
   }
@@ -139,7 +167,7 @@ export class CardService implements BaseHttpInterface<ICard> {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.BaseUrl}cards/${id}`).pipe(
       retry(1),
-      tap(() => this.updateStore()),
+      tap(() => this.socketIo.emit('card', this.auth.userId)),
       catchError(this.handleError)
     );
   }

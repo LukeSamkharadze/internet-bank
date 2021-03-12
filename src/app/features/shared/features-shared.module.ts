@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { components } from './components';
+import { directives } from './directives';
 import { SharedModule } from '@shared/shared';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { sharedPipes } from './pipes';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import 'hammerjs';
 
 const modules = [
@@ -27,12 +29,13 @@ const modules = [
   ChartsModule,
   SharedModule,
   DateInputsModule,
+  MatTooltipModule,
 ];
 
 @NgModule({
-  declarations: [...components, ...sharedPipes],
+  declarations: [...components, ...sharedPipes, ...directives],
   imports: [...modules],
-  exports: [...components, ...modules, ...sharedPipes],
+  exports: [...components, ...modules, ...sharedPipes, ...directives],
   providers: [],
 })
 export class FeaturesSharedModule {}

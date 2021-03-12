@@ -14,6 +14,9 @@ import { ElectronicTransfer } from '../../../../shared/interfaces/transfers/elec
 import { ProvidersService } from '../../../services/providers.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { NotificationItem } from '../../../../../shared/entity/notificationItem';
+import { NotificationsManagerService } from '../../../../../shared/services/notifications-manager.service';
 
 @Component({
   selector: 'app-electronic-payment-form',
@@ -53,7 +56,9 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
 
   constructor(
     private paymentService: PaymentService,
-    private providersService: ProvidersService
+    private providersService: ProvidersService,
+    private router: Router,
+    private notificationService: NotificationsManagerService
   ) {}
 
   onSubmit() {
@@ -74,11 +79,19 @@ export class ElectronicPaymentFormComponent implements OnDestroy {
           .electronicTransfer(transfer)
           .pipe(
             tap(() => {
-              alert('success');
               this.form.reset();
+              const notification = new NotificationItem(
+                'Succesfull payment!',
+                'success'
+              );
+              this.notificationService.add(notification);
             }),
             catchError((error) => {
-              alert(error);
+              const notification = new NotificationItem(
+                error.message,
+                'failure'
+              );
+              this.notificationService.add(notification);
               return of(error);
             })
           )

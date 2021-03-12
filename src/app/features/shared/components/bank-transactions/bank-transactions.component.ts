@@ -2,53 +2,74 @@ import {
   Component,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { TransactionsService } from './services/transactions.service';
 import { TransactionsList } from './models/bank-transaction.model';
-import { BehaviorSubject } from 'rxjs';
+import { SocketIoService } from '../../services/socket-io.service';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil, tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-features-shared-bank-transactions',
   templateUrl: './bank-transactions.component.html',
   styleUrls: ['./bank-transactions.component.scss'],
 })
-export class BankTransactionsComponent implements OnInit, OnChanges {
+export class BankTransactionsComponent implements OnInit, OnChanges, OnDestroy {
+  unsubscriber = new Subject();
   @Input() input;
   hasInput = true;
   show = true;
-  transactionsList: Array<TransactionsList> = [];
+  // transactionsList: Array<TransactionsList> = [];
+  transactionsList$: Observable<TransactionsList[]>;
   searchText;
   popDetails = false;
-  transactionObject = new BehaviorSubject({});
+  transactionObject$: Observable<TransactionsList>;
 
   chosenDate = null;
   chosenType = null;
 
-  constructor(private getTransactionService: TransactionsService) {}
+  constructor(
+    private getTransactionService: TransactionsService,
+    private socketIo: SocketIoService
+  ) {}
 
   fetchTransactions() {
-    this.getTransactionService
-      .getTransactions(this.chosenDate, this.chosenType, this.input)
-      .subscribe((data) => {
-        this.transactionsList = [];
-        data.forEach((element) => {
-          this.transactionsList.push({
+    if (this.input === null) {
+      return;
+    }
+    this.transactionsList$ = this.getTransactionService
+      .getTransactions(
+        this.chosenDate,
+        this.chosenType,
+        this.input || undefined
+      )
+      .pipe(
+        map((data) =>
+          data.map((element) => ({
             ...element,
             date: new Date(element.date),
-          });
-        });
-      });
+          }))
+        )
+      );
   }
 
   ngOnInit() {
     this.fetchTransactions();
+    this.socketIo
+      .listen('transaction')
+      .pipe(
+        takeUntil(this.unsubscriber),
+        tap(() => this.fetchTransactions())
+      )
+      .subscribe();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if ('input' in changes) {
-      if (this.input) {
+      if (this.input || this.input === '') {
         this.hasInput = false;
         this.show = false;
         this.fetchTransactions();
@@ -60,7 +81,9 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   }
 
   pop(id: number) {
-    this.transactionObject.next(this.transactionsList.find((x) => x.id === id));
+    this.transactionObject$ = this.transactionsList$.pipe(
+      map((data) => data.find((x) => x.id === id))
+    );
     this.popDetails = true;
   }
 
@@ -91,5 +114,9 @@ export class BankTransactionsComponent implements OnInit, OnChanges {
   typeChangeEvent($event) {
     this.chosenType = $event.toLowerCase();
     this.fetchTransactions();
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber.next();
   }
 }

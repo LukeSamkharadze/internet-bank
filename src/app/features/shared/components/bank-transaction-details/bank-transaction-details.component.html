@@ -1,11 +1,10 @@
-<div class="popup-blur"></div>
+<div class="popup-blur" (click)="closeModal()"></div>
 <div class="details-popup">
   <div class="details-container">
     <div
       class="details-popup-upper"
       [ngStyle]="{
-        'background-color': background | async,
-        opacity: opacity | async
+        'background-color': background | async
       }"
     >
       <i class="las la-times-circle" (click)="closeModal()"></i>
@@ -38,7 +37,7 @@
         </div>
         <div class="details-popup-lower-transaction-amount">
           <p class="details-popup-lower-transaction-number">
-            ${{ transaction.amount }}
+            {{ amount }}
           </p>
           <p>{{ transaction.date | date: 'MMM dd yyyy hh:mm a' }}</p>
         </div>

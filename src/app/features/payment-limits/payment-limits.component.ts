@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { ILimits } from './payment-interfaces';
 import { PaymentLimitsService } from '../shared/services/payment-limits.service';
 import { TransactionService } from '../shared/services/transaction.service';
 import { Transfer } from '../shared/interfaces/transfers/transfer.interface';
+import { SocketIoService } from '../shared/services/socket-io.service';
+import { takeUntil, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { NotificationsManagerService } from '../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../shared/entity/notificationItem';
 
 @Component({
   selector: 'app-payment-limits',
   templateUrl: './payment-limits.component.html',
   styleUrls: ['./payment-limits.component.scss'],
 })
-export class PaymentLimitsComponent implements OnInit {
+export class PaymentLimitsComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   id = parseInt(this.auth.userId, 10);
 
   everyLimit: ILimits = {
@@ -29,7 +35,9 @@ export class PaymentLimitsComponent implements OnInit {
     private auth: AuthService,
     private fb: FormBuilder,
     private paymentLimitService: PaymentLimitsService,
-    private transactionService: TransactionService
+    private transactionService: TransactionService,
+    private socketIo: SocketIoService,
+    private alertService: NotificationsManagerService
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +45,16 @@ export class PaymentLimitsComponent implements OnInit {
     this.getHTTP();
     this.getOnlineSpending();
     this.getBankSpending();
+    this.socketIo
+      .listen('expanses')
+      .pipe(
+        takeUntil(this.unsubscriber),
+        tap(() => {
+          this.getOnlineSpending();
+          this.getBankSpending();
+        })
+      )
+      .subscribe();
   }
 
   getHTTP() {
@@ -106,7 +124,10 @@ export class PaymentLimitsComponent implements OnInit {
       this.withdrawLimit.value < 1 ||
       this.bankLimit.value < this.bankSpending
     ) {
-      alert('Limiti naklebi ver iqneba');
+      this.alertService.add(
+        new NotificationItem('Limiti naklebi ver iqneba', 'failure', 2000),
+        false
+      );
       return;
     }
 
@@ -119,5 +140,9 @@ export class PaymentLimitsComponent implements OnInit {
     this.everyLimit.onlineLimit = this.onlineLimit.value;
     this.everyLimit.bankLimit = this.bankLimit.value;
     this.everyLimit.cashLimit = this.withdrawLimit.value;
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber.next();
   }
 }

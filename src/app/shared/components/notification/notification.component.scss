@@ -1,10 +1,10 @@
 @import './index.scss';
-$notif-width: 555px;
 
 :host {
-  display: inline-block;
-  width: $notif-width;
+  display: block;
+  min-width: 555px;
 }
+
 .notification {
   width: 100%;
   min-height: 64px;
@@ -39,10 +39,11 @@ $notif-width: 555px;
   i {
     color: $text-color;
   }
+  box-shadow: 0px 0px 6px $bg-color;
 }
 
 .orange {
-  @include notif-style($primary);
+  @include notif-style($orange);
 }
 .blue {
   @include notif-style($secondary-1);
@@ -62,6 +63,7 @@ $notif-width: 555px;
 .green {
   @include notif-style($secondary-2);
 }
+
 .pink {
   @include notif-style($secondary-3);
 }
@@ -73,6 +75,11 @@ $notif-width: 555px;
 .grey {
   @include notif-style($outline, $secondary-dark-1);
 }
+
+.red {
+  @include notif-style(red);
+}
+
 .lighter-grey {
   @include notif-style($background-1, $secondary-dark-1);
 }
@@ -83,5 +90,4 @@ $notif-width: 555px;
 
 .white {
   @include notif-style(white, $secondary-dark-1);
-  box-shadow: 0px 0px 6px $outline;
 }

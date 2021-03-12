@@ -3,14 +3,25 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, EMPTY, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
-import { BaseHttpInterface } from '../../../shared/interfaces/base-http.interface';
+
+import { BaseHttpInterface } from '@shared/shared';
+
 import { Invoice } from '../interfaces/invoice.interface';
+import { SocketIoService } from './socket-io.service';
+import { AuthService } from './auth.service';
+import { NotificationsManagerService } from '../../../shared/services/notifications-manager.service';
+import { NotificationItem } from '../../../shared/entity/notificationItem';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InvoiceService implements BaseHttpInterface<Invoice> {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private socketIo: SocketIoService,
+    private authService: AuthService,
+    private notificationsManagerService: NotificationsManagerService
+  ) {}
 
   create(invoice: Invoice): Observable<Invoice> {
     return this.http
@@ -18,9 +29,14 @@ export class InvoiceService implements BaseHttpInterface<Invoice> {
       .pipe(retry(1), catchError(this.handleError));
   }
 
+  emitToSocket() {
+    this.socketIo.emit('invoice', { userId: this.authService.userId });
+  }
+
   getAll(): Observable<Invoice[]> {
+    const userId = this.authService.userId;
     return this.http
-      .get<Invoice[]>(`${environment.BaseUrl}invoices`)
+      .get<Invoice[]>(`${environment.BaseUrl}invoices?userID=${userId}`)
       .pipe(retry(1), catchError(this.handleError));
   }
 
@@ -44,7 +60,9 @@ export class InvoiceService implements BaseHttpInterface<Invoice> {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
 
-    window.alert(errorMessage);
+    this.notificationsManagerService.add(
+      new NotificationItem(errorMessage, 'failure')
+    );
 
     return throwError(errorMessage);
   }

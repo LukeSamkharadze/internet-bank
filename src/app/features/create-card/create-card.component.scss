@@ -4,20 +4,12 @@
   width: 100%;
   display: block;
   padding: 28px;
-  margin: 0 auto;
 }
 
 .main-container {
-  position: relative;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 28px;
-}
-
-.create-card-container {
-  min-width: 455px;
-  min-height: 746px;
+  max-width: 670px;
+  min-width: 400px;
+  height: 724px;
   border-radius: 4px;
   background: white;
 }
@@ -120,11 +112,11 @@
           color: $primary;
 
           &.blue {
-            color: #293688;
+            color: $blue-dark;
           }
 
           &.orange {
-            color: #e69310;
+            color: $orange-dark;
           }
         }
 
@@ -135,10 +127,10 @@
 
         p {
           font-size: 13px;
+          color: hsl(0, 0%, 60%);
 
-          &.master-cl,
-          &.visa-cl {
-            color: darkgray;
+          &.blue {
+            color: hsl(0, 0%, 66%);
           }
         }
       }
@@ -310,24 +302,12 @@
       width: 206px;
       height: 46px;
       left: 10px;
-      top: 20px;
+      top: 25px;
     }
   }
 }
 
-.notification-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-
 @media only screen and (max-width: 1250px) {
-  .main-container {
-    grid-template-columns: 1fr;
-    min-width: 250px;
-    padding-bottom: 28px;
-  }
-
   .create-card-container {
     .gritem-3 {
       .li {

@@ -10,6 +10,7 @@ import { ILoan, LoanType } from '../interfaces/loan.interface';
 import { AuthService } from './auth.service';
 import { BackgroundService } from './background.service';
 import IBgColor from '../interfaces/background-color.interface';
+import { SocketIoService } from './socket-io.service';
 
 @Injectable({
   providedIn: 'root',
@@ -30,9 +31,19 @@ export class LoanService implements BaseHttpInterface<ILoan> {
   constructor(
     private http: HttpClient,
     private auth: AuthService,
-    private bgService: BackgroundService
+    private bgService: BackgroundService,
+    private socketIo: SocketIoService
   ) {
     this.updateStore();
+
+    this.socketIo
+      .listen('delete-loan')
+      .pipe(
+        tap(() => {
+          this.updateStore();
+        })
+      )
+      .subscribe();
   }
 
   updateStore(): void {
@@ -83,7 +94,7 @@ export class LoanService implements BaseHttpInterface<ILoan> {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${environment.BaseUrl}loans/${id}`).pipe(
       retry(1),
-      tap(() => this.updateStore())
+      tap(() => this.socketIo.emit('delete-loan', this.auth.userId))
     );
   }
 
