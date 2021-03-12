@@ -64,6 +64,9 @@
 }
 
 .bell-notifications {
+  ul {
+    overflow-y: auto;
+  }
   position: absolute;
   display: block;
   z-index: 1;
@@ -97,9 +100,12 @@
     padding-top: 15px;
   }
 
-  li:nth-of-type(1):hover ~ #tooltip {
-    background-color: $background-2;
+  #tooltip {
+    z-index: -1;
   }
+  // li:nth-of-type(1):hover ~ #tooltip {
+  //   background-color: $background-2;
+  // }
 
   .notification-header {
     padding-right: 35px;
