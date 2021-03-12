@@ -14,6 +14,7 @@ import { IncomeDataType } from './services/data/dataType';
 import { GenerateChartService } from './services/chart/generate-chart.service';
 import { IncomeDataService } from './services/data/income-data.service';
 import { AuthService } from '../../services/auth.service';
+import { AlertService } from '@core/alerts/alert.service';
 
 @Component({
   selector: 'app-features-shared-income-chart',
@@ -39,7 +40,8 @@ export class IncomeChartComponent implements OnInit, AfterViewInit {
   constructor(
     private generateChartService: GenerateChartService,
     private incomeDataService: IncomeDataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertService: AlertService
   ) {
     this.generateChartService.incomeColor
       .pipe(
@@ -79,7 +81,7 @@ export class IncomeChartComponent implements OnInit, AfterViewInit {
       .pipe(
         map((value) => {
           if (!value[0]) {
-            alert('No Data');
+            this.alertService.showError('No Data');
           } else {
             for (const user of value) {
               if (user.userId === Number(this.authService.userId)) {

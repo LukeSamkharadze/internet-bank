@@ -6,12 +6,9 @@ import { ErrorService } from './error.service';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-
-  constructor(@Inject(Injector) private injector: Injector) {
-  }
+  constructor(@Inject(Injector) private injector: Injector) {}
 
   handleError(error: Error | HttpErrorResponse) {
-
     const errorService = this.injector.get(ErrorService);
     const logger = this.injector.get(LoggingService);
     const alerter = this.injector.get(AlertService);
@@ -23,12 +20,12 @@ export class GlobalErrorHandler implements ErrorHandler {
       // Server Error
       message = errorService.getServerMessage(error);
       stackTrace = errorService.getServerStack(error);
-      alerter.showError(message);
+      // alerter.showError(message);
     } else {
       // Client Error
       message = errorService.getClientMessage(error);
       stackTrace = errorService.getClientStack(error);
-      alerter.showError(message);
+      // alerter.showError(message);
     }
 
     // Always log errors

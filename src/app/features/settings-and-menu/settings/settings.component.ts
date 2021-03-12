@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
-  FormGroup,
   FormBuilder,
-  Validators,
   FormControl,
+  FormGroup,
+  Validators,
 } from '@angular/forms';
 
 import { Subject } from 'rxjs';
@@ -93,7 +93,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
         )
         .subscribe();
       this.notificationsManagerService.add(
-        new NotificationItem('Operation Succeeded', 'success')
+        new NotificationItem('Settings Updated', 'success')
       );
     }
   }
@@ -131,7 +131,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
       .delete(this.user.id)
       .pipe(takeUntil(this.unsubscriber))
       .subscribe();
-    window.alert('Successfully Deleted');
+    this.notificationsManagerService.add(
+      new NotificationItem('Successfully Deleted', 'success', 3000)
+    );
     this.auth.logout();
   }
 

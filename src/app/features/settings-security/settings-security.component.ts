@@ -6,6 +6,8 @@ import { SecretQuestionService } from '../shared/services/secretQuestion.service
 import { IUser } from '../shared/interfaces/user.interface';
 import { Observable } from 'rxjs';
 import { SecretQuestion } from '../shared/interfaces/secretQuestion.interface';
+import { NotificationsManagerService } from '../../shared/services/notifications-manager.service';
+import { AlertService } from '@core/alerts/alert.service';
 @Component({
   selector: 'app-settings-security',
   templateUrl: './settings-security.component.html',
@@ -33,7 +35,8 @@ export class SettingsSecurityComponent implements OnInit {
   constructor(
     private userServise: UserService,
     private authService: AuthService,
-    private secretQuestionService: SecretQuestionService
+    private secretQuestionService: SecretQuestionService,
+    private alertService: AlertService
   ) {
     // getting secret quesions form DB
     this.secretQuestionService.getAll().subscribe((val) => {
@@ -77,7 +80,7 @@ export class SettingsSecurityComponent implements OnInit {
       if (!qId) {
         // if user wrote answer without question "alerts"
         if (qAnswer) {
-          alert('please select question');
+          this.alertService.showError('please select question');
           return;
         }
       }
@@ -114,7 +117,7 @@ export class SettingsSecurityComponent implements OnInit {
       this.userServise.update(this.user).subscribe();
     } else {
       // secret question
-      alert('your current password is incorrect');
+      this.alertService.showError('your current password is incorrect');
     }
   }
 
