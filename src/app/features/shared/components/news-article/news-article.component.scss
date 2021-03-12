@@ -46,11 +46,12 @@
         rgba(228, 216, 216, 0),
         white
       );
-      height: 89px;
+      height: 65px;
     }
   }
 
   .scroll {
+    max-height: 255px;
     width: 100%;
     position: relative;
     overflow: auto;
