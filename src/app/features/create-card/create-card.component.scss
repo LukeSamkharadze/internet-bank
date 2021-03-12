@@ -7,7 +7,7 @@
 }
 
 .main-container {
-  width: 788px;
+  width: calc(50% - 14px);
   min-width: 400px;
   height: 724px;
   border-radius: 4px;
@@ -308,7 +308,7 @@
   }
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1400px) {
   .main-container {
     width: 100%;
   }
