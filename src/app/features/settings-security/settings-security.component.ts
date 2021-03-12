@@ -33,6 +33,7 @@ export class SettingsSecurityComponent implements OnInit {
 
   questions: Array<SecretQuestion>;
   constructor(
+    private notificationsManagerService: NotificationsManagerService,
     private userServise: UserService,
     private authService: AuthService,
     private secretQuestionService: SecretQuestionService,
@@ -110,9 +111,20 @@ export class SettingsSecurityComponent implements OnInit {
     if (this.user.password === this.formChange.get('curentPass').value) {
       if (this.formChange.get('toggle').value === false) {
         this.user.password = this.formChange.get('newPass').value;
-      } else if (this.formChange.get('toggle').value === true) {
+        this.alertService.showSuccess('Your password updated successfully');
+      } else if (
+        this.formChange.get('toggle').value === true &&
+        this.formChange.get('dropdown').value.questionId !== undefined &&
+        this.formChange.get('answer').value !== ''
+      ) {
         this.updateQuestion();
+        this.alertService.showSuccess(
+          'Your secret question updated successfully'
+        );
+      } else {
+        this.alertService.showError('Secret question fields cannot be empty');
       }
+
       // updating user  DATA
       this.userServise.update(this.user).subscribe();
     } else {
