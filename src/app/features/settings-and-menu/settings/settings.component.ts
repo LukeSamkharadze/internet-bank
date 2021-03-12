@@ -87,13 +87,14 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.updTrue = true;
       this.userService
         .update(this.user)
-        .pipe(takeUntil(this.unsubscriber))
+        .pipe(
+          takeUntil(this.unsubscriber),
+          tap(() => this.socketIo.emit('profile', this.auth.userId))
+        )
         .subscribe();
       this.notificationsManagerService.add(
         new NotificationItem('Operation Succeeded', 'success')
       );
-      this.socketIo.emit('profile', this.auth.userId);
-      this.getUser();
     }
   }
 

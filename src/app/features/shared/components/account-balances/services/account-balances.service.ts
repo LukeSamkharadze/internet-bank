@@ -5,7 +5,7 @@ import { IDeposit } from '../../../interfaces/deposit.interface';
 import { AuthService } from '../../../services/auth.service';
 import { CardService } from '../../../services/card.service';
 import { DepositService } from '../../../services/deposit.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable()
 export class AccountBalancesService {
