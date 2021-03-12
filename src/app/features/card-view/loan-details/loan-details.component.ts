@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
+import { NotificationItem } from 'src/app/shared/entity/notificationItem';
+import { NotificationsManagerService } from 'src/app/shared/services/notifications-manager.service';
 import { Expanses } from '../../shared/interfaces/expanses.interface';
 import { ILoan } from '../../shared/interfaces/loan.interface';
 import { FormatterService } from '../../shared/services/formatter.service';
@@ -36,7 +38,8 @@ export class LoanDetailsComponent implements OnInit {
     private toTemplateService: TemplateFormatService,
     private loanService: LoanService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationsManagerService
   ) {}
 
   ngOnInit(): void {
@@ -101,8 +104,27 @@ export class LoanDetailsComponent implements OnInit {
       map((loan) => [
         {
           text: 'DELETE',
-          function: () => this.loanService.delete(loan.id),
-          callBack: this.navigateToProducts.bind(this),
+          function: () =>
+            this.loanService.delete(loan.id).pipe(
+              catchError((err) => {
+                this.notificationsService.add(
+                  new NotificationItem(
+                    'Your loan wasn`t deleted. Please try again!',
+                    'failure'
+                  )
+                );
+                return throwError(err);
+              })
+            ),
+          callBack: function callback() {
+            this.notificationsService.add(
+              new NotificationItem(
+                'Your loan was successfully deleted',
+                'success'
+              )
+            );
+            this.navigateToProducts();
+          }.bind(this),
         },
       ])
     );

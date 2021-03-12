@@ -56,17 +56,28 @@ export class TransactionsService {
         return this.httpClient.get(url2).pipe(
           map((transaction2: Array<Itransaction>) => {
             const concatenated = transaction1.concat(transaction2);
-            const result = new Array<Itransaction>();
+            let result = new Array<Itransaction>();
 
             concatenated.forEach((element) => {
               result.push(this.iconService.determineTransfersIcon(element));
             });
 
-            result.forEach((element) => {
-              if (String(element.toUserId) !== this.authService.userId) {
-                element.amount = `-${element.amount}`;
-              }
-            });
+            if (!accountNumber) {
+              result = result
+                .filter((element) => element.type !== 'internal')
+                .map((element) => {
+                  if (String(element.toUserId) !== this.authService.userId) {
+                    element.amount = `-${element.amount}`;
+                  }
+                  return element;
+                });
+            } else {
+              result.forEach((element) => {
+                if (String(element.toAccountNumber) !== accountNumber) {
+                  element.amount = `-${element.amount}`;
+                }
+              });
+            }
 
             return result;
           })

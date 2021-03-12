@@ -103,6 +103,22 @@ io.on('connection', (socket) => {
     });
   });
 
+  // handling card deletion of deposit.
+  socket.on('delete-deposit', (userId) => {
+    const user = activeUserIds.find((usr) => usr.userId === userId);
+    user.socketIds.forEach((socketId) => {
+      io.to(socketId).emit('delete-deposit', null);
+    });
+  });
+
+  // handling card deletion of loan.
+  socket.on('delete-loan', (userId) => {
+    const user = activeUserIds.find((usr) => usr.userId === userId);
+    user.socketIds.forEach((socketId) => {
+      io.to(socketId).emit('delete-loan', null);
+    });
+  });
+
   // handling when socket/user disconnects.
   socket.on('disconnect', () => {
     logout(socket);

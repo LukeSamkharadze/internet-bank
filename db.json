@@ -73,6 +73,7 @@
   "income": [
     {
       "id": 1,
+      "userId": 1,
       "data": [
         18000,
         8000,
@@ -90,6 +91,7 @@
     },
     {
       "id": 2,
+      "userId": 2,
       "data": [
         13000,
         8000,
@@ -245,7 +247,7 @@
       "userId": "1"
     },
     {
-      "id": 1,
+      "id": 2,
       "depositName": "Cumulative deposit",
       "accountNumber": "UK64CT00000000000010065132",
       "depositRate": 0.05,
@@ -318,12 +320,22 @@
   ],
   "depositCharts": [
     {
+      "id": 2,
+      "userId": 2,
+      "data": [50, 100, 95, 120, 20, 30]
+    },
+    {
       "id": 3,
       "userId": 1,
       "data": [3525, 3807, 3948, 4089, 3807, 4935, 5640]
     }
   ],
   "loanCharts": [
+    {
+      "id": 3,
+      "userId": 2,
+      "data": [20, 50, 30, 40, 50]
+    },
     {
       "id": 4,
       "userId": 1,
