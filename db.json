@@ -115,7 +115,7 @@
       "cardNumber": "4390657277538692",
       "cardholder": "JOHN LENNON",
       "expirationDate": "12/28",
-      "availableAmount": 14431.96,
+      "availableAmount": 14431.939999999999,
       "security3D": true,
       "userId": "2",
       "cardType": "visa",
@@ -139,7 +139,7 @@
       "cardNumber": "4590126318566747",
       "cardholder": "MAMUKA KHAZARADZE",
       "expirationDate": "04/31",
-      "availableAmount": 81742.54,
+      "availableAmount": 81742.51999999999,
       "security3D": true,
       "userId": "1",
       "cardType": "visa",
@@ -990,6 +990,36 @@
       "bankTransferType": "personal transfer",
       "status": "pending",
       "id": 30
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T14:47:04.640Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000063159412",
+      "amount": 1,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 31
+    },
+    {
+      "title": "Internal Bank transfer to user: Giorgi Giorgiadze",
+      "toUserId": "1",
+      "date": "2021-03-12T14:47:24.534Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "toAccountNumber": "GE32TB0000000096714452",
+      "amount": 1,
+      "currency": "USD",
+      "beneficiary": "Giorgi Giorgiadze",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 32
     }
   ],
   "news": [
@@ -1026,12 +1056,5 @@
       "id": 2
     }
   ],
-  "bell-notifications": [
-    {
-      "title": "You received 12 USD!",
-      "icon": "./assets/transfers/bank.png",
-      "userId": 2,
-      "id": 1
-    }
-  ]
+  "bell-notifications": []
 }

@@ -43,7 +43,6 @@ export class NotificationManagerService {
     return this.http
       .post<any>(`${environment.BaseUrl}bell-notifications/`, {
         ...notif,
-        userId: 2,
       })
       .pipe(
         retry(1),

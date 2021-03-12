@@ -1,6 +1,6 @@
 export interface NotificationManager {
   id?: number;
-  userId?: number;
+  userId?: string;
   icon: string;
   title: string;
 }

@@ -5,6 +5,7 @@ import { Transfer } from '../../features/shared/interfaces/transfers/transfer.in
 import { NotificationItem } from '../entity/notificationItem';
 import { NotificationsManagerService } from './notifications-manager.service';
 import { IconService } from '../../features/shared/services/icon.service';
+import { BankTransfer } from 'src/app/features/shared/interfaces/transfers/bankTransfer.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -18,13 +19,17 @@ export class GlobalNotificationService {
     this.socketIo
       .listen('income')
       .pipe(
-        tap((transfer: Transfer) => {
+        tap((transfer: BankTransfer) => {
           const notification = new NotificationItem(
             `You received ${transfer.amount} USD!`
           );
           const iconPath = iconService.determineTransfersIcon(transfer)
             .iconPath;
-          this.notificationService.add(notification, iconPath);
+          this.notificationService.add(
+            notification,
+            iconPath,
+            transfer.toUserId
+          );
         })
       )
       .subscribe();
