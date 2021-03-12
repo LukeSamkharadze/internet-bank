@@ -3,6 +3,7 @@ import { BehaviorSubject, timer } from 'rxjs';
 import { NotificationItem } from '../entity/notificationItem';
 import { tap } from 'rxjs/operators';
 import { TitleBlinkerService } from './title-blinker.service';
+import { NotificationManagerService } from '../../features/shared/services/notification-manager.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,18 +12,26 @@ export class NotificationsManagerService {
   private $notifications = new BehaviorSubject<NotificationItem[]>([]);
   notifications$ = this.$notifications.asObservable();
 
-  constructor(private titleBlinker: TitleBlinkerService) {}
+  constructor(
+    private titleBlinker: TitleBlinkerService,
+    private notifManager: NotificationManagerService
+  ) {}
 
-  add(notification: NotificationItem, save: boolean = false) {
+  add(notification: NotificationItem, icon?: string, userId?: string) {
     this.$notifications.next([...this.$notifications.value, notification]);
 
     timer(notification.timing)
       .pipe(tap((_) => this.remove(notification.id)))
       .subscribe();
 
-    if (save) {
-      // TODO call profile notifications add function
-
+    if (icon) {
+      this.notifManager
+        .addNotification({
+          title: notification.text,
+          icon: `${icon}`,
+          userId,
+        })
+        .subscribe();
       this.titleBlinker.blink('New notification!');
     }
   }

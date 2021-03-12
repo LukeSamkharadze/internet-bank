@@ -64,10 +64,10 @@
       "id": 1
     },
     {
-      "id": 2,
       "bankLimit": 8000,
       "onlineLimit": 5000,
-      "cashLimit": 4000
+      "cashLimit": 4000,
+      "id": 2
     }
   ],
   "income": [
@@ -115,7 +115,7 @@
       "cardNumber": "4390657277538692",
       "cardholder": "JOHN LENNON",
       "expirationDate": "12/28",
-      "availableAmount": 34435,
+      "availableAmount": 14431.939999999999,
       "security3D": true,
       "userId": "2",
       "cardType": "visa",
@@ -127,7 +127,7 @@
       "cardNumber": "5142005142864183",
       "cardholder": "JOHN LENNON",
       "expirationDate": "07/24",
-      "availableAmount": 430.52000000000004,
+      "availableAmount": 20043.259999999995,
       "security3D": true,
       "userId": "2",
       "cardType": "mastercard",
@@ -139,7 +139,7 @@
       "cardNumber": "4590126318566747",
       "cardholder": "MAMUKA KHAZARADZE",
       "expirationDate": "04/31",
-      "availableAmount": 81757.54,
+      "availableAmount": 81742.51999999999,
       "security3D": true,
       "userId": "1",
       "cardType": "visa",
@@ -215,20 +215,20 @@
   ],
   "users": [
     {
-      "email": "admin@gmail.com",
+      "email": "bankuser1@gmail.com",
       "language": "English",
       "sex": "Male",
       "id": 1,
       "password": "Aa123456",
-      "fullname": "MAMUKA KHAZARADZE"
+      "fullname": "Giorgi Giorgiadze"
     },
     {
-      "email": "bankuser@gmail.com",
+      "email": "bankuser2@gmail.com",
       "language": "English",
-      "sex": "Other",
+      "sex": "Female",
       "id": 2,
       "password": "Aa123456",
-      "fullname": "BANK USER"
+      "fullname": "Ia Iasvhili"
     }
   ],
   "deposits": [
@@ -577,7 +577,7 @@
   "transactions": [
     {
       "title": "Transfer to my account GE32TB0000006478126422",
-      "date": "2021-03-11T14:14:07.699Z",
+      "date": "2021-03-9T14:14:07.699Z",
       "type": "internal",
       "fromAccountUserId": "1",
       "fromAccountNumber": "GE32TB0000000096714452",
@@ -590,7 +590,7 @@
     },
     {
       "title": "Transfer to my account GE32TB0000006478126422",
-      "date": "2021-03-11T14:14:17.193Z",
+      "date": "2021-02-11T14:14:17.193Z",
       "type": "internal",
       "fromAccountUserId": "1",
       "fromAccountNumber": "GE32TB0000000096714452",
@@ -766,7 +766,7 @@
     {
       "title": "External Bank transfer to beneficiary: Mariam Mezhlumiani",
       "toUserId": "",
-      "date": "2021-03-11T15:29:42.508Z",
+      "date": "2021-02-11T15:29:42.508Z",
       "type": "bank",
       "fromAccountUserId": "2",
       "fromAccountNumber": "GE32TB0000000063159412",
@@ -816,6 +816,210 @@
       "currency": "USD",
       "status": "pending",
       "id": 18
+    },
+    {
+      "title": "electronic payment to ts@gmail.com",
+      "date": "2021-03-12T11:43:36.257Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "fromAccountUserId": "2",
+      "toAccountEmail": "ts@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 2,
+      "currency": "USD",
+      "status": "pending",
+      "id": 19
+    },
+    {
+      "title": "Transfer to my account GE32TB0000000086145623",
+      "date": "2021-03-12T11:44:54.477Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "amount": 20000,
+      "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "status": "pending",
+      "id": 20
+    },
+    {
+      "title": "Transfer to my account GE32TB0000000086145623",
+      "date": "2021-03-12T11:44:54.477Z",
+      "type": "internal",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "amount": 20000,
+      "currency": "USD",
+      "internalTransferType": "personal transfer",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "status": "pending",
+      "id": 21
+    },
+    {
+      "title": "Internal Bank transfer to user: BANK USER",
+      "toUserId": "2",
+      "date": "2021-03-12T12:13:30.666Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 2,
+      "currency": "USD",
+      "beneficiary": "BANK USER",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 22
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T12:13:59.539Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 2,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 23
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T12:16:07.000Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 2,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 24
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T12:16:07.000Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 2,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 25
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T12:16:26.811Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 2,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 26
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T12:17:03.512Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 2,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 27
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T12:18:06.231Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 1,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 28
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T12:18:30.184Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000086145623",
+      "amount": 2,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 29
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T12:21:10.348Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000063159412",
+      "amount": 2,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 30
+    },
+    {
+      "title": "Internal Bank transfer to user: Ia Iasvhili",
+      "toUserId": "2",
+      "date": "2021-03-12T14:47:04.640Z",
+      "type": "bank",
+      "fromAccountUserId": "1",
+      "fromAccountNumber": "GE32TB0000000096714452",
+      "toAccountNumber": "GE32TB0000000063159412",
+      "amount": 1,
+      "currency": "USD",
+      "beneficiary": "Ia Iasvhili",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 31
+    },
+    {
+      "title": "Internal Bank transfer to user: Giorgi Giorgiadze",
+      "toUserId": "1",
+      "date": "2021-03-12T14:47:24.534Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB0000000063159412",
+      "toAccountNumber": "GE32TB0000000096714452",
+      "amount": 1,
+      "currency": "USD",
+      "beneficiary": "Giorgi Giorgiadze",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 32
     }
   ],
   "news": [
@@ -851,5 +1055,6 @@
       "userId": 2,
       "id": 2
     }
-  ]
+  ],
+  "bell-notifications": []
 }

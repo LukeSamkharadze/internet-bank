@@ -6,8 +6,8 @@ import { SecretQuestionService } from '../shared/services/secretQuestion.service
 import { IUser } from '../shared/interfaces/user.interface';
 import { Observable } from 'rxjs';
 import { SecretQuestion } from '../shared/interfaces/secretQuestion.interface';
-import { NotificationsManagerService } from 'src/app/shared/services/notifications-manager.service';
-import { NotificationItem } from '../../shared/entity/notificationItem';
+import { NotificationsManagerService } from '../../shared/services/notifications-manager.service';
+import { AlertService } from '@core/alerts/alert.service';
 @Component({
   selector: 'app-settings-security',
   templateUrl: './settings-security.component.html',
@@ -36,7 +36,8 @@ export class SettingsSecurityComponent implements OnInit {
     private notificationsManagerService: NotificationsManagerService,
     private userServise: UserService,
     private authService: AuthService,
-    private secretQuestionService: SecretQuestionService
+    private secretQuestionService: SecretQuestionService,
+    private alertService: AlertService
   ) {
     // getting secret quesions form DB
     this.secretQuestionService.getAll().subscribe((val) => {
@@ -80,7 +81,7 @@ export class SettingsSecurityComponent implements OnInit {
       if (!qId) {
         // if user wrote answer without question "alerts"
         if (qAnswer) {
-          alert('please select question');
+          this.alertService.showError('please select question');
           return;
         }
       }
@@ -110,37 +111,25 @@ export class SettingsSecurityComponent implements OnInit {
     if (this.user.password === this.formChange.get('curentPass').value) {
       if (this.formChange.get('toggle').value === false) {
         this.user.password = this.formChange.get('newPass').value;
-        this.notificationsManagerService.add(
-          new NotificationItem('your password updated successfully', 'success')
-        );
+        this.alertService.showSuccess('Your password updated successfully');
       } else if (
         this.formChange.get('toggle').value === true &&
         this.formChange.get('dropdown').value.questionId !== undefined &&
         this.formChange.get('answer').value !== ''
       ) {
         this.updateQuestion();
-        this.notificationsManagerService.add(
-          new NotificationItem(
-            'your secret question updated successfully',
-            'success'
-          )
+        this.alertService.showSuccess(
+          'Your secret question updated successfully'
         );
       } else {
-        this.notificationsManagerService.add(
-          new NotificationItem(
-            'secret question fields cannot be empty',
-            'failure'
-          )
-        );
+        this.alertService.showError('Secret question fields cannot be empty');
       }
 
       // updating user  DATA
       this.userServise.update(this.user).subscribe();
     } else {
       // secret question
-      this.notificationsManagerService.add(
-        new NotificationItem('your old password is incorrect', 'failure')
-      );
+      this.alertService.showError('your current password is incorrect');
     }
   }
 

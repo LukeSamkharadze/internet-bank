@@ -6,6 +6,8 @@ import { HeaderProfileComponent } from './header-profile/header-profile.componen
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { AccountsSpendingsComponent } from './accounts-spendings/accounts-spendings.component';
 import { ExpansesComponent } from './expanses/expanses.component';
+import { NotificationManagerComponent } from './notification-manager/notification-manager.component';
+
 import { DashboardAccountWidgetComponent } from './dashboard-account-widget/dashboard-account-widget.component';
 import { SettingsNotificationComponent } from './settings-notification/settings-notification.component';
 export * from './income-chart/income-chart.component';
@@ -15,6 +17,7 @@ export * from './header-profile/header-profile.component';
 export * from './bank-transactions/bank-transactions.component';
 export * from './dashboard-account-widget/dashboard-account-widget.component';
 export * from './accounts-spendings/accounts-spendings.component';
+export * from './notification-manager/notification-manager.component';
 export * from './settings-notification/settings-notification.component';
 
 export const components = [
@@ -26,6 +29,7 @@ export const components = [
   HeaderProfileComponent,
   AccountsSpendingsComponent,
   ExpansesComponent,
+  NotificationManagerComponent,
   DashboardAccountWidgetComponent,
   SettingsNotificationComponent,
 ];

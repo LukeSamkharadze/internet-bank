@@ -5,7 +5,7 @@ export class NotificationItem {
   private static colors = new Map<NotificationStatus, string>([
     ['failure', 'red'],
     ['success', 'blue'],
-    ['info', 'white'],
+    ['info', 'blue'],
   ]);
 
   id: number;

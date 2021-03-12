@@ -4,6 +4,8 @@ import { tap } from 'rxjs/operators';
 import { Transfer } from '../../features/shared/interfaces/transfers/transfer.interface';
 import { NotificationItem } from '../entity/notificationItem';
 import { NotificationsManagerService } from './notifications-manager.service';
+import { IconService } from '../../features/shared/services/icon.service';
+import { BankTransfer } from 'src/app/features/shared/interfaces/transfers/bankTransfer.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,16 +13,23 @@ import { NotificationsManagerService } from './notifications-manager.service';
 export class GlobalNotificationService {
   constructor(
     private socketIo: SocketIoService,
-    private notificationService: NotificationsManagerService
+    private notificationService: NotificationsManagerService,
+    private iconService: IconService
   ) {
     this.socketIo
       .listen('income')
       .pipe(
-        tap((transfer: Transfer) => {
+        tap((transfer: BankTransfer) => {
           const notification = new NotificationItem(
             `You received ${transfer.amount} USD!`
           );
-          this.notificationService.add(notification, true);
+          const iconPath = iconService.determineTransfersIcon(transfer)
+            .iconPath;
+          this.notificationService.add(
+            notification,
+            iconPath,
+            transfer.toUserId
+          );
         })
       )
       .subscribe();
