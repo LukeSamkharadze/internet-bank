@@ -5,19 +5,22 @@ import {
   OnChanges,
   ElementRef,
   HostListener,
+  OnDestroy,
 } from '@angular/core';
 import { NotificationManagerService } from '../../services/notification-manager.service';
 import { AuthService } from '../../services/auth.service';
-import { map } from 'rxjs/operators';
+import { map, takeUntil, tap } from 'rxjs/operators';
 import { NotificationManager } from '../../interfaces/notificationsManager.interface';
 import { NotificationsManagerService } from 'src/app/shared/services/notifications-manager.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-notification-manager',
   templateUrl: './notification-manager.component.html',
   styleUrls: ['./notification-manager.component.scss'],
 })
-export class NotificationManagerComponent implements OnInit {
+export class NotificationManagerComponent implements OnInit, OnDestroy {
+  private unsubscriber = new Subject();
   @Input() bellAppearance = true;
   appearance = true;
   successfulPay: boolean;
@@ -31,7 +34,11 @@ export class NotificationManagerComponent implements OnInit {
     private notification: NotificationsManagerService,
     private eref: ElementRef,
     private auth: AuthService
-  ) {}
+  ) {
+    this.notificationsService.notificationAdded
+      .pipe(tap(() => this.loadNotifications(), takeUntil(this.unsubscriber)))
+      .subscribe();
+  }
 
   @HostListener('document:click', ['$event'])
   onClick(event) {
@@ -55,6 +62,11 @@ export class NotificationManagerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadNotifications();
+  }
+
+  loadNotifications(): void {
+    this.notifications = [];
     this.notificationsService
       .getNotificationDb()
       .pipe(
@@ -67,5 +79,9 @@ export class NotificationManagerComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  ngOnDestroy() {
+    this.unsubscriber.next();
   }
 }

@@ -125,8 +125,7 @@ export class PaymentLimitsComponent implements OnInit, OnDestroy {
       this.bankLimit.value < this.bankSpending
     ) {
       this.alertService.add(
-        new NotificationItem('Limiti naklebi ver iqneba', 'failure', 2000),
-        false
+        new NotificationItem('Limiti naklebi ver iqneba', 'failure', 2000)
       );
       return;
     }

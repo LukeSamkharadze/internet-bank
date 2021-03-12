@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { NotificationManager } from '../interfaces/notificationsManager.interface';
-import { catchError, retry, switchMap, take } from 'rxjs/operators';
-import { AuthService } from './auth.service';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotificationManagerService {
   constructor(private http: HttpClient) {}
+  notificationAdded = new Subject();
 
   appearance: boolean;
   defaultIcon = '../../../assets/feat-notifications/noIcon.svg ';
@@ -45,7 +45,11 @@ export class NotificationManagerService {
         ...notif,
         userId: 2,
       })
-      .pipe(retry(1), catchError(this.handleError));
+      .pipe(
+        retry(1),
+        catchError(this.handleError),
+        tap(() => this.notificationAdded.next())
+      );
   }
 
   private handleError(error: HttpErrorResponse) {
