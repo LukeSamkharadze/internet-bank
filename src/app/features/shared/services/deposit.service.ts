@@ -25,7 +25,7 @@ export class DepositService implements BaseHttpInterface<IDeposit> {
     ['Cumulative', 'las la-piggy-bank'],
   ]);
   private readonly colors = new Map<DepositType, IBgColor>([
-    ['Cumulative', 'orange'],
+    ['Cumulative', 'blue'],
   ]);
 
   private store$ = new BehaviorSubject<IDeposit[]>([]);
