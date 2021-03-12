@@ -113,7 +113,11 @@ export class SettingsSecurityComponent implements OnInit {
         this.notificationsManagerService.add(
           new NotificationItem('your password updated successfully', 'success')
         );
-      } else if (this.formChange.get('toggle').value === true) {
+      } else if (
+        this.formChange.get('toggle').value === true &&
+        this.formChange.get('dropdown').value.questionId !== undefined &&
+        this.formChange.get('answer').value !== ''
+      ) {
         this.updateQuestion();
         this.notificationsManagerService.add(
           new NotificationItem(
@@ -121,7 +125,15 @@ export class SettingsSecurityComponent implements OnInit {
             'success'
           )
         );
+      } else {
+        this.notificationsManagerService.add(
+          new NotificationItem(
+            'secret question fields cannot be empty',
+            'failure'
+          )
+        );
       }
+
       // updating user  DATA
       this.userServise.update(this.user).subscribe();
     } else {
