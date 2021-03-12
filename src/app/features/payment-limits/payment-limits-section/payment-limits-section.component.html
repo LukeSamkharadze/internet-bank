@@ -32,7 +32,11 @@
       </div>
 
       <div class="spendings-current">
-        <app-shared-progress-bar [value]="spending" [max]="inputElement.value">
+        <app-shared-progress-bar
+          [value]="spending"
+          [ascending]="false"
+          [max]="inputElement.value"
+        >
         </app-shared-progress-bar>
       </div>
     </div>
