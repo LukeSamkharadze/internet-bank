@@ -1,12 +1,13 @@
 <div class="list">
   <div class="header">
-    <p class="name">Open Deposit</p>
+    <p class="name">My Deposits</p>
   </div>
   <div class="items">
     <app-accounts-list-item
       *ngFor="let deposit of pipedDeposits$ | async"
       [info]="deposit.info"
       [color]="deposit.color"
+      class="disable-select"
       [class.blocked]="deposit.blocked"
       [routerLink]="['/card-view/deposit/' + deposit.id]"
       ><i [class]="deposit.icon"></i

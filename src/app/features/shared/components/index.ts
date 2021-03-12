@@ -5,7 +5,6 @@ import { BankTransactionsComponent } from './bank-transactions/bank-transactions
 import { HeaderProfileComponent } from './header-profile/header-profile.component';
 import { NewsArticleComponent } from './news-article/news-article.component';
 import { AccountsSpendingsComponent } from './accounts-spendings/accounts-spendings.component';
-import { InvoiceDetailsComponent } from './invoice-details/invoice-details.component';
 import { ExpansesComponent } from './expanses/expanses.component';
 import { NotificationManagerComponent } from './notification-manager/notification-manager.component';
 
@@ -16,7 +15,6 @@ export * from './account-balances/account-balances.component';
 export * from './news-article/news-article.component';
 export * from './header-profile/header-profile.component';
 export * from './bank-transactions/bank-transactions.component';
-export * from './invoice-details/invoice-details.component';
 export * from './dashboard-account-widget/dashboard-account-widget.component';
 export * from './accounts-spendings/accounts-spendings.component';
 export * from './notification-manager/notification-manager.component';
@@ -30,7 +28,6 @@ export const components = [
   NewsArticleComponent,
   HeaderProfileComponent,
   AccountsSpendingsComponent,
-  InvoiceDetailsComponent,
   ExpansesComponent,
   NotificationManagerComponent,
   DashboardAccountWidgetComponent,

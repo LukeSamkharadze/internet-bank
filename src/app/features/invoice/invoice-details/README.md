@@ -3,11 +3,11 @@
 _Us this component in your feature like this_
 
 ```HTML
-<app-shared-invoice-details
+<app-invoice-details
 	*ngIf="popDetails"
 	(closePopup)="closePopup()"
 	[invoice]="invoiceObject">
-</app-shared-invoice-details>
+</app-invoice-details>
 ```
 
 where **popDetails** is a variable that is either true or false. If you want this modal to pop up then you should make popDetails **true**.

@@ -1,9 +1,8 @@
 @import './index.scss';
 
-.feat-notifications {
-  margin-left: 30%;
-  width: 100px;
-  height: 100px;
+:host {
+  position: relative;
+  display: inline-block;
 }
 
 ::-webkit-scrollbar {
@@ -67,11 +66,13 @@
 .bell-notifications {
   position: absolute;
   display: block;
+  z-index: 1;
   background-color: white;
   top: 32px;
   right: -21px;
   width: 341px;
   box-shadow: 0px 0px 10px -5px rgba(112, 112, 112, 1);
+  user-select: none;
   li {
     display: flex;
     .notification-bottom {
@@ -83,7 +84,6 @@
 
   ul {
     max-height: 390px;
-    overflow: auto;
     :not(:last-child):hover {
       background-color: $background-2;
       cursor: pointer;
@@ -164,6 +164,7 @@
 
   .bell {
     position: relative;
+    top: -5px;
     width: 22px;
     margin-right: 20px;
   }

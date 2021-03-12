@@ -4,7 +4,7 @@
 
 <div class="list">
   <div class="header">
-    <p class="name">Your cards</p>
+    <p class="name">My Cards</p>
     <p [routerLink]="'create-card'" class="new">
       <i class="las la-plus-circle"></i>New card
     </p>
@@ -13,6 +13,7 @@
     <app-accounts-list-item
       *ngFor="let card of pipedCards$ | async"
       [info]="card.info"
+      class="disable-select"
       [class.blocked]="card.blocked"
       [routerLink]="['/card-view/card/' + card.id]"
       ><img [src]="card.iconPath" [alt]="card.cardName"

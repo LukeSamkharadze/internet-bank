@@ -7,6 +7,9 @@ import {
   HostListener,
 } from '@angular/core';
 import { NotificationsManagerService } from '../../services/notifications-manager.service';
+import { AuthService } from '../../services/auth.service';
+import { map } from 'rxjs/operators';
+import { NotificationManager } from '../../interfaces/notificationsManager.interface';
 
 @Component({
   selector: 'app-notification-manager',
@@ -14,16 +17,27 @@ import { NotificationsManagerService } from '../../services/notifications-manage
   styleUrls: ['./notification-manager.component.scss'],
 })
 export class NotificationManagerComponent implements OnInit, OnChanges {
-  @Input() bellAppearance: boolean;
+  @Input() bellAppearance = true;
   appearance = true;
   successfulPay: boolean;
   newNotification = true;
   bellNotifications = false;
-  notifications: Array<object>;
+  notifications: Array<NotificationManager> = [];
+  test: NotificationManager = {
+    notifications: [
+      {
+        icon: '../assets/feat-notifications/notification-icon-5.svg',
+        name: 'socool',
+        description: 'dduee',
+      },
+    ],
+  };
+  userId = parseInt(this.auth.userId, 10);
 
   constructor(
     private notificationsService: NotificationsManagerService,
-    private eref: ElementRef
+    private eref: ElementRef,
+    private auth: AuthService
   ) {}
 
   @HostListener('document:click', ['$event'])
@@ -43,9 +57,25 @@ export class NotificationManagerComponent implements OnInit, OnChanges {
     this.appearance = false;
   }
 
+  allNoti() {
+    document.getElementById('list').style.overflow = 'auto';
+  }
+
   ngOnInit(): void {
-    this.notifications = this.notificationsService.getNotification();
     this.newNotification = this.notificationsService.newNotification;
+
+    this.notificationsService
+      .getNotificationDb()
+      .pipe(
+        map((users) => {
+          for (const user of users) {
+            if (this.userId === user.userId) {
+              this.notifications.push(user);
+            }
+          }
+        })
+      )
+      .subscribe();
   }
 
   ngOnChanges(): void {

@@ -17,8 +17,6 @@
     We have some issue with your card. Please contact with us
   </app-shared-notification>
 
-  <br /><br />
-
   <!-- bell notifications-icon -->
   <div
     class="bell-notifications-icon"
@@ -32,7 +30,7 @@
       <!-- bell notifications -->
       <div class="bell-notifications" *ngIf="bellNotifications">
         <ul id="list">
-          <li *ngFor="let notification of notifications">
+          <li *ngFor="let notification of notifications[0].notifications">
             <img src="{{ notification.icon }}" alt="" class="bell-image" />
             <div class="notification-text">
               <p class="notification-header">{{ notification.name }}</p>
@@ -44,7 +42,9 @@
           <div class="tooltip" id="tooltip"></div>
         </ul>
         <div class="notification-footer">
-          <p class="notification-footer-text">ALL NOTIFICATIONS</p>
+          <p class="notification-footer-text" (click)="allNoti()">
+            ALL NOTIFICATIONS
+          </p>
         </div>
       </div>
     </div>

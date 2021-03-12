@@ -15,21 +15,19 @@
   ],
   "answers": [
     {
-      "questionId": 1,
+      "questionId": 3,
       "userId": 1,
-      "answer": "12212",
+      "answer": "",
       "id": 1
     },
     {
-      "questionId": 2,
       "userId": 1,
-      "answer": "1221212",
+      "answer": "1212",
       "id": 2
     },
     {
-      "questionId": 3,
       "userId": 1,
-      "answer": "12212121",
+      "answer": "123",
       "id": 3
     }
   ],
@@ -169,7 +167,7 @@
       "cardNumber": "5222111133338040",
       "cardholder": "JOHN LENNON",
       "expirationDate": "04/30",
-      "availableAmount": 37937.96,
+      "availableAmount": 36900.96,
       "security3D": true,
       "userId": "1",
       "id": 2
@@ -181,7 +179,7 @@
       "cardNumber": "5333111122220097",
       "cardholder": "TILL LINDEMANN",
       "expirationDate": "11/26",
-      "availableAmount": 10000,
+      "availableAmount": 5000,
       "security3D": true,
       "userId": "2",
       "id": 3
@@ -259,13 +257,15 @@
       "email": "sanchito_p@gmail.com",
       "id": 1,
       "fullname": "SANCHO PANZA",
-      "password": "12345678"
+      "password": "12345678902"
     },
     {
-      "fullname": "EDMOND DANTES",
       "email": "admin@gmail.com",
+      "language": "English",
+      "sex": "Male",
+      "id": 2,
       "password": "12345678",
-      "id": 2
+      "fullname": "EDMOND DANTES"
     },
     {
       "fullname": "VITO CORLEONE",
@@ -710,6 +710,47 @@
       "toAccountNumber": "GE32TB4434234223333333",
       "status": "pending",
       "id": 5
+    },
+    {
+      "title": "electronic payment to hg@gmail.com",
+      "date": "2021-03-08T19:20:29.210Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB2222111133334444",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "hg@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 5525,
+      "currency": "USD",
+      "status": "pending",
+      "id": 6
+    },
+    {
+      "title": "electronic payment to hg@gmail.com",
+      "date": "2021-03-08T19:38:36.633Z",
+      "type": "electronic",
+      "fromAccountNumber": "GE32TB2222111133334444",
+      "fromAccountUserId": "1",
+      "toAccountEmail": "hg@gmail.com",
+      "paymentSystem": "paypal",
+      "amount": 412,
+      "currency": "USD",
+      "status": "pending",
+      "id": 7
+    },
+    {
+      "title": "Internal Bank transfer to user: SANCHO PANZA",
+      "toUserId": "1",
+      "date": "2021-03-08T19:47:28.005Z",
+      "type": "bank",
+      "fromAccountUserId": "2",
+      "fromAccountNumber": "GE32TB3333111122224444",
+      "toAccountNumber": "GE32TB2222111133334444",
+      "amount": 5000,
+      "currency": "USD",
+      "beneficiary": "SANCHO PANZA",
+      "bankTransferType": "personal transfer",
+      "status": "pending",
+      "id": 8
     }
   ],
   "news": [
@@ -776,6 +817,194 @@
       "notifications": true,
       "userId": 6,
       "id": 6
+    }
+  ],
+  "bell-notifications": [
+    {
+      "id": 1,
+      "userId": 1,
+      "notifications": [
+        {
+          "icon": "assets/feat-notifications/notification-icon-1.svg",
+          "name": "Advertise Advertise Advertise",
+          "description": "How many free autoresponders have"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-2.svg",
+          "name": "Nailing It On The Head",
+          "description": "Another title for this article can be"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-3.svg",
+          "name": "How To Boost Traffic Of Your Blog",
+          "description": "What makes one logo better than"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-4.svg",
+          "name": "Search Engine Optimization",
+          "description": "Adwords Keyword research"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-5.svg",
+          "name": "Branding Do You Know Who You Are",
+          "description": "I have been questioned many people"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "notifications": [
+        {
+          "icon": "assets/feat-notifications/notification-icon-1.svg",
+          "name": "Advertise Advertise Advertise",
+          "description": "How many free autoresponders have"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-2.svg",
+          "name": "Nailing It On The Head",
+          "description": "Another title for this article can be"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-3.svg",
+          "name": "How To Boost Traffic Of Your Blog",
+          "description": "What makes one logo better than"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-4.svg",
+          "name": "Search Engine Optimization",
+          "description": "Adwords Keyword research"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-5.svg",
+          "name": "Branding Do You Know Who You Are",
+          "description": "I have been questioned many people"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "notifications": [
+        {
+          "icon": "assets/feat-notifications/notification-icon-1.svg",
+          "name": "Advertise Advertise Advertise",
+          "description": "How many free autoresponders have"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-2.svg",
+          "name": "Nailing It On The Head",
+          "description": "Another title for this article can be"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-3.svg",
+          "name": "How To Boost Traffic Of Your Blog",
+          "description": "What makes one logo better than"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-4.svg",
+          "name": "Search Engine Optimization",
+          "description": "Adwords Keyword research"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-5.svg",
+          "name": "Branding Do You Know Who You Are",
+          "description": "I have been questioned many people"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "notifications": [
+        {
+          "icon": "assets/feat-notifications/notification-icon-1.svg",
+          "name": "Advertise Advertise Advertise",
+          "description": "How many free autoresponders have"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-2.svg",
+          "name": "Nailing It On The Head",
+          "description": "Another title for this article can be"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-3.svg",
+          "name": "How To Boost Traffic Of Your Blog",
+          "description": "What makes one logo better than"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-4.svg",
+          "name": "Search Engine Optimization",
+          "description": "Adwords Keyword research"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-5.svg",
+          "name": "Branding Do You Know Who You Are",
+          "description": "I have been questioned many people"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "notifications": [
+        {
+          "icon": "assets/feat-notifications/notification-icon-1.svg",
+          "name": "Advertise Advertise Advertise",
+          "description": "How many free autoresponders have"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-2.svg",
+          "name": "Nailing It On The Head",
+          "description": "Another title for this article can be"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-3.svg",
+          "name": "How To Boost Traffic Of Your Blog",
+          "description": "What makes one logo better than"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-4.svg",
+          "name": "Search Engine Optimization",
+          "description": "Adwords Keyword research"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-5.svg",
+          "name": "Branding Do You Know Who You Are",
+          "description": "I have been questioned many people"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "notifications": [
+        {
+          "icon": "assets/feat-notifications/notification-icon-1.svg",
+          "name": "Advertise Advertise Advertise",
+          "description": "How many free autoresponders have"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-2.svg",
+          "name": "Nailing It On The Head",
+          "description": "Another title for this article can be"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-3.svg",
+          "name": "How To Boost Traffic Of Your Blog",
+          "description": "What makes one logo better than"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-4.svg",
+          "name": "Search Engine Optimization",
+          "description": "Adwords Keyword research"
+        },
+        {
+          "icon": "assets/feat-notifications/notification-icon-5.svg",
+          "name": "Branding Do You Know Who You Are",
+          "description": "I have been questioned many people"
+        }
+      ]
     }
   ]
 }

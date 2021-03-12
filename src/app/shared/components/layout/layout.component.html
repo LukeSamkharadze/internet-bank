@@ -10,13 +10,23 @@
       <div class="main-nav" #mainNav>
         <a
           class="main-nav-item"
-          [routerLink]="'dashboard'"
+          [routerLink]="'accounts-list'"
           [routerLinkActive]="['nav-item-active']"
         >
           <div class="main-nav-icon">
-            <i class="las la-clock"></i>
+            <i class="las la-briefcase"></i>
           </div>
-          <div class="main-nav-title">DASHBOARD</div>
+          <div class="main-nav-title">MY PRODUCTS</div>
+        </a>
+        <a
+          class="main-nav-item"
+          [routerLink]="'payments'"
+          [routerLinkActive]="['nav-item-active']"
+        >
+          <div class="main-nav-icon">
+            <i class="las la-credit-card"></i>
+          </div>
+          <div class="main-nav-title">PAYMENTS</div>
         </a>
         <a
           class="main-nav-item"
@@ -30,23 +40,23 @@
         </a>
         <a
           class="main-nav-item"
-          [routerLink]="'accounts-list'"
+          [routerLink]="'dashboard'"
           [routerLinkActive]="['nav-item-active']"
         >
           <div class="main-nav-icon">
-            <i class="las la-briefcase"></i>
+            <i class="las la-clock"></i>
           </div>
-          <div class="main-nav-title">PRODUCTS</div>
+          <div class="main-nav-title">MY MONEY</div>
         </a>
         <a
           class="main-nav-item"
-          [routerLink]="'payments'"
+          [routerLink]="'invoices'"
           [routerLinkActive]="['nav-item-active']"
         >
           <div class="main-nav-icon">
-            <i class="las la-credit-card"></i>
+            <i class="las la-puzzle-piece"></i>
           </div>
-          <div class="main-nav-title">PAYMENTS</div>
+          <div class="main-nav-title">INVOICES</div>
         </a>
         <a
           class="main-nav-item"
@@ -72,7 +82,7 @@
     </div>
     <div class="bottom-nav" #bottomNav>
       <div class="accounts">
-        <h3 class="accounts-main-title">Accounts</h3>
+        <h3 class="accounts-main-title">Cards</h3>
         <div
           class="accounts-inner"
           *ngFor="let cardNumber of cardArray; let i = index"
